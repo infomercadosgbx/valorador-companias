@@ -1,0 +1,42 @@
+name: Publicar web
+
+# Publica en GitHub Pages solo los archivos de la web (no el código ni los tests).
+on:
+  push:
+    branches: [main]
+  workflow_run:
+    workflows: ["Actualizar datos"]
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Preparar el sitio
+        run: |
+          mkdir _site
+          cp index.html valorador.html companies.json _site/
+          cp -r data analysis manual _site/
+          touch _site/.nojekyll
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deploy
+        uses: actions/deploy-pages@v4

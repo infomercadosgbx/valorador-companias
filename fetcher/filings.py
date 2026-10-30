@@ -1,0 +1,91 @@
+"""Últimos informes de la compañía a partir de data.sec.gov/submissions."""
+from __future__ import annotations
+
+import re
+
+PERIODIC = ("10-Q", "10-K")
+FOREIGN = ("20-F", "40-F", "6-K", "20-F/A", "40-F/A")
+
+
+def archive_base(cik, accn):
+    return f"https://www.sec.gov/Archives/edgar/data/{int(str(cik))}/{accn.replace('-', '')}"
+
+
+def recent_rows(subs):
+    r = (subs or {}).get("filings", {}).get("recent", {})
+    keys = ["accessionNumber", "filingDate", "reportDate", "form", "primaryDocument", "items"]
+    n = len(r.get("accessionNumber", []))
+    rows = []
+    for i in range(n):
+        rows.append({k: (r.get(k) or [""] * n)[i] for k in keys})
+    rows.sort(key=lambda x: (x["filingDate"], x["accessionNumber"]), reverse=True)
+    return rows
+
+
+def filing_record(cik, row, tipo):
+    base = archive_base(cik, row["accessionNumber"])
+    return {
+        "tipo": tipo,
+        "formulario": row["form"],
+        "fecha_presentacion": row["filingDate"],
+        "fecha_periodo": row.get("reportDate") or None,
+        "accn": row["accessionNumber"],
+        "url_documento": f"{base}/{row['primaryDocument']}" if row.get("primaryDocument") else None,
+        "url_indice": f"{base}/{row['accessionNumber']}-index.htm",
+        "fuente": f"SEC EDGAR · {row['form']}",
+    }
+
+
+def latest_periodic(cik, subs):
+    for row in recent_rows(subs):
+        if row["form"] in PERIODIC:
+            return filing_record(cik, row, "informe periódico")
+    return None
+
+
+def latest_earnings_8k(cik, subs):
+    for row in recent_rows(subs):
+        if row["form"] == "8-K" and "2.02" in [x.strip() for x in (row.get("items") or "").split(",")]:
+            return filing_record(cik, row, "8-K de resultados (Item 2.02)")
+    return None
+
+
+def is_foreign_filer(subs):
+    rows = recent_rows(subs)
+    forms = {r["form"] for r in rows}
+    return bool(forms & set(FOREIGN)) and not (forms & set(PERIODIC))
+
+
+_ROW = re.compile(r"<tr[^>]*>(.*?)</tr>", re.S | re.I)
+_HREF = re.compile(r'href="([^"]+)"', re.I)
+_CELL = re.compile(r"<td[^>]*>(.*?)</td>", re.S | re.I)
+
+
+def find_exhibit(index_html: str, wanted=("EX-99.1", "EX-99", "EX-99.01")) -> str | None:
+    """Busca en la página índice del filing la fila cuyo «Type» es EX-99.1."""
+    if not index_html:
+        return None
+    rows = []
+    for m in _ROW.finditer(index_html):
+        cells = [re.sub(r"<[^>]+>", "", c).strip().upper() for c in _CELL.findall(m.group(1))]
+        href = _HREF.search(m.group(1))
+        if href and cells:
+            rows.append((cells, href.group(1)))
+    for w in wanted:
+        for cells, href in rows:
+            if w in cells:
+                href = href.replace("/ix?doc=", "")
+                return href if href.startswith("http") else "https://www.sec.gov" + href
+    return None
+
+
+def attach_exhibit(client, rec):
+    """Añade url_ex99_1 al registro del 8-K (una petición a www.sec.gov)."""
+    if not rec:
+        return rec
+    try:
+        html = client.get_text(rec["url_indice"])
+    except Exception:  # el enlace es un extra: si falla, no rompe la extracción
+        html = None
+    rec["url_ex99_1"] = find_exhibit(html)
+    return rec

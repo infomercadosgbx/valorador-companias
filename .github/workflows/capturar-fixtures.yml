@@ -1,0 +1,34 @@
+name: Capturar fixtures SEC
+
+# Descarga datos reales de la SEC para los tests de aceptación y los congela en git.
+# Lánzalo una vez tras configurar SEC_USER_AGENT, y de nuevo solo si quieres
+# actualizar los criterios de aceptación a un trimestre más reciente.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  capturar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Descargar fixtures
+        env:
+          SEC_USER_AGENT: ${{ vars.SEC_USER_AGENT || secrets.SEC_USER_AGENT }}
+        run: python scripts/capture_fixtures.py
+      - name: Commit
+        run: |
+          git config user.name "valorador-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tests/fixtures
+          git diff --cached --quiet || git commit -m "tests: fixtures reales de la SEC $(date -u +%Y-%m-%d)"
+          git push
+      - name: Tests de aceptación con las fixtures nuevas
+        run: |
+          pip install --quiet pytest
+          python -m pytest -v tests/test_acceptance.py

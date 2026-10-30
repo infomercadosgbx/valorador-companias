@@ -1,0 +1,11 @@
+{
+  "_nota": "Única lista de compañías. Para añadir una, lanza el workflow «Alta de compañía» (fase 3) o edita este archivo. El CIK se comprueba en cada ejecución contra https://www.sec.gov/files/company_tickers.json.",
+  "companies": [
+    {"ticker": "APP",   "slug": "applovin", "nombre": "AppLovin",  "cik": "0001751008", "color": "#2D5BFF", "monograma": "AL"},
+    {"ticker": "GOOGL", "slug": "alphabet", "nombre": "Alphabet",  "cik": "0001652044", "color": "#4285F4", "monograma": "G"},
+    {"ticker": "RDDT",  "slug": "reddit",   "nombre": "Reddit",    "cik": "0001713445", "color": "#FF4500", "monograma": "R"},
+    {"ticker": "AMZN",  "slug": "amazon",   "nombre": "Amazon",    "cik": "0001018724", "color": "#FF9900", "monograma": "A"},
+    {"ticker": "VST",   "slug": "vistra",   "nombre": "Vistra",    "cik": "0001692819", "color": "#0077C8", "monograma": "V"},
+    {"ticker": "AVGO",  "slug": "broadcom", "nombre": "Broadcom",  "cik": "0001730168", "color": "#CC092F", "monograma": "B"}
+  ]
+}
