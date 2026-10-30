@@ -2,7 +2,7 @@
 
 Web estática (GitHub Pages) que valora compañías cotizadas con **datos oficiales de la SEC** y se actualiza sola cada noche laborable. No hay servidor propio: un GitHub Action descarga los datos, los valida, escribe JSON en `/data` y hace commit solo si algo cambió.
 
-> Estado: **fase 1** (descarga, validación, Action, tests). La web `valorador.html` todavía usa sus datos internos; en la fase 2 pasará a leer `/data/*.json`.
+> Estado: **fase 1** (descarga, validación, Action, tests), verificada con datos reales de la SEC el 30-oct-2026. La web `valorador.html` todavía usa sus datos internos; en la fase 2 pasará a leer `/data/*.json`.
 
 ## Puesta en marcha (una sola vez)
 
@@ -73,13 +73,14 @@ A partir de ahí se ejecuta solo de lunes a viernes a las 23:17 UTC (00:17 en Ma
 2. **Etiqueta obsoleta.** Se descarta si su último dato va más de 60 días por detrás de los ingresos (queda un aviso informativo).
 3. **Duplicados.** Un mismo periodo aparece en varios informes: queda el presentado más recientemente (así entran las reexpresiones).
 4. **Anual** = periodo de 350–380 días en un 10-K. **Trimestre** = 80–100 días. Los flujos de caja, que la SEC da acumulados (6 y 9 meses), se convierten en trimestres restando.
-5. **4T** = año − 1T − 2T − 3T. Se acepta solo si encaja con el 3T y el 1T siguiente (ratio 0,6–1,9); si no, se descarta y se avisa. El ratio se aplica cuando todos los valores son positivos; con pérdidas solo se descartan magnitudes desproporcionadas.
+5. **4T** = año − 1T − 2T − 3T. El 4T de **ingresos** se acepta solo si encaja con el 3T y el 1T siguiente (ratio 0,6–1,9); si no, se descarta y se avisa. El resto de conceptos sigue la decisión de los ingresos de ese año: con datos reales, aplicar el ratio a cada concepto tiraba trimestres legítimos (caja operativa estacional de Amazon, beneficio neto con extraordinarios de Broadcom o Alphabet).
 6. **Caída de ingresos > 25 %** en un año: aviso de posible operación discontinuada o reclasificación (caso AppLovin 2023).
 7. **Años de 52/53 semanas** (Broadcom): los trimestres se etiquetan por su cierre respecto al fin de ejercicio que publica la SEC; aviso informativo.
 8. **Sin deuda etiquetada** (Reddit): deuda = 0 con la marca `"asumido": true` y aviso.
 9. **Balance:** solo los saldos de los ~16 meses anteriores al último informe.
-10. **Informes:** del último 10-Q/10-K y del último 8-K de resultados (Item 2.02) se guardan fecha, tipo, enlace al documento y enlace al Exhibit 99.1.
-11. **Compañías extranjeras** (20-F, IFRS): se marcan `"soportada": false` con un aviso; no se muestra ninguna cifra.
+10. **Acciones:** las de la portada del último informe (`dei:EntityCommonStockSharesOutstanding`). Las compañías con varias clases (Alphabet, AppLovin, Reddit) solo las publican por clase, y la API de la SEC no las incluye; entonces se usan las acciones diluidas medias del último trimestre, con aviso informativo.
+11. **Informes:** del último 10-Q/10-K y del último 8-K de resultados (Item 2.02) se guardan fecha, tipo, enlace al documento y enlace al Exhibit 99.1.
+12. **Compañías extranjeras** (20-F, IFRS): se marcan `"soportada": false` con un aviso; no se muestra ninguna cifra.
 
 ## Formato de cada cifra
 
