@@ -355,6 +355,7 @@ a.src:hover{color:var(--ink);border-bottom-color:var(--ink2)}
 .fieldsrc.bad{color:var(--critText);font-weight:600}
 .fieldsrc .add{padding:1px 8px;font-size:11px}
 input.ro{background:var(--surface2);color:var(--ink2);border-style:dashed}
+.seg.tbl button{white-space:nowrap;padding:6px 12px;flex:none}
 .recbar{display:flex;height:14px;border-radius:7px;overflow:hidden;gap:2px;margin:6px 0}
 .kpi .src{margin-top:2px}
 code{font-family:var(--f-num);font-size:.92em;background:var(--surface2);padding:0 4px;border-radius:4px}
@@ -518,7 +519,30 @@ function buildFin(c){
   const fm=(c.fin_manual&&c.fin_manual.q)||{labels:[],series:[]};
   const manualSeries=(fm.series||[]).map(s=>({n:s.n+" (manual)",values:qL.map(p=>{const i=(fm.labels||[]).indexOf(p.periodo); return i>=0&&fin(s.values[i])?s.values[i]:null;})})).filter(s=>s.values.some(fin));
   const sh=A("acciones_diluidas_media").slice(-6);
-  return {years:labels,rev,profit:val(pts.profit),ni:val(pts.ni),fcf,capex,ocf,profitLabel:"Beneficio operativo",pts,
+  /* series adicionales y ratios por columna (ejercicios + UDM) */
+  Object.assign(pts,{gross:ser("beneficio_bruto"),cor:ser("coste_ventas"),da:ser("amortizacion"),sbc:ser("remuneracion_acciones"),int:ser("gastos_intereses")});
+  const op=val(pts.profit), ni=val(pts.ni), da=val(pts.da), cor=val(pts.cor), gp=val(pts.gross);
+  const gross=rev.map((r,i)=>fin(gp[i])?gp[i]:fin(r)&&fin(cor[i])?r-cor[i]:null);
+  const ebitda=op.map((o,i)=>fin(o)&&fin(da[i])?o+da[i]:null);
+  const bs=k=>{const an=(B[k]&&B[k].anual)||[]; const v=years.map(y=>{const q=an.find(x=>x.periodo===y); return q&&fin(q.valor)?q.valor/M6:null;});
+    if(addTTM){const u=B[k]&&B[k].ultimo; v.push(u&&fin(u.valor)?u.valor/M6:null);} return v;};
+  const bsPts=k=>{const an=(B[k]&&B[k].anual)||[]; const v=years.map(y=>an.find(x=>x.periodo===y)||null); if(addTTM) v.push((B[k]&&B[k].ultimo)||null); return v;};
+  const debtA=bs("deuda"), cashA=bs("caja"), eqA=bs("patrimonio_neto"), asA=bs("activo_total"), caA=bs("activo_corriente"), clA=bs("pasivo_corriente"), invA=bs("existencias");
+  const hasInv=!!(B.existencias&&B.existencias.ultimo);
+  const dilA=years.map(y=>{const q=A("acciones_diluidas_media").find(x=>x.periodo===y); return q?q.valor/M6:null;});
+  if(addTTM){const qd=((R.acciones_diluidas_media&&R.acciones_diluidas_media.trimestral)||[]).at(-1); dilA.push(qd?qd.valor/M6:null);}
+  const epsA=years.map(y=>{const q=A("bpa_diluido").find(x=>x.periodo===y); return q?q.valor:null;}); if(addTTM) epsA.push(fin(ni.at(-1))&&fin(dilA.at(-1))?ni.at(-1)/dilA.at(-1):null);
+  const dv=(a,b)=>fin(a)&&fin(b)&&b!==0?a/b:null, av=(a,i)=>fin(a[i])?(i>0&&fin(a[i-1])?(a[i]+a[i-1])/2:a[i]):null;
+  const tax=(fin(c.v&&c.v.tax)?c.v.tax:21)/100, ic=debtA.map((d,i)=>fin(d)&&fin(eqA[i])?d+eqA[i]-(fin(cashA[i])?cashA[i]:0):null);
+  const ratios={
+    roe:ni.map((x,i)=>dv(x,av(eqA,i))), roa:ni.map((x,i)=>dv(x,av(asA,i))),
+    roic:op.map((x,i)=>dv(fin(x)?x*(1-tax):null,av(ic,i))), roce:op.map((x,i)=>dv(x,fin(asA[i])&&fin(clA[i])?asA[i]-clA[i]:null)), croic:fcf.map((x,i)=>dv(x,av(ic,i))),
+    debtCap:debtA.map((d,i)=>dv(d,fin(d)&&fin(eqA[i])?d+eqA[i]:null)), ndEbitda:debtA.map((d,i)=>dv(fin(d)&&fin(cashA[i])?d-cashA[i]:null,ebitda[i])),
+    cover:op.map((x,i)=>dv(x,val(pts.int)[i])), current:caA.map((x,i)=>dv(x,clA[i])), quick:caA.map((x,i)=>dv(fin(x)?x-(hasInv?(invA[i]||0):0):null,clA[i])),
+    eps:epsA, bvps:eqA.map((e,i)=>dv(e,dilA[i])), taxUsed:tax};
+  return {years:labels,rev,profit:op,ni,fcf,capex,ocf,gross,ebitda,da,sbc:val(pts.sbc),int:val(pts.int),debtA,cashA,eqA,ratios,bsPts:{debt:bsPts("deuda"),cash:bsPts("caja"),eq:bsPts("patrimonio_neto")},
+    maturities:(d.vencimientos_deuda)||null,debtAssumed:!!(B.deuda&&B.deuda.asumido),addTTM,
+    profitLabel:"Beneficio operativo",pts,
     bal,qrev:{labels:qL.map(p=>p.periodo),values:qL.map(p=>p.valor/M6),pts:qL},
     q:{labels:qL.map(p=>p.periodo),series:[{n:"Ingresos totales",values:yoy},...manualSeries]},
     shares:{labels:sh.map(p=>p.periodo),values:sh.map(p=>p.valor/M6)},
@@ -906,15 +930,32 @@ R.business=()=>{
   </div>`;
 };
 
-R.financial=()=>{ const EDIT=false;
-  const f=cur.fin, n=f.years.length, L=n-1, sc=finScale();
+let FINMODE=lsGet("valorador.finmode")||"cifras";
+R.financial=()=>{
+  const f=cur.fin, n=f.years.length, L=n-1, sc=finScale(), r=f.ratios||{};
   const last=f.rev[L], prev=f.rev[L-1], netDebt=(f.bal.debt.at(-1)??NaN)-(f.bal.cash.at(-1)??NaN);
-  const rowsDef=[["rev","Ingresos"],["profit",f.profitLabel],["ni","Beneficio neto"],["ocf","Caja operativa"],["capex","Capex"],["fcf","Flujo de caja libre"]];
-  const tbl=`<thead><tr><th>${esc(sc.u.replace("mil M","M"))}</th>${f.years.map((y,i)=>`<th>${f.pts.rev[i]&&okUrl(f.pts.rev[i].url)?`<a href="${esc(f.pts.rev[i].url)}" target="_blank" rel="noopener noreferrer" style="color:inherit" title="${esc(`Presentado ${fecha(f.pts.rev[i].fecha_presentacion)} · ${f.pts.rev[i].formulario||""}`)}">${esc(y)}</a>`:esc(y)}</th>`).join("")}</tr></thead><tbody>`+
-    rowsDef.filter(([k])=>EDIT||(f[k]||[]).some(fin)).map(([k,l])=>`<tr class="${k==="rev"?"em":""}"><td>${k==="profit"&&EDIT?ln("fin.profitLabel"):esc(l)}</td>${f.years.map((_,i)=>`<td title="${esc(cellTitle(k,i))}">${nf(f[k][i])}</td>`).join("")}</tr>`).join("")+
-    `<tr><td>Crecimiento de ingresos</td>${f.rev.map((v,i)=>`<td>${i&&fin(v)&&fin(f.rev[i-1])?pct((v/f.rev[i-1]-1)*100):"–"}</td>`).join("")}</tr>
-     <tr><td>Margen ${esc(lc(f.profitLabel))}</td>${f.rev.map((v,i)=>`<td>${fin(v)&&fin(f.profit[i])?pct(f.profit[i]/v*100):"–"}</td>`).join("")}</tr>
-     <tr><td>Margen de FCF</td>${f.rev.map((v,i)=>`<td>${fin(v)&&fin(f.fcf[i])?pct(f.fcf[i]/v*100):"–"}</td>`).join("")}</tr></tbody>`;
+  /* tabla principal: cifras, % sobre ingresos o crecimiento */
+  const rowsDef=[["rev","Ingresos","rev"],["gross","Beneficio bruto","gross"],["ebitda","EBITDA (operativo + amortizaciones)","profit"],["profit",f.profitLabel,"profit"],["ni","Beneficio neto","ni"],
+    ["ocf","Caja operativa","ocf"],["capex","Capex","capex"],["fcf","Flujo de caja libre","ocf"],["sbc","Pago en acciones","sbc"],["int","Gastos por intereses","int"]];
+  const cell=(k,i)=>{const v=f[k][i]; if(FINMODE==="margen") return k==="rev"?(fin(v)?"100%":"–"):pct(fin(v)&&fin(f.rev[i])&&f.rev[i]?v/f.rev[i]*100:NaN);
+    if(FINMODE==="crec"){ if(f.addTTM&&i===L) return "–"; const p=f[k][i-1]; return pct(i&&fin(v)&&fin(p)&&p>0?(v/p-1)*100:NaN); } return nf(v);};
+  const head=`<thead><tr><th>${FINMODE==="cifras"?"M "+esc(ccy()):FINMODE==="margen"?"% de ingresos":"% interanual"}</th>${f.years.map((y,i)=>`<th>${f.pts.rev[i]&&okUrl(f.pts.rev[i].url)?`<a href="${esc(f.pts.rev[i].url)}" target="_blank" rel="noopener noreferrer" style="color:inherit" title="${esc(`Presentado ${fecha(f.pts.rev[i].fecha_presentacion)} · ${f.pts.rev[i].formulario||""}`)}">${esc(y)}</a>`:esc(y)}</th>`).join("")}</tr></thead>`;
+  const tbl=head+"<tbody>"+rowsDef.filter(([k])=>(f[k]||[]).some(fin)).map(([k,l])=>`<tr class="${k==="rev"?"em":""}"><td>${esc(l)}</td>${f.years.map((_,i)=>`<td title="${esc(cellTitle(k,i))}">${cell(k,i)}</td>`).join("")}</tr>`).join("")+"</tbody>";
+  const seg=`<div class="seg tbl" role="group" aria-label="Formato de la tabla" style="width:max-content;max-width:100%">${[["cifras","Cifras"],["margen","% de ingresos"],["crec","Crecimiento"]].map(([k,l])=>`<button type="button" data-fmode="${k}" aria-pressed="${FINMODE===k}">${l}</button>`).join("")}</div>`;
+  /* ratios */
+  const x=(v,d=1)=>fin(v)?nf(v,d)+"x":"–", pc=v=>fin(v)?pct(v*100):"–";
+  const RG=[["Rentabilidad",[["ROE (beneficio neto / patrimonio medio)",r.roe,pc],["ROA (beneficio neto / activo medio)",r.roa,pc],[`ROIC (beneficio operativo × (1 − ${nf((r.taxUsed||0)*100,0)}%) / capital invertido)`,r.roic,pc],["ROCE (beneficio operativo / capital empleado)",r.roce,pc],["CROIC (FCF / capital invertido)",r.croic,pc]]],
+    ["Solvencia y liquidez",[["Deuda / capital (deuda + patrimonio)",r.debtCap,pc],["Deuda neta / EBITDA",r.ndEbitda,v=>x(v)],["Cobertura de intereses (operativo / intereses)",r.cover,v=>x(v)],["Liquidez corriente (activo / pasivo corriente)",r.current,v=>x(v,2)],["Prueba ácida (sin existencias)",r.quick,v=>x(v,2)]]],
+    ["Por acción",[["BPA diluido",r.eps,v=>fin(v)?nf(v,2)+" "+ccy():"–"],["Valor contable por acción",r.bvps,v=>fin(v)?nf(v,2)+" "+ccy():"–"]]]];
+  const rtbl=`<thead><tr><th></th>${f.years.map(y=>`<th>${esc(y)}</th>`).join("")}</tr></thead><tbody>`+RG.map(([g,rows])=>`<tr><td colspan="${n+1}" class="eyebrow" style="padding-top:12px">${g}</td></tr>`+
+    rows.filter(([,a])=>(a||[]).some(fin)).map(([l,a,fm])=>`<tr><td style="white-space:normal;min-width:220px">${esc(l)}</td>${f.years.map((_,i)=>`<td>${fm(a[i])}</td>`).join("")}</tr>`).join("")).join("")+"</tbody>";
+  /* al precio actual */
+  const S=cur.sec, sh=fin(S.shares.m)?S.shares.m:cur.v.shares, mcap=cur.v.price*sh, debt=S.debt.m, cash=S.cash.m, ev=mcap+(fin(debt)?debt:0)-(fin(cash)?cash:0);
+  const eq=f.eqA.at(-1), ebitdaU=f.ebitda[L], niU=f.ni[L], revU=f.rev[L], fcfU=f.fcf[L];
+  const an=f.years.filter(y=>/^\d{4}$/.test(y)), rv=an.map(y=>f.rev[f.years.indexOf(y)]), k5=Math.min(5,rv.length-1), cagr=k5>0&&rv[rv.length-1-k5]>0?(Math.pow(rv.at(-1)/rv[rv.length-1-k5],1/k5)-1)*100:NaN;
+  const mk2=(l,v,u)=>`<div class="chip"><span>${l}</span><b class="num">${v}</b>${u?`<span style="text-transform:none;letter-spacing:0;font-weight:400">${u}</span>`:""}</div>`;
+  /* deuda */
+  const mat=f.maturities, dTot=debt, nd=fin(debt)&&fin(cash)?debt-cash:NaN;
   return `
   <div class="kpis">
     ${kpi("Ingresos "+esc(f.years[L]||""),big(last),fin(prev)?upPill(last,prev).replace("vs cotización","interanual")+srcTag(f.pts.rev[L]):srcTag(f.pts.rev[L]),true)}
@@ -924,24 +965,39 @@ R.financial=()=>{ const EDIT=false;
   </div>
   <div class="g2">
     <section class="card"><h2>Ingresos y ${esc(lc(f.profitLabel))}</h2><p class="sub">${sc.u}</p><div class="cv h260"><canvas id="ch_fn_rev" role="img" aria-label="Ingresos y beneficio por año"></canvas></div></section>
-    <section class="card"><h2>Márgenes</h2><p class="sub">% sobre ingresos</p><div class="cv h260"><canvas id="ch_fn_mg" role="img" aria-label="Márgenes por año"></canvas></div></section>
+    <section class="card"><h2>Evolución de los márgenes</h2><p class="sub">% sobre ingresos. EBITDA = beneficio operativo + amortizaciones (la SEC no publica EBITDA).</p><div class="cv h260"><canvas id="ch_fn_mg" role="img" aria-label="Márgenes por año"></canvas></div></section>
     <section class="card"><h2>Beneficio, caja e inversión</h2><p class="sub">${sc.u}</p><div class="cv h260"><canvas id="ch_fn_cash" role="img" aria-label="Beneficio neto, flujo de caja libre y capex"></canvas></div></section>
-    <section class="card"><h2>Caja y deuda</h2><p class="sub">${sc.u}. Saldos de los últimos ~16 meses.${cur._data&&cur._data.balance&&cur._data.balance.deuda&&cur._data.balance.deuda.asumido?" Deuda asumida 0: la SEC no tiene ninguna etiqueta de deuda vigente.":""}</p><div class="cv h260"><canvas id="ch_fn_bal" role="img" aria-label="Caja frente a deuda"></canvas></div>
-      ${EDIT?`<div class="scroll"><table><thead><tr><th>Fecha</th>${f.bal.labels.map((l,i)=>`<th><input type="text" data-p="fin.bal.labels.${i}" value="${esc(l)}" aria-label="Fecha"></th>`).join("")}</tr></thead><tbody>
-        <tr><td>Caja</td>${f.bal.cash.map((_,i)=>`<td>${nm(`fin.bal.cash.${i}`)}</td>`).join("")}</tr><tr><td>Deuda</td>${f.bal.debt.map((_,i)=>`<td>${nm(`fin.bal.debt.${i}`)}</td>`).join("")}</tr></tbody></table></div>
-        <div class="toolbar"><button type="button" class="add" data-act="balAdd">+ Añadir fecha</button><button type="button" class="add" data-act="balDel">− Quitar la primera</button></div>`:""}
-    </section>
-  </div>
-  <div class="g2">
-    <section class="card"><h2>Ingresos trimestrales</h2><p class="sub">${esc(cur.fin.qrev&&Math.max(...(cur.fin.qrev.values||[]).filter(fin))>=20000?"mil M "+ccy():"M "+ccy())}</p><div class="cv h260"><canvas id="ch_fn_q" role="img" aria-label="Ingresos por trimestre"></canvas></div>${EDIT?seriesEditor("fin.qrev"):""}</section>
     <section class="card"><h2>Inversión y conversión en caja</h2><p class="sub">Capex sobre ingresos y flujo de caja libre sobre beneficio neto, en %.</p><div class="cv h260"><canvas id="ch_fn_conv" role="img" aria-label="Intensidad de capex y conversión en caja"></canvas></div></section>
   </div>
-  <section class="card"><h2>Tabla de datos</h2><p class="sub">Millones de ${esc(ccy())}. Fuente: SEC EDGAR.</p>
+  <section class="card"><h2>Tabla de datos</h2>
+    <div style="display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between"><p class="sub" style="margin:0">Fuente: SEC EDGAR. Pasa el ratón por una cifra para ver su etiqueta XBRL; el año enlaza al 10-K.</p>${seg}</div>
     <div class="scroll"><table>${tbl}</table></div>
-    ${EDIT?`<div class="toolbar"><button type="button" class="add" data-act="yearAdd">+ Añadir año</button><button type="button" class="add" data-act="yearDel">− Quitar el primer año</button></div>`:""}
-    <p class="note">${esc(f.note)} Pasa el ratón por una cifra para ver su etiqueta XBRL; el año enlaza al 10-K.</p>
+    <p class="note">${esc(f.note)}</p>
+  </section>
+  <section class="card" style="--tc:var(--c8)"><h2>Deuda y solvencia</h2>
+    <p class="sub">${f.debtAssumed?"La SEC no tiene ninguna etiqueta de deuda vigente para esta compañía: deuda asumida 0.":"Deuda financiera (largo plazo + porción corriente) frente a la caja."}</p>
+    <div class="kpis">
+      ${kpi("Deuda total",big(dTot),srcTag(S.debt.p),true)}
+      ${kpi(nd>0?"Deuda neta":"Caja neta",big(Math.abs(nd)),`<span class="note">caja ${big(cash)}</span>`)}
+      ${kpi("Deuda neta / EBITDA",x(r.ndEbitda&&r.ndEbitda[L]),`<span class="note">EBITDA ${esc(f.years[L]||"")}: ${big(f.ebitda[L])}</span>`)}
+      ${kpi("Cobertura de intereses",x(r.cover&&r.cover[L]),`<span class="note">liquidez corriente ${x(r.current&&r.current[L],2)} · deuda/capital ${pc(r.debtCap&&r.debtCap[L])}</span>`)}
+    </div>
+    <div class="g2" style="margin-top:12px">
+      <div><h3 style="margin-top:0">Evolución al cierre de cada ejercicio</h3><p class="sub">${sc.u}. Saldos de cada 10-K${f.addTTM?" y del último informe":""}.</p><div class="cv h260"><canvas id="ch_fn_debt" role="img" aria-label="Evolución de deuda, caja y deuda neta"></canvas></div></div>
+      <div><h3 style="margin-top:0">Calendario de vencimientos</h3>${mat&&mat.tramos.length?`<p class="sub">${sc.u}. Principal que vence en cada tramo, según el informe a ${esc(fecha(mat.fecha))} ${srcTag(mat.tramos[0])}</p><div class="cv h260"><canvas id="ch_fn_mat" role="img" aria-label="Vencimientos de la deuda"></canvas></div>`:`<p class="empty">${f.debtAssumed?"Sin deuda financiera.":"La compañía no publica el calendario de vencimientos en XBRL."}</p>`}</div>
+    </div>
+    <div class="g2" style="margin-top:12px">
+      <div><h3 style="margin-top:0">Caja y deuda en los últimos trimestres</h3><p class="sub">${sc.u}. Saldos de los últimos ~16 meses.</p><div class="cv h240"><canvas id="ch_fn_bal" role="img" aria-label="Caja frente a deuda por trimestre"></canvas></div></div>
+      <div><h3 style="margin-top:0">Ingresos trimestrales</h3><p class="sub">${esc(f.qrev&&Math.max(...(f.qrev.values||[]).filter(fin))>=20000?"mil M "+ccy():"M "+ccy())}</p><div class="cv h240"><canvas id="ch_fn_q" role="img" aria-label="Ingresos por trimestre"></canvas></div></div>
+    </div>
+  </section>
+  <section class="card"><h2>Ratios</h2><p class="sub">Calculados con las cifras de la SEC. Los saldos de balance son medios entre cierres consecutivos cuando hay dos años. El ROIC usa el tipo impositivo de tu modelo.</p>
+    <div class="scroll"><table>${rtbl}</table></div>
+    <h3>Al precio actual</h3><p class="sub">Cotización de ${srcTag(cur._data&&cur._data.precio)} con ${nf(sh,1)} M de acciones y las cifras de los últimos doce meses.</p>
+    <div class="chips">${mk2("PER",x(dv2(mcap,niU)))}${mk2("EV / EBITDA",x(dv2(ev,ebitdaU)))}${mk2("EV / ventas",x(dv2(ev,revU)))}${mk2("Precio / valor contable",x(dv2(mcap,eq)))}${mk2("Rentabilidad por FCF",pct(dv2(fcfU,mcap)*100))}${mk2("Rentabilidad por beneficio",pct(dv2(niU,mcap)*100))}${mk2(`CAGR ingresos ${k5>0?k5:""} años`,pct(cagr))}</div>
   </section>`;
 };
+const dv2=(a,b)=>fin(a)&&fin(b)&&b!==0?a/b:NaN;
 
 R.moat=()=>{
   const m=cur.moat, ms=m.sources.map(x=>+x.s), score=(Math.max(...ms.filter(fin))+avg(ms))/2;
@@ -1339,7 +1395,7 @@ function mixCfg(){const segs=cur.business.segments.filter(s=>fin(+s.v)&&+s.v>0),
     options:{cutout:"58%",plugins:{legend:{position:"right",labels:{color:V("--ink2"),generateLabels:ch=>ch.data.labels.map((l,i)=>({text:`${l} · ${nf(ch.data.datasets[0].data[i]/tot*100,0)}%`,fillStyle:ch.data.datasets[0].backgroundColor[i],strokeStyle:"transparent",pointStyle:"circle",index:i,fontColor:V("--ink2")}))}},
       tooltip:{callbacks:{label:c=>`${c.label}: ${nf(c.parsed,0)} (${nf(c.parsed/tot*100,1)}%)`}}}}};}
 function marginSets(){const f=cur.fin, cat=CAT(); const mg=k=>f.rev.map((v,i)=>fin(v)&&fin(f[k][i])?f[k][i]/v*100:null);
-  return [{label:"Margen "+lc(f.profitLabel),data:mg("profit"),borderColor:cat[0],backgroundColor:cat[0]},{label:"Margen de FCF",data:mg("fcf"),borderColor:cat[1],backgroundColor:cat[1]},{label:"Margen neto",data:mg("ni"),borderColor:cat[2],backgroundColor:cat[2]}].filter(d=>d.data.some(fin));}
+  return [{label:"Margen bruto",data:mg("gross"),borderColor:cat[6],backgroundColor:cat[6]},{label:"Margen EBITDA",data:mg("ebitda"),borderColor:cat[3],backgroundColor:cat[3]},{label:"Margen "+lc(f.profitLabel),data:mg("profit"),borderColor:cat[0],backgroundColor:cat[0]},{label:"Margen neto",data:mg("ni"),borderColor:cat[2],backgroundColor:cat[2]},{label:"Margen de FCF",data:mg("fcf"),borderColor:cat[1],backgroundColor:cat[1]}].filter(d=>(d.data||[]).some(fin));}
 C.overview=()=>{
   mk("ch_ov_mix",mixCfg());
   { const vz=valuation(cur), v=cur.v, cat=CAT(); const out=vz.ok?vz.sc.out.map(o=>o.ps):[];
@@ -1368,6 +1424,10 @@ C.financial=()=>{
     const cap=f.rev.map((v,i)=>fin(v)&&fin(f.capex[i])?f.capex[i]/v*100:null), conv=f.ni.map((v,i)=>fin(v)&&v>0&&fin(f.fcf[i])?f.fcf[i]/v*100:null);
     const ds=[{label:"Capex / ingresos",data:cap,borderColor:cat[0],backgroundColor:cat[0]},{label:"FCF / beneficio neto",data:conv,borderColor:cat[1],backgroundColor:cat[1]}].filter(d=>d.data.some(fin));
     mk("ch_fn_conv",{type:"line",data:{labels:f.years,datasets:ds},options:{plugins:{legend:legend(ds.length),tooltip:tipU("%",0)},scales:{x:axisX,y:axisY({suf:"%"})}}}); }
+  { const lab=f.years, nd=f.debtA.map((d,i)=>fin(d)&&fin(f.cashA[i])?(d-f.cashA[i])/sc.d:null);
+    mk("ch_fn_debt",{type:"bar",data:{labels:lab,datasets:[{label:"Deuda",data:sc1(f.debtA,sc.d),backgroundColor:cat[1]},{label:"Caja",data:sc1(f.cashA,sc.d),backgroundColor:cat[0]},{type:"line",label:"Deuda neta",data:nd,borderColor:V("--ink"),backgroundColor:V("--ink"),borderDash:[5,4],pointRadius:3}]},
+      options:{plugins:{legend:legend(3),tooltip:tipU(sc.u)},scales:{x:axisX,y:axisY({zero:false})}}});
+    const m=f.maturities; if(m&&m.tramos.length) mk("ch_fn_mat",{type:"bar",data:{labels:m.tramos.map(t=>t.tramo),datasets:[{label:"Vencimientos",data:m.tramos.map(t=>t.valor/M6/sc.d),backgroundColor:cat[7]}]},options:{plugins:{legend:{display:false},tooltip:tipU(sc.u)},scales:{x:axisX,y:axisY()}}}); }
   mk("ch_fn_bal",{type:"bar",data:{labels:f.bal.labels,datasets:[{label:"Caja",data:sc1(f.bal.cash,sc.d),backgroundColor:cat[0]},{label:"Deuda",data:sc1(f.bal.debt,sc.d),backgroundColor:cat[1]}]},options:{plugins:{legend:legend(2),tooltip:tipU(sc.u)},scales:{x:axisX,y:axisY()}}});
 };
 C.moat=()=>{ const m=cur.moat;
@@ -1445,6 +1505,7 @@ document.addEventListener("change",e=>{const t=e.target; const p=t.dataset&&t.da
 });
 document.addEventListener("click",e=>{
   const tb=e.target.closest(".tab"); if(tb){goTab(tb.dataset.tab);return;}
+  const fm=e.target.closest("[data-fmode]"); if(fm){FINMODE=fm.dataset.fmode; lsSet("valorador.finmode",FINMODE); renderTab(); return;}
   if(e.target.closest("#btnDl")){downloadAnalysis(cur);return;}
   const dc=e.target.closest("#btnDiscard"); if(dc){ if(dc.dataset.armed!=="1"){dc.dataset.armed="1"; dc.textContent="¿Seguro? Pulsa otra vez"; setTimeout(()=>{if(dc.isConnected){dc.dataset.armed=""; dc.textContent="Descartar";}},3000); return;} discardDraft(); return;}
   const us=e.target.closest("[data-usesec]"); if(us){const k=us.dataset.usesec; cur.v[k]=+cur.sec[k].m.toFixed(k==="shares"?1:0); cur._auto[k]=true; save(); renderTab(); renderHeader(); return;}
@@ -1519,8 +1580,8 @@ function officialHtml(){
    </tbody></table></div></section>
   <section class="card"><h2>Avisos de calidad de datos</h2>${ws.length?warnList(ws):`<p class="empty">Sin avisos.</p>`}</section>`;
 }
-function cellTitle(k,i){const map={rev:"rev",profit:"profit",ni:"ni",capex:"capex",ocf:"ocf",fcf:"ocf"}; const p=cur.fin.pts[map[k]]&&cur.fin.pts[map[k]][i];
-  return p?[p.etiqueta,`Presentado ${fecha(p.fecha_presentacion)} (${p.formulario||""})`,p.derivado||"",k==="fcf"?"FCF = caja operativa − capex":""].filter(Boolean).join("\n"):"";}
+function cellTitle(k,i){const map={rev:"rev",profit:"profit",ni:"ni",capex:"capex",ocf:"ocf",fcf:"ocf",gross:"gross",ebitda:"profit",sbc:"sbc",int:"int"}; const p=cur.fin.pts[map[k]]&&cur.fin.pts[map[k]][i];
+  return p?[p.etiqueta,`Presentado ${fecha(p.fecha_presentacion)} (${p.formulario||""})`,p.derivado||"",k==="fcf"?"FCF = caja operativa − capex":k==="ebitda"?"EBITDA = beneficio operativo + amortizaciones":k==="gross"&&!(cur.fin.pts.gross[i])?"Bruto = ingresos − coste de ventas":""].filter(Boolean).join("\n"):"";}
 function dataStamp(){const d=cur._data, P=d&&d.precio; return [d&&d.referencia_fecha_datos?`Cifras financieras: SEC EDGAR hasta ${fecha(d.referencia_fecha_datos)}`:"Sin cifras de la SEC",P?`cotización: Finnhub, ${fecha(P.fecha)}`:"",`análisis propio: ${cur.meta.asOf||"sin fecha"}`].filter(Boolean).join("; ")+".";}
 
 /* ================= ARRANQUE ================= */
