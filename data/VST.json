@@ -3135,14 +3135,25 @@
    "mensaje": "Ingresos 4T23: -40% frente a 3T23. Revisa el informe.",
    "concepto": "ingresos",
    "periodo": "4T23"
-  },
-  {
-   "nivel": "aviso",
-   "codigo": "sin_precio",
-   "mensaje": "Sin precio de mercado: falta el secret FINNHUB_API_KEY (ver README, paso 3)."
   }
  ],
- "precio": null,
- "consenso_automatico": null,
- "generado": "2026-10-30T19:15:19+00:00"
+ "precio": {
+  "valor": 137.1,
+  "cierre_anterior": 140.95,
+  "moneda": "USD",
+  "fecha": "2026-10-30",
+  "fuente": "Finnhub (API oficial, plan gratuito)",
+  "url": "https://finnhub.io/"
+ },
+ "consenso_automatico": {
+  "periodo": "2026-10-01",
+  "compra_fuerte": 7,
+  "compra": 15,
+  "mantener": 2,
+  "venta": 0,
+  "venta_fuerte": 0,
+  "fuente": "Finnhub · recomendaciones de analistas",
+  "url": "https://finnhub.io/docs/api/recommendation-trends"
+ },
+ "generado": "2026-10-30T19:30:14+00:00"
 }

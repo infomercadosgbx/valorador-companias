@@ -2364,14 +2364,25 @@
    "nivel": "info",
    "codigo": "acciones_diluidas",
    "mensaje": "Acciones: se usan las diluidas medias del 3T26 (202 M)."
-  },
-  {
-   "nivel": "aviso",
-   "codigo": "sin_precio",
-   "mensaje": "Sin precio de mercado: falta el secret FINNHUB_API_KEY (ver README, paso 3)."
   }
  ],
- "precio": null,
- "consenso_automatico": null,
- "generado": "2026-10-30T19:15:18+00:00"
+ "precio": {
+  "valor": 91.3,
+  "cierre_anterior": 129.6,
+  "moneda": "USD",
+  "fecha": "2026-10-30",
+  "fuente": "Finnhub (API oficial, plan gratuito)",
+  "url": "https://finnhub.io/"
+ },
+ "consenso_automatico": {
+  "periodo": "2026-10-01",
+  "compra_fuerte": 10,
+  "compra": 16,
+  "mantener": 13,
+  "venta": 1,
+  "venta_fuerte": 0,
+  "fuente": "Finnhub · recomendaciones de analistas",
+  "url": "https://finnhub.io/docs/api/recommendation-trends"
+ },
+ "generado": "2026-10-30T19:30:10+00:00"
 }

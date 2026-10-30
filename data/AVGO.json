@@ -3118,14 +3118,25 @@
    "nivel": "info",
    "codigo": "anio_52_53_semanas",
    "mensaje": "Año fiscal de 52/53 semanas (duraciones: 363, 370 días); los trimestres se etiquetan por su fecha de cierre."
-  },
-  {
-   "nivel": "aviso",
-   "codigo": "sin_precio",
-   "mensaje": "Sin precio de mercado: falta el secret FINNHUB_API_KEY (ver README, paso 3)."
   }
  ],
- "precio": null,
- "consenso_automatico": null,
- "generado": "2026-10-30T19:15:20+00:00"
+ "precio": {
+  "valor": 323.19,
+  "cierre_anterior": 345,
+  "moneda": "USD",
+  "fecha": "2026-10-30",
+  "fuente": "Finnhub (API oficial, plan gratuito)",
+  "url": "https://finnhub.io/"
+ },
+ "consenso_automatico": {
+  "periodo": "2026-10-01",
+  "compra_fuerte": 17,
+  "compra": 35,
+  "mantener": 4,
+  "venta": 0,
+  "venta_fuerte": 0,
+  "fuente": "Finnhub · recomendaciones de analistas",
+  "url": "https://finnhub.io/docs/api/recommendation-trends"
+ },
+ "generado": "2026-10-30T19:30:16+00:00"
 }

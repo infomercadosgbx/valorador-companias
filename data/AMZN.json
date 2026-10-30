@@ -3112,14 +3112,25 @@
    "mensaje": "Caja e inversiones a corto: se descarta «CashCashEquivalentsAndShortTermInvestments» (último dato 2017-03-31, ingresos hasta 2026-09-30).",
    "concepto": "caja",
    "etiqueta": "CashCashEquivalentsAndShortTermInvestments"
-  },
-  {
-   "nivel": "aviso",
-   "codigo": "sin_precio",
-   "mensaje": "Sin precio de mercado: falta el secret FINNHUB_API_KEY (ver README, paso 3)."
   }
  ],
- "precio": null,
- "consenso_automatico": null,
- "generado": "2026-10-30T19:15:18+00:00"
+ "precio": {
+  "valor": 239.07,
+  "cierre_anterior": 243.79,
+  "moneda": "USD",
+  "fecha": "2026-10-30",
+  "fuente": "Finnhub (API oficial, plan gratuito)",
+  "url": "https://finnhub.io/"
+ },
+ "consenso_automatico": {
+  "periodo": "2026-10-01",
+  "compra_fuerte": 19,
+  "compra": 48,
+  "mantener": 3,
+  "venta": 0,
+  "venta_fuerte": 0,
+  "fuente": "Finnhub · recomendaciones de analistas",
+  "url": "https://finnhub.io/docs/api/recommendation-trends"
+ },
+ "generado": "2026-10-30T19:30:12+00:00"
 }

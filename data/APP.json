@@ -3030,14 +3030,25 @@
    "mensaje": "Ingresos 2023: caen un 35% frente a 2022. Posible operación discontinuada o reclasificación (como AppLovin 2023); compara años con cuidado.",
    "concepto": "ingresos",
    "periodo": "2023"
-  },
-  {
-   "nivel": "aviso",
-   "codigo": "sin_precio",
-   "mensaje": "Sin precio de mercado: falta el secret FINNHUB_API_KEY (ver README, paso 3)."
   }
  ],
- "precio": null,
- "consenso_automatico": null,
- "generado": "2026-10-30T19:15:16+00:00"
+ "precio": {
+  "valor": 231.03,
+  "cierre_anterior": 254.91,
+  "moneda": "USD",
+  "fecha": "2026-10-30",
+  "fuente": "Finnhub (API oficial, plan gratuito)",
+  "url": "https://finnhub.io/"
+ },
+ "consenso_automatico": {
+  "periodo": "2026-10-01",
+  "compra_fuerte": 10,
+  "compra": 19,
+  "mantener": 8,
+  "venta": 0,
+  "venta_fuerte": 0,
+  "fuente": "Finnhub · recomendaciones de analistas",
+  "url": "https://finnhub.io/docs/api/recommendation-trends"
+ },
+ "generado": "2026-10-30T19:30:05+00:00"
 }
