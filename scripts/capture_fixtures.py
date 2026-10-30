@@ -72,5 +72,18 @@ def main(tickers):
             print(f"{p.relative_to(ROOT)}: {p.stat().st_size / 1024:.0f} KB")
 
 
+def gh_error(msg):
+    """Anotación visible en el resumen del Action (sin datos sensibles)."""
+    print(f"::error title=Capturar fixtures::{msg}".replace("\n", "%0A"))
+
+
 if __name__ == "__main__":
-    main(sys.argv[1:] or DEFAULT)
+    import os
+    ua = os.environ.get("SEC_USER_AGENT", "").strip()
+    print(f"SEC_USER_AGENT: {'presente' if ua else 'VACÍO'}; formato «Nombre email»: "
+          f"{'sí' if ('@' in ua and ' ' in ua) else 'NO'}")
+    try:
+        main(sys.argv[1:] or DEFAULT)
+    except BaseException as e:  # noqa: BLE001
+        gh_error(f"{type(e).__name__}: {e}")
+        raise

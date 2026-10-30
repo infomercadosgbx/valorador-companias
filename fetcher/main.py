@@ -131,6 +131,7 @@ def run(only=None, report=None, root=ROOT, client=None, provider=None, price_war
         except (NoSecData, SecError) as e:
             failures.append((c["ticker"], str(e)))
             print(f"✗ {c['ticker']}: {e}", file=sys.stderr)
+            print(f"::error title={c['ticker']}::{str(e)[:500]}")
             rec = json.loads(path.read_text(encoding="utf-8")) if path.exists() else None
         except Exception as e:  # noqa: BLE001  error de programa: también abre Issue
             failures.append((c["ticker"], f"{type(e).__name__}: {e}\n{traceback.format_exc()}"))
@@ -173,6 +174,7 @@ def main(argv=None):
         failures = run(only=a.only, report=a.report)
     except SecError as e:
         print(f"✗ {e}", file=sys.stderr)
+        print(f"::error title=SEC::{e}")
         if a.report:
             Path(a.report).write_text(f"# Fallo de la actualización\n\n```\n{e}\n```\n", encoding="utf-8")
         return 2
