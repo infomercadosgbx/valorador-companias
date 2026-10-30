@@ -2348,6 +2348,458 @@
     "us-gaap:AllocatedShareBasedCompensationExpense"
    ]
   },
+  "coste_ventas": {
+   "nombre": "Coste de ventas",
+   "unidad": "USD",
+   "anual": [
+    {
+     "valor": 241274000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100822000005/0001751008-22-000005-index.htm",
+     "fecha_presentacion": "2022-03-11",
+     "etiqueta": "us-gaap:CostOfRevenue",
+     "periodo_fin": "2019-12-31",
+     "formulario": "10-K",
+     "accn": "0001751008-22-000005",
+     "periodo_inicio": "2019-01-01",
+     "periodo": "2019",
+     "dias": 364
+    },
+    {
+     "valor": 555578000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100823000006/0001751008-23-000006-index.htm",
+     "fecha_presentacion": "2023-02-28",
+     "etiqueta": "us-gaap:CostOfRevenue",
+     "periodo_fin": "2020-12-31",
+     "formulario": "10-K",
+     "accn": "0001751008-23-000006",
+     "periodo_inicio": "2020-01-01",
+     "periodo": "2020",
+     "dias": 365
+    },
+    {
+     "valor": 988095000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100824000012/0001751008-24-000012-index.htm",
+     "fecha_presentacion": "2024-02-26",
+     "etiqueta": "us-gaap:CostOfRevenue",
+     "periodo_fin": "2021-12-31",
+     "formulario": "10-K",
+     "accn": "0001751008-24-000012",
+     "periodo_inicio": "2021-01-01",
+     "periodo": "2021",
+     "dias": 364
+    },
+    {
+     "valor": 1256065000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100825000018/0001751008-25-000018-index.htm",
+     "fecha_presentacion": "2025-02-27",
+     "etiqueta": "us-gaap:CostOfRevenue",
+     "periodo_fin": "2022-12-31",
+     "formulario": "10-K",
+     "accn": "0001751008-25-000018",
+     "periodo_inicio": "2022-01-01",
+     "periodo": "2022",
+     "dias": 364
+    },
+    {
+     "valor": 356613000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000010/0001751008-26-000010-index.htm",
+     "fecha_presentacion": "2026-02-19",
+     "etiqueta": "us-gaap:CostOfRevenue",
+     "periodo_fin": "2023-12-31",
+     "formulario": "10-K",
+     "accn": "0001751008-26-000010",
+     "periodo_inicio": "2023-01-01",
+     "periodo": "2023",
+     "dias": 364
+    },
+    {
+     "valor": 520613000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000010/0001751008-26-000010-index.htm",
+     "fecha_presentacion": "2026-02-19",
+     "etiqueta": "us-gaap:CostOfRevenue",
+     "periodo_fin": "2024-12-31",
+     "formulario": "10-K",
+     "accn": "0001751008-26-000010",
+     "periodo_inicio": "2024-01-01",
+     "periodo": "2024",
+     "dias": 365
+    },
+    {
+     "valor": 665140000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000010/0001751008-26-000010-index.htm",
+     "fecha_presentacion": "2026-02-19",
+     "etiqueta": "us-gaap:CostOfRevenue",
+     "periodo_fin": "2025-12-31",
+     "formulario": "10-K",
+     "accn": "0001751008-26-000010",
+     "periodo_inicio": "2025-01-01",
+     "periodo": "2025",
+     "dias": 364
+    }
+   ],
+   "trimestral": [
+    {
+     "valor": 261960000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100824000043/0001751008-24-000043-index.htm",
+     "fecha_presentacion": "2024-05-08",
+     "etiqueta": "us-gaap:CostOfRevenue",
+     "periodo_fin": "2023-03-31",
+     "formulario": "10-Q",
+     "accn": "0001751008-24-000043",
+     "periodo_inicio": "2023-01-01",
+     "periodo": "1T23"
+    },
+    {
+     "valor": 258575000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100824000055/0001751008-24-000055-index.htm",
+     "fecha_presentacion": "2024-08-07",
+     "etiqueta": "us-gaap:CostOfRevenue",
+     "periodo_fin": "2023-06-30",
+     "formulario": "10-Q",
+     "accn": "0001751008-24-000055",
+     "periodo_inicio": "2023-04-01",
+     "periodo": "2T23"
+    },
+    {
+     "valor": 265049000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100824000062/0001751008-24-000062-index.htm",
+     "fecha_presentacion": "2024-11-06",
+     "etiqueta": "us-gaap:CostOfRevenue",
+     "periodo_fin": "2023-09-30",
+     "formulario": "10-Q",
+     "accn": "0001751008-24-000062",
+     "periodo_inicio": "2023-07-01",
+     "periodo": "3T23"
+    },
+    {
+     "valor": 294148000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100825000053/0001751008-25-000053-index.htm",
+     "fecha_presentacion": "2025-05-07",
+     "etiqueta": "us-gaap:CostOfRevenue",
+     "periodo_fin": "2024-03-31",
+     "formulario": "10-Q",
+     "accn": "0001751008-25-000053",
+     "periodo_inicio": "2024-01-01",
+     "periodo": "1T24"
+    },
+    {
+     "valor": 121759000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100825000072/0001751008-25-000072-index.htm",
+     "fecha_presentacion": "2025-08-06",
+     "etiqueta": "us-gaap:CostOfRevenue",
+     "periodo_fin": "2024-06-30",
+     "formulario": "10-Q",
+     "accn": "0001751008-25-000072",
+     "periodo_inicio": "2024-04-01",
+     "periodo": "2T24"
+    },
+    {
+     "valor": 120919000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100825000081/0001751008-25-000081-index.htm",
+     "fecha_presentacion": "2025-11-05",
+     "etiqueta": "us-gaap:CostOfRevenue",
+     "periodo_fin": "2024-09-30",
+     "formulario": "10-Q",
+     "accn": "0001751008-25-000081",
+     "periodo_inicio": "2024-07-01",
+     "periodo": "3T24"
+    },
+    {
+     "valor": 151680000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000044/0001751008-26-000044-index.htm",
+     "fecha_presentacion": "2026-05-06",
+     "etiqueta": "us-gaap:CostOfRevenue",
+     "periodo_fin": "2025-03-31",
+     "formulario": "10-Q",
+     "accn": "0001751008-26-000044",
+     "periodo_inicio": "2025-01-01",
+     "periodo": "1T25"
+    },
+    {
+     "valor": 155076000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000059/0001751008-26-000059-index.htm",
+     "fecha_presentacion": "2026-08-05",
+     "etiqueta": "us-gaap:CostOfRevenue",
+     "periodo_fin": "2025-06-30",
+     "formulario": "10-Q",
+     "accn": "0001751008-26-000059",
+     "periodo_inicio": "2025-04-01",
+     "periodo": "2T25"
+    },
+    {
+     "valor": 174855000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100825000081/0001751008-25-000081-index.htm",
+     "fecha_presentacion": "2025-11-05",
+     "etiqueta": "us-gaap:CostOfRevenue",
+     "periodo_fin": "2025-09-30",
+     "formulario": "10-Q",
+     "accn": "0001751008-25-000081",
+     "periodo_inicio": "2025-07-01",
+     "periodo": "3T25"
+    },
+    {
+     "valor": 183529000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000010/0001751008-26-000010-index.htm",
+     "fecha_presentacion": "2026-02-19",
+     "etiqueta": "us-gaap:CostOfRevenue",
+     "periodo_fin": "2025-12-31",
+     "formulario": "10-K",
+     "accn": "0001751008-26-000010",
+     "periodo_inicio": "2025-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T25"
+    },
+    {
+     "valor": 203632000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000044/0001751008-26-000044-index.htm",
+     "fecha_presentacion": "2026-05-06",
+     "etiqueta": "us-gaap:CostOfRevenue",
+     "periodo_fin": "2026-03-31",
+     "formulario": "10-Q",
+     "accn": "0001751008-26-000044",
+     "periodo_inicio": "2026-01-01",
+     "periodo": "1T26"
+    },
+    {
+     "valor": 225801000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000059/0001751008-26-000059-index.htm",
+     "fecha_presentacion": "2026-08-05",
+     "etiqueta": "us-gaap:CostOfRevenue",
+     "periodo_fin": "2026-06-30",
+     "formulario": "10-Q",
+     "accn": "0001751008-26-000059",
+     "periodo_inicio": "2026-04-01",
+     "periodo": "2T26"
+    }
+   ],
+   "ttm": {
+    "valor": 787817000,
+    "fuente": "SEC EDGAR (suma de 4 trimestres)",
+    "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000059/0001751008-26-000059-index.htm",
+    "fecha_presentacion": "2026-08-05",
+    "etiqueta": "us-gaap:CostOfRevenue",
+    "periodo_inicio": "2025-07-01",
+    "periodo_fin": "2026-06-30",
+    "derivado": "3T25 + 4T25 + 1T26 + 2T26"
+   },
+   "etiquetas_usadas": [
+    "us-gaap:CostOfRevenue"
+   ]
+  },
+  "gastos_intereses": {
+   "nombre": "Gastos por intereses",
+   "unidad": "USD",
+   "anual": [
+    {
+     "valor": 172181000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100825000018/0001751008-25-000018-index.htm",
+     "fecha_presentacion": "2025-02-27",
+     "etiqueta": "us-gaap:InterestExpenseDebt",
+     "periodo_fin": "2022-12-31",
+     "formulario": "10-K",
+     "accn": "0001751008-25-000018",
+     "periodo_inicio": "2022-01-01",
+     "periodo": "2022",
+     "dias": 364
+    },
+    {
+     "valor": 281712000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000010/0001751008-26-000010-index.htm",
+     "fecha_presentacion": "2026-02-19",
+     "etiqueta": "us-gaap:InterestExpenseDebt",
+     "periodo_fin": "2023-12-31",
+     "formulario": "10-K",
+     "accn": "0001751008-26-000010",
+     "periodo_inicio": "2023-01-01",
+     "periodo": "2023",
+     "dias": 364
+    },
+    {
+     "valor": 307976000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000010/0001751008-26-000010-index.htm",
+     "fecha_presentacion": "2026-02-19",
+     "etiqueta": "us-gaap:InterestExpenseDebt",
+     "periodo_fin": "2024-12-31",
+     "formulario": "10-K",
+     "accn": "0001751008-26-000010",
+     "periodo_inicio": "2024-01-01",
+     "periodo": "2024",
+     "dias": 365
+    },
+    {
+     "valor": 200615000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000010/0001751008-26-000010-index.htm",
+     "fecha_presentacion": "2026-02-19",
+     "etiqueta": "us-gaap:InterestExpenseDebt",
+     "periodo_fin": "2025-12-31",
+     "formulario": "10-K",
+     "accn": "0001751008-26-000010",
+     "periodo_inicio": "2025-01-01",
+     "periodo": "2025",
+     "dias": 364
+    }
+   ],
+   "trimestral": [
+    {
+     "valor": 78583000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100824000062/0001751008-24-000062-index.htm",
+     "fecha_presentacion": "2024-11-06",
+     "etiqueta": "us-gaap:InterestExpenseNonoperating",
+     "periodo_fin": "2023-09-30",
+     "formulario": "10-Q",
+     "accn": "0001751008-24-000062",
+     "periodo_inicio": "2023-07-01",
+     "periodo": "3T23"
+    },
+    {
+     "valor": 74182000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100825000053/0001751008-25-000053-index.htm",
+     "fecha_presentacion": "2025-05-07",
+     "etiqueta": "us-gaap:InterestExpenseNonoperating",
+     "periodo_fin": "2024-03-31",
+     "formulario": "10-Q",
+     "accn": "0001751008-25-000053",
+     "periodo_inicio": "2024-01-01",
+     "periodo": "1T24"
+    },
+    {
+     "valor": 74418000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100825000072/0001751008-25-000072-index.htm",
+     "fecha_presentacion": "2025-08-06",
+     "etiqueta": "us-gaap:InterestExpenseNonoperating",
+     "periodo_fin": "2024-06-30",
+     "formulario": "10-Q",
+     "accn": "0001751008-25-000072",
+     "periodo_inicio": "2024-04-01",
+     "periodo": "2T24"
+    },
+    {
+     "valor": 74937000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100825000081/0001751008-25-000081-index.htm",
+     "fecha_presentacion": "2025-11-05",
+     "etiqueta": "us-gaap:InterestExpenseNonoperating",
+     "periodo_fin": "2024-09-30",
+     "formulario": "10-Q",
+     "accn": "0001751008-25-000081",
+     "periodo_inicio": "2024-07-01",
+     "periodo": "3T24"
+    },
+    {
+     "valor": 52888000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000044/0001751008-26-000044-index.htm",
+     "fecha_presentacion": "2026-05-06",
+     "etiqueta": "us-gaap:InterestExpenseNonoperating",
+     "periodo_fin": "2025-03-31",
+     "formulario": "10-Q",
+     "accn": "0001751008-26-000044",
+     "periodo_inicio": "2025-01-01",
+     "periodo": "1T25"
+    },
+    {
+     "valor": 51409000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000059/0001751008-26-000059-index.htm",
+     "fecha_presentacion": "2026-08-05",
+     "etiqueta": "us-gaap:InterestExpenseNonoperating",
+     "periodo_fin": "2025-06-30",
+     "formulario": "10-Q",
+     "accn": "0001751008-26-000059",
+     "periodo_inicio": "2025-04-01",
+     "periodo": "2T25"
+    },
+    {
+     "valor": 51429000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100825000081/0001751008-25-000081-index.htm",
+     "fecha_presentacion": "2025-11-05",
+     "etiqueta": "us-gaap:InterestExpenseNonoperating",
+     "periodo_fin": "2025-09-30",
+     "formulario": "10-Q",
+     "accn": "0001751008-25-000081",
+     "periodo_inicio": "2025-07-01",
+     "periodo": "3T25"
+    },
+    {
+     "valor": 44889000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000010/0001751008-26-000010-index.htm",
+     "fecha_presentacion": "2026-02-19",
+     "etiqueta": "us-gaap:InterestExpenseDebt",
+     "periodo_fin": "2025-12-31",
+     "formulario": "10-K",
+     "accn": "0001751008-26-000010",
+     "periodo_inicio": "2025-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T25"
+    },
+    {
+     "valor": 51159000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000044/0001751008-26-000044-index.htm",
+     "fecha_presentacion": "2026-05-06",
+     "etiqueta": "us-gaap:InterestExpenseNonoperating",
+     "periodo_fin": "2026-03-31",
+     "formulario": "10-Q",
+     "accn": "0001751008-26-000044",
+     "periodo_inicio": "2026-01-01",
+     "periodo": "1T26"
+    },
+    {
+     "valor": 51156000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000059/0001751008-26-000059-index.htm",
+     "fecha_presentacion": "2026-08-05",
+     "etiqueta": "us-gaap:InterestExpenseNonoperating",
+     "periodo_fin": "2026-06-30",
+     "formulario": "10-Q",
+     "accn": "0001751008-26-000059",
+     "periodo_inicio": "2026-04-01",
+     "periodo": "2T26"
+    }
+   ],
+   "ttm": {
+    "valor": 198633000,
+    "fuente": "SEC EDGAR (suma de 4 trimestres)",
+    "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000059/0001751008-26-000059-index.htm",
+    "fecha_presentacion": "2026-08-05",
+    "etiqueta": "us-gaap:InterestExpenseNonoperating",
+    "periodo_inicio": "2025-07-01",
+    "periodo_fin": "2026-06-30",
+    "derivado": "3T25 + 4T25 + 1T26 + 2T26"
+   },
+   "etiquetas_usadas": [
+    "us-gaap:InterestExpenseDebt",
+    "us-gaap:InterestExpenseNonoperating"
+   ]
+  },
   "recompras": {
    "nombre": "Recompras de acciones",
    "unidad": "USD",
@@ -2710,7 +3162,86 @@
      ]
     }
    ],
-   "asumido": false
+   "asumido": false,
+   "anual": [
+    {
+     "valor": 396247000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000119312521161989/0001193125-21-161989-index.htm",
+     "fecha_presentacion": "2021-05-14",
+     "etiqueta": "us-gaap:CashAndCashEquivalentsAtCarryingValue",
+     "periodo_fin": "2019-12-31",
+     "formulario": "10-Q",
+     "accn": "0001193125-21-161989",
+     "periodo": "2019"
+    },
+    {
+     "valor": 317235000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100822000005/0001751008-22-000005-index.htm",
+     "fecha_presentacion": "2022-03-11",
+     "etiqueta": "us-gaap:CashAndCashEquivalentsAtCarryingValue",
+     "periodo_fin": "2020-12-31",
+     "formulario": "10-K",
+     "accn": "0001751008-22-000005",
+     "periodo": "2020"
+    },
+    {
+     "valor": 1520504000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100823000006/0001751008-23-000006-index.htm",
+     "fecha_presentacion": "2023-02-28",
+     "etiqueta": "us-gaap:CashAndCashEquivalentsAtCarryingValue",
+     "periodo_fin": "2021-12-31",
+     "formulario": "10-K",
+     "accn": "0001751008-23-000006",
+     "periodo": "2021"
+    },
+    {
+     "valor": 1080484000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100824000012/0001751008-24-000012-index.htm",
+     "fecha_presentacion": "2024-02-26",
+     "etiqueta": "us-gaap:CashAndCashEquivalentsAtCarryingValue",
+     "periodo_fin": "2022-12-31",
+     "formulario": "10-K",
+     "accn": "0001751008-24-000012",
+     "periodo": "2022"
+    },
+    {
+     "valor": 502152000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100825000018/0001751008-25-000018-index.htm",
+     "fecha_presentacion": "2025-02-27",
+     "etiqueta": "us-gaap:CashAndCashEquivalentsAtCarryingValue",
+     "periodo_fin": "2023-12-31",
+     "formulario": "10-K",
+     "accn": "0001751008-25-000018",
+     "periodo": "2023"
+    },
+    {
+     "valor": 697030000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000010/0001751008-26-000010-index.htm",
+     "fecha_presentacion": "2026-02-19",
+     "etiqueta": "us-gaap:CashAndCashEquivalentsAtCarryingValue",
+     "periodo_fin": "2024-12-31",
+     "formulario": "10-K",
+     "accn": "0001751008-26-000010",
+     "periodo": "2024"
+    },
+    {
+     "valor": 2487096000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000059/0001751008-26-000059-index.htm",
+     "fecha_presentacion": "2026-08-05",
+     "etiqueta": "us-gaap:CashAndCashEquivalentsAtCarryingValue",
+     "periodo_fin": "2025-12-31",
+     "formulario": "10-Q",
+     "accn": "0001751008-26-000059",
+     "periodo": "2025"
+    }
+   ]
   },
   "deuda": {
    "nombre": "Deuda financiera",
@@ -2808,7 +3339,79 @@
      ]
     }
    ],
-   "asumido": false
+   "asumido": false,
+   "anual": [
+    {
+     "valor": 1583990000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100822000005/0001751008-22-000005-index.htm",
+     "fecha_presentacion": "2022-03-11",
+     "etiqueta": "us-gaap:LongTermDebtNoncurrent",
+     "periodo_fin": "2020-12-31",
+     "formulario": "10-K",
+     "accn": "0001751008-22-000005",
+     "periodo": "2020"
+    },
+    {
+     "valor": 3227644000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100823000006/0001751008-23-000006-index.htm",
+     "fecha_presentacion": "2023-02-28",
+     "etiqueta": "us-gaap:LongTermDebtNoncurrent + us-gaap:LongTermDebtCurrent",
+     "periodo_fin": "2021-12-31",
+     "formulario": "10-K",
+     "accn": "0001751008-23-000006",
+     "derivado": "Suma: LongTermDebtNoncurrent + LongTermDebtCurrent",
+     "periodo": "2021"
+    },
+    {
+     "valor": 3211722000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100824000012/0001751008-24-000012-index.htm",
+     "fecha_presentacion": "2024-02-26",
+     "etiqueta": "us-gaap:LongTermDebtNoncurrent + us-gaap:LongTermDebtCurrent",
+     "periodo_fin": "2022-12-31",
+     "formulario": "10-K",
+     "accn": "0001751008-24-000012",
+     "derivado": "Suma: LongTermDebtNoncurrent + LongTermDebtCurrent",
+     "periodo": "2022"
+    },
+    {
+     "valor": 3120906000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100825000018/0001751008-25-000018-index.htm",
+     "fecha_presentacion": "2025-02-27",
+     "etiqueta": "us-gaap:LongTermDebtNoncurrent + us-gaap:LongTermDebtCurrent",
+     "periodo_fin": "2023-12-31",
+     "formulario": "10-K",
+     "accn": "0001751008-25-000018",
+     "derivado": "Suma: LongTermDebtNoncurrent + LongTermDebtCurrent",
+     "periodo": "2023"
+    },
+    {
+     "valor": 3508983000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000010/0001751008-26-000010-index.htm",
+     "fecha_presentacion": "2026-02-19",
+     "etiqueta": "us-gaap:LongTermDebtNoncurrent + us-gaap:LongTermDebtCurrent",
+     "periodo_fin": "2024-12-31",
+     "formulario": "10-K",
+     "accn": "0001751008-26-000010",
+     "derivado": "Suma: LongTermDebtNoncurrent + LongTermDebtCurrent",
+     "periodo": "2024"
+    },
+    {
+     "valor": 3512987000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000059/0001751008-26-000059-index.htm",
+     "fecha_presentacion": "2026-08-05",
+     "etiqueta": "us-gaap:LongTermDebtNoncurrent",
+     "periodo_fin": "2025-12-31",
+     "formulario": "10-Q",
+     "accn": "0001751008-26-000059",
+     "periodo": "2025"
+    }
+   ]
   },
   "patrimonio_neto": {
    "nombre": "Patrimonio neto",
@@ -2885,7 +3488,86 @@
      "accn": "0001751008-26-000059"
     }
    ],
-   "asumido": false
+   "asumido": false,
+   "anual": [
+    {
+     "valor": -256567000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100823000006/0001751008-23-000006-index.htm",
+     "fecha_presentacion": "2023-02-28",
+     "etiqueta": "us-gaap:StockholdersEquity",
+     "periodo_fin": "2019-12-31",
+     "formulario": "10-K",
+     "accn": "0001751008-23-000006",
+     "periodo": "2019"
+    },
+    {
+     "valor": -158545000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100824000012/0001751008-24-000012-index.htm",
+     "fecha_presentacion": "2024-02-26",
+     "etiqueta": "us-gaap:StockholdersEquity",
+     "periodo_fin": "2020-12-31",
+     "formulario": "10-K",
+     "accn": "0001751008-24-000012",
+     "periodo": "2020"
+    },
+    {
+     "valor": 2138090000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100825000018/0001751008-25-000018-index.htm",
+     "fecha_presentacion": "2025-02-27",
+     "etiqueta": "us-gaap:StockholdersEquity",
+     "periodo_fin": "2021-12-31",
+     "formulario": "10-K",
+     "accn": "0001751008-25-000018",
+     "periodo": "2021"
+    },
+    {
+     "valor": 1902677000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000010/0001751008-26-000010-index.htm",
+     "fecha_presentacion": "2026-02-19",
+     "etiqueta": "us-gaap:StockholdersEquity",
+     "periodo_fin": "2022-12-31",
+     "formulario": "10-K",
+     "accn": "0001751008-26-000010",
+     "periodo": "2022"
+    },
+    {
+     "valor": 1256329000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000010/0001751008-26-000010-index.htm",
+     "fecha_presentacion": "2026-02-19",
+     "etiqueta": "us-gaap:StockholdersEquity",
+     "periodo_fin": "2023-12-31",
+     "formulario": "10-K",
+     "accn": "0001751008-26-000010",
+     "periodo": "2023"
+    },
+    {
+     "valor": 1089818000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000059/0001751008-26-000059-index.htm",
+     "fecha_presentacion": "2026-08-05",
+     "etiqueta": "us-gaap:StockholdersEquity",
+     "periodo_fin": "2024-12-31",
+     "formulario": "10-Q",
+     "accn": "0001751008-26-000059",
+     "periodo": "2024"
+    },
+    {
+     "valor": 2134671000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000059/0001751008-26-000059-index.htm",
+     "fecha_presentacion": "2026-08-05",
+     "etiqueta": "us-gaap:StockholdersEquity",
+     "periodo_fin": "2025-12-31",
+     "formulario": "10-Q",
+     "accn": "0001751008-26-000059",
+     "periodo": "2025"
+    }
+   ]
   },
   "activo_total": {
    "nombre": "Activo total",
@@ -2962,8 +3644,390 @@
      "accn": "0001751008-26-000059"
     }
    ],
-   "asumido": false
+   "asumido": false,
+   "anual": [
+    {
+     "valor": 2154593000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100822000005/0001751008-22-000005-index.htm",
+     "fecha_presentacion": "2022-03-11",
+     "etiqueta": "us-gaap:Assets",
+     "periodo_fin": "2020-12-31",
+     "formulario": "10-K",
+     "accn": "0001751008-22-000005",
+     "periodo": "2020"
+    },
+    {
+     "valor": 6163579000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100823000006/0001751008-23-000006-index.htm",
+     "fecha_presentacion": "2023-02-28",
+     "etiqueta": "us-gaap:Assets",
+     "periodo_fin": "2021-12-31",
+     "formulario": "10-K",
+     "accn": "0001751008-23-000006",
+     "periodo": "2021"
+    },
+    {
+     "valor": 5847846000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100824000012/0001751008-24-000012-index.htm",
+     "fecha_presentacion": "2024-02-26",
+     "etiqueta": "us-gaap:Assets",
+     "periodo_fin": "2022-12-31",
+     "formulario": "10-K",
+     "accn": "0001751008-24-000012",
+     "periodo": "2022"
+    },
+    {
+     "valor": 5359187000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100825000018/0001751008-25-000018-index.htm",
+     "fecha_presentacion": "2025-02-27",
+     "etiqueta": "us-gaap:Assets",
+     "periodo_fin": "2023-12-31",
+     "formulario": "10-K",
+     "accn": "0001751008-25-000018",
+     "periodo": "2023"
+    },
+    {
+     "valor": 5869259000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000010/0001751008-26-000010-index.htm",
+     "fecha_presentacion": "2026-02-19",
+     "etiqueta": "us-gaap:Assets",
+     "periodo_fin": "2024-12-31",
+     "formulario": "10-K",
+     "accn": "0001751008-26-000010",
+     "periodo": "2024"
+    },
+    {
+     "valor": 7259610000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000059/0001751008-26-000059-index.htm",
+     "fecha_presentacion": "2026-08-05",
+     "etiqueta": "us-gaap:Assets",
+     "periodo_fin": "2025-12-31",
+     "formulario": "10-Q",
+     "accn": "0001751008-26-000059",
+     "periodo": "2025"
+    }
+   ]
+  },
+  "activo_corriente": {
+   "nombre": "Activo corriente",
+   "unidad": "USD",
+   "ultimo": {
+    "valor": 5392316000,
+    "fuente": "SEC EDGAR · 10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000059/0001751008-26-000059-index.htm",
+    "fecha_presentacion": "2026-08-05",
+    "etiqueta": "us-gaap:AssetsCurrent",
+    "periodo_fin": "2026-06-30",
+    "formulario": "10-Q",
+    "accn": "0001751008-26-000059"
+   },
+   "historico": [
+    {
+     "valor": 2367334000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100825000053/0001751008-25-000053-index.htm",
+     "fecha_presentacion": "2025-05-07",
+     "etiqueta": "us-gaap:AssetsCurrent",
+     "periodo_fin": "2025-03-31",
+     "formulario": "10-Q",
+     "accn": "0001751008-25-000053"
+    },
+    {
+     "valor": 2992689000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100825000072/0001751008-25-000072-index.htm",
+     "fecha_presentacion": "2025-08-06",
+     "etiqueta": "us-gaap:AssetsCurrent",
+     "periodo_fin": "2025-06-30",
+     "formulario": "10-Q",
+     "accn": "0001751008-25-000072"
+    },
+    {
+     "valor": 3487566000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100825000081/0001751008-25-000081-index.htm",
+     "fecha_presentacion": "2025-11-05",
+     "etiqueta": "us-gaap:AssetsCurrent",
+     "periodo_fin": "2025-09-30",
+     "formulario": "10-Q",
+     "accn": "0001751008-25-000081"
+    },
+    {
+     "valor": 4430792000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000059/0001751008-26-000059-index.htm",
+     "fecha_presentacion": "2026-08-05",
+     "etiqueta": "us-gaap:AssetsCurrent",
+     "periodo_fin": "2025-12-31",
+     "formulario": "10-Q",
+     "accn": "0001751008-26-000059"
+    },
+    {
+     "valor": 4847575000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000044/0001751008-26-000044-index.htm",
+     "fecha_presentacion": "2026-05-06",
+     "etiqueta": "us-gaap:AssetsCurrent",
+     "periodo_fin": "2026-03-31",
+     "formulario": "10-Q",
+     "accn": "0001751008-26-000044"
+    },
+    {
+     "valor": 5392316000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000059/0001751008-26-000059-index.htm",
+     "fecha_presentacion": "2026-08-05",
+     "etiqueta": "us-gaap:AssetsCurrent",
+     "periodo_fin": "2026-06-30",
+     "formulario": "10-Q",
+     "accn": "0001751008-26-000059"
+    }
+   ],
+   "asumido": false,
+   "anual": [
+    {
+     "valor": 662994000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100822000005/0001751008-22-000005-index.htm",
+     "fecha_presentacion": "2022-03-11",
+     "etiqueta": "us-gaap:AssetsCurrent",
+     "periodo_fin": "2020-12-31",
+     "formulario": "10-K",
+     "accn": "0001751008-22-000005",
+     "periodo": "2020"
+    },
+    {
+     "valor": 3235064000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100823000006/0001751008-23-000006-index.htm",
+     "fecha_presentacion": "2023-02-28",
+     "etiqueta": "us-gaap:AssetsCurrent",
+     "periodo_fin": "2021-12-31",
+     "formulario": "10-K",
+     "accn": "0001751008-23-000006",
+     "periodo": "2021"
+    },
+    {
+     "valor": 1939083000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100824000012/0001751008-24-000012-index.htm",
+     "fecha_presentacion": "2024-02-26",
+     "etiqueta": "us-gaap:AssetsCurrent",
+     "periodo_fin": "2022-12-31",
+     "formulario": "10-K",
+     "accn": "0001751008-24-000012",
+     "periodo": "2022"
+    },
+    {
+     "valor": 1616163000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100825000018/0001751008-25-000018-index.htm",
+     "fecha_presentacion": "2025-02-27",
+     "etiqueta": "us-gaap:AssetsCurrent",
+     "periodo_fin": "2023-12-31",
+     "formulario": "10-K",
+     "accn": "0001751008-25-000018",
+     "periodo": "2023"
+    },
+    {
+     "valor": 2312190000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000010/0001751008-26-000010-index.htm",
+     "fecha_presentacion": "2026-02-19",
+     "etiqueta": "us-gaap:AssetsCurrent",
+     "periodo_fin": "2024-12-31",
+     "formulario": "10-K",
+     "accn": "0001751008-26-000010",
+     "periodo": "2024"
+    },
+    {
+     "valor": 4430792000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000059/0001751008-26-000059-index.htm",
+     "fecha_presentacion": "2026-08-05",
+     "etiqueta": "us-gaap:AssetsCurrent",
+     "periodo_fin": "2025-12-31",
+     "formulario": "10-Q",
+     "accn": "0001751008-26-000059",
+     "periodo": "2025"
+    }
+   ]
+  },
+  "pasivo_corriente": {
+   "nombre": "Pasivo corriente",
+   "unidad": "USD",
+   "ultimo": {
+    "valor": 1253958000,
+    "fuente": "SEC EDGAR · 10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000059/0001751008-26-000059-index.htm",
+    "fecha_presentacion": "2026-08-05",
+    "etiqueta": "us-gaap:LiabilitiesCurrent",
+    "periodo_fin": "2026-06-30",
+    "formulario": "10-Q",
+    "accn": "0001751008-26-000059"
+   },
+   "historico": [
+    {
+     "valor": 1409224000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100825000053/0001751008-25-000053-index.htm",
+     "fecha_presentacion": "2025-05-07",
+     "etiqueta": "us-gaap:LiabilitiesCurrent",
+     "periodo_fin": "2025-03-31",
+     "formulario": "10-Q",
+     "accn": "0001751008-25-000053"
+    },
+    {
+     "valor": 1093885000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100825000072/0001751008-25-000072-index.htm",
+     "fecha_presentacion": "2025-08-06",
+     "etiqueta": "us-gaap:LiabilitiesCurrent",
+     "periodo_fin": "2025-06-30",
+     "formulario": "10-Q",
+     "accn": "0001751008-25-000072"
+    },
+    {
+     "valor": 1073133000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100825000081/0001751008-25-000081-index.htm",
+     "fecha_presentacion": "2025-11-05",
+     "etiqueta": "us-gaap:LiabilitiesCurrent",
+     "periodo_fin": "2025-09-30",
+     "formulario": "10-Q",
+     "accn": "0001751008-25-000081"
+    },
+    {
+     "valor": 1333788000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000059/0001751008-26-000059-index.htm",
+     "fecha_presentacion": "2026-08-05",
+     "etiqueta": "us-gaap:LiabilitiesCurrent",
+     "periodo_fin": "2025-12-31",
+     "formulario": "10-Q",
+     "accn": "0001751008-26-000059"
+    },
+    {
+     "valor": 1494382000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000044/0001751008-26-000044-index.htm",
+     "fecha_presentacion": "2026-05-06",
+     "etiqueta": "us-gaap:LiabilitiesCurrent",
+     "periodo_fin": "2026-03-31",
+     "formulario": "10-Q",
+     "accn": "0001751008-26-000044"
+    },
+    {
+     "valor": 1253958000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000059/0001751008-26-000059-index.htm",
+     "fecha_presentacion": "2026-08-05",
+     "etiqueta": "us-gaap:LiabilitiesCurrent",
+     "periodo_fin": "2026-06-30",
+     "formulario": "10-Q",
+     "accn": "0001751008-26-000059"
+    }
+   ],
+   "asumido": false,
+   "anual": [
+    {
+     "valor": 598052000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100822000005/0001751008-22-000005-index.htm",
+     "fecha_presentacion": "2022-03-11",
+     "etiqueta": "us-gaap:LiabilitiesCurrent",
+     "periodo_fin": "2020-12-31",
+     "formulario": "10-K",
+     "accn": "0001751008-22-000005",
+     "periodo": "2020"
+    },
+    {
+     "valor": 640097000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100823000006/0001751008-23-000006-index.htm",
+     "fecha_presentacion": "2023-02-28",
+     "etiqueta": "us-gaap:LiabilitiesCurrent",
+     "periodo_fin": "2021-12-31",
+     "formulario": "10-K",
+     "accn": "0001751008-23-000006",
+     "periodo": "2021"
+    },
+    {
+     "valor": 578958000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100824000012/0001751008-24-000012-index.htm",
+     "fecha_presentacion": "2024-02-26",
+     "etiqueta": "us-gaap:LiabilitiesCurrent",
+     "periodo_fin": "2022-12-31",
+     "formulario": "10-K",
+     "accn": "0001751008-24-000012",
+     "periodo": "2022"
+    },
+    {
+     "valor": 944122000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100825000018/0001751008-25-000018-index.htm",
+     "fecha_presentacion": "2025-02-27",
+     "etiqueta": "us-gaap:LiabilitiesCurrent",
+     "periodo_fin": "2023-12-31",
+     "formulario": "10-K",
+     "accn": "0001751008-25-000018",
+     "periodo": "2023"
+    },
+    {
+     "valor": 1057472000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000010/0001751008-26-000010-index.htm",
+     "fecha_presentacion": "2026-02-19",
+     "etiqueta": "us-gaap:LiabilitiesCurrent",
+     "periodo_fin": "2024-12-31",
+     "formulario": "10-K",
+     "accn": "0001751008-26-000010",
+     "periodo": "2024"
+    },
+    {
+     "valor": 1333788000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000059/0001751008-26-000059-index.htm",
+     "fecha_presentacion": "2026-08-05",
+     "etiqueta": "us-gaap:LiabilitiesCurrent",
+     "periodo_fin": "2025-12-31",
+     "formulario": "10-Q",
+     "accn": "0001751008-26-000059",
+     "periodo": "2025"
+    }
+   ]
+  },
+  "existencias": {
+   "nombre": "Existencias",
+   "unidad": "USD",
+   "ultimo": null,
+   "historico": [],
+   "asumido": false,
+   "anual": []
   }
+ },
+ "vencimientos_deuda": {
+  "fecha": "2025-12-31",
+  "tramos": [
+   {
+    "valor": 1000000000,
+    "fuente": "SEC EDGAR · 10-K",
+    "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000010/0001751008-26-000010-index.htm",
+    "fecha_presentacion": "2026-02-19",
+    "etiqueta": "us-gaap:LongTermDebtMaturitiesRepaymentsOfPrincipalInYearFour",
+    "periodo_fin": "2025-12-31",
+    "formulario": "10-K",
+    "accn": "0001751008-26-000010",
+    "tramo": "Año 4"
+   }
+  ]
  },
  "acciones_en_circulacion": {
   "valor": 337031000,
@@ -3009,6 +4073,13 @@
   },
   {
    "nivel": "info",
+   "codigo": "etiqueta_obsoleta",
+   "mensaje": "Gastos por intereses: «InterestExpenseDebt» termina el 2025-12-31; solo se usa para años antiguos.",
+   "concepto": "gastos_intereses",
+   "etiqueta": "InterestExpenseDebt"
+  },
+  {
+   "nivel": "info",
    "codigo": "componente_no_etiquetado",
    "mensaje": "Caja e inversiones a corto a 2026-06-30: no hay dato de ShortTermInvestments / MarketableSecuritiesCurrent / AvailableForSaleSecuritiesDebtSecuritiesCurrent; cuenta como 0.",
    "concepto": "caja"
@@ -3035,7 +4106,7 @@
  "precio": {
   "minimo_52s": 252,
   "maximo_52s": 738.01,
-  "valor": 229.94,
+  "valor": 228.5,
   "cierre_anterior": 254.91,
   "moneda": "USD",
   "fecha": "2026-10-30",
@@ -3052,5 +4123,5 @@
   "fuente": "Finnhub · recomendaciones de analistas",
   "url": "https://finnhub.io/docs/api/recommendation-trends"
  },
- "generado": "2026-10-30T19:52:30+00:00"
+ "generado": "2026-10-30T20:23:40+00:00"
 }
