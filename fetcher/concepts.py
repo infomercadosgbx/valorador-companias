@@ -72,6 +72,14 @@ FLOW_CONCEPTS = {
         "nombre": "Remuneración en acciones (SBC)", "unit": "USD", "combine": True,
         "tags": ["ShareBasedCompensation", "AllocatedShareBasedCompensationExpense"],
     },
+    "coste_ventas": {
+        "nombre": "Coste de ventas", "unit": "USD", "combine": True, "opcional": True,
+        "tags": ["CostOfRevenue", "CostOfGoodsAndServicesSold", "CostOfGoodsSold"],
+    },
+    "gastos_intereses": {
+        "nombre": "Gastos por intereses", "unit": "USD", "combine": True, "opcional": True,
+        "tags": ["InterestExpense", "InterestExpenseNonoperating", "InterestExpenseDebt"],
+    },
     "recompras": {
         "nombre": "Recompras de acciones", "unit": "USD", "combine": True,
         "tags": ["PaymentsForRepurchaseOfCommonStock"],
@@ -117,6 +125,29 @@ INSTANT_CONCEPTS = {
         "nombre": "Activo total",
         "strategies": [{"required": ["Assets"], "optional": []}],
     },
+    "activo_corriente": {
+        "nombre": "Activo corriente", "opcional": True,
+        "strategies": [{"required": ["AssetsCurrent"], "optional": []}],
+    },
+    "pasivo_corriente": {
+        "nombre": "Pasivo corriente", "opcional": True,
+        "strategies": [{"required": ["LiabilitiesCurrent"], "optional": []}],
+    },
+    "existencias": {
+        "nombre": "Existencias", "opcional": True,
+        "strategies": [{"required": ["InventoryNet"], "optional": []}],
+    },
 }
+
+# Calendario de vencimientos de la deuda (nota de deuda del 10-K/10-Q).
+DEBT_MATURITY_TAGS = [
+    ("LongTermDebtMaturitiesRepaymentsOfPrincipalRemainderOfFiscalYear", "Resto del ejercicio"),
+    ("LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths", "Año 1"),
+    ("LongTermDebtMaturitiesRepaymentsOfPrincipalInYearTwo", "Año 2"),
+    ("LongTermDebtMaturitiesRepaymentsOfPrincipalInYearThree", "Año 3"),
+    ("LongTermDebtMaturitiesRepaymentsOfPrincipalInYearFour", "Año 4"),
+    ("LongTermDebtMaturitiesRepaymentsOfPrincipalInYearFive", "Año 5"),
+    ("LongTermDebtMaturitiesRepaymentsOfPrincipalAfterYearFive", "Después del año 5"),
+]
 
 SHARES_OUTSTANDING_TAG = ("dei", "EntityCommonStockSharesOutstanding")

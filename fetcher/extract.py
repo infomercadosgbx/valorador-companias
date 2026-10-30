@@ -332,6 +332,74 @@ def _q4_fits(q4, q3, q_by_end, a_end, spec):
 
 
 # ------------------------------------------------------- conceptos de balance
+def _strategy_value_at(cf, strat, end, maps_cache):
+    """Valor de una estrategia (componente principal + opcionales) a una fecha."""
+    key = id(strat)
+    if key not in maps_cache:
+        def mp(tag):
+            tf = raw_facts(cf, tag, "USD")
+            return {d(k): v for k, v in latest_by(tf, lambda f: f["end"]).items()} if tf else {}
+        maps_cache[key] = (mp(strat["required"][0]), [[(t, mp(t)) for t in g] for g in strat["optional"]])
+    main, opts = maps_cache[key]
+    f = find_near(main, end)
+    if f is None:
+        return None
+    total, parts, newest = f["val"], [strat["required"][0]], f
+    for group in opts:
+        for t, mp_ in group:
+            v = find_near(mp_, end)
+            if v is not None:
+                total += v["val"]; parts.append(t)
+                if v["filed"] > newest["filed"]:
+                    newest = v
+                break
+    return total, parts, newest, f["end"]
+
+
+def year_end_series(cf, cik, concept_key, year_ends):
+    """Saldos al cierre de cada ejercicio (de los 10-K), para ver la evolución de
+    varios años. Se prueba cada estrategia en orden, también las de etiquetas
+    antiguas, para no dejar huecos en años viejos."""
+    spec = C.INSTANT_CONCEPTS[concept_key]
+    cache, out = {}, []
+    for ye in year_ends:
+        for strat in spec["strategies"]:
+            r = _strategy_value_at(cf, strat, ye, cache)
+            if r:
+                total, parts, newest, end_s = r
+                pt = point(newest, cik, " + ".join(f"us-gaap:{p}" for p in parts), value=total,
+                           derived=("Suma: " + " + ".join(parts)) if len(parts) > 1 else None)
+                pt["periodo_fin"] = end_s
+                pt.pop("periodo_inicio", None)
+                pt["periodo"] = str(fy_label(d(end_s)))
+                out.append(pt)
+                break
+    return out
+
+
+def debt_maturities(cf, cik):
+    """Calendario de vencimientos del último informe que lo publica."""
+    rows = []
+    for tag, label in C.DEBT_MATURITY_TAGS:
+        for f in raw_facts(cf, tag, "USD"):
+            rows.append((f["filed"], f["end"], tag, label, f))
+    if not rows:
+        return None
+    newest_end = max(r[1] for r in rows)
+    sel = {}
+    for filed, end, tag, label, f in rows:
+        if end == newest_end and (tag not in sel or filed > sel[tag][0]):
+            sel[tag] = (filed, label, f)
+    tramos = []
+    for tag, label in C.DEBT_MATURITY_TAGS:
+        if tag in sel:
+            _, lab, f = sel[tag]
+            pt = point(f, cik, tag)
+            pt["tramo"] = lab
+            tramos.append(pt)
+    return {"fecha": newest_end, "tramos": tramos}
+
+
 def build_instant(cf, cik, concept_key, ref_end):
     spec = C.INSTANT_CONCEPTS[concept_key]
     warnings = []
@@ -406,8 +474,9 @@ def build_instant(cf, cik, concept_key, ref_end):
                            "url": None, "fecha_presentacion": None, "etiqueta": None,
                            "periodo_fin": ref_end.isoformat() if ref_end else None,
                            "asumido": True}}, warnings
-    warnings.append(warn("aviso", "concepto_no_encontrado",
-        f"{spec['nombre']}: no se ha encontrado ninguna etiqueta vigente.", concepto=concept_key))
+    if not spec.get("opcional"):
+        warnings.append(warn("aviso", "concepto_no_encontrado",
+            f"{spec['nombre']}: no se ha encontrado ninguna etiqueta vigente.", concepto=concept_key))
     return {"nombre": spec["nombre"], "unidad": "USD", "ultimo": None,
             "historico": [], "asumido": False}, warnings
 

@@ -31,6 +31,7 @@ def wanted_tags():
             tags.update(s["required"])
             for group in s["optional"]:
                 tags.update(group)
+    tags.update(t for t, _ in C.DEBT_MATURITY_TAGS)
     return tags
 
 

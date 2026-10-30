@@ -74,10 +74,17 @@ def build_from_sec(company, cf, subs):
         avisos += w
 
     rec["balance"] = {}
+    year_ends = [X.d(p["periodo_fin"]) for p in rec["resultados"]["ingresos"]["anual"]][-7:]
     for key in C.INSTANT_CONCEPTS:
         inst, w = X.build_instant(cf, cik, key, ref_end)
+        inst["anual"] = X.year_end_series(cf, cik, key, year_ends)
+        if key == "deuda" and inst.get("asumido") and not inst["anual"]:
+            inst["anual"] = [{"valor": 0, "asumido": True, "periodo": str(X.fy_label(ye)),
+                              "periodo_fin": ye.isoformat(), "fuente": "Asumido (sin deuda etiquetada en XBRL)",
+                              "url": None, "fecha_presentacion": None, "etiqueta": None} for ye in year_ends]
         rec["balance"][key] = inst
         avisos += w
+    rec["vencimientos_deuda"] = X.debt_maturities(cf, cik)
     rec["acciones_en_circulacion"] = X.shares_outstanding(cf, cik)
     if rec["acciones_en_circulacion"] is None:
         dil = rec["resultados"]["acciones_diluidas_media"]["trimestral"]

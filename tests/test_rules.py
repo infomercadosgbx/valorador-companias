@@ -256,3 +256,22 @@ def test_si_el_4t_de_ingresos_se_descarta_tambien_el_del_resto():
     X.build_flow(cf, "1", "ingresos", date(2026, 9, 30), "1231", q4_state=st)
     flow, _ = X.build_flow(cf, "1", "beneficio_neto", date(2026, 9, 30), "1231", q4_state=st)
     assert "4T25" not in {p["periodo"] for p in flow["trimestral"]}
+
+
+def test_saldos_al_cierre_de_cada_ejercicio_combinan_estrategias():
+    cf = rev_cf(cal_year(2026, [10, 10, 10]), extra={
+        "LongTermDebt": [fact("2022-12-31", 50, form="10-K"), fact("2023-12-31", 60, form="10-K")],
+        "LongTermDebtNoncurrent": [fact("2024-12-31", 70, form="10-K"), fact("2025-12-31", 80, form="10-K"), fact("2026-09-30", 90)],
+    })
+    ye = [date(y, 12, 31) for y in (2022, 2023, 2024, 2025)]
+    s = X.year_end_series(cf, "1", "deuda", ye)
+    assert [(p["periodo"], p["valor"]) for p in s] == [("2022", 50), ("2023", 60), ("2024", 70), ("2025", 80)]
+
+
+def test_vencimientos_del_ultimo_informe():
+    cf = companyfacts({
+        "LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths": [fact("2024-12-31", 1, form="10-K"), fact("2025-12-31", 5, form="10-K")],
+        "LongTermDebtMaturitiesRepaymentsOfPrincipalAfterYearFive": [fact("2025-12-31", 40, form="10-K")],
+    })
+    v = X.debt_maturities(cf, "1")
+    assert v["fecha"] == "2025-12-31" and [(t["tramo"], t["valor"]) for t in v["tramos"]] == [("Año 1", 5), ("Después del año 5", 40)]
