@@ -178,7 +178,7 @@ def choose_tags(cf, spec, ref_end, concept_key):
     fresh = [(t, f) for le, _, t, f in cands if not is_stale(le, ref_end)]
     for le, _, tag, _ in cands:
         if is_stale(le, ref_end):
-            warnings.append(warn("info" if fresh else "aviso", "etiqueta_obsoleta",
+            warnings.append(warn("info" if (fresh or spec.get("opcional")) else "aviso", "etiqueta_obsoleta",
                 f"{spec['nombre']}: se descarta «{tag}», su último dato ({le}) va más de "
                 f"{STALE_DAYS} días por detrás de los ingresos ({ref_end}).",
                 concepto=concept_key, etiqueta=tag))
@@ -197,8 +197,15 @@ def _merge_tagged(tagged):
     return out
 
 
-def build_flow(cf, cik, concept_key, ref_end, fye_mmdd, max_years=8, max_quarters=12):
+def build_flow(cf, cik, concept_key, ref_end, fye_mmdd, max_years=8, max_quarters=12, q4_state=None):
+    """q4_state: dict compartido entre conceptos. Los ingresos deciden qué 4T son
+    coherentes (regla del ratio); el resto de conceptos sigue esa decisión, porque
+    el ratio no sirve para magnitudes estacionales o con extraordinarios (caja de
+    Amazon, beneficio neto con ganancias en participaciones)."""
     spec = C.FLOW_CONCEPTS[concept_key]
+    if q4_state is None:
+        q4_state = {"aceptados": set(), "rechazados": set()}
+    warn_from = ref_end - timedelta(days=3 * 366) if ref_end else date.min
     tagged, warnings = choose_tags(cf, spec, ref_end, concept_key)
     result = {"nombre": spec["nombre"], "unidad": spec["unit"], "anual": [],
               "trimestral": [], "ttm": None, "etiquetas_usadas": []}
@@ -260,13 +267,19 @@ def build_flow(cf, cik, concept_key, ref_end, fye_mmdd, max_years=8, max_quarter
                         val = fa["val"] - sum(p["valor"] for _, p in inside)
                         q4 = point(fa, cik, tag, value=val, derived="Año − 1T − 2T − 3T")
                         q4["periodo_inicio"] = (inside[-1][0] + timedelta(days=1)).isoformat()
-                        ok, motivo = _q4_fits(val, inside[-1][1]["valor"], q_by_end, a_end, spec)
+                        if concept_key == "ingresos":
+                            ok, motivo = _q4_fits(val, inside[-1][1]["valor"], q_by_end, a_end, spec)
+                            q4_state["aceptados" if ok else "rechazados"].add(a_end)
+                        else:
+                            ok = not any(abs((a_end - e).days) <= DATE_TOL for e in q4_state["rechazados"])
+                            motivo = "el 4T de ingresos de ese año tampoco encaja"
                         if ok:
                             q_by_end[a_end] = q4
-                        else:
+                        elif a_end >= warn_from and concept_key == "ingresos":
                             warnings.append(warn("aviso", "4t_descartado",
                                 f"{spec['nombre']} {quarter_label(a_end, fye_mmdd)}: el 4T derivado "
-                                f"({val/1e6:,.0f} M) no encaja con los trimestres vecinos ({motivo}); se descarta.",
+                                f"({val/1e6:,.0f} M) no encaja con los trimestres vecinos ({motivo}); se descarta, "
+                                f"y con él el 4T del resto de conceptos de ese año.",
                                 concepto=concept_key, periodo=quarter_label(a_end, fye_mmdd)))
 
     quarters = sorted(q_by_end.items())

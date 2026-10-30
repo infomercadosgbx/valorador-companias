@@ -27,7 +27,7 @@ FLOW_CONCEPTS = {
         ],
     },
     "beneficio_bruto": {
-        "nombre": "Beneficio bruto", "unit": "USD", "combine": False,
+        "nombre": "Beneficio bruto", "unit": "USD", "combine": False, "opcional": True,
         "tags": ["GrossProfit"],
     },
     "beneficio_operativo": {

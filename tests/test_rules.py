@@ -236,3 +236,23 @@ def test_solo_escribe_si_cambia(tmp_path):
     assert write_if_changed(p, {"a": 1, "generado": "t2"}) is False
     assert write_if_changed(p, {"a": 2, "generado": "t3"}) is True
     assert json.loads(p.read_text())["a"] == 2
+
+
+def test_4t_de_otros_conceptos_sigue_la_decision_de_ingresos():
+    rev = cal_year(2025, [100, 110, 120], annual=460) + cal_year(2026, [140, 150, 160])
+    ni = cal_year(2025, [10, 10, 10], annual=90) + cal_year(2026, [10, 10, 10])  # 4T=60: ratio 6, pero real
+    cf = rev_cf(rev, extra={"NetIncomeLoss": ni})
+    st = {"aceptados": set(), "rechazados": set()}
+    X.build_flow(cf, "1", "ingresos", date(2026, 9, 30), "1231", q4_state=st)
+    flow, _ = X.build_flow(cf, "1", "beneficio_neto", date(2026, 9, 30), "1231", q4_state=st)
+    assert {p["periodo"]: p["valor"] for p in flow["trimestral"]}["4T25"] == 60
+
+
+def test_si_el_4t_de_ingresos_se_descarta_tambien_el_del_resto():
+    rev = cal_year(2025, [100, 110, 120], annual=300) + cal_year(2026, [90, 95, 100])
+    ni = cal_year(2025, [10, 10, 10], annual=40) + cal_year(2026, [10, 10, 10])
+    cf = rev_cf(rev, extra={"NetIncomeLoss": ni})
+    st = {"aceptados": set(), "rechazados": set()}
+    X.build_flow(cf, "1", "ingresos", date(2026, 9, 30), "1231", q4_state=st)
+    flow, _ = X.build_flow(cf, "1", "beneficio_neto", date(2026, 9, 30), "1231", q4_state=st)
+    assert "4T25" not in {p["periodo"] for p in flow["trimestral"]}

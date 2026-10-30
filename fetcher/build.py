@@ -67,8 +67,9 @@ def build_from_sec(company, cf, subs):
     rec["referencia_fecha_datos"] = ref_end.isoformat()
 
     rec["resultados"] = {}
-    for key in C.FLOW_CONCEPTS:
-        flow, w = X.build_flow(cf, cik, key, ref_end, fye)
+    q4_state = {"aceptados": set(), "rechazados": set()}
+    for key in C.FLOW_CONCEPTS:  # «ingresos» va primero: decide qué 4T son coherentes
+        flow, w = X.build_flow(cf, cik, key, ref_end, fye, q4_state=q4_state)
         rec["resultados"][key] = flow
         avisos += w
 
@@ -78,6 +79,17 @@ def build_from_sec(company, cf, subs):
         rec["balance"][key] = inst
         avisos += w
     rec["acciones_en_circulacion"] = X.shares_outstanding(cf, cik)
+    if rec["acciones_en_circulacion"] is None:
+        dil = rec["resultados"]["acciones_diluidas_media"]["trimestral"]
+        if dil:
+            p = dict(dil[-1])
+            p["derivado"] = (f"Acciones diluidas medias del {p['periodo']}: la portada da el número "
+                             f"por clase de acción y la API de la SEC no lo publica")
+            rec["acciones_en_circulacion"] = p
+            avisos.append(X.warn("info", "acciones_diluidas",
+                f"Acciones: se usan las diluidas medias del {p['periodo']} ({p['valor']/1e6:,.0f} M)."))
+        else:
+            avisos.append(X.warn("aviso", "concepto_no_encontrado", "No se encuentra el número de acciones."))
 
     rev = rec["resultados"]["ingresos"]
     if not rev["anual"] and not rev["trimestral"]:

@@ -82,3 +82,14 @@ def test_todas_las_cifras_tienen_trazabilidad():
         for concept in r["resultados"].values():
             for p in concept["anual"] + concept["trimestral"]:
                 assert p["url"].startswith("https://www.sec.gov/") and p["etiqueta"] and p["fecha_presentacion"]
+
+
+def test_amazon_4t_estacionales_no_se_descartan():
+    r = rec("AMZN")
+    assert mill(q(r, "beneficio_neto", "4T25")) > 0
+    assert r["resultados"]["caja_operativa"]["ttm"] is not None
+
+
+def test_acciones_siempre_presentes():
+    for t in COMPANIES:
+        assert rec(t)["acciones_en_circulacion"]["valor"] > 0
