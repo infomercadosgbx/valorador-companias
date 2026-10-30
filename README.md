@@ -2,7 +2,7 @@
 
 Web estática (GitHub Pages) que valora compañías cotizadas con **datos oficiales de la SEC** y se actualiza sola cada noche laborable. No hay servidor propio: un GitHub Action descarga los datos, los valida, escribe JSON en `/data` y hace commit solo si algo cambió.
 
-> Estado: **fase 1** (descarga, validación, Action, tests), verificada con datos reales de la SEC el 30-oct-2026. La web `valorador.html` todavía usa sus datos internos; en la fase 2 pasará a leer `/data/*.json`.
+> Estado: **fases 1 y 2**. Descarga, validación y Action verificados con datos reales de la SEC el 30-oct-2026; la web lee `/data`, `/analysis` y `/manual`.
 
 ## Puesta en marcha (una sola vez)
 
@@ -39,6 +39,17 @@ Necesitas permisos de administrador en el repositorio. Todo se hace desde la web
 
 A partir de ahí se ejecuta solo de lunes a viernes a las 23:17 UTC (00:17 en Madrid en invierno, 01:17 en verano).
 
+## La web
+
+`valorador.html` carga `companies.json` y, para cada compañía, `data/<TICKER>.json` (cifras de la SEC y cotización), `analysis/<TICKER>.json` (tu criterio) y `manual/<TICKER>.json` (precios objetivo). No guarda nada en ningún servidor.
+
+- **Fuente y fecha de cada cifra.** Junto a cada cifra importante aparece su origen («SEC 10-Q · 29-oct-26», «Finnhub · 30-oct-26» o «manual»). Al pasar el ratón se ve la etiqueta XBRL y el periodo; al hacer clic se abre el filing en EDGAR. La pestaña *Fuentes* tiene la tabla completa, el último 10-Q/10-K, el 8-K de resultados y su Exhibit 99.1.
+- **Avisos.** Bajo la cabecera de cada compañía hay una franja con los avisos del Action y los que calcula la web: si la deuda, la caja o las acciones de tu modelo difieren más de un 20% del dato de la SEC, aparece un aviso y, en *Valoración*, el botón «Usar dato SEC».
+- **Supuestos que siguen a la SEC.** Si en `analysis/<TICKER>.json` no pones `v.shares`, `v.cash` o `v.debt`, el DCF usa el último dato de la SEC y se actualiza solo cada noche.
+- **Editar tu análisis.** «Editar» funciona como antes, pero los cambios se guardan como borrador en tu navegador. Para publicarlos, pulsa «Descargar <TICKER>.json» y súbelo a la carpeta `analysis/` del repositorio (*Add file → Upload files*, sustituyendo el archivo). La web te lleva a esa página de GitHub.
+- **Cambios del valorador antiguo.** Si editaste algo en la versión anterior, en ella pulsa «Datos → Copiar JSON» y pégalo en «Mi análisis → Importar como borradores».
+- **En local**, abre la carpeta con `python -m http.server` y entra en `http://localhost:8000/valorador.html` (abriendo el archivo con doble clic el navegador bloquea la lectura de los JSON).
+
 ## Qué hace cada noche
 
 1. Ejecuta los tests. Si fallan, no se toca ningún dato.
@@ -54,7 +65,8 @@ A partir de ahí se ejecuta solo de lunes a viernes a las 23:17 UTC (00:17 en Ma
 | `companies.json` | Única lista de compañías: ticker, nombre, CIK, color, monograma | Tú (o el alta automática, fase 3) |
 | `data/<TICKER>.json` | Datos automáticos con fuente de cada cifra | **Solo el Action. Nunca a mano.** |
 | `data/index.json` | Resumen de todas las compañías para la web | Solo el Action |
-| `analysis/<TICKER>.json` | Tus supuestos y textos: DCF, scorecard, veredicto, directiva, MOAT, riesgos, última presentación de resultados | Tú, versionado en git |
+| `analysis/<TICKER>.json` | Tus supuestos y textos: DCF, scorecard, veredicto, directiva, MOAT, riesgos, última presentación de resultados (`mgmt.call`) y series por segmento que la SEC no publica (`fin_manual`) | Tú, versionado en git |
+| `analysis/_plantilla.json` | Análisis en blanco para compañías nuevas | — |
 | `manual/<TICKER>.json` | Consenso de precios objetivo introducido a mano (la web lo marca «manual») | Tú |
 | `fetcher/` | Código Python (solo biblioteca estándar) | — |
 | `tests/` | Tests sintéticos de cada regla y tests de aceptación con fixtures reales | — |
@@ -63,7 +75,7 @@ A partir de ahí se ejecuta solo de lunes a viernes a las 23:17 UTC (00:17 en Ma
 ## Fuentes de datos
 
 - **Cifras financieras:** solo SEC EDGAR (`data.sec.gov/api/xbrl/companyfacts` y `data.sec.gov/submissions`), con User-Agent identificado, como máximo 5 peticiones por segundo y reintentos con espera creciente.
-- **Precio:** Finnhub, endpoint `/quote` (API oficial, plan gratuito de 60 llamadas por minuto). Proveedor abstraído en `fetcher/prices.py`; para cambiarlo basta con otra clase `PriceProvider`.
+- **Precio:** Finnhub, endpoints `/quote` y `/stock/metric` (rango de 52 semanas) (API oficial, plan gratuito de 60 llamadas por minuto). Proveedor abstraído en `fetcher/prices.py`; para cambiarlo basta con otra clase `PriceProvider`.
 - **Consenso:** las recomendaciones (compra/mantener/venta) llegan de Finnhub `/stock/recommendation`, gratuito. Los **precios objetivo** son de pago en Finnhub, así que van en `manual/<TICKER>.json` y la web los marcará como «manual».
 - No se hace scraping de ninguna web.
 

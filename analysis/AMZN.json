@@ -1,83 +1,431 @@
 {
- "_nota": "Supuestos y textos propios. Se editan a mano y se versionan en git; el Action nunca los toca.",
+ "_nota": "Supuestos y textos propios. Se editan a mano (o desde el botón «Editar» de la web, que descarga este archivo) y se versionan en git. El Action nunca los toca.",
  "esquema": 1,
  "meta": {
-  "sector": "",
-  "sede": "",
-  "fundada": "",
-  "empleados": "",
-  "proximos_resultados": "",
-  "favorita": false
+  "nextEarnings": "29-oct-2026",
+  "sector": "Comercio electrónico, nube y publicidad",
+  "hq": "Seattle, Washington",
+  "founded": "1994",
+  "employees": "1.576.000 (dic-25)",
+  "asOf": "27-oct-2026"
  },
  "overview": {
-  "tesis": "",
-  "resumen": "",
-  "datos_clave": [],
-  "catalizadores": []
+  "thesis": "AWS vuelve a acelerar (+37%) con una cartera firmada de casi 500.000 M$, pero Amazon gasta 220.000 M$ al año en centros de datos y su flujo de caja libre está en negativo. A ~253 $ el precio ya refleja el modelo base.",
+  "summary": "Tres negocios en uno: la tienda online más grande de Occidente (con Prime y el marketplace de vendedores externos), Amazon Web Services, la mayor nube del mundo, y un negocio de publicidad que ya factura casi 80.000 M$ al año.\nAWS aporta el 18% de las ventas pero más de la mitad del beneficio operativo. Además tiene una participación en Anthropic que en 2026 le ha dado más de 70.000 M$ de ganancias contables.",
+  "keyFacts": [
+   {
+    "k": "Ventas 2T26",
+    "v": "200.600 M$ (+20%)"
+   },
+   {
+    "k": "AWS 2T26",
+    "v": "42.200 M$ (+37%), 16.600 M$ de beneficio"
+   },
+   {
+    "k": "Publicidad 2T26",
+    "v": "19.800 M$ (+26%)"
+   },
+   {
+    "k": "Beneficio operativo 2T26",
+    "v": "27.500 M$ (+43%)"
+   },
+   {
+    "k": "Cartera de AWS (2T26)",
+    "v": "496.000 M$ (364.000 M$ un trimestre antes)"
+   },
+   {
+    "k": "Capex 2026 (guía)",
+    "v": "~220.000 M$"
+   },
+   {
+    "k": "FCF 12 meses (jun-26)",
+    "v": "−7.600 M$"
+   }
+  ],
+  "catalysts": [
+   {
+    "d": "29-oct-26",
+    "t": "Resultados 3T26 tras el cierre: guía 197.000–202.000 M$ y beneficio operativo de 22.500–26.500 M$. El mercado espera AWS cerca del +35%."
+   },
+   {
+    "d": "Feb-27",
+    "t": "Resultados 4T26 y plan de capex para 2027."
+   },
+   {
+    "d": "Mar-27",
+    "t": "Juicio antimonopolio de la FTC sobre sus prácticas de precios."
+   },
+   {
+    "d": "En curso",
+    "t": "Revalorizaciones de su participación en Anthropic, que mueven mucho el beneficio neto."
+   }
+  ]
  },
- "negocio": {
-  "modelo": "",
-  "clientes": "",
-  "segmentos": [],
-  "tipos_cliente": [],
-  "calidad": [],
-  "fase": null,
-  "nota_fase": ""
+ "business": {
+  "model": "Vende productos propios y cobra comisiones, logística y publicidad a millones de vendedores externos de su marketplace. Cobra cuotas de Prime y otras suscripciones.\nCon AWS alquila capacidad de cómputo, almacenamiento, chips propios (Trainium) y modelos de IA a empresas de todo el mundo.",
+  "customers": "Cientos de millones de compradores (muchos con Prime), millones de vendedores externos que usan su logística, anunciantes que quieren llegar al comprador en el momento de la compra, y empresas y laboratorios de IA que contratan AWS.",
+  "segNote": "Ventas de 2025 por segmento, en M$. AWS genera el 57% del beneficio operativo con solo el 18% de las ventas.",
+  "segments": [
+   {
+    "n": "Norteamérica",
+    "v": 426300
+   },
+   {
+    "n": "Internacional",
+    "v": 161900
+   },
+   {
+    "n": "AWS",
+    "v": 128700
+   }
+  ],
+  "customerTypes": [
+   {
+    "n": "Compradores y Prime",
+    "d": "Suscripciones +12% en 2T26 (13.700 M$ por trimestre)."
+   },
+   {
+    "n": "Vendedores externos",
+    "d": "Pagan comisiones, logística y publicidad para vender en Amazon."
+   },
+   {
+    "n": "Empresas en AWS",
+    "d": "Cartera firmada de 496.000 M$; ventas +37%."
+   },
+   {
+    "n": "Anunciantes",
+    "d": "19.800 M$ en el 2T26 (+26%): anuncios en la búsqueda de Amazon y en Prime Video."
+   }
+  ],
+  "quality": [
+   {
+    "n": "Márgenes",
+    "s": 3,
+    "note": "Margen operativo ~13%; AWS ~39%"
+   },
+   {
+    "n": "Retorno sobre capital",
+    "s": 3,
+    "note": "Alto en AWS y publicidad; diluido por el capex"
+   },
+   {
+    "n": "Conversión en caja",
+    "s": 1,
+    "note": "FCF de −7.600 M$ en 12 meses por el capex"
+   },
+   {
+    "n": "Recurrencia de ingresos",
+    "s": 4,
+    "note": "Prime y contratos plurianuales de AWS"
+   },
+   {
+    "n": "Diversificación",
+    "s": 5,
+    "note": "Comercio, nube, publicidad y suscripciones en todo el mundo"
+   },
+   {
+    "n": "Balance",
+    "s": 4,
+    "note": "123.000 M$ de caja frente a 128.900 M$ de deuda"
+   }
+  ],
+  "phase": 2,
+  "phaseNote": "El comercio online es un negocio maduro, pero AWS y publicidad le dan una segunda fase de crecimiento. Crecer al 20% con más de 700.000 M$ de ventas es excepcional."
  },
  "moat": {
-  "anchura": "",
-  "tendencia": "",
-  "nota": "",
-  "fuentes": [],
-  "competidores": []
- },
- "crecimiento": {
-  "puntuacion": null,
-  "nota": "",
-  "tam": "",
-  "guia": "",
-  "palancas": []
- },
- "directiva": {
-  "nota": "",
-  "personas": [],
-  "puntuaciones": []
- },
- "ultima_presentacion_resultados": {
-  "fecha": "",
-  "resumen": "",
-  "guia": ""
- },
- "riesgos": [],
- "dcf": {
-  "ingresos_base": null,
-  "anio_base": null,
-  "crecimiento": [
-   null,
-   null,
-   null,
-   null,
-   null
+  "width": "Amplio",
+  "trend": "Estable",
+  "note": "Pocos negocios combinan tantas ventajas: la red logística y de centros de datos más grande de Occidente, millones de vendedores y compradores en el mismo sitio, y clientes de AWS a los que les cuesta mucho migrar. La amenaza está en la nube: Azure (+43%) y Google Cloud (+82%) crecen más rápido.",
+  "sources": [
+   {
+    "n": "Efecto red",
+    "s": 4,
+    "note": "Más vendedores → más selección → más compradores; Prime"
+   },
+   {
+    "n": "Costes de cambio",
+    "s": 4,
+    "note": "Migrar fuera de AWS es caro y arriesgado"
+   },
+   {
+    "n": "Activos intangibles",
+    "s": 4,
+    "note": "Marca, datos de compra, chips propios Trainium"
+   },
+   {
+    "n": "Ventaja de costes",
+    "s": 5,
+    "note": "Escala en logística, compras y cómputo"
+   },
+   {
+    "n": "Escala eficiente",
+    "s": 5,
+    "note": "Red logística y centros de datos casi imposibles de replicar"
+   }
   ],
-  "margen_ebitda_1": null,
-  "margen_ebitda_5": null,
-  "da": null,
-  "sbc": null,
-  "capex": null,
-  "capital_circulante": null,
-  "impuestos": null,
-  "wacc": null,
-  "g_terminal": null,
-  "multiplo_salida": null,
-  "metodo": "blend",
-  "deuda_modelo": null,
-  "caja_modelo": null,
-  "acciones_modelo": null,
-  "escenarios": [
+  "comps": [
+   {
+    "n": "Microsoft Azure",
+    "threat": 4,
+    "note": "Crece al 43% en la nube con OpenAI"
+   },
+   {
+    "n": "Google Cloud",
+    "threat": 4,
+    "note": "Crece al 103% con margen del 36%"
+   },
+   {
+    "n": "Walmart",
+    "threat": 3,
+    "note": "Rival en comercio online y publicidad minorista"
+   },
+   {
+    "n": "Temu y Shein",
+    "threat": 3,
+    "note": "Precios bajos desde Asia"
+   },
+   {
+    "n": "Shopify",
+    "threat": 2,
+    "note": "Alternativa para marcas que venden por su cuenta"
+   }
+  ]
+ },
+ "growth": {
+  "score": 4,
+  "scoreNote": "Crece entre el 11% y el 20% según el trimestre, con AWS acelerando hasta el 37%. Para su tamaño es un ritmo muy alto.",
+  "tam": "Comercio minorista mundial, nube pública (donde AWS es el número 1) y publicidad digital, donde ya es el tercer actor tras Google y Meta.",
+  "guidance": "Guía 3T26: ventas 197.000–202.000 M$ (+9–12%; +13–16% sin el efecto del Prime Day) y beneficio operativo de 22.500–26.500 M$. Capex 2026: ~220.000 M$.",
+  "drivers": [
+   {
+    "n": "AWS e inteligencia artificial",
+    "impact": 5,
+    "h": "2026–2028",
+    "d": "+37% en 2T26; la cartera firmada subió 132.000 M$ en un trimestre."
+   },
+   {
+    "n": "Publicidad",
+    "impact": 4,
+    "h": "Continuo",
+    "d": "+26%; anuncios en la tienda y en Prime Video."
+   },
+   {
+    "n": "Participación en Anthropic",
+    "impact": 3,
+    "h": "2026–2027",
+    "d": "Gran cliente de AWS y Trainium; además, revalorización contable."
+   },
+   {
+    "n": "Prime y suscripciones",
+    "impact": 2,
+    "h": "Continuo",
+    "d": "+12% en 2T26."
+   },
+   {
+    "n": "Amazon Leo (internet por satélite)",
+    "impact": 2,
+    "h": "2027+",
+    "d": "Opcionalidad; cuesta ~1.000 M$ más por trimestre."
+   }
+  ]
+ },
+ "mgmt": {
+  "note": "Una acción, un voto: no hay acciones de doble clase. Jeff Bezos sigue siendo el mayor accionista individual y presidente ejecutivo. Amazon no paga dividendo y apenas recompra: reinvierte casi todo.",
+  "people": [
+   {
+    "n": "Andy Jassy",
+    "role": "CEO",
+    "since": "2021",
+    "note": "Fundó AWS y lo dirigió hasta suceder a Bezos."
+   },
+   {
+    "n": "Brian Olsavsky",
+    "role": "Director financiero",
+    "since": "2015",
+    "note": "Gestiona el mayor plan de inversión de la historia de la empresa."
+   },
+   {
+    "n": "Matt Garman",
+    "role": "CEO de AWS",
+    "since": "2024",
+    "note": "AWS ha pasado del +17% al +37% bajo su mando."
+   },
+   {
+    "n": "Jeff Bezos",
+    "role": "Fundador y presidente ejecutivo",
+    "since": "1994",
+    "note": "Mayor accionista individual (~8%, aprox.)."
+   }
+  ],
+  "scores": [
+   {
+    "n": "Alineación con el accionista",
+    "s": 3,
+    "note": "Directivos pagados en acciones; el fundador sigue en el capital"
+   },
+   {
+    "n": "Asignación de capital",
+    "s": 4,
+    "note": "Capex enorme pero respaldado por contratos; inversión en Anthropic muy rentable"
+   },
+   {
+    "n": "Credibilidad y ejecución",
+    "s": 4,
+    "note": "Márgenes récord y AWS acelerando"
+   },
+   {
+    "n": "Gobierno corporativo",
+    "s": 4,
+    "note": "Una acción, un voto; consejo mayoritariamente independiente"
+   },
+   {
+    "n": "Transparencia",
+    "s": 4,
+    "note": "Publica la cartera de AWS y guía de beneficio operativo"
+   }
+  ],
+  "alloc": {
+   "label": "Uso de la caja, 1S 2026 (M$, aprox.)",
+   "items": [
+    {
+     "n": "Capex",
+     "v": 98000
+    },
+    {
+     "n": "Recompras",
+     "v": 0
+    },
+    {
+     "n": "Dividendos",
+     "v": 0
+    }
+   ]
+  },
+  "vote": {
+   "label": "Poder de voto (%, aprox.)",
+   "items": [
+    {
+     "n": "Jeff Bezos",
+     "v": 8
+    },
+    {
+     "n": "Resto de accionistas",
+     "v": 92
+    }
+   ]
+  },
+  "call": {
+   "periodEnd": "2026-06-30",
+   "q": "2T 2026",
+   "date": "30-jul-2026",
+   "doc": "Nota de resultados (IR de Amazon)",
+   "url": "https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-Second-Quarter-Results/",
+   "nota": "El 3T26 se presenta hoy, 29-oct, después del cierre (llamada a las 23:00 en Madrid): esta ficha se actualizará con esa nota.",
+   "dir": [
+    "Jassy: AWS se acelera (+36,7%, el mayor ritmo en 18 trimestres) y sus negocios de IA y de chips superan cada uno los 25.000 M$ anuales.",
+    "Trainium: Anthropic y OpenAI han firmado compromisos plurianuales de varios gigavatios. Graviton5 ya está disponible.",
+    "Agentes de IA (AgentCore, Quick, Kiro) y una inversión de 1.000 M$ en ingenieros desplegados con clientes.",
+    "Publicidad +26%; Alexa for Shopping casi duplica sus usuarios activos; Amazon Leo (satélites) tiene cerca de 400 en órbita y espera iniciar el servicio este año."
+   ],
+   "ret": [
+    "El FCF de los últimos 12 meses es de −7.600 M$ (frente a +18.200 M$): el capex bruto del trimestre fue de 54.200 M$, casi el doble que hace un año.",
+    "Advierte de riesgos de suministro de chips de memoria, precios de la energía, aranceles y demanda."
+   ],
+   "guia": [
+    "3T26: ventas de 197.000–202.000 M$ (+9% a +12%; unos 400 pb más sin el efecto del calendario de Prime Day) y resultado operativo de 22.500–26.500 M$.",
+    "La divisa restará unos 80 pb."
+   ],
+   "cap": [
+    "Capex bruto de 54.200 M$ en el trimestre (32.200 M$ un año antes), sobre todo para infraestructura de IA.",
+    "El beneficio neto de 62.600 M$ incluye 53.400 M$ de ganancias por su inversión en Anthropic: no es beneficio recurrente."
+   ]
+  }
+ },
+ "risks": [
+  {
+   "n": "El capex no rinde lo esperado",
+   "cat": "Financiero",
+   "p": 3,
+   "i": 4,
+   "note": "FCF de −7.600 M$ en 12 meses; capex de ~220.000 M$ en 2026"
+  },
+  {
+   "n": "Pierde cuota en la nube",
+   "cat": "Competencia",
+   "p": 3,
+   "i": 4,
+   "note": "Azure (+43%) y Google Cloud (+82%) crecen más rápido"
+  },
+  {
+   "n": "Juicio antimonopolio de la FTC",
+   "cat": "Regulatorio",
+   "p": 3,
+   "i": 3,
+   "note": "Juicio fijado para marzo de 2027"
+  },
+  {
+   "n": "Dependencia de Anthropic",
+   "cat": "Comercial",
+   "p": 3,
+   "i": 3,
+   "note": "Gran cliente y participación con ganancias contables muy volátiles"
+  },
+  {
+   "n": "Márgenes del comercio y aranceles",
+   "cat": "Mercado",
+   "p": 3,
+   "i": 2,
+   "note": "Margen internacional de solo ~4%"
+  },
+  {
+   "n": "Coste de memoria y chips",
+   "cat": "Operativo",
+   "p": 3,
+   "i": 2,
+   "note": "La dirección lo citó al subir la guía de capex"
+  },
+  {
+   "n": "Más deuda",
+   "cat": "Financiero",
+   "p": 2,
+   "i": 2,
+   "note": "Deuda a largo plazo de 65.600 a 128.900 M$ en seis meses"
+  }
+ ],
+ "v": {
+  "shares": 10950,
+  "cash": 123000,
+  "debt": 128900,
+  "rev0": 822000,
+  "year0": 2026,
+  "g": [
+   12,
+   11,
+   10,
+   9,
+   8
+  ],
+  "m1": 26,
+  "m5": 30,
+  "da": 9.5,
+  "da5": 11,
+  "sbc": 3,
+  "capex": 27,
+  "capex5": 13,
+  "nwc": -3,
+  "tax": 17,
+  "wacc": 9,
+  "tg": 3,
+  "exit": 14,
+  "method": "blend",
+  "eps": 9.5,
+  "pe": 30,
+  "evm": 16,
+  "scn": [
    {
     "n": "Bajista",
-    "dg": -10,
-    "dm": -3,
+    "dg": -5,
+    "dm": -4,
     "p": 25
    },
    {
@@ -88,21 +436,186 @@
    },
    {
     "n": "Alcista",
-    "dg": 6,
-    "dm": 1,
+    "dg": 4,
+    "dm": 2,
     "p": 25
    }
   ]
  },
- "veredicto": {
-  "rating": "",
-  "conviccion": null,
-  "comprar_por_debajo": null,
-  "horizonte": "",
-  "resumen": "",
-  "alcista": [],
-  "bajista": [],
-  "vigilar": []
+ "verdict": {
+  "rating": "Mantener",
+  "conviction": 3,
+  "buyBelow": 215,
+  "horizon": "12–24 meses",
+  "summary": "Gran compañía con AWS acelerando y publicidad creciendo al 26%, pero en el pico de su ciclo de inversión: el capex se come todo el flujo de caja y la deuda se ha duplicado en seis meses. El modelo da un valor muy cercano a la cotización, sin contar el valor de la participación en Anthropic. Mantener y comprar en caídas; hoy presenta resultados tras el cierre.",
+  "bull": [
+   "AWS +37% con 496.000 M$ de cartera firmada",
+   "Publicidad +26%, negocio de margen muy alto",
+   "Participación en Anthropic con mucho valor",
+   "Ventajas de escala en logística y nube"
+  ],
+  "bear": [
+   "FCF negativo y capex de ~220.000 M$",
+   "Deuda a largo plazo duplicada en 2026",
+   "Azure y Google Cloud crecen más rápido",
+   "Juicio de la FTC en marzo de 2027"
+  ],
+  "watch": [
+   "Crecimiento y margen de AWS en el 3T26 (hoy)",
+   "Plan de capex para 2027",
+   "Vuelta del FCF a positivo",
+   "Valor contable de Anthropic"
+  ]
  },
- "notas": ""
+ "notes": "Cotización de 253,10 $ del cierre del 27-oct-2026. Amazon presenta resultados del 3T26 hoy, 29-oct, tras el cierre. El DCF no incluye el valor de la participación en Anthropic.",
+ "sources": {
+  "web": "https://www.aboutamazon.com",
+  "ir": "https://ir.aboutamazon.com",
+  "docs": [
+   {
+    "cat": "Resultados trimestrales",
+    "t": "Nota de prensa de resultados 2T26",
+    "d": "30-jul-2026",
+    "u": "https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-Second-Quarter-Results"
+   },
+   {
+    "cat": "Resultados trimestrales",
+    "t": "8-K de resultados 1T26 (Exhibit 99.1)",
+    "d": "29-abr-2026",
+    "u": "https://www.sec.gov/Archives/edgar/data/0001018724/000101872426000012/amzn-20260331xex991.htm"
+   },
+   {
+    "cat": "Resultados trimestrales",
+    "t": "8-K de resultados 4T25 y año 2025 (Exhibit 99.1)",
+    "d": "05-feb-2026",
+    "u": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000002/amzn-20251231xex991.htm"
+   },
+   {
+    "cat": "Transcripciones",
+    "t": "Llamada de resultados 1T26 (MarketBeat)",
+    "d": "29-abr-2026",
+    "u": "https://www.marketbeat.com/earnings/reports/2026-4-29-amazoncom-inc-stock/"
+   },
+   {
+    "cat": "Transcripciones",
+    "t": "Resumen de la llamada 2T26 (Quartr)",
+    "d": "30-jul-2026",
+    "u": "https://quartr.com/events/amazon-com-inc-amzn-q2-2026_3sdJV790"
+   },
+   {
+    "cat": "Presentaciones",
+    "t": "Novedades del 3T26 según Amazon",
+    "d": "oct-2026",
+    "u": "https://www.aboutamazon.com/news/company-news/amazon-q3-2026-earnings-preview"
+   }
+  ],
+  "news": [
+   {
+    "t": "Por qué subió tras el 2T26 (cartera de AWS y capex)",
+    "src": "INDmoney",
+    "u": "https://www.indmoney.com/blog/us-stocks/amazon-q2-earnings-results-why-amzn-stock-jumped-analysis"
+   },
+   {
+    "t": "Qué esperar de los resultados del 3T26",
+    "src": "Pepperstone",
+    "u": "https://pepperstone.com/en-ae/insights/market-analysis/equities/amazon-q3-2026-earnings-preview"
+   },
+   {
+    "t": "Cotización y consenso antes de resultados",
+    "src": "Gotrade",
+    "u": "https://www.heygotrade.com/en/news/amazon-amzn-stock-news-october-28-2026/"
+   },
+   {
+    "t": "Consenso de BPA y precio objetivo",
+    "src": "Yahoo Finance / Barchart",
+    "u": "https://finance.yahoo.com/markets/stocks/articles/expect-amazon-com-q3-2026-110710701.html"
+   },
+   {
+    "t": "El juicio de la FTC se aplaza a marzo de 2027",
+    "src": "MLex",
+    "u": "https://www.mlex.com/mlex/amp/articles/2422758"
+   }
+  ]
+ },
+ "social": {
+  "pulse": [
+   {
+    "p": "Reddit",
+    "s": null,
+    "note": ""
+   },
+   {
+    "p": "X",
+    "s": null,
+    "note": ""
+   },
+   {
+    "p": "Threads",
+    "s": null,
+    "note": ""
+   },
+   {
+    "p": "YouTube",
+    "s": null,
+    "note": ""
+   }
+  ],
+  "videos": [
+   {
+    "t": "Amazon Stock Analysis 2026: My Fair Value & Buy Zones",
+    "u": "https://www.youtube.com/watch?v=6bpSwUCZWtQ"
+   },
+   {
+    "t": "Amazon Stock 2026: The $200B AI Gamble (AMZN Analysis)",
+    "u": "https://www.youtube.com/watch?v=99BgzgCaHto"
+   },
+   {
+    "t": "What to expect from Amazon's earnings report as AWS faces pressure from rivals",
+    "u": "https://www.youtube.com/watch?v=OftL8SOzQ20"
+   },
+   {
+    "t": "Better Than Nvidia? The Case for Amazon in 2026",
+    "u": "https://www.youtube.com/watch?v=1s76pS26CU4"
+   },
+   {
+    "t": "Where Will Amazon Stock Be in 2026?",
+    "u": "https://www.youtube.com/watch?v=P2iytrsoH9M"
+   }
+  ]
+ },
+ "fin_manual": {
+  "nota": "Series que la SEC no publica (por segmento). Las etiquetas de trimestre deben coincidir con las de la SEC (p. ej. 3T26).",
+  "q": {
+   "labels": [
+    "3T25",
+    "4T25",
+    "1T26",
+    "2T26",
+    "3T26 guía"
+   ],
+   "series": [
+    {
+     "n": "AWS",
+     "values": [
+      20,
+      24,
+      28,
+      37,
+      null
+     ]
+    },
+    {
+     "n": "Publicidad",
+     "values": [
+      24,
+      23,
+      24,
+      26,
+      null
+     ]
+    }
+   ]
+  },
+  "nota_antigua": "Se usa beneficio operativo en vez de EBITDA. 2026e: primer semestre real + guía del 3T + 4T estimado. El beneficio neto de 2026 no se muestra porque incluye más de 70.000 M$ de ganancias contables por Anthropic. La guía del 3T26 (+9–12%) está afectada por el cambio de fecha del Prime Day a junio. Caja = caja + valores negociables; deuda = deuda a largo plazo."
+ }
 }

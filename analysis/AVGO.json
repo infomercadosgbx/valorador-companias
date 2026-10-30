@@ -1,83 +1,418 @@
 {
- "_nota": "Supuestos y textos propios. Se editan a mano y se versionan en git; el Action nunca los toca.",
+ "_nota": "Supuestos y textos propios. Se editan a mano (o desde el botón «Editar» de la web, que descarga este archivo) y se versionan en git. El Action nunca los toca.",
  "esquema": 1,
  "meta": {
-  "sector": "",
-  "sede": "",
-  "fundada": "",
-  "empleados": "",
-  "proximos_resultados": "",
-  "favorita": false
+  "sector": "Semiconductores y software de infraestructura",
+  "hq": "Palo Alto, California",
+  "founded": "1961 (como división de HP; Broadcom actual desde 2016)",
+  "employees": "33.000",
+  "asOf": "28-oct-2026",
+  "nextEarnings": "10-dic-2026 (est.)"
  },
  "overview": {
-  "tesis": "",
-  "resumen": "",
-  "datos_clave": [],
-  "catalizadores": []
+  "thesis": "Diseña los chips de IA a medida de Google, Meta, OpenAI y Anthropic y las redes que los conectan: sus ventas de IA se triplican. A ~352 $ el precio ya descuenta un crecimiento del ~20% anual durante cinco años: gran compañía a un precio justo.",
+  "summary": "Broadcom tiene dos negocios. Semiconductores: chips aceleradores de IA diseñados a medida para cada gran cliente (los TPU de Google, por ejemplo), chips de red Ethernet para conectar miles de aceleradores, y chips para móviles, banda ancha y almacenamiento. Software de infraestructura: VMware, que compró en 2023, y otras herramientas para centros de datos de empresas.\nLa IA ya supone más de la mitad de sus ventas: 16.700 M$ en el 3T de su ejercicio 2026, un 221% más que un año antes.",
+  "keyFacts": [
+   {
+    "k": "Ingresos 3T FY26",
+    "v": "29.591 M$ (+86%)"
+   },
+   {
+    "k": "Ingresos de IA 3T FY26",
+    "v": "16.700 M$ (+221%)"
+   },
+   {
+    "k": "Guía 4T FY26",
+    "v": "34.800 M$ (+93%); IA 21.700 M$"
+   },
+   {
+    "k": "FCF 3T FY26",
+    "v": "13.700 M$ (46% de las ventas)"
+   },
+   {
+    "k": "Caja / deuda (ago-26)",
+    "v": "23.975 / 59.419 M$"
+   },
+   {
+    "k": "Consenso FY27",
+    "v": "Ingresos de 174.230 M$ (+64%)"
+   },
+   {
+    "k": "Dividendo",
+    "v": "2,60 $ por acción (0,7%)"
+   }
+  ],
+  "catalysts": [
+   {
+    "d": "10-dic-26",
+    "t": "Resultados del 4T FY26 (fecha estimada) y primera visión del FY27 en IA."
+   },
+   {
+    "d": "2026–27",
+    "t": "Salida a bolsa de Anthropic, que será su mayor cliente de chips en 2027."
+   },
+   {
+    "d": "2027",
+    "t": "Anthropic despliega otros 5 GW de TPU financiados con 63.000 M$ de bancos y Blackstone."
+   },
+   {
+    "d": "2027–28",
+    "t": "Entrada de MediaTek en el suministro de TPU de Google."
+   }
+  ]
  },
- "negocio": {
-  "modelo": "",
-  "clientes": "",
-  "segmentos": [],
-  "tipos_cliente": [],
-  "calidad": [],
-  "fase": null,
-  "nota_fase": ""
+ "business": {
+  "model": "En IA no vende un chip estándar: co-diseña con cada cliente su acelerador (XPU) durante años y luego lo fabrica con TSMC. Además vende los chips de red que conectan los aceleradores.\nEn software cobra suscripciones de VMware a grandes empresas. El conjunto genera un flujo de caja libre de más del 40% de las ventas.",
+  "customers": "Un puñado de gigantes de la IA (Google, Meta, ByteDance, OpenAI, Anthropic y otros), fabricantes de móviles como Apple, operadoras y fabricantes de equipos de red, y miles de grandes empresas que usan VMware.",
+  "segNote": "Ingresos de los últimos 12 meses (hasta ago-26), en M$.",
+  "segments": [
+   {
+    "n": "Semiconductores",
+    "v": 59435
+   },
+   {
+    "n": "Software de infraestructura",
+    "v": 29669
+   }
+  ],
+  "customerTypes": [
+   {
+    "n": "Hiperescaladores",
+    "d": "Google (TPU), Meta y otros: aceleradores a medida y redes."
+   },
+   {
+    "n": "Laboratorios de IA",
+    "d": "OpenAI y Anthropic; Anthropic será su mayor cliente de chips en 2027."
+   },
+   {
+    "n": "Empresas con VMware",
+    "d": "Software de virtualización y nube privada; +29% en el 3T FY26."
+   },
+   {
+    "n": "Móviles y redes",
+    "d": "Apple y fabricantes de equipos: chips de radiofrecuencia, wifi y banda ancha."
+   }
+  ],
+  "quality": [
+   {
+    "n": "Márgenes",
+    "s": 5,
+    "note": "Margen bruto 75%, operativo 49% (GAAP)"
+   },
+   {
+    "n": "Retorno sobre capital",
+    "s": 4,
+    "note": "Alto, aunque el balance carga el fondo de comercio de VMware"
+   },
+   {
+    "n": "Conversión en caja",
+    "s": 5,
+    "note": "FCF del 44% de las ventas y capex de solo ~1%"
+   },
+   {
+    "n": "Recurrencia de ingresos",
+    "s": 4,
+    "note": "Software por suscripción y diseños de IA plurianuales"
+   },
+   {
+    "n": "Diversificación",
+    "s": 3,
+    "note": "La IA es ya más de la mitad de las ventas, con pocos clientes"
+   },
+   {
+    "n": "Balance",
+    "s": 4,
+    "note": "Deuda de 59.400 M$, menos de una vez el EBITDA"
+   }
+  ],
+  "phase": 1,
+  "phaseNote": "Una compañía grande y madura que ha entrado en una fase de hipercrecimiento gracias a la IA: +66% esperado en FY26 y +64% en FY27 según el consenso."
  },
  "moat": {
-  "anchura": "",
-  "tendencia": "",
-  "nota": "",
-  "fuentes": [],
-  "competidores": []
- },
- "crecimiento": {
-  "puntuacion": null,
-  "nota": "",
-  "tam": "",
-  "guia": "",
-  "palancas": []
- },
- "directiva": {
-  "nota": "",
-  "personas": [],
-  "puntuaciones": []
- },
- "ultima_presentacion_resultados": {
-  "fecha": "",
-  "resumen": "",
-  "guia": ""
- },
- "riesgos": [],
- "dcf": {
-  "ingresos_base": null,
-  "anio_base": null,
-  "crecimiento": [
-   null,
-   null,
-   null,
-   null,
-   null
+  "width": "Amplio",
+  "trend": "Ampliándose",
+  "note": "Muy pocas empresas pueden co-diseñar un acelerador de IA a medida a gran escala; Broadcom lo hace para casi todos los grandes. Sus chips de red Ethernet son el estándar en los grandes clústeres. El riesgo es la dependencia de pocos clientes, que pueden repartir pedidos (Google con MediaTek) o diseñar más por su cuenta.",
+  "sources": [
+   {
+    "n": "Efecto red",
+    "s": 2,
+    "note": "Ethernet abierto: más clientes refuerzan el estándar"
+   },
+   {
+    "n": "Costes de cambio",
+    "s": 5,
+    "note": "Diseños a medida de varios años; VMware dentro de los centros de datos"
+   },
+   {
+    "n": "Activos intangibles",
+    "s": 5,
+    "note": "Propiedad intelectual en conexiones de alta velocidad, redes y empaquetado"
+   },
+   {
+    "n": "Ventaja de costes",
+    "s": 4,
+    "note": "Escala de compra y prioridad en la fabricación de TSMC"
+   },
+   {
+    "n": "Escala eficiente",
+    "s": 4,
+    "note": "Pocos rivales pueden diseñar XPUs: Marvell, MediaTek, Alchip"
+   }
   ],
-  "margen_ebitda_1": null,
-  "margen_ebitda_5": null,
-  "da": null,
-  "sbc": null,
-  "capex": null,
-  "capital_circulante": null,
-  "impuestos": null,
-  "wacc": null,
-  "g_terminal": null,
-  "multiplo_salida": null,
-  "metodo": "blend",
-  "deuda_modelo": null,
-  "caja_modelo": null,
-  "acciones_modelo": null,
-  "escenarios": [
+  "comps": [
+   {
+    "n": "Nvidia",
+    "threat": 4,
+    "note": "Alternativa estándar a los chips a medida y rival en redes"
+   },
+   {
+    "n": "MediaTek",
+    "threat": 3,
+    "note": "Entra en el suministro de TPU de Google"
+   },
+   {
+    "n": "Marvell",
+    "threat": 3,
+    "note": "Chips a medida para Amazon y Microsoft"
+   },
+   {
+    "n": "Diseño propio de los clientes",
+    "threat": 3,
+    "note": "Los hiperescaladores pueden internalizar más trabajo"
+   }
+  ]
+ },
+ "growth": {
+  "score": 5,
+  "scoreNote": "Crecimiento extraordinario para su tamaño: +66% esperado en FY26 y +64% en FY27, con la IA triplicándose. El reto es sostenerlo más allá de 2027.",
+  "tam": "Gasto en centros de datos de IA: los hiperescaladores invierten cientos de miles de millones al año. Broadcom habla de una oportunidad de chips a medida y redes de decenas de miles de millones por cliente.",
+  "guidance": "4T FY26: ingresos de ~34.800 M$ (+93%), IA de 21.700 M$ (+236%), margen operativo ajustado ~66%. IA en FY26: ~58.000 M$ (+186%).",
+  "drivers": [
+   {
+    "n": "Aceleradores de IA a medida",
+    "impact": 5,
+    "h": "2026–2028",
+    "d": "IA +221% en el 3T FY26; Google, Meta, OpenAI y Anthropic."
+   },
+   {
+    "n": "Redes Ethernet para IA",
+    "impact": 4,
+    "h": "2026–2028",
+    "d": "Chips Tomahawk y Jericho para conectar clústeres gigantes."
+   },
+   {
+    "n": "Anthropic y nuevos clientes",
+    "impact": 4,
+    "h": "2027",
+    "d": "5 GW de TPU adicionales; mayor cliente de chips en 2027."
+   },
+   {
+    "n": "VMware",
+    "impact": 3,
+    "h": "Continuo",
+    "d": "Software +29% con márgenes muy altos."
+   },
+   {
+    "n": "Dividendo y recompras",
+    "impact": 2,
+    "h": "Continuo",
+    "d": "8.450 M$ recomprados en 9 meses de FY26."
+   }
+  ]
+ },
+ "mgmt": {
+  "note": "Una acción, un voto. Hock Tan tiene un plan de incentivos atado a objetivos de ingresos de IA hasta 2030. La dirección es conocida por comprar empresas (CA, Symantec, VMware), recortar costes con dureza y devolver caja.",
+  "people": [
+   {
+    "n": "Hock Tan",
+    "role": "Presidente y CEO",
+    "since": "2006",
+    "note": "Construyó el grupo a base de adquisiciones; incentivo ligado a ingresos de IA hasta 2030."
+   },
+   {
+    "n": "Kirsten Spears",
+    "role": "Directora financiera",
+    "since": "2020",
+    "note": "Gestiona la deuda tras la compra de VMware."
+   },
+   {
+    "n": "Charlie Kawwas",
+    "role": "Presidente de semiconductores",
+    "since": "",
+    "note": "Responsable de los chips de IA y redes."
+   },
+   {
+    "n": "Henry Samueli",
+    "role": "Cofundador y presidente del consejo",
+    "since": "1991",
+    "note": "Fundador del Broadcom original."
+   }
+  ],
+  "scores": [
+   {
+    "n": "Alineación con el accionista",
+    "s": 4,
+    "note": "Retribución del CEO ligada a objetivos de IA a largo plazo"
+   },
+   {
+    "n": "Asignación de capital",
+    "s": 4,
+    "note": "Compras muy rentables; ahora respalda la financiación de clientes de IA"
+   },
+   {
+    "n": "Credibilidad y ejecución",
+    "s": 5,
+    "note": "Nueve trimestres seguidos superando previsiones"
+   },
+   {
+    "n": "Gobierno corporativo",
+    "s": 4,
+    "note": "Una acción, un voto"
+   },
+   {
+    "n": "Transparencia",
+    "s": 3,
+    "note": "Poco detalle sobre las garantías a clientes"
+   }
+  ],
+  "alloc": {
+   "label": "Uso de la caja, 9 meses FY26 (M$, aprox.)",
+   "items": [
+    {
+     "n": "Dividendos",
+     "v": 9300
+    },
+    {
+     "n": "Recompras",
+     "v": 8450
+    },
+    {
+     "n": "Capex",
+     "v": 1100
+    }
+   ]
+  },
+  "vote": {
+   "label": "Poder de voto (%)",
+   "items": [
+    {
+     "n": "Accionistas (una acción, un voto)",
+     "v": 100
+    }
+   ]
+  },
+  "call": {
+   "periodEnd": "2026-08-02",
+   "q": "3T FY2026 (cierre 2-ago-2026)",
+   "date": "2-sep-2026",
+   "doc": "Nota de resultados (8-K, Exhibit 99.1)",
+   "url": "https://www.sec.gov/Archives/edgar/data/0001730168/000173016826000076/avgo-08022026x8kxex99.htm",
+   "nota": "El comunicado no nombra clientes ni detalla programas de XPU ni VMware: eso se explica en la llamada, que no es texto oficial publicado. Próxima presentación: 10-dic-2026 (estimada).",
+   "dir": [
+    "Hock Tan: la demanda de aceleradores de IA a medida y de redes «sigue siendo muy fuerte» y espera que el impulso continúe en el 4T.",
+    "Ingresos de IA de 16.700 M$ (+221%), ya más de la mitad de las ventas. Semiconductores +127% e infraestructura de software +29%.",
+    "La CFO Amie Thuener destaca ingresos, beneficio operativo y FCF récord (FCF de 13.700 M$, el 46% de las ventas)."
+   ],
+   "ret": [
+    "Dependencia de pocos clientes grandes y de fabricantes y proveedores externos.",
+    "Ciclicidad del sector de semiconductores, incertidumbre comercial y regulatoria, mantener el margen bruto y una deuda elevada.",
+    "Posibles pasivos fiscales ligados a la compra de VMware."
+   ],
+   "guia": [
+    "4T FY26: ingresos de unos 34.800 M$ (+93%), de ellos 21.700 M$ de IA (+236%).",
+    "Margen operativo no GAAP de ~66%, estable interanual."
+   ],
+   "cap": [
+    "Dividendo trimestral de 0,65 $ por acción (3.100 M$ pagados en el trimestre).",
+    "Sin recompras en el 3T (8.450 M$ en lo que va de año). Deuda a largo plazo de 57.200 M$ (62.000 M$ en octubre de 2025); pagó 5.600 M$ de deuda en el trimestre."
+   ]
+  }
+ },
+ "risks": [
+  {
+   "n": "Concentración en pocos clientes",
+   "cat": "Comercial",
+   "p": 3,
+   "i": 5,
+   "note": "Google es su mayor cliente de IA; MediaTek entra en sus TPU"
+  },
+  {
+   "n": "Freno del gasto en IA",
+   "cat": "Mercado",
+   "p": 3,
+   "i": 5,
+   "note": "Si los hiperescaladores recortan inversión, la IA cae rápido"
+  },
+  {
+   "n": "Garantías a la financiación de clientes",
+   "cat": "Financiero",
+   "p": 3,
+   "i": 4,
+   "note": "Respalda el valor residual de los chips financiados para Anthropic"
+  },
+  {
+   "n": "Geopolítica y Taiwán",
+   "cat": "Geopolítico",
+   "p": 2,
+   "i": 5,
+   "note": "Depende de TSMC para fabricar"
+  },
+  {
+   "n": "Márgenes más bajos por la mezcla de IA",
+   "cat": "Operativo",
+   "p": 4,
+   "i": 2,
+   "note": "Los chips de IA tienen menos margen bruto que el software"
+  },
+  {
+   "n": "Clientes de VMware descontentos",
+   "cat": "Comercial",
+   "p": 3,
+   "i": 2,
+   "note": "Subidas de precio que empujan a algunas empresas a migrar"
+  },
+  {
+   "n": "Deuda",
+   "cat": "Financiero",
+   "p": 2,
+   "i": 2,
+   "note": "59.400 M$, aunque bajando con rapidez"
+  }
+ ],
+ "v": {
+  "shares": 4880,
+  "cash": 23975,
+  "debt": 59419,
+  "rev0": 105990,
+  "year0": 2026,
+  "g": [
+   55,
+   25,
+   15,
+   10,
+   7
+  ],
+  "m1": 64,
+  "m5": 60,
+  "da": 4,
+  "da5": 2,
+  "sbc": 4,
+  "capex": 1.2,
+  "capex5": 1,
+  "nwc": 10,
+  "tax": 15,
+  "wacc": 9.5,
+  "tg": 3,
+  "exit": 16,
+  "method": "blend",
+  "eps": 17.41,
+  "pe": 28,
+  "evm": 22,
+  "scn": [
    {
     "n": "Bajista",
-    "dg": -10,
-    "dm": -3,
+    "dg": -15,
+    "dm": -6,
     "p": 25
    },
    {
@@ -88,21 +423,155 @@
    },
    {
     "n": "Alcista",
-    "dg": 6,
-    "dm": 1,
+    "dg": 8,
+    "dm": 2,
     "p": 25
    }
   ]
  },
- "veredicto": {
-  "rating": "",
-  "conviccion": null,
-  "comprar_por_debajo": null,
-  "horizonte": "",
-  "resumen": "",
-  "alcista": [],
-  "bajista": [],
-  "vigilar": []
+ "verdict": {
+  "rating": "Mantener",
+  "conviction": 3.5,
+  "buyBelow": 310,
+  "horizon": "12–24 meses",
+  "summary": "Probablemente el mejor posicionado para el crecimiento de la IA después de Nvidia, con márgenes y caja excepcionales y un equipo directivo muy disciplinado. Pero a ~352 $ el precio ya descuenta un crecimiento anual del ~20% durante cinco años, y el riesgo de concentración en pocos clientes y de que se frene el gasto en IA es real. Mantener y comprar por debajo de ~310 $.",
+  "bull": [
+   "IA +221% y guía del 4T con +236%",
+   "FCF del 44% de las ventas",
+   "Anthropic será su mayor cliente de chips en 2027",
+   "El consenso espera +64% de ingresos en FY27"
+  ],
+  "bear": [
+   "Dependencia de Google y pocos laboratorios de IA",
+   "Respalda la financiación de chips para clientes",
+   "MediaTek entra en las TPU de Google",
+   "Si se frena la inversión en IA, el múltiplo cae"
+  ],
+  "watch": [
+   "Guía de IA para FY27 en diciembre",
+   "Exposición a garantías de financiación",
+   "Margen bruto con más peso de la IA",
+   "Reparto de las TPU de Google con MediaTek"
+  ]
  },
- "notas": ""
+ "notes": "Datos de mercado leídos de StockAnalysis el 29-oct-2026 (cierre del 28-oct). En preapertura del 29-oct cotizaba en torno a 344 $.",
+ "sources": {
+  "web": "https://www.broadcom.com",
+  "ir": "https://investors.broadcom.com",
+  "docs": [
+   {
+    "cat": "Resultados trimestrales",
+    "t": "Resultados del 3T del ejercicio 2026",
+    "d": "02-sep-2026",
+    "u": "https://investors.broadcom.com/news-releases/news-release-details/broadcom-inc-announces-third-quarter-fiscal-year-2026-financial"
+   },
+   {
+    "cat": "Formularios SEC",
+    "t": "10-Q primer trimestre FY26",
+    "d": "mar-2026",
+    "u": "https://www.sec.gov/Archives/edgar/data/1730168/000173016826000016/avgo-20260201.htm"
+   },
+   {
+    "cat": "Transcripciones",
+    "t": "Llamada de resultados 3T FY26 (Investing.com)",
+    "d": "02-sep-2026",
+    "u": "https://www.investing.com/news/transcripts/earnings-call-transcript-broadcom-tops-q3-2026-estimates-as-ai-sales-surge-93CH-4886849"
+   }
+  ],
+  "news": [
+   {
+    "t": "63.000 M$ para financiar chips de Broadcom para Anthropic",
+    "src": "TIKR",
+    "u": "https://www.tikr.com/blog/wall-street-banks-63-billion-broadcom-ai-chips-anthropic"
+   },
+   {
+    "t": "Macquarie rebaja a neutral por Google y MediaTek",
+    "src": "TIKR",
+    "u": "https://www.tikr.com/blog/broadcom-just-got-downgraded-by-a-major-bank-to-a-437-target-is-the-bear-case-right"
+   },
+   {
+    "t": "Resultados 3T FY26: IA de 16.700 M$ y guía",
+    "src": "FinanceFeeds",
+    "u": "https://financefeeds.com/broadcom-avgo-earnings-bullish-580-bearish-345/"
+   },
+   {
+    "t": "Ingresos récord por la demanda de chips de IA",
+    "src": "Quartz",
+    "u": "https://qz.com/broadcom-record-revenue-ai-chips-quarterly-earnings-090226"
+   }
+  ]
+ },
+ "social": {
+  "pulse": [
+   {
+    "p": "Reddit",
+    "s": null,
+    "note": ""
+   },
+   {
+    "p": "X",
+    "s": null,
+    "note": ""
+   },
+   {
+    "p": "Threads",
+    "s": null,
+    "note": ""
+   },
+   {
+    "p": "YouTube",
+    "s": null,
+    "note": ""
+   }
+  ],
+  "videos": [
+   {
+    "t": "Broadcom Q3 2026 Earnings: AI Revenue Explodes +221% (AVGO Stock Analysis)",
+    "u": "https://www.youtube.com/watch?v=J49GHAgdPSY"
+   },
+   {
+    "t": "Broadcom Stock CRASHES 6% Despite 221% AI Revenue Surge!",
+    "u": "https://www.youtube.com/watch?v=ONAM-Eu8NLE"
+   },
+   {
+    "t": "AVGO Stock Analysis 2026: Buy, Sell, or Hold? The Truth About Broadcom's AI Future",
+    "u": "https://www.youtube.com/watch?v=am_ga2caH8I"
+   },
+   {
+    "t": "Broadcom in 2026: Massive Opportunity or Risky Bet?",
+    "u": "https://www.youtube.com/watch?v=cMhuD_S90FY"
+   },
+   {
+    "t": "Broadcom (AVGO) Crash 15%: Buying Opportunity or Falling Knife? Q2 2026 Analysis",
+    "u": "https://www.youtube.com/watch?v=eyuLfZ8l5PM"
+   }
+  ]
+ },
+ "fin_manual": {
+  "nota": "Series que la SEC no publica (por segmento). Las etiquetas de trimestre deben coincidir con las de la SEC (p. ej. 3T26).",
+  "q": {
+   "labels": [
+    "3T25",
+    "4T25",
+    "1T26",
+    "2T26",
+    "3T26",
+    "4T26 guía"
+   ],
+   "series": [
+    {
+     "n": "Semiconductores de IA",
+     "values": [
+      null,
+      null,
+      null,
+      null,
+      221,
+      236
+     ]
+    }
+   ]
+  },
+  "nota_antigua": "Años y trimestres fiscales: el ejercicio termina a principios de noviembre (FY26 = nov-25 a oct-26). Beneficio operativo GAAP; 2026e: 3T reales + guía del 4T (estimado). Ingresos, beneficio neto y FCF de 2026e según consenso. 2024 incluye el coste de integrar VMware. Acciones derivadas de los datos por acción de StockAnalysis (aprox.)."
+ }
 }

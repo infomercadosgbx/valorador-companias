@@ -329,6 +329,35 @@ details.box summary::after{content:"+";color:var(--muted)} details.box[open] sum
 .listcard ul{margin:0}
 .toast{position:fixed;bottom:calc(16px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:8px 14px;border-radius:6px;font-size:13px;z-index:20}
 @media (prefers-reduced-motion:no-preference){.ffbar{transition:left .25s,width .25s}}
+/* origen de cada cifra y avisos */
+.src{display:inline-block;font-family:var(--f-num);font-size:10.5px;font-weight:400;color:var(--muted);text-decoration:none;border-bottom:1px dotted var(--line);line-height:1.4;max-width:100%;overflow-wrap:anywhere}
+a.src:hover{color:var(--ink);border-bottom-color:var(--ink2)}
+.src.off{border:0;font-style:italic}
+.src.man{color:var(--ink);background:color-mix(in srgb,var(--c4) 24%,transparent);border:0;border-radius:4px;padding:0 6px;font-weight:600}
+.src.warn{color:var(--critText);border-bottom-color:color-mix(in srgb,var(--crit) 40%,transparent)}
+.official{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.official .kpi b{font-size:18px}
+@media (max-width:760px){.official{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.avisos{margin-top:10px;border-radius:10px;border:1px solid color-mix(in srgb,var(--warn) 45%,var(--line));background:color-mix(in srgb,var(--warn) 12%,var(--surface));padding:8px 12px;font-size:13px}
+.avisos.bad{border-color:color-mix(in srgb,var(--crit) 40%,var(--line));background:color-mix(in srgb,var(--crit) 9%,var(--surface))}
+.avisos.quiet{border-color:var(--line);background:var(--surface)}
+.avisos summary{cursor:pointer;font-weight:700}
+.avisos details[open] summary{margin-bottom:8px}
+.wl{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.wl li{display:grid;grid-template-columns:62px minmax(0,1fr);gap:8px;align-items:baseline;font-size:13px}
+.lvl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:1px 0;border-radius:99px;text-align:center}
+.lvl.aviso{background:color-mix(in srgb,var(--warn) 32%,transparent);color:var(--ink)}
+.lvl.error{background:color-mix(in srgb,var(--crit) 22%,transparent);color:var(--critText)}
+.lvl.info{background:var(--surface2);color:var(--muted);border:1px solid var(--line)}
+.draft{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:flex-end;font-size:12px;color:var(--ink2);margin-top:4px}
+@media (max-width:640px){.draft{justify-content:flex-start}}
+.fieldsrc{grid-column:1/-1;margin:-3px 0 4px;font-size:11px;color:var(--muted);display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.fieldsrc.bad{color:var(--critText);font-weight:600}
+.fieldsrc .add{padding:1px 8px;font-size:11px}
+input.ro{background:var(--surface2);color:var(--ink2);border-style:dashed}
+.recbar{display:flex;height:14px;border-radius:7px;overflow:hidden;gap:2px;margin:6px 0}
+.kpi .src{margin-top:2px}
+code{font-family:var(--f-num);font-size:.92em;background:var(--surface2);padding:0 4px;border-radius:4px}
 </style>
 
 <div class="wrap">
@@ -339,8 +368,7 @@ details.box summary::after{content:"+";color:var(--muted)} details.box[open] sum
     <div class="favs" id="favPills" role="group" aria-label="Compañías favoritas"></div>
     <div class="toolbar">
       <button type="button" id="btnEdit" aria-pressed="false">Editar</button>
-      <button type="button" id="btnData" aria-expanded="false">Datos</button>
-      <button type="button" id="btnDel">Eliminar</button>
+      <button type="button" id="btnData" aria-expanded="false">Mi análisis</button>
     </div>
   </div>
   <div class="picker" id="picker" hidden>
@@ -352,7 +380,7 @@ details.box summary::after{content:"+";color:var(--muted)} details.box[open] sum
     </div>
     <div class="plist" id="pickList" role="listbox" aria-label="Compañías"></div>
     <div class="pfoot"><span><kbd>↑</kbd> <kbd>↓</kbd> para moverte, <kbd>Enter</kbd> para abrir, <kbd>Esc</kbd> para cerrar</span>
-      <span class="toolbar"><button type="button" id="btnRefreshAll">↻ Actualizar todas</button><button type="button" id="btnNew">+ Nueva compañía</button></span></div>
+      <span>Cifras de la SEC y cotización actualizadas cada noche laborable</span></div>
   </div>
   </div>
   <header class="cohead">
@@ -364,11 +392,15 @@ details.box summary::after{content:"+";color:var(--muted)} details.box[open] sum
     </div></div>
     <div class="pricebox" id="priceBox"></div>
   </header>
+  <div id="warnBox" hidden></div>
   <div class="datapanel" id="dataPanel" hidden>
-    <div class="eyebrow">Copia de seguridad y traspaso</div>
-    <p class="note" style="margin:0">Los cambios se guardan solos en este navegador. Para llevarlos a otro dispositivo, copia el JSON y pégalo allí con «Importar».</p>
-    <textarea id="jsonBox" rows="5" aria-label="Datos en JSON" spellcheck="false"></textarea>
-    <div class="toolbar"><button type="button" id="btnExport">Copiar JSON</button><button type="button" id="btnImport">Importar JSON</button><button type="button" id="btnRestore">Restaurar ejemplos</button><span class="saved" id="savedMsg"></span></div>
+    <div class="eyebrow">Tu análisis</div>
+    <p class="note" style="margin:0">Las cifras financieras y la cotización llegan solas cada noche y no se editan. Tus textos y supuestos viven en <code>analysis/&lt;TICKER&gt;.json</code> del repositorio. Lo que cambies con «Editar» se guarda como borrador en este navegador hasta que descargues el archivo y lo subas a GitHub (carpeta <code>analysis/</code>).</p>
+    <div class="toolbar"><button type="button" id="btnDl2">Descargar el análisis de esta compañía</button><button type="button" id="btnCopy">Copiar JSON</button><span class="saved" id="savedMsg"></span></div>
+    <div class="eyebrow" style="margin-top:6px">Traer cambios del valorador antiguo</div>
+    <p class="note" style="margin:0">Si editaste algo en la versión anterior: allí pulsa «Datos» → «Copiar JSON» y pégalo aquí. Se convierte en borradores de cada compañía sin tocar las cifras de la SEC.</p>
+    <textarea id="jsonBox" rows="4" aria-label="JSON del valorador antiguo" spellcheck="false"></textarea>
+    <div class="toolbar"><button type="button" id="btnImport">Importar como borradores</button></div>
   </div>
   <nav class="tabs" id="tabs" role="tablist" aria-label="Secciones del análisis"></nav>
   <main id="main"></main>
@@ -425,707 +457,168 @@ function scenarios(s){
 }
 // ENGINE END
 
-/* ================= DATOS PRECARGADOS ================= */
-const DEFAULTS = {
-"applovin": {
-  meta:{name:"AppLovin",ticker:"NASDAQ: APP",ccy:"USD",sector:"Tecnología publicitaria (ad tech)",hq:"Palo Alto, California",founded:"2012",employees:"898 (dic-25)",asOf:"28-oct-2026",nextEarnings:"4-nov-2026",fav:true},
-  overview:{
-    thesis:"Negocio excepcional castigado por la desaceleración: a 260 $ el precio descuenta ~7% de crecimiento anual cuando la guía del 3T26 habla del 46–48%.",
-    summary:"Plataforma de publicidad móvil basada en IA. Su motor AXON decide qué anuncio ve cada usuario en miles de juegos y apps, y cobra una comisión sobre lo que gastan los anunciantes.\nTras vender sus estudios de juegos en 2025, es un negocio 100% de software publicitario con márgenes EBITDA del 84%. Desde junio de 2026 cualquier marca de e-commerce puede anunciarse en autoservicio.",
-    keyFacts:[{k:"Ingresos 2T26",v:"1.924 M$ (+53%)"},{k:"EBITDA ajustado 2T26",v:"1.614 M$ (84%)"},{k:"Guía 3T26",v:"2.055–2.085 M$ (+46–48%)"},{k:"FCF 2T26",v:"863 M$"},{k:"Caja / deuda (jun-26)",v:"3.053 / 3.515 M$"},{k:"Rating crediticio",v:"BBB+ (Fitch, jun-26)"},{k:"SEC",v:"Consulta cerrada sin acción (ago-26)"}],
-    catalysts:[{d:"4-nov-26",t:"Resultados 3T26: guía 2.055–2.085 M$ y margen del 83%. Clave la guía del 4T."},{d:"4T26",t:"Campaña navideña: primera prueba del e-commerce en autoservicio (BofA espera aquí el punto de inflexión)."},{d:"2027",t:"Siguiente salto del modelo (AXON 3, según Evercore)."},{d:"En curso",t:"Litigio con Unity por los datos de MAX, demanda colectiva y demanda del condado de San Diego."}]
-  },
-  business:{
-    model:"Cobra un porcentaje del gasto de los anunciantes que pasa por su subasta y registra solo esa comisión como ingreso.\nApenas necesita inversión en activos: su coste principal es el cómputo para entrenar y servir los modelos de IA.",
-    customers:"Tiene dos lados. Los anunciantes, sobre todo estudios de juegos móviles que compran usuarios con un retorno objetivo, y desde junio de 2026 cualquier marca de e-commerce. Y los desarrolladores (publishers), que venden su espacio publicitario a través de MAX.",
-    segNote:"Estimación propia: la empresa no desglosa ingresos por vertical. El gaming sigue siendo la mayoría.",
-    segments:[{n:"Anunciantes de juegos",v:80},{n:"Consumo y e-commerce",v:15},{n:"Adjust y otros",v:5}],
-    customerTypes:[{n:"Estudios de juegos móviles",d:"El núcleo. AppLovin capta ~50% del gasto en captación de usuarios del sector (Wells Fargo)."},{n:"Marcas de e-commerce",d:"Abierto a todos desde jun-26. Ganó 169 pb de cuota de presupuesto en la encuesta de Jefferies, hasta el 11%."},{n:"Publishers (MAX)",d:"Miles de apps integran su SDK para subastar su inventario. Son la fuente de datos del modelo."},{n:"Apps no gaming y CTV",d:"Fintech, salud y televisión conectada. Fase inicial."}],
-    quality:[{n:"Márgenes",s:5,note:"EBITDA ajustado 84%; margen operativo 77% en 12 meses"},{n:"Retorno sobre capital",s:5,note:"ROE cercano al 190%; capex casi nulo"},{n:"Conversión en caja",s:4,note:"FCF ~75% del EBITDA (54% en 2T26 por impuestos e intereses)"},{n:"Recurrencia de ingresos",s:3,note:"Gasto publicitario variable, sin contratos plurianuales"},{n:"Diversificación",s:2,note:"La mayoría de ingresos depende del gaming"},{n:"Balance",s:4,note:"Deuda neta ~0,1x EBITDA; rating BBB+"}],
-    phase:2, phaseNote:"Ha pasado del hipercrecimiento (+70% en 2025) a un crecimiento rentable: +53% en 2T26, y la dirección habla de ~30% anual a largo plazo."
-  },
-  fin:{
-    years:["2021","2022","2023","2024","2025","2026e"],
-    rev:[2793,2817,1840,3220,5480,8100],
-    profit:[598,524,890,2030,4280,6700], profitLabel:"EBITDA ajustado",
-    ni:[32,-193,456,1590,3430,5300],
-    fcf:[360,412,1060,2100,4020,5000],
-    capex:[null,null,null,null,null,null],
-    bal:{labels:["2021","2022","2023","2024","2025","jun-26"],cash:[1521,1080,502,697,2487,3053],debt:[3364,3356,3177,3555,3667,3515]},
-    q:{labels:["2T25","3T25","4T25","1T26","2T26","3T26 guía"],series:[{n:"Ingresos",values:[77,68,66,59,53,47]}]},
-    note:"2021–22 incluyen el negocio de apps propias (vendido en 2025); desde 2023, solo software publicitario. 2026e: primer semestre real + guía del 3T + 4T estimado."
-  },
-  moat:{
-    width:"Estrecho", trend:"Estable, con riesgo",
-    note:"El foso depende de los datos que ve a través de MAX. La negativa del tribunal a frenar el SDK de Unity (oct-26) es la primera grieta seria. S&P considera que replicar su motor exige mucho tiempo y capital.",
-    sources:[{n:"Efecto red",s:4,note:"Más anunciantes y publishers → más datos → mejor modelo → más retorno"},{n:"Costes de cambio",s:3,note:"El SDK de MAX está integrado en miles de apps"},{n:"Activos intangibles",s:4,note:"AXON entrenado con miles de millones de subastas"},{n:"Ventaja de costes",s:3,note:"Margen operativo del 77% frente a competidores en pérdidas"},{n:"Escala eficiente",s:2,note:"Gaming cerca de su techo de cuota (~50%)"}],
-    comps:[{n:"Unity (LevelPlay, Vector)",threat:4,note:"Rival directo en mediación; el tribunal no frenó su SDK Ad Quality"},{n:"Meta (Advantage+)",threat:4,note:"Domina el e-commerce y segmenta mejor"},{n:"Google (AdMob, Performance Max)",threat:3,note:"Escala enorme, menos foco en juegos"},{n:"Moloco y CloudX",threat:2,note:"DSP con IA; Oppenheimer ve intactas las ventajas de AppLovin"}]
-  },
-  growth:{
-    score:4, scoreNote:"Crece al ~50% con una ruta creíble al 25–30% a medio plazo, pero el gaming se acerca a su techo de cuota.",
-    tam:"Publicidad digital de rendimiento: Meta y Google facturan más de 400.000 M$ al año en publicidad; AppLovin, unos 8.000 M$.",
-    guidance:"Guía 3T26: ingresos 2.055–2.085 M$ (+46–48%), EBITDA 1.710–1.740 M$ (83%). A largo plazo la dirección habla de ~30% anual.",
-    drivers:[{n:"Mejoras de AXON en gaming",impact:5,h:"Continuo",d:"Sube el precio por instalación: +58% en 2T26 con instalaciones −2%."},{n:"E-commerce en autoservicio",impact:4,h:"4T26–2027",d:"Abierto a todos en jun-26; gasto +28% frente al 4T25."},{n:"Nuevos verticales e internacional",impact:3,h:"2027+",d:"Fintech, salud y televisión conectada."},{n:"Recompras",impact:2,h:"Continuo",d:"~1.550 M$ en el 1S26; reducen el número de acciones ~1% al año."}]
-  },
-  mgmt:{
-    note:"Empresa controlada: Foroughi y Herald Chen tienen un pacto de voto sobre las acciones de clase B. El consejo es mayoritariamente independiente, con Craig Billings como consejero independiente coordinador. El CEO y el CTO vendieron acciones en junio de 2026.",
-    people:[{n:"Adam Foroughi",role:"Cofundador, CEO y presidente",since:"2012",note:"Controla el 60,9% del voto. Salario de 400.000 $; casi toda su retribución es en acciones ligadas a resultados."},{n:"Matt Stumpf",role:"Director financiero",since:"",note:"Comunicó el cierre de la consulta de la SEC en ago-26."},{n:"Basil Shikin",role:"Director de tecnología",since:"",note:"Responsable técnico del motor AXON."},{n:"Herald Chen",role:"Consejero",since:"",note:"Firmante del pacto de voto con Foroughi."}],
-    scores:[{n:"Alineación con el accionista",s:5,note:"Fundador con participación muy grande"},{n:"Asignación de capital",s:4,note:"Venta acertada del negocio de apps; recompras constantes"},{n:"Credibilidad y ejecución",s:3,note:"Primer incumplimiento de guía en 2T26 desde la salida a bolsa"},{n:"Gobierno corporativo",s:2,note:"Voto dual; CEO y presidente a la vez"},{n:"Transparencia",s:2,note:"No desglosa e-commerce; mucha métrica no GAAP"}],
-    alloc:{label:"Uso de la caja, 1S 2026 (M$)",items:[{n:"Recompras y retenciones",v:1555},{n:"Capex",v:8},{n:"Dividendos",v:0}]}
-  },
-  risks:[
-    {n:"AXON mejora más despacio",cat:"Operativo",p:3,i:5,note:"Ya ocurrió en 2T26: primer incumplimiento de guía"},
-    {n:"Erosión del dato de MAX",cat:"Competencia",p:3,i:4,note:"El tribunal negó la cautelar contra el SDK de Unity (oct-26)"},
-    {n:"Cambios de privacidad de Apple o Google",cat:"Regulatorio",p:2,i:5,note:"Una restricción de plataforma golpearía la segmentación"},
-    {n:"El e-commerce no escala",cat:"Operativo",p:3,i:3,note:"Píxeles nuevos: 950 en mayo y 750 en junio (BofA)"},
-    {n:"Litigios",cat:"Legal",p:3,i:2,note:"Demanda colectiva por sus declaraciones sobre IA; San Diego por datos de menores"},
-    {n:"Coste de cómputo",cat:"Financiero",p:3,i:2,note:"Margen guiado al 83% desde el 84–85%"},
-    {n:"Ciclo publicitario",cat:"Mercado",p:2,i:3,note:"Beta cercana a 2,5"},
-    {n:"Gobierno corporativo",cat:"Gobierno",p:2,i:2,note:"Voto dual y ventas de directivos en junio"}
-  ],
-  v:{price:259.97,shares:335,cash:3053,debt:3515,rev0:8100,year0:2026,g:[22,18,15,12,10],m1:82,m5:80,da:1.5,da5:1.5,sbc:4,capex:0.3,capex5:0.3,nwc:10,tax:16,
-     wacc:11,tg:3,exit:14,method:"blend",eps:18.55,pe:20,evm:14,cMean:465.08,cLow:325,cHigh:790,
-     scn:[{n:"Bajista",dg:-12,dm:-5,p:25},{n:"Base",dg:0,dm:0,p:50},{n:"Alcista",dg:8,dm:1,p:25}]},
-  verdict:{rating:"Comprar",conviction:3.5,buyBelow:300,horizon:"12–18 meses",
-    summary:"Negocio de calidad excepcional (márgenes del 80%, balance limpio, foso de datos) a un precio que ya descuenta un frenazo fuerte. La SEC cerró su consulta y Fitch subió a BBB+. Los riesgos que quedan son operativos: la velocidad de mejora de AXON y el escalado del e-commerce. Entrada escalonada, sin cargar todo antes de resultados.",
-    bull:["El precio implica ~7% de crecimiento anual frente a una guía del 46–48%","Margen EBITDA del 83–84% y capex casi nulo","El e-commerce gana cuota (Jefferies: +169 pb)","Recompras continuas"],
-    bear:["La cuota en gaming está cerca del techo (~50%)","Unity puede erosionar el dato de MAX","El cómputo más caro presiona el margen","Litigios abiertos: demanda colectiva y San Diego"],
-    watch:["Guía del 4T26 en los resultados de noviembre","Conversión de FCF de vuelta al ~75%","Métricas de anunciantes de e-commerce","Comisiones de MAX tras el caso Unity"]},
-  notes:""
-},
-"alphabet": {
-  meta:{fav:true,name:"Alphabet",ticker:"NASDAQ: GOOGL",ccy:"USD",sector:"Internet, publicidad y nube",hq:"Mountain View, California",founded:"1998",employees:"204.757",asOf:"28-oct-2026, fuera de horario"},
-  overview:{
-    thesis:"Gran negocio en plena fase de inversión: Cloud se duplica, pero el capex se come el flujo de caja y la búsqueda se frena. A ~292 $ cotiza cerca de su valor, sin margen de seguridad.",
-    summary:"Matriz de Google. Gana dinero sobre todo con publicidad (Búsqueda, YouTube y webs de terceros) y cada vez más con la nube: Google Cloud vende infraestructura, chips TPU, modelos Gemini y Workspace.\nEs la empresa que más invierte en infraestructura de IA: entre 195.000 y 205.000 M$ de capex en 2026, y más en 2027.",
-    keyFacts:[{k:"Ingresos 3T26",v:"127.580 M$ (+25%)"},{k:"Google Cloud 3T26",v:"30.710 M$ (+103%), margen 36%"},{k:"Búsqueda 3T26",v:"63.350 M$ (+12%)"},{k:"Capex 3T26 / guía 2026",v:"51.360 M$ / 195–205 mil M$"},{k:"FCF 12 meses",v:"19.750 M$ (73.550 M$ un año antes)"},{k:"Caja / deuda a largo (sep-26)",v:"265.100 / 125.100 M$"},{k:"BPA 3T26",v:"2,12 $ (−0,55 $ por pérdidas en participaciones)"}],
-    catalysts:[{d:"Feb-27",t:"Resultados 4T26 y cifra de capex 2027 («aumentará significativamente»)."},{d:"2026–27",t:"Conversión de la cartera de Cloud: la mitad de 514.000 M$ en 24 meses, según la CFO."},{d:"4T26",t:"Anuncios en AI Mode en 10 países más y anuncios multiturno en EE. UU."},{d:"En curso",t:"Apelación del caso de búsqueda (Mehta) y aplicación de los remedios de ad tech (Brinkema)."}]
-  },
-  business:{
-    model:"Vende atención y cómputo. La atención, con anuncios en Búsqueda, YouTube y la red de webs de terceros. El cómputo, con Google Cloud: infraestructura, TPU, modelos Gemini y Workspace.\nSuscripciones (YouTube Premium, Google One) y dispositivos completan el resto.",
-    customers:"Miles de millones de usuarios no pagan. Los que pagan son anunciantes (desde pymes hasta grandes marcas), empresas y gobiernos que contratan la nube, laboratorios de IA que compran TPU, y suscriptores.",
-    segNote:"Ingresos del 3T26 por segmento, en M$.",
-    segments:[{n:"Búsqueda y otros",v:63350},{n:"Google Cloud",v:30710},{n:"Suscripciones y dispositivos",v:14290},{n:"Anuncios de YouTube",v:11210},{n:"Red de Google",v:7460},{n:"Other Bets",v:370}],
-    customerTypes:[{n:"Anunciantes",d:"~82.000 M$ por trimestre en publicidad, creciendo ~11%."},{n:"Empresas en la nube",d:"Cartera de 514.000 M$ (2T26); la mitad se convertirá en ingresos en 24 meses."},{n:"Laboratorios de IA",d:"Compran capacidad de TPU; la dirección lo llama un contribuidor «significativo»."},{n:"Suscriptores y usuarios",d:"Más de 150 M en YouTube Music/Premium; 1.000 M de usuarios en la app de Gemini."}],
-    quality:[{n:"Márgenes",s:4,note:"Margen operativo 31,8%; Cloud 36%"},{n:"Retorno sobre capital",s:4,note:"Alto, pero diluyéndose por el capex"},{n:"Conversión en caja",s:1,note:"FCF de −9.070 M$ en 3T26"},{n:"Recurrencia de ingresos",s:4,note:"Hábito diario en Búsqueda; contratos plurianuales en Cloud"},{n:"Diversificación",s:4,note:"Seis líneas; Cloud ya es el 24% de los ingresos"},{n:"Balance",s:4,note:"Caja 265.100 M$ frente a deuda 125.100 M$"}],
-    phase:2, phaseNote:"Un negocio maduro (Búsqueda) financia una segunda fase de crecimiento (Cloud e IA). Crecer al 25% con 500.000 M$ de ingresos es inusual."
-  },
-  fin:{
-    years:["2021","2022","2023","2024","2025","2026e"],
-    rev:[257637,282836,307394,350018,402836,493000],
-    profit:[78714,74842,84293,112390,129039,165000], profitLabel:"Beneficio operativo",
-    ni:[76033,59972,73795,100118,132170,null],
-    fcf:[67012,60010,69495,72764,73266,-15000],
-    capex:[24640,31485,32251,52535,91447,200000],
-    bal:{labels:["2021","2022","2023","2024","2025","sep-26"],cash:[139649,113762,110916,95657,126843,265100],debt:[12844,12857,11870,10883,46547,125100]},
-    q:{labels:["3T25","4T25","1T26","2T26","3T26"],series:[{n:"Total",values:[16,18,22,24,25]},{n:"Google Cloud",values:[34,48,63,82,103]},{n:"Búsqueda",values:[15,17,19,17,12]}]},
-    note:"Se usa beneficio operativo en lugar de EBITDA. 2026e: nueve meses reales + 4T estimado. El beneficio neto de 2026 no se muestra porque lo distorsionan las ganancias y pérdidas en participaciones (+98.000 M$ en 2T26, −8.660 M$ en 3T26). Deuda = deuda financiera a largo plazo."
-  },
-  moat:{
-    width:"Amplio", trend:"Estable",
-    note:"La amenaza principal es que la IA generativa cambie cómo se busca: las consultas están en máximos de cinco años, pero las de AI Mode se monetizan peor. Las TPU propias le dan una ventaja de coste en IA que pocos rivales tienen.",
-    sources:[{n:"Efecto red",s:4,note:"Más búsquedas → mejores resultados → más anunciantes; Android y YouTube"},{n:"Costes de cambio",s:3,note:"Ecosistema Android, Chrome y Workspace; contratos de nube plurianuales"},{n:"Activos intangibles",s:5,note:"Marca, datos, DeepMind y Gemini"},{n:"Ventaja de costes",s:5,note:"TPU propias frente a rivales que dependen de Nvidia"},{n:"Escala eficiente",s:4,note:"Red global de centros de datos"}],
-    comps:[{n:"OpenAI (ChatGPT)",threat:4,note:"Alternativa directa a la búsqueda"},{n:"Microsoft (Azure, Copilot)",threat:3,note:"Rival en nube e IA empresarial"},{n:"Amazon (AWS, Amazon Ads)",threat:3,note:"Líder en nube y en anuncios de comercio"},{n:"Meta",threat:3,note:"Compite por el presupuesto publicitario"}]
-  },
-  growth:{
-    score:4, scoreNote:"Crece al 25% con más de 127.000 M$ por trimestre. Cloud tira con fuerza; la Búsqueda pierde ritmo.",
-    tam:"Nube pública e IA empresarial, más la publicidad digital mundial.",
-    guidance:"No da guía de ingresos. Capex 2026: 195.000–205.000 M$; en 2027 «aumentará significativamente». Espera un impacto de divisa algo mayor en el 4T26.",
-    drivers:[{n:"Google Cloud e IA",impact:5,h:"2026–2028",d:"+103% en 3T26 con margen del 36%; cartera de 514.000 M$."},{n:"Venta de TPU a terceros",impact:4,h:"2026–2027",d:"Contribuidor «significativo» al crecimiento de Cloud."},{n:"Monetización de AI Mode y Gemini",impact:3,h:"2027+",d:"Consultas en máximos de 5 años, pero hoy monetizan menos."},{n:"YouTube y suscripciones",impact:2,h:"Continuo",d:"Anuncios +9%; más de 150 M de suscriptores."},{n:"Waymo y Other Bets",impact:2,h:"2028+",d:"Opcionalidad; pérdidas de 2.040 M$ en el 3T26."}]
-  },
-  mgmt:{
-    note:"Tres clases de acciones: A (1 voto), B (10 votos, en manos de los fundadores) y C (sin voto). En 2026 ha dejado de recomprar y financia el capex con deuda (28.700 M$ en bonos en el 3T26) y venta de acciones (12.400 M$).",
-    people:[{n:"Sundar Pichai",role:"CEO de Alphabet y Google",since:"2015",note:"CEO de Google desde 2015 y de Alphabet desde 2019. Lidera la apuesta por Gemini."},{n:"Anat Ashkenazi",role:"Directora financiera",since:"2024",note:"Llegó de Eli Lilly."},{n:"Thomas Kurian",role:"CEO de Google Cloud",since:"2019",note:"Ha llevado Cloud a crecer al 103% con margen del 36%."},{n:"Demis Hassabis",role:"CEO de Google DeepMind",since:"",note:"Investigación y modelos Gemini."},{n:"Larry Page y Sergey Brin",role:"Cofundadores",since:"1998",note:"Controlan la mayoría del voto con las acciones de clase B."}],
-    scores:[{n:"Alineación con el accionista",s:3,note:"Fundadores con control; CEO no fundador"},{n:"Asignación de capital",s:3,note:"Apuesta total por IA: capex duplicado, sin recompras, emite deuda y acciones"},{n:"Credibilidad y ejecución",s:4,note:"Cloud y Gemini muy por encima de lo esperado"},{n:"Gobierno corporativo",s:2,note:"Voto dual controlado por los fundadores"},{n:"Transparencia",s:3,note:"Sin guía de ingresos ni cifra de capex 2027"}],
-    alloc:{label:"Uso de la caja, 9 meses 2026 (M$)",items:[{n:"Capex",v:132000},{n:"Dividendos (est.)",v:7800},{n:"Recompras",v:0}]}
-  },
-  risks:[
-    {n:"Capex sin retorno suficiente",cat:"Financiero",p:3,i:5,note:"~200.000 M$ en 2026 y más en 2027; FCF de −9.070 M$ en el 3T26"},
-    {n:"La IA canibaliza la búsqueda",cat:"Competencia",p:3,i:5,note:"AI Mode monetiza menos; Búsqueda pasó de +19% a +12%"},
-    {n:"Remedios antimonopolio",cat:"Regulatorio",p:3,i:3,note:"Búsqueda: fin de las exclusivas (en apelación). Ad tech: sin venta forzosa, pero con cambios de prácticas (sep-26)"},
-    {n:"Dilución y más deuda",cat:"Financiero",p:3,i:3,note:"Sin recompras en 2026; emisión de bonos y de acciones en el 3T26"},
-    {n:"Concentración en clientes de IA",cat:"Competencia",p:2,i:4,note:"Parte de la cartera de Cloud depende de pocos laboratorios"},
-    {n:"Divisa y ciclo publicitario",cat:"Mercado",p:3,i:2,note:"Mayor impacto de divisa previsto para el 4T26"},
-    {n:"Pérdidas de Other Bets",cat:"Operativo",p:4,i:1,note:"−2.040 M$ en el 3T26"}
-  ],
-  v:{price:292.50,shares:12290,cash:265100,debt:125100,rev0:493000,year0:2026,g:[17,14,12,10,8],m1:47,m5:50,da:9,da5:13,sbc:5.5,capex:43,capex5:16,nwc:5,tax:17,
-     wacc:9,tg:3,exit:15,method:"blend",eps:12,pe:24,evm:16,cMean:430,cLow:340,cHigh:515,
-     scn:[{n:"Bajista",dg:-6,dm:-5,p:25},{n:"Base",dg:0,dm:0,p:50},{n:"Alcista",dg:4,dm:2,p:25}]},
-  verdict:{rating:"Mantener",conviction:3,buyBelow:255,horizon:"12–24 meses",
-    summary:"Uno de los mejores negocios del mundo en mitad de un ciclo de inversión enorme. Cloud crece al 103% con margen del 36%, pero la Búsqueda se frena (+12%), el FCF es negativo y la empresa ha dejado de recomprar y emite deuda y acciones. A ~292 $ el precio está cerca del valor del modelo: para mantener, sin margen de seguridad para comprar con fuerza.",
-    bull:["Cloud +103% con margen del 36% y cartera de 514.000 M$","Consultas en máximos de cinco años; Gemini con 1.000 M de usuarios","TPU propias: ventaja de coste en IA","265.100 M$ de caja"],
-    bear:["El capex de 2027 será «significativamente» mayor: FCF negativo durante más tiempo","AI Mode monetiza menos que la búsqueda clásica","Sin recompras y con emisión de acciones","Remedios antimonopolio en búsqueda y ad tech"],
-    watch:["Cifra de capex 2027 (feb-27)","Crecimiento de Búsqueda frente al de consultas","Margen de Cloud y conversión de la cartera","Vuelta de las recompras"]},
-  notes:"Precio de 292,50 $: cotización fuera de horario tras los resultados del 3T26 (cierre del 28-oct: 324,89 $). El consenso de 430 $ es anterior a los resultados."
-}};
 
-/* ---- Datos añadidos: trimestres, acciones, voto, 52 semanas y fuentes ---- */
-function deepMerge(t,x){Object.keys(x).forEach(k=>{if(x[k]&&typeof x[k]==="object"&&!Array.isArray(x[k])){if(!t[k]||typeof t[k]!=="object")t[k]={};deepMerge(t[k],x[k]);}else t[k]=x[k];});return t;}
-deepMerge(DEFAULTS.applovin,{
-  meta:{employees:"898 (dic-25)"},
-  v:{lo52:255.46,hi52:738.01},
-  fin:{qrev:{labels:["1T25","2T25","3T25","4T25","1T26","2T26","3T26 guía"],values:[1159,1259,1405,1658,1842,1924,2070]},
-       shares:{labels:["2021","2022","2023","2024","2025","jun-26"],values:[375.8,376.4,342.0,340.0,337.3,335.3]}},
-  mgmt:{vote:{label:"Poder de voto (%)",items:[{n:"Foroughi y pacto de voto",v:60.9},{n:"Resto de accionistas",v:39.1}]}},
-  sources:{web:"https://www.applovin.com",ir:"https://investors.applovin.com",cik:"0001751008",
-    docs:[
-      {cat:"Resultados trimestrales",t:"Nota de prensa de resultados 2T26 (PDF)",d:"05-ago-2026",u:"https://s21.q4cdn.com/165405286/files/doc_financials/2026/q2/AppLovin-2Q26-Earnings-Press-Release.pdf"},
-      {cat:"Presentaciones",t:"Financial Update 2T26 (PDF)",d:"05-ago-2026",u:"https://s21.q4cdn.com/165405286/files/doc_financials/2026/q2/Financial-Update-Q2-2026.pdf"},
-      {cat:"Resultados trimestrales",t:"8-K de resultados 2T26 (Exhibit 99.1)",d:"05-ago-2026",u:"https://www.sec.gov/Archives/edgar/data/0001751008/000175100826000057/exhibit991-2q26earningspre.htm"},
-      {cat:"Formularios SEC",t:"10-Q segundo trimestre 2026",d:"05-ago-2026",u:"https://www.sec.gov/Archives/edgar/data/0001751008/000175100826000059/app-20260630.htm"},
-      {cat:"Formularios SEC",t:"10-Q primer trimestre 2026",d:"06-may-2026",u:"https://www.sec.gov/Archives/edgar/data/0001751008/000175100826000044/app-20260331.htm"},
-      {cat:"Formularios SEC",t:"10-K ejercicio 2025",d:"feb-2026",u:"https://www.sec.gov/Archives/edgar/data/1751008/000175100826000010/app-20251231.htm"},
-      {cat:"Formularios SEC",t:"Índice de documentos del 10-K 2025",d:"feb-2026",u:"https://www.sec.gov/Archives/edgar/data/1751008/0001751008-26-000010-index.html"},
-      {cat:"Informe anual",t:"Informe anual 2025 (PDF)",d:"2026",u:"https://s21.q4cdn.com/165405286/files/doc_financials/2025/ar/d6d59334-570b-453f-8c55-30d0bda96a8e.pdf"},
-      {cat:"Formularios SEC",t:"S-1 de la salida a bolsa",d:"2021",u:"https://www.sec.gov/Archives/edgar/data/1751008/000119312521340630/d223514ds1.htm"},
-      {cat:"Transcripciones",t:"Llamada de resultados 2T26 (MarketBeat)",d:"05-ago-2026",u:"https://www.marketbeat.com/earnings/reports/2026-8-4-applovin-co-stock/"},
-      {cat:"Gobierno corporativo",t:"Perfil de Adam Foroughi y pacto de voto (proxy 2025)",d:"2025",u:"https://fintool.com/app/research/companies/APP/people/adam-foroughi"}
-    ],
-    news:[
-      {t:"La SEC cierra su investigación sin acción",src:"Tech Times",u:"https://www.techtimes.com/articles/323336/20260806/applovin-stock-lost-40b-16m-miss-while-sec-cleared-axon-data-probe.htm"},
-      {t:"Fitch sube el rating a BBB+",src:"Börse Global",u:"https://www.boerse-global.de/applovin-fitch-hebt-auf-bbb-an/801446"},
-      {t:"AppLovin demanda a Unity por los datos de MAX",src:"Yahoo Finance / TIKR",u:"https://finance.yahoo.com/markets/stocks/articles/applovin-took-unity-court-over-153345724.html"},
-      {t:"Recortes de precio objetivo de octubre",src:"TIKR",u:"https://www.tikr.com/blog/oppenheimer-cut-its-applovin-target-it-still-sees-80-upside"},
-      {t:"San Diego demanda a AppLovin por anuncios a menores",src:"Claims Journal",u:"https://www.claimsjournal.com/news/national/2026/10/06/340564.htm"},
-      {t:"Jefferies: AppLovin gana cuota en e-commerce",src:"Parameter",u:"https://parameter.io/applovin-app-stock-captures-market-share-from-meta-and-google-latest-survey-data-reveals/"},
-      {t:"Morningstar: foso estrecho y riesgo de la SEC",src:"Morningstar",u:"https://www.morningstar.com/stocks/applovin-sec-probe-into-data-collection-practices-lends-some-legitimacy-short-reports"}
-    ]}
-});
-deepMerge(DEFAULTS.alphabet,{
-  v:{lo52:266.5,hi52:408.61},
-  fin:{qrev:{labels:["1T25","2T25","3T25","4T25","1T26","2T26","3T26"],values:[90234,96428,102346,113828,109896,119796,127580]},
-       shares:{labels:["2021","2022","2023","2024","2025","sep-26"],values:[13242,12849,12460,12211,12088,12290]}},
-  mgmt:{vote:{label:"Poder de voto (%, aprox.)",items:[{n:"Page y Brin (clase B)",v:51},{n:"Resto de accionistas",v:49}]}},
-  sources:{web:"https://abc.xyz",ir:"https://abc.xyz/investor/",cik:"0001652044",
-    docs:[
-      {cat:"Resultados trimestrales",t:"Nota de prensa de resultados 3T26 (8-K, Exhibit 99.1)",d:"28-oct-2026",u:"https://www.sec.gov/Archives/edgar/data/0001652044/000165204426000080/googexhibit991q32026.htm"},
-      {cat:"Resultados trimestrales",t:"Nota de prensa de resultados 2T26",d:"22-jul-2026",u:"https://abc.xyz/investor/news/news-details/2026/Alphabet-Announces-Second-Quarter-2026-Results-2026-Y3uQ6H4ZJa/default.aspx"},
-      {cat:"Resultados trimestrales",t:"Nota de prensa de resultados 4T25 (PDF)",d:"04-feb-2026",u:"https://s206.q4cdn.com/479360582/files/doc_financials/2025/q4/2025q4-alphabet-earnings-release.pdf"},
-      {cat:"Formularios SEC",t:"10-Q segundo trimestre 2026",d:"jul-2026",u:"https://www.sec.gov/Archives/edgar/data/0001652044/000165204426000071/goog-20260630.htm"},
-      {cat:"Formularios SEC",t:"10-Q segundo trimestre 2026 (PDF)",d:"jul-2026",u:"https://s206.q4cdn.com/479360582/files/doc_financials/2026/q2/GOOG-10-Q-Q2-2026.pdf"},
-      {cat:"Formularios SEC",t:"10-Q primer trimestre 2026",d:"abr-2026",u:"https://www.sec.gov/Archives/edgar/data/0001652044/000165204426000048/goog-20260331.htm"},
-      {cat:"Formularios SEC",t:"10-K ejercicio 2025",d:"feb-2026",u:"https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/goog-20251231.htm"},
-      {cat:"Informe anual",t:"Informe anual a accionistas 2025 (PDF)",d:"2026",u:"https://www.sec.gov/Archives/edgar/data/0001652044/000130817926000344/goog014907-ars.pdf"},
-      {cat:"Transcripciones",t:"Llamada de resultados 3T26 (The Motley Fool)",d:"29-oct-2026",u:"https://www.fool.com/earnings/call-transcripts/2026/10/29/alphabet-googl-q3-2026-earnings-call-transcript/"}
-    ],
-    news:[
-      {t:"Resultados 3T26: Cloud +103%, capex de 51.360 M$",src:"StockTitan",u:"https://www.stocktitan.net/articles/alphabet-q3-2026-earnings-google-cloud-doubles-search-slows"},
-      {t:"La acción cae tras el FCF negativo",src:"FinanceFeeds",u:"https://financefeeds.com/alphabet-googl-stock-292-after-q3-profit-miss-negative-9-billion-free-cash-flow-bull-325-bear-266/"},
-      {t:"Búsqueda +12% y monetización de AI Mode",src:"Relevant Audience",u:"https://www.relevantaudience.com/google-ads-en/alphabet-q3-2026-search-revenue-ai-mode-monetization/"},
-      {t:"Fallo de ad tech: sin venta forzosa",src:"JOPR",u:"https://jopr.org/news/detail/google-keeps-adtech-business"},
-      {t:"BPA de 2,12 $ frente a 3,02 $ esperado",src:"Investing.com",u:"https://ng.investing.com/news/earnings/alphabet-a-earnings-missed-by-090-revenue-topped-estimates-2764724"},
-      {t:"Consenso de analistas antes de resultados",src:"TIKR",u:"https://www.tikr.com/blog/alphabet-stock-is-up-46-since-last-october-is-it-still-a-buy"}
-    ]}
-});
-
-DEFAULTS.reddit={
-  meta:{nextEarnings:"29-oct-2026",name:"Reddit",ticker:"NYSE: RDDT",ccy:"USD",sector:"Redes sociales y publicidad",hq:"San Francisco, California",founded:"2005",employees:"2.555 (dic-25)",asOf:"27-oct-2026"},
-  overview:{
-    thesis:"Crece al 60% con márgenes de software y caja sin deuda, pero el mercado duda de su tráfico: depende de Google, y la búsqueda con IA responde sin enviar visitas.",
-    summary:"Red de más de 100.000 comunidades donde los usuarios conversan sobre cualquier tema. Gana dinero con publicidad (95% de los ingresos) y con licencias de su contenido a empresas de IA como Google y OpenAI.\nEl contenido lo crean y moderan los propios usuarios de forma gratuita, por eso su margen bruto es del 91%. Gran parte de sus visitas llega desde el buscador de Google.",
-    keyFacts:[{k:"Ingresos 2T26",v:"805 M$ (+61%)"},{k:"EBITDA ajustado 2T26",v:"343 M$ (42,6%)"},{k:"Beneficio neto 2T26",v:"253 M$ (31% de margen)"},{k:"FCF 2T26",v:"261 M$"},{k:"Usuarios diarios (DAUq)",v:"130,3 M (+18%)"},{k:"Ingreso por usuario (ARPU)",v:"6,18 $ (+36%)"},{k:"Caja / deuda (jun-26)",v:"2.786 M$ / sin deuda"}],
-    catalysts:[{d:"29-oct-26",t:"Resultados 3T26 tras el cierre: guía 860–870 M$ (+47–49%). El consenso espera 875 M$."},{d:"4T26",t:"Primer trimestre de más de 1.000 M$ de ingresos según el consenso."},{d:"2026",t:"Renovación de las licencias de datos con Google y OpenAI (~130 M$ al año hoy)."},{d:"En curso",t:"Reddit Max (campañas automáticas con IA) abierto a todos los anunciantes desde septiembre."}]
-  },
-  business:{
-    model:"Vende publicidad dentro de las conversaciones: los anunciantes pagan por llegar a comunidades con intereses muy concretos. Además licencia su archivo de conversaciones para entrenar modelos de IA.\nNo paga por el contenido ni por la moderación, que hacen voluntarios. Casi no necesita inversión en activos.",
-    customers:"Anunciantes de marca y de rendimiento (grandes cuentas, pymes vía autoservicio y agencias), empresas de IA que compran acceso a los datos, y usuarios que no pagan. El 79% de los ingresos viene de EE. UU.",
-    segNote:"Ingresos del 2T26 por tipo, en M$. Por geografía: EE. UU. 638 M$ e internacional 167 M$.",
-    segments:[{n:"Publicidad",v:762},{n:"Otros (licencias de datos)",v:43}],
-    customerTypes:[{n:"Grandes anunciantes",d:"Marcas que buscan audiencias por interés. Reddit Max automatiza segmentación y creatividades."},{n:"Pymes y rendimiento",d:"Autoservicio y anuncios de apps; la dirección admite que el alta de pymes en Max aún debe mejorar."},{n:"Empresas de IA",d:"Google y OpenAI licencian el contenido desde 2024; ~140 M$ en 2025."},{n:"Usuarios",d:"130,3 M diarios; los internacionales crecen un 28%, los de EE. UU. un 6%."}],
-    quality:[{n:"Márgenes",s:4,note:"Margen bruto 91%, EBITDA ajustado 43%, neto 31%"},{n:"Retorno sobre capital",s:5,note:"Capex de ~7 M$ al año"},{n:"Conversión en caja",s:4,note:"FCF del 32% de los ingresos en 2T26"},{n:"Recurrencia de ingresos",s:2,note:"Depende del gasto publicitario y del tráfico de búsqueda"},{n:"Diversificación",s:2,note:"95% publicidad; 79% EE. UU."},{n:"Balance",s:5,note:"2.786 M$ de caja y sin deuda financiera"}],
-    phase:2, phaseNote:"Pasa del hipercrecimiento (ocho trimestres seguidos por encima del 60%) a un crecimiento rentable: la guía del 3T26 baja al 47–49%."
-  },
-  fin:{
-    years:["2022","2023","2024","2025","2026e"],
-    rev:[667,804,1300,2203,3390],
-    profit:[null,null,298,845,1480], profitLabel:"EBITDA ajustado",
-    ni:[-159,-91,-484,530,1080],
-    fcf:[null,null,216,684,1370],
-    capex:[null,null,6,7,6],
-    bal:{labels:["2024","2025","jun-26"],cash:[1841,2477,2786],debt:[0,0,0]},
-    q:{labels:["3T25","4T25","1T26","2T26","3T26 guía"],series:[{n:"Ingresos",values:[68,70,69,61,48]},{n:"Usuarios diarios",values:[null,19,null,18,null]}]},
-    qrev:{labels:["1T25","2T25","3T25","4T25","1T26","2T26","3T26 guía"],values:[392,500,585,726,663,805,865]},
-    shares:{labels:["2024","2025","jun-26"],values:[206.2,206.1,207.0]},
-    note:"La pérdida de 2024 se debe al pago en acciones de la salida a bolsa. EBITDA ajustado y FCF de 2022–23 no disponibles aquí. 2026e: primer semestre real + guía del 3T + consenso del 4T."
-  },
-  moat:{
-    width:"Estrecho", trend:"En riesgo por la búsqueda con IA",
-    note:"Su activo es un archivo de casi 20 años de conversaciones humanas, difícil de copiar y valioso para buscadores y modelos de IA. La debilidad es la distribución: gran parte de las visitas llega desde Google, y las respuestas con IA pueden quedarse ese tráfico.",
-    sources:[{n:"Efecto red",s:4,note:"Más usuarios → más conversaciones → más valor para cada comunidad"},{n:"Costes de cambio",s:2,note:"Historial y reputación del usuario; bajo para el lector anónimo"},{n:"Activos intangibles",s:4,note:"Archivo de conversaciones y marca; licenciado a Google y OpenAI"},{n:"Ventaja de costes",s:4,note:"Contenido y moderación gratuitos: margen bruto del 91%"},{n:"Escala eficiente",s:2,note:"Nichos abiertos a otros foros y plataformas"}],
-    comps:[{n:"Google (AI Overviews)",threat:4,note:"Socio de datos y a la vez la mayor amenaza para su tráfico"},{n:"Meta",threat:4,note:"Rival por el presupuesto de los anunciantes"},{n:"OpenAI (ChatGPT)",threat:3,note:"Responde preguntas con contenido de Reddit sin enviar visitas"},{n:"TikTok",threat:3,note:"Compite por el tiempo de los usuarios jóvenes"},{n:"Discord y X",threat:2,note:"Alternativas para comunidades y conversación"}]
-  },
-  growth:{
-    score:4, scoreNote:"Sigue creciendo cerca del 50% con ingresos por usuario al alza, pero el crecimiento de usuarios en EE. UU. es bajo (+6%) y depende del tráfico de búsqueda.",
-    tam:"Publicidad digital mundial: Meta factura más de 160.000 M$ al año; Reddit, unos 3.400 M$. El ARPU internacional (2,26 $) es una quinta parte del de EE. UU. (11,85 $).",
-    guidance:"Guía 3T26: ingresos 860–870 M$ (+47–49%), EBITDA ajustado 385–395 M$. Desde el 3T26 deja de separar usuarios conectados y anónimos.",
-    drivers:[{n:"Más ingresos por usuario (Reddit Max)",impact:5,h:"2026–2027",d:"ARPU +36%; los ingresos de Max crecieron más del 150% trimestral."},{n:"Crecimiento internacional",impact:4,h:"2026–2028",d:"Usuarios internacionales +28% con traducción automática; ARPU aún bajo."},{n:"Licencias de datos para IA",impact:3,h:"2026",d:"Renovación con Google y OpenAI; Wells Fargo estima hasta 550 M$ al año."},{n:"Búsqueda propia y Reddit Answers",impact:3,h:"2027+",d:"Convertir a lectores de Google en usuarios directos de la app."},{n:"Recompras",impact:2,h:"Continuo",d:"Programa de 1.000 M$; 240 M$ ejecutados en el 1S26."}]
-  },
-  mgmt:{
-    note:"Huffman controla cerca del 70,7% del voto gracias a un pacto con Advance (familia Newhouse), que posee ~22% del capital. Su participación económica propia es del 3%. Las acciones de clase B tienen 10 votos.",
-    people:[{n:"Steve Huffman",role:"Cofundador y CEO",since:"2015",note:"Volvió como CEO en 2015 y llevó la empresa a bolsa en 2024."},{n:"Jen Wong",role:"Directora de operaciones",since:"2018",note:"Responsable del negocio publicitario."},{n:"Drew Vollero",role:"Director financiero",since:"2020",note:"Ha llevado a la empresa a beneficios y al programa de recompras."},{n:"Advance (Newhouse)",role:"Mayor accionista",since:"2006",note:"~22% del capital; vota con Huffman por pacto."}],
-    scores:[{n:"Alineación con el accionista",s:3,note:"Fundador al mando, pero con solo un 3% económico y pago en acciones elevado"},{n:"Asignación de capital",s:4,note:"Sin deuda, recompras de 1.000 M$, capex mínimo"},{n:"Credibilidad y ejecución",s:5,note:"Ocho trimestres seguidos creciendo más del 60% y batiendo previsiones"},{n:"Gobierno corporativo",s:2,note:"Control del voto por pacto con Advance"},{n:"Transparencia",s:3,note:"Deja de desglosar usuarios conectados y anónimos"}],
-    alloc:{label:"Uso de la caja, 1S 2026 (M$)",items:[{n:"Recompras",v:240},{n:"Capex",v:2},{n:"Dividendos",v:0}]},
-    vote:{label:"Poder de voto (%, may-26)",items:[{n:"Huffman con el pacto de Advance",v:70.7},{n:"Resto de accionistas",v:29.3}]}
-  },
-  risks:[
-    {n:"Menos tráfico desde Google",cat:"Competencia",p:4,i:5,note:"Referencias de búsqueda «irregulares» en el 2T26; Wells Fargo lo valora en ~16.000 M$ de EV"},
-    {n:"Usuarios de EE. UU. estancados",cat:"Operativo",p:3,i:4,note:"Usuarios conectados en EE. UU. +1% en 2T26"},
-    {n:"Desaceleración del crecimiento",cat:"Operativo",p:4,i:3,note:"Del 61% al 47–49% guiado para el 3T26"},
-    {n:"Renovación de licencias de IA",cat:"Comercial",p:3,i:3,note:"Informaciones de que podría cortar el acceso de Google a sus datos"},
-    {n:"Dilución por pago en acciones",cat:"Financiero",p:3,i:2,note:"~340 M$ al año de pago en acciones"},
-    {n:"Dependencia de moderadores voluntarios",cat:"Operativo",p:2,i:3,note:"Las protestas de 2023 mostraron el riesgo"},
-    {n:"Litigios con empresas de IA",cat:"Legal",p:2,i:2,note:"Ganó una decisión clave contra Anthropic en septiembre"},
-    {n:"Control del voto",cat:"Gobierno",p:2,i:2,note:"Huffman y Advance deciden las votaciones"}
-  ],
-  v:{price:137.83,lo52:119.27,hi52:263.5,shares:207,cash:2786,debt:0,rev0:3390,year0:2026,g:[30,24,19,16,13],m1:46,m5:50,da:0.6,da5:0.6,sbc:8,capex:0.3,capex5:0.3,nwc:8,tax:18,
-     wacc:10.5,tg:3,exit:15,method:"blend",eps:6.5,pe:25,evm:18,cMean:212.95,cLow:null,cHigh:null,
-     scn:[{n:"Bajista",dg:-14,dm:-8,p:25},{n:"Base",dg:0,dm:0,p:50},{n:"Alcista",dg:8,dm:3,p:25}]},
-  verdict:{rating:"Acumular",conviction:3,buyBelow:125,horizon:"12–24 meses",
-    summary:"Negocio muy rentable y sin deuda que sigue creciendo cerca del 50%, a un precio que ha caído más de un 45% desde máximos por el miedo a perder el tráfico de Google. Si el crecimiento internacional y Reddit Max compensan la búsqueda, el precio actual es atractivo; si el tráfico se hunde, el múltiplo aún puede bajar. Resultados del 3T26 esta misma tarde.",
-    bull:["Margen bruto del 91% y FCF del 32% de los ingresos","ARPU +36%: monetiza mejor cada usuario","Usuarios internacionales +28% con mucho margen de ARPU","2.786 M$ de caja, sin deuda y con recompras"],
-    bear:["Gran dependencia del tráfico de Google","Usuarios conectados de EE. UU. casi planos","Deja de publicar parte del desglose de usuarios","Renovación incierta de las licencias de IA"],
-    watch:["Resultados y guía del 4T26 (hoy tras el cierre)","Crecimiento de usuarios diarios en EE. UU.","Acuerdos de datos con Google y OpenAI","Adopción de Reddit Max por pymes"]},
-  notes:"Cotización de 137,83 $ del 27-oct-2026. Reddit publica resultados del 3T26 hoy, 29-oct, tras el cierre: actualiza precio y cifras después.",
-  sources:{web:"https://www.redditinc.com",ir:"https://investor.redditinc.com",cik:"0001713445",
-    docs:[
-      {cat:"Resultados trimestrales",t:"Nota de prensa de resultados 2T26 (PDF)",d:"30-jul-2026",u:"https://s203.q4cdn.com/380862485/files/doc_financials/2026/q2/Q2-26-Earnings-Press-Release.pdf"},
-      {cat:"Resultados trimestrales",t:"Nota de prensa de resultados 4T25 y año 2025 (PDF)",d:"05-feb-2026",u:"https://s203.q4cdn.com/380862485/files/doc_financials/2025/q4/Q4-25-Earnings-Press-Release.pdf"},
-      {cat:"Formularios SEC",t:"10-Q segundo trimestre 2026",d:"jul-2026",u:"https://www.sec.gov/Archives/edgar/data/0001713445/000171344526000100/rddt-20260630.htm"},
-      {cat:"Formularios SEC",t:"10-K ejercicio 2025",d:"feb-2026",u:"https://www.sec.gov/Archives/edgar/data/1713445/000171344526000022/rddt-20251231.htm"},
-      {cat:"Formularios SEC",t:"S-1 de la salida a bolsa",d:"feb-2024",u:"https://www.sec.gov/Archives/edgar/data/1713445/000162828024006294/reddits-1q423.htm"},
-      {cat:"Transcripciones",t:"Resumen de la llamada de resultados 2T26 (Quartr)",d:"30-jul-2026",u:"https://quartr.com/events/reddit-inc-rddt-q2-2026_FLW4MEuM"},
-      {cat:"Gobierno corporativo",t:"Quién es dueño de Reddit (accionistas y voto)",d:"sep-2026",u:"https://aifundingtracker.com/who-owns-reddit/"}
-    ],
-    news:[
-      {t:"Reddit Max y la guía del 3T26",src:"24/7 Wall St.",u:"https://247wallst.com/investing/2026/10/25/can-reddit-max-save-rddt-from-slower-growth-guidance-on-oct-29/"},
-      {t:"La acción cae por las referencias de búsqueda",src:"TIKR",u:"https://www.tikr.com/blog/reddit-rddt-stock-sinks-search-referral-concerns-q2-2026"},
-      {t:"Renovación de los acuerdos de IA",src:"TIKR",u:"https://www.tikr.com/blog/reddit-fell-6-as-its-550m-ai-deal-renewal-looms-heres-where-the-stock-could-go-in-2026"},
-      {t:"Cotización, rango de 52 semanas y consenso",src:"StockAnalysis",u:"https://stockanalysis.com/stocks/rddt/"},
-      {t:"Notas de resultados 2T26",src:"Barchart",u:"https://www.barchart.com/story/news/3561487/reddit-nyserddt-delivers-strong-q2-cy2026-numbers-but-stock-drops-10-3"}
-    ]}
-};
-
+/* ================= ESTADO: datos automáticos (data/) + criterio propio (analysis/) + consenso manual (manual/) ================= */
 const PULSE0=()=>["Reddit","X","Threads","YouTube"].map(p=>({p,s:null,note:""}));
-deepMerge(DEFAULTS.applovin,{social:{pulse:PULSE0(),videos:[
-  {t:"AppLovin Stock Analysis 2026: Is the Dip a Buy?",u:"https://www.youtube.com/watch?v=wl2p2r7zRwA"},
-  {t:"AppLovin (APP) – 2026 Q2 Earnings Analysis",u:"https://www.youtube.com/watch?v=cFyxCLM8LiA"},
-  {t:"Why Is AppLovin Stock Falling, and is it a Buying Opportunity?",u:"https://www.youtube.com/watch?v=alF5T0G0baA"},
-  {t:"APP Stock Crash: Why AppLovin Is Dropping & Price Prediction 2026",u:"https://www.youtube.com/watch?v=eskne5gy7DI"},
-  {t:"AppLovin ($APP) Stock Analysis: Bears in Control, But a Stronger Zone Below",u:"https://www.youtube.com/watch?v=skaPYMOs1Ls"}]}});
-deepMerge(DEFAULTS.alphabet,{social:{pulse:PULSE0(),videos:[
-  {t:"Breaking Down Alphabet's Earnings and Spending Plans",u:"https://www.youtube.com/watch?v=PZySE08_AoY"},
-  {t:"GOOGL “Best in Class” into Earnings, Bull Case for “Aggressive” AI CapEx",u:"https://www.youtube.com/watch?v=ziMqvAVQ0JE"},
-  {t:"Alphabet Earnings Preview: Ad Growth, Cloud, and AI Costs",u:"https://www.youtube.com/watch?v=-jJGC_tjMU0"},
-  {t:"What to watch in Microsoft and Alphabet earnings",u:"https://www.youtube.com/watch?v=BGndlXxLyEI"},
-  {t:"Alphabet Stock Analysis: My Final Verdict",u:"https://www.youtube.com/watch?v=9-AUPTW_qV8"}]}});
-deepMerge(DEFAULTS.reddit,{social:{pulse:PULSE0(),videos:[
-  {t:"Reddit (RDDT) Stock Analysis 2026: From Multi-bagger to 60% Crash (And Up Again)",u:"https://www.youtube.com/watch?v=9ICEu_pNFG8"},
-  {t:"Reddit Oversold Into Earnings & Options Activity for RDDT",u:"https://www.youtube.com/watch?v=bWwjLShvxYU"},
-  {t:"Reddit (RDDT) Stock Analysis: 91% Gross Margins vs. Quant “Hold”",u:"https://www.youtube.com/watch?v=j4xCzbUZYqU"},
-  {t:"RDDT Stock Prediction: Is Reddit Stock a Buy or Trap After Q2 Earnings?",u:"https://www.youtube.com/watch?v=2-xwv4dd264"}]}});
-
-DEFAULTS.amazon={
-  meta:{nextEarnings:"29-oct-2026",name:"Amazon",ticker:"NASDAQ: AMZN",ccy:"USD",sector:"Comercio electrónico, nube y publicidad",hq:"Seattle, Washington",founded:"1994",employees:"1.576.000 (dic-25)",asOf:"27-oct-2026"},
-  overview:{
-    thesis:"AWS vuelve a acelerar (+37%) con una cartera firmada de casi 500.000 M$, pero Amazon gasta 220.000 M$ al año en centros de datos y su flujo de caja libre está en negativo. A ~253 $ el precio ya refleja el modelo base.",
-    summary:"Tres negocios en uno: la tienda online más grande de Occidente (con Prime y el marketplace de vendedores externos), Amazon Web Services, la mayor nube del mundo, y un negocio de publicidad que ya factura casi 80.000 M$ al año.\nAWS aporta el 18% de las ventas pero más de la mitad del beneficio operativo. Además tiene una participación en Anthropic que en 2026 le ha dado más de 70.000 M$ de ganancias contables.",
-    keyFacts:[{k:"Ventas 2T26",v:"200.600 M$ (+20%)"},{k:"AWS 2T26",v:"42.200 M$ (+37%), 16.600 M$ de beneficio"},{k:"Publicidad 2T26",v:"19.800 M$ (+26%)"},{k:"Beneficio operativo 2T26",v:"27.500 M$ (+43%)"},{k:"Cartera de AWS (2T26)",v:"496.000 M$ (364.000 M$ un trimestre antes)"},{k:"Capex 2026 (guía)",v:"~220.000 M$"},{k:"FCF 12 meses (jun-26)",v:"−7.600 M$"}],
-    catalysts:[{d:"29-oct-26",t:"Resultados 3T26 tras el cierre: guía 197.000–202.000 M$ y beneficio operativo de 22.500–26.500 M$. El mercado espera AWS cerca del +35%."},{d:"Feb-27",t:"Resultados 4T26 y plan de capex para 2027."},{d:"Mar-27",t:"Juicio antimonopolio de la FTC sobre sus prácticas de precios."},{d:"En curso",t:"Revalorizaciones de su participación en Anthropic, que mueven mucho el beneficio neto."}]
-  },
-  business:{
-    model:"Vende productos propios y cobra comisiones, logística y publicidad a millones de vendedores externos de su marketplace. Cobra cuotas de Prime y otras suscripciones.\nCon AWS alquila capacidad de cómputo, almacenamiento, chips propios (Trainium) y modelos de IA a empresas de todo el mundo.",
-    customers:"Cientos de millones de compradores (muchos con Prime), millones de vendedores externos que usan su logística, anunciantes que quieren llegar al comprador en el momento de la compra, y empresas y laboratorios de IA que contratan AWS.",
-    segNote:"Ventas de 2025 por segmento, en M$. AWS genera el 57% del beneficio operativo con solo el 18% de las ventas.",
-    segments:[{n:"Norteamérica",v:426300},{n:"Internacional",v:161900},{n:"AWS",v:128700}],
-    customerTypes:[{n:"Compradores y Prime",d:"Suscripciones +12% en 2T26 (13.700 M$ por trimestre)."},{n:"Vendedores externos",d:"Pagan comisiones, logística y publicidad para vender en Amazon."},{n:"Empresas en AWS",d:"Cartera firmada de 496.000 M$; ventas +37%."},{n:"Anunciantes",d:"19.800 M$ en el 2T26 (+26%): anuncios en la búsqueda de Amazon y en Prime Video."}],
-    quality:[{n:"Márgenes",s:3,note:"Margen operativo ~13%; AWS ~39%"},{n:"Retorno sobre capital",s:3,note:"Alto en AWS y publicidad; diluido por el capex"},{n:"Conversión en caja",s:1,note:"FCF de −7.600 M$ en 12 meses por el capex"},{n:"Recurrencia de ingresos",s:4,note:"Prime y contratos plurianuales de AWS"},{n:"Diversificación",s:5,note:"Comercio, nube, publicidad y suscripciones en todo el mundo"},{n:"Balance",s:4,note:"123.000 M$ de caja frente a 128.900 M$ de deuda"}],
-    phase:2, phaseNote:"El comercio online es un negocio maduro, pero AWS y publicidad le dan una segunda fase de crecimiento. Crecer al 20% con más de 700.000 M$ de ventas es excepcional."
-  },
-  fin:{
-    years:["2021","2022","2023","2024","2025","2026e"],
-    rev:[469822,513983,574785,637959,716900,822000],
-    profit:[24879,12248,36852,68593,80000,104000], profitLabel:"Beneficio operativo",
-    ni:[33364,-2722,30425,59248,77700,null],
-    fcf:[-9069,-11569,36813,38219,11200,-40000],
-    capex:[61053,63645,52729,83004,131800,220000],
-    bal:{labels:["2021","2022","2023","2024","2025","jun-26"],cash:[96049,70026,86780,101202,123000,123000],debt:[48744,67150,58314,52623,65600,128900]},
-    q:{labels:["3T25","4T25","1T26","2T26","3T26 guía"],series:[{n:"Total",values:[13,14,17,20,11]},{n:"AWS",values:[20,24,28,37,null]},{n:"Publicidad",values:[24,23,24,26,null]}]},
-    qrev:{labels:["1T25","2T25","3T25","4T25","1T26","2T26","3T26 guía"],values:[155667,167702,180169,213386,181500,200600,199500]},
-    shares:{labels:["2021","2022","2023","2024","2025","jun-26"],values:[10180,10242,10383,10593,10731,10783]},
-    note:"Se usa beneficio operativo en vez de EBITDA. 2026e: primer semestre real + guía del 3T + 4T estimado. El beneficio neto de 2026 no se muestra porque incluye más de 70.000 M$ de ganancias contables por Anthropic. La guía del 3T26 (+9–12%) está afectada por el cambio de fecha del Prime Day a junio. Caja = caja + valores negociables; deuda = deuda a largo plazo."
-  },
-  moat:{
-    width:"Amplio", trend:"Estable",
-    note:"Pocos negocios combinan tantas ventajas: la red logística y de centros de datos más grande de Occidente, millones de vendedores y compradores en el mismo sitio, y clientes de AWS a los que les cuesta mucho migrar. La amenaza está en la nube: Azure (+43%) y Google Cloud (+82%) crecen más rápido.",
-    sources:[{n:"Efecto red",s:4,note:"Más vendedores → más selección → más compradores; Prime"},{n:"Costes de cambio",s:4,note:"Migrar fuera de AWS es caro y arriesgado"},{n:"Activos intangibles",s:4,note:"Marca, datos de compra, chips propios Trainium"},{n:"Ventaja de costes",s:5,note:"Escala en logística, compras y cómputo"},{n:"Escala eficiente",s:5,note:"Red logística y centros de datos casi imposibles de replicar"}],
-    comps:[{n:"Microsoft Azure",threat:4,note:"Crece al 43% en la nube con OpenAI"},{n:"Google Cloud",threat:4,note:"Crece al 103% con margen del 36%"},{n:"Walmart",threat:3,note:"Rival en comercio online y publicidad minorista"},{n:"Temu y Shein",threat:3,note:"Precios bajos desde Asia"},{n:"Shopify",threat:2,note:"Alternativa para marcas que venden por su cuenta"}]
-  },
-  growth:{
-    score:4, scoreNote:"Crece entre el 11% y el 20% según el trimestre, con AWS acelerando hasta el 37%. Para su tamaño es un ritmo muy alto.",
-    tam:"Comercio minorista mundial, nube pública (donde AWS es el número 1) y publicidad digital, donde ya es el tercer actor tras Google y Meta.",
-    guidance:"Guía 3T26: ventas 197.000–202.000 M$ (+9–12%; +13–16% sin el efecto del Prime Day) y beneficio operativo de 22.500–26.500 M$. Capex 2026: ~220.000 M$.",
-    drivers:[{n:"AWS e inteligencia artificial",impact:5,h:"2026–2028",d:"+37% en 2T26; la cartera firmada subió 132.000 M$ en un trimestre."},{n:"Publicidad",impact:4,h:"Continuo",d:"+26%; anuncios en la tienda y en Prime Video."},{n:"Participación en Anthropic",impact:3,h:"2026–2027",d:"Gran cliente de AWS y Trainium; además, revalorización contable."},{n:"Prime y suscripciones",impact:2,h:"Continuo",d:"+12% en 2T26."},{n:"Amazon Leo (internet por satélite)",impact:2,h:"2027+",d:"Opcionalidad; cuesta ~1.000 M$ más por trimestre."}]
-  },
-  mgmt:{
-    note:"Una acción, un voto: no hay acciones de doble clase. Jeff Bezos sigue siendo el mayor accionista individual y presidente ejecutivo. Amazon no paga dividendo y apenas recompra: reinvierte casi todo.",
-    people:[{n:"Andy Jassy",role:"CEO",since:"2021",note:"Fundó AWS y lo dirigió hasta suceder a Bezos."},{n:"Brian Olsavsky",role:"Director financiero",since:"2015",note:"Gestiona el mayor plan de inversión de la historia de la empresa."},{n:"Matt Garman",role:"CEO de AWS",since:"2024",note:"AWS ha pasado del +17% al +37% bajo su mando."},{n:"Jeff Bezos",role:"Fundador y presidente ejecutivo",since:"1994",note:"Mayor accionista individual (~8%, aprox.)."}],
-    scores:[{n:"Alineación con el accionista",s:3,note:"Directivos pagados en acciones; el fundador sigue en el capital"},{n:"Asignación de capital",s:4,note:"Capex enorme pero respaldado por contratos; inversión en Anthropic muy rentable"},{n:"Credibilidad y ejecución",s:4,note:"Márgenes récord y AWS acelerando"},{n:"Gobierno corporativo",s:4,note:"Una acción, un voto; consejo mayoritariamente independiente"},{n:"Transparencia",s:4,note:"Publica la cartera de AWS y guía de beneficio operativo"}],
-    alloc:{label:"Uso de la caja, 1S 2026 (M$, aprox.)",items:[{n:"Capex",v:98000},{n:"Recompras",v:0},{n:"Dividendos",v:0}]},
-    vote:{label:"Poder de voto (%, aprox.)",items:[{n:"Jeff Bezos",v:8},{n:"Resto de accionistas",v:92}]}
-  },
-  risks:[
-    {n:"El capex no rinde lo esperado",cat:"Financiero",p:3,i:4,note:"FCF de −7.600 M$ en 12 meses; capex de ~220.000 M$ en 2026"},
-    {n:"Pierde cuota en la nube",cat:"Competencia",p:3,i:4,note:"Azure (+43%) y Google Cloud (+82%) crecen más rápido"},
-    {n:"Juicio antimonopolio de la FTC",cat:"Regulatorio",p:3,i:3,note:"Juicio fijado para marzo de 2027"},
-    {n:"Dependencia de Anthropic",cat:"Comercial",p:3,i:3,note:"Gran cliente y participación con ganancias contables muy volátiles"},
-    {n:"Márgenes del comercio y aranceles",cat:"Mercado",p:3,i:2,note:"Margen internacional de solo ~4%"},
-    {n:"Coste de memoria y chips",cat:"Operativo",p:3,i:2,note:"La dirección lo citó al subir la guía de capex"},
-    {n:"Más deuda",cat:"Financiero",p:2,i:2,note:"Deuda a largo plazo de 65.600 a 128.900 M$ en seis meses"}
-  ],
-  v:{price:253.10,lo52:196,hi52:287.2,shares:10950,cash:123000,debt:128900,rev0:822000,year0:2026,g:[12,11,10,9,8],m1:26,m5:30,da:9.5,da5:11,sbc:3,capex:27,capex5:13,nwc:-3,tax:17,
-     wacc:9,tg:3,exit:14,method:"blend",eps:9.5,pe:30,evm:16,cMean:328.91,cLow:null,cHigh:null,
-     scn:[{n:"Bajista",dg:-5,dm:-4,p:25},{n:"Base",dg:0,dm:0,p:50},{n:"Alcista",dg:4,dm:2,p:25}]},
-  verdict:{rating:"Mantener",conviction:3,buyBelow:215,horizon:"12–24 meses",
-    summary:"Gran compañía con AWS acelerando y publicidad creciendo al 26%, pero en el pico de su ciclo de inversión: el capex se come todo el flujo de caja y la deuda se ha duplicado en seis meses. El modelo da un valor muy cercano a la cotización, sin contar el valor de la participación en Anthropic. Mantener y comprar en caídas; hoy presenta resultados tras el cierre.",
-    bull:["AWS +37% con 496.000 M$ de cartera firmada","Publicidad +26%, negocio de margen muy alto","Participación en Anthropic con mucho valor","Ventajas de escala en logística y nube"],
-    bear:["FCF negativo y capex de ~220.000 M$","Deuda a largo plazo duplicada en 2026","Azure y Google Cloud crecen más rápido","Juicio de la FTC en marzo de 2027"],
-    watch:["Crecimiento y margen de AWS en el 3T26 (hoy)","Plan de capex para 2027","Vuelta del FCF a positivo","Valor contable de Anthropic"]},
-  notes:"Cotización de 253,10 $ del cierre del 27-oct-2026. Amazon presenta resultados del 3T26 hoy, 29-oct, tras el cierre. El DCF no incluye el valor de la participación en Anthropic.",
-  sources:{web:"https://www.aboutamazon.com",ir:"https://ir.aboutamazon.com",cik:"0001018724",
-    docs:[
-      {cat:"Resultados trimestrales",t:"Nota de prensa de resultados 2T26",d:"30-jul-2026",u:"https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-Second-Quarter-Results"},
-      {cat:"Resultados trimestrales",t:"8-K de resultados 1T26 (Exhibit 99.1)",d:"29-abr-2026",u:"https://www.sec.gov/Archives/edgar/data/0001018724/000101872426000012/amzn-20260331xex991.htm"},
-      {cat:"Resultados trimestrales",t:"8-K de resultados 4T25 y año 2025 (Exhibit 99.1)",d:"05-feb-2026",u:"https://www.sec.gov/Archives/edgar/data/1018724/000101872426000002/amzn-20251231xex991.htm"},
-      {cat:"Transcripciones",t:"Llamada de resultados 1T26 (MarketBeat)",d:"29-abr-2026",u:"https://www.marketbeat.com/earnings/reports/2026-4-29-amazoncom-inc-stock/"},
-      {cat:"Transcripciones",t:"Resumen de la llamada 2T26 (Quartr)",d:"30-jul-2026",u:"https://quartr.com/events/amazon-com-inc-amzn-q2-2026_3sdJV790"},
-      {cat:"Presentaciones",t:"Novedades del 3T26 según Amazon",d:"oct-2026",u:"https://www.aboutamazon.com/news/company-news/amazon-q3-2026-earnings-preview"}
-    ],
-    news:[
-      {t:"Por qué subió tras el 2T26 (cartera de AWS y capex)",src:"INDmoney",u:"https://www.indmoney.com/blog/us-stocks/amazon-q2-earnings-results-why-amzn-stock-jumped-analysis"},
-      {t:"Qué esperar de los resultados del 3T26",src:"Pepperstone",u:"https://pepperstone.com/en-ae/insights/market-analysis/equities/amazon-q3-2026-earnings-preview"},
-      {t:"Cotización y consenso antes de resultados",src:"Gotrade",u:"https://www.heygotrade.com/en/news/amazon-amzn-stock-news-october-28-2026/"},
-      {t:"Consenso de BPA y precio objetivo",src:"Yahoo Finance / Barchart",u:"https://finance.yahoo.com/markets/stocks/articles/expect-amazon-com-q3-2026-110710701.html"},
-      {t:"El juicio de la FTC se aplaza a marzo de 2027",src:"MLex",u:"https://www.mlex.com/mlex/amp/articles/2422758"}
-    ]},
-  social:{pulse:["Reddit","X","Threads","YouTube"].map(p=>({p,s:null,note:""})),videos:[
-    {t:"Amazon Stock Analysis 2026: My Fair Value & Buy Zones",u:"https://www.youtube.com/watch?v=6bpSwUCZWtQ"},
-    {t:"Amazon Stock 2026: The $200B AI Gamble (AMZN Analysis)",u:"https://www.youtube.com/watch?v=99BgzgCaHto"},
-    {t:"What to expect from Amazon's earnings report as AWS faces pressure from rivals",u:"https://www.youtube.com/watch?v=OftL8SOzQ20"},
-    {t:"Better Than Nvidia? The Case for Amazon in 2026",u:"https://www.youtube.com/watch?v=1s76pS26CU4"},
-    {t:"Where Will Amazon Stock Be in 2026?",u:"https://www.youtube.com/watch?v=P2iytrsoH9M"}]}
-};
-
-DEFAULTS.vistra={
-  meta:{name:"Vistra",ticker:"NYSE: VST",ccy:"USD",sector:"Generación eléctrica y venta minorista de luz",hq:"Irving, Texas",founded:"2016 (raíces en TXU, 1882)",employees:"6.390",asOf:"28-oct-2026",nextEarnings:"6-nov-2026",updatedAt:"2026-10-29T10:05:00Z"},
-  overview:{
-    thesis:"Productor eléctrico con nuclear y gas que firma contratos de 20 años con Amazon y Meta para sus centros de datos. A 143 $ el precio casi no descuenta crecimiento, pero depende de los precios de la luz en Texas y carga con 20.500 M$ de deuda.",
-    summary:"Vistra genera electricidad con una de las mayores flotas de EE. UU.: cuatro centrales nucleares (Comanche Peak en Texas; Beaver Valley, Davis-Besse y Perry en la red PJM), centrales de gas y baterías. Además vende luz a millones de hogares y empresas con marcas como TXU Energy.\nLa demanda de los centros de datos de IA ha cambiado su historia: ya tiene contratos de 20 años con Amazon (1.200 MW) y Meta (más de 2.600 MW), y ha comprado 8.100 MW de centrales de gas (Lotus y Cogentrix).",
-    keyFacts:[{k:"EBITDA ajustado 2T26",v:"1.767 M$ (+31%)"},{k:"Guía EBITDA ajustado 2026",v:"6.800–7.600 M$ (en o por encima del punto medio)"},{k:"Guía FCF antes de crecimiento 2026",v:"3.925–4.725 M$"},{k:"Rango de oportunidad 2027",v:"7.400–7.800 M$ (+~700 M$ por Cogentrix y Meta)"},{k:"Deuda total (jun-26)",v:"20.508 M$"},{k:"Recompras desde nov-2021",v:"~5.900 M$ (−30% de acciones)"},{k:"Dividendo",v:"0,92 $ por acción (0,6%)"}],
-    catalysts:[{d:"6-nov-26",t:"Resultados 3T26 y actualización de la guía de 2027."},{d:"Final 2027",t:"Comanche Peak empieza a suministrar 1.200 MW al centro de datos de Amazon."},{d:"2027",t:"Contratos con Meta (más de 2.600 MW nucleares en PJM) empiezan a sumar EBITDA."},{d:"En curso",t:"Préstamo condicional del Departamento de Energía de 4.200 M$ para ampliar potencia nuclear (433 MW)."}]
-  },
-  business:{
-    model:"Dos negocios que se cubren entre sí. Generación: produce electricidad y la vende en los mercados mayoristas o con contratos a largo plazo. Minorista: compra esa energía y la vende a hogares y empresas con margen.\nCubre por adelantado casi toda su producción del año siguiente, lo que da estabilidad pero genera grandes pérdidas o ganancias contables no realizadas.",
-    customers:"Hogares y empresas que compran luz (sobre todo en Texas), operadores de red que pagan por tener capacidad disponible, y grandes consumidores como Amazon y Meta que firman contratos de 20 años.",
-    segNote:"EBITDA ajustado del 2T26 por negocio, en M$.",
-    segments:[{n:"Generación",v:994},{n:"Venta minorista",v:773}],
-    customerTypes:[{n:"Hogares y pymes",d:"Marcas como TXU Energy en Texas y otros estados."},{n:"Hiperescaladores",d:"Amazon (1.200 MW de Comanche Peak) y Meta (más de 2.600 MW en PJM), 20 años."},{n:"Mercados mayoristas",d:"ERCOT (Texas) y PJM (Este de EE. UU.): energía y capacidad."},{n:"Industria",d:"Clientes grandes con contratos de suministro."}],
-    quality:[{n:"Márgenes",s:3,note:"EBITDA ~32% de las ventas; beneficio neto muy volátil por coberturas"},{n:"Retorno sobre capital",s:3,note:"Activos pesados; mejora con las recompras"},{n:"Conversión en caja",s:4,note:"FCF antes de crecimiento ~60% del EBITDA"},{n:"Recurrencia de ingresos",s:3,note:"Minorista y contratos de 20 años, pero parte depende del precio de mercado"},{n:"Diversificación",s:3,note:"Texas y PJM; nuclear, gas y minorista"},{n:"Balance",s:2,note:"20.508 M$ de deuda total, ~2,8 veces el EBITDA"}],
-    phase:3, phaseNote:"Negocio maduro de servicios públicos que vuelve a crecer: la demanda de los centros de datos de IA eleva el EBITDA un ~20% en 2026."
-  },
-  fin:{
-    years:["2021","2022","2023","2024","2025","2026e"],
-    rev:[12077,13728,14779,17224,17738,22200],
-    profit:[null,null,4138,5643,5912,7200], profitLabel:"EBITDA ajustado",
-    ni:[-1295,-1377,1343,2467,752,3210],
-    fcf:[-1239,-816,3777,2485,1318,4100],
-    capex:[1033,1301,1676,2078,2752,null],
-    bal:{labels:["2021","2022","2023","2024","2025","jun-26"],cash:[1339,547,3538,1222,795,435],debt:[11234,13428,14741,18748,21049,20508]},
-    q:{labels:["1T25","2T25","3T25","4T25","1T26","2T26"],series:[{n:"Ingresos",values:[28.8,10.5,-21,13.6,43.4,-5.5]}]},
-    qrev:{labels:["1T25","2T25","3T25","4T25","1T26","2T26"],values:[3933,4250,4971,4584,5640,4017]},
-    shares:{labels:["nov-21","feb-26","oct-26"],values:[482,337,335.6]},
-    note:"Ingresos y beneficio neto según StockAnalysis: muy volátiles por la contabilidad de coberturas (por ejemplo, −808 M$ no realizados en 2025). Por eso se usa el EBITDA ajustado de operaciones continuadas de la empresa. 2026e: punto medio de la guía (EBITDA) y consenso (ingresos, beneficio y FCF). El crecimiento trimestral de ingresos no es representativo por las coberturas."
-  },
-  moat:{
-    width:"Estrecho", trend:"Ampliándose",
-    note:"Su ventaja es tener centrales ya construidas y con permisos, sobre todo nucleares, cuando la demanda de electricidad vuelve a crecer y construir una central nueva cuesta años. La debilidad: vende un producto sin diferenciación y, fuera de los contratos largos, depende del precio de mercado.",
-    sources:[{n:"Efecto red",s:1,note:"No aplica: la electricidad es un producto homogéneo"},{n:"Costes de cambio",s:2,note:"Los clientes minoristas de Texas pueden cambiar de comercializadora"},{n:"Activos intangibles",s:3,note:"Licencias nucleares, permisos y la marca TXU Energy"},{n:"Ventaja de costes",s:4,note:"Nuclear amortizada con coste variable muy bajo"},{n:"Escala eficiente",s:4,note:"Centrales existentes difíciles de replicar; nuclear casi imposible"}],
-    comps:[{n:"Constellation Energy",threat:3,note:"Mayor flota nuclear; compite por los mismos contratos con hiperescaladores"},{n:"NRG Energy",threat:3,note:"Rival directo en Texas en minorista y generación"},{n:"Talen Energy",threat:2,note:"Nuclear en PJM con contratos con Amazon"},{n:"Renovables y baterías",threat:3,note:"Bajan los precios en Texas en horas de sol y viento"}]
-  },
-  growth:{
-    score:3.5, scoreNote:"Los ingresos crecen poco, pero el EBITDA sube ~20% en 2026 y los contratos con centros de datos aportan crecimiento contratado desde 2027.",
-    tam:"Consumo eléctrico de EE. UU., que vuelve a crecer por los centros de datos, la electrificación y la relocalización industrial. Vistra espera un crecimiento de la demanda en Texas del 4–6% anual.",
-    guidance:"EBITDA ajustado 2026: 6.800–7.600 M$, en o por encima del punto medio. 2027: 7.400–7.800 M$, cerca del extremo bajo por los precios a plazo en Texas, más ~700 M$ por Cogentrix y Meta.",
-    drivers:[{n:"Contratos con centros de datos",impact:5,h:"2027+",d:"Amazon 1.200 MW (Comanche Peak) y Meta más de 2.600 MW, a 20 años."},{n:"Compras de centrales de gas",impact:4,h:"2026–2027",d:"Lotus (2.600 MW) y Cogentrix (5.500 MW)."},{n:"Más potencia nuclear",impact:3,h:"2027–2030",d:"433 MW de ampliaciones con un préstamo del DOE de 4.200 M$."},{n:"Recompras",impact:3,h:"Continuo",d:"~1.800 M$ pendientes hasta final de 2027."},{n:"Helix Digital Infrastructure",impact:2,h:"2027+",d:"Hasta 1.000 M$ junto a KKR y NVIDIA; Vistra sería su proveedor eléctrico preferente."}]
-  },
-  mgmt:{
-    note:"Una acción, un voto, sin accionista de control. La dirección publica guía de EBITDA y de FCF a dos años. Desde 2021 ha recomprado ~30% de sus acciones mientras compraba Energy Harbor, Lotus y Cogentrix.",
-    people:[{n:"Jim Burke",role:"CEO",since:"2022",note:"Antes director de operaciones; lidera la estrategia de contratos con centros de datos."},{n:"Kris Moldovan",role:"Director financiero",since:"2022",note:"Ha avisado de que 2027 tenderá al extremo bajo del rango por los precios en Texas."},{n:"Stacey Doré",role:"Directora de estrategia y sostenibilidad",since:"",note:"Negocia con los grandes consumidores y la regulación."}],
-    scores:[{n:"Alineación con el accionista",s:3,note:"Retribución ligada a FCF y recompras"},{n:"Asignación de capital",s:5,note:"~5.900 M$ en recompras y compras de centrales a buen precio"},{n:"Credibilidad y ejecución",s:4,note:"Cumple o mejora su guía de EBITDA y FCF"},{n:"Gobierno corporativo",s:4,note:"Una acción, un voto"},{n:"Transparencia",s:4,note:"Guía a dos años y desglose por negocio"}],
-    alloc:{label:"Uso de la caja (M$)",items:[{n:"Recompras desde nov-2021",v:5900},{n:"Capex 2025",v:2752},{n:"Dividendos 2025",v:306}]},
-    vote:{label:"Poder de voto (%)",items:[{n:"Accionistas (una acción, un voto)",v:100}]}
-  },
-  risks:[
-    {n:"Precios de la luz bajos en Texas",cat:"Mercado",p:4,i:4,note:"ERCOT en ~30 $/MWh en 2026; la guía de 2027 tiende al extremo bajo"},
-    {n:"Endeudamiento",cat:"Financiero",p:3,i:3,note:"20.508 M$ de deuda total mientras financia compras, ampliaciones y recompras"},
-    {n:"Retrasos regulatorios en centros de datos",cat:"Regulatorio",p:3,i:3,note:"Texas pausó aprobaciones de grandes consumos; ERCOT aplazó estudios"},
-    {n:"Incidente o parada nuclear",cat:"Operativo",p:2,i:4,note:"Cuatro centrales nucleares concentran gran parte del valor"},
-    {n:"Clima extremo",cat:"Operativo",p:2,i:4,note:"La tormenta Uri de 2021 le costó más de 1.500 M$"},
-    {n:"Integración de Cogentrix",cat:"Operativo",p:2,i:3,note:"5.500 MW de gas en nuevos mercados"},
-    {n:"Volatilidad contable por coberturas",cat:"Financiero",p:4,i:1,note:"472 M$ de pérdidas no realizadas en el 2T26"},
-    {n:"Inversión en Helix",cat:"Comercial",p:2,i:2,note:"Hasta 1.000 M$ en un negocio fuera de su núcleo"}
-  ],
-  v:{price:142.72,lo52:132.66,hi52:200.73,shares:335.64,cash:435,debt:20508,rev0:22200,year0:2026,g:[8,6,5,4,3],m1:34,m5:35,da:10,da5:10,sbc:0.5,capex:9,capex5:7,nwc:5,tax:15,
-     wacc:9.5,tg:2.5,exit:9,method:"blend",eps:10.14,pe:16,evm:10,cMean:207.32,cLow:106,cHigh:305,
-     scn:[{n:"Bajista",dg:-4,dm:-5,p:25},{n:"Base",dg:0,dm:0,p:50},{n:"Alcista",dg:3,dm:2,p:25}]},
-  verdict:{rating:"Acumular",conviction:3,buyBelow:135,horizon:"12–24 meses",
-    summary:"Activos difíciles de replicar justo cuando la demanda eléctrica vuelve a crecer, con contratos de 20 años ya firmados con Amazon y Meta y una dirección muy disciplinada con el capital. A ~143 $ el precio casi no descuenta crecimiento, pero el negocio no es inmune a los precios de la luz en Texas y la deuda es alta. Acumular por debajo de ~135–145 $ y vigilar la guía de 2027 el 6 de noviembre.",
-    bull:["Contratos de 20 años con Amazon y Meta desde 2027","EBITDA ajustado +20% en 2026 y ~8.100 M$ posibles en 2027","Recompras: −30% de acciones desde 2021","Nuclear con coste variable muy bajo"],
-    bear:["Precios mayoristas débiles en Texas","Deuda total de 20.508 M$","Riesgo regulatorio en la conexión de centros de datos","Beneficio contable muy volátil"],
-    watch:["Guía de 2027 en los resultados del 6-nov","Precios a plazo en ERCOT","Nuevos contratos con centros de datos","Desembolso del préstamo del DOE"]},
-  notes:"Datos de mercado leídos de StockAnalysis el 29-oct-2026 (cierre del 28-oct). El modelo usa EBITDA ajustado; las cifras GAAP están distorsionadas por las coberturas.",
-  sources:{web:"https://vistracorp.com",ir:"https://investor.vistracorp.com",cik:"0001692819",
-    docs:[
-      {cat:"Resultados trimestrales",t:"Resultados 4T25 y año 2025",d:"26-feb-2026",u:"https://marketchameleon.com/PressReleases/i/2257320/VST/vistra-reports-fourth-quarter-and-fullyear-2025"},
-      {cat:"Presentaciones",t:"Presentación de resultados 2T26 (resumen)",d:"07-ago-2026",u:"https://www.investing.com/news/company-news/vistra-q2-2026-slides-ebitda-surges-30-amid-revenue-miss-93CH-4847120"},
-      {cat:"Formularios SEC",t:"10-Q segundo trimestre 2026",d:"ago-2026",u:"https://www.sec.gov/Archives/edgar/data/0001692819/000169281926000019/vistra-20260630.htm"},
-      {cat:"Formularios SEC",t:"10-Q primer trimestre 2026",d:"may-2026",u:"https://www.sec.gov/Archives/edgar/data/0001692819/000169281926000014/vistra-20260331.htm"},
-      {cat:"Formularios SEC",t:"10-K ejercicio 2025",d:"feb-2026",u:"https://www.sec.gov/Archives/edgar/data/1692819/000169281926000006/vistra-20251231.htm"},
-      {cat:"Transcripciones",t:"Llamada de resultados 2T26 (Benzinga)",d:"07-ago-2026",u:"https://www.benzinga.com/news/26/10/62319342/transcript-vistra-q2-2026-earnings-conference-call"},
-      {cat:"Transcripciones",t:"Llamada de resultados 4T25 (The Motley Fool)",d:"26-feb-2026",u:"https://www.fool.com/earnings/call-transcripts/2026/02/26/vistra-vst-q4-2025-earnings-call-transcript/"},
-      {cat:"Otros",t:"Compra de Cogentrix (nota de prensa)",d:"2026",u:"https://www.itiger.com/news/2601634837"}
-    ],
-    news:[
-      {t:"Comanche Peak, Amazon y la pausa de centros de datos en Texas",src:"Utility Dive",u:"https://www.utilitydive.com/news/vistra-texas-data-center-pause-comanche-amazon-earnings/827434/"},
-      {t:"Por qué ha caído un 28% en un año",src:"TIKR",u:"https://www.tikr.com/blog/vistra-stock-is-down-28-over-the-past-year-discount-or-warning-sign"},
-      {t:"Resultados 2T26 y la apuesta por Helix",src:"TIKR",u:"https://www.tikr.com/blog/what-vistras-q2-earnings-reveal-about-its-1-billion-helix-bet"},
-      {t:"Contratos con Meta, Cogentrix y Lotus",src:"24/7 Wall St.",u:"https://247wallst.com/investing/2026/09/10/beyond-meta-and-nuclear-inside-vistras-real-power-play/"}
-    ],
-    headlines:[
-      {t:"Vistra price target lowered to $181 from $201 at CIBC",when:"hace 18 h",src:"TheFly"},
-      {t:"Vistra price target lowered to $189 from $207 at Scotiabank",when:"hace 19 h",src:"TheFly"},
-      {t:"Vistra price target lowered to $194 from $196 at BofA",when:"hace 2 d",src:"TheFly"},
-      {t:"Vistra initiated with a Buy at HSBC",when:"hace 7 d",src:"TheFly"},
-      {t:"Vistra Announces Redemption of All Outstanding Series A Preferred Stock",when:"hace 13 d",src:"PRNewsWire"}],
-    headlinesAt:"2026-10-29T10:05:00Z",
-    analysts:[
-      {who:"Mark Jarvi",firm:"CIBC",rating:"Buy",action:"Maintains",target:"$201 → $181",d:"28-oct-2026"},
-      {who:"Andrew Weisel",firm:"Scotiabank",rating:"Buy",action:"Maintains",target:"$207 → $189",d:"28-oct-2026"},
-      {who:"Shahriar Pourreza",firm:"Wells Fargo",rating:"Buy",action:"Maintains",target:"$212 → $198",d:"28-oct-2026"},
-      {who:"Rinny Singh",firm:"Bank of America Securities",rating:"Buy",action:"Reiterates",target:"$194",d:"27-oct-2026"},
-      {who:"Meike Becker",firm:"HSBC",rating:"Buy",action:"Initiates",target:"$190",d:"22-oct-2026"}]},
-  social:{pulse:["Reddit","X","Threads","YouTube"].map(p=>({p,s:null,note:""})),videos:[
-    {t:"Is $VST a Sell? The Bear Case Against Vistra at $148",u:"https://www.youtube.com/watch?v=32PJliCNO-8"},
-    {t:"Vistra (VST) Stock Analysis: $4B Boost & Nuclear Power Catalyst",u:"https://www.youtube.com/watch?v=eJmt9mdo8f4"},
-    {t:"Is $VST a Sell? (Aug '26) 100% of 2026 Is Already Sold Forward",u:"https://www.youtube.com/watch?v=l-n-bvzLXD0"},
-    {t:"VST Stock Price Prediction 2026: Why This AI Utility Giant Fell",u:"https://www.youtube.com/watch?v=lbhuv2yBa8s"},
-    {t:"Vistra Stock (VST): Deep Dive into a Potential 40% Upside?",u:"https://www.youtube.com/watch?v=rVaN6lZo0Ys"}]}
-};
-
-DEFAULTS.broadcom={
-  meta:{name:"Broadcom",ticker:"NASDAQ: AVGO",ccy:"USD",sector:"Semiconductores y software de infraestructura",hq:"Palo Alto, California",founded:"1961 (como división de HP; Broadcom actual desde 2016)",employees:"33.000",asOf:"28-oct-2026",nextEarnings:"10-dic-2026 (est.)",updatedAt:"2026-10-29T11:15:00Z"},
-  overview:{
-    thesis:"Diseña los chips de IA a medida de Google, Meta, OpenAI y Anthropic y las redes que los conectan: sus ventas de IA se triplican. A ~352 $ el precio ya descuenta un crecimiento del ~20% anual durante cinco años: gran compañía a un precio justo.",
-    summary:"Broadcom tiene dos negocios. Semiconductores: chips aceleradores de IA diseñados a medida para cada gran cliente (los TPU de Google, por ejemplo), chips de red Ethernet para conectar miles de aceleradores, y chips para móviles, banda ancha y almacenamiento. Software de infraestructura: VMware, que compró en 2023, y otras herramientas para centros de datos de empresas.\nLa IA ya supone más de la mitad de sus ventas: 16.700 M$ en el 3T de su ejercicio 2026, un 221% más que un año antes.",
-    keyFacts:[{k:"Ingresos 3T FY26",v:"29.591 M$ (+86%)"},{k:"Ingresos de IA 3T FY26",v:"16.700 M$ (+221%)"},{k:"Guía 4T FY26",v:"34.800 M$ (+93%); IA 21.700 M$"},{k:"FCF 3T FY26",v:"13.700 M$ (46% de las ventas)"},{k:"Caja / deuda (ago-26)",v:"23.975 / 59.419 M$"},{k:"Consenso FY27",v:"Ingresos de 174.230 M$ (+64%)"},{k:"Dividendo",v:"2,60 $ por acción (0,7%)"}],
-    catalysts:[{d:"10-dic-26",t:"Resultados del 4T FY26 (fecha estimada) y primera visión del FY27 en IA."},{d:"2026–27",t:"Salida a bolsa de Anthropic, que será su mayor cliente de chips en 2027."},{d:"2027",t:"Anthropic despliega otros 5 GW de TPU financiados con 63.000 M$ de bancos y Blackstone."},{d:"2027–28",t:"Entrada de MediaTek en el suministro de TPU de Google."}]
-  },
-  business:{
-    model:"En IA no vende un chip estándar: co-diseña con cada cliente su acelerador (XPU) durante años y luego lo fabrica con TSMC. Además vende los chips de red que conectan los aceleradores.\nEn software cobra suscripciones de VMware a grandes empresas. El conjunto genera un flujo de caja libre de más del 40% de las ventas.",
-    customers:"Un puñado de gigantes de la IA (Google, Meta, ByteDance, OpenAI, Anthropic y otros), fabricantes de móviles como Apple, operadoras y fabricantes de equipos de red, y miles de grandes empresas que usan VMware.",
-    segNote:"Ingresos de los últimos 12 meses (hasta ago-26), en M$.",
-    segments:[{n:"Semiconductores",v:59435},{n:"Software de infraestructura",v:29669}],
-    customerTypes:[{n:"Hiperescaladores",d:"Google (TPU), Meta y otros: aceleradores a medida y redes."},{n:"Laboratorios de IA",d:"OpenAI y Anthropic; Anthropic será su mayor cliente de chips en 2027."},{n:"Empresas con VMware",d:"Software de virtualización y nube privada; +29% en el 3T FY26."},{n:"Móviles y redes",d:"Apple y fabricantes de equipos: chips de radiofrecuencia, wifi y banda ancha."}],
-    quality:[{n:"Márgenes",s:5,note:"Margen bruto 75%, operativo 49% (GAAP)"},{n:"Retorno sobre capital",s:4,note:"Alto, aunque el balance carga el fondo de comercio de VMware"},{n:"Conversión en caja",s:5,note:"FCF del 44% de las ventas y capex de solo ~1%"},{n:"Recurrencia de ingresos",s:4,note:"Software por suscripción y diseños de IA plurianuales"},{n:"Diversificación",s:3,note:"La IA es ya más de la mitad de las ventas, con pocos clientes"},{n:"Balance",s:4,note:"Deuda de 59.400 M$, menos de una vez el EBITDA"}],
-    phase:1, phaseNote:"Una compañía grande y madura que ha entrado en una fase de hipercrecimiento gracias a la IA: +66% esperado en FY26 y +64% en FY27 según el consenso."
-  },
-  fin:{
-    years:["2021","2022","2023","2024","2025","2026e"],
-    rev:[27450,33203,35819,51574,63887,105990],
-    profit:[8684,14286,16706,15798,26367,55000], profitLabel:"Beneficio operativo",
-    ni:[6437,11223,14082,5895,23126,45260],
-    fcf:[13321,16312,17633,19414,26914,49170],
-    capex:[443,424,452,548,623,null],
-    bal:{labels:["2021","2022","2023","2024","2025","ago-26"],cash:[12163,12416,14189,9348,16178,23975],debt:[40273,39978,39648,68916,66461,59419]},
-    q:{labels:["3T25","4T25","1T26","2T26","3T26","4T26 guía"],series:[{n:"Total",values:[22,28.2,29.5,47.9,85.5,93]},{n:"Semiconductores de IA",values:[null,null,null,null,221,236]}]},
-    qrev:{labels:["1T25","2T25","3T25","4T25","1T26","2T26","3T26","4T26 guía"],values:[14916,15004,15952,18015,19311,22187,29591,34800]},
-    shares:{labels:["2021","2022","2023","2024","2025","ago-26"],values:[4292,4234,4272,4777,4854,4882]},
-    note:"Años y trimestres fiscales: el ejercicio termina a principios de noviembre (FY26 = nov-25 a oct-26). Beneficio operativo GAAP; 2026e: 3T reales + guía del 4T (estimado). Ingresos, beneficio neto y FCF de 2026e según consenso. 2024 incluye el coste de integrar VMware. Acciones derivadas de los datos por acción de StockAnalysis (aprox.)."
-  },
-  moat:{
-    width:"Amplio", trend:"Ampliándose",
-    note:"Muy pocas empresas pueden co-diseñar un acelerador de IA a medida a gran escala; Broadcom lo hace para casi todos los grandes. Sus chips de red Ethernet son el estándar en los grandes clústeres. El riesgo es la dependencia de pocos clientes, que pueden repartir pedidos (Google con MediaTek) o diseñar más por su cuenta.",
-    sources:[{n:"Efecto red",s:2,note:"Ethernet abierto: más clientes refuerzan el estándar"},{n:"Costes de cambio",s:5,note:"Diseños a medida de varios años; VMware dentro de los centros de datos"},{n:"Activos intangibles",s:5,note:"Propiedad intelectual en conexiones de alta velocidad, redes y empaquetado"},{n:"Ventaja de costes",s:4,note:"Escala de compra y prioridad en la fabricación de TSMC"},{n:"Escala eficiente",s:4,note:"Pocos rivales pueden diseñar XPUs: Marvell, MediaTek, Alchip"}],
-    comps:[{n:"Nvidia",threat:4,note:"Alternativa estándar a los chips a medida y rival en redes"},{n:"MediaTek",threat:3,note:"Entra en el suministro de TPU de Google"},{n:"Marvell",threat:3,note:"Chips a medida para Amazon y Microsoft"},{n:"Diseño propio de los clientes",threat:3,note:"Los hiperescaladores pueden internalizar más trabajo"}]
-  },
-  growth:{
-    score:5, scoreNote:"Crecimiento extraordinario para su tamaño: +66% esperado en FY26 y +64% en FY27, con la IA triplicándose. El reto es sostenerlo más allá de 2027.",
-    tam:"Gasto en centros de datos de IA: los hiperescaladores invierten cientos de miles de millones al año. Broadcom habla de una oportunidad de chips a medida y redes de decenas de miles de millones por cliente.",
-    guidance:"4T FY26: ingresos de ~34.800 M$ (+93%), IA de 21.700 M$ (+236%), margen operativo ajustado ~66%. IA en FY26: ~58.000 M$ (+186%).",
-    drivers:[{n:"Aceleradores de IA a medida",impact:5,h:"2026–2028",d:"IA +221% en el 3T FY26; Google, Meta, OpenAI y Anthropic."},{n:"Redes Ethernet para IA",impact:4,h:"2026–2028",d:"Chips Tomahawk y Jericho para conectar clústeres gigantes."},{n:"Anthropic y nuevos clientes",impact:4,h:"2027",d:"5 GW de TPU adicionales; mayor cliente de chips en 2027."},{n:"VMware",impact:3,h:"Continuo",d:"Software +29% con márgenes muy altos."},{n:"Dividendo y recompras",impact:2,h:"Continuo",d:"8.450 M$ recomprados en 9 meses de FY26."}]
-  },
-  mgmt:{
-    note:"Una acción, un voto. Hock Tan tiene un plan de incentivos atado a objetivos de ingresos de IA hasta 2030. La dirección es conocida por comprar empresas (CA, Symantec, VMware), recortar costes con dureza y devolver caja.",
-    people:[{n:"Hock Tan",role:"Presidente y CEO",since:"2006",note:"Construyó el grupo a base de adquisiciones; incentivo ligado a ingresos de IA hasta 2030."},{n:"Kirsten Spears",role:"Directora financiera",since:"2020",note:"Gestiona la deuda tras la compra de VMware."},{n:"Charlie Kawwas",role:"Presidente de semiconductores",since:"",note:"Responsable de los chips de IA y redes."},{n:"Henry Samueli",role:"Cofundador y presidente del consejo",since:"1991",note:"Fundador del Broadcom original."}],
-    scores:[{n:"Alineación con el accionista",s:4,note:"Retribución del CEO ligada a objetivos de IA a largo plazo"},{n:"Asignación de capital",s:4,note:"Compras muy rentables; ahora respalda la financiación de clientes de IA"},{n:"Credibilidad y ejecución",s:5,note:"Nueve trimestres seguidos superando previsiones"},{n:"Gobierno corporativo",s:4,note:"Una acción, un voto"},{n:"Transparencia",s:3,note:"Poco detalle sobre las garantías a clientes"}],
-    alloc:{label:"Uso de la caja, 9 meses FY26 (M$, aprox.)",items:[{n:"Dividendos",v:9300},{n:"Recompras",v:8450},{n:"Capex",v:1100}]},
-    vote:{label:"Poder de voto (%)",items:[{n:"Accionistas (una acción, un voto)",v:100}]}
-  },
-  risks:[
-    {n:"Concentración en pocos clientes",cat:"Comercial",p:3,i:5,note:"Google es su mayor cliente de IA; MediaTek entra en sus TPU"},
-    {n:"Freno del gasto en IA",cat:"Mercado",p:3,i:5,note:"Si los hiperescaladores recortan inversión, la IA cae rápido"},
-    {n:"Garantías a la financiación de clientes",cat:"Financiero",p:3,i:4,note:"Respalda el valor residual de los chips financiados para Anthropic"},
-    {n:"Geopolítica y Taiwán",cat:"Geopolítico",p:2,i:5,note:"Depende de TSMC para fabricar"},
-    {n:"Márgenes más bajos por la mezcla de IA",cat:"Operativo",p:4,i:2,note:"Los chips de IA tienen menos margen bruto que el software"},
-    {n:"Clientes de VMware descontentos",cat:"Comercial",p:3,i:2,note:"Subidas de precio que empujan a algunas empresas a migrar"},
-    {n:"Deuda",cat:"Financiero",p:2,i:2,note:"59.400 M$, aunque bajando con rapidez"}
-  ],
-  v:{price:351.81,lo52:289.96,hi52:495,shares:4880,cash:23975,debt:59419,rev0:105990,year0:2026,g:[55,25,15,10,7],m1:64,m5:60,da:4,da5:2,sbc:4,capex:1.2,capex5:1,nwc:10,tax:15,
-     wacc:9.5,tg:3,exit:16,method:"blend",eps:17.41,pe:28,evm:22,cMean:530.14,cLow:215.88,cHigh:660,
-     scn:[{n:"Bajista",dg:-15,dm:-6,p:25},{n:"Base",dg:0,dm:0,p:50},{n:"Alcista",dg:8,dm:2,p:25}]},
-  verdict:{rating:"Mantener",conviction:3.5,buyBelow:310,horizon:"12–24 meses",
-    summary:"Probablemente el mejor posicionado para el crecimiento de la IA después de Nvidia, con márgenes y caja excepcionales y un equipo directivo muy disciplinado. Pero a ~352 $ el precio ya descuenta un crecimiento anual del ~20% durante cinco años, y el riesgo de concentración en pocos clientes y de que se frene el gasto en IA es real. Mantener y comprar por debajo de ~310 $.",
-    bull:["IA +221% y guía del 4T con +236%","FCF del 44% de las ventas","Anthropic será su mayor cliente de chips en 2027","El consenso espera +64% de ingresos en FY27"],
-    bear:["Dependencia de Google y pocos laboratorios de IA","Respalda la financiación de chips para clientes","MediaTek entra en las TPU de Google","Si se frena la inversión en IA, el múltiplo cae"],
-    watch:["Guía de IA para FY27 en diciembre","Exposición a garantías de financiación","Margen bruto con más peso de la IA","Reparto de las TPU de Google con MediaTek"]},
-  notes:"Datos de mercado leídos de StockAnalysis el 29-oct-2026 (cierre del 28-oct). En preapertura del 29-oct cotizaba en torno a 344 $.",
-  sources:{web:"https://www.broadcom.com",ir:"https://investors.broadcom.com",cik:"0001730168",
-    docs:[
-      {cat:"Resultados trimestrales",t:"Resultados del 3T del ejercicio 2026",d:"02-sep-2026",u:"https://investors.broadcom.com/news-releases/news-release-details/broadcom-inc-announces-third-quarter-fiscal-year-2026-financial"},
-      {cat:"Formularios SEC",t:"10-Q primer trimestre FY26",d:"mar-2026",u:"https://www.sec.gov/Archives/edgar/data/1730168/000173016826000016/avgo-20260201.htm"},
-      {cat:"Transcripciones",t:"Llamada de resultados 3T FY26 (Investing.com)",d:"02-sep-2026",u:"https://www.investing.com/news/transcripts/earnings-call-transcript-broadcom-tops-q3-2026-estimates-as-ai-sales-surge-93CH-4886849"}
-    ],
-    news:[
-      {t:"63.000 M$ para financiar chips de Broadcom para Anthropic",src:"TIKR",u:"https://www.tikr.com/blog/wall-street-banks-63-billion-broadcom-ai-chips-anthropic"},
-      {t:"Macquarie rebaja a neutral por Google y MediaTek",src:"TIKR",u:"https://www.tikr.com/blog/broadcom-just-got-downgraded-by-a-major-bank-to-a-437-target-is-the-bear-case-right"},
-      {t:"Resultados 3T FY26: IA de 16.700 M$ y guía",src:"FinanceFeeds",u:"https://financefeeds.com/broadcom-avgo-earnings-bullish-580-bearish-345/"},
-      {t:"Ingresos récord por la demanda de chips de IA",src:"Quartz",u:"https://qz.com/broadcom-record-revenue-ai-chips-quarterly-earnings-090226"}
-    ],
-    headlines:[
-      {t:"Why AI Chip Stocks Intel, AMD, and Broadcom Are Tumbling Today (October 29)",when:"hace 7 h",src:"TipRanks"},
-      {t:"Broadcom Lined Up a $63B Deal for Anthropic to Get More of Its Chips. The Stock Is Climbing",when:"hace 1 d",src:"Investopedia"},
-      {t:"How Broadcom's stock can surge and overcome 'the biggest dislocation in the market'",when:"hace 1 d",src:"MarketWatch"},
-      {t:"Broadcom Stock: DA Davidson Upgrades AVGO to Buy After Anthropic IPO Filing, Raises Price Target to $400",when:"hace 1 d",src:"Invezz"}],
-    headlinesAt:"2026-10-29T11:15:00Z",
-    analysts:[
-      {who:"Thomas O'Malley",firm:"Barclays",rating:"Buy",action:"Maintains",target:"$500",d:"28-oct-2026"},
-      {who:"Gil Luria",firm:"D.A. Davidson",rating:"Buy",action:"Upgrades",target:"$350 → $400",d:"27-oct-2026"},
-      {who:"John Vinh",firm:"KeyBanc",rating:"Buy",action:"Maintains",target:"$575",d:"27-oct-2026"},
-      {who:"Stacy Rasgon",firm:"Bernstein",rating:"Buy",action:"Maintains",target:"$575",d:"26-oct-2026"},
-      {who:"Ivan Feinseth",firm:"Tigress Financial",rating:"Buy",action:"Initiates",target:"$600",d:"22-oct-2026"}]},
-  social:{pulse:["Reddit","X","Threads","YouTube"].map(p=>({p,s:null,note:""})),videos:[
-    {t:"Broadcom Q3 2026 Earnings: AI Revenue Explodes +221% (AVGO Stock Analysis)",u:"https://www.youtube.com/watch?v=J49GHAgdPSY"},
-    {t:"Broadcom Stock CRASHES 6% Despite 221% AI Revenue Surge!",u:"https://www.youtube.com/watch?v=ONAM-Eu8NLE"},
-    {t:"AVGO Stock Analysis 2026: Buy, Sell, or Hold? The Truth About Broadcom's AI Future",u:"https://www.youtube.com/watch?v=am_ga2caH8I"},
-    {t:"Broadcom in 2026: Massive Opportunity or Risky Bet?",u:"https://www.youtube.com/watch?v=cMhuD_S90FY"},
-    {t:"Broadcom (AVGO) Crash 15%: Buying Opportunity or Falling Knife? Q2 2026 Analysis",u:"https://www.youtube.com/watch?v=eyuLfZ8l5PM"}]}
-};
-
-
-/* ---- Última presentación de resultados (comentarios de la directiva, solo fuentes oficiales) ---- */
-deepMerge(DEFAULTS.applovin,{mgmt:{call:{
-  periodEnd:"2026-06-30",q:"2T 2026",date:"5-ago-2026",doc:"Nota de resultados (8-K, Exhibit 99.1)",
-  url:"https://www.sec.gov/Archives/edgar/data/0001751008/000175100826000057/exhibit991-2q26earningspre.htm",
-  nota:"El comunicado no trae citas de la directiva ni habla de estrategia: los matices están en el webinar de resultados, que no es texto oficial publicado. Lo que sigue son hechos del comunicado.",
-  dir:["Describe su negocio como publicidad de principio a fin para que las empresas lleguen a su público, moneticen y crezcan.","El crecimiento sigue acelerado: ingresos +53% interanual en el trimestre y +56% en el semestre."],
-  ret:["El comunicado no menciona retos: los riesgos están en el 10-Q y en la pestaña Riesgos de esta ficha."],
-  guia:["3T26: ingresos de 2.055–2.085 M$ y EBITDA ajustado de 1.710–1.740 M$ (margen del 83%).","Margen EBITDA ajustado del 84% en el 2T26 (81% un año antes)."],
-  cap:["Recompras de 551 M$ en el 2T26 (1,1 M de acciones) y 1.533 M$ en el semestre.","Caja de 3.053 M$ y deuda a largo plazo de 3.515 M$, casi sin cambios desde diciembre."]}}});
-deepMerge(DEFAULTS.alphabet,{mgmt:{call:{
-  periodEnd:"2026-09-30",q:"3T 2026",date:"28-oct-2026",doc:"Nota de resultados (8-K, Exhibit 99.1)",
-  url:"https://www.sec.gov/Archives/edgar/data/0001652044/000165204426000080/googexhibit991q32026.htm",
-  nota:"No he podido reabrir el documento hoy: este resumen sale de los datos del 3T26 ya cargados en la ficha. Contrástalo con el enlace.",
-  dir:["Apuesta total por la IA: Cloud crece un 103% con un margen del 36% y una cartera de pedidos de 514.000 M$.","Las TPU propias, también vendidas a terceros, son un contribuidor «significativo» al crecimiento de Cloud.","Gemini supera los 1.000 millones de usuarios y las consultas de búsqueda están en máximos de cinco años."],
-  ret:["La Búsqueda se frena (+12% frente a +19%) y AI Mode monetiza menos que la búsqueda clásica.","FCF de −9.070 M$ en el trimestre por el ritmo de inversión.","Otras apuestas (Waymo, etc.) perdieron 2.040 M$."],
-  guia:["Capex 2026: 195.000–205.000 M$.","El capex de 2027 «aumentará significativamente»; sin cifra todavía.","Espera un impacto de divisa algo mayor en el 4T26."],
-  cap:["Sin recompras en 2026.","Financia la inversión con deuda (28.700 M$ en bonos en el 3T26) y venta de acciones (12.400 M$)."]}}});
-deepMerge(DEFAULTS.reddit,{mgmt:{call:{
-  periodEnd:"2026-06-30",q:"2T 2026",date:"30-jul-2026",doc:"Carta a los accionistas (8-K, Exhibit 99.2)",
-  url:"https://www.sec.gov/Archives/edgar/data/0001713445/000171344526000098/exhibit992q226.htm",
-  nota:"El 3T26 se presenta hoy, 29-oct, después del cierre: esta ficha se actualizará con esa carta.",
-  dir:["Prioridad número uno: aumentar los usuarios diarios mejorando la experiencia de los nuevos usuarios. Objetivos: 1.000 millones de usuarios diarios en el mundo y 100 millones en EE. UU.","Producto: nuevos modelos del feed (más contribuciones y sesiones), vídeo en comentarios y empujón a la app, con la retención de nuevos usuarios de app un 50% mayor en términos relativos.","Publicidad: anuncios de compra (Shopping Listing Ads, en alfa), integración con Shopify y un 22% menos de coste por acción en campañas de instalación de apps.","Frase de Huffman: no construyen para tráfico de paso, sino un «destino diario»."],
-  ret:["El tráfico que llega desde buscadores fue «irregular» y más volátil al final del trimestre; la visibilidad sobre esa fuente es baja.","Los usuarios diarios con sesión iniciada en EE. UU. solo crecieron un 1% (+7% en el mundo); el crecimiento viene de usuarios sin sesión (+27%) y del exterior (+28%)."],
-  guia:["3T26: ingresos de 860–870 M$ y EBITDA ajustado de 385–395 M$.","2T26: ingresos de 805 M$ (+61%), margen EBITDA ajustado del 43% y FCF de 261 M$."],
-  cap:["Recompró 1,5 M de acciones por 235 M$ (a 157,57 $ de media).","Caja e inversiones de 2.800 M$ y sin deuda financiera."]}}});
-deepMerge(DEFAULTS.amazon,{mgmt:{call:{
-  periodEnd:"2026-06-30",q:"2T 2026",date:"30-jul-2026",doc:"Nota de resultados (IR de Amazon)",
-  url:"https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-Second-Quarter-Results/",
-  nota:"El 3T26 se presenta hoy, 29-oct, después del cierre (llamada a las 23:00 en Madrid): esta ficha se actualizará con esa nota.",
-  dir:["Jassy: AWS se acelera (+36,7%, el mayor ritmo en 18 trimestres) y sus negocios de IA y de chips superan cada uno los 25.000 M$ anuales.","Trainium: Anthropic y OpenAI han firmado compromisos plurianuales de varios gigavatios. Graviton5 ya está disponible.","Agentes de IA (AgentCore, Quick, Kiro) y una inversión de 1.000 M$ en ingenieros desplegados con clientes.","Publicidad +26%; Alexa for Shopping casi duplica sus usuarios activos; Amazon Leo (satélites) tiene cerca de 400 en órbita y espera iniciar el servicio este año."],
-  ret:["El FCF de los últimos 12 meses es de −7.600 M$ (frente a +18.200 M$): el capex bruto del trimestre fue de 54.200 M$, casi el doble que hace un año.","Advierte de riesgos de suministro de chips de memoria, precios de la energía, aranceles y demanda."],
-  guia:["3T26: ventas de 197.000–202.000 M$ (+9% a +12%; unos 400 pb más sin el efecto del calendario de Prime Day) y resultado operativo de 22.500–26.500 M$.","La divisa restará unos 80 pb."],
-  cap:["Capex bruto de 54.200 M$ en el trimestre (32.200 M$ un año antes), sobre todo para infraestructura de IA.","El beneficio neto de 62.600 M$ incluye 53.400 M$ de ganancias por su inversión en Anthropic: no es beneficio recurrente."]}}});
-deepMerge(DEFAULTS.vistra,{mgmt:{call:{
-  periodEnd:"2026-06-30",q:"2T 2026",date:"7-ago-2026",doc:"Nota de resultados (8-K)",
-  url:"https://www.sec.gov/Archives/edgar/data/0001692819/000169281926000017/vistra-20260630xearningsre.htm",
-  nota:"Próxima presentación: 6-nov-2026.",
-  dir:["Jim Burke destaca la disponibilidad comercial de la flota (97% o más) en las olas de calor de Texas y PJM.","Helix Digital Infrastructure, con NVIDIA, KKR y Kuwait Investment Authority: Vistra se compromete con hasta 1.000 M$ y será su proveedor preferente de energía.","Contratos de compra de energía a largo plazo con Meta, que contribuirán en parte al EBITDA de 2027.","Compra de Cogentrix pendiente de cierre (ya aprobada por la FERC). Construye dos unidades de gas en la cuenca Pérmica y proyectos solares."],
-  ret:["El beneficio neto bajó a 305 M$ (327 M$ un año antes) por 488 M$ más de pérdidas no realizadas en derivados.","Cierre de activos: pérdida de 23 M$ de EBITDA ajustado. Gastos financieros de 312 M$ en el trimestre.","Riesgos citados: volatilidad de mercado y clima, integración de Cogentrix y rebajas de rating."],
-  guia:["2026 (reiterada): EBITDA ajustado de 6.800–7.600 M$ y FCF antes de crecimiento de 3.925–4.725 M$, sin Cogentrix ni Meta.","2027 (oportunidad, no guía formal): 7.400–7.800 M$, según curvas de octubre de 2025.","Cobertura: ~100% de la generación de 2026, 94% de 2027 y 72% de 2028."],
-  cap:["Ha recomprado unos 6.500 M$ desde noviembre de 2021 (acciones un 30% menos). Quedan unos 1.200 M$ autorizados, hasta fin de 2027.","Capex 2026: 1.536 M$. Liquidez de 6.295 M$. Sin objetivo explícito de deuda."]}}});
-deepMerge(DEFAULTS.broadcom,{mgmt:{call:{
-  periodEnd:"2026-08-02",q:"3T FY2026 (cierre 2-ago-2026)",date:"2-sep-2026",doc:"Nota de resultados (8-K, Exhibit 99.1)",
-  url:"https://www.sec.gov/Archives/edgar/data/0001730168/000173016826000076/avgo-08022026x8kxex99.htm",
-  nota:"El comunicado no nombra clientes ni detalla programas de XPU ni VMware: eso se explica en la llamada, que no es texto oficial publicado. Próxima presentación: 10-dic-2026 (estimada).",
-  dir:["Hock Tan: la demanda de aceleradores de IA a medida y de redes «sigue siendo muy fuerte» y espera que el impulso continúe en el 4T.","Ingresos de IA de 16.700 M$ (+221%), ya más de la mitad de las ventas. Semiconductores +127% e infraestructura de software +29%.","La CFO Amie Thuener destaca ingresos, beneficio operativo y FCF récord (FCF de 13.700 M$, el 46% de las ventas)."],
-  ret:["Dependencia de pocos clientes grandes y de fabricantes y proveedores externos.","Ciclicidad del sector de semiconductores, incertidumbre comercial y regulatoria, mantener el margen bruto y una deuda elevada.","Posibles pasivos fiscales ligados a la compra de VMware."],
-  guia:["4T FY26: ingresos de unos 34.800 M$ (+93%), de ellos 21.700 M$ de IA (+236%).","Margen operativo no GAAP de ~66%, estable interanual."],
-  cap:["Dividendo trimestral de 0,65 $ por acción (3.100 M$ pagados en el trimestre).","Sin recompras en el 3T (8.450 M$ en lo que va de año). Deuda a largo plazo de 57.200 M$ (62.000 M$ en octubre de 2025); pagó 5.600 M$ de deuda en el trimestre."]}}});
-
-[["applovin","#2D5BFF","AL"],["alphabet","#4285F4","G"],["reddit","#FF4500","R"],["amazon","#FF9900","A"],["vistra","#0077C8","V"],["broadcom","#CC092F","B"]]
-  .forEach(([k,color,mono])=>{ if(DEFAULTS[k]) DEFAULTS[k].meta.brand={color,mono}; });
+function deepMerge(t,x){Object.keys(x).forEach(k=>{if(x[k]&&typeof x[k]==="object"&&!Array.isArray(x[k])){if(!t[k]||typeof t[k]!=="object")t[k]={};deepMerge(t[k],x[k]);}else t[k]=x[k];});return t;}
+const clone=o=>JSON.parse(JSON.stringify(o));
+function fillMissing(t,src){Object.keys(src).forEach(k=>{ if(t[k]===undefined) t[k]=clone(src[k]); else if(src[k]&&typeof src[k]==="object"&&!Array.isArray(src[k])&&t[k]&&typeof t[k]==="object") fillMissing(t[k],src[k]); });}
 const TPL={
   keyFacts:{k:"",v:""}, catalysts:{d:"",t:""}, segments:{n:"Nuevo segmento",v:0}, customerTypes:{n:"Nuevo cliente",d:""},
   quality:{n:"Nuevo criterio",s:3,note:""}, sources:{n:"Nueva fuente",s:2,note:""}, comps:{n:"Nuevo competidor",threat:3,note:""},
   drivers:{n:"Nuevo motor",impact:3,h:"",d:""}, people:{n:"Nombre",role:"Cargo",since:"",note:""}, scores:{n:"Nuevo criterio",s:3,note:""},
   items:{n:"Nueva partida",v:0}, docs:{cat:"Formularios SEC",t:"Nuevo documento",d:"",u:"https://"}, videos:{t:"Nuevo vídeo",u:"https://www.youtube.com/watch?v="}, news:{t:"Nueva fuente",src:"",u:"https://"}, risks:{n:"Nuevo riesgo",cat:"Operativo",p:3,i:3,note:""}
 };
-function blankCompany(name){
-  const base={
-    meta:{name,ticker:"",ccy:"USD",sector:"",hq:"",founded:"",employees:"",asOf:""},
-    overview:{thesis:"",summary:"",keyFacts:[{k:"Ingresos último año",v:""},{k:"Margen",v:""},{k:"Caja / deuda",v:""}],catalysts:[{d:"",t:""}]},
-    business:{model:"",customers:"",segNote:"",segments:[{n:"Segmento 1",v:60},{n:"Segmento 2",v:40}],customerTypes:[{n:"Cliente tipo",d:""}],
-      quality:["Márgenes","Retorno sobre capital","Conversión en caja","Recurrencia de ingresos","Diversificación","Balance"].map(n=>({n,s:3,note:""})),phase:2,phaseNote:""},
-    fin:{years:["2021","2022","2023","2024","2025"],rev:[null,null,null,null,null],profit:[null,null,null,null,null],profitLabel:"EBITDA",ni:[null,null,null,null,null],fcf:[null,null,null,null,null],capex:[null,null,null,null,null],
-      bal:{labels:["2023","2024","2025"],cash:[null,null,null],debt:[null,null,null]},q:{labels:["T1","T2","T3","T4"],series:[{n:"Ingresos",values:[null,null,null,null]}]},note:""},
-    moat:{width:"Estrecho",trend:"Estable",note:"",sources:["Efecto red","Costes de cambio","Activos intangibles","Ventaja de costes","Escala eficiente"].map(n=>({n,s:2,note:""})),comps:[{n:"Competidor",threat:3,note:""}]},
-    growth:{score:3,scoreNote:"",tam:"",guidance:"",drivers:[{n:"Motor de crecimiento",impact:3,h:"",d:""}]},
-    mgmt:{call:{q:"",date:"",periodEnd:"",doc:"",url:"",nota:"",dir:[],ret:[],guia:[],cap:[]},note:"",people:[{n:"CEO",role:"Consejero delegado",since:"",note:""}],scores:["Alineación con el accionista","Asignación de capital","Credibilidad y ejecución","Gobierno corporativo","Transparencia"].map(n=>({n,s:3,note:""})),alloc:{label:"Uso de la caja (M)",items:[{n:"Capex",v:0},{n:"Recompras",v:0},{n:"Dividendos",v:0}]}},
-    risks:[{n:"Riesgo principal",cat:"Operativo",p:3,i:3,note:""}],
-    v:{price:100,shares:100,cash:0,debt:0,rev0:1000,year0:2025,g:[10,9,8,7,6],m1:25,m5:27,da:3,da5:3,sbc:1,capex:4,capex5:4,nwc:10,tax:25,wacc:9,tg:2.5,exit:10,method:"blend",eps:5,pe:18,evm:10,cMean:null,cLow:null,cHigh:null,
-      scn:[{n:"Bajista",dg:-5,dm:-3,p:25},{n:"Base",dg:0,dm:0,p:50},{n:"Alcista",dg:4,dm:2,p:25}]},
-    verdict:{rating:"Mantener",conviction:3,buyBelow:null,horizon:"",summary:"",bull:[],bear:[],watch:[]},
-    notes:""
-  };
-  return deepMerge(base,{v:{lo52:null,hi52:null},
-    fin:{qrev:{labels:["T1","T2","T3","T4"],values:[null,null,null,null]},shares:{labels:["2023","2024","2025"],values:[null,null,null]}},
-    mgmt:{vote:{label:"Poder de voto (%)",items:[{n:"Fundadores y directivos",v:null},{n:"Resto de accionistas",v:null}]}},
-    sources:{web:"",ir:"",cik:"",docs:[],news:[]},social:{pulse:PULSE0(),videos:[]}});
+const ANALYSIS_KEYS=["meta","overview","business","moat","growth","mgmt","risks","v","verdict","notes","sources","social","fin_manual"];
+const DATA_V=["price","lo52","hi52","cMean","cLow","cHigh"];
+const MODEL_SEC=[["shares","Acciones"],["cash","Caja"],["debt","Deuda"]];
+const M6=1e6;
+let TEMPLATE={}, store={companies:{},current:null}, cur=null, EDIT=false, TAB="overview";
+const lsGet=k=>{try{return localStorage.getItem(k);}catch(e){return null;}};
+const lsSet=(k,v)=>{try{ if(v==null) localStorage.removeItem(k); else localStorage.setItem(k,v); return true;}catch(e){return false;}};
+const DRAFT=t=>"valorador.borrador."+t;
+async function getJSON(u){const r=await fetch(u,{cache:"no-cache"}); if(!r.ok) throw new Error(u+": HTTP "+r.status); return r.json();}
+
+/* fechas y origen de cada cifra */
+const MESES=["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"];
+function fecha(iso){const m=/^(\d{4})-(\d{2})-(\d{2})/.exec(iso||""); return m?`${+m[3]}-${MESES[+m[2]-1]}-${m[1].slice(2)}`:(iso||"");}
+function mesCorto(iso){const m=/^(\d{4})-(\d{2})/.exec(iso||""); return m?`${MESES[+m[2]-1]}-${m[1].slice(2)}`:"";}
+function srcTag(p,o={}){
+  if(!p) return `<span class="src off">sin dato oficial</span>`;
+  if(p.asumido) return `<span class="src warn" title="La SEC no tiene ninguna etiqueta de deuda vigente para esta compañía">asumido 0 · sin deuda etiquetada</span>`;
+  if(p.manual) return `<span class="src man" title="${esc(p.fuente||"Introducido a mano")}">manual${p.fecha?" · "+esc(p.fecha):""}</span>`;
+  const sec=/^SEC/.test(p.fuente||"");
+  const label=sec?`SEC ${p.formulario||""}${p.derivado?" (calc.)":""} · ${fecha(p.fecha_presentacion)}`:`${(p.fuente||"").split(" (")[0]} · ${fecha(p.fecha||p.fecha_presentacion)}`;
+  const title=[p.etiqueta,p.periodo_inicio?`Periodo ${p.periodo_inicio} → ${p.periodo_fin}`:p.periodo_fin?`A ${p.periodo_fin}`:"",p.derivado?`Cálculo: ${p.derivado}`:"",sec?"Abre el filing en EDGAR":""].filter(Boolean).join("\n");
+  return okUrl(p.url)?`<a class="src" href="${esc(p.url)}" target="_blank" rel="noopener noreferrer" title="${esc(title)}">${esc(label)}</a>`:`<span class="src" title="${esc(title)}">${esc(label)}</span>`;
 }
 
-/* ================= ESTADO ================= */
-const KEY="valorador.v2", KEY1="valorador.v1";
-const clone=o=>JSON.parse(JSON.stringify(o));
-let store=null;
-try{const raw=localStorage.getItem(KEY); if(raw){const p=JSON.parse(raw); if(p&&p.companies&&Object.keys(p.companies).length) store=p;}}catch(e){}
-if(!store){
-  store={companies:clone(DEFAULTS),current:"applovin",ver:7};
-  try{const raw1=localStorage.getItem(KEY1); if(raw1){const p1=JSON.parse(raw1);
-    Object.entries(p1.companies||{}).forEach(([k,old])=>{ if(/^(applovin|alphabet)$/i.test(k)) return;
-      const c=blankCompany(old.name||k); c.meta.ticker=old.ticker||""; c.meta.ccy=old.ccy||"USD"; c.notes=old.notes||"";
-      Object.keys(c.v).forEach(f=>{ if(old[f]!==undefined) c.v[f]=old[f]; }); if(c.v.da5==null) c.v.da5=c.v.da; if(c.v.capex5==null) c.v.capex5=c.v.capex;
-      store.companies["c"+Date.now().toString(36)+Math.random().toString(36).slice(2,5)]=c; });}}catch(e){}
+/* --- de data/<T>.json a las series que usan las pestañas (millones) --- */
+function buildFin(c){
+  const d=c._data||{}, R=d.resultados||{};
+  const A=k=>(R[k]&&R[k].anual)||[];
+  const years=A("ingresos").map(p=>p.periodo).slice(-6);
+  const pick=(k,y)=>A(k).find(p=>p.periodo===y)||null;
+  const ttm=R.ingresos&&R.ingresos.ttm, lastA=A("ingresos").at(-1);
+  const addTTM=!!(ttm&&lastA&&ttm.periodo_fin>lastA.periodo_fin);
+  const labels=[...years]; if(addTTM) labels.push("UDM "+mesCorto(ttm.periodo_fin));
+  const ser=k=>{const v=years.map(y=>pick(k,y)); if(addTTM){const t=R[k]&&R[k].ttm; v.push(t&&t.periodo_fin===ttm.periodo_fin?t:null);} return v;};
+  const val=a=>a.map(p=>p&&fin(p.valor)?p.valor/M6:null);
+  const pts={rev:ser("ingresos"),profit:ser("beneficio_operativo"),ni:ser("beneficio_neto"),ocf:ser("caja_operativa"),capex:ser("capex")};
+  const rev=val(pts.rev), ocf=val(pts.ocf), capex=val(pts.capex);
+  const fcf=ocf.map((o,i)=>fin(o)&&fin(capex[i])?o-capex[i]:null);
+  const B=d.balance||{}, H=k=>(B[k]&&B[k].historico)||[];
+  const dates=[...new Set([...H("caja"),...H("deuda")].map(p=>p.periodo_fin))].sort();
+  const at=(k,dt)=>{const p=H(k).find(x=>x.periodo_fin===dt); return p?p.valor/M6:(k==="deuda"&&B.deuda&&B.deuda.asumido?0:null);};
+  const bal={labels:dates.map(mesCorto),cash:dates.map(dt=>at("caja",dt)),debt:dates.map(dt=>at("deuda",dt))};
+  if(!dates.length&&B.deuda&&B.deuda.asumido&&B.caja&&B.caja.ultimo){bal.labels=[mesCorto(B.caja.ultimo.periodo_fin)];bal.cash=[B.caja.ultimo.valor/M6];bal.debt=[0];}
+  const Q=((R.ingresos&&R.ingresos.trimestral)||[]), qL=Q.slice(-8);
+  const prevLab=l=>{const m=/^(\d)T(\d{2})$/.exec(l); return m?`${m[1]}T${String(+m[2]-1).padStart(2,"0")}`:"";};
+  const yoy=qL.map(p=>{const pv=Q.find(x=>x.periodo===prevLab(p.periodo)); return pv&&pv.valor>0?(p.valor/pv.valor-1)*100:null;});
+  const fm=(c.fin_manual&&c.fin_manual.q)||{labels:[],series:[]};
+  const manualSeries=(fm.series||[]).map(s=>({n:s.n+" (manual)",values:qL.map(p=>{const i=(fm.labels||[]).indexOf(p.periodo); return i>=0&&fin(s.values[i])?s.values[i]:null;})})).filter(s=>s.values.some(fin));
+  const sh=A("acciones_diluidas_media").slice(-6);
+  return {years:labels,rev,profit:val(pts.profit),ni:val(pts.ni),fcf,capex,ocf,profitLabel:"Beneficio operativo",pts,
+    bal,qrev:{labels:qL.map(p=>p.periodo),values:qL.map(p=>p.valor/M6),pts:qL},
+    q:{labels:qL.map(p=>p.periodo),series:[{n:"Ingresos totales",values:yoy},...manualSeries]},
+    shares:{labels:sh.map(p=>p.periodo),values:sh.map(p=>p.valor/M6)},
+    note:"Cifras de SEC EDGAR (XBRL), en millones. FCF = caja operativa − capex. UDM = últimos doce meses (suma de 4 trimestres). Se muestra el beneficio operativo porque la SEC no publica EBITDA."};
 }
-if(!store.ver) store.ver=0;
-if(store.ver<3){ ["applovin","alphabet"].forEach(k=>{ if(store.companies[k]){const n=store.companies[k].notes; store.companies[k]=clone(DEFAULTS[k]); if(n) store.companies[k].notes=n;} }); store.ver=3; }
-function fillMissing(t,src){Object.keys(src).forEach(k=>{ if(t[k]===undefined) t[k]=clone(src[k]); else if(src[k]&&typeof src[k]==="object"&&!Array.isArray(src[k])&&t[k]&&typeof t[k]==="object") fillMissing(t[k],src[k]); });}
-if(store.ver<4){ if(!store.companies.reddit) store.companies.reddit=clone(DEFAULTS.reddit); store.ver=4; }
-if(store.ver<5){ if(!store.companies.amazon) store.companies.amazon=clone(DEFAULTS.amazon); store.ver=5; }
-if(store.ver<6){ if(!store.companies.vistra) store.companies.vistra=clone(DEFAULTS.vistra); store.ver=6; }
-if(store.ver<7){ if(!store.companies.broadcom) store.companies.broadcom=clone(DEFAULTS.broadcom); store.ver=7; }
-Object.entries(store.companies).forEach(([k,c])=>fillMissing(c,DEFAULTS[k]||blankCompany((c.meta&&c.meta.name)||"Compañía")));
-if(!store.companies[store.current]) store.current=Object.keys(store.companies)[0];
-let cur=store.companies[store.current];
-let EDIT=false, TAB="overview";
+function secFigures(d){
+  const B=(d&&d.balance)||{}, R=(d&&d.resultados)||{};
+  const sh=d&&d.acciones_en_circulacion;
+  const one=p=>p?{m:fin(p.valor)?p.valor/M6:null,p}:{m:null,p:null};
+  return {shares:one(sh),cash:one(B.caja&&B.caja.ultimo),debt:one(B.deuda&&B.deuda.ultimo),
+    revQ:one((R.ingresos&&R.ingresos.trimestral||[]).at(-1)),revTTM:one(R.ingresos&&R.ingresos.ttm),niTTM:one(R.beneficio_neto&&R.beneficio_neto.ttm),
+    ocfTTM:one(R.caja_operativa&&R.caja_operativa.ttm),capexTTM:one(R.capex&&R.capex.ttm)};
+}
+function applyData(c){
+  const d=c._data, man=c._manual||{}, P=d&&d.precio;
+  c.v=c.v||{}; c._auto={};
+  c.v.price=P&&fin(P.valor)?P.valor:NaN;
+  c.v.lo52=P&&fin(P.minimo_52s)?P.minimo_52s:null; c.v.hi52=P&&fin(P.maximo_52s)?P.maximo_52s:null;
+  const n=x=>typeof x==="number"&&Number.isFinite(x)?x:null;
+  c.v.cMean=n(man.precio_objetivo_medio); c.v.cLow=n(man.precio_objetivo_bajo); c.v.cHigh=n(man.precio_objetivo_alto);
+  c.sec=secFigures(d);
+  MODEL_SEC.forEach(([k])=>{ if(!fin(c.v[k])&&fin(c.sec[k].m)){ c.v[k]=+c.sec[k].m.toFixed(k==="shares"?1:0); c._auto[k]=true; } });
+  c.fin=buildFin(c);
+  c.sources=c.sources||{}; const ui=d&&d.ultimo_informe;
+  c.sources.secLatest=ui?{endIso:ui.fecha_periodo,form:ui.formulario,filed:fecha(ui.fecha_presentacion)}:null;
+  c.sources.cik=c._co.cik;
+}
+function exportAnalysis(c){
+  const o={_nota:"Supuestos y textos propios. Se editan a mano (o desde «Editar» en la web, que descarga este archivo) y se versionan en git. El Action nunca los toca.",esquema:1};
+  ANALYSIS_KEYS.forEach(k=>{ if(c[k]!==undefined) o[k]=clone(c[k]); });
+  ["name","ticker","brand","ccy","updatedAt"].forEach(k=>delete o.meta[k]);
+  DATA_V.forEach(k=>delete o.v[k]);
+  Object.keys(c._auto||{}).forEach(k=>{ if(fin(c.sec[k].m)&&Math.abs(o.v[k]-c.sec[k].m)<1) delete o.v[k]; });
+  if(o.sources){delete o.sources.secLatest; delete o.sources.cik;}
+  return o;
+}
+function favSet(){try{return JSON.parse(lsGet("valorador.favs")||"null");}catch(e){return null;}}
+function buildCompany(co,an,d,man){
+  const t=co.ticker.toUpperCase();
+  const c=clone(an||TEMPLATE); fillMissing(c,clone(TEMPLATE));
+  c._base=an?clone(an):null; c._draft=false;
+  const dr=lsGet(DRAFT(t)); if(dr){try{const dj=JSON.parse(dr); ANALYSIS_KEYS.forEach(k=>{ if(dj[k]!==undefined) c[k]=dj[k]; }); c._draft=true;}catch(e){}}
+  c.meta=Object.assign({},c.meta,{name:co.nombre,ticker:co.ticker,ccy:"USD",brand:{color:co.color,mono:co.monograma}});
+  const fs=favSet(); if(fs) c.meta.fav=fs.includes(t);
+  c._co=co; c._data=d; c._manual=man; c._t=t;
+  applyData(c);
+  return c;
+}
+function saveFavs(){lsSet("valorador.favs",JSON.stringify(Object.entries(store.companies).filter(([k,c])=>c.meta.fav).map(([k])=>k)));}
+let saveT; function save(){ if(!cur) return; cur._draft=true; clearTimeout(saveT); saveT=setTimeout(()=>{
+  const ok=lsSet(DRAFT(cur._t),JSON.stringify(exportAnalysis(cur)));
+  const el=$("savedMsg"); if(el) el.textContent=ok?"Borrador guardado en este navegador":"Este navegador no permite guardar: descarga el JSON para no perder cambios";
+  renderDraft();},350);}
+
+/* --- avisos: los del Action + contradicciones entre el modelo y la SEC --- */
+function contradictions(c){
+  const out=[];
+  if(!c._data) out.push({nivel:"error",codigo:"sin_datos",mensaje:"Todavía no hay datos automáticos de esta compañía. Lanza el Action «Actualizar datos»."});
+  MODEL_SEC.forEach(([k,lab])=>{ const a=c.v[k], s=c.sec[k]; if(c._auto[k]||!fin(a)||!s||!fin(s.m)) return;
+    if(s.p&&s.p.asumido){ if(a>0) out.push({nivel:"info",codigo:"contradiccion",campo:k,mensaje:`${lab}: el modelo usa ${nf(a)} M; la SEC no etiqueta deuda y el dato automático es 0 (asumido).`}); return; }
+    const base=Math.max(Math.abs(s.m),1e-9), diff=Math.abs(a-s.m)/base;
+    if(diff>0.2) out.push({nivel:"aviso",codigo:"contradiccion",campo:k,mensaje:`${lab} del modelo (${nf(a,k==="shares"?1:0)} M) difiere un ${nf(diff*100,0)}% del dato de la SEC (${nf(s.m,k==="shares"?1:0)} M a ${fecha(s.p.periodo_fin)}).`}); });
+  if(c._data&&!fin(c.v.price)) out.push({nivel:"aviso",codigo:"sin_precio",mensaje:"Sin precio de mercado: el DCF no puede comparar con la cotización."});
+  return out;
+}
+function allWarnings(c){ return [...contradictions(c),...((c._data&&c._data.avisos)||[]).filter(w=>!(w.codigo==="sin_precio"&&!fin(c.v.price)))]; }
+function warnList(ws){ return `<ul class="wl">${ws.map(w=>`<li><span class="lvl ${esc(w.nivel)}">${w.nivel==="aviso"?"Aviso":w.nivel==="error"?"Error":"Info"}</span><span>${esc(w.mensaje)}</span></li>`).join("")}</ul>`; }
+function renderWarnings(){
+  const box=$("warnBox"); if(!box) return; const ws=allWarnings(cur), imp=ws.filter(w=>w.nivel!=="info"), inf=ws.length-imp.length;
+  if(!ws.length){box.hidden=true; box.innerHTML=""; return;}
+  box.hidden=false; box.className="avisos"+(imp.some(w=>w.nivel==="error")?" bad":imp.length?"":" quiet");
+  box.innerHTML=`<details${imp.length&&imp.some(w=>w.codigo==="contradiccion"||w.nivel==="error")?" open":""}><summary>${imp.length?`⚠ ${imp.length} ${imp.length===1?"aviso":"avisos"} sobre los datos`:"Datos sin avisos"}${inf?` · ${inf} ${inf===1?"nota informativa":"notas informativas"}`:""}</summary>
+    ${warnList([...imp,...ws.filter(w=>w.nivel==="info")])}<p class="note" style="margin:8px 0 0">Los avisos los genera el Action al validar los datos de la SEC, y la web al comparar tu modelo con esos datos. Ninguna cifra se corrige en silencio.</p></details>`;
+}
+function renderDraft(){
+  const el=$("draftBar"); if(!el||!cur) return;
+  el.innerHTML=cur._draft?`<span><b>Cambios sin publicar</b> en tu análisis de ${esc(cur.meta.name)}</span><button type="button" id="btnDl" class="btn-acc">Descargar ${esc(cur._t)}.json</button><button type="button" id="btnDiscard">Descartar</button>`:"";
+  el.hidden=!cur._draft;
+}
+function repoUploadUrl(){ const h=location.hostname, m=/^([^.]+)\.github\.io$/.exec(h); const seg=location.pathname.split("/").filter(Boolean)[0];
+  return m&&seg?`https://github.com/${m[1]}/${seg}/upload/main/analysis`:null; }
+function downloadAnalysis(c){
+  const blob=new Blob([JSON.stringify(exportAnalysis(c),null,1)+"\n"],{type:"application/json"});
+  const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download=c._t+".json"; document.body.appendChild(a); a.click(); setTimeout(()=>{URL.revokeObjectURL(a.href); a.remove();},500);
+  const up=repoUploadUrl();
+  toast(up?"Descargado. Súbelo a la carpeta analysis/ de GitHub":"Descargado: súbelo a la carpeta analysis/ del repositorio");
+  if(up) setTimeout(()=>window.open(up,"_blank","noopener"),600);
+}
+function discardDraft(){ lsSet(DRAFT(cur._t),null); const t=cur._t; const c=buildCompany(cur._co,cur._base,cur._data,cur._manual); store.companies[t]=c; cur=c; renderHeader(); renderTab(); toast("Borrador descartado"); }
+/* importar el JSON del valorador antiguo (botón «Datos» → «Copiar JSON» en la versión anterior) */
+function importOld(txt){
+  const p=JSON.parse(txt); if(!p||!p.companies) throw new Error("formato");
+  let n=0; Object.values(p.companies).forEach(old=>{ const sym=(((old.meta&&old.meta.ticker)||"").split(":").pop()||"").trim().toUpperCase(); const c=store.companies[sym]; if(!c) return;
+    const a=clone(old); delete a.fin; a.fin_manual=c.fin_manual; if(a.v) DATA_V.forEach(k=>delete a.v[k]); if(a.meta) ["name","ticker","brand","ccy","updatedAt"].forEach(k=>delete a.meta[k]);
+    if(a.sources) ["dataUrl","headlines","analysts","headlinesAt","headlinesSpam","secLatest","cik"].forEach(k=>delete a.sources[k]);
+    lsSet(DRAFT(sym),JSON.stringify(a)); store.companies[sym]=buildCompany(c._co,c._base,c._data,c._manual); n++; });
+  cur=store.companies[store.current]; return n;
+}
+const REFRESH={busy:false};
+function closeModal(){ $("overlay").hidden=true; $("modal").innerHTML=""; }
 
 const TABS=[
  {id:"overview",label:"Overview",c:"--c1",title:"Visión general",desc:"La tesis en una línea, los datos clave, la puntuación por área y lo que viene."},
@@ -1156,8 +649,6 @@ const para=s=>String(s||"").split(/\n+/).filter(Boolean).map(l=>`<p>${esc(l)}</p
 function get(p,o=cur){return p.split(".").reduce((x,k)=>x==null?x:x[k],o);}
 function setPath(o,p,v){const ks=p.split(".");let x=o;for(let i=0;i<ks.length-1;i++){if(x[ks[i]]==null)x[ks[i]]=/^\d+$/.test(ks[i+1])?[]:{};x=x[ks[i]];}x[ks[ks.length-1]]=v;}
 function toast(t){const el=$("toast");el.textContent=t;el.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>el.hidden=true,1900);}
-let saveT; function save(){clearTimeout(saveT);saveT=setTimeout(()=>{let ok=true;try{localStorage.setItem(KEY,JSON.stringify(store));}catch(e){ok=false;}
-  $("savedMsg").textContent=ok?"Guardado en este navegador":"Este navegador no permite guardar: exporta el JSON para no perder cambios";},350);}
 
 /* campos: lectura o edición */
 const tx=(p,o={})=>EDIT?`<textarea class="ed" data-p="${p}" rows="${o.rows||3}" placeholder="${esc(o.ph||"")}">${esc(get(p)??"")}</textarea>`
@@ -1230,9 +721,11 @@ function renderHeader(){
   const vz=valuation(cur), s=scorecard(cur,vz), mcap=cur.v.price*cur.v.shares;
   $("hdrRow").innerHTML=`${cur.meta.ticker?`<span class="tick">${esc(cur.meta.ticker)}</span>`:""}${ratingPill(cur.verdict.rating||"—")}
     <span class="pill neutral">Puntuación ${nf(s.total,0)}/100</span>${fin(vz.w)?upPill(vz.w,cur.v.price).replace("vs cotización","de potencial"):""}`;
-  $("priceBox").innerHTML=`<span class="eyebrow">Cotización${cur.meta.asOf?" · "+esc(cur.meta.asOf):""}</span><span class="px">${money(cur.v.price)}</span>
+  const P=cur._data&&cur._data.precio, ref=cur._data&&cur._data.referencia_fecha_datos;
+  $("priceBox").innerHTML=`<span class="eyebrow">Cotización ${P?srcTag(P):""}</span><span class="px">${money(cur.v.price)}</span>
     <span class="note">Capitalización ${big(mcap)}${fin(cur.v.lo52)&&fin(cur.v.hi52)?` · 52 semanas ${nf(cur.v.lo52,0)}–${nf(cur.v.hi52,0)}`:""}${cur.meta.nextEarnings?` · Resultados: ${esc(cur.meta.nextEarnings)}`:""}</span>
-    <span class="refresh"><span class="note">${cur.meta.updatedAt?"Actualizado "+esc(ago(cur.meta.updatedAt)):"Datos cargados a mano"}</span><button type="button" class="btn-acc" id="btnRefresh">↻ Actualizar datos</button></span>`;
+    <span class="note">${ref?`Cifras SEC hasta ${esc(fecha(ref))}`:"Sin datos de la SEC"}${cur._data&&cur._data.generado?` · datos actualizados ${esc(ago(cur._data.generado))}`:""}</span>
+    <div class="draft" id="draftBar" hidden></div>`;
   applyBrand(cur); $("hdrMono").textContent=brandOf(cur).mono;
   const n=Object.keys(store.companies).length, sym=symOf(cur);
   $("btnSwitch").innerHTML=`${monoHtml(cur,"sm")}<span class="nm">${esc(cur.meta.name||"Sin nombre")}</span>${sym?`<small>${esc(sym)}</small>`:""}<span class="ct">${n} ${n===1?"compañía":"compañías"} ▾</span><kbd>Ctrl K</kbd>`;
@@ -1240,6 +733,7 @@ function renderHeader(){
   $("favPills").innerHTML=favs.map(([k,c])=>`<button type="button" class="copill" data-co="${esc(k)}" aria-pressed="${k===store.current}" title="Favorita">${monoHtml(c,"xs")} ${esc(c.meta.name||"Sin nombre")}${symOf(c)?`<small>${esc(symOf(c))}</small>`:""}</button>`).join("")
     ||`<span class="note">Marca favoritas con ★ en el selector para tenerlas aquí a un clic.</span>`;
   if(!$("picker").hidden) renderPicker();
+  renderWarnings(); renderDraft();
 }
 /* --- identidad corporativa --- */
 function hashHue(t){let h=0;for(const ch of String(t||"x")) h=(h*31+ch.charCodeAt(0))%360;return h;}
@@ -1265,7 +759,7 @@ function pickList(){
   const q=pickQ.trim().toLowerCase();
   const L=Object.keys(store.companies).map(coStats).filter(x=>!q||[x.c.meta.name,x.c.meta.ticker,x.c.meta.sector].join(" ").toLowerCase().includes(q));
   const by={name:(a,b)=>(a.c.meta.name||"").localeCompare(b.c.meta.name||"","es"),up:(a,b)=>(fin(b.up)?b.up:-9)-(fin(a.up)?a.up:-9),
-    score:(a,b)=>(fin(b.score)?b.score:0)-(fin(a.score)?a.score:0),recent:(a,b)=>String(b.c.meta.updatedAt||"").localeCompare(String(a.c.meta.updatedAt||""))};
+    score:(a,b)=>(fin(b.score)?b.score:0)-(fin(a.score)?a.score:0),recent:(a,b)=>String((b.c._data||{}).referencia_fecha_datos||"").localeCompare(String((a.c._data||{}).referencia_fecha_datos||""))};
   return L.sort((a,b)=>((b.c.meta.fav?1:0)-(a.c.meta.fav?1:0))||by[pickSort](a,b));
 }
 function renderPicker(){
@@ -1274,7 +768,7 @@ function renderPicker(){
   $("pickList").innerHTML=pickRows.length?pickRows.map((x,i)=>{const c=x.c;
     return `<div class="prow ${i===pickIdx?"act":""} ${x.id===store.current?"cur":""}" role="option" id="opt-${i}" aria-selected="${i===pickIdx}" data-pick="${esc(x.id)}">
       <button type="button" class="star" data-fav="${esc(x.id)}" aria-pressed="${!!c.meta.fav}" aria-label="${c.meta.fav?"Quitar de favoritas":"Marcar como favorita"}">★</button>
-      <div style="min-width:0;display:flex;gap:10px;align-items:center">${monoHtml(c,"sm")}<div style="min-width:0"><div class="n">${esc(c.meta.name||"Sin nombre")}${symOf(c)?`<small>${esc(symOf(c))}</small>`:""}</div><div class="sct">${esc(c.meta.sector||"")}${c.meta.updatedAt?" · act. "+esc(ago(c.meta.updatedAt)):""}</div></div></div>
+      <div style="min-width:0;display:flex;gap:10px;align-items:center">${monoHtml(c,"sm")}<div style="min-width:0"><div class="n">${esc(c.meta.name||"Sin nombre")}${symOf(c)?`<small>${esc(symOf(c))}</small>`:""}</div><div class="sct">${esc(c.meta.sector||"")}${c._data&&c._data.referencia_fecha_datos?" · SEC "+esc(fecha(c._data.referencia_fecha_datos)):""}${c._draft?" · borrador":""}</div></div></div>
       <div class="px">${fin(c.v.price)?nf(c.v.price,2)+" "+esc(c.meta.ccy||""):"–"}</div>
       <div class="meta">${fin(x.up)?`<span class="pill ${x.up>=0?"up":"down"}">${x.up>=0?"+":""}${nf(x.up*100,0)}%</span>`:""}<span class="note">${fin(x.score)?nf(x.score,0)+"/100":""} ${esc(c.verdict.rating||"")}</span></div>
     </div>`;}).join(""):`<p class="empty" style="padding:12px">Ninguna compañía coincide con «${esc(pickQ)}».</p>`;
@@ -1284,7 +778,7 @@ function renderPicker(){
 function openPicker(){ $("picker").hidden=false; $("btnSwitch").setAttribute("aria-expanded","true"); pickQ=""; $("pickQ").value="";
   pickRows=pickList(); pickIdx=Math.max(0,pickRows.findIndex(x=>x.id===store.current)); renderPicker(); setTimeout(()=>$("pickQ").focus(),0); }
 function closePicker(focusBtn){ $("picker").hidden=true; $("btnSwitch").setAttribute("aria-expanded","false"); if(focusBtn) $("btnSwitch").focus(); }
-function selectCo(id){ if(!store.companies[id]) return; store.current=id; cur=store.companies[id]; save(); closePicker(); renderHeader(); renderTab(); }
+function selectCo(id){ if(!store.companies[id]) return; store.current=id; cur=store.companies[id]; lsSet("valorador.actual",id); closePicker(); renderHeader(); renderTab(); }
 $("btnSwitch").addEventListener("click",()=>$("picker").hidden?openPicker():closePicker());
 $("pickQ").addEventListener("input",e=>{pickQ=e.target.value; pickIdx=0; renderPicker();});
 $("pickQ").addEventListener("keydown",e=>{
@@ -1293,7 +787,7 @@ $("pickQ").addEventListener("keydown",e=>{
   else if(e.key==="Enter"){e.preventDefault(); if(pickRows[pickIdx]) selectCo(pickRows[pickIdx].id);}
   else if(e.key==="Escape"){e.preventDefault(); closePicker(true);} });
 document.querySelector(".sorts").addEventListener("click",e=>{const b=e.target.closest("[data-sort]"); if(!b) return; pickSort=b.dataset.sort; try{localStorage.setItem("valorador.sort",pickSort);}catch(_){} renderPicker(); $("pickQ").focus();});
-$("pickList").addEventListener("click",e=>{const st=e.target.closest("[data-fav]"); if(st){e.stopPropagation(); const c=store.companies[st.dataset.fav]; c.meta.fav=!c.meta.fav; save(); renderHeader(); renderPicker(); return;}
+$("pickList").addEventListener("click",e=>{const st=e.target.closest("[data-fav]"); if(st){e.stopPropagation(); const c=store.companies[st.dataset.fav]; c.meta.fav=!c.meta.fav; saveFavs(); renderHeader(); renderPicker(); return;}
   const r=e.target.closest("[data-pick]"); if(r) selectCo(r.dataset.pick);});
 document.addEventListener("mousedown",e=>{ if(!$("picker").hidden&&!e.target.closest("#picker")&&!e.target.closest("#btnSwitch")) closePicker(); });
 document.addEventListener("keydown",e=>{ const t=e.target, typing=/^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName);
@@ -1304,7 +798,7 @@ function renderTabs(){
   $("tabs").innerHTML=TABS.map(t=>`<button type="button" class="tab" role="tab" id="tab-${t.id}" aria-selected="${t.id===TAB}" aria-controls="main" data-tab="${t.id}" style="--tc:var(${t.c})"><span class="dot"></span>${t.label}</button>`).join("");
 }
 function head(){const t=TABS.find(x=>x.id===TAB);
-  return `<div class="editbar">Modo edición: cambia textos, puntuaciones y tablas. Se guarda solo.</div>
+  return `<div class="editbar">Modo edición: cambia textos, puntuaciones y supuestos. Se guarda como borrador en este navegador; descárgalo para publicarlo en analysis/. Las cifras de la SEC no se editan.</div>
   <div class="tabhead"><span class="bar"></span><div><div class="eyebrow tc">${esc(cur.meta.name)} · ${t.label}</div><h2>${t.title}</h2><p>${t.desc}</p></div></div>`;}
 function renderTab(){
   killCharts(); const t=TABS.find(x=>x.id===TAB); const m=$("main");
@@ -1332,10 +826,9 @@ R.overview=()=>{
   <section class="card" style="background:color-mix(in srgb,var(--tc) 6%,var(--surface))">
     <div class="eyebrow tc">Tesis en una línea</div>
     ${tx("overview.thesis",{cls:"thesis",rows:2,ph:"La idea principal en una frase"})}
-    ${EDIT?`<div class="g3">${["name:Nombre","ticker:Ticker","ccy:Moneda","sector:Sector","hq:Sede","founded:Fundación","employees:Empleados","asOf:Fecha de los datos"].map(x=>{const [k,l]=x.split(":");return `<label class="note">${l}${ln("meta."+k,{ph:l})}</label>`;}).join("")}
-      <label class="note">Color corporativo <span style="display:flex;gap:8px;align-items:center"><input type="color" data-p="meta.brand.color" value="${esc(/^#[0-9a-f]{6}$/i.test((cur.meta.brand||{}).color||"")?cur.meta.brand.color:"#4b5563")}" aria-label="Color corporativo"><span class="note">Se usa en la cabecera, el selector y el monograma</span></span></label>
-      <label class="note">Monograma (1–3 letras)${ln("meta.brand.mono",{ph:brandOf(cur).mono})}</label></div>`
-    :`<div class="chips">${[["Sector","sector"],["Sede","hq"],["Fundación","founded"],["Empleados","employees"],["Datos a","asOf"]].map(([l,k])=>`<div class="chip"><span>${l}</span>${esc(cur.meta[k]||"—")}</div>`).join("")}</div>`}
+    ${EDIT?`<div class="g3">${["sector:Sector","hq:Sede","founded:Fundación","employees:Empleados","asOf:Fecha del análisis","nextEarnings:Próximos resultados"].map(x=>{const [k,l]=x.split(":");return `<label class="note">${l}${ln("meta."+k,{ph:l})}</label>`;}).join("")}
+      <p class="note">Nombre, ticker, color y monograma se cambian en companies.json.</p></div>`
+    :`<div class="chips">${[["Sector","sector"],["Sede","hq"],["Fundación","founded"],["Empleados","employees"],["Análisis a","asOf"]].map(([l,k])=>`<div class="chip"><span>${l}</span>${esc(cur.meta[k]||"—")}</div>`).join("")}</div>`}
   </section>
   <div class="kpis">
     ${kpi("Cotización",money(cur.v.price),`<span class="note">Capitalización ${big(mcap)}</span>`)}
@@ -1343,6 +836,7 @@ R.overview=()=>{
     ${kpi("Puntuación global",nf(s.total,0)+" / 100",`<span class="note">Sugerencia del modelo: ${esc(s.sug)}</span>`)}
     ${kpi("Mi recomendación",esc(cur.verdict.rating||"—"),`<span class="note">Convicción ${nf(cur.verdict.conviction,1)} / 5</span>`)}
   </div>
+  ${officialCard()}
   <div class="g2">
     <section class="card"><h2>Qué hace</h2>${tx("overview.summary",{rows:6})}
       <h3>Datos clave</h3>
@@ -1364,7 +858,7 @@ R.overview=()=>{
     <section class="card"><h2>De dónde vienen los ingresos</h2>${tx("business.segNote",{cls:"sub",rows:2})}<div class="cv h240"><canvas id="ch_ov_mix" role="img" aria-label="Mezcla de ingresos"></canvas></div></section>
     <section class="card"><h2>Precio: rango y valoraciones</h2><p class="sub">La línea discontinua es la cotización.</p>
       <div class="ff" id="ff_ov"></div><div class="ffaxis" id="ffax_ov"></div>
-      ${EDIT?`<div class="g2"><label class="note">Mínimo 52 semanas ${nm("v.lo52")}</label><label class="note">Máximo 52 semanas ${nm("v.hi52")}</label></div>`:""}</section>
+      </section>
   </div>`;
 };
 
@@ -1412,27 +906,27 @@ R.business=()=>{
   </div>`;
 };
 
-R.financial=()=>{
+R.financial=()=>{ const EDIT=false;
   const f=cur.fin, n=f.years.length, L=n-1, sc=finScale();
   const last=f.rev[L], prev=f.rev[L-1], netDebt=(f.bal.debt.at(-1)??NaN)-(f.bal.cash.at(-1)??NaN);
-  const rowsDef=[["rev","Ingresos"],["profit",f.profitLabel],["ni","Beneficio neto"],["fcf","Flujo de caja libre"],["capex","Capex"]];
-  const tbl=`<thead><tr><th>${esc(sc.u.replace("mil M","M"))}</th>${f.years.map((y,i)=>`<th>${EDIT?`<input type="text" data-p="fin.years.${i}" value="${esc(y)}" aria-label="Año">`:esc(y)}</th>`).join("")}</tr></thead><tbody>`+
-    rowsDef.filter(([k])=>EDIT||(f[k]||[]).some(fin)).map(([k,l])=>`<tr class="${k==="rev"?"em":""}"><td>${k==="profit"&&EDIT?ln("fin.profitLabel"):esc(l)}</td>${f.years.map((_,i)=>`<td>${EDIT?nm(`fin.${k}.${i}`,{lab:l}):nf(f[k][i])}</td>`).join("")}</tr>`).join("")+
+  const rowsDef=[["rev","Ingresos"],["profit",f.profitLabel],["ni","Beneficio neto"],["ocf","Caja operativa"],["capex","Capex"],["fcf","Flujo de caja libre"]];
+  const tbl=`<thead><tr><th>${esc(sc.u.replace("mil M","M"))}</th>${f.years.map((y,i)=>`<th>${f.pts.rev[i]&&okUrl(f.pts.rev[i].url)?`<a href="${esc(f.pts.rev[i].url)}" target="_blank" rel="noopener noreferrer" style="color:inherit" title="${esc(`Presentado ${fecha(f.pts.rev[i].fecha_presentacion)} · ${f.pts.rev[i].formulario||""}`)}">${esc(y)}</a>`:esc(y)}</th>`).join("")}</tr></thead><tbody>`+
+    rowsDef.filter(([k])=>EDIT||(f[k]||[]).some(fin)).map(([k,l])=>`<tr class="${k==="rev"?"em":""}"><td>${k==="profit"&&EDIT?ln("fin.profitLabel"):esc(l)}</td>${f.years.map((_,i)=>`<td title="${esc(cellTitle(k,i))}">${nf(f[k][i])}</td>`).join("")}</tr>`).join("")+
     `<tr><td>Crecimiento de ingresos</td>${f.rev.map((v,i)=>`<td>${i&&fin(v)&&fin(f.rev[i-1])?pct((v/f.rev[i-1]-1)*100):"–"}</td>`).join("")}</tr>
      <tr><td>Margen ${esc(lc(f.profitLabel))}</td>${f.rev.map((v,i)=>`<td>${fin(v)&&fin(f.profit[i])?pct(f.profit[i]/v*100):"–"}</td>`).join("")}</tr>
      <tr><td>Margen de FCF</td>${f.rev.map((v,i)=>`<td>${fin(v)&&fin(f.fcf[i])?pct(f.fcf[i]/v*100):"–"}</td>`).join("")}</tr></tbody>`;
   return `
   <div class="kpis">
-    ${kpi("Ingresos "+esc(f.years[L]||""),big(last),fin(prev)?upPill(last,prev).replace("vs cotización","interanual"):"",true)}
-    ${kpi("Margen "+esc(lc(f.profitLabel)),pct(f.profit[L]/last*100),`<span class="note">${esc(f.years[L-1]||"")}: ${pct(f.profit[L-1]/prev*100)}</span>`)}
-    ${kpi("Flujo de caja libre",big(f.fcf[L]),`<span class="note">${esc(f.years[L-1]||"")}: ${big(f.fcf[L-1])}</span>`)}
-    ${kpi(netDebt>0?"Deuda neta":"Caja neta",big(Math.abs(netDebt)),`<span class="note">a ${esc(f.bal.labels.at(-1)||"")}</span>`)}
+    ${kpi("Ingresos "+esc(f.years[L]||""),big(last),fin(prev)?upPill(last,prev).replace("vs cotización","interanual")+srcTag(f.pts.rev[L]):srcTag(f.pts.rev[L]),true)}
+    ${kpi("Margen "+esc(lc(f.profitLabel)),pct(f.profit[L]/last*100),`<span class="note">${esc(f.years[L-1]||"")}: ${pct(f.profit[L-1]/prev*100)}</span>${srcTag(f.pts.profit[L])}`)}
+    ${kpi("Flujo de caja libre",big(f.fcf[L]),`<span class="note">${esc(f.years[L-1]||"")}: ${big(f.fcf[L-1])}</span>${srcTag(f.pts.ocf[L])}`)}
+    ${kpi(netDebt>0?"Deuda neta":"Caja neta",big(Math.abs(netDebt)),`<span class="note">a ${esc(f.bal.labels.at(-1)||"")}</span>${srcTag(cur.sec.debt.p)}`)}
   </div>
   <div class="g2">
     <section class="card"><h2>Ingresos y ${esc(lc(f.profitLabel))}</h2><p class="sub">${sc.u}</p><div class="cv h260"><canvas id="ch_fn_rev" role="img" aria-label="Ingresos y beneficio por año"></canvas></div></section>
     <section class="card"><h2>Márgenes</h2><p class="sub">% sobre ingresos</p><div class="cv h260"><canvas id="ch_fn_mg" role="img" aria-label="Márgenes por año"></canvas></div></section>
     <section class="card"><h2>Beneficio, caja e inversión</h2><p class="sub">${sc.u}</p><div class="cv h260"><canvas id="ch_fn_cash" role="img" aria-label="Beneficio neto, flujo de caja libre y capex"></canvas></div></section>
-    <section class="card"><h2>Caja y deuda</h2><p class="sub">${sc.u}</p><div class="cv h260"><canvas id="ch_fn_bal" role="img" aria-label="Caja frente a deuda"></canvas></div>
+    <section class="card"><h2>Caja y deuda</h2><p class="sub">${sc.u}. Saldos de los últimos ~16 meses.${cur._data&&cur._data.balance&&cur._data.balance.deuda&&cur._data.balance.deuda.asumido?" Deuda asumida 0: la SEC no tiene ninguna etiqueta de deuda vigente.":""}</p><div class="cv h260"><canvas id="ch_fn_bal" role="img" aria-label="Caja frente a deuda"></canvas></div>
       ${EDIT?`<div class="scroll"><table><thead><tr><th>Fecha</th>${f.bal.labels.map((l,i)=>`<th><input type="text" data-p="fin.bal.labels.${i}" value="${esc(l)}" aria-label="Fecha"></th>`).join("")}</tr></thead><tbody>
         <tr><td>Caja</td>${f.bal.cash.map((_,i)=>`<td>${nm(`fin.bal.cash.${i}`)}</td>`).join("")}</tr><tr><td>Deuda</td>${f.bal.debt.map((_,i)=>`<td>${nm(`fin.bal.debt.${i}`)}</td>`).join("")}</tr></tbody></table></div>
         <div class="toolbar"><button type="button" class="add" data-act="balAdd">+ Añadir fecha</button><button type="button" class="add" data-act="balDel">− Quitar la primera</button></div>`:""}
@@ -1442,10 +936,10 @@ R.financial=()=>{
     <section class="card"><h2>Ingresos trimestrales</h2><p class="sub">${esc(cur.fin.qrev&&Math.max(...(cur.fin.qrev.values||[]).filter(fin))>=20000?"mil M "+ccy():"M "+ccy())}</p><div class="cv h260"><canvas id="ch_fn_q" role="img" aria-label="Ingresos por trimestre"></canvas></div>${EDIT?seriesEditor("fin.qrev"):""}</section>
     <section class="card"><h2>Inversión y conversión en caja</h2><p class="sub">Capex sobre ingresos y flujo de caja libre sobre beneficio neto, en %.</p><div class="cv h260"><canvas id="ch_fn_conv" role="img" aria-label="Intensidad de capex y conversión en caja"></canvas></div></section>
   </div>
-  <section class="card"><h2>Tabla de datos</h2><p class="sub">${esc(sc.u.startsWith("mil")?"Millones":"Millones")} de ${esc(ccy())}. ${EDIT?"Edita cualquier celda.":""}</p>
+  <section class="card"><h2>Tabla de datos</h2><p class="sub">Millones de ${esc(ccy())}. Fuente: SEC EDGAR.</p>
     <div class="scroll"><table>${tbl}</table></div>
     ${EDIT?`<div class="toolbar"><button type="button" class="add" data-act="yearAdd">+ Añadir año</button><button type="button" class="add" data-act="yearDel">− Quitar el primer año</button></div>`:""}
-    ${tx("fin.note",{cls:"note",rows:3,ph:"Notas sobre las cifras"})}
+    <p class="note">${esc(f.note)} Pasa el ratón por una cifra para ver su etiqueta XBRL; el año enlaza al 10-K.</p>
   </section>`;
 };
 
@@ -1488,8 +982,8 @@ R.growth=()=>{
   </div>
   ${tx("growth.scoreNote",{rows:2})}
   <div class="g2">
-    <section class="card"><h2>Crecimiento interanual por trimestre</h2><p class="sub">%</p><div class="cv h260"><canvas id="ch_gr_q" role="img" aria-label="Crecimiento trimestral"></canvas></div>
-      ${EDIT?`<div class="scroll"><table><thead><tr><th>Serie</th>${q.labels.map((l,i)=>`<th><input type="text" data-p="fin.q.labels.${i}" value="${esc(l)}" aria-label="Trimestre"></th>`).join("")}</tr></thead><tbody>
+    <section class="card"><h2>Crecimiento interanual por trimestre</h2><p class="sub">%. Total: SEC. Las series «manual» salen de fin_manual en analysis/${esc(cur._t)}.json.</p><div class="cv h260"><canvas id="ch_gr_q" role="img" aria-label="Crecimiento trimestral"></canvas></div>
+      ${false?`<div class="scroll"><table><thead><tr><th>Serie</th>${q.labels.map((l,i)=>`<th><input type="text" data-p="fin.q.labels.${i}" value="${esc(l)}" aria-label="Trimestre"></th>`).join("")}</tr></thead><tbody>
       ${q.series.map((s,si)=>`<tr><td>${ln(`fin.q.series.${si}.n`)}</td>${q.labels.map((_,i)=>`<td>${nm(`fin.q.series.${si}.values.${i}`)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>
       <div class="toolbar"><button type="button" class="add" data-act="qAdd">+ Trimestre</button><button type="button" class="add" data-act="qDel">− Quitar el primero</button><button type="button" class="add" data-act="sAdd">+ Serie</button></div>`:""}
     </section>
@@ -1549,7 +1043,7 @@ R.management=()=>{
   <div class="g2">
     <section class="card"><h2>Control del voto</h2><p class="sub">${EDIT?ln("mgmt.vote.label"):esc(cur.mgmt.vote.label)}</p><div class="cv h240"><canvas id="ch_mg_vote" role="img" aria-label="Reparto del poder de voto"></canvas></div>
       ${EDIT?`<div class="scroll"><table><tbody>${cur.mgmt.vote.items.map((x,i)=>`<tr><td>${ln(`mgmt.vote.items.${i}.n`)}</td><td>${nm(`mgmt.vote.items.${i}.v`)}</td><td>${del("mgmt.vote.items",i)}</td></tr>`).join("")}</tbody></table></div>${add("mgmt.vote.items","items","Añadir grupo")}`:""}</section>
-    <section class="card"><h2>Acciones en circulación</h2><p class="sub">Millones. Si baja, la empresa recompra; si sube, diluye al accionista.</p><div class="cv h240"><canvas id="ch_mg_sh" role="img" aria-label="Acciones en circulación"></canvas></div>${EDIT?seriesEditor("fin.shares"):""}</section>
+    <section class="card"><h2>Acciones en circulación</h2><p class="sub">Millones de acciones diluidas medias de cada ejercicio (SEC). Si baja, la empresa recompra; si sube, diluye al accionista.</p><div class="cv h240"><canvas id="ch_mg_sh" role="img" aria-label="Acciones en circulación"></canvas></div></section>
   </div>`;
 };
 
@@ -1591,7 +1085,13 @@ R.risk=()=>{
 
 /* ---------- Valoración ---------- */
 R.valuation=()=>{
-  const F=(k,l,u,st)=>`<label for="v_${k}">${l}${u?`<span class="u">${u}</span>`:""}</label><input type="number" id="v_${k}" step="${st||"any"}" data-k="num" data-p="v.${k}" value="${fin(cur.v[k])?cur.v[k]:""}">`;
+  const P=cur._data&&cur._data.precio, RO={price:P,lo52:P,hi52:P,cMean:"m",cLow:"m",cHigh:"m"}, bad=contradictions(cur);
+  const F=(k,l,u,st)=>{ const lab=`<label for="v_${k}">${l}${u?`<span class="u">${u}</span>`:""}</label>`;
+    if(k in RO){ const p=RO[k]==="m"?{manual:true,fecha:(cur._manual||{}).fecha,fuente:(cur._manual||{}).fuente||"Introducido a mano"}:RO[k];
+      return lab+`<input type="number" id="v_${k}" class="ro" readonly tabindex="-1" value="${fin(cur.v[k])?cur.v[k]:""}" title="${RO[k]==="m"?"Se edita en manual/"+esc(cur._t)+".json":"Dato automático"}"><div class="fieldsrc">${srcTag(p)}</div>`; }
+    let hint=""; if(MODEL_SEC.some(x=>x[0]===k)){ const s=cur.sec[k], w=bad.some(x=>x.campo===k&&x.nivel==="aviso"), dec=k==="shares"?1:0;
+      hint=`<div class="fieldsrc ${w?"bad":""}">${cur._auto[k]?"Dato de la SEC":`SEC: ${s&&fin(s.m)?nf(s.m,dec)+" M":"–"}`} ${srcTag(s&&s.p)}${!cur._auto[k]&&s&&fin(s.m)&&Math.abs(cur.v[k]-s.m)>=0.5?` <button type="button" class="add" data-usesec="${k}">Usar dato SEC</button>`:""}</div>`; }
+    return lab+`<input type="number" id="v_${k}" step="${st||"any"}" data-k="num" data-p="v.${k}" value="${fin(cur.v[k])?cur.v[k]:""}">`+hint; };
   const v=cur.v;
   return `<div class="valgrid">
   <aside class="valin" id="valIn">
@@ -1612,7 +1112,7 @@ R.valuation=()=>{
     <details class="box" open><summary>Escenarios</summary>
       <div class="scn"><span></span><span class="h">Δ crec. pp</span><span class="h">Δ margen pp</span><span class="h">Prob. %</span>
       ${v.scn.map((c,i)=>`<span>${esc(c.n)}</span><input type="number" step="1" data-k="num" data-p="v.scn.${i}.dg" value="${c.dg}" aria-label="${esc(c.n)}: cambio de crecimiento"><input type="number" step="0.5" data-k="num" data-p="v.scn.${i}.dm" value="${c.dm}" aria-label="${esc(c.n)}: cambio de margen"><input type="number" step="5" data-k="num" data-p="v.scn.${i}.p" value="${c.p}" aria-label="${esc(c.n)}: probabilidad">`).join("")}</div></details>
-    <details class="box"><summary>Múltiplos y consenso</summary><div class="fields">
+    <details class="box" open><summary>Múltiplos y consenso</summary><div class="fields">
       ${F("eps","BPA próximos 12 meses","",0.01)}${F("pe","PER objetivo","x",0.5)}${F("evm","EV/EBITDA objetivo","x",0.5)}
       ${F("cMean","Consenso: media","",1)}${F("cLow","Consenso: mínimo","",1)}${F("cHigh","Consenso: máximo","",1)}</div></details>
   </aside>
@@ -1719,10 +1219,10 @@ R.sources=()=>{
   const counts=DOCCATS.map(([c])=>docs.filter(d=>d.cat===c).length);
   return `
   <section class="card"><h2>Accesos directos</h2><p class="sub">Los enlaces de la SEC abren el archivo EDGAR filtrado por tipo de documento, siempre con lo último publicado.</p>
-    ${EDIT?`<div class="g3"><label class="note">Web corporativa ${ln("sources.web",{ph:"https://"})}</label><label class="note">Web de inversores ${ln("sources.ir",{ph:"https://"})}</label><label class="note">CIK de la SEC ${ln("sources.cik",{ph:"0001234567"})}</label><label class="note">Página de datos en StockAnalysis (para «Actualizar datos»; vacío = se usa el ticker) ${ln("sources.dataUrl",{ph:"https://stockanalysis.com/stocks/..."})}</label></div>`:""}
+    ${EDIT?`<div class="g3"><label class="note">Web corporativa ${ln("sources.web",{ph:"https://"})}</label><label class="note">Web de inversores ${ln("sources.ir",{ph:"https://"})}</label></div>`:""}
     <div class="tiles">${tiles.map(tileHtml).join("")}</div>
   </section>
-  ${latestHtml()}
+  ${officialHtml()}
   ${socialHtml()}
   <div class="g2">
     <section class="card"><h2>Documentos de la compañía</h2><p class="sub">Resultados, formularios, informes anuales y presentaciones usados en este análisis.</p>
@@ -1739,17 +1239,6 @@ R.sources=()=>{
   </div>`;
 };
 
-function latestHtml(){
-  const S=cur.sources, H=S.headlines||[], AN=S.analysts||[], base=saBase(cur);
-  if(!H.length&&!AN.length) return `<section class="card"><h2>Lo último</h2><p class="empty">Pulsa «↻ Actualizar datos» para traer aquí los titulares recientes y los últimos cambios de los analistas.</p></section>`;
-  return `<div class="g2">
-    <section class="card" style="--tc:var(--c1)"><h2>Titulares recientes</h2><p class="sub">${S.headlinesAt?"Actualizados "+esc(ago(S.headlinesAt))+". ":""}${S.headlinesSpam?`Se omiten ${S.headlinesSpam} avisos de bufetes sobre la demanda colectiva.`:""}</p>
-      ${H.length?`<div class="doclist">${H.map(h=>`<div class="doc" style="--k:var(--c1)"><i></i><span style="font-weight:600">${esc(h.t)}</span><span class="dt">${esc(h.when||"")}</span><span class="m">${esc(h.src||"")}</span></div>`).join("")}</div>`:`<p class="empty">Sin titulares.</p>`}
-      ${base?`<a class="lk" style="--k:var(--c1)" href="${esc(base)}" target="_blank" rel="noopener noreferrer"><span class="ext">Ver todas las noticias</span><small>stockanalysis.com</small></a>`:""}</section>
-    <section class="card" style="--tc:var(--c4)"><h2>Últimos cambios de analistas</h2><p class="sub">Recomendación y precio objetivo.</p>
-      ${AN.length?`<div class="scroll"><table><thead><tr><th>Firma</th><th style="text-align:left">Recomendación</th><th>Objetivo</th><th>Fecha</th></tr></thead><tbody>${AN.map(a=>`<tr><td>${esc(a.firm)}<div class="note">${esc(a.who)}</div></td><td style="text-align:left;font-family:var(--f-body)">${esc(a.rating)} · ${esc(a.action)}</td><td>${esc(a.target)}</td><td>${esc(a.d||"")}</td></tr>`).join("")}</tbody></table></div>`:`<p class="empty">Sin datos.</p>`}
-      ${base?`<a class="lk" style="--k:var(--c4)" href="${esc(base)}forecast/" target="_blank" rel="noopener noreferrer"><span class="ext">Ver previsiones completas</span><small>stockanalysis.com</small></a>`:""}</section>
-  </div>`; }
 function socialHtml(){
   const name=cur.meta.name||"", sym=((cur.meta.ticker||"").split(":").pop()||"").trim().toUpperCase(), e=encodeURIComponent;
   const q=sym?`${name} ${sym}`:name;
@@ -1828,7 +1317,7 @@ R.verdict=()=>{
     <section class="card listcard" style="--tc:var(--c4)"><h2>Qué vigilar</h2>${ls("verdict.watch")}</section>
   </div>
   <section class="card"><h2>Notas</h2><textarea data-p="notes" rows="5" aria-label="Notas" placeholder="Tus notas sobre la compañía: dudas, ideas, cuándo revisar la tesis...">${esc(cur.notes||"")}</textarea></section>
-  <p class="note">Herramienta de análisis, no una recomendación de inversión personalizada. Datos de AppLovin y Alphabet a 28-oct-2026; Reddit y Amazon a 27-oct-2026; Vistra y Broadcom a 28-oct-2026.</p>`;
+  <p class="note">Herramienta de análisis, no una recomendación de inversión personalizada. ${esc(dataStamp())}</p>`;
 };
 function drawLevels(){
   const el=$("levels"); if(!el) return; const vz=valuation(cur);
@@ -1945,7 +1434,7 @@ C.verdict=()=>{
 /* ================= EVENTOS ================= */
 document.addEventListener("input",e=>{const t=e.target; const p=t.dataset&&t.dataset.p; if(!p) return;
   let v=t.value; const k=t.dataset.k; if(k==="num") v=v===""||isNaN(parseFloat(v))?null:parseFloat(v); else if(k==="list") v=v.split("\n").map(x=>x.trim()).filter(Boolean);
-  setPath(cur,p,v); save();
+  setPath(cur,p,v); if(/^v\.(shares|cash|debt)$/.test(p)) delete cur._auto[p.slice(2)]; save();
   if(t.type==="range"&&t.nextElementSibling) t.nextElementSibling.textContent=nf(v,1);
   if(p.startsWith("v.")) scheduleVal();
   if(p.startsWith("meta.")) renderHeader();
@@ -1956,10 +1445,10 @@ document.addEventListener("change",e=>{const t=e.target; const p=t.dataset&&t.da
 });
 document.addEventListener("click",e=>{
   const tb=e.target.closest(".tab"); if(tb){goTab(tb.dataset.tab);return;}
-  if(e.target.closest("#btnNew")){closePicker(); newCompany();return;}
-  if(e.target.closest("#btnRefresh")){startRefresh([store.current]);return;}
-  if(e.target.closest("#btnRefreshAll")){closePicker(); startRefresh(Object.keys(store.companies));return;}
-  const co=e.target.closest("[data-co]"); if(co){store.current=co.dataset.co; cur=store.companies[store.current]; save(); renderHeader(); renderTab(); return;}
+  if(e.target.closest("#btnDl")){downloadAnalysis(cur);return;}
+  const dc=e.target.closest("#btnDiscard"); if(dc){ if(dc.dataset.armed!=="1"){dc.dataset.armed="1"; dc.textContent="¿Seguro? Pulsa otra vez"; setTimeout(()=>{if(dc.isConnected){dc.dataset.armed=""; dc.textContent="Descartar";}},3000); return;} discardDraft(); return;}
+  const us=e.target.closest("[data-usesec]"); if(us){const k=us.dataset.usesec; cur.v[k]=+cur.sec[k].m.toFixed(k==="shares"?1:0); cur._auto[k]=true; save(); renderTab(); renderHeader(); return;}
+  const co=e.target.closest("[data-co]"); if(co){store.current=co.dataset.co; cur=store.companies[store.current]; lsSet("valorador.actual",store.current); renderHeader(); renderTab(); return;}
   const go=e.target.closest("[data-go]"); if(go){e.preventDefault();goTab(go.dataset.go);window.scrollTo({top:0});return;}
   const ad=e.target.closest("[data-add]"); if(ad){const a=get(ad.dataset.add)||[]; a.push(clone(TPL[ad.dataset.tpl])); setPath(cur,ad.dataset.add,a); save(); renderTab(); return;}
   const dl=e.target.closest("[data-del]"); if(dl){const a=get(dl.dataset.del); a.splice(+dl.dataset.i,1); save(); renderTab(); renderHeader(); return;}
@@ -1976,338 +1465,86 @@ document.addEventListener("click",e=>{
     save(); renderTab(); }
 });
 $("btnEdit").addEventListener("click",()=>{EDIT=!EDIT; $("btnEdit").classList.toggle("on",EDIT); $("btnEdit").setAttribute("aria-pressed",EDIT); $("btnEdit").textContent=EDIT?"Terminar edición":"Editar"; renderTab();});
-function newCompany(){const id="c"+Date.now().toString(36); store.companies[id]=blankCompany("Nueva compañía"); store.current=id; cur=store.companies[id];
-  EDIT=true; $("btnEdit").classList.add("on"); $("btnEdit").setAttribute("aria-pressed",true); $("btnEdit").textContent="Terminar edición"; save(); renderHeader(); goTab("overview"); toast("Compañía creada: rellena cada pestaña");}
-$("btnDel").addEventListener("click",()=>{const b=$("btnDel");
-  if(b.dataset.armed!=="1"){b.dataset.armed="1"; b.textContent="Confirmar"; setTimeout(()=>{b.dataset.armed="";b.textContent="Eliminar";},3000); return;}
-  b.dataset.armed=""; b.textContent="Eliminar"; delete store.companies[store.current];
-  if(!Object.keys(store.companies).length) store.companies=clone(DEFAULTS);
-  store.current=Object.keys(store.companies)[0]; cur=store.companies[store.current]; save(); renderHeader(); renderTab(); toast("Compañía eliminada");});
-$("btnData").addEventListener("click",()=>{const p=$("dataPanel"); p.hidden=!p.hidden; $("btnData").setAttribute("aria-expanded",!p.hidden); if(!p.hidden) $("jsonBox").value=JSON.stringify(store);});
-$("btnExport").addEventListener("click",()=>{const t=JSON.stringify(store); const box=$("jsonBox"); box.value=t;
-  if(navigator.clipboard&&navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(()=>toast("JSON copiado"),()=>{box.select();toast("Selecciona el texto y cópialo");}); else {box.select();toast("Selecciona el texto y cópialo");}});
-$("btnImport").addEventListener("click",()=>{try{const p=JSON.parse($("jsonBox").value); if(!p.companies) throw 0;
-  Object.entries(p.companies).forEach(([k,c])=>{ if(c&&c.meta&&c.v) store.companies[k]=c; });
-  store.current=p.current&&store.companies[p.current]?p.current:store.current; cur=store.companies[store.current]; save(); renderHeader(); renderTab(); toast("Compañías importadas");}
-  catch(e){toast("El texto no es un JSON exportado desde este valorador");}});
-$("btnRestore").addEventListener("click",()=>{Object.entries(clone(DEFAULTS)).forEach(([k,c])=>store.companies[k]=c); cur=store.companies[store.current]||store.companies.applovin; store.current=Object.keys(store.companies).find(k=>store.companies[k]===cur); save(); renderHeader(); renderTab(); toast("Compañías de ejemplo restauradas");});
+$("btnData").addEventListener("click",()=>{const p=$("dataPanel"); p.hidden=!p.hidden; $("btnData").setAttribute("aria-expanded",!p.hidden);});
+$("btnDl2").addEventListener("click",()=>downloadAnalysis(cur));
+$("btnCopy").addEventListener("click",()=>{const t=JSON.stringify(exportAnalysis(cur),null,1);
+  if(navigator.clipboard&&navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(()=>toast("JSON copiado"),()=>toast("No se pudo copiar")); else toast("Este navegador no permite copiar");});
+$("btnImport").addEventListener("click",()=>{try{const n=importOld($("jsonBox").value); renderHeader(); renderTab(); toast(n?`${n} ${n===1?"compañía importada":"compañías importadas"} como borrador`:"Ninguna compañía coincide por ticker");}
+  catch(e){toast("El texto no es un JSON exportado desde el valorador antiguo");}});
 window.addEventListener("hashchange",()=>{const h=location.hash.slice(1); if(h&&h!==TAB) goTab(h,false);});
 try{const mq=matchMedia("(prefers-color-scheme: dark)"); mq.addEventListener("change",()=>rebuildCharts());}catch(e){}
 new MutationObserver(()=>{rebuildCharts(); if(TAB==="valuation") drawFootball();}).observe(document.documentElement,{attributes:true,attributeFilter:["data-theme"]});
 
-/* ================= ACTUALIZACIÓN DE DATOS ================= */
-const BROWSER="host:claude_browser";
-const REFRESH={busy:false,ctl:null,results:[]};
-let MCP_P=null; const mcpNS=()=>MCP_P||(MCP_P=(window.claude&&window.claude.use)?window.claude.use("mcp").catch(()=>null):Promise.resolve(null));
-const MES=["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"], MEN={jan:0,feb:1,mar:2,apr:3,may:4,jun:5,jul:6,aug:7,sep:8,oct:9,nov:10,dec:11};
-function esDate(s){const m=/([A-Z][a-z]{2})[a-z]*\.? (\d{1,2}), (\d{4})/.exec(s||""); if(!m) return ""; const mo=MEN[m[1].toLowerCase()]; return mo==null?"":`${+m[2]}-${MES[mo]}-${m[3]}`;}
-function numx(s){ if(s==null) return null; s=String(s).trim(); if(!s||s==="-"||/^(upgrade|pro|n\/a)$/i.test(s)) return null;
-  let m=s.replace(/[$€£,%\s]/g,"").replace(/[−–]/g,"-"); let mult=1; const u=m.slice(-1).toUpperCase();
-  if(/[TBMK]/.test(u)&&/\d/.test(m.slice(0,-1))){ mult={T:1e6,B:1e3,M:1,K:1e-3}[u]; m=m.slice(0,-1); }
-  const v=parseFloat(m); return isFinite(v)?v*mult:null; }
-const linesOf=t=>String(t||"").split(/\r?\n/);
-function after(L,label){ for(let i=0;i<L.length;i++) if(L[i].trim()===label){ for(let j=i+1;j<L.length&&j<i+4;j++) if(L[j].trim()) return L[j].trim(); } return null; }
-function tableRow(L,label){
-  for(let i=0;i<L.length;i++){ if(L[i].trim()!==label) continue;
-    let j=i+1; while(j<L.length&&!L[j].trim()) j++;
-    if(j>=L.length||!/^\t/.test(L[j])) continue;
-    let h=i-1; while(h>=0&&!/^(?:Fiscal (?:Year|Quarter))?\t(?:TTM|Current|FY|Q\d)/.test(L[h])) h--;
-    if(h<0) continue;
-    const head=L[h].split("\t").slice(1).map(x=>x.trim());
-    const pe=(L[h+1]||"").startsWith("Period Ending")?L[h+1].split("\t").slice(1).map(x=>x.trim()):[];
-    return {head,pe,vals:L[j].split("\t").slice(1).map(x=>x.trim())}; }
-  return null; }
-function parseOverview(t){
-  const L=linesOf(t), o={};
-  const pi=L.findIndex(l=>/Real-Time Price|Delayed Price|· [A-Z]{3}\s*$/.test(l));
-  if(pi>=0){ const cm=/· ([A-Z]{3})\s*$/.exec(L[pi]); o.ccy=cm?cm[1]:null; for(let j=pi+1;j<pi+4;j++){ const v=numx(L[j]); if(v!=null){o.price=v;break;} } }
-  const ac=after(L,"At close:"); o.date=esDate(ac)||esDate(after(L,"At close:")||"");
-  o.mcap=numx((after(L,"Market Cap")||"").split(" ")[0]); o.shares=numx(after(L,"Shares Out"));
-  const r=(after(L,"52-Week Range")||"").split(/\s+-\s+/); o.lo52=numx(r[0]); o.hi52=numx(r[1]);
-  o.target=numx((after(L,"Price Target")||"").split(" ")[0]); o.fpe=numx(after(L,"Forward PE"));
-  const ed=after(L,"Earnings Date"); o.earnings=ed&&/\d{4}/.test(ed)?(esDate(ed)||ed):null;
-  o.employees=numx(after(L,"Employees"));
-  const spam=/lead plaintiff|class action|investors? (are|is)? ?(reminded|notified|encouraged|with losses)|shareholders? have rights|loss notice|deadline|contact .* (law|llp)|kaplan fox|robbins llp|rosen law|bfa law|pomerantz/i;
-  const heads=[]; let spamN=0; const NL=L.map(x=>x.trim());
-  for(let i=0;i<NL.length;i++){ const m=/^(\d+|an?) (minutes?|hours?|days?|weeks?|months?) ago - (.+)$/.exec(NL[i]); if(!m) continue;
-    let k=i-1, seen=0, h=null; while(k>=0&&seen<2){ if(NL[k]){ seen++; if(seen===2) h=NL[k]; } k--; }
-    if(!h||h.length<12) continue; if(spam.test(h)){spamN++;continue;}
-    const unit={minute:"min",minutes:"min",hour:"h",hours:"h",day:"d",days:"d",week:"sem",weeks:"sem",month:"mes",months:"meses"}[m[2]]||m[2];
-    if(!heads.some(x=>x.t===h)) heads.push({t:h,when:`hace ${/^an?$/.test(m[1])?1:m[1]} ${unit}`,src:m[3]}); if(heads.length>=8) break; }
-  o.headlines=heads; o.spam=spamN; return o; }
-/* ---- SEC EDGAR (fuente oficial) ---- */
-const SEC_CONCEPTS={
-  rev:["RevenueFromContractWithCustomerExcludingAssessedTax","Revenues","SalesRevenueNet"],
-  op:["OperatingIncomeLoss"], ni:["NetIncomeLoss","ProfitLoss","NetIncomeLossAvailableToCommonStockholdersBasic"],
-  cfo:["NetCashProvidedByUsedInOperatingActivities"],
-  capex:["PaymentsToAcquirePropertyPlantAndEquipment","PaymentsToAcquireProductiveAssets","PaymentsToAcquireOtherPropertyPlantAndEquipment"],
-  cash:["CashAndCashEquivalentsAtCarryingValue"],
-  sti:["MarketableSecuritiesCurrent","ShortTermInvestments","AvailableForSaleSecuritiesDebtSecuritiesCurrent"],
-  debt:["LongTermDebtNoncurrent","LongTermDebt","DebtLongtermAndShorttermCombinedAmount"], debtc:["LongTermDebtCurrent"],
-  dil:["WeightedAverageNumberOfDilutedSharesOutstanding"]};
-const SEC_LABEL={rev:"ingresos",op:"resultado operativo",ni:"beneficio neto",cfo:"caja operativa",capex:"inversiones (capex)",cash:"caja",sti:"inversiones a corto plazo",debt:"deuda",dil:"acciones diluidas",debtc:"deuda a corto plazo"};
-const dd=(a,b)=>(Date.parse(b)-Date.parse(a))/864e5;
-function secEntries(txt){ const out=[]; (String(txt||"").match(/\{[^{}]*"end"\s*:\s*"[^"]+"[^{}]*\}/g)||[]).forEach(m=>{ try{ const o=JSON.parse(m); if(o&&o.end&&typeof o.val==="number") out.push(o);}catch(e){} }); return out; }
-const isoEs=iso=>{ const m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(iso||""); return m?`${+m[3]}-${MES[+m[2]-1]}-${m[1]}`:(iso||""); };
-const monLab=iso=>{ const m=/^(\d{4})-(\d{2})/.exec(iso); return `${MES[+m[2]-1]}-${m[1].slice(2)}`; };
-function parseSec(g,cik){
-  const out={A:null,Q:[],dil:null,latest:null};
-  const split=k=>{ const x=g[k]; if(!x) return null; const ann={},q={}, inst={};
-    x.en.forEach(e=>{ if(!e.start){ if(!inst[e.end]||e.filed>inst[e.end].filed) inst[e.end]=e; return; } const d=dd(e.start,e.end);
-      const better=(o,n)=>!o||(n._p||0)<(o._p||0)||((n._p||0)===(o._p||0)&&n.filed>o.filed);
-      if(d>=350&&d<=380&&/^10-K/.test(e.form||"")){ if(better(ann[e.end],e)) ann[e.end]=e; }
-      else if(d>=80&&d<=100){ if(better(q[e.end],e)) q[e.end]=e; } });
-    return {ann,q,inst}; };
-  const F={}; Object.keys(g).forEach(k=>F[k]=split(k));
-  const yearly=k=>{ const o={}; if(F[k]) Object.values(F[k].ann).forEach(a=>{ o[a.end.slice(0,4)]=a.val/1e6; }); return o; };
-  const rev=yearly("rev"), op=yearly("op"), ni=yearly("ni"), cfo=yearly("cfo"), cx=yearly("capex"), fcf={}, capex={};
-  Object.keys(cx).forEach(y=>capex[y]=Math.abs(cx[y])); Object.keys(cfo).forEach(y=>{ if(capex[y]!=null) fcf[y]=+(cfo[y]-capex[y]).toFixed(1); });
-  const years=Object.keys(rev).sort();
-  // último informe periódico
-  if(F.rev){ let best=null; g.rev.en.forEach(e=>{ if(e.start&&/^10-[QK]/.test(e.form||"")&&(!best||e.filed>best.filed||(e.filed===best.filed&&e.end>best.end))) best=e; });
-    if(best) out.latest={form:best.form,filed:isoEs(best.filed),filedIso:best.filed,endIso:best.end,url:`https://www.sec.gov/Archives/edgar/data/${+cik}/${String(best.accn||"").replace(/-/g,"")}/`}; }
-  // balance
-  const cashI=F.cash?F.cash.inst:null, stiI=F.sti?F.sti.inst:null, debtI=F.debt?F.debt.inst:null, debtcI=(F.debtc&&g.debt&&g.debt.tag==="LongTermDebtNoncurrent")?F.debtc.inst:null;
-  let balLabels=[],balCash=[],balDebt=[];
-  if(cashI){ const all=Object.keys(cashI).filter(e=>/^10-[QK]/.test(cashI[e].form||"")&&(!debtI||debtI[e])).sort(), lastE=all[all.length-1]; const ends=all.filter(e=>dd(e,lastE)<=480).slice(-6);
-    ends.forEach(e=>{ balLabels.push(monLab(e)); balCash.push(+((cashI[e].val+(stiI&&stiI[e]?stiI[e].val:0))/1e6).toFixed(0)); balDebt.push(debtI?(debtI[e]?+((debtI[e].val+(debtcI&&debtcI[e]?debtcI[e].val:0))/1e6).toFixed(0):(balDebt.length?balDebt[balDebt.length-1]:null)):0); }); }
-  out.debtAssumed=!debtI;
-  out.disc=years.slice(-6).filter((y,i,a)=>i>0&&rev[a[i-1]]>0&&rev[y]/rev[a[i-1]]<0.75);
-  out.A={years,rev,op,ni,fcf,capex,cash:balCash.length?balCash[balCash.length-1]:null,debt:balDebt.length?balDebt[balDebt.length-1]:null,balLabels,balCash,balDebt};
-  // trimestres de ingresos (T4 = año − 3 trimestres)
-  if(F.rev){ const q={...F.rev.q}, annEnds=Object.keys(F.rev.ann).sort();
-    Object.values(F.rev.ann).forEach(a=>{ if(q[a.end]) return; const all=Object.values(F.rev.q);
-      const pick=[273,182,91].map(t=>all.find(e=>Math.abs(dd(e.end,a.end)-t)<=12)); if(pick.every(Boolean)) q[a.end]={...a,val:a.val-pick.reduce((s,e)=>s+e.val,0),_der:true}; });
-    let ends=Object.keys(q).sort();
-    /* un 4T derivado (año − 3 trimestres) solo vale si encaja con los trimestres vecinos; si la empresa reclasificó negocios (operaciones discontinuadas) no cuadra y se descarta */
-    ends=ends.filter((e,i)=>{ if(!q[e]._der) return true; const pv=ends[i-1]&&q[ends[i-1]], nx=ends[i+1]&&q[ends[i+1]], v=q[e].val;
-      if(!(v>0)) return false; if(pv&&(v/pv.val<0.6||v/pv.val>1.9)) return false; if(nx&&(v/nx.val<0.6||v/nx.val>1.9)) return false; return true; });
-    const lab=d=>{ let f=annEnds.find(a=>dd(d,a)>=-12);
-      if(!f){ let t=Date.parse(annEnds[annEnds.length-1]), n=0; do{ t+=365.25*864e5; n++; f=new Date(t).toISOString().slice(0,10); }while(dd(d,f)<-12&&n<4); }
-      const m=Math.max(0,Math.min(3,Math.round(dd(d,f)/91.3))); return `${4-m}T${f.slice(2,4)}`; };
-    const list=ends.map(e=>{ const prior=ends.find(x=>Math.abs(dd(x,e)-365)<=12); return {end:e,lab:lab(e),rev:q[e].val/1e6,g:prior?(q[e].val/q[prior].val-1)*100:null}; });
-    out.Q=list.slice(-7); }
-  if(F.dil){ const e=Object.values(F.dil.q).sort((a,b)=>a.end<b.end?-1:1).pop(); if(e) out.dil={val:e.val/1e6,end:e.end}; }
-  return out; }
-function parseHistory(t){ const m=/^([A-Z][a-z]{2} \d{1,2}, \d{4})\t[\d.,]+\t[\d.,]+\t[\d.,]+\t([\d.,]+)/m.exec(String(t||"")); return m?{date:esDate(m[1]),close:numx(m[2])}:null; }
-function parseAnnual(t){
-  const L=linesOf(t), out={years:[],rev:{},op:{},ni:{},fcf:{},capex:{},cash:null,debt:null,balLabels:[],balCash:[],balDebt:[]};
-  const rows={rev:"Revenue",op:"Operating Income",ni:"Net Income",fcf:"Free Cash Flow",capex:"Capital Expenditures"};
-  Object.entries(rows).forEach(([k,lab])=>{ const r=tableRow(L,lab); if(!r) return;
-    r.head.forEach((h,i)=>{ const m=/^FY (\d{4})$/.exec(h); if(m){ const v=numx(r.vals[i]); out[k][m[1]]=k==="capex"&&v!=null?Math.abs(v):v; if(k==="rev"&&!out.years.includes(m[1])) out.years.push(m[1]); } }); });
-  out.years.sort();
-  const rc=tableRow(L,"Cash & Investments"), rd=tableRow(L,"Total Debt");
-  if(rc){ rc.head.forEach((h,i)=>{ const fy=/^FY (\d{4})$/.exec(h); const lab=fy?fy[1]:(/^(Current|TTM)$/.test(h)?peLabel(rc.pe[i]):null); if(!lab) return;
-      out.balLabels.push(lab); out.balCash.push(numx(rc.vals[i])); out.balDebt.push(rd?numx(rd.vals[i]):null); });
-    const ord=out.balLabels.map((l,i)=>({l,c:out.balCash[i],d:out.balDebt[i]})).reverse(); // de antiguo a reciente
-    out.balLabels=ord.map(x=>x.l); out.balCash=ord.map(x=>x.c); out.balDebt=ord.map(x=>x.d);
-    out.cash=out.balCash[out.balCash.length-1]; out.debt=out.balDebt[out.balDebt.length-1]; }
-  return out; }
-function peLabel(s){const m=/([A-Z][a-z]{2}) '(\d{2})/.exec(s||""); if(!m) return "actual"; const mo=MEN[m[1].toLowerCase()]; return `${MES[mo]}-${m[2]}`;}
-function parseQuarterly(t){ const L=linesOf(t), r=tableRow(L,"Revenue"), g=tableRow(L,"Revenue Growth"); if(!r) return null;
-  const q=[]; r.head.forEach((h,i)=>{ const m=/^Q(\d) (\d{4})$/.exec(h); if(m) q.push({lab:`${m[1]}T${m[2].slice(2)}`,rev:numx(r.vals[i]),g:g?numx(g.vals[i]):null}); });
-  return q.reverse(); }
-function parseForecast(t){ const L=linesOf(t), o={};
-  const pl=L.find(l=>/^Price\t\$/.test(l)); if(pl){ const v=pl.split("\t").slice(1).map(numx); o.low=v[0]; o.avg=v[1]; o.high=v[3]; }
-  o.revThis=numx(after(L,"Revenue This Year")); o.revNext=numx(after(L,"Revenue Next Year"));
-  o.epsThis=numx(after(L,"EPS This Year")); o.epsNext=numx(after(L,"EPS Next Year"));
-  const fy=tableRow(L,"Revenue"); if(fy){ let last=null; fy.head.forEach((h,i)=>{const m=/^FY (\d{4})$/.exec(h); if(m&&numx(fy.vals[i])!=null) last={y:m[1],i};});
-    if(last){ o.estYear=last.y; const pick=lab=>{const r=tableRow(L,lab); return r?numx(r.vals[last.i]):null;};
-      o.est={rev:numx(fy.vals[last.i]),op:pick("Operating Income"),ni:pick("Net Income"),fcf:pick("Free Cash Flow")}; } }
-  const a=L.findIndex(l=>/^Latest Forecasts/.test(l.trim())), b=L.findIndex((l,i)=>i>a&&/^More Analyst Ratings/.test(l.trim()));
-  o.analysts=[];
-  if(a>=0){ const seg=L.slice(a,b>a?b:a+80).map(x=>x.trim()).filter(Boolean);
-    for(let i=0;i<seg.length;i++){ if(/^[A-Z][a-z]{2} \d{1,2}, \d{4}$/.test(seg[i])&&i>=5){
-      const tgt=seg[i-1]; if(!/\$/.test(tgt)) continue;
-      o.analysts.push({who:seg[i-5],firm:seg[i-4],rating:seg[i-3],action:seg[i-2],target:tgt.replace(/\s+/g," "),d:esDate(seg[i])}); if(o.analysts.length>=8) break; } } }
-  return o; }
-
-/* --- propuestas de cambio --- */
-const fmtM=v=>fin(v)?nf(v,v<100?2:0):"–";
-function buildProposals(id,D){
-  const c=store.companies[id], P=[]; let same=0;
-  const add=(grp,label,oldT,newT,on,apply,warn)=>{ if(String(oldT).trim()===String(newT).trim()){same++;return;} P.push({grp,label,oldT,newT,on,apply,warn,src:SRC}); };
-  const O=D.ov||{}, S=D.sec||{}, A=S.A, Q=S.Q, F=D.fc||{}; let SRC="StockAnalysis";
-  if(fin(O.price)) add("Mercado","Cotización",money2(c.v.price,c)+(c.meta.asOf?" ("+c.meta.asOf+")":""),money2(O.price,c)+(O.date?" ("+O.date+")":""),true,c=>{c.v.price=O.price; if(O.date) c.meta.asOf=O.date;});
-  if(fin(O.lo52)&&fin(O.hi52)) add("Mercado","Rango de 52 semanas",`${fmtM(c.v.lo52)}–${fmtM(c.v.hi52)}`,`${fmtM(O.lo52)}–${fmtM(O.hi52)}`,true,c=>{c.v.lo52=O.lo52;c.v.hi52=O.hi52;});
-  if(O.earnings) add("Mercado","Próximos resultados",c.meta.nextEarnings||"–",O.earnings,true,c=>{c.meta.nextEarnings=O.earnings;});
-  if(fin(O.employees)&&Number(String(c.meta.employees||"").split(" ")[0].replace(/\./g,""))!==Math.round(O.employees)) add("Mercado","Empleados",c.meta.employees||"–",nf(O.employees,0),true,c=>{c.meta.employees=nf(O.employees,0);});
-  const lo=fin(F.low)?F.low:null, avg=fin(F.avg)?F.avg:O.target, hi=fin(F.high)?F.high:null;
-  if(fin(avg)) add("Analistas","Precio objetivo (mín. · media · máx.)",`${fmtM(c.v.cLow)} · ${fmtM(c.v.cMean)} · ${fmtM(c.v.cHigh)}`,`${fmtM(lo)} · ${fmtM(avg)} · ${fmtM(hi)}`,true,c=>{c.v.cMean=avg; if(lo!=null)c.v.cLow=lo; if(hi!=null)c.v.cHigh=hi;});
-  if(fin(O.price)&&fin(O.fpe)&&O.fpe>0){ const eps=+(O.price/O.fpe).toFixed(2); add("Analistas","BPA próximos 12 meses (precio / PER adelantado)",fmtM(c.v.eps),fmtM(eps),true,c=>{c.v.eps=eps;}); }
-  if(F.analysts&&F.analysts.length) add("Analistas","Últimos cambios de analistas",`${(c.sources.analysts||[]).length} guardados`,`${F.analysts.length} nuevos (último: ${F.analysts[0].firm}, ${F.analysts[0].target})`,true,c=>{c.sources.analysts=F.analysts;});
-  SRC="SEC";
-  if(S.latest) add("Fuente oficial","Último informe en la SEC",c.sources.secLatest?`${c.sources.secLatest.form} presentado el ${c.sources.secLatest.filed}`:"–",`${S.latest.form} presentado el ${S.latest.filed} (periodo ${monLab(S.latest.endIso)})`,true,c=>{c.sources.secLatest=S.latest;});
-  if(S.dil&&fin(S.dil.val)&&fin(c.v.shares)){ const d=Math.abs(S.dil.val/c.v.shares-1); add("Balance","Acciones diluidas (millones, media del último trimestre)",fmtM(c.v.shares),fmtM(S.dil.val),d<0.03,c=>{c.v.shares=+S.dil.val.toFixed(2);},d>=0.03?"Cambia más de un 3%: la media del trimestre puede diferir de las acciones actuales (recompras, emisiones). Revísalo antes de marcarlo.":null); }
-  if(A&&A.years.length){ const ys=A.years.slice(-5), opL=/operativo/i.test(c.fin.profitLabel||"");
-    add("Histórico anual",`Ingresos, ${opL?"beneficio operativo, ":""}beneficio neto, FCF y capex ${ys[0]}–${ys[ys.length-1]}`,`${c.fin.years.filter(y=>!/e$/.test(y)).join(", ")}`,`${ys.join(", ")} · ingresos ${ys.map(y=>fmtM(A.rev[y])).join(" / ")}`,true,
-      c=>mergeAnnual(c,A,null),[S.disc&&S.disc.length?`Los ingresos caen más de un 25% en ${S.disc.join(", ")}: probable reclasificación de un negocio (operaciones discontinuadas). La SEC mezcla series con y sin ese negocio; compara con el informe antes de aceptar.`:"",opL?"":`«${c.fin.profitLabel}» no está en la fuente: se conserva tu dato.`].filter(Boolean).join(" ")||null); }
-  SRC="StockAnalysis";
-  if(F.est&&F.estYear&&A&&!A.years.includes(F.estYear)){ const E=F.est;
-    add("Histórico anual",`Estimación ${F.estYear}e (consenso)`,`ingresos ${fmtM(valYear(c,"rev",F.estYear+"e"))}`,`ingresos ${fmtM(E.rev)} · FCF ${fmtM(E.fcf)}`,true,c=>mergeAnnual(c,A,{y:F.estYear,...E}));
-    if(fin(E.rev)&&String(c.v.year0)===F.estYear) add("Supuestos del modelo",`Ingresos del año base ${F.estYear} (DCF)`,fmtM(c.v.rev0),fmtM(E.rev),true,c=>{c.v.rev0=E.rev;});
-    if(fin(F.revNext)&&fin(E.rev)&&E.rev>0){ const g=+((F.revNext/E.rev-1)*100).toFixed(1); add("Supuestos del modelo",`Crecimiento ${(+F.estYear)+1} según consenso`,pct(c.v.g[0]),pct(g),false,c=>{c.v.g[0]=g;},"Es un supuesto tuyo del DCF: márcalo solo si quieres seguir al consenso."); } }
-  SRC="SEC";
-  if(Q&&Q.length){ const last=Q.slice(-7);
-    add("Trimestres","Ingresos trimestrales",(c.fin.qrev?c.fin.qrev.labels.join(", "):"–"),last.map(x=>x.lab).join(", "),true,c=>{
-      const keep=(c.fin.qrev?c.fin.qrev.labels.map((l,i)=>({l,v:c.fin.qrev.values[i]})):[]).filter(x=>/gu[ií]a/i.test(x.l)&&!last.some(q=>x.l.startsWith(q.lab)));
-      c.fin.qrev={labels:[...last.map(x=>x.lab),...keep.map(x=>x.l)],values:[...last.map(x=>x.rev),...keep.map(x=>x.v)]}; });
-    if(c.fin.q&&c.fin.q.series.length===1){ const l5=Q.slice(-5);
-      add("Trimestres","Crecimiento interanual por trimestre",c.fin.q.labels.join(", "),l5.map(x=>`${x.lab} ${pct(x.g,0)}`).join(", "),true,c=>{ const o=c.fin.q, keep=o.labels.map((l,i)=>({l,v:o.series[0].values[i]})).filter(x=>/gu[ií]a/i.test(x.l)&&!l5.some(q=>x.l.startsWith(q.lab)));
-        c.fin.q={labels:[...l5.map(x=>x.lab),...keep.map(x=>x.l)],series:[{n:o.series[0].n,values:[...l5.map(x=>fin(x.g)?+x.g.toFixed(1):null),...keep.map(x=>x.v)]}]};}); } }
-  if(A&&A.balLabels.length){ add("Balance","Caja y deuda (histórico)",c.fin.bal.labels.join(", "),A.balLabels.join(", "),true,c=>{c.fin.bal={labels:A.balLabels.slice(-6),cash:A.balCash.slice(-6),debt:A.balDebt.slice(-6)};},S.debtAssumed?"La SEC no etiqueta deuda financiera para esta compañía: se asume 0. Compruébalo en el 10-Q.":"Deuda financiera tal como la etiqueta la SEC (sin arrendamientos operativos).");
-    if(fin(A.cash)) add("Balance","Caja del modelo (DCF)",fmtM(c.v.cash),fmtM(A.cash),true,c=>{c.v.cash=A.cash;});
-    if(fin(A.debt)){ const d=c.v.debt?Math.abs(A.debt/c.v.debt-1):1; add("Balance","Deuda del modelo (DCF)",fmtM(c.v.debt),fmtM(A.debt),d<0.2,c=>{c.v.debt=A.debt;},d>=0.2?"Cambia mucho: la fuente incluye arrendamientos y tu dato puede ser solo deuda financiera.":null); } }
-  SRC="StockAnalysis";
-  if(O.headlines&&O.headlines.length) add("Noticias","Titulares recientes",`${(c.sources.headlines||[]).length} guardados`,`${O.headlines.length} titulares${O.spam?` (+${O.spam} avisos de bufetes omitidos)`:""}`,true,c=>{c.sources.headlines=O.headlines; c.sources.headlinesAt=new Date().toISOString(); c.sources.headlinesSpam=O.spam||0;});
-  P.same=same; return P; }
-const money2=(v,c)=>fin(v)?nf(v,2)+" "+(c.meta.ccy||""):"–";
-function valYear(c,k,y){const i=c.fin.years.indexOf(y); return i>=0?c.fin[k][i]:null;}
-function mergeAnnual(c,A,est){
-  const f=c.fin, opL=/operativo/i.test(f.profitLabel||""), ys=A.years.slice(-5);
-  const oldEst=f.years.filter(y=>/e$/.test(y)&&+y.slice(0,4)>+ys[ys.length-1]);
-  const yrs=[...ys,...(est?[est.y+"e"]:[]),...oldEst.filter(y=>!est||y!==est.y+"e")];
-  const nfn={};
-  ["rev","profit","ni","fcf","capex"].forEach(k=>{ nfn[k]=yrs.map(y=>{
-    const yr=y.replace(/e$/,"");
-    if(/e$/.test(y)){ if(est&&y===est.y+"e"){ const ev={rev:est.rev,profit:opL?est.op:null,ni:null,fcf:est.fcf,capex:null}[k]; return fin(ev)?ev:valYear(c,k,y);} return valYear(c,k,y); }
-    const src={rev:A.rev,profit:opL?A.op:null,ni:A.ni,fcf:A.fcf,capex:A.capex}[k];
-    const v=src?src[yr]:null; return fin(v)?v:valYear(c,k,yr); }); });
-  f.years=yrs; Object.assign(f,nfn); }
-
-/* --- flujo --- */
-function modal(html){ $("modal").innerHTML=html; $("overlay").hidden=false; }
-function closeModal(){ $("overlay").hidden=true; $("modal").innerHTML=""; if(REFRESH.ctl){REFRESH.ctl.abort(); REFRESH.ctl=null;} REFRESH.busy=false; }
-const STEPS=[["ov","Cotización, consenso y titulares (StockAnalysis)","/"],["fc","Previsiones y cambios de analistas (StockAnalysis)","forecast/"],["sec","Cuentas oficiales (SEC EDGAR)",null]];
-async function readSec(M,c,signal,prog){
-  const cik=String((c.sources&&c.sources.cik)||"").replace(/\D/g,"");
-  if(!cik) throw {code:"parse",message:"Falta el CIK de la SEC. Añádelo en Fuentes › Editar."};
-  const id10=cik.padStart(10,"0"), got={}, keys=Object.keys(SEC_CONCEPTS), today=new Date().toISOString().slice(0,10); let n=0, ref="";
-  const addDays=(iso,d)=>new Date(Date.parse(iso)+d*864e5).toISOString().slice(0,10);
-  for(const k of keys){ n++; prog(`${SEC_LABEL[k]} (${n}/${keys.length})`);
-    for(const tag of SEC_CONCEPTS[k]){ if(signal.aborted) throw {code:"cancelled"};
-      let txt; try{ txt=await readPage(M,`https://data.sec.gov/api/xbrl/companyconcept/CIK${id10}/us-gaap/${tag}.json`,signal,300000,t=>/"end"\s*:|NoSuchKey|Not Found|404|Access Denied|Resource/i.test(t)); }catch(e){ if(e&&e.code==="tool_error") continue; throw e; }
-      const en=secEntries(txt); if(!en.length) continue;
-      const last=en.reduce((m,e)=>e.end>m?e.end:m,"");
-      if(k==="rev"){ /* los ingresos pueden estar en varias etiquetas según el año: se unen, y manda la primera */
-        const pr=SEC_CONCEPTS.rev.indexOf(tag); en.forEach(e=>e._p=pr);
-        if(!got.rev) got.rev={tag,en:[],last:""}; got.rev.en.push(...en); if(last>got.rev.last) got.rev.last=last; continue; }
-      /* una etiqueta que la empresa dejó de usar (último dato antiguo) no vale: se descarta */
-      const fresh=ref?last>=addDays(ref,-60):dd(last,today)<420;
-      if(!fresh) continue;
-      if(!got[k]||last>got[k].last) got[k]={tag,en,last};
-      break; }
-    if(k==="rev"&&got.rev) ref=got.rev.last; }
-  if(!got.rev) throw {code:"parse",message:"La SEC no devolvió ingresos para este CIK. Revisa el CIK en Fuentes."};
-  return parseSec(got,cik); }
-function saBase(c){ const u=(c.sources&&c.sources.dataUrl)||""; if(/^https:\/\/stockanalysis\.com\//.test(u)) return u.replace(/\/?$/,"/"); const s=symOf(c); return s?`https://stockanalysis.com/stocks/${s.toLowerCase()}/`:""; }
-function errCopy(e){ const code=e&&e.code;
-  if(code==="server_not_connected"||code==="not_granted"||code==="capability_disabled"||code==="capability_removed") return {fatal:true,t:"La actualización usa el navegador integrado de la app de escritorio de Claude. Abre el valorador en la app de escritorio (y con tu cuenta) y vuelve a pulsar «Actualizar datos». En el navegador web o en el móvil no está disponible."};
-  if(code==="not_in_manifest"||code==="approval_required"||code==="consent_required") return {fatal:true,t:"No has dado permiso al valorador para usar el navegador integrado. Pulsa de nuevo «Actualizar datos» y acepta el aviso, o actívalo en los permisos del artifact."};
-  if(code==="cancelled") return {fatal:true,t:"Se canceló la operación."};
-  if(code==="tool_error") return {fatal:false,t:"El navegador no pudo leer la página: "+String(e.message||"").slice(0,220)};
-  return {fatal:false,t:"No se pudo leer la página ("+(code||"error")+"). Puedes intentarlo de nuevo en un momento."}; }
-const sleep=ms=>new Promise(r=>setTimeout(r,ms));
-const normUrl=u=>String(u||"").replace(/[#?].*$/,"").replace(/\/+$/,"").toLowerCase();
-async function textOf(M,max,signal){ const r=await M.callTool(BROWSER,"get_page_text",{max_chars:max||80000},{signal,cache:false});
-  const blocks=(r.content||[]).filter(b=>b&&b.type==="text").map(b=>b.text);
-  if(blocks.length) return blocks.join("\n");
-  return typeof r.payload==="string"?r.payload:(r.payload!=null?JSON.stringify(r.payload):""); }
-/* navigate() vuelve antes de que cargue la página: se lee de nuevo hasta que el texto es de la URL pedida */
-async function readPage(M,url,signal,max,ok){
-  const call=async f=>{ try{ return await f(); }catch(e){ if(e&&e.retryable){ await sleep(Math.min(e.retryAfterMs||1500,8000)+Math.random()*600); return await f(); } throw e; } };
-  await call(()=>M.callTool(BROWSER,"navigate",{url},{signal,cache:false}));
-  let txt="";
-  for(let i=0;i<(max&&max>100000?4:8);i++){
-    if(signal&&signal.aborted) throw {code:"cancelled"};
-    await sleep(i===0?700:1200);
-    txt=await call(()=>textOf(M,max,signal));
-    const m=/^URL:\s*(\S+)/m.exec(txt.slice(0,600));
-    const same=m?normUrl(m[1])===normUrl(url):true;
-    if(same&&txt.trim().length>30&&(!ok||ok(txt))) return txt; }
-  return txt; }
-function progressHtml(ids,st,curId){
-  return `<h2 id="mTitle">Actualizando datos</h2><p class="sub">Las cuentas (ingresos, beneficio, caja, deuda, acciones) vienen de la SEC, la fuente oficial. La cotización, el objetivo de analistas y los titulares, de StockAnalysis. No cambio nada hasta que revises y aceptes.</p>
-  ${ids.map(id=>{const c=store.companies[id]; const s=st[id]||{};
-    return `<div class="${ids.length>1?"coblock":""}">${ids.length>1?`<b>${esc(c.meta.name)}</b>`:""}<ul class="steps">${STEPS.map(([k,l])=>`<li class="${s[k]?s[k].cls:""}"><span class="ic"></span><span>${l}${s[k]&&s[k].msg?`<small>${esc(s[k].msg)}</small>`:""}</span></li>`).join("")}</ul></div>`;}).join("")}
-  <div class="toolbar" style="justify-content:flex-end"><button type="button" id="mStop">Detener</button></div>`; }
-/* ---- datos cargados por Claude (base de datos compartida del artefacto) ---- */
-let SNAP={};
-async function initSnap(){
-  try{ const db=await window.claude.use("db"); if(!db) return;
-    db.collection("snapshots").onSnapshot(snap=>{ const o={}; snap.docs.forEach(d=>{ if(d.exists) o[d.id]=d.data(); }); SNAP=o; if(!REFRESH.busy&&$("overlay").hidden) { try{renderHeader();}catch(e){} } },()=>{}); }catch(e){} }
-function snapHave(ids){ return ids.filter(id=>store.companies[id]&&SNAP[id]&&SNAP[id].sec&&SNAP[id].sec.A); }
-function choiceModal(ids,have){ REFRESH.pending=ids;
-  const newest=have.map(id=>SNAP[id].at).filter(Boolean).sort().pop();
-  modal(`<h2 id="mTitle">Actualizar datos</h2>
-    <p class="sub">Claude ha cargado datos oficiales (SEC EDGAR para las cuentas, StockAnalysis para cotización y analistas) ${have.length===1?"de esta compañía":`de ${have.length} compañías`}${newest?`, ${esc(ago(newest))}`:""}.</p>
-    ${ids.length>have.length?`<p class="note">${ids.length-have.length} ${ids.length-have.length===1?"compañía no tiene":"compañías no tienen"} datos cargados: pídele a Claude en el chat «actualiza ${ids.length-have.length===1?"esa compañía":"esas compañías"}».</p>`:""}
-    <div class="toolbar" style="justify-content:flex-end;gap:8px"><button type="button" id="mLive">Leer ahora desde la app</button><button type="button" class="btn-acc" id="mSnap">Revisar los datos cargados</button></div>
-    <p class="note" style="margin-top:10px">Para datos más recientes, escribe en el chat «actualiza ${ids.length===1?esc(store.companies[ids[0]].meta.name):"todas las compañías"}».</p>`); }
-function fromSnapshot(ids){
-  const out=snapHave(ids).map(id=>({id,P:buildProposals(id,{ov:SNAP[id].ov||{},fc:SNAP[id].fc||{},sec:SNAP[id].sec})}));
-  REFRESH.results=out; reviewHtml(null); }
-async function startRefresh(ids){
-  if(REFRESH.busy) return;
-  if(!REFRESH.skipSnap){ const have=snapHave(ids); if(have.length){ choiceModal(ids,have); return; } }
-  REFRESH.skipSnap=false;
-  const M=await mcpNS();
-  if(!M){ modal(`<h2 id="mTitle">Actualizar datos</h2><div class="alert">${errCopy({code:"server_not_connected"}).t}</div>
-    <p class="sub">También puedes pedírmelo en el chat: «actualiza ${esc(cur.meta.name)} en el valorador» y lo hago con los últimos resultados y noticias.</p>
-    <div class="toolbar" style="justify-content:flex-end"><button type="button" class="btn-acc" data-close>Entendido</button></div>`); return; }
-  REFRESH.busy=true; REFRESH.ctl=new AbortController(); const signal=REFRESH.ctl.signal; const st={}, out=[];
-  const draw=()=>{ if(REFRESH.busy) modal(progressHtml(ids,st)); };
-  draw();
-  let fatal=null;
-  for(const id of ids){ const c=store.companies[id]; st[id]={}; const base=saBase(c), D={};
-    if(!base){ st[id].ov={cls:"err",msg:"Esta compañía no tiene ticker. Añádelo en Overview › Editar."}; draw(); continue; }
-    for(const [k,label,path] of STEPS){
-      if(fatal||signal.aborted) break;
-      st[id][k]={cls:"run"}; draw();
-      try{ let txt=""; if(k==="sec"){ D.sec=await readSec(M,c,signal,m=>{ st[id][k]={cls:"run",msg:m}; draw(); }); } else txt=await readPage(M,base+(path==="/"?"":path),signal,80000,k==="ov"?(t=>{try{const o=parseOverview(t);return fin(o.price)||fin(o.mcap);}catch(e){return false;}}):(t=>{try{const o=parseForecast(t);return fin(o.avg)||fin(o.revThis)||/Price Target/.test(t);}catch(e){return false;}}));
-        if(k==="ov"){ D.ov=parseOverview(txt);
-          if(!fin(D.ov.price)){ /* la cabecera con el precio no salió en el texto: pruebo con el histórico de precios y, si no, con capitalización / acciones */
-            try{ const ht=await readPage(M,base+"history/",signal,80000,t=>!!parseHistory(t)); const h=parseHistory(ht); if(h&&fin(h.close)){ D.ov.price=h.close; if(h.date) D.ov.date=h.date; } }catch(e){ if(e&&e.code==="cancelled") throw e; }
-            if(!fin(D.ov.price)&&fin(D.ov.mcap)&&fin(D.ov.shares)&&D.ov.shares>0){ D.ov.price=+(D.ov.mcap/D.ov.shares).toFixed(2); D.ov.approx=true; } }
-          if(!fin(D.ov.price)) throw {code:"parse",message:"No encontré la cotización ("+txt.split(/\r?\n/).length+" líneas, «Market Cap» "+(/Market Cap/.test(txt)?"sí":"no")+"). Revisa el ticker o la dirección de datos en Fuentes. Leí: «"+txt.replace(/^[\s\S]*?---\s*/,"").replace(/\s+/g," ").slice(0,90)+"»"}; }
-        if(k==="fc") D.fc=parseForecast(txt);
-        st[id][k]={cls:"ok",msg:k==="ov"?`${nf(D.ov.price,2)} ${D.ov.ccy||""}${D.ov.date?" · "+D.ov.date:""}`:k==="sec"?(D.sec.latest?`${D.sec.latest.form} presentado el ${D.sec.latest.filed}`:"Sin informe periódico"):(fin(D.fc.avg)?`Objetivo medio ${nf(D.fc.avg,2)}`:"Sin previsiones")};
-      }catch(e){ if(e&&e.code==="parse"){ st[id][k]={cls:"err",msg:e.message}; draw(); break; }
-        const ec=errCopy(e); st[id][k]={cls:"err",msg:ec.t}; if(ec.fatal) fatal=ec.t; }
-      draw(); }
-    if(D.ov&&fin(D.ov.price)) out.push({id,P:buildProposals(id,D)});
-    if(fatal||signal.aborted) break; }
-  REFRESH.busy=false; REFRESH.ctl=null;
-  if(signal.aborted&&!out.length){ closeModal(); toast("Actualización detenida"); return; }
-  if(!out.length){ modal(`<h2 id="mTitle">No se pudo actualizar</h2><div class="alert bad">${esc(fatal||"No se encontraron datos nuevos.")}</div>${progressHtml(ids,st).replace(/<h2[\s\S]*?<\/p>/,"").replace(/<div class="toolbar"[\s\S]*$/,"")}
-    <div class="toolbar" style="justify-content:flex-end"><button type="button" data-close>Cerrar</button></div>`); return; }
-  REFRESH.results=out; reviewHtml(fatal); }
-function reviewHtml(note){
-  const out=REFRESH.results;
-  modal(`<h2 id="mTitle">Revisa los cambios</h2><p class="sub">Las cuentas vienen de la SEC (fuente oficial); cotización, objetivo de analistas y titulares, de StockAnalysis. Marca lo que quieras aplicar; lo que no marques se queda como está.</p>
-  ${note?`<div class="alert">${esc(note)}</div>`:""}
-  ${out.map((r,ri)=>{const c=store.companies[r.id]; const grps=[...new Set(r.P.map(p=>p.grp))];
-    const body=grps.map(g=>`<h3>${g}</h3>${r.P.map((p,pi)=>p.grp!==g?"":`<label class="rvrow"><input type="checkbox" data-rv="${ri}.${pi}" ${p.on?"checked":""}><span>${esc(p.label)}<em class="rsrc ${p.src==="SEC"?"":"off"}">${p.src==="SEC"?"SEC · oficial":esc(p.src||"")}</em></span><span class="o">${esc(p.oldT)}</span><span class="nw">${esc(p.newT)}</span>${p.warn?`<span class="w">${esc(p.warn)}</span>`:""}</label>`).join("")}`).join("");
-    const sameTxt=r.P.same?`<p class="note">${r.P.same} ${r.P.same===1?"dato ya estaba al día":"datos ya estaban al día"}.</p>`:"";
-    if(!r.P.length) return `<div class="coblock"><b>${esc(c.meta.name)}</b><p class="note">Todo estaba al día.</p></div>`;
-    return out.length>1?`<details class="coblock" ${ri===0?"open":""}><summary>${esc(c.meta.name)} · ${r.P.filter(p=>p.on).length} cambios propuestos</summary>${sameTxt}<div class="rv"><div class="rvrow rvhead"><span></span><span>Dato</span><span>Ahora</span><span>Nuevo</span></div>${body}</div></details>`
-      :`${sameTxt}<div class="rv"><div class="rvrow rvhead"><span></span><span>Dato</span><span>Ahora</span><span>Nuevo</span></div>${body}</div>`;}).join("")}
-  <div class="toolbar" style="justify-content:flex-end"><button type="button" data-close>Descartar</button><button type="button" class="btn-acc" id="mApply">Aplicar cambios marcados</button></div>`); }
-function applyReview(){
-  const out=REFRESH.results; let n=0;
-  document.querySelectorAll("[data-rv]").forEach(cb=>{ if(!cb.checked) return; const [ri,pi]=cb.dataset.rv.split(".").map(Number); const r=out[ri], c=store.companies[r.id];
-    try{ r.P[pi].apply(c); n++; }catch(e){console.error(e);} });
-  out.forEach(r=>{ store.companies[r.id].meta.updatedAt=new Date().toISOString(); });
-  REFRESH.results=[]; save(); closeModal(); renderHeader(); renderTab(); toast(n?`${n} ${n===1?"cambio aplicado":"cambios aplicados"}`:"No se aplicó ningún cambio"); }
-$("overlay").addEventListener("click",e=>{ if(e.target.id==="overlay"&&!REFRESH.busy){closeModal();return;}
-  if(e.target.closest("[data-close]")){closeModal();return;}
-  if(e.target.closest("#mStop")){ if(REFRESH.ctl) REFRESH.ctl.abort(); return;}
-  if(e.target.closest("#mApply")){applyReview();return;}
-  if(e.target.closest("#mSnap")){ fromSnapshot(REFRESH.pending||[store.current]); return; }
-  if(e.target.closest("#mLive")){ REFRESH.skipSnap=true; startRefresh(REFRESH.pending||[store.current]); return; } });
+/* ---------- Cifras oficiales (Overview) y documentos oficiales (Fuentes) ---------- */
+function officialCard(){
+  if(!cur._data) return "";
+  const s=cur.sec, P=cur._data.precio, rq=s.revQ.p;
+  const t=(lab,m,p,extra="")=>`<div class="kpi"><span class="eyebrow">${lab}</span><b>${fin(m)?big(m):"–"}</b>${extra}${srcTag(p)}</div>`;
+  const fcf=fin(s.ocfTTM.m)&&fin(s.capexTTM.m)?s.ocfTTM.m-s.capexTTM.m:NaN;
+  return `<section class="card"><h2>Cifras oficiales</h2><p class="sub">Del último informe en la SEC y de Finnhub. Pasa el ratón por la fuente para ver la etiqueta XBRL y el periodo; haz clic para abrir el documento. UDM = últimos doce meses.</p>
+   <div class="official">
+    ${t("Ingresos "+esc(rq?rq.periodo:""),s.revQ.m,rq)}
+    ${t("Ingresos UDM",s.revTTM.m,s.revTTM.p)}
+    ${t("Beneficio neto UDM",s.niTTM.m,s.niTTM.p)}
+    ${t("FCF UDM",fcf,s.ocfTTM.p,fin(fcf)?`<span class="note">caja operativa ${big(s.ocfTTM.m)} − capex ${big(s.capexTTM.m)}</span>`:"")}
+    ${t("Caja e inversiones a corto",s.cash.m,s.cash.p)}
+    ${t("Deuda financiera",s.debt.m,s.debt.p)}
+    <div class="kpi"><span class="eyebrow">Acciones</span><b>${fin(s.shares.m)?nf(s.shares.m,1)+" M":"–"}</b>${srcTag(s.shares.p)}</div>
+    <div class="kpi"><span class="eyebrow">Cotización</span><b>${money(cur.v.price)}</b>${srcTag(P)}</div>
+   </div></section>`;
+}
+function officialHtml(){
+  const d=cur._data; if(!d) return `<section class="card"><h2>Documentos oficiales</h2><p class="empty">Sin datos automáticos todavía.</p></section>`;
+  const ui=d.ultimo_informe, k8=d.ultimo_8k_resultados, ca=d.consenso_automatico, m=cur._manual||{};
+  const doc=(r,t)=>r?`<div class="doc" style="--k:var(--c2)"><i></i><a class="ext" href="${esc(r.url_documento||r.url_indice)}" target="_blank" rel="noopener noreferrer">${esc(t)}</a><span class="dt">${esc(fecha(r.fecha_presentacion))}</span><span class="m">${esc(r.formulario)}${r.fecha_periodo?" · periodo a "+esc(fecha(r.fecha_periodo)):""} · <a href="${esc(r.url_indice)}" target="_blank" rel="noopener noreferrer">índice del filing</a></span></div>`:"";
+  const ex=k8&&k8.url_ex99_1?`<div class="doc" style="--k:var(--c1)"><i></i><a class="ext" href="${esc(k8.url_ex99_1)}" target="_blank" rel="noopener noreferrer">Nota de resultados (Exhibit 99.1)</a><span class="dt">${esc(fecha(k8.fecha_presentacion))}</span><span class="m">8-K · Item 2.02</span></div>`:"";
+  const rec=ca?[["Compra fuerte",ca.compra_fuerte,"--c3"],["Compra",ca.compra,"--c6"],["Mantener",ca.mantener,"--c4"],["Venta",ca.venta,"--c2"],["Venta fuerte",ca.venta_fuerte,"--c8"]]:[];
+  const tot=rec.reduce((a,r)=>a+(r[1]||0),0), S=cur.sec;
+  const rows=[["Ingresos (último trimestre)",S.revQ.p],["Ingresos UDM",S.revTTM.p],["Beneficio neto UDM",S.niTTM.p],["Caja operativa UDM",S.ocfTTM.p],["Capex UDM",S.capexTTM.p],["Caja e inversiones a corto",S.cash.p],["Deuda financiera",S.debt.p],["Acciones",S.shares.p]];
+  const ws=allWarnings(cur);
+  return `<div class="g2">
+   <section class="card" style="--tc:var(--c2)"><h2>Últimos documentos oficiales</h2><p class="sub">De EDGAR (submissions de la SEC), revisados cada noche.</p>
+     ${ui||k8?`<div class="doclist">${doc(ui,"Último informe periódico ("+(ui?ui.formulario:"")+")")}${doc(k8,"8-K de resultados")}${ex}</div>`:`<p class="empty">Sin documentos.</p>`}</section>
+   <section class="card" style="--tc:var(--c4)"><h2>Consenso de analistas</h2>
+     ${ca?`<p class="sub">Recomendaciones de ${tot} analistas (${esc(ca.periodo||"")}) ${srcTag({fuente:"Finnhub",fecha:ca.periodo,url:ca.url})}</p>
+       <div class="recbar" role="img" aria-label="Reparto de recomendaciones">${rec.filter(r=>r[1]>0).map(r=>`<span style="flex:${r[1]};background:var(${r[2]})" title="${r[0]}: ${r[1]}"></span>`).join("")}</div>
+       <div class="legendrow">${rec.map(r=>`<span><i style="background:var(${r[2]})"></i>${r[0]} ${r[1]||0}</span>`).join("")}</div>`:`<p class="empty">Sin recomendaciones automáticas.</p>`}
+     <h3>Precio objetivo ${srcTag({manual:true,fecha:m.fecha,fuente:m.fuente||"Introducido a mano"})}</h3>
+     <div class="facts"><div class="k">Media</div><div class="v">${money(cur.v.cMean)}</div><div></div><div class="k">Mínimo – máximo</div><div class="v">${money(cur.v.cLow)} – ${money(cur.v.cHigh)}</div><div></div></div>
+     <p class="note">No hay fuente gratuita fiable de precios objetivo: se editan a mano en <code>manual/${esc(cur._t)}.json</code>.</p></section>
+  </div>
+  <section class="card"><h2>Cifras clave y su origen</h2><p class="sub">Cada cifra sale de un hecho XBRL concreto. Haz clic en la fuente para abrir el filing.</p>
+   <div class="scroll"><table><thead><tr><th>Concepto</th><th>Valor (M)</th><th style="text-align:left">Periodo</th><th style="text-align:left">Etiqueta XBRL</th><th style="text-align:left">Fuente</th></tr></thead><tbody>
+   ${rows.map(([n,p])=>`<tr><td>${n}</td><td>${p&&fin(p.valor)?nf(p.valor/M6,n==="Acciones"?1:0):"–"}</td><td style="text-align:left">${p?esc(p.periodo_inicio?fecha(p.periodo_inicio)+" → "+fecha(p.periodo_fin):p.periodo_fin?"a "+fecha(p.periodo_fin):""):""}</td><td style="text-align:left;white-space:normal;font-size:11.5px;min-width:200px">${esc((p&&p.etiqueta)||"")}${p&&p.derivado?`<div class="note">${esc(p.derivado)}</div>`:""}</td><td style="text-align:left">${srcTag(p)}</td></tr>`).join("")}
+   </tbody></table></div></section>
+  <section class="card"><h2>Avisos de calidad de datos</h2>${ws.length?warnList(ws):`<p class="empty">Sin avisos.</p>`}</section>`;
+}
+function cellTitle(k,i){const map={rev:"rev",profit:"profit",ni:"ni",capex:"capex",ocf:"ocf",fcf:"ocf"}; const p=cur.fin.pts[map[k]]&&cur.fin.pts[map[k]][i];
+  return p?[p.etiqueta,`Presentado ${fecha(p.fecha_presentacion)} (${p.formulario||""})`,p.derivado||"",k==="fcf"?"FCF = caja operativa − capex":""].filter(Boolean).join("\n"):"";}
+function dataStamp(){const d=cur._data, P=d&&d.precio; return [d&&d.referencia_fecha_datos?`Cifras financieras: SEC EDGAR hasta ${fecha(d.referencia_fecha_datos)}`:"Sin cifras de la SEC",P?`cotización: Finnhub, ${fecha(P.fecha)}`:"",`análisis propio: ${cur.meta.asOf||"sin fecha"}`].filter(Boolean).join("; ")+".";}
 
 /* ================= ARRANQUE ================= */
-renderHeader(); goTab((location.hash||"").slice(1)||"overview",false); initSnap();
+async function boot(){
+  $("main").innerHTML='<p class="note" style="padding:24px 0">Cargando datos…</p>';
+  try{
+    const [cos,tpl]=await Promise.all([getJSON("companies.json"),getJSON("analysis/_plantilla.json").catch(()=>({}))]);
+    TEMPLATE=tpl||{};
+    const rows=await Promise.all(cos.companies.map(async co=>{ const t=co.ticker.toUpperCase();
+      const [an,d,man]=await Promise.all([getJSON(`analysis/${t}.json`).catch(()=>null),getJSON(`data/${t}.json`).catch(()=>null),getJSON(`manual/${t}.json`).catch(()=>null)]);
+      return [t,buildCompany(co,an,d,man)]; }));
+    rows.forEach(([t,c])=>{store.companies[t]=c;});
+  }catch(e){
+    console.error(e);
+    $("main").innerHTML=`<section class="card"><h2>No se han podido cargar los datos</h2><p>${location.protocol==="file:"?"Has abierto el archivo directamente desde el disco y el navegador no deja leer los JSON así. Ábrelo desde GitHub Pages, o en local con <code>python -m http.server</code> en la carpeta del repositorio.":esc(e.message)}</p></section>`;
+    return;
+  }
+  const keys=Object.keys(store.companies); if(!keys.length) return;
+  const saved=lsGet("valorador.actual");
+  store.current=store.companies[saved]?saved:(keys.find(k=>store.companies[k].meta.fav)||keys[0]);
+  cur=store.companies[store.current];
+  renderHeader(); goTab((location.hash||"").slice(1)||"overview",false);
+}
+boot();
 </script>
 
 </body></html>

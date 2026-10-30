@@ -83,7 +83,9 @@ BLANK_MANUAL = {
 def ensure_companion_files(company, root=ROOT):
     created = []
     slug = company["ticker"].upper()
-    for folder, blank in (("analysis", BLANK_ANALYSIS), ("manual", BLANK_MANUAL)):
+    tpl = root / "analysis" / "_plantilla.json"
+    analysis_blank = json.loads(tpl.read_text(encoding="utf-8")) if tpl.exists() else BLANK_ANALYSIS
+    for folder, blank in (("analysis", analysis_blank), ("manual", BLANK_MANUAL)):
         p = root / folder / f"{slug}.json"
         if not p.exists():
             p.parent.mkdir(parents=True, exist_ok=True)

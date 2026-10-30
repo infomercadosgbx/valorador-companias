@@ -1,0 +1,338 @@
+{
+ "_nota": "Supuestos y textos propios. Se editan a mano (o desde el botón «Editar» de la web, que descarga este archivo) y se versionan en git. El Action nunca los toca.",
+ "esquema": 1,
+ "meta": {
+  "sector": "",
+  "hq": "",
+  "founded": "",
+  "employees": "",
+  "asOf": "",
+  "fav": false
+ },
+ "overview": {
+  "thesis": "",
+  "summary": "",
+  "keyFacts": [
+   {
+    "k": "Ingresos último año",
+    "v": ""
+   },
+   {
+    "k": "Margen",
+    "v": ""
+   },
+   {
+    "k": "Caja / deuda",
+    "v": ""
+   }
+  ],
+  "catalysts": [
+   {
+    "d": "",
+    "t": ""
+   }
+  ]
+ },
+ "business": {
+  "model": "",
+  "customers": "",
+  "segNote": "",
+  "segments": [
+   {
+    "n": "Segmento 1",
+    "v": 60
+   },
+   {
+    "n": "Segmento 2",
+    "v": 40
+   }
+  ],
+  "customerTypes": [
+   {
+    "n": "Cliente tipo",
+    "d": ""
+   }
+  ],
+  "quality": [
+   {
+    "n": "Márgenes",
+    "s": 3,
+    "note": ""
+   },
+   {
+    "n": "Retorno sobre capital",
+    "s": 3,
+    "note": ""
+   },
+   {
+    "n": "Conversión en caja",
+    "s": 3,
+    "note": ""
+   },
+   {
+    "n": "Recurrencia de ingresos",
+    "s": 3,
+    "note": ""
+   },
+   {
+    "n": "Diversificación",
+    "s": 3,
+    "note": ""
+   },
+   {
+    "n": "Balance",
+    "s": 3,
+    "note": ""
+   }
+  ],
+  "phase": 2,
+  "phaseNote": ""
+ },
+ "moat": {
+  "width": "Estrecho",
+  "trend": "Estable",
+  "note": "",
+  "sources": [
+   {
+    "n": "Efecto red",
+    "s": 2,
+    "note": ""
+   },
+   {
+    "n": "Costes de cambio",
+    "s": 2,
+    "note": ""
+   },
+   {
+    "n": "Activos intangibles",
+    "s": 2,
+    "note": ""
+   },
+   {
+    "n": "Ventaja de costes",
+    "s": 2,
+    "note": ""
+   },
+   {
+    "n": "Escala eficiente",
+    "s": 2,
+    "note": ""
+   }
+  ],
+  "comps": [
+   {
+    "n": "Competidor",
+    "threat": 3,
+    "note": ""
+   }
+  ]
+ },
+ "growth": {
+  "score": 3,
+  "scoreNote": "",
+  "tam": "",
+  "guidance": "",
+  "drivers": [
+   {
+    "n": "Motor de crecimiento",
+    "impact": 3,
+    "h": "",
+    "d": ""
+   }
+  ]
+ },
+ "mgmt": {
+  "call": {
+   "q": "",
+   "date": "",
+   "periodEnd": "",
+   "doc": "",
+   "url": "",
+   "nota": "",
+   "dir": [],
+   "ret": [],
+   "guia": [],
+   "cap": []
+  },
+  "note": "",
+  "people": [
+   {
+    "n": "CEO",
+    "role": "Consejero delegado",
+    "since": "",
+    "note": ""
+   }
+  ],
+  "scores": [
+   {
+    "n": "Alineación con el accionista",
+    "s": 3,
+    "note": ""
+   },
+   {
+    "n": "Asignación de capital",
+    "s": 3,
+    "note": ""
+   },
+   {
+    "n": "Credibilidad y ejecución",
+    "s": 3,
+    "note": ""
+   },
+   {
+    "n": "Gobierno corporativo",
+    "s": 3,
+    "note": ""
+   },
+   {
+    "n": "Transparencia",
+    "s": 3,
+    "note": ""
+   }
+  ],
+  "alloc": {
+   "label": "Uso de la caja (M)",
+   "items": [
+    {
+     "n": "Capex",
+     "v": 0
+    },
+    {
+     "n": "Recompras",
+     "v": 0
+    },
+    {
+     "n": "Dividendos",
+     "v": 0
+    }
+   ]
+  },
+  "vote": {
+   "label": "Poder de voto (%)",
+   "items": [
+    {
+     "n": "Fundadores y directivos",
+     "v": null
+    },
+    {
+     "n": "Resto de accionistas",
+     "v": null
+    }
+   ]
+  }
+ },
+ "risks": [
+  {
+   "n": "Riesgo principal",
+   "cat": "Operativo",
+   "p": 3,
+   "i": 3,
+   "note": ""
+  }
+ ],
+ "v": {
+  "shares": 100,
+  "cash": 0,
+  "debt": 0,
+  "rev0": 1000,
+  "year0": 2025,
+  "g": [
+   10,
+   9,
+   8,
+   7,
+   6
+  ],
+  "m1": 25,
+  "m5": 27,
+  "da": 3,
+  "da5": 3,
+  "sbc": 1,
+  "capex": 4,
+  "capex5": 4,
+  "nwc": 10,
+  "tax": 25,
+  "wacc": 9,
+  "tg": 2.5,
+  "exit": 10,
+  "method": "blend",
+  "eps": 5,
+  "pe": 18,
+  "evm": 10,
+  "scn": [
+   {
+    "n": "Bajista",
+    "dg": -5,
+    "dm": -3,
+    "p": 25
+   },
+   {
+    "n": "Base",
+    "dg": 0,
+    "dm": 0,
+    "p": 50
+   },
+   {
+    "n": "Alcista",
+    "dg": 4,
+    "dm": 2,
+    "p": 25
+   }
+  ]
+ },
+ "verdict": {
+  "rating": "Mantener",
+  "conviction": 3,
+  "buyBelow": null,
+  "horizon": "",
+  "summary": "",
+  "bull": [],
+  "bear": [],
+  "watch": []
+ },
+ "notes": "",
+ "sources": {
+  "web": "",
+  "ir": "",
+  "docs": [],
+  "news": []
+ },
+ "social": {
+  "pulse": [
+   {
+    "p": "Reddit",
+    "s": null,
+    "note": ""
+   },
+   {
+    "p": "X",
+    "s": null,
+    "note": ""
+   },
+   {
+    "p": "Threads",
+    "s": null,
+    "note": ""
+   },
+   {
+    "p": "YouTube",
+    "s": null,
+    "note": ""
+   }
+  ],
+  "videos": []
+ },
+ "fin_manual": {
+  "nota": "Series que la SEC no publica (por segmento). Las etiquetas de trimestre deben coincidir con las de la SEC (p. ej. 3T26).",
+  "q": {
+   "labels": [
+    "T1",
+    "T2",
+    "T3",
+    "T4"
+   ],
+   "series": []
+  },
+  "nota_antigua": ""
+ }
+}

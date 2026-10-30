@@ -71,7 +71,15 @@ class FinnhubProvider(PriceProvider):
         if not q or not q.get("c") or not q.get("t"):
             return None
         ts = datetime.fromtimestamp(q["t"], tz=timezone.utc)
+        lo52 = hi52 = None
+        try:
+            m = (self._get("/stock/metric", symbol=ticker, metric="price") or {}).get("metric") or {}
+            lo52, hi52 = m.get("52WeekLow"), m.get("52WeekHigh")
+        except Exception:  # noqa: BLE001  el rango es secundario
+            pass
         return {
+            "minimo_52s": lo52,
+            "maximo_52s": hi52,
             "valor": q["c"],
             "cierre_anterior": q.get("pc"),
             "moneda": "USD",
