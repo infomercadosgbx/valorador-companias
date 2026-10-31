@@ -994,13 +994,22 @@ R.financial=()=>{
       <div><h3 style="margin-top:0">Ingresos trimestrales</h3><p class="sub">${esc(f.qrev&&Math.max(...(f.qrev.values||[]).filter(fin))>=20000?"mil M "+ccy():"M "+ccy())}</p><div class="cv h240"><canvas id="ch_fn_q" role="img" aria-label="Ingresos por trimestre"></canvas></div></div>
     </div>
   </section>
-  <section class="card"><h2>Ratios</h2><p class="sub">Calculados con las cifras de la SEC. Los saldos de balance son medios entre cierres consecutivos cuando hay dos años. El ROIC usa el tipo impositivo de tu modelo.</p>
+  <section class="card"><h2>Ratios</h2><p class="sub">Calculados con las cifras de la SEC. Los saldos de balance son medios entre cierres consecutivos cuando hay dos años. El ROIC usa el tipo impositivo de tu modelo. Los múltiplos al precio actual están en la pestaña Valoración.</p>
     <div class="scroll"><table>${rtbl}</table></div>
-    <h3>Al precio actual</h3><p class="sub">Cotización de ${srcTag(cur._data&&cur._data.precio)} con ${nf(sh,1)} M de acciones y las cifras de los últimos doce meses.</p>
-    <div class="chips">${mk2("PER",x(dv2(mcap,niU)))}${mk2("EV / EBITDA",x(dv2(ev,ebitdaU)))}${mk2("EV / ventas",x(dv2(ev,revU)))}${mk2("Precio / valor contable",x(dv2(mcap,eq)))}${mk2("Rentabilidad por FCF",pct(dv2(fcfU,mcap)*100))}${mk2("Rentabilidad por beneficio",pct(dv2(niU,mcap)*100))}${mk2(`CAGR ingresos ${k5>0?k5:""} años`,pct(cagr))}</div>
   </section>`;
 };
 const dv2=(a,b)=>fin(a)&&fin(b)&&b!==0?a/b:NaN;
+function realMultiples(){
+  const f=cur.fin, L=f.years.length-1, S=cur.sec, sh=fin(S.shares.m)?S.shares.m:cur.v.shares, mcap=cur.v.price*sh;
+  const debt=fin(S.debt.m)?S.debt.m:0, cash=fin(S.cash.m)?S.cash.m:0, ev=mcap+debt-cash, eq=f.eqA.at(-1);
+  const an=f.years.filter(y=>/^\d{4}$/.test(y)), rv=an.map(y=>f.rev[f.years.indexOf(y)]), k=Math.min(5,rv.length-1);
+  const cagr=k>0&&rv[rv.length-1-k]>0?(Math.pow(rv.at(-1)/rv[rv.length-1-k],1/k)-1)*100:NaN;
+  const g1=L>0&&fin(f.rev[L])&&fin(f.rev[L-1])&&!f.addTTM?(f.rev[L]/f.rev[L-1]-1)*100:NaN;
+  const yoyQ=(f.q&&f.q.series&&f.q.series[0]&&f.q.series[0].values||[]).filter(fin).at(-1);
+  const per=dv2(mcap,f.ni[L]);
+  return {sh,mcap,ev,cagr,k,label:f.years[L],per,evEbitda:dv2(ev,f.ebitda[L]),evSales:dv2(ev,f.rev[L]),pb:dv2(mcap,eq),
+    fcfY:dv2(f.fcf[L],mcap)*100,eY:dv2(f.ni[L],mcap)*100,ndEbitda:dv2(debt-cash,f.ebitda[L]),peg:dv2(per,fin(cagr)?cagr:NaN)};
+}
 function matCoverage(mat,debt){
   const tot=mat.tramos.reduce((a,t)=>a+(fin(t.valor)?t.valor:0),0)/M6;
   if(!fin(debt)||debt<=0||tot>=debt*0.85) return "";
@@ -1264,14 +1273,15 @@ function valOutHtml(){
   <div class="g2">
     <section class="card"><h2>Sensibilidad del DCF</h2><p class="sub">Valor por acción. Filas: WACC. Columnas: ${useExit?"múltiplo de salida":"crecimiento perpetuo"}. Azul por encima de la cotización, rojo por debajo.</p>
       <div class="scroll"><table class="sens">${sens}</tbody></table></div></section>
-    <section class="card"><h2>Indicadores al precio actual</h2><p class="sub">Lo que pagas hoy por cada unidad de beneficio y caja.</p>
-      <div class="scroll"><table><tbody>
-      <tr><td>PER (BPA próximos 12 meses)</td><td>${nf(s.price/s.eps,1)}x</td></tr>
-      <tr><td>EV / EBITDA año 1</td><td>${nf(evNow/y1.ebitda,1)}x</td></tr>
-      <tr><td>EV / ventas año 1</td><td>${nf(evNow/y1.rev,1)}x</td></tr>
-      <tr><td>Rentabilidad por FCF año 1</td><td>${pct(y1.fcf/mcap*100)}</td></tr>
-      <tr><td>Deuda neta / EBITDA año 1</td><td>${nf(netDebt/y1.ebitda,2)}x</td></tr>
-      <tr><td>PEG (PER / crecimiento año 1)</td><td>${nf((s.price/s.eps)/(y1.g*100),2)}</td></tr></tbody></table></div></section>
+    <section class="card"><h2>Múltiplos al precio actual</h2><p class="sub">Lo que pagas hoy a ${money(s.price)} ${srcTag(cur._data&&cur._data.precio)}. Real: cifras de la SEC de los últimos doce meses. Modelo: año 1 de tus supuestos.</p>
+      ${(()=>{const R=realMultiples(), x=(v,d=1)=>fin(v)?nf(v,d)+"x":"–", pc=v=>fin(v)?pct(v):"–";
+        const rows=[["PER",x(R.per),x(s.price/s.eps),"Modelo: con tu BPA de los próximos 12 meses"],["EV / EBITDA",x(R.evEbitda),x(evNow/y1.ebitda),""],["EV / ventas",x(R.evSales),x(evNow/y1.rev),""],
+          ["Precio / valor contable",x(R.pb),"–",""],["Rentabilidad por FCF",pc(R.fcfY),pc(y1.fcf/mcap*100),"FCF / capitalización"],["Rentabilidad por beneficio",pc(R.eY),pc(s.eps/s.price*100),"Inversa del PER"],
+          ["Deuda neta / EBITDA",x(R.ndEbitda,2),x(netDebt/y1.ebitda,2),""],[`Crecimiento de ingresos`,R.k>0?pct(R.cagr)+` <span class="note">CAGR ${R.k} años</span>`:"–",pct(y1.g*100),""],
+          ["PEG",fin(R.peg)?nf(R.peg,2):"–",nf((s.price/s.eps)/(y1.g*100),2),"PER / crecimiento. Real: con el CAGR histórico"]];
+        return `<div class="scroll"><table><thead><tr><th>Múltiplo</th><th>Real · UDM ${esc(R.label.replace(/^UDM /,""))}</th><th>Modelo · ${y1.year}e</th></tr></thead><tbody>${rows.map(([n,r,m,t])=>`<tr><td style="white-space:normal"${t?` title="${esc(t)}"`:""}>${n}</td><td>${r}</td><td>${m}</td></tr>`).join("")}</tbody></table></div>
+          <p class="note">Capitalización ${big(R.mcap)} con ${nf(R.sh,1)} M de acciones (SEC) · EV ${big(R.ev)}. ${Math.abs(R.sh-s.shares)>s.shares*0.02?`Tu modelo usa ${nf(s.shares,1)} M de acciones.`:""}</p>`;})()}
+    </section>
   </div>`;
 }
 function niceStep(r){const p=Math.pow(10,Math.floor(Math.log10(r)));const n=r/p;return (n<1.5?1:n<3?2:n<7?5:10)*p;}
