@@ -16,6 +16,7 @@ from .sec_client import cik_10
 
 MAX_PEERS = 6
 REFRESH_DAYS = 7
+VERSION = 2
 
 
 def _v(p):
@@ -32,6 +33,8 @@ def summarize(rec: dict) -> dict:
     if gross is None and rev is not None and ttm("coste_ventas") is not None:
         gross = rev - ttm("coste_ventas")
     op, ni, ocf, capex, da = ttm("beneficio_operativo"), ttm("beneficio_neto"), ttm("caja_operativa"), ttm("capex"), ttm("amortizacion")
+    if da is None and ttm("depreciacion") is not None:
+        da = ttm("depreciacion") + (ttm("amort_intangibles") or 0)
     q = [p["valor"] for p in (R.get("ingresos") or {}).get("trimestral") or []]
     an = [p["valor"] for p in (R.get("ingresos") or {}).get("anual") or []]
     growth = None
@@ -117,13 +120,13 @@ class PeerCache:
         if t in self.mem:
             return self.mem[t]
         old = self.prev.get(t)
-        if old and old.get("calculado") and (self.today - date.fromisoformat(old["calculado"])).days < REFRESH_DAYS:
+        if old and old.get("version") == VERSION and old.get("calculado") and (self.today - date.fromisoformat(old["calculado"])).days < REFRESH_DAYS:
             self.mem[t] = old
             return old
         from .add_company import clean_name
         cik, title = self.table.get(t) or self.table.get(t.replace(".", "-")) or (None, t)
         title = clean_name(title)
-        item = {"ticker": t, "nombre": title, "cik": cik, "calculado": self.today.isoformat(), "soportada": True}
+        item = {"ticker": t, "nombre": title, "cik": cik, "calculado": self.today.isoformat(), "soportada": True, "version": VERSION}
         try:
             cf = self.client.companyfacts(cik)
             subs = self.client.submissions(cik)

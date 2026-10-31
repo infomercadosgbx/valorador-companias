@@ -42,6 +42,7 @@ def summary(msg: str):
 
 def clean_name(title: str) -> str:
     name = title.strip()
+    name = re.sub(r"\s*/[A-Za-z]{2,3}/?$", "", name)          # «Qualcomm Inc/De» → «Qualcomm Inc»
     name = SUFFIX.sub("", name).strip(" ,")
     if name.isupper() and len(name) > 4:
         name = name.title()
