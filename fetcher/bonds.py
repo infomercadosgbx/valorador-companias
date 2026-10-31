@@ -18,7 +18,7 @@ from datetime import date
 
 from .filings import archive_base, recent_rows
 
-VERSION = 3
+VERSION = 4
 AX_INSTR = "DebtInstrumentAxis"
 AX_TYPES = {"LongtermDebtTypeAxis", "ShortTermDebtTypeAxis", "DebtInstrumentAxis"}
 ALLOWED_EXTRA = {"LongtermDebtTypeAxis", "ShortTermDebtTypeAxis", "LegalEntityAxis"}
@@ -28,7 +28,9 @@ C_EFFECTIVE = ("DebtInstrumentInterestRateEffectivePercentage",)
 C_FACE = ("DebtInstrumentFaceAmount",)
 C_BOOK = ("LongTermDebt", "DebtInstrumentCarryingAmount", "LongTermDebtNoncurrent", "LongTermDebtGross",
           "SeniorNotes", "ConvertibleNotesPayable", "SecuredDebt", "UnsecuredDebt", "SecuredLongTermDebt",
-          "UnsecuredLongTermDebt", "LongTermLineOfCredit", "OtherLongTermDebt", "NotesPayable", "SeniorLongTermNotes")
+          "UnsecuredLongTermDebt", "LongTermLineOfCredit", "OtherLongTermDebt", "NotesPayable", "SeniorLongTermNotes",
+          "LongTermDebtAndCapitalLeaseObligationsIncludingCurrentMaturities", "DebtLongtermAndShorttermCombinedAmount",
+          "LineOfCreditFacilityBorrowingsOutstanding")
 C_MATURITY = ("DebtInstrumentMaturityDate", "DebtInstrumentMaturityDateRangeEnd")
 C_ISSUED = ("DebtInstrumentIssuanceDate", "DebtInstrumentIssueDate")
 C_TYPE_AMOUNT = ("LongTermDebt", "DebtInstrumentCarryingAmount", "LongTermDebtNoncurrent",
@@ -234,6 +236,7 @@ def extract(inst_xml: bytes, lab_xml: bytes | None, period_end: str | None):
             venc, aprox = mat[1], False
         else:
             venc, aprox = maturity_from_label(label)
+        precision = "dia" if venc and not aprox else ("anio" if venc else None)
         if not any([coupon, face, book]):
             continue
         if book and book[1] == 0 and not (face and face[1]):
@@ -248,7 +251,7 @@ def extract(inst_xml: bytes, lab_xml: bytes | None, period_end: str | None):
             if mon:
                 last_day = (date(yr + (mon == 12), mon % 12 + 1, 1) - date.resolution).isoformat()
                 if last_day > ref:                     # «April 2028 Senior Notes»: vence en esa fecha
-                    venc, aprox = last_day, True
+                    venc, aprox, precision = last_day, True, "mes"
                 else:                                  # «March 2026 Euro Notes»: se emitió entonces
                     emision_lbl = f"{yr}-{mon:02d}"
             elif str(yr) <= ref[:4]:
@@ -266,7 +269,7 @@ def extract(inst_xml: bytes, lab_xml: bytes | None, period_end: str | None):
             "en_libros_fecha": book[0] if book else None,
             "moneda": ccy,
             "nominal_moneda": face[2] if face else None,
-            "vencimiento": venc, "vencimiento_aprox": aprox,
+            "vencimiento": venc, "vencimiento_aprox": aprox, "vencimiento_precision": precision,
             "emision": iss[1] if iss else emision_lbl,
             "programa": bool(emision_lbl),
         })
@@ -315,7 +318,7 @@ def build(client, cik, subs, previous=None):
         return previous
     diag = {}
     today = date.today().isoformat()
-    seen, comp, used = {}, [], []
+    seen, comp, used, last_members = {}, [], [], None
     for r in reversed(fl):  # del 10-K al 10-Q más reciente: lo nuevo sobrescribe
         base = archive_base(cik, r["accessionNumber"])
         idx = client.get_json(f"{base}/index.json")
@@ -344,9 +347,16 @@ def build(client, cik, subs, previous=None):
             seen[it["miembro"]] = merged
         if c:
             comp = [dict(x, fuente=src) for x in c]
-    emisiones = [e for e in seen.values()
-                 if (not e.get("vencimiento") or e["vencimiento"] >= today or e.get("vencimiento_aprox"))
-                 and not (e.get("en_libros") == 0)]
+        if len(items) >= 3:
+            last_members = {it["miembro"] for it in items}
+    def vigente(e):
+        if last_members is not None and e["miembro"] not in last_members:
+            return False                                   # ya no aparece en el último informe
+        v = e.get("vencimiento")
+        if v and v < today and e.get("vencimiento_precision") != "anio":
+            return False                                   # vencido
+        return e.get("en_libros") != 0
+    emisiones = [e for e in seen.values() if vigente(e)]
     def key(e):
         if e.get("cupon") and e.get("vencimiento"):
             return ("cv", e["cupon"], e["vencimiento"][:4])
