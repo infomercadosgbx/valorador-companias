@@ -19,6 +19,7 @@ from pathlib import Path
 
 from . import history as HIST
 from . import logos, prices
+from . import peers as PEERS
 from .build import NoSecData, build_company
 from .extract import warn
 from .sec_client import SecClient, SecError, cik_10
@@ -122,6 +123,18 @@ def run(only=None, report=None, root=ROOT, client=None, provider=None, price_war
     cik_issues = check_ciks(client, companies)
 
     failures, changed, index = [], [], []
+    peer_cache = None
+    try:
+        prev_items = {}
+        for f in (root / "data").glob("*.json") if (root / "data").exists() else []:
+            try:
+                for it in (json.loads(f.read_text(encoding="utf-8")).get("peers") or {}).get("competidores") or []:
+                    prev_items.setdefault(it["ticker"], it)
+            except (json.JSONDecodeError, AttributeError, KeyError, TypeError):
+                pass
+        peer_cache = PEERS.PeerCache(client, provider, PEERS.table_by_ticker(client), prev_items)
+    except Exception as e:  # noqa: BLE001  la comparativa es secundaria
+        print(f"Comparativa con competidores no disponible: {e}", file=sys.stderr)
     for c in companies:
         ensure_companion_files(c, root)
         path = root / "data" / f"{c['ticker'].upper()}.json"
@@ -133,6 +146,17 @@ def run(only=None, report=None, root=ROOT, client=None, provider=None, price_war
                 except json.JSONDecodeError:
                     previous = None
             rec = build_company(client, c, provider, price_warning, previous, hist, hist_warning)
+            if peer_cache is not None and rec.get("soportada", True):
+                try:
+                    an = json.loads((root / "analysis" / f"{c['ticker'].upper()}.json").read_text(encoding="utf-8"))
+                    manual = [str(x).upper() for x in (an.get("peers") or []) if str(x).strip()]
+                except (OSError, json.JSONDecodeError):
+                    manual = []
+                try:
+                    rec["peers"] = PEERS.build(c, rec, manual, peer_cache)
+                except Exception as e:  # noqa: BLE001
+                    rec["peers"] = (previous or {}).get("peers")
+                    rec["avisos"].append(warn("info", "peers_no_disponible", f"Comparativa con competidores no disponible: {e}"))
             perfil, logo_changed = logos.update(provider, c, root)
             if perfil:
                 rec["perfil"] = perfil

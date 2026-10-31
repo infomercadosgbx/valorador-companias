@@ -68,3 +68,26 @@ def test_riesgos_titulares_y_comparacion():
     assert hs == ["Intense competition could harm our business and results.", "New AI regulation may limit our products."]
     added, removed = riskfactors.compare(hs, ["Intense competition could harm our businesses and results.", "Pandemics may disrupt operations."])
     assert added == ["New AI regulation may limit our products."] and removed == ["Pandemics may disrupt operations."]
+
+
+def test_comparativa_con_competidores():
+    from fetcher import peers as P
+    rec = {"resultados": {"ingresos": {"ttm": {"valor": 1000, "periodo_fin": "2026-09-30"},
+                                       "trimestral": [{"valor": v} for v in (200, 200, 200, 200, 250, 250, 250, 250)], "anual": []},
+                          "beneficio_operativo": {"ttm": {"valor": 300}}, "beneficio_neto": {"ttm": {"valor": 200}},
+                          "caja_operativa": {"ttm": {"valor": 350}}, "capex": {"ttm": {"valor": 50}}, "amortizacion": {"ttm": {"valor": 100}},
+                          "coste_ventas": {"ttm": {"valor": 400}}},
+           "balance": {"caja": {"ultimo": {"valor": 100}}, "deuda": {"ultimo": None, "asumido": True}},
+           "acciones_en_circulacion": {"valor": 10}, "precio": {"valor": 50}}
+    f = P.summarize(rec)
+    assert f["crecimiento"] == 25 and f["margen_bruto"] == 60 and f["deuda"] == 0 and f["ebitda"] == 400
+    w = P.with_price(f, 50)
+    assert w["capitalizacion"] == 500 and w["ev"] == 400 and w["per"] == 2.5 and w["ev_ebitda"] == 1 and w["rentabilidad_fcf"] == 60
+
+    class Prov:
+        def peers(self, t):
+            return ["OWN", "AAA", "ZZZ", "BBB"]
+    lst, src = P.peer_list("OWN", [], Prov(), {"AAA": ("1", "A"), "BBB": ("2", "B")})
+    assert lst == ["AAA", "BBB"] and src.startswith("Finnhub")
+    lst, src = P.peer_list("OWN", ["BBB"], Prov(), {"AAA": ("1", "A"), "BBB": ("2", "B")})
+    assert lst == ["BBB"] and src == "manual"

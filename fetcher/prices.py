@@ -38,6 +38,9 @@ class PriceProvider:
     def news(self, ticker: str) -> list | None:
         return None
 
+    def peers(self, ticker: str) -> list | None:
+        return None
+
 
 class NoPriceProvider(PriceProvider):
     pass
@@ -120,6 +123,10 @@ class FinnhubProvider(PriceProvider):
                              "sorpresa_pct": r.get("surprisePercent")}
                             for r in sorted(rows, key=lambda r: r.get("period") or "")][-8:]
         return out if (out.get("proximos") or out["sorpresas"]) else None
+
+    def peers(self, ticker):
+        rows = self._get("/stock/peers", symbol=ticker) or []
+        return [r for r in rows if isinstance(r, str)]
 
     def news(self, ticker, today=None, days=10, limit=12):
         from datetime import date, timedelta
