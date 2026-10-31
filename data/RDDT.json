@@ -2470,6 +2470,518 @@
     "us-gaap:AmortizationOfIntangibleAssets"
    ]
   },
+  "impuestos": {
+   "nombre": "Impuesto sobre beneficios",
+   "unidad": "USD",
+   "anual": [
+    {
+     "valor": 622000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344525000018/0001713445-25-000018-index.htm",
+     "fecha_presentacion": "2025-02-13",
+     "etiqueta": "us-gaap:IncomeTaxExpenseBenefit",
+     "periodo_fin": "2022-12-31",
+     "formulario": "10-K",
+     "accn": "0001713445-25-000018",
+     "periodo_inicio": "2022-01-01",
+     "periodo": "2022",
+     "dias": 364
+    },
+    {
+     "valor": 3801000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000022/0001713445-26-000022-index.htm",
+     "fecha_presentacion": "2026-02-06",
+     "etiqueta": "us-gaap:IncomeTaxExpenseBenefit",
+     "periodo_fin": "2023-12-31",
+     "formulario": "10-K",
+     "accn": "0001713445-26-000022",
+     "periodo_inicio": "2023-01-01",
+     "periodo": "2023",
+     "dias": 364
+    },
+    {
+     "valor": -931000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000022/0001713445-26-000022-index.htm",
+     "fecha_presentacion": "2026-02-06",
+     "etiqueta": "us-gaap:IncomeTaxExpenseBenefit",
+     "periodo_fin": "2024-12-31",
+     "formulario": "10-K",
+     "accn": "0001713445-26-000022",
+     "periodo_inicio": "2024-01-01",
+     "periodo": "2024",
+     "dias": 365
+    },
+    {
+     "valor": -1031000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000022/0001713445-26-000022-index.htm",
+     "fecha_presentacion": "2026-02-06",
+     "etiqueta": "us-gaap:IncomeTaxExpenseBenefit",
+     "periodo_fin": "2025-12-31",
+     "formulario": "10-K",
+     "accn": "0001713445-26-000022",
+     "periodo_inicio": "2025-01-01",
+     "periodo": "2025",
+     "dias": 364
+    }
+   ],
+   "trimestral": [
+    {
+     "valor": 988000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344524000006/0001713445-24-000006-index.htm",
+     "fecha_presentacion": "2024-05-08",
+     "etiqueta": "us-gaap:IncomeTaxExpenseBenefit",
+     "periodo_fin": "2023-03-31",
+     "formulario": "10-Q",
+     "accn": "0001713445-24-000006",
+     "periodo_inicio": "2023-01-01",
+     "periodo": "1T23"
+    },
+    {
+     "valor": 1426000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344524000054/0001713445-24-000054-index.htm",
+     "fecha_presentacion": "2024-08-07",
+     "etiqueta": "us-gaap:IncomeTaxExpenseBenefit",
+     "periodo_fin": "2023-06-30",
+     "formulario": "10-Q",
+     "accn": "0001713445-24-000054",
+     "periodo_inicio": "2023-04-01",
+     "periodo": "2T23"
+    },
+    {
+     "valor": 445000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344524000102/0001713445-24-000102-index.htm",
+     "fecha_presentacion": "2024-10-30",
+     "etiqueta": "us-gaap:IncomeTaxExpenseBenefit",
+     "periodo_fin": "2023-09-30",
+     "formulario": "10-Q",
+     "accn": "0001713445-24-000102",
+     "periodo_inicio": "2023-07-01",
+     "periodo": "3T23"
+    },
+    {
+     "valor": 942000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000022/0001713445-26-000022-index.htm",
+     "fecha_presentacion": "2026-02-06",
+     "etiqueta": "us-gaap:IncomeTaxExpenseBenefit",
+     "periodo_fin": "2023-12-31",
+     "formulario": "10-K",
+     "accn": "0001713445-26-000022",
+     "periodo_inicio": "2023-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T23"
+    },
+    {
+     "valor": 365000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344525000102/0001713445-25-000102-index.htm",
+     "fecha_presentacion": "2025-05-02",
+     "etiqueta": "us-gaap:IncomeTaxExpenseBenefit",
+     "periodo_fin": "2024-03-31",
+     "formulario": "10-Q",
+     "accn": "0001713445-25-000102",
+     "periodo_inicio": "2024-01-01",
+     "periodo": "1T24"
+    },
+    {
+     "valor": -216000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344525000196/0001713445-25-000196-index.htm",
+     "fecha_presentacion": "2025-08-01",
+     "etiqueta": "us-gaap:IncomeTaxExpenseBenefit",
+     "periodo_fin": "2024-06-30",
+     "formulario": "10-Q",
+     "accn": "0001713445-25-000196",
+     "periodo_inicio": "2024-04-01",
+     "periodo": "2T24"
+    },
+    {
+     "valor": -31000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344525000227/0001713445-25-000227-index.htm",
+     "fecha_presentacion": "2025-10-31",
+     "etiqueta": "us-gaap:IncomeTaxExpenseBenefit",
+     "periodo_fin": "2024-09-30",
+     "formulario": "10-Q",
+     "accn": "0001713445-25-000227",
+     "periodo_inicio": "2024-07-01",
+     "periodo": "3T24"
+    },
+    {
+     "valor": -1049000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000022/0001713445-26-000022-index.htm",
+     "fecha_presentacion": "2026-02-06",
+     "etiqueta": "us-gaap:IncomeTaxExpenseBenefit",
+     "periodo_fin": "2024-12-31",
+     "formulario": "10-K",
+     "accn": "0001713445-26-000022",
+     "periodo_inicio": "2024-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T24"
+    },
+    {
+     "valor": -1721000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000069/0001713445-26-000069-index.htm",
+     "fecha_presentacion": "2026-05-01",
+     "etiqueta": "us-gaap:IncomeTaxExpenseBenefit",
+     "periodo_fin": "2025-03-31",
+     "formulario": "10-Q",
+     "accn": "0001713445-26-000069",
+     "periodo_inicio": "2025-01-01",
+     "periodo": "1T25"
+    },
+    {
+     "valor": -439000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000100/0001713445-26-000100-index.htm",
+     "fecha_presentacion": "2026-07-31",
+     "etiqueta": "us-gaap:IncomeTaxExpenseBenefit",
+     "periodo_fin": "2025-06-30",
+     "formulario": "10-Q",
+     "accn": "0001713445-26-000100",
+     "periodo_inicio": "2025-04-01",
+     "periodo": "2T25"
+    },
+    {
+     "valor": -2086000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000116/0001713445-26-000116-index.htm",
+     "fecha_presentacion": "2026-10-30",
+     "etiqueta": "us-gaap:IncomeTaxExpenseBenefit",
+     "periodo_fin": "2025-09-30",
+     "formulario": "10-Q",
+     "accn": "0001713445-26-000116",
+     "periodo_inicio": "2025-07-01",
+     "periodo": "3T25"
+    },
+    {
+     "valor": 3215000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000022/0001713445-26-000022-index.htm",
+     "fecha_presentacion": "2026-02-06",
+     "etiqueta": "us-gaap:IncomeTaxExpenseBenefit",
+     "periodo_fin": "2025-12-31",
+     "formulario": "10-K",
+     "accn": "0001713445-26-000022",
+     "periodo_inicio": "2025-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T25"
+    },
+    {
+     "valor": 1747000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000069/0001713445-26-000069-index.htm",
+     "fecha_presentacion": "2026-05-01",
+     "etiqueta": "us-gaap:IncomeTaxExpenseBenefit",
+     "periodo_fin": "2026-03-31",
+     "formulario": "10-Q",
+     "accn": "0001713445-26-000069",
+     "periodo_inicio": "2026-01-01",
+     "periodo": "1T26"
+    },
+    {
+     "valor": 3987000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000100/0001713445-26-000100-index.htm",
+     "fecha_presentacion": "2026-07-31",
+     "etiqueta": "us-gaap:IncomeTaxExpenseBenefit",
+     "periodo_fin": "2026-06-30",
+     "formulario": "10-Q",
+     "accn": "0001713445-26-000100",
+     "periodo_inicio": "2026-04-01",
+     "periodo": "2T26"
+    },
+    {
+     "valor": 5785000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000116/0001713445-26-000116-index.htm",
+     "fecha_presentacion": "2026-10-30",
+     "etiqueta": "us-gaap:IncomeTaxExpenseBenefit",
+     "periodo_fin": "2026-09-30",
+     "formulario": "10-Q",
+     "accn": "0001713445-26-000116",
+     "periodo_inicio": "2026-07-01",
+     "periodo": "3T26"
+    }
+   ],
+   "ttm": {
+    "valor": 14734000,
+    "fuente": "SEC EDGAR (suma de 4 trimestres)",
+    "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000116/0001713445-26-000116-index.htm",
+    "fecha_presentacion": "2026-10-30",
+    "etiqueta": "us-gaap:IncomeTaxExpenseBenefit",
+    "periodo_inicio": "2025-10-01",
+    "periodo_fin": "2026-09-30",
+    "derivado": "4T25 + 1T26 + 2T26 + 3T26"
+   },
+   "etiquetas_usadas": [
+    "us-gaap:IncomeTaxExpenseBenefit"
+   ]
+  },
+  "beneficio_antes_impuestos": {
+   "nombre": "Beneficio antes de impuestos",
+   "unidad": "USD",
+   "anual": [
+    {
+     "valor": -157928000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344525000018/0001713445-25-000018-index.htm",
+     "fecha_presentacion": "2025-02-13",
+     "etiqueta": "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+     "periodo_fin": "2022-12-31",
+     "formulario": "10-K",
+     "accn": "0001713445-25-000018",
+     "periodo_inicio": "2022-01-01",
+     "periodo": "2022",
+     "dias": 364
+    },
+    {
+     "valor": -87023000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000022/0001713445-26-000022-index.htm",
+     "fecha_presentacion": "2026-02-06",
+     "etiqueta": "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+     "periodo_fin": "2023-12-31",
+     "formulario": "10-K",
+     "accn": "0001713445-26-000022",
+     "periodo_inicio": "2023-01-01",
+     "periodo": "2023",
+     "dias": 364
+    },
+    {
+     "valor": -485207000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000022/0001713445-26-000022-index.htm",
+     "fecha_presentacion": "2026-02-06",
+     "etiqueta": "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+     "periodo_fin": "2024-12-31",
+     "formulario": "10-K",
+     "accn": "0001713445-26-000022",
+     "periodo_inicio": "2024-01-01",
+     "periodo": "2024",
+     "dias": 365
+    },
+    {
+     "valor": 528690000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000022/0001713445-26-000022-index.htm",
+     "fecha_presentacion": "2026-02-06",
+     "etiqueta": "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+     "periodo_fin": "2025-12-31",
+     "formulario": "10-K",
+     "accn": "0001713445-26-000022",
+     "periodo_inicio": "2025-01-01",
+     "periodo": "2025",
+     "dias": 364
+    }
+   ],
+   "trimestral": [
+    {
+     "valor": -59878000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344524000006/0001713445-24-000006-index.htm",
+     "fecha_presentacion": "2024-05-08",
+     "etiqueta": "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+     "periodo_fin": "2023-03-31",
+     "formulario": "10-Q",
+     "accn": "0001713445-24-000006",
+     "periodo_inicio": "2023-01-01",
+     "periodo": "1T23"
+    },
+    {
+     "valor": -39683000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344524000054/0001713445-24-000054-index.htm",
+     "fecha_presentacion": "2024-08-07",
+     "etiqueta": "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+     "periodo_fin": "2023-06-30",
+     "formulario": "10-Q",
+     "accn": "0001713445-24-000054",
+     "periodo_inicio": "2023-04-01",
+     "periodo": "2T23"
+    },
+    {
+     "valor": -6938000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344524000102/0001713445-24-000102-index.htm",
+     "fecha_presentacion": "2024-10-30",
+     "etiqueta": "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+     "periodo_fin": "2023-09-30",
+     "formulario": "10-Q",
+     "accn": "0001713445-24-000102",
+     "periodo_inicio": "2023-07-01",
+     "periodo": "3T23"
+    },
+    {
+     "valor": 19476000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000022/0001713445-26-000022-index.htm",
+     "fecha_presentacion": "2026-02-06",
+     "etiqueta": "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+     "periodo_fin": "2023-12-31",
+     "formulario": "10-K",
+     "accn": "0001713445-26-000022",
+     "periodo_inicio": "2023-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T23"
+    },
+    {
+     "valor": -574701000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344525000102/0001713445-25-000102-index.htm",
+     "fecha_presentacion": "2025-05-02",
+     "etiqueta": "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+     "periodo_fin": "2024-03-31",
+     "formulario": "10-Q",
+     "accn": "0001713445-25-000102",
+     "periodo_inicio": "2024-01-01",
+     "periodo": "1T24"
+    },
+    {
+     "valor": -10315000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344525000196/0001713445-25-000196-index.htm",
+     "fecha_presentacion": "2025-08-01",
+     "etiqueta": "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+     "periodo_fin": "2024-06-30",
+     "formulario": "10-Q",
+     "accn": "0001713445-25-000196",
+     "periodo_inicio": "2024-04-01",
+     "periodo": "2T24"
+    },
+    {
+     "valor": 29822000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344525000227/0001713445-25-000227-index.htm",
+     "fecha_presentacion": "2025-10-31",
+     "etiqueta": "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+     "periodo_fin": "2024-09-30",
+     "formulario": "10-Q",
+     "accn": "0001713445-25-000227",
+     "periodo_inicio": "2024-07-01",
+     "periodo": "3T24"
+    },
+    {
+     "valor": 69987000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000022/0001713445-26-000022-index.htm",
+     "fecha_presentacion": "2026-02-06",
+     "etiqueta": "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+     "periodo_fin": "2024-12-31",
+     "formulario": "10-K",
+     "accn": "0001713445-26-000022",
+     "periodo_inicio": "2024-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T24"
+    },
+    {
+     "valor": 24437000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000069/0001713445-26-000069-index.htm",
+     "fecha_presentacion": "2026-05-01",
+     "etiqueta": "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+     "periodo_fin": "2025-03-31",
+     "formulario": "10-Q",
+     "accn": "0001713445-26-000069",
+     "periodo_inicio": "2025-01-01",
+     "periodo": "1T25"
+    },
+    {
+     "valor": 88858000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000100/0001713445-26-000100-index.htm",
+     "fecha_presentacion": "2026-07-31",
+     "etiqueta": "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+     "periodo_fin": "2025-06-30",
+     "formulario": "10-Q",
+     "accn": "0001713445-26-000100",
+     "periodo_inicio": "2025-04-01",
+     "periodo": "2T25"
+    },
+    {
+     "valor": 160577000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000116/0001713445-26-000116-index.htm",
+     "fecha_presentacion": "2026-10-30",
+     "etiqueta": "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+     "periodo_fin": "2025-09-30",
+     "formulario": "10-Q",
+     "accn": "0001713445-26-000116",
+     "periodo_inicio": "2025-07-01",
+     "periodo": "3T25"
+    },
+    {
+     "valor": 254818000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000022/0001713445-26-000022-index.htm",
+     "fecha_presentacion": "2026-02-06",
+     "etiqueta": "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+     "periodo_fin": "2025-12-31",
+     "formulario": "10-K",
+     "accn": "0001713445-26-000022",
+     "periodo_inicio": "2025-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T25"
+    },
+    {
+     "valor": 205728000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000069/0001713445-26-000069-index.htm",
+     "fecha_presentacion": "2026-05-01",
+     "etiqueta": "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+     "periodo_fin": "2026-03-31",
+     "formulario": "10-Q",
+     "accn": "0001713445-26-000069",
+     "periodo_inicio": "2026-01-01",
+     "periodo": "1T26"
+    },
+    {
+     "valor": 256835000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000100/0001713445-26-000100-index.htm",
+     "fecha_presentacion": "2026-07-31",
+     "etiqueta": "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+     "periodo_fin": "2026-06-30",
+     "formulario": "10-Q",
+     "accn": "0001713445-26-000100",
+     "periodo_inicio": "2026-04-01",
+     "periodo": "2T26"
+    },
+    {
+     "valor": 289049000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000116/0001713445-26-000116-index.htm",
+     "fecha_presentacion": "2026-10-30",
+     "etiqueta": "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+     "periodo_fin": "2026-09-30",
+     "formulario": "10-Q",
+     "accn": "0001713445-26-000116",
+     "periodo_inicio": "2026-07-01",
+     "periodo": "3T26"
+    }
+   ],
+   "ttm": {
+    "valor": 1006430000,
+    "fuente": "SEC EDGAR (suma de 4 trimestres)",
+    "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000116/0001713445-26-000116-index.htm",
+    "fecha_presentacion": "2026-10-30",
+    "etiqueta": "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+    "periodo_inicio": "2025-10-01",
+    "periodo_fin": "2026-09-30",
+    "derivado": "4T25 + 1T26 + 2T26 + 3T26"
+   },
+   "etiquetas_usadas": [
+    "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest"
+   ]
+  },
   "coste_ventas": {
    "nombre": "Coste de ventas",
    "unidad": "USD",
@@ -3513,6 +4025,13 @@
    "mensaje": "Amortización de intangibles: «AmortizationOfIntangibleAssets» termina el 2024-12-31; solo se usa para años antiguos.",
    "concepto": "amort_intangibles",
    "etiqueta": "AmortizationOfIntangibleAssets"
+  },
+  {
+   "nivel": "info",
+   "codigo": "etiqueta_obsoleta",
+   "mensaje": "Beneficio antes de impuestos: «IncomeLossFromContinuingOperationsBeforeIncomeTaxesDomestic» termina el 2025-12-31; solo se usa para años antiguos.",
+   "concepto": "beneficio_antes_impuestos",
+   "etiqueta": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesDomestic"
   },
   {
    "nivel": "aviso",
@@ -6250,5 +6769,5 @@
   "fecha": "2026-10-30",
   "ajuste": "splits"
  },
- "generado": "2026-10-31T19:34:54+00:00"
+ "generado": "2026-10-31T20:22:51+00:00"
 }
