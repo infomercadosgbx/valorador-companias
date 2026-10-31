@@ -4211,7 +4211,7 @@
   }
  ],
  "bonos": {
-  "version": 3,
+  "version": 4,
   "informes_accn": [
    "0001692819-26-000019",
    "0001692819-26-000014",
@@ -4219,42 +4219,17 @@
   ],
   "emisiones": [
    {
-    "miembro": "vistra:A5125SeniorSecuredNotesDue2025Member",
-    "nombre": "5.125% Senior Secured Notes Due 2025",
-    "tipo": "Deuda garantizada",
-    "cupon": 5.125,
-    "variable": false,
-    "nominal": 744000000.0,
-    "moneda": "USD",
-    "nominal_moneda": "USD",
-    "vencimiento": "2025-12-31",
-    "vencimiento_aprox": true,
-    "programa": false,
-    "primera_vez": {
-     "formulario": "10-K",
-     "fecha_presentacion": "2026-02-27",
-     "fecha_periodo": "2025-12-31",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000006/0001692819-26-000006-index.htm",
-     "fuente": "SEC EDGAR · 10-K (XBRL)"
-    },
-    "fuente": {
-     "formulario": "10-K",
-     "fecha_presentacion": "2026-02-27",
-     "fecha_periodo": "2025-12-31",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000006/0001692819-26-000006-index.htm",
-     "fuente": "SEC EDGAR · 10-K (XBRL)"
-    },
-    "nueva": false
-   },
-   {
     "miembro": "vistra:A5.050SeniorNotesDue2026Member",
     "nombre": "5.050% Senior Notes Due 2026",
     "tipo": "Bono senior",
     "cupon": 5.05,
     "variable": false,
+    "en_libros": 500000000.0,
+    "en_libros_fecha": "2026-06-30",
     "moneda": "USD",
     "vencimiento": "2026-12-31",
     "vencimiento_aprox": true,
+    "vencimiento_precision": "anio",
     "programa": false,
     "primera_vez": {
      "formulario": "10-Q",
@@ -4273,67 +4248,17 @@
     "nueva": true
    },
    {
-    "miembro": "vistra:A5.500SeniorSecuredNotesDue2026Member",
-    "nombre": "5.500% Senior Secured Notes Due 2026",
-    "tipo": "Deuda garantizada",
-    "variable": false,
-    "nominal": 1000000000.0,
-    "moneda": "USD",
-    "nominal_moneda": "USD",
-    "vencimiento": "2026-12-31",
-    "vencimiento_aprox": true,
-    "programa": false,
-    "primera_vez": {
-     "formulario": "10-K",
-     "fecha_presentacion": "2026-02-27",
-     "fecha_periodo": "2025-12-31",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000006/0001692819-26-000006-index.htm",
-     "fuente": "SEC EDGAR · 10-K (XBRL)"
-    },
-    "fuente": {
-     "formulario": "10-K",
-     "fecha_presentacion": "2026-02-27",
-     "fecha_periodo": "2025-12-31",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000006/0001692819-26-000006-index.htm",
-     "fuente": "SEC EDGAR · 10-K (XBRL)"
-    },
-    "nueva": false
-   },
-   {
-    "miembro": "vistra:A5.500SeniorUnsecuredNotesDue2026Member",
-    "nombre": "5.500% Senior Unsecured Notes Due 2026",
-    "tipo": "Bono senior",
-    "cupon": 5.5,
-    "variable": false,
-    "moneda": "USD",
-    "vencimiento": "2026-12-31",
-    "vencimiento_aprox": true,
-    "programa": false,
-    "primera_vez": {
-     "formulario": "10-K",
-     "fecha_presentacion": "2026-02-27",
-     "fecha_periodo": "2025-12-31",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000006/0001692819-26-000006-index.htm",
-     "fuente": "SEC EDGAR · 10-K (XBRL)"
-    },
-    "fuente": {
-     "formulario": "10-K",
-     "fecha_presentacion": "2026-02-27",
-     "fecha_periodo": "2025-12-31",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000006/0001692819-26-000006-index.htm",
-     "fuente": "SEC EDGAR · 10-K (XBRL)"
-    },
-    "nueva": false
-   },
-   {
     "miembro": "vistra:A3.700SeniorNotesDue2027Member",
     "nombre": "3.700% Senior Notes Due 2027",
     "tipo": "Bono senior",
     "cupon": 3.7,
     "variable": false,
+    "en_libros": 800000000.0,
+    "en_libros_fecha": "2026-06-30",
     "moneda": "USD",
     "vencimiento": "2027-12-31",
     "vencimiento_aprox": true,
+    "vencimiento_precision": "anio",
     "programa": false,
     "primera_vez": {
      "formulario": "10-Q",
@@ -4357,35 +4282,12 @@
     "tipo": "Bono senior",
     "cupon": 5.0,
     "variable": false,
+    "en_libros": 1300000000.0,
+    "en_libros_fecha": "2026-06-30",
     "moneda": "USD",
     "vencimiento": "2027-12-31",
     "vencimiento_aprox": true,
-    "programa": false,
-    "primera_vez": {
-     "formulario": "10-Q",
-     "fecha_presentacion": "2026-05-08",
-     "fecha_periodo": "2026-03-31",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000014/0001692819-26-000014-index.htm",
-     "fuente": "SEC EDGAR · 10-Q (XBRL)"
-    },
-    "fuente": {
-     "formulario": "10-Q",
-     "fecha_presentacion": "2026-08-10",
-     "fecha_periodo": "2026-06-30",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
-     "fuente": "SEC EDGAR · 10-Q (XBRL)"
-    },
-    "nueva": true
-   },
-   {
-    "miembro": "vistra:A5.625SeniorNotesDue2027Member",
-    "nombre": "5.625% Senior Notes Due 2027",
-    "tipo": "Bono senior",
-    "cupon": 5.625,
-    "variable": false,
-    "moneda": "USD",
-    "vencimiento": "2027-12-31",
-    "vencimiento_aprox": true,
+    "vencimiento_precision": "anio",
     "programa": false,
     "primera_vez": {
      "formulario": "10-Q",
@@ -4409,9 +4311,12 @@
     "tipo": "Bono senior",
     "cupon": 4.3,
     "variable": false,
+    "en_libros": 750000000.0,
+    "en_libros_fecha": "2026-06-30",
     "moneda": "USD",
     "vencimiento": "2028-12-31",
     "vencimiento_aprox": true,
+    "vencimiento_precision": "anio",
     "programa": false,
     "primera_vez": {
      "formulario": "10-Q",
@@ -4427,65 +4332,38 @@
      "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
      "fuente": "SEC EDGAR · 10-Q (XBRL)"
     },
-    "nominal": 750000000.0,
-    "nominal_moneda": "USD",
     "nueva": true
    },
    {
-    "miembro": "vistra:A4.550SeniorUnsecuredNotesDue2028Member",
-    "nombre": "4.550% Senior Unsecured Notes Due 2028",
+    "miembro": "vistra:A4.550SeniorNotesDue2028Member",
+    "nombre": "4.550% Senior Notes Due 2028",
     "tipo": "Bono senior",
     "cupon": 4.55,
     "variable": false,
+    "en_libros": 500000000.0,
+    "en_libros_fecha": "2026-06-30",
+    "moneda": "USD",
+    "vencimiento": "2028-12-31",
+    "vencimiento_aprox": true,
+    "vencimiento_precision": "anio",
+    "programa": false,
+    "primera_vez": {
+     "formulario": "10-Q",
+     "fecha_presentacion": "2026-08-10",
+     "fecha_periodo": "2026-06-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
+     "fuente": "SEC EDGAR · 10-Q (XBRL)"
+    },
+    "fuente": {
+     "formulario": "10-Q",
+     "fecha_presentacion": "2026-08-10",
+     "fecha_periodo": "2026-06-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
+     "fuente": "SEC EDGAR · 10-Q (XBRL)"
+    },
     "nominal": 500000000.0,
-    "moneda": "USD",
     "nominal_moneda": "USD",
-    "vencimiento": "2028-12-31",
-    "vencimiento_aprox": true,
-    "programa": false,
-    "primera_vez": {
-     "formulario": "10-Q",
-     "fecha_presentacion": "2026-08-10",
-     "fecha_periodo": "2026-06-30",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
-     "fuente": "SEC EDGAR · 10-Q (XBRL)"
-    },
-    "fuente": {
-     "formulario": "10-Q",
-     "fecha_presentacion": "2026-08-10",
-     "fecha_periodo": "2026-06-30",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
-     "fuente": "SEC EDGAR · 10-Q (XBRL)"
-    },
     "nueva": true
-   },
-   {
-    "miembro": "vistra:A7233SeniorSecuredNotesDue2028Member",
-    "nombre": "7.233% Senior Secured Notes Due 2028",
-    "tipo": "Deuda garantizada",
-    "cupon": 7.233,
-    "variable": false,
-    "nominal": 450000000.0,
-    "moneda": "USD",
-    "nominal_moneda": "USD",
-    "vencimiento": "2028-12-31",
-    "vencimiento_aprox": true,
-    "programa": false,
-    "primera_vez": {
-     "formulario": "10-K",
-     "fecha_presentacion": "2026-02-27",
-     "fecha_periodo": "2025-12-31",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000006/0001692819-26-000006-index.htm",
-     "fuente": "SEC EDGAR · 10-K (XBRL)"
-    },
-    "fuente": {
-     "formulario": "10-K",
-     "fecha_presentacion": "2026-02-27",
-     "fecha_periodo": "2025-12-31",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000006/0001692819-26-000006-index.htm",
-     "fuente": "SEC EDGAR · 10-K (XBRL)"
-    },
-    "nueva": false
    },
    {
     "miembro": "vistra:A3.375EnergyHarborSecuredNotesDue2029Member",
@@ -4493,9 +4371,12 @@
     "tipo": "Deuda garantizada",
     "cupon": 3.375,
     "variable": false,
+    "en_libros": 100000000.0,
+    "en_libros_fecha": "2026-06-30",
     "moneda": "USD",
     "vencimiento": "2029-12-31",
     "vencimiento_aprox": true,
+    "vencimiento_precision": "anio",
     "programa": false,
     "primera_vez": {
      "formulario": "10-K",
@@ -4519,9 +4400,12 @@
     "tipo": "Bono senior",
     "cupon": 4.3,
     "variable": false,
+    "en_libros": 800000000.0,
+    "en_libros_fecha": "2026-06-30",
     "moneda": "USD",
     "vencimiento": "2029-12-31",
     "vencimiento_aprox": true,
+    "vencimiento_precision": "anio",
     "programa": false,
     "primera_vez": {
      "formulario": "10-Q",
@@ -4545,9 +4429,12 @@
     "tipo": "Bono senior",
     "cupon": 4.375,
     "variable": false,
+    "en_libros": 1250000000.0,
+    "en_libros_fecha": "2026-06-30",
     "moneda": "USD",
     "vencimiento": "2029-12-31",
     "vencimiento_aprox": true,
+    "vencimiento_precision": "anio",
     "programa": false,
     "primera_vez": {
      "formulario": "10-Q",
@@ -4571,9 +4458,12 @@
     "tipo": "Bono senior",
     "cupon": 4.6,
     "variable": false,
+    "en_libros": 500000000.0,
+    "en_libros_fecha": "2026-06-30",
     "moneda": "USD",
     "vencimiento": "2030-12-31",
     "vencimiento_aprox": true,
+    "vencimiento_precision": "anio",
     "programa": false,
     "primera_vez": {
      "formulario": "10-Q",
@@ -4589,8 +4479,6 @@
      "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
      "fuente": "SEC EDGAR · 10-Q (XBRL)"
     },
-    "nominal": 500000000.0,
-    "nominal_moneda": "USD",
     "nueva": true
    },
    {
@@ -4600,10 +4488,13 @@
     "cupon": 4.7,
     "variable": false,
     "nominal": 1000000000.0,
+    "en_libros": 1000000000.0,
+    "en_libros_fecha": "2026-06-30",
     "moneda": "USD",
     "nominal_moneda": "USD",
     "vencimiento": "2031-12-31",
     "vencimiento_aprox": true,
+    "vencimiento_precision": "anio",
     "programa": false,
     "primera_vez": {
      "formulario": "10-Q",
@@ -4622,16 +4513,17 @@
     "nueva": true
    },
    {
-    "miembro": "vistra:A5.000SeniorUnsecuredNotesDue2031Member",
-    "nombre": "5.000% Senior Unsecured Notes Due 2031",
+    "miembro": "vistra:A5.000SeniorNotesDue2031Member",
+    "nombre": "5.000% Senior Notes Due 2031",
     "tipo": "Bono senior",
     "cupon": 5.0,
     "variable": false,
-    "nominal": 1000000000.0,
+    "en_libros": 1000000000.0,
+    "en_libros_fecha": "2026-06-30",
     "moneda": "USD",
-    "nominal_moneda": "USD",
     "vencimiento": "2031-12-31",
     "vencimiento_aprox": true,
+    "vencimiento_precision": "anio",
     "programa": false,
     "primera_vez": {
      "formulario": "10-Q",
@@ -4647,6 +4539,8 @@
      "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
      "fuente": "SEC EDGAR · 10-Q (XBRL)"
     },
+    "nominal": 1000000000.0,
+    "nominal_moneda": "USD",
     "nueva": true
    },
    {
@@ -4655,9 +4549,12 @@
     "tipo": "Bono senior",
     "cupon": 7.75,
     "variable": false,
+    "en_libros": 1450000000.0,
+    "en_libros_fecha": "2026-06-30",
     "moneda": "USD",
     "vencimiento": "2031-12-31",
     "vencimiento_aprox": true,
+    "vencimiento_precision": "anio",
     "programa": false,
     "primera_vez": {
      "formulario": "10-Q",
@@ -4681,9 +4578,12 @@
     "tipo": "Bono senior",
     "cupon": 6.875,
     "variable": false,
+    "en_libros": 1000000000.0,
+    "en_libros_fecha": "2026-06-30",
     "moneda": "USD",
     "vencimiento": "2032-12-31",
     "vencimiento_aprox": true,
+    "vencimiento_precision": "anio",
     "programa": false,
     "primera_vez": {
      "formulario": "10-Q",
@@ -4707,9 +4607,12 @@
     "tipo": "Deuda garantizada",
     "cupon": 4.75,
     "variable": false,
+    "en_libros": 285000000.0,
+    "en_libros_fecha": "2026-06-30",
     "moneda": "USD",
     "vencimiento": "2033-12-31",
     "vencimiento_aprox": true,
+    "vencimiento_precision": "anio",
     "programa": false,
     "primera_vez": {
      "formulario": "10-K",
@@ -4728,16 +4631,17 @@
     "nueva": false
    },
    {
-    "miembro": "vistra:A5.250SeniorUnsecuredNotesDue2033Member",
-    "nombre": "5.250% Senior Unsecured Notes Due 2033",
+    "miembro": "vistra:A5.250SeniorNotesDue2033Member",
+    "nombre": "5.250% Senior Notes due 2033",
     "tipo": "Bono senior",
     "cupon": 5.25,
     "variable": false,
-    "nominal": 1000000000.0,
+    "en_libros": 1000000000.0,
+    "en_libros_fecha": "2026-06-30",
     "moneda": "USD",
-    "nominal_moneda": "USD",
     "vencimiento": "2033-12-31",
     "vencimiento_aprox": true,
+    "vencimiento_precision": "anio",
     "programa": false,
     "primera_vez": {
      "formulario": "10-Q",
@@ -4753,6 +4657,8 @@
      "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
      "fuente": "SEC EDGAR · 10-Q (XBRL)"
     },
+    "nominal": 1000000000.0,
+    "nominal_moneda": "USD",
     "nueva": true
    },
    {
@@ -4761,9 +4667,12 @@
     "tipo": "Bono senior",
     "cupon": 6.95,
     "variable": false,
+    "en_libros": 1050000000.0,
+    "en_libros_fecha": "2026-06-30",
     "moneda": "USD",
     "vencimiento": "2033-12-31",
     "vencimiento_aprox": true,
+    "vencimiento_precision": "anio",
     "programa": false,
     "primera_vez": {
      "formulario": "10-Q",
@@ -4787,9 +4696,12 @@
     "tipo": "Bono senior",
     "cupon": 5.7,
     "variable": false,
+    "en_libros": 750000000.0,
+    "en_libros_fecha": "2026-06-30",
     "moneda": "USD",
     "vencimiento": "2034-12-31",
     "vencimiento_aprox": true,
+    "vencimiento_precision": "anio",
     "programa": false,
     "primera_vez": {
      "formulario": "10-Q",
@@ -4813,9 +4725,12 @@
     "tipo": "Bono senior",
     "cupon": 6.0,
     "variable": false,
+    "en_libros": 500000000.0,
+    "en_libros_fecha": "2026-06-30",
     "moneda": "USD",
     "vencimiento": "2034-12-31",
     "vencimiento_aprox": true,
+    "vencimiento_precision": "anio",
     "programa": false,
     "primera_vez": {
      "formulario": "10-Q",
@@ -4839,9 +4754,12 @@
     "tipo": "Bono senior",
     "cupon": 5.25,
     "variable": false,
+    "en_libros": 750000000.0,
+    "en_libros_fecha": "2026-06-30",
     "moneda": "USD",
     "vencimiento": "2035-12-31",
     "vencimiento_aprox": true,
+    "vencimiento_precision": "anio",
     "programa": false,
     "primera_vez": {
      "formulario": "10-Q",
@@ -4857,8 +4775,6 @@
      "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
      "fuente": "SEC EDGAR · 10-Q (XBRL)"
     },
-    "nominal": 750000000.0,
-    "nominal_moneda": "USD",
     "nueva": true
    },
    {
@@ -4868,10 +4784,13 @@
     "cupon": 5.35,
     "variable": false,
     "nominal": 1250000000.0,
+    "en_libros": 1250000000.0,
+    "en_libros_fecha": "2026-06-30",
     "moneda": "USD",
     "nominal_moneda": "USD",
     "vencimiento": "2036-12-31",
     "vencimiento_aprox": true,
+    "vencimiento_precision": "anio",
     "programa": false,
     "primera_vez": {
      "formulario": "10-Q",
@@ -4890,16 +4809,17 @@
     "nueva": true
    },
    {
-    "miembro": "vistra:A5.550SeniorUnsecuredNotesDue2036Member",
-    "nombre": "5.550% Senior Unsecured Notes Due 2036",
+    "miembro": "vistra:A5.550SeniorNotesDue2036Member",
+    "nombre": "5.550% Senior Notes Due 2036",
     "tipo": "Bono senior",
     "cupon": 5.55,
     "variable": false,
-    "nominal": 1500000000.0,
+    "en_libros": 1500000000.0,
+    "en_libros_fecha": "2026-06-30",
     "moneda": "USD",
-    "nominal_moneda": "USD",
     "vencimiento": "2036-12-31",
     "vencimiento_aprox": true,
+    "vencimiento_precision": "anio",
     "programa": false,
     "primera_vez": {
      "formulario": "10-Q",
@@ -4915,6 +4835,8 @@
      "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
      "fuente": "SEC EDGAR · 10-Q (XBRL)"
     },
+    "nominal": 1500000000.0,
+    "nominal_moneda": "USD",
     "nueva": true
    },
    {
@@ -4923,9 +4845,38 @@
     "tipo": "Deuda garantizada",
     "cupon": 3.75,
     "variable": false,
+    "en_libros": 46000000.0,
+    "en_libros_fecha": "2026-06-30",
     "moneda": "USD",
     "vencimiento": "2047-12-31",
     "vencimiento_aprox": true,
+    "vencimiento_precision": "anio",
+    "programa": false,
+    "primera_vez": {
+     "formulario": "10-K",
+     "fecha_presentacion": "2026-02-27",
+     "fecha_periodo": "2025-12-31",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000006/0001692819-26-000006-index.htm",
+     "fuente": "SEC EDGAR · 10-K (XBRL)"
+    },
+    "fuente": {
+     "formulario": "10-Q",
+     "fecha_presentacion": "2026-08-10",
+     "fecha_periodo": "2026-06-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
+     "fuente": "SEC EDGAR · 10-Q (XBRL)"
+    },
+    "nueva": false
+   },
+   {
+    "miembro": "vistra:BCOPCreditFacilitiesMember",
+    "nombre": "BCOP Credit Facilities",
+    "tipo": "Otra deuda",
+    "variable": false,
+    "en_libros": 261000000.0,
+    "en_libros_fecha": "2026-06-30",
+    "moneda": "USD",
+    "vencimiento_aprox": false,
     "programa": false,
     "primera_vez": {
      "formulario": "10-K",
@@ -4996,6 +4947,32 @@
     "nueva": false
    },
    {
+    "miembro": "vistra:EquipmentFinancingAgreementMember",
+    "nombre": "Equipment Financing Agreement",
+    "tipo": "Otra deuda",
+    "variable": false,
+    "en_libros": 46000000.0,
+    "en_libros_fecha": "2026-06-30",
+    "moneda": "USD",
+    "vencimiento_aprox": false,
+    "programa": false,
+    "primera_vez": {
+     "formulario": "10-K",
+     "fecha_presentacion": "2026-02-27",
+     "fecha_periodo": "2025-12-31",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000006/0001692819-26-000006-index.htm",
+     "fuente": "SEC EDGAR · 10-K (XBRL)"
+    },
+    "fuente": {
+     "formulario": "10-Q",
+     "fecha_presentacion": "2026-08-10",
+     "fecha_periodo": "2026-06-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
+     "fuente": "SEC EDGAR · 10-Q (XBRL)"
+    },
+    "nueva": false
+   },
+   {
     "miembro": "vistra:OakHillMember",
     "nombre": "Oak Hill",
     "tipo": "Otra deuda",
@@ -5010,6 +4987,32 @@
      "fecha_presentacion": "2026-05-08",
      "fecha_periodo": "2026-03-31",
      "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000014/0001692819-26-000014-index.htm",
+     "fuente": "SEC EDGAR · 10-Q (XBRL)"
+    },
+    "fuente": {
+     "formulario": "10-Q",
+     "fecha_presentacion": "2026-08-10",
+     "fecha_periodo": "2026-06-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
+     "fuente": "SEC EDGAR · 10-Q (XBRL)"
+    },
+    "nueva": true
+   },
+   {
+    "miembro": "vistra:OtherDebtMember",
+    "nombre": "Other Debt",
+    "tipo": "Otra deuda",
+    "variable": false,
+    "en_libros": 4000000.0,
+    "en_libros_fecha": "2026-06-30",
+    "moneda": "USD",
+    "vencimiento_aprox": false,
+    "programa": false,
+    "primera_vez": {
+     "formulario": "10-Q",
+     "fecha_presentacion": "2026-08-10",
+     "fecha_periodo": "2026-06-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
      "fuente": "SEC EDGAR · 10-Q (XBRL)"
     },
     "fuente": {
@@ -5074,11 +5077,66 @@
     "nueva": false
    },
    {
-    "miembro": "vistra:SeniorSecuredRevolvingCreditFacilityMember",
-    "nombre": "Senior Secured Revolving Credit Facility",
-    "tipo": "Línea de crédito",
-    "cupon": 1.75,
+    "miembro": "vistra:SeniorSecuredTermLoanB3FacilityMember",
+    "nombre": "Senior Secured Term Loan B-3 Facility",
+    "tipo": "Préstamo a plazo",
     "variable": false,
+    "en_libros": 2444000000.0,
+    "en_libros_fecha": "2026-03-31",
+    "moneda": "USD",
+    "vencimiento_aprox": false,
+    "programa": false,
+    "primera_vez": {
+     "formulario": "10-K",
+     "fecha_presentacion": "2026-02-27",
+     "fecha_periodo": "2025-12-31",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000006/0001692819-26-000006-index.htm",
+     "fuente": "SEC EDGAR · 10-K (XBRL)"
+    },
+    "fuente": {
+     "formulario": "10-Q",
+     "fecha_presentacion": "2026-08-10",
+     "fecha_periodo": "2026-06-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
+     "fuente": "SEC EDGAR · 10-Q (XBRL)"
+    },
+    "nominal": 2444000000.0,
+    "nominal_moneda": "USD",
+    "nueva": false
+   },
+   {
+    "miembro": "vistra:TexasEnergyFundLoanMember",
+    "nombre": "Texas Energy Fund Loan",
+    "tipo": "Otra deuda",
+    "variable": false,
+    "en_libros": 172000000.0,
+    "en_libros_fecha": "2026-06-30",
+    "moneda": "USD",
+    "vencimiento_aprox": false,
+    "programa": false,
+    "primera_vez": {
+     "formulario": "10-Q",
+     "fecha_presentacion": "2026-08-10",
+     "fecha_periodo": "2026-06-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
+     "fuente": "SEC EDGAR · 10-Q (XBRL)"
+    },
+    "fuente": {
+     "formulario": "10-Q",
+     "fecha_presentacion": "2026-08-10",
+     "fecha_periodo": "2026-06-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
+     "fuente": "SEC EDGAR · 10-Q (XBRL)"
+    },
+    "nueva": true
+   },
+   {
+    "miembro": "vistra:VistraZeroCreditFacilityMember",
+    "nombre": "Vistra Zero Credit Facility",
+    "tipo": "Línea de crédito",
+    "variable": false,
+    "en_libros": 697000000.0,
+    "en_libros_fecha": "2026-06-30",
     "moneda": "USD",
     "vencimiento_aprox": false,
     "programa": false,
@@ -5099,21 +5157,21 @@
     "nueva": false
    },
    {
-    "miembro": "vistra:SeniorSecuredTermLoanB3FacilityMember",
-    "nombre": "Senior Secured Term Loan B-3 Facility",
+    "miembro": "vistra:VistraZeroTermLoanBFacilityMember",
+    "nombre": "Vistra Zero Term Loan B Facility",
     "tipo": "Préstamo a plazo",
     "variable": false,
-    "nominal": 2444000000.0,
+    "en_libros": 697000000.0,
+    "en_libros_fecha": "2026-06-30",
     "moneda": "USD",
-    "nominal_moneda": "USD",
     "vencimiento_aprox": false,
     "programa": false,
     "primera_vez": {
-     "formulario": "10-Q",
-     "fecha_presentacion": "2026-08-10",
-     "fecha_periodo": "2026-06-30",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
-     "fuente": "SEC EDGAR · 10-Q (XBRL)"
+     "formulario": "10-K",
+     "fecha_presentacion": "2026-02-27",
+     "fecha_periodo": "2025-12-31",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000006/0001692819-26-000006-index.htm",
+     "fuente": "SEC EDGAR · 10-K (XBRL)"
     },
     "fuente": {
      "formulario": "10-Q",
@@ -5122,7 +5180,7 @@
      "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
      "fuente": "SEC EDGAR · 10-Q (XBRL)"
     },
-    "nueva": true
+    "nueva": false
    }
   ],
   "composicion": [
@@ -5219,5 +5277,5 @@
   "fuente": "Finnhub · recomendaciones de analistas",
   "url": "https://finnhub.io/docs/api/recommendation-trends"
  },
- "generado": "2026-10-31T14:55:58+00:00"
+ "generado": "2026-10-31T14:57:23+00:00"
 }

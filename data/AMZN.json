@@ -4536,7 +4536,7 @@
   }
  ],
  "bonos": {
-  "version": 3,
+  "version": 4,
   "informes_accn": [
    "0001018724-26-000040",
    "0001018724-26-000026",
@@ -4555,6 +4555,7 @@
     "nominal_moneda": "EUR",
     "vencimiento": "2028-12-31",
     "vencimiento_aprox": true,
+    "vencimiento_precision": "anio",
     "programa": false,
     "primera_vez": {
      "formulario": "10-Q",
@@ -4573,32 +4574,6 @@
     "nueva": true
    },
    {
-    "miembro": "amzn:FloatingRateNotesDue2028Member",
-    "nombre": "Floating Rate Notes due 2028",
-    "tipo": "Bono senior",
-    "diferencial": 0.44,
-    "variable": true,
-    "moneda": "USD",
-    "vencimiento": "2028-12-31",
-    "vencimiento_aprox": true,
-    "programa": false,
-    "primera_vez": {
-     "formulario": "10-Q",
-     "fecha_presentacion": "2026-04-30",
-     "fecha_periodo": "2026-03-31",
-     "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000014/0001018724-26-000014-index.htm",
-     "fuente": "SEC EDGAR · 10-Q (XBRL)"
-    },
-    "fuente": {
-     "formulario": "10-Q",
-     "fecha_presentacion": "2026-07-31",
-     "fecha_periodo": "2026-06-30",
-     "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000026/0001018724-26-000026-index.htm",
-     "fuente": "SEC EDGAR · 10-Q (XBRL)"
-    },
-    "nueva": true
-   },
-   {
     "miembro": "amzn:FloatingRateNotesDue2028And2029Member",
     "nombre": "Floating Rate Notes due 2028 and 2029",
     "tipo": "Bono senior",
@@ -4608,6 +4583,7 @@
     "nominal_moneda": "USD",
     "vencimiento": "2028-12-31",
     "vencimiento_aprox": true,
+    "vencimiento_precision": "anio",
     "programa": false,
     "primera_vez": {
      "formulario": "10-Q",
@@ -4634,6 +4610,7 @@
     "moneda": "USD",
     "vencimiento": "2029-12-31",
     "vencimiento_aprox": true,
+    "vencimiento_precision": "anio",
     "programa": false,
     "primera_vez": {
      "formulario": "10-Q",
@@ -5002,35 +4979,6 @@
     "nueva": true
    },
    {
-    "miembro": "amzn:November2025SeniorUnsecuredNotesMember",
-    "nombre": "November 2025 Senior Unsecured Notes",
-    "tipo": "Bono senior",
-    "variable": false,
-    "nominal": 15000000000.0,
-    "en_libros": 15000000000.0,
-    "en_libros_fecha": "2025-12-31",
-    "moneda": "USD",
-    "nominal_moneda": "USD",
-    "vencimiento_aprox": false,
-    "emision": "2025-11",
-    "programa": true,
-    "primera_vez": {
-     "formulario": "10-K",
-     "fecha_presentacion": "2026-02-06",
-     "fecha_periodo": "2025-12-31",
-     "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000004/0001018724-26-000004-index.htm",
-     "fuente": "SEC EDGAR · 10-K (XBRL)"
-    },
-    "fuente": {
-     "formulario": "10-K",
-     "fecha_presentacion": "2026-02-06",
-     "fecha_periodo": "2025-12-31",
-     "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000004/0001018724-26-000004-index.htm",
-     "fuente": "SEC EDGAR · 10-K (XBRL)"
-    },
-    "nueva": false
-   },
-   {
     "miembro": "amzn:September2026SterlingDenominatedNotesMember",
     "nombre": "September 2026 Sterling-Denominated Notes",
     "tipo": "Bono senior",
@@ -5184,5 +5132,5 @@
   "fuente": "Finnhub · recomendaciones de analistas",
   "url": "https://finnhub.io/docs/api/recommendation-trends"
  },
- "generado": "2026-10-31T14:55:54+00:00"
+ "generado": "2026-10-31T14:57:18+00:00"
 }

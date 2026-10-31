@@ -4131,7 +4131,7 @@
   }
  ],
  "bonos": {
-  "version": 3,
+  "version": 4,
   "informes_accn": [
    "0001652044-26-000084",
    "0001652044-26-000071",
@@ -4139,62 +4139,6 @@
    "0001652044-26-000018"
   ],
   "emisiones": [
-   {
-    "miembro": "goog:A2025USDNotesFloatingRateDueIn2028Member",
-    "nombre": "2025 USD Notes, Floating Rate, Due In 2028",
-    "tipo": "Bono senior",
-    "variable": true,
-    "en_libros": 500000000.0,
-    "en_libros_fecha": "2026-06-30",
-    "moneda": "USD",
-    "vencimiento": "2028-12-31",
-    "vencimiento_aprox": true,
-    "programa": false,
-    "primera_vez": {
-     "formulario": "10-K",
-     "fecha_presentacion": "2026-02-05",
-     "fecha_periodo": "2025-12-31",
-     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/0001652044-26-000018-index.htm",
-     "fuente": "SEC EDGAR · 10-K (XBRL)"
-    },
-    "fuente": {
-     "formulario": "10-Q",
-     "fecha_presentacion": "2026-07-23",
-     "fecha_periodo": "2026-06-30",
-     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000071/0001652044-26-000071-index.htm",
-     "fuente": "SEC EDGAR · 10-Q (XBRL)"
-    },
-    "nueva": false
-   },
-   {
-    "miembro": "goog:A2016NotesMember",
-    "nombre": "2016 Notes",
-    "tipo": "Bono senior",
-    "cupon": 2.0,
-    "variable": false,
-    "tipo_efectivo": 2.23,
-    "en_libros": 2000000000.0,
-    "en_libros_fecha": "2026-06-30",
-    "moneda": "USD",
-    "vencimiento_aprox": false,
-    "emision": "2016",
-    "programa": true,
-    "primera_vez": {
-     "formulario": "10-K",
-     "fecha_presentacion": "2026-02-05",
-     "fecha_periodo": "2025-12-31",
-     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/0001652044-26-000018-index.htm",
-     "fuente": "SEC EDGAR · 10-K (XBRL)"
-    },
-    "fuente": {
-     "formulario": "10-Q",
-     "fecha_presentacion": "2026-07-23",
-     "fecha_periodo": "2026-06-30",
-     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000071/0001652044-26-000071-index.htm",
-     "fuente": "SEC EDGAR · 10-Q (XBRL)"
-    },
-    "nueva": false
-   },
    {
     "miembro": "goog:A2020NotesMember",
     "nombre": "2020 Notes",
@@ -4248,60 +4192,6 @@
      "fecha_periodo": "2026-09-30",
      "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/0001652044-26-000084-index.htm",
      "fuente": "SEC EDGAR · 10-Q (XBRL)"
-    },
-    "nueva": false
-   },
-   {
-    "miembro": "goog:A2025USDFixedRateNotesMember",
-    "nombre": "2025 USD Fixed-Rate Notes",
-    "tipo": "Bono senior",
-    "variable": false,
-    "nominal": 17000000000.0,
-    "moneda": "USD",
-    "nominal_moneda": "USD",
-    "vencimiento_aprox": false,
-    "emision": "2025",
-    "programa": true,
-    "primera_vez": {
-     "formulario": "10-K",
-     "fecha_presentacion": "2026-02-05",
-     "fecha_periodo": "2025-12-31",
-     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/0001652044-26-000018-index.htm",
-     "fuente": "SEC EDGAR · 10-K (XBRL)"
-    },
-    "fuente": {
-     "formulario": "10-K",
-     "fecha_presentacion": "2026-02-05",
-     "fecha_periodo": "2025-12-31",
-     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/0001652044-26-000018-index.htm",
-     "fuente": "SEC EDGAR · 10-K (XBRL)"
-    },
-    "nueva": false
-   },
-   {
-    "miembro": "goog:A2025USDFloatingRateNotesMember",
-    "nombre": "2025 USD Floating-Rate Notes",
-    "tipo": "Bono senior",
-    "variable": true,
-    "nominal": 500000000.0,
-    "moneda": "USD",
-    "nominal_moneda": "USD",
-    "vencimiento_aprox": false,
-    "emision": "2025",
-    "programa": true,
-    "primera_vez": {
-     "formulario": "10-K",
-     "fecha_presentacion": "2026-02-05",
-     "fecha_periodo": "2025-12-31",
-     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/0001652044-26-000018-index.htm",
-     "fuente": "SEC EDGAR · 10-K (XBRL)"
-    },
-    "fuente": {
-     "formulario": "10-K",
-     "fecha_presentacion": "2026-02-05",
-     "fecha_periodo": "2025-12-31",
-     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/0001652044-26-000018-index.htm",
-     "fuente": "SEC EDGAR · 10-K (XBRL)"
     },
     "nueva": false
    },
@@ -4840,5 +4730,5 @@
   "fuente": "Finnhub · recomendaciones de analistas",
   "url": "https://finnhub.io/docs/api/recommendation-trends"
  },
- "generado": "2026-10-31T14:55:43+00:00"
+ "generado": "2026-10-31T14:57:07+00:00"
 }

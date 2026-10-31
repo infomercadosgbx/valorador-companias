@@ -4538,7 +4538,7 @@
   }
  ],
  "bonos": {
-  "version": 3,
+  "version": 4,
   "informes_accn": [
    "0001730168-26-000080",
    "0001730168-26-000054",
@@ -4546,64 +4546,6 @@
    "0001730168-25-000121"
   ],
   "emisiones": [
-   {
-    "miembro": "avgo:September2026SeniorNotesMember",
-    "nombre": "September 2026 Senior Notes",
-    "tipo": "Bono senior",
-    "cupon": 3.459,
-    "variable": false,
-    "tipo_efectivo": 4.19,
-    "en_libros": 752000000.0,
-    "en_libros_fecha": "2026-08-02",
-    "moneda": "USD",
-    "vencimiento": "2026-09-30",
-    "vencimiento_aprox": true,
-    "programa": false,
-    "primera_vez": {
-     "formulario": "10-K",
-     "fecha_presentacion": "2025-12-18",
-     "fecha_periodo": "2025-11-02",
-     "url": "https://www.sec.gov/Archives/edgar/data/1730168/000173016825000121/0001730168-25-000121-index.htm",
-     "fuente": "SEC EDGAR · 10-K (XBRL)"
-    },
-    "fuente": {
-     "formulario": "10-Q",
-     "fecha_presentacion": "2026-09-10",
-     "fecha_periodo": "2026-08-02",
-     "url": "https://www.sec.gov/Archives/edgar/data/1730168/000173016826000080/0001730168-26-000080-index.htm",
-     "fuente": "SEC EDGAR · 10-Q (XBRL)"
-    },
-    "nueva": false
-   },
-   {
-    "miembro": "avgo:July2027SeniorNotesMember",
-    "nombre": "July 2027 Senior Notes",
-    "tipo": "Bono senior",
-    "cupon": 5.05,
-    "variable": false,
-    "tipo_efectivo": 5.27,
-    "en_libros": 493000000.0,
-    "en_libros_fecha": "2026-05-03",
-    "moneda": "USD",
-    "vencimiento": "2027-07-31",
-    "vencimiento_aprox": true,
-    "programa": false,
-    "primera_vez": {
-     "formulario": "10-K",
-     "fecha_presentacion": "2025-12-18",
-     "fecha_periodo": "2025-11-02",
-     "url": "https://www.sec.gov/Archives/edgar/data/1730168/000173016825000121/0001730168-25-000121-index.htm",
-     "fuente": "SEC EDGAR · 10-K (XBRL)"
-    },
-    "fuente": {
-     "formulario": "10-Q",
-     "fecha_presentacion": "2026-06-09",
-     "fecha_periodo": "2026-05-03",
-     "url": "https://www.sec.gov/Archives/edgar/data/1730168/000173016826000054/0001730168-26-000054-index.htm",
-     "fuente": "SEC EDGAR · 10-Q (XBRL)"
-    },
-    "nueva": false
-   },
    {
     "miembro": "avgo:January2028SeniorNotesMember",
     "nombre": "January 2028 Senior Notes",
@@ -4616,6 +4558,7 @@
     "moneda": "USD",
     "vencimiento": "2028-01-31",
     "vencimiento_aprox": true,
+    "vencimiento_precision": "mes",
     "programa": false,
     "primera_vez": {
      "formulario": "10-K",
@@ -4645,6 +4588,7 @@
     "moneda": "USD",
     "vencimiento": "2028-02-29",
     "vencimiento_aprox": true,
+    "vencimiento_precision": "mes",
     "programa": false,
     "primera_vez": {
      "formulario": "10-K",
@@ -4663,35 +4607,6 @@
     "nueva": false
    },
    {
-    "miembro": "avgo:February2028SeniorNotesIssuedInOct24Member",
-    "nombre": "February 2028 Senior Notes Issued in Oct'24",
-    "tipo": "Bono senior",
-    "cupon": 4.15,
-    "variable": false,
-    "tipo_efectivo": 4.36,
-    "en_libros": 875000000.0,
-    "en_libros_fecha": "2025-11-02",
-    "moneda": "USD",
-    "vencimiento": "2028-02-29",
-    "vencimiento_aprox": true,
-    "programa": false,
-    "primera_vez": {
-     "formulario": "10-K",
-     "fecha_presentacion": "2025-12-18",
-     "fecha_periodo": "2025-11-02",
-     "url": "https://www.sec.gov/Archives/edgar/data/1730168/000173016825000121/0001730168-25-000121-index.htm",
-     "fuente": "SEC EDGAR · 10-K (XBRL)"
-    },
-    "fuente": {
-     "formulario": "10-K",
-     "fecha_presentacion": "2025-12-18",
-     "fecha_periodo": "2025-11-02",
-     "url": "https://www.sec.gov/Archives/edgar/data/1730168/000173016825000121/0001730168-25-000121-index.htm",
-     "fuente": "SEC EDGAR · 10-K (XBRL)"
-    },
-    "nueva": false
-   },
-   {
     "miembro": "avgo:April2028SeniorNotesMember",
     "nombre": "April 2028 Senior Notes",
     "tipo": "Bono senior",
@@ -4703,6 +4618,7 @@
     "moneda": "USD",
     "vencimiento": "2028-04-30",
     "vencimiento_aprox": true,
+    "vencimiento_precision": "mes",
     "programa": false,
     "primera_vez": {
      "formulario": "10-K",
@@ -4734,6 +4650,7 @@
     "nominal_moneda": "USD",
     "vencimiento": "2028-05-02",
     "vencimiento_aprox": false,
+    "vencimiento_precision": "dia",
     "programa": false,
     "primera_vez": {
      "formulario": "10-K",
@@ -4765,6 +4682,7 @@
     "nominal_moneda": "USD",
     "vencimiento": "2028-05-09",
     "vencimiento_aprox": false,
+    "vencimiento_precision": "dia",
     "programa": false,
     "primera_vez": {
      "formulario": "10-K",
@@ -4794,6 +4712,7 @@
     "moneda": "USD",
     "vencimiento": "2028-09-30",
     "vencimiento_aprox": true,
+    "vencimiento_precision": "mes",
     "programa": false,
     "primera_vez": {
      "formulario": "10-K",
@@ -4823,6 +4742,7 @@
     "moneda": "USD",
     "vencimiento": "2029-04-30",
     "vencimiento_aprox": true,
+    "vencimiento_precision": "mes",
     "programa": false,
     "primera_vez": {
      "formulario": "10-K",
@@ -4852,6 +4772,7 @@
     "moneda": "USD",
     "vencimiento": "2029-04-30",
     "vencimiento_aprox": true,
+    "vencimiento_precision": "mes",
     "programa": false,
     "primera_vez": {
      "formulario": "10-K",
@@ -4870,35 +4791,6 @@
     "nueva": false
    },
    {
-    "miembro": "avgo:July2029SeniorNotesMember",
-    "nombre": "July 2029 Senior Notes",
-    "tipo": "Bono senior",
-    "cupon": 5.05,
-    "variable": false,
-    "tipo_efectivo": 5.23,
-    "en_libros": 2250000000.0,
-    "en_libros_fecha": "2026-05-03",
-    "moneda": "USD",
-    "vencimiento": "2029-07-31",
-    "vencimiento_aprox": true,
-    "programa": false,
-    "primera_vez": {
-     "formulario": "10-K",
-     "fecha_presentacion": "2025-12-18",
-     "fecha_periodo": "2025-11-02",
-     "url": "https://www.sec.gov/Archives/edgar/data/1730168/000173016825000121/0001730168-25-000121-index.htm",
-     "fuente": "SEC EDGAR · 10-K (XBRL)"
-    },
-    "fuente": {
-     "formulario": "10-Q",
-     "fecha_presentacion": "2026-06-09",
-     "fecha_periodo": "2026-05-03",
-     "url": "https://www.sec.gov/Archives/edgar/data/1730168/000173016826000054/0001730168-26-000054-index.htm",
-     "fuente": "SEC EDGAR · 10-Q (XBRL)"
-    },
-    "nueva": false
-   },
-   {
     "miembro": "avgo:February2030SeniorNotesMember",
     "nombre": "February 2030 Senior Notes",
     "tipo": "Bono senior",
@@ -4910,6 +4802,7 @@
     "moneda": "USD",
     "vencimiento": "2030-02-28",
     "vencimiento_aprox": true,
+    "vencimiento_precision": "mes",
     "programa": false,
     "primera_vez": {
      "formulario": "10-K",
@@ -4939,6 +4832,7 @@
     "moneda": "USD",
     "vencimiento": "2030-04-30",
     "vencimiento_aprox": true,
+    "vencimiento_precision": "mes",
     "programa": false,
     "primera_vez": {
      "formulario": "10-K",
@@ -4968,6 +4862,7 @@
     "moneda": "USD",
     "vencimiento": "2030-04-30",
     "vencimiento_aprox": true,
+    "vencimiento_precision": "mes",
     "programa": false,
     "primera_vez": {
      "formulario": "10-K",
@@ -4997,6 +4892,7 @@
     "moneda": "USD",
     "vencimiento": "2030-07-31",
     "vencimiento_aprox": true,
+    "vencimiento_precision": "mes",
     "programa": false,
     "primera_vez": {
      "formulario": "10-K",
@@ -5026,6 +4922,7 @@
     "moneda": "USD",
     "vencimiento": "2030-10-31",
     "vencimiento_aprox": true,
+    "vencimiento_precision": "mes",
     "programa": false,
     "primera_vez": {
      "formulario": "10-K",
@@ -5055,6 +4952,7 @@
     "moneda": "USD",
     "vencimiento": "2030-11-30",
     "vencimiento_aprox": true,
+    "vencimiento_precision": "mes",
     "programa": false,
     "primera_vez": {
      "formulario": "10-K",
@@ -5084,6 +4982,7 @@
     "moneda": "USD",
     "vencimiento": "2031-01-31",
     "vencimiento_aprox": true,
+    "vencimiento_precision": "mes",
     "programa": false,
     "primera_vez": {
      "formulario": "10-Q",
@@ -5113,6 +5012,7 @@
     "moneda": "USD",
     "vencimiento": "2031-02-28",
     "vencimiento_aprox": true,
+    "vencimiento_precision": "mes",
     "programa": false,
     "primera_vez": {
      "formulario": "10-Q",
@@ -5142,6 +5042,7 @@
     "moneda": "USD",
     "vencimiento": "2031-11-30",
     "vencimiento_aprox": true,
+    "vencimiento_precision": "mes",
     "programa": false,
     "primera_vez": {
      "formulario": "10-K",
@@ -5171,6 +5072,7 @@
     "moneda": "USD",
     "vencimiento": "2032-02-29",
     "vencimiento_aprox": true,
+    "vencimiento_precision": "mes",
     "programa": false,
     "primera_vez": {
      "formulario": "10-K",
@@ -5200,6 +5102,7 @@
     "moneda": "USD",
     "vencimiento": "2032-04-30",
     "vencimiento_aprox": true,
+    "vencimiento_precision": "mes",
     "programa": false,
     "primera_vez": {
      "formulario": "10-K",
@@ -5229,6 +5132,7 @@
     "moneda": "USD",
     "vencimiento": "2032-04-30",
     "vencimiento_aprox": true,
+    "vencimiento_precision": "mes",
     "programa": false,
     "primera_vez": {
      "formulario": "10-K",
@@ -5258,6 +5162,7 @@
     "moneda": "USD",
     "vencimiento": "2032-07-31",
     "vencimiento_aprox": true,
+    "vencimiento_precision": "mes",
     "programa": false,
     "primera_vez": {
      "formulario": "10-K",
@@ -5287,6 +5192,7 @@
     "moneda": "USD",
     "vencimiento": "2032-11-30",
     "vencimiento_aprox": true,
+    "vencimiento_precision": "mes",
     "programa": false,
     "primera_vez": {
      "formulario": "10-K",
@@ -5316,6 +5222,7 @@
     "moneda": "USD",
     "vencimiento": "2033-01-31",
     "vencimiento_aprox": true,
+    "vencimiento_precision": "mes",
     "programa": false,
     "primera_vez": {
      "formulario": "10-Q",
@@ -5345,6 +5252,7 @@
     "moneda": "USD",
     "vencimiento": "2033-02-28",
     "vencimiento_aprox": true,
+    "vencimiento_precision": "mes",
     "programa": false,
     "primera_vez": {
      "formulario": "10-K",
@@ -5374,6 +5282,7 @@
     "moneda": "USD",
     "vencimiento": "2033-04-30",
     "vencimiento_aprox": true,
+    "vencimiento_precision": "mes",
     "programa": false,
     "primera_vez": {
      "formulario": "10-K",
@@ -5403,6 +5312,7 @@
     "moneda": "USD",
     "vencimiento": "2034-04-30",
     "vencimiento_aprox": true,
+    "vencimiento_precision": "mes",
     "programa": false,
     "primera_vez": {
      "formulario": "10-K",
@@ -5432,6 +5342,7 @@
     "moneda": "USD",
     "vencimiento": "2034-10-31",
     "vencimiento_aprox": true,
+    "vencimiento_precision": "mes",
     "programa": false,
     "primera_vez": {
      "formulario": "10-K",
@@ -5461,6 +5372,7 @@
     "moneda": "USD",
     "vencimiento": "2035-07-31",
     "vencimiento_aprox": true,
+    "vencimiento_precision": "mes",
     "programa": false,
     "primera_vez": {
      "formulario": "10-K",
@@ -5490,6 +5402,7 @@
     "moneda": "USD",
     "vencimiento": "2035-11-30",
     "vencimiento_aprox": true,
+    "vencimiento_precision": "mes",
     "programa": false,
     "primera_vez": {
      "formulario": "10-K",
@@ -5519,6 +5432,7 @@
     "moneda": "USD",
     "vencimiento": "2036-01-31",
     "vencimiento_aprox": true,
+    "vencimiento_precision": "mes",
     "programa": false,
     "primera_vez": {
      "formulario": "10-Q",
@@ -5548,6 +5462,7 @@
     "moneda": "USD",
     "vencimiento": "2036-02-29",
     "vencimiento_aprox": true,
+    "vencimiento_precision": "mes",
     "programa": false,
     "primera_vez": {
      "formulario": "10-K",
@@ -5577,6 +5492,7 @@
     "moneda": "USD",
     "vencimiento": "2036-11-30",
     "vencimiento_aprox": true,
+    "vencimiento_precision": "mes",
     "programa": false,
     "primera_vez": {
      "formulario": "10-K",
@@ -5606,6 +5522,7 @@
     "moneda": "USD",
     "vencimiento": "2037-05-31",
     "vencimiento_aprox": true,
+    "vencimiento_precision": "mes",
     "programa": false,
     "primera_vez": {
      "formulario": "10-K",
@@ -5635,6 +5552,7 @@
     "moneda": "USD",
     "vencimiento": "2038-02-28",
     "vencimiento_aprox": true,
+    "vencimiento_precision": "mes",
     "programa": false,
     "primera_vez": {
      "formulario": "10-K",
@@ -5664,6 +5582,7 @@
     "moneda": "USD",
     "vencimiento": "2041-02-28",
     "vencimiento_aprox": true,
+    "vencimiento_precision": "mes",
     "programa": false,
     "primera_vez": {
      "formulario": "10-K",
@@ -5693,6 +5612,7 @@
     "moneda": "USD",
     "vencimiento": "2051-02-28",
     "vencimiento_aprox": true,
+    "vencimiento_precision": "mes",
     "programa": false,
     "primera_vez": {
      "formulario": "10-K",
@@ -5722,6 +5642,7 @@
     "moneda": "USD",
     "vencimiento": "2056-01-31",
     "vencimiento_aprox": true,
+    "vencimiento_precision": "mes",
     "programa": false,
     "primera_vez": {
      "formulario": "10-Q",
@@ -5738,33 +5659,6 @@
      "fuente": "SEC EDGAR · 10-Q (XBRL)"
     },
     "nueva": true
-   },
-   {
-    "miembro": "avgo:A2017SeniorNotesMember",
-    "nombre": "2017 Senior Notes",
-    "tipo": "Bono senior",
-    "variable": false,
-    "en_libros": 777000000.0,
-    "en_libros_fecha": "2025-11-02",
-    "moneda": "USD",
-    "vencimiento_aprox": false,
-    "emision": "2017",
-    "programa": true,
-    "primera_vez": {
-     "formulario": "10-K",
-     "fecha_presentacion": "2025-12-18",
-     "fecha_periodo": "2025-11-02",
-     "url": "https://www.sec.gov/Archives/edgar/data/1730168/000173016825000121/0001730168-25-000121-index.htm",
-     "fuente": "SEC EDGAR · 10-K (XBRL)"
-    },
-    "fuente": {
-     "formulario": "10-K",
-     "fecha_presentacion": "2025-12-18",
-     "fecha_periodo": "2025-11-02",
-     "url": "https://www.sec.gov/Archives/edgar/data/1730168/000173016825000121/0001730168-25-000121-index.htm",
-     "fuente": "SEC EDGAR · 10-K (XBRL)"
-    },
-    "nueva": false
    },
    {
     "miembro": "avgo:A2020SeniorNotesMember",
@@ -5983,33 +5877,6 @@
     "nueva": false
    },
    {
-    "miembro": "avgo:June2020SeniorNotesMember",
-    "nombre": "June 2020 Senior Notes",
-    "tipo": "Bono senior",
-    "variable": false,
-    "en_libros": 752000000.0,
-    "en_libros_fecha": "2026-02-01",
-    "moneda": "USD",
-    "vencimiento_aprox": false,
-    "emision": "2020-06",
-    "programa": true,
-    "primera_vez": {
-     "formulario": "10-K",
-     "fecha_presentacion": "2025-12-18",
-     "fecha_periodo": "2025-11-02",
-     "url": "https://www.sec.gov/Archives/edgar/data/1730168/000173016825000121/0001730168-25-000121-index.htm",
-     "fuente": "SEC EDGAR · 10-K (XBRL)"
-    },
-    "fuente": {
-     "formulario": "10-Q",
-     "fecha_presentacion": "2026-03-11",
-     "fecha_periodo": "2026-02-01",
-     "url": "https://www.sec.gov/Archives/edgar/data/1730168/000173016826000016/0001730168-26-000016-index.htm",
-     "fuente": "SEC EDGAR · 10-Q (XBRL)"
-    },
-    "nueva": false
-   },
-   {
     "miembro": "avgo:March2021SeniorNotesMember",
     "nombre": "March 2021 Senior Notes",
     "tipo": "Bono senior",
@@ -6037,33 +5904,6 @@
     "nueva": false
    },
    {
-    "miembro": "avgo:May2020SeniorNotesMember",
-    "nombre": "May 2020 Senior Notes",
-    "tipo": "Bono senior",
-    "variable": false,
-    "en_libros": 3856000000.0,
-    "en_libros_fecha": "2026-02-01",
-    "moneda": "USD",
-    "vencimiento_aprox": false,
-    "emision": "2020-05",
-    "programa": true,
-    "primera_vez": {
-     "formulario": "10-K",
-     "fecha_presentacion": "2025-12-18",
-     "fecha_periodo": "2025-11-02",
-     "url": "https://www.sec.gov/Archives/edgar/data/1730168/000173016825000121/0001730168-25-000121-index.htm",
-     "fuente": "SEC EDGAR · 10-K (XBRL)"
-    },
-    "fuente": {
-     "formulario": "10-Q",
-     "fecha_presentacion": "2026-03-11",
-     "fecha_periodo": "2026-02-01",
-     "url": "https://www.sec.gov/Archives/edgar/data/1730168/000173016826000016/0001730168-26-000016-index.htm",
-     "fuente": "SEC EDGAR · 10-Q (XBRL)"
-    },
-    "nueva": false
-   },
-   {
     "miembro": "avgo:October2024SeniorNotesMember",
     "nombre": "October 2024 Senior Notes",
     "tipo": "Bono senior",
@@ -6074,6 +5914,32 @@
     "vencimiento_aprox": false,
     "emision": "2024-10",
     "programa": true,
+    "primera_vez": {
+     "formulario": "10-K",
+     "fecha_presentacion": "2025-12-18",
+     "fecha_periodo": "2025-11-02",
+     "url": "https://www.sec.gov/Archives/edgar/data/1730168/000173016825000121/0001730168-25-000121-index.htm",
+     "fuente": "SEC EDGAR · 10-K (XBRL)"
+    },
+    "fuente": {
+     "formulario": "10-Q",
+     "fecha_presentacion": "2026-09-10",
+     "fecha_periodo": "2026-08-02",
+     "url": "https://www.sec.gov/Archives/edgar/data/1730168/000173016826000080/0001730168-26-000080-index.htm",
+     "fuente": "SEC EDGAR · 10-Q (XBRL)"
+    },
+    "nueva": false
+   },
+   {
+    "miembro": "us-gaap:SeniorNotesMember",
+    "nombre": "Senior Notes",
+    "tipo": "Bono senior",
+    "variable": false,
+    "en_libros": 59329000000.0,
+    "en_libros_fecha": "2026-08-02",
+    "moneda": "USD",
+    "vencimiento_aprox": false,
+    "programa": false,
     "primera_vez": {
      "formulario": "10-K",
      "fecha_presentacion": "2025-12-18",
@@ -6128,6 +5994,32 @@
     "vencimiento_aprox": false,
     "emision": "2025-09",
     "programa": true,
+    "primera_vez": {
+     "formulario": "10-K",
+     "fecha_presentacion": "2025-12-18",
+     "fecha_periodo": "2025-11-02",
+     "url": "https://www.sec.gov/Archives/edgar/data/1730168/000173016825000121/0001730168-25-000121-index.htm",
+     "fuente": "SEC EDGAR · 10-K (XBRL)"
+    },
+    "fuente": {
+     "formulario": "10-Q",
+     "fecha_presentacion": "2026-09-10",
+     "fecha_periodo": "2026-08-02",
+     "url": "https://www.sec.gov/Archives/edgar/data/1730168/000173016826000080/0001730168-26-000080-index.htm",
+     "fuente": "SEC EDGAR · 10-Q (XBRL)"
+    },
+    "nueva": false
+   },
+   {
+    "miembro": "avgo:TermLoansMember",
+    "nombre": "Term Loans",
+    "tipo": "Préstamo a plazo",
+    "variable": false,
+    "en_libros": 1750000000.0,
+    "en_libros_fecha": "2026-08-02",
+    "moneda": "USD",
+    "vencimiento_aprox": false,
+    "programa": false,
     "primera_vez": {
      "formulario": "10-K",
      "fecha_presentacion": "2025-12-18",
@@ -6209,5 +6101,5 @@
   "fuente": "Finnhub · recomendaciones de analistas",
   "url": "https://finnhub.io/docs/api/recommendation-trends"
  },
- "generado": "2026-10-31T14:56:05+00:00"
+ "generado": "2026-10-31T14:57:29+00:00"
 }
