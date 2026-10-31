@@ -356,6 +356,13 @@ a.src:hover{color:var(--ink);border-bottom-color:var(--ink2)}
 .fieldsrc .add{padding:1px 8px;font-size:11px}
 input.ro{background:var(--surface2);color:var(--ink2);border-style:dashed}
 .seg.tbl button{white-space:nowrap;padding:6px 12px;flex:none}
+.ib{display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;padding:0;margin-left:4px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--muted);font:italic 700 10.5px/1 Georgia,serif;cursor:pointer;vertical-align:1px;text-transform:none;letter-spacing:0;flex:none}
+.ib:hover,.ib:focus-visible{border-color:var(--ink2);color:var(--ink)}
+.formula{display:flex;flex-direction:column;gap:2px;background:var(--surface2);border:1px solid var(--line);border-radius:8px;padding:8px 12px}
+.formula b{font-family:var(--f-num);font-size:13px;font-weight:600}
+table.calc td{white-space:normal} table.calc td.op{width:28px;font-weight:700;color:var(--muted);text-align:center}
+.gloss{display:flex;flex-direction:column;gap:6px}
+.chipline{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12px;color:var(--ink2);margin-top:6px}
 .recbar{display:flex;height:14px;border-radius:7px;overflow:hidden;gap:2px;margin:6px 0}
 .kpi .src{margin-top:2px}
 code{font-family:var(--f-num);font-size:.92em;background:var(--surface2);padding:0 4px;border-radius:4px}
@@ -507,6 +514,10 @@ function buildFin(c){
   const val=a=>a.map(p=>p&&fin(p.valor)?p.valor/M6:null);
   const pts={rev:ser("ingresos"),profit:ser("beneficio_operativo"),ni:ser("beneficio_neto"),ocf:ser("caja_operativa"),capex:ser("capex")};
   const rev=val(pts.rev), ocf=val(pts.ocf), capex=val(pts.capex);
+  /* capex que la empresa deja de etiquetar por inmaterial (AppLovin): se asume 0 y se marca */
+  const capexAssumed=[]; { const known=capex.map((c,i)=>fin(c)&&fin(ocf[i])&&ocf[i]>0?c/ocf[i]:null).filter(fin);
+    const tiny=known.length&&Math.max(...known.slice(-3))<0.02;
+    capex.forEach((c,i)=>{ if(!fin(c)&&fin(ocf[i])&&tiny&&known.length){ capex[i]=0; capexAssumed.push(i); } }); }
   const fcf=ocf.map((o,i)=>fin(o)&&fin(capex[i])?o-capex[i]:null);
   const B=d.balance||{}, H=k=>(B[k]&&B[k].historico)||[];
   const dates=[...new Set([...H("caja"),...H("deuda")].map(p=>p.periodo_fin))].sort();
@@ -531,7 +542,13 @@ function buildFin(c){
   const hasInv=!!(B.existencias&&B.existencias.ultimo);
   const dilA=years.map(y=>{const q=A("acciones_diluidas_media").find(x=>x.periodo===y); return q?q.valor/M6:null;});
   if(addTTM){const qd=((R.acciones_diluidas_media&&R.acciones_diluidas_media.trimestral)||[]).at(-1); dilA.push(qd?qd.valor/M6:null);}
-  const epsA=years.map(y=>{const q=A("bpa_diluido").find(x=>x.periodo===y); return q?q.valor:null;}); if(addTTM) epsA.push(fin(ni.at(-1))&&fin(dilA.at(-1))?ni.at(-1)/dilA.at(-1):null);
+  const epsA=years.map(y=>{const q=A("bpa_diluido").find(x=>x.periodo===y); return q?q.valor:null;});
+  /* splits: un salto brusco en las acciones diluidas entre dos ejercicios indica un split no reexpresado
+     en los informes antiguos (Broadcom 10×1 en 2024); se ajustan acciones y BPA de los años anteriores */
+  const splits=[]; for(let i=1;i<dilA.length;i++){ const r=fin(dilA[i])&&fin(dilA[i-1])?dilA[i]/dilA[i-1]:null;
+    if(r&&r>1.8){ const fct=[2,3,4,5,8,10,15,20,25,30,40,50].reduce((a,b)=>Math.abs(b-r)<Math.abs(a-r)?b:a); splits.push({anio:years[i],factor:fct});
+      for(let j=0;j<i;j++){ if(fin(dilA[j])) dilA[j]*=fct; if(fin(epsA[j])) epsA[j]/=fct; } } }
+  if(addTTM) epsA.push(fin(ni.at(-1))&&fin(dilA.at(-1))?ni.at(-1)/dilA.at(-1):null);
   const dv=(a,b)=>fin(a)&&fin(b)&&b!==0?a/b:null, av=(a,i)=>fin(a[i])?(i>0&&fin(a[i-1])?(a[i]+a[i-1])/2:a[i]):null;
   const tax=(fin(c.v&&c.v.tax)?c.v.tax:21)/100, ic=debtA.map((d,i)=>fin(d)&&fin(eqA[i])?d+eqA[i]-(fin(cashA[i])?cashA[i]:0):null);
   const ratios={
@@ -540,12 +557,13 @@ function buildFin(c){
     debtCap:debtA.map((d,i)=>dv(d,fin(d)&&fin(eqA[i])?d+eqA[i]:null)), ndEbitda:debtA.map((d,i)=>dv(fin(d)&&fin(cashA[i])?d-cashA[i]:null,ebitda[i])),
     cover:op.map((x,i)=>dv(x,val(pts.int)[i])), current:caA.map((x,i)=>dv(x,clA[i])), quick:caA.map((x,i)=>dv(fin(x)?x-(hasInv?(invA[i]||0):0):null,clA[i])),
     eps:epsA, bvps:eqA.map((e,i)=>dv(e,dilA[i])), taxUsed:tax};
-  return {years:labels,rev,profit:op,ni,fcf,capex,ocf,gross,ebitda,da,sbc:val(pts.sbc),int:val(pts.int),debtA,cashA,eqA,ratios,bsPts:{debt:bsPts("deuda"),cash:bsPts("caja"),eq:bsPts("patrimonio_neto")},
-    maturities:(d.vencimientos_deuda)||null,debtAssumed:!!(B.deuda&&B.deuda.asumido),addTTM,
+  return {years:labels,rev,profit:op,ni,fcf,capex,ocf,gross,ebitda,da,sbc:val(pts.sbc),int:val(pts.int),debtA,cashA,eqA,asA,caA,clA,invA,dilA,ic,hasInv,ratios,
+    bsPts:{debt:bsPts("deuda"),cash:bsPts("caja"),eq:bsPts("patrimonio_neto"),assets:bsPts("activo_total"),ca:bsPts("activo_corriente"),cl:bsPts("pasivo_corriente")},
+    maturities:(d.vencimientos_deuda)||null,debtAssumed:!!(B.deuda&&B.deuda.asumido),addTTM,splits,capexAssumed,
     profitLabel:"Beneficio operativo",pts,
     bal,qrev:{labels:qL.map(p=>p.periodo),values:qL.map(p=>p.valor/M6),pts:qL},
     q:{labels:qL.map(p=>p.periodo),series:[{n:"Ingresos totales",values:yoy},...manualSeries]},
-    shares:{labels:sh.map(p=>p.periodo),values:sh.map(p=>p.valor/M6)},
+    shares:{labels:years.slice(-6),values:dilA.slice(0,years.length).slice(-6)},
     note:"Cifras de SEC EDGAR (XBRL), en millones. FCF = caja operativa − capex. UDM = últimos doce meses (suma de 4 trimestres). Se muestra el beneficio operativo porque la SEC no publica EBITDA."};
 }
 function secFigures(d){
@@ -608,6 +626,8 @@ function contradictions(c){
     const base=Math.max(Math.abs(s.m),1e-9), diff=Math.abs(a-s.m)/base;
     if(diff>0.2) out.push({nivel:"aviso",codigo:"contradiccion",campo:k,mensaje:`${lab} del modelo (${nf(a,k==="shares"?1:0)} M) difiere un ${nf(diff*100,0)}% del dato de la SEC (${nf(s.m,k==="shares"?1:0)} M a ${fecha(s.p.periodo_fin)}).`}); });
   if(c._data&&!fin(c.v.price)) out.push({nivel:"aviso",codigo:"sin_precio",mensaje:"Sin precio de mercado: el DCF no puede comparar con la cotización."});
+  (c.fin.splits||[]).forEach(sp=>out.push({nivel:"info",codigo:"split",mensaje:`Split de ${sp.factor}×1 detectado en ${sp.anio}: las acciones y el BPA de los años anteriores se ajustan para que sean comparables.`}));
+  if((c.fin.capexAssumed||[]).length) out.push({nivel:"info",codigo:"capex_asumido",mensaje:`Capex de ${c.fin.capexAssumed.map(i=>c.fin.years[i]).join(", ")}: la compañía ya no lo etiqueta en XBRL y antes era menos del 2% de su caja operativa; se asume 0 para calcular el FCF.`});
   return out;
 }
 function allWarnings(c){ return [...contradictions(c),...((c._data&&c._data.avisos)||[]).filter(w=>!(w.codigo==="sin_precio"&&!fin(c.v.price)))]; }
@@ -857,7 +877,7 @@ R.overview=()=>{
     :`<div class="chips">${[["Sector","sector"],["Sede","hq"],["Fundación","founded"],["Empleados","employees"],["Análisis a","asOf"]].map(([l,k])=>`<div class="chip"><span>${l}</span>${esc(cur.meta[k]||"—")}</div>`).join("")}</div>`}
   </section>
   <div class="kpis">
-    ${kpi("Cotización",money(cur.v.price),`<span class="note">Capitalización ${big(mcap)}</span>`)}
+    ${kpi("Cotización",money(cur.v.price),`<span class="note">Capitalización ${big(mcap)}</span>${cur._data?(()=>{let m,p,y;try{m=mctx();p=MET.per.calc(m).res;y=MET.fcf_yield.calc(m).res;}catch(e){} return `<span class="note">PER ${fin(p)?nf(p,1)+"x":"–"}${info("per")} · rentab. FCF ${fin(y)?pct(y,1):"–"}${info("fcf_yield")}</span>`;})():""}`)}
     ${kpi("Valor razonable",money(vz.w),upPill(vz.w,cur.v.price),true)}
     ${kpi("Puntuación global",nf(s.total,0)+" / 100",`<span class="note">Sugerencia del modelo: ${esc(s.sug)}</span>`)}
     ${kpi("Mi recomendación",esc(cur.verdict.rating||"—"),`<span class="note">Convicción ${nf(cur.verdict.conviction,1)} / 5</span>`)}
@@ -937,52 +957,49 @@ R.financial=()=>{
   const f=cur.fin, n=f.years.length, L=n-1, sc=finScale(), r=f.ratios||{};
   const last=f.rev[L], prev=f.rev[L-1], netDebt=(f.bal.debt.at(-1)??NaN)-(f.bal.cash.at(-1)??NaN);
   /* tabla principal: cifras, % sobre ingresos o crecimiento */
-  const rowsDef=[["rev","Ingresos","rev"],["gross","Beneficio bruto","gross"],["ebitda","EBITDA (operativo + amortizaciones)","profit"],["profit",f.profitLabel,"profit"],["ni","Beneficio neto","ni"],
+  const rowsDef=[["rev","Ingresos","rev"],["gross","Beneficio bruto","gross"],["ebitda","EBITDA","profit"],["profit",f.profitLabel,"profit"],["ni","Beneficio neto","ni"],
     ["ocf","Caja operativa","ocf"],["capex","Capex","capex"],["fcf","Flujo de caja libre","ocf"],["sbc","Pago en acciones","sbc"],["int","Gastos por intereses","int"]];
   const cell=(k,i)=>{const v=f[k][i]; if(FINMODE==="margen") return k==="rev"?(fin(v)?"100%":"–"):pct(fin(v)&&fin(f.rev[i])&&f.rev[i]?v/f.rev[i]*100:NaN);
     if(FINMODE==="crec"){ if(f.addTTM&&i===L) return "–"; const p=f[k][i-1]; return pct(i&&fin(v)&&fin(p)&&p>0?(v/p-1)*100:NaN); } return nf(v);};
-  const head=`<thead><tr><th>${FINMODE==="cifras"?"M "+esc(ccy()):FINMODE==="margen"?"% de ingresos":"% interanual"}</th>${f.years.map((y,i)=>`<th>${f.pts.rev[i]&&okUrl(f.pts.rev[i].url)?`<a href="${esc(f.pts.rev[i].url)}" target="_blank" rel="noopener noreferrer" style="color:inherit" title="${esc(`Presentado ${fecha(f.pts.rev[i].fecha_presentacion)} · ${f.pts.rev[i].formulario||""}`)}">${esc(y)}</a>`:esc(y)}</th>`).join("")}</tr></thead>`;
-  const tbl=head+"<tbody>"+rowsDef.filter(([k])=>(f[k]||[]).some(fin)).map(([k,l])=>`<tr class="${k==="rev"?"em":""}"><td>${esc(l)}</td>${f.years.map((_,i)=>`<td title="${esc(cellTitle(k,i))}">${cell(k,i)}</td>`).join("")}</tr>`).join("")+"</tbody>";
+  const head=`<thead><tr><th>${FINMODE==="cifras"?"M "+esc(ccy()):FINMODE==="margen"?"% de ingresos":"% interanual"}</th>${f.years.map((y,i)=>`<th>${f.pts.rev[i]&&okUrl(f.pts.rev[i].url)?`<a href="${esc(f.pts.rev[i].url)}" target="_blank" rel="noopener noreferrer" style="color:inherit">${esc(y)}</a>`:esc(y)}</th>`).join("")}</tr></thead>`;
+  const RINFO={ebitda:"ebitda",fcf:"fcf"};
+  const tbl=head+"<tbody>"+rowsDef.filter(([k])=>(f[k]||[]).some(fin)).map(([k,l])=>`<tr class="${k==="rev"?"em":""}"><td>${esc(l)}${RINFO[k]?info(RINFO[k]):""}</td>${f.years.map((_,i)=>`<td>${cell(k,i)}</td>`).join("")}</tr>`).join("")+"</tbody>";
   const seg=`<div class="seg tbl" role="group" aria-label="Formato de la tabla" style="width:max-content;max-width:100%">${[["cifras","Cifras"],["margen","% de ingresos"],["crec","Crecimiento"]].map(([k,l])=>`<button type="button" data-fmode="${k}" aria-pressed="${FINMODE===k}">${l}</button>`).join("")}</div>`;
   /* ratios */
   const x=(v,d=1)=>fin(v)?nf(v,d)+"x":"–", pc=v=>fin(v)?pct(v*100):"–";
-  const RG=[["Rentabilidad",[["ROE (beneficio neto / patrimonio medio)",r.roe,pc],["ROA (beneficio neto / activo medio)",r.roa,pc],[`ROIC (beneficio operativo × (1 − ${nf((r.taxUsed||0)*100,0)}%) / capital invertido)`,r.roic,pc],["ROCE (beneficio operativo / capital empleado)",r.roce,pc],["CROIC (FCF / capital invertido)",r.croic,pc]]],
-    ["Solvencia y liquidez",[["Deuda / capital (deuda + patrimonio)",r.debtCap,pc],["Deuda neta / EBITDA",r.ndEbitda,v=>x(v)],["Cobertura de intereses (operativo / intereses)",r.cover,v=>x(v)],["Liquidez corriente (activo / pasivo corriente)",r.current,v=>x(v,2)],["Prueba ácida (sin existencias)",r.quick,v=>x(v,2)]]],
-    ["Por acción",[["BPA diluido",r.eps,v=>fin(v)?nf(v,2)+" "+ccy():"–"],["Valor contable por acción",r.bvps,v=>fin(v)?nf(v,2)+" "+ccy():"–"]]]];
+  const RG=[["Rentabilidad",[["ROE",r.roe,pc,"roe"],["ROA",r.roa,pc,"roa"],["ROIC",r.roic,pc,"roic"],["ROCE",r.roce,pc,"roce"],["CROIC",r.croic,pc,"croic"]]],
+    ["Solvencia y liquidez",[["Deuda / capital",r.debtCap,pc,"deuda_capital"],["Deuda neta / EBITDA",r.ndEbitda,v=>x(v),"nd_ebitda"],["Cobertura de intereses",r.cover,v=>x(v),"cobertura"],["Liquidez corriente",r.current,v=>x(v,2),"liquidez"],["Prueba ácida",r.quick,v=>x(v,2),"prueba_acida"]]],
+    ["Por acción",[["BPA diluido",r.eps,v=>fin(v)?nf(v,2)+" "+ccy():"–","bpa"],["Valor contable por acción",r.bvps,v=>fin(v)?nf(v,2)+" "+ccy():"–","vc_accion"]]]];
   const rtbl=`<thead><tr><th></th>${f.years.map(y=>`<th>${esc(y)}</th>`).join("")}</tr></thead><tbody>`+RG.map(([g,rows])=>`<tr><td colspan="${n+1}" class="eyebrow" style="padding-top:12px">${g}</td></tr>`+
-    rows.filter(([,a])=>(a||[]).some(fin)).map(([l,a,fm])=>`<tr><td style="white-space:normal;min-width:220px">${esc(l)}</td>${f.years.map((_,i)=>`<td>${fm(a[i])}</td>`).join("")}</tr>`).join("")).join("")+"</tbody>";
-  /* al precio actual */
-  const S=cur.sec, sh=fin(S.shares.m)?S.shares.m:cur.v.shares, mcap=cur.v.price*sh, debt=S.debt.m, cash=S.cash.m, ev=mcap+(fin(debt)?debt:0)-(fin(cash)?cash:0);
-  const eq=f.eqA.at(-1), ebitdaU=f.ebitda[L], niU=f.ni[L], revU=f.rev[L], fcfU=f.fcf[L];
-  const an=f.years.filter(y=>/^\d{4}$/.test(y)), rv=an.map(y=>f.rev[f.years.indexOf(y)]), k5=Math.min(5,rv.length-1), cagr=k5>0&&rv[rv.length-1-k5]>0?(Math.pow(rv.at(-1)/rv[rv.length-1-k5],1/k5)-1)*100:NaN;
-  const mk2=(l,v,u)=>`<div class="chip"><span>${l}</span><b class="num">${v}</b>${u?`<span style="text-transform:none;letter-spacing:0;font-weight:400">${u}</span>`:""}</div>`;
+    rows.filter(([,a])=>(a||[]).some(fin)).map(([l,a,fm,id])=>`<tr><td style="white-space:normal;min-width:170px">${esc(l)}${info(id)}</td>${f.years.map((_,i)=>`<td>${fm(a[i])}</td>`).join("")}</tr>`).join("")).join("")+"</tbody>";
+  const S=cur.sec, debt=S.debt.m, cash=S.cash.m;
   /* deuda */
   const mat=f.maturities, dTot=debt, nd=fin(debt)&&fin(cash)?debt-cash:NaN;
   return `
   <div class="kpis">
     ${kpi("Ingresos "+esc(f.years[L]||""),big(last),fin(prev)?upPill(last,prev).replace("vs cotización","interanual")+srcTag(f.pts.rev[L]):srcTag(f.pts.rev[L]),true)}
-    ${kpi("Margen "+esc(lc(f.profitLabel)),pct(f.profit[L]/last*100),`<span class="note">${esc(f.years[L-1]||"")}: ${pct(f.profit[L-1]/prev*100)}</span>${srcTag(f.pts.profit[L])}`)}
-    ${kpi("Flujo de caja libre",big(f.fcf[L]),`<span class="note">${esc(f.years[L-1]||"")}: ${big(f.fcf[L-1])}</span>${srcTag(f.pts.ocf[L])}`)}
-    ${kpi(netDebt>0?"Deuda neta":"Caja neta",big(Math.abs(netDebt)),`<span class="note">a ${esc(f.bal.labels.at(-1)||"")}</span>${srcTag(cur.sec.debt.p)}`)}
+    ${kpi("Margen "+esc(lc(f.profitLabel))+info("margen_operativo"),pct(f.profit[L]/last*100),`<span class="note">${esc(f.years[L-1]||"")}: ${pct(f.profit[L-1]/prev*100)}</span>${srcTag(f.pts.profit[L])}`)}
+    ${kpi("Flujo de caja libre"+info("fcf"),big(f.fcf[L]),`<span class="note">${esc(f.years[L-1]||"")}: ${big(f.fcf[L-1])}</span>${srcTag(f.pts.ocf[L])}`)}
+    ${kpi((netDebt>0?"Deuda neta":"Caja neta")+info("deuda_neta"),big(Math.abs(netDebt)),`<span class="note">a ${esc(f.bal.labels.at(-1)||"")}</span>${srcTag(cur.sec.debt.p)}`)}
   </div>
   <div class="g2">
     <section class="card"><h2>Ingresos y ${esc(lc(f.profitLabel))}</h2><p class="sub">${sc.u}</p><div class="cv h260"><canvas id="ch_fn_rev" role="img" aria-label="Ingresos y beneficio por año"></canvas></div></section>
-    <section class="card"><h2>Evolución de los márgenes</h2><p class="sub">% sobre ingresos. EBITDA = beneficio operativo + amortizaciones (la SEC no publica EBITDA).</p><div class="cv h260"><canvas id="ch_fn_mg" role="img" aria-label="Márgenes por año"></canvas></div></section>
+    <section class="card"><h2>Evolución de los márgenes</h2><p class="sub">% sobre ingresos.</p><div class="cv h260"><canvas id="ch_fn_mg" role="img" aria-label="Márgenes por año"></canvas></div><div class="chipline">Cómo se calculan: <span>Bruto${info("margen_bruto")}</span><span>EBITDA${info("margen_ebitda")}</span><span>Operativo${info("margen_operativo")}</span><span>Neto${info("margen_neto")}</span><span>FCF${info("margen_fcf")}</span></div></section>
     <section class="card"><h2>Beneficio, caja e inversión</h2><p class="sub">${sc.u}</p><div class="cv h260"><canvas id="ch_fn_cash" role="img" aria-label="Beneficio neto, flujo de caja libre y capex"></canvas></div></section>
-    <section class="card"><h2>Intensidad de la inversión</h2><p class="sub">Capex sobre ingresos y sobre caja operativa, en %. Por encima de la línea del 100%, la compañía invierte más caja de la que genera su negocio y la diferencia sale de su caja o de deuda.</p><div class="cv h260"><canvas id="ch_fn_conv" role="img" aria-label="Intensidad de capex y conversión en caja"></canvas></div></section>
+    <section class="card"><h2>Intensidad de la inversión</h2><p class="sub">Capex sobre ingresos y sobre caja operativa, en %. Por encima de la línea del 100%, la compañía invierte más caja de la que genera su negocio y la diferencia sale de su caja o de deuda.</p><div class="cv h260"><canvas id="ch_fn_conv" role="img" aria-label="Intensidad de capex y conversión en caja"></canvas></div><div class="chipline">Cómo se calculan: <span>Capex / ingresos${info("capex_ingresos")}</span><span>Capex / caja operativa${info("capex_ocf")}</span></div></section>
   </div>
   <section class="card"><h2>Tabla de datos</h2>
-    <div style="display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between"><p class="sub" style="margin:0">Fuente: SEC EDGAR. Pasa el ratón por una cifra para ver su etiqueta XBRL; el año enlaza al 10-K.</p>${seg}</div>
+    <div style="display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between"><p class="sub" style="margin:0">Fuente: SEC EDGAR. Cada año enlaza a su 10-K; las etiquetas XBRL y el origen de cada cifra están en la pestaña Fuentes.</p>${seg}</div>
     <div class="scroll"><table>${tbl}</table></div>
     <p class="note">${esc(f.note)}</p>
   </section>
   <section class="card" style="--tc:var(--c8)"><h2>Deuda y solvencia</h2>
     <p class="sub">${f.debtAssumed?"La SEC no tiene ninguna etiqueta de deuda vigente para esta compañía: deuda asumida 0.":"Deuda financiera (largo plazo + porción corriente) frente a la caja."}</p>
     <div class="kpis">
-      ${kpi("Deuda total",big(dTot),srcTag(S.debt.p),true)}
-      ${kpi(nd>0?"Deuda neta":"Caja neta",big(Math.abs(nd)),`<span class="note">caja ${big(cash)}</span>`)}
-      ${kpi("Deuda neta / EBITDA",x(r.ndEbitda&&r.ndEbitda[L]),`<span class="note">EBITDA ${esc(f.years[L]||"")}: ${big(f.ebitda[L])}</span>`)}
-      ${kpi("Cobertura de intereses",x(r.cover&&r.cover[L]),`<span class="note">liquidez corriente ${x(r.current&&r.current[L],2)} · deuda/capital ${pc(r.debtCap&&r.debtCap[L])}</span>`)}
+      ${kpi("Deuda total"+info("deuda_total"),big(dTot),srcTag(S.debt.p),true)}
+      ${kpi((nd>0?"Deuda neta":"Caja neta")+info("deuda_neta"),big(Math.abs(nd)),`<span class="note">caja ${big(cash)}</span>`)}
+      ${kpi("Deuda neta / EBITDA"+info("nd_ebitda"),x(r.ndEbitda&&r.ndEbitda[L]),`<span class="note">EBITDA ${esc(f.years[L]||"")}: ${big(f.ebitda[L])}</span>`)}
+      ${kpi("Cobertura de intereses"+info("cobertura"),x(r.cover&&r.cover[L]),`<span class="note">liquidez corriente ${x(r.current&&r.current[L],2)} · deuda/capital ${pc(r.debtCap&&r.debtCap[L])}</span>`)}
     </div>
     <div class="g2" style="margin-top:12px">
       <div><h3 style="margin-top:0">Evolución al cierre de cada ejercicio</h3><p class="sub">${sc.u}. Saldos de cada 10-K${f.addTTM?" y del último informe":""}.</p><div class="cv h260"><canvas id="ch_fn_debt" role="img" aria-label="Evolución de deuda, caja y deuda neta"></canvas></div></div>
@@ -994,22 +1011,238 @@ R.financial=()=>{
       <div><h3 style="margin-top:0">Ingresos trimestrales</h3><p class="sub">${esc(f.qrev&&Math.max(...(f.qrev.values||[]).filter(fin))>=20000?"mil M "+ccy():"M "+ccy())}</p><div class="cv h240"><canvas id="ch_fn_q" role="img" aria-label="Ingresos por trimestre"></canvas></div></div>
     </div>
   </section>
-  <section class="card"><h2>Ratios</h2><p class="sub">Calculados con las cifras de la SEC. Los saldos de balance son medios entre cierres consecutivos cuando hay dos años. El ROIC usa el tipo impositivo de tu modelo. Los múltiplos al precio actual están en la pestaña Valoración.</p>
+  <section class="card"><h2>Ratios</h2><p class="sub">Calculados con las cifras de la SEC. Pulsa <span class="ib" style="pointer-events:none">i</span> para ver cada cálculo. Los múltiplos de precio están en Valoración; la rentabilidad frente al WACC, en MOAT; y el semáforo de deuda, en Riesgos.</p>
     <div class="scroll"><table>${rtbl}</table></div>
   </section>`;
 };
 const dv2=(a,b)=>fin(a)&&fin(b)&&b!==0?a/b:NaN;
-function realMultiples(){
-  const f=cur.fin, L=f.years.length-1, S=cur.sec, sh=fin(S.shares.m)?S.shares.m:cur.v.shares, mcap=cur.v.price*sh;
-  const debt=fin(S.debt.m)?S.debt.m:0, cash=fin(S.cash.m)?S.cash.m:0, ev=mcap+debt-cash, eq=f.eqA.at(-1);
-  const an=f.years.filter(y=>/^\d{4}$/.test(y)), rv=an.map(y=>f.rev[f.years.indexOf(y)]), k=Math.min(5,rv.length-1);
-  const cagr=k>0&&rv[rv.length-1-k]>0?(Math.pow(rv.at(-1)/rv[rv.length-1-k],1/k)-1)*100:NaN;
-  const g1=L>0&&fin(f.rev[L])&&fin(f.rev[L-1])&&!f.addTTM?(f.rev[L]/f.rev[L-1]-1)*100:NaN;
-  const yoyQ=(f.q&&f.q.series&&f.q.series[0]&&f.q.series[0].values||[]).filter(fin).at(-1);
-  const per=dv2(mcap,f.ni[L]);
-  return {sh,mcap,ev,cagr,k,label:f.years[L],per,evEbitda:dv2(ev,f.ebitda[L]),evSales:dv2(ev,f.rev[L]),pb:dv2(mcap,eq),
-    fcfY:dv2(f.fcf[L],mcap)*100,eY:dv2(f.ni[L],mcap)*100,ndEbitda:dv2(debt-cash,f.ebitda[L]),peg:dv2(per,fin(cagr)?cagr:NaN)};
+/* ================= MÉTRICAS: definición, cálculo con cifras reales y lectura ================= */
+function mctx(){
+  const c=cur, f=c.fin, L=f.years.length-1, Lp=L-1, S=c.sec, P=c._data&&c._data.precio, R=(c._data&&c._data.resultados)||{};
+  const y=i=>f.years[i]||"", t=(c.v&&fin(c.v.tax)?c.v.tax:21);
+  const I=(l,v,p,n,u)=>({l,v,p,n,u:u||"M"});
+  const F=(k,lab,i=L,ptk)=>I(`${lab} (${y(i)})`,f[k]&&f[k][i],f.pts[ptk||k]&&f.pts[ptk||k][i]);
+  const AVG=(arr,lab,ptsArr)=>{ const a=arr[L], b=arr[Lp], both=fin(a)&&fin(b);
+    return I(`${lab} medio`,both?(a+b)/2:a,ptsArr&&ptsArr[L],both?`media de ${nf(a)} (${y(L)}) y ${nf(b)} (${y(Lp)})`:`saldo a ${y(L)} (no hay cierre anterior)`); };
+  const sh=fin(S.shares.m)?S.shares.m:c.v.shares, price=c.v.price, mcap=price*sh;
+  const debt=fin(S.debt.m)?S.debt.m:0, cash=fin(S.cash.m)?S.cash.m:0;
+  const ebitda=I(`EBITDA (${y(L)})`,f.ebitda[L],f.pts.profit[L],`beneficio operativo ${nf(f.profit[L])} + amortizaciones ${nf(f.da[L])}`);
+  const fcf=I(`Flujo de caja libre (${y(L)})`,f.fcf[L],f.pts.ocf[L],`caja operativa ${nf(f.ocf[L])} − capex ${nf(f.capex[L])}${(f.capexAssumed||[]).includes(L)?" (capex asumido 0: no etiquetado)":""}`);
+  const mc=I("Capitalización",mcap,P,`${nf(price,2)} ${ccy()} × ${nf(sh,1)} M de acciones`);
+  const ev=mcap+debt-cash, EV=I("Valor de empresa (EV)",ev,S.debt.p,`capitalización ${nf(mcap)} + deuda ${nf(debt)} − caja ${nf(cash)}`);
+  const ic=f.ic||[], an=f.years.map((v,i)=>[v,i]).filter(([v])=>/^\d{4}$/.test(v));
+  const cagr=(arr,k)=>{ if(an.length<k+1) return null; const [ye,ie]=an[an.length-1], [ys,is]=an[an.length-1-k], a=arr[is], b=arr[ie];
+    return {k,ys,ye,a,b,v:fin(a)&&fin(b)&&a>0&&b>0?(Math.pow(b/a,1/k)-1)*100:NaN}; };
+  const ttm=k=>R[k]&&R[k].ttm;
+  return {c,f,L,Lp,S,P,R,y,t,I,F,AVG,sh,price,mcap,debt,cash,ebitda,fcf,mc,ev,EV,ic,cagr,ttm};
 }
+const ratio=(num,den,unit,mult=1)=>({terms:[num,{...den,op:"÷"}],res:fin(num.v)&&fin(den.v)&&den.v!==0?num.v/den.v*mult:NaN,unit});
+const MET={
+ /* --- márgenes y caja --- */
+ ebitda:{n:"EBITDA",g:"Márgenes y caja",q:"Beneficio de la actividad antes de amortizaciones: aproxima la caja que genera el negocio antes de invertir, pagar intereses e impuestos.",
+   f:"Beneficio operativo + amortizaciones (D&A)",calc:m=>({terms:[m.F("profit","Beneficio operativo"),{...m.F("da","Amortizaciones"),op:"+"}],res:m.f.ebitda[m.L],unit:"M"}),
+   leer:"Útil para comparar empresas con distinta deuda o impuestos. No es caja: ignora el capex, que en empresas intensivas en capital (centros de datos, energía) es enorme.",
+   dif:"La SEC no publica EBITDA: se calcula. Las empresas dan un «EBITDA ajustado» que además suma el pago en acciones y otros extraordinarios, así que suele ser más alto."},
+ fcf:{n:"Flujo de caja libre (FCF)",g:"Márgenes y caja",q:"Caja que queda después de pagar las inversiones necesarias para mantener y hacer crecer el negocio.",
+   f:"Caja operativa − capex",calc:m=>({terms:[m.F("ocf","Caja operativa"),{...m.F("capex","Capex"),op:"−",n:(m.f.capexAssumed||[]).includes(m.L)?"asumido 0: la compañía ya no lo etiqueta (antes < 2% de la caja operativa)":""}],res:m.f.fcf[m.L],unit:"M"}),
+   leer:"Es lo que puede destinarse a recompras, dividendos o a reducir deuda. Negativo en una fase de inversión no es malo por sí mismo, pero se financia con caja o deuda.",
+   dif:"Algunas fuentes restan también los arrendamientos financieros o usan el capex neto de ventas de activos. Amazon publica tres variantes de FCF."},
+ margen_bruto:{n:"Margen bruto",g:"Márgenes y caja",q:"Qué parte de cada dólar vendido queda tras el coste directo de producir o prestar el servicio.",
+   f:"Beneficio bruto / ingresos",calc:m=>ratio(m.I(`Beneficio bruto (${m.y(m.L)})`,m.f.gross[m.L],m.f.pts.gross[m.L]||m.f.pts.cor[m.L],m.f.pts.gross[m.L]?"":"ingresos − coste de ventas"),m.F("rev","Ingresos"),"%",100),
+   leer:"Alto (>60%) indica poder de precio o software; bajo (<30%) es típico de comercio y fabricación. Importa más su tendencia que el nivel.",
+   dif:"Cada empresa decide qué incluye en el coste de ventas, así que es poco comparable entre sectores."},
+ margen_ebitda:{n:"Margen EBITDA",g:"Márgenes y caja",q:"EBITDA por cada dólar de ingresos.",f:"EBITDA / ingresos",calc:m=>ratio(m.ebitda,m.F("rev","Ingresos"),"%",100),
+   leer:"Compara la rentabilidad operativa antes de amortizaciones. Muy útil en empresas que han hecho grandes compras (amortización de intangibles alta).",dif:"Ver EBITDA."},
+ margen_operativo:{n:"Margen operativo",g:"Márgenes y caja",q:"Beneficio de la actividad, después de todos los costes operativos y amortizaciones, por cada dólar de ingresos.",
+   f:"Beneficio operativo / ingresos",calc:m=>ratio(m.F("profit","Beneficio operativo"),m.F("rev","Ingresos"),"%",100),
+   leer:"La medida más limpia de la rentabilidad del negocio: no le afectan la deuda ni los impuestos. Por encima del 20% es excelente en casi cualquier sector.",dif:"Es el dato GAAP; las empresas suelen destacar un margen «no GAAP» que excluye el pago en acciones."},
+ margen_neto:{n:"Margen neto",g:"Márgenes y caja",q:"Beneficio final por cada dólar de ingresos.",f:"Beneficio neto / ingresos",calc:m=>ratio(m.F("ni","Beneficio neto"),m.F("rev","Ingresos"),"%",100),
+   leer:"Le afectan partidas no recurrentes: Amazon y Alphabet incluyen ganancias por revalorizar sus participaciones (Anthropic, SpaceX…). Compáralo siempre con el margen operativo.",dif:"Ninguna relevante."},
+ margen_fcf:{n:"Margen de FCF",g:"Márgenes y caja",q:"Flujo de caja libre por cada dólar de ingresos.",f:"FCF / ingresos",calc:m=>ratio(m.fcf,m.F("rev","Ingresos"),"%",100),
+   leer:"Muestra cuánto de lo que vende se convierte en caja disponible. Si es muy inferior al margen operativo durante años, la empresa necesita mucha inversión para crecer.",dif:"Ver FCF."},
+ capex_ingresos:{n:"Capex / ingresos",g:"Márgenes y caja",q:"Intensidad de la inversión: qué parte de las ventas se reinvierte en activos.",f:"Capex / ingresos",calc:m=>ratio(m.F("capex","Capex"),m.F("rev","Ingresos"),"%",100),
+   leer:"Software: <5%. Comercio y nube: 10–30%. Energía: más. Un salto brusco suele anunciar un ciclo de inversión.",dif:"Ninguna relevante."},
+ capex_ocf:{n:"Capex / caja operativa",g:"Márgenes y caja",q:"Qué parte de la caja que genera el negocio se reinvierte.",f:"Capex / caja operativa",calc:m=>ratio(m.F("capex","Capex"),m.F("ocf","Caja operativa"),"%",100),
+   leer:"Por encima del 100%, la empresa invierte más de lo que genera y lo financia con caja o deuda.",dif:"Ninguna relevante."},
+ /* --- rentabilidad --- */
+ roe:{n:"ROE",g:"Rentabilidad",q:"Rentabilidad que obtiene la empresa sobre el dinero de sus accionistas.",f:"Beneficio neto / patrimonio neto medio",
+   calc:m=>ratio(m.F("ni","Beneficio neto"),m.AVG(m.f.eqA,"Patrimonio neto",m.f.bsPts.eq),"%",100),
+   leer:">15% es bueno. Ojo: las recompras reducen el patrimonio e inflan el ROE (AppLovin), y la deuda también lo eleva. Mira ROIC a la vez.",
+   dif:"Muchas fuentes usan el patrimonio al cierre en lugar del medio; con patrimonio creciente su ROE sale más bajo, y con recompras, más alto."},
+ roa:{n:"ROA",g:"Rentabilidad",q:"Beneficio que genera cada dólar de activos.",f:"Beneficio neto / activo total medio",calc:m=>ratio(m.F("ni","Beneficio neto"),m.AVG(m.f.asA,"Activo total",m.f.bsPts.assets),"%",100),
+   leer:"Útil para comparar empresas intensivas en activos. >8% es alto fuera del sector financiero.",dif:"Igual que el ROE: aquí con saldo medio."},
+ roic:{n:"ROIC",g:"Rentabilidad",q:"Rentabilidad del capital que necesita el negocio (deuda + patrimonio − caja), independientemente de cómo se financie.",
+   f:"Beneficio operativo × (1 − tipo impositivo) / capital invertido medio",
+   calc:m=>{const op=m.f.profit[m.L]; return ratio(m.I(`Beneficio operativo después de impuestos (${m.y(m.L)})`,fin(op)?op*(1-m.t/100):NaN,m.f.pts.profit[m.L],`${nf(op)} × (1 − ${nf(m.t,0)}%), tipo impositivo de tu modelo`),
+     {...m.AVG(m.ic,"Capital invertido",m.f.bsPts.debt),n:`deuda + patrimonio − caja; ${m.AVG(m.ic,"x").n}`},"%",100);},
+   leer:"La métrica clave de calidad: si el ROIC supera al WACC de forma sostenida, la empresa crea valor y probablemente tiene una ventaja competitiva. >15% es excelente.",
+   dif:"Hay muchas definiciones (con o sin fondo de comercio, con caja operativa…). Aquí no se resta el fondo de comercio, lo que baja el ROIC de empresas que han comprado mucho (Broadcom)."},
+ roce:{n:"ROCE",g:"Rentabilidad",q:"Beneficio operativo sobre el capital empleado a largo plazo.",f:"Beneficio operativo / (activo total − pasivo corriente)",
+   calc:m=>ratio(m.F("profit","Beneficio operativo"),m.I(`Capital empleado (${m.y(m.L)})`,fin(m.f.asA[m.L])&&fin(m.f.clA[m.L])?m.f.asA[m.L]-m.f.clA[m.L]:NaN,m.f.bsPts.assets[m.L],`activo ${nf(m.f.asA[m.L])} − pasivo corriente ${nf(m.f.clA[m.L])}`),"%",100),
+   leer:"Similar al ROIC pero antes de impuestos y con saldo al cierre. >15% es bueno.",dif:"Usa el saldo al cierre, no el medio."},
+ croic:{n:"CROIC",g:"Rentabilidad",q:"Como el ROIC, pero con caja libre en lugar de beneficio contable.",f:"FCF / capital invertido medio",
+   calc:m=>ratio(m.fcf,{...m.AVG(m.ic,"Capital invertido",m.f.bsPts.debt),n:`deuda + patrimonio − caja; ${m.AVG(m.ic,"x").n}`},"%",100),
+   leer:"Si es mucho menor que el ROIC, el beneficio no se está convirtiendo en caja (fuerte inversión o capital circulante).",dif:"Poco estándar; algunas fuentes no restan la caja."},
+ roic_wacc:{n:"ROIC − WACC",g:"Rentabilidad",q:"Diferencial entre lo que rinde el capital y lo que cuesta.",f:"ROIC − WACC (de tu modelo)",
+   calc:m=>{const r=MET.roic.calc(m).res; return {terms:[m.I("ROIC",r,null,"",'%'),{...m.I("WACC (tu modelo)",m.c.v.wacc,null,"",'%'),op:"−"}],res:r-m.c.v.wacc,unit:"pp"};},
+   leer:"Positivo y estable: crea valor por cada dólar invertido. Negativo: crecer destruye valor.",dif:"El WACC es un supuesto tuyo, no un dato."},
+ /* --- solvencia --- */
+ deuda_total:{n:"Deuda financiera",g:"Solvencia y liquidez",q:"Bonos y préstamos que la empresa debe devolver con intereses.",f:"Deuda a largo plazo + porción corriente",
+   calc:m=>({terms:[m.I("Deuda financiera",m.debt,m.S.debt.p,m.S.debt.p&&m.S.debt.p.derivado?m.S.debt.p.derivado:"")],res:m.debt,unit:"M"}),
+   leer:"Por sí sola dice poco: compárala con el EBITDA, la caja y el patrimonio.",
+   dif:"No incluye arrendamientos (ni operativos ni financieros). InvestingPro y otras fuentes sí los suman, por eso su deuda es mayor (en Amazon, mucho)."},
+ deuda_neta:{n:"Deuda neta",g:"Solvencia y liquidez",q:"Deuda que quedaría si la empresa usara toda su caja para pagarla.",f:"Deuda financiera − caja e inversiones a corto",
+   calc:m=>({terms:[m.I("Deuda financiera",m.debt,m.S.debt.p),{...m.I("Caja e inversiones a corto",m.cash,m.S.cash.p),op:"−"}],res:m.debt-m.cash,unit:"M"}),
+   leer:"Negativa = caja neta (más caja que deuda).",dif:"Ver deuda financiera: sin arrendamientos."},
+ nd_ebitda:{n:"Deuda neta / EBITDA",g:"Solvencia y liquidez",q:"Años de EBITDA que harían falta para pagar la deuda neta.",f:"Deuda neta / EBITDA",
+   calc:m=>ratio(m.I("Deuda neta",m.debt-m.cash,m.S.debt.p,`deuda ${nf(m.debt)} − caja ${nf(m.cash)}`),m.ebitda,"x"),
+   leer:"<1x holgado; 1–3x normal; >3x elevado (salvo sectores muy estables como las eléctricas reguladas). Negativo = caja neta.",
+   dif:"Con arrendamientos (como InvestingPro) sale más alto: en Amazon, 0,7x frente a 0,4x."},
+ cobertura:{n:"Cobertura de intereses",g:"Solvencia y liquidez",q:"Cuántas veces cubre el beneficio operativo los intereses de la deuda.",f:"Beneficio operativo / gastos por intereses",
+   calc:m=>ratio(m.F("profit","Beneficio operativo"),m.F("int","Gastos por intereses"),"x"),
+   leer:">8x cómodo; 3–8x vigilar; <3x riesgo: una caída del beneficio pondría en apuros el pago de intereses.",dif:"Algunas fuentes usan EBITDA en el numerador (sale más alto)."},
+ liquidez:{n:"Liquidez corriente",g:"Solvencia y liquidez",q:"Capacidad de pagar las deudas a menos de un año con activos que se convierten en caja en menos de un año.",f:"Activo corriente / pasivo corriente",
+   calc:m=>ratio(m.I(`Activo corriente (${m.y(m.L)})`,m.f.caA[m.L],m.f.bsPts.ca[m.L]),m.I(`Pasivo corriente (${m.y(m.L)})`,m.f.clA[m.L],m.f.bsPts.cl[m.L]),"x"),
+   leer:">1,2x holgado; <1x no es grave en empresas que cobran antes de pagar (Amazon), sí en las demás.",dif:"Ninguna relevante."},
+ prueba_acida:{n:"Prueba ácida",g:"Solvencia y liquidez",q:"Liquidez corriente sin contar las existencias, que tardan más en convertirse en caja.",f:"(Activo corriente − existencias) / pasivo corriente",
+   calc:m=>ratio(m.I(`Activo corriente sin existencias (${m.y(m.L)})`,fin(m.f.caA[m.L])?m.f.caA[m.L]-(m.f.hasInv?(m.f.invA[m.L]||0):0):NaN,m.f.bsPts.ca[m.L],`activo corriente ${nf(m.f.caA[m.L])} − existencias ${nf(m.f.hasInv?m.f.invA[m.L]:0)}`),m.I(`Pasivo corriente (${m.y(m.L)})`,m.f.clA[m.L],m.f.bsPts.cl[m.L]),"x"),
+   leer:">1x holgado; <0,8x vigilar en empresas con mucho inventario.",dif:"Algunas fuentes excluyen también otros activos corrientes."},
+ deuda_capital:{n:"Deuda / capital",g:"Solvencia y liquidez",q:"Peso de la deuda en la financiación de la empresa.",f:"Deuda / (deuda + patrimonio neto)",
+   calc:m=>ratio(m.I("Deuda financiera",m.f.debtA[m.L],m.f.bsPts.debt[m.L]),m.I("Deuda + patrimonio neto",fin(m.f.debtA[m.L])&&fin(m.f.eqA[m.L])?m.f.debtA[m.L]+m.f.eqA[m.L]:NaN,m.f.bsPts.eq[m.L],`deuda ${nf(m.f.debtA[m.L])} + patrimonio ${nf(m.f.eqA[m.L])}`),"%",100),
+   leer:"<40% conservador; >60% apalancado. Con patrimonio negativo por recompras deja de tener sentido.",dif:"InvestingPro incluye arrendamientos y lo calcula sobre capital total."},
+ coste_deuda:{n:"Coste efectivo de la deuda",g:"Solvencia y liquidez",q:"Tipo de interés medio que paga realmente la empresa.",f:"Gastos por intereses / deuda media",
+   calc:m=>ratio(m.F("int","Gastos por intereses"),m.AVG(m.f.debtA,"Deuda financiera",m.f.bsPts.debt),"%",100),
+   leer:"Compáralo con el cupón medio y con los tipos actuales: si la deuda que vence se refinancia más cara, sube.",dif:"Los intereses incluyen arrendamientos financieros y comisiones en algunas empresas."},
+ /* --- por acción --- */
+ bpa:{n:"BPA diluido",g:"Por acción",q:"Beneficio neto que corresponde a cada acción, contando las que se emitirían por opciones y convertibles.",f:"Beneficio neto / acciones diluidas medias",
+   calc:m=>({terms:[m.F("ni","Beneficio neto"),{...m.I("Acciones diluidas medias",m.f.dilA[m.L],null,"","acc"),op:"÷"}],res:m.f.ratios.eps[m.L],unit:"$"}),
+   leer:"Su crecimiento es lo que mueve la cotización a largo plazo.",dif:"En los ejercicios cerrados se usa el BPA publicado; en los últimos doce meses, el cociente."},
+ vc_accion:{n:"Valor contable por acción",g:"Por acción",q:"Patrimonio neto contable que corresponde a cada acción.",f:"Patrimonio neto / acciones diluidas",
+   calc:m=>({terms:[m.I(`Patrimonio neto (${m.y(m.L)})`,m.f.eqA[m.L],m.f.bsPts.eq[m.L]),{...m.I("Acciones diluidas medias",m.f.dilA[m.L],null,"","acc"),op:"÷"}],res:m.f.ratios.bvps[m.L],unit:"$"}),
+   leer:"Relevante en bancos y empresas de activos; en tecnológicas con recompras dice poco.",dif:"Otras fuentes dividen por acciones en circulación al cierre."},
+ /* --- precio --- */
+ ev:{n:"Valor de empresa (EV)",g:"Al precio actual",q:"Lo que costaría comprar toda la empresa: sus acciones más su deuda, menos su caja.",f:"Capitalización + deuda − caja",
+   calc:m=>({terms:[m.mc,{...m.I("Deuda financiera",m.debt,m.S.debt.p),op:"+"},{...m.I("Caja e inversiones a corto",m.cash,m.S.cash.p),op:"−"}],res:m.ev,unit:"M"}),leer:"Base de los múltiplos que no dependen de la deuda (EV/EBITDA, EV/ventas).",dif:"Sin arrendamientos ni intereses minoritarios."},
+ per:{n:"PER",g:"Al precio actual",q:"Cuántos años del beneficio actual pagas por la empresa.",f:"Capitalización / beneficio neto UDM",calc:m=>ratio(m.mc,m.F("ni","Beneficio neto"),"x"),
+   leer:"Hay que leerlo junto al crecimiento: 40x es caro para quien crece al 5% y barato para quien crece al 50%. Los extraordinarios (revalorizaciones de participaciones) lo distorsionan.",
+   dif:"Muchas fuentes usan el BPA ajustado o el previsto para los próximos 12 meses: salen PER más bajos."},
+ ev_ebitda:{n:"EV / EBITDA",g:"Al precio actual",q:"Precio de toda la empresa en años de EBITDA.",f:"Valor de empresa / EBITDA UDM",calc:m=>ratio(m.EV,m.ebitda,"x"),
+   leer:"Compara empresas con distinta deuda. 10–15x es la media del mercado; >25x descuenta mucho crecimiento.",dif:"Con EBITDA ajustado o con arrendamientos sale distinto."},
+ ev_ventas:{n:"EV / ventas",g:"Al precio actual",q:"Precio de toda la empresa en años de ingresos.",f:"Valor de empresa / ingresos UDM",calc:m=>ratio(m.EV,m.F("rev","Ingresos"),"x"),
+   leer:"Útil cuando el beneficio es negativo o volátil. Solo comparable entre empresas con márgenes parecidos.",dif:"Ninguna relevante."},
+ p_vc:{n:"Precio / valor contable",g:"Al precio actual",q:"Cuántas veces su patrimonio contable paga el mercado.",f:"Capitalización / patrimonio neto",
+   calc:m=>ratio(m.mc,m.I(`Patrimonio neto (${m.y(m.L)})`,m.f.eqA[m.L],m.f.bsPts.eq[m.L]),"x"),leer:"Clave en bancos y aseguradoras; poco útil en software.",dif:"Ninguna relevante."},
+ fcf_yield:{n:"Rentabilidad por FCF",g:"Al precio actual",q:"Caja libre que genera la empresa por cada dólar que pagas por ella.",f:"FCF UDM / capitalización",calc:m=>ratio(m.fcf,m.mc,"%",100),
+   leer:"Compárala con el bono a 10 años: si es inferior, pagas por el crecimiento futuro. Negativa en plena inversión (Amazon, Alphabet).",dif:"Otras fuentes usan el EV en el denominador."},
+ peg:{n:"PEG",g:"Al precio actual",q:"PER ajustado por crecimiento.",f:"PER / crecimiento anual de los ingresos (CAGR 5 años, en %)",
+   calc:m=>{const p=MET.per.calc(m).res, g=m.cagr(m.f.rev,5)||m.cagr(m.f.rev,3); return {terms:[m.I("PER",p,null,"","x"),{...m.I(`Crecimiento anual de ingresos ${g?g.ys+"–"+g.ye:""}`,g&&g.v,null,"CAGR histórico","%"),op:"÷"}],res:g&&fin(g.v)&&g.v>0?p/g.v:NaN,unit:"n"};},
+   leer:"<1 sugiere barato para su crecimiento; >2 caro. Muy sensible al crecimiento elegido.",dif:"Lo habitual es usar el crecimiento previsto del BPA por los analistas; aquí, el histórico de ingresos (dato oficial)."},
+ /* --- crecimiento --- */
+ cagr_ingresos:{n:"Crecimiento anual compuesto de ingresos (CAGR)",g:"Crecimiento",q:"Ritmo anual medio al que han crecido los ingresos en un periodo.",f:"(Ingresos final / ingresos inicial)^(1 / años) − 1",
+   calc:m=>{const g=m.cagr(m.f.rev,5)||m.cagr(m.f.rev,3); return g?{terms:[m.I(`Ingresos ${g.ye}`,g.b,m.f.pts.rev[m.f.years.indexOf(g.ye)]),{...m.I(`Ingresos ${g.ys}`,g.a,m.f.pts.rev[m.f.years.indexOf(g.ys)]),op:"÷"},{...m.I("Años",g.k,null,"","n"),op:"^ 1 /"}],res:g.v,unit:"%"}:{terms:[],res:NaN,unit:"%"};},
+   leer:"Suaviza años buenos y malos. Compáralo con el crecimiento de tu modelo y con el que descuenta el precio.",dif:"Usa ejercicios cerrados; una reclasificación (AppLovin 2023) puede distorsionarlo."},
+ cagr_bpa:{n:"CAGR del BPA",g:"Crecimiento",q:"Ritmo anual medio de crecimiento del beneficio por acción.",f:"(BPA final / BPA inicial)^(1 / años) − 1",
+   calc:m=>{const g=m.cagr(m.f.ratios.eps,5)||m.cagr(m.f.ratios.eps,3); return g?{terms:[m.I(`BPA ${g.ye}`,g.b,null,"","$"),{...m.I(`BPA ${g.ys}`,g.a,null,"","$"),op:"÷"},{...m.I("Años",g.k,null,"","n"),op:"^ 1 /"}],res:g.v,unit:"%"}:{terms:[],res:NaN,unit:"%"};},
+   leer:"Si crece más que los ingresos, mejoran los márgenes o hay recompras. No se calcula si el año inicial tuvo pérdidas.",dif:"BPA diluido publicado (GAAP), ajustado por splits cuando los informes antiguos no están reexpresados."},
+ cagr_fcf:{n:"CAGR del FCF",g:"Crecimiento",q:"Ritmo anual medio de crecimiento del flujo de caja libre.",f:"(FCF final / FCF inicial)^(1 / años) − 1",
+   calc:m=>{const g=m.cagr(m.f.fcf,5)||m.cagr(m.f.fcf,3); return g?{terms:[m.I(`FCF ${g.ye}`,g.b),{...m.I(`FCF ${g.ys}`,g.a),op:"÷"},{...m.I("Años",g.k,null,"","n"),op:"^ 1 /"}],res:g.v,unit:"%"}:{terms:[],res:NaN,unit:"%"};},
+   leer:"Muy volátil en ciclos de inversión. No se calcula si alguno de los dos años es negativo.",dif:"Ver FCF."},
+ crec_modelo:{n:"Crecimiento de tu modelo",g:"Crecimiento",q:"Crecimiento anual medio de los ingresos en los 5 años de tu DCF.",f:"(Ingresos año 5 / ingresos año base)^(1/5) − 1",
+   calc:m=>{const vz=valuation(m.c); const y5=vz.ok?vz.base.yrs[4].rev:NaN; return {terms:[m.I(`Ingresos ${m.c.v.year0+5}e (modelo)`,y5),{...m.I(`Ingresos ${m.c.v.year0} (año base)`,m.c.v.rev0),op:"÷"},{...m.I("Años",5,null,"","n"),op:"^ 1 /"}],res:fin(y5)?(Math.pow(y5/m.c.v.rev0,1/5)-1)*100:NaN,unit:"%"};},
+   leer:"Si está muy por encima del histórico, la valoración depende de una aceleración que conviene justificar.",dif:"Es un supuesto tuyo."},
+ crec_implicito:{n:"Crecimiento que descuenta el precio",g:"Crecimiento",q:"Crecimiento anual de ingresos (5 años) con el que tu DCF daría exactamente la cotización actual, manteniendo el resto de tus supuestos.",f:"Crecimiento g tal que DCF(g) = cotización",
+   calc:m=>{const vz=valuation(m.c); return {terms:[m.I("Cotización",m.price,m.P,"","$"),m.I("Valor DCF con ese crecimiento",m.price,null,"se resuelve por iteración","$")],res:vz.ig,unit:"%"};},
+   leer:"Si es inferior a lo que crees que crecerá la empresa, el precio es atractivo según tu modelo. Es la forma más honesta de leer un DCF.",dif:"Depende de tus márgenes, WACC y valor terminal."},
+ /* --- accionista --- */
+ rentab_accionista:{n:"Rentabilidad para el accionista",g:"Retribución al accionista",q:"Caja devuelta a los accionistas en el último año, por cada dólar de capitalización.",f:"(Recompras + dividendos UDM) / capitalización",
+   calc:m=>{const rb=m.ttm("recompras"), dv=m.ttm("dividendos"), a=rb?rb.valor/M6:0, b=dv?dv.valor/M6:0;
+     return {terms:[m.I("Recompras UDM",a,rb,rb?"":"sin recompras etiquetadas"),{...m.I("Dividendos UDM",b,dv,dv?"":"sin dividendos"),op:"+"},{...m.mc,op:"÷"}],res:(a+b)/m.mcap*100,unit:"%"};},
+   leer:"Suma de dividendo y recompras. Si el pago en acciones es mayor que las recompras, las recompras solo compensan la dilución.",dif:"Algunas fuentes restan las emisiones de acciones (rentabilidad neta)."},
+ sbc_ingresos:{n:"Pago en acciones / ingresos",g:"Retribución al accionista",q:"Coste de remunerar a empleados con acciones, en proporción a las ventas.",f:"Remuneración en acciones UDM / ingresos UDM",
+   calc:m=>ratio(m.F("sbc","Remuneración en acciones"),m.F("rev","Ingresos"),"%",100),leer:"<3% moderado; >10% es un coste muy relevante que el «EBITDA ajustado» esconde.",dif:"Ninguna relevante."},
+ dilucion:{n:"Variación de acciones",g:"Retribución al accionista",q:"Cambio en un año del número de acciones diluidas: negativo = recompras netas; positivo = dilución.",f:"Acciones diluidas último trimestre / mismo trimestre del año anterior − 1",
+   calc:m=>{const Q=(m.R.acciones_diluidas_media&&m.R.acciones_diluidas_media.trimestral)||[], a=Q.at(-1), pl=a&&/^(\d)T(\d{2})$/.exec(a.periodo), b=pl&&Q.find(x=>x.periodo===`${pl[1]}T${String(+pl[2]-1).padStart(2,"0")}`);
+     const r=a&&b?a.valor/b.valor:NaN, sp=r>1.8;
+     return {terms:a&&b?[m.I(`Acciones diluidas ${a.periodo}`,a.valor/M6,a,"","acc"),{...m.I(`Acciones diluidas ${b.periodo}`,b.valor/M6,b,sp?"hubo un split en el último año: no comparable":"","acc"),op:"÷"}]:[],res:a&&b&&!sp?(r-1)*100:NaN,unit:"%"};},
+   leer:"Una reducción constante multiplica el BPA aunque el beneficio no crezca.",dif:"Usa acciones diluidas medias del trimestre."}
+};
+function info(id){ const d=MET[id]; return d?`<button type="button" class="ib" data-metric="${id}" aria-label="Cómo se calcula: ${esc(d.n)}">i</button>`:""; }
+function fmtU(v,u){ if(!fin(v)) return "–"; return u==="M"?`${nf(v,0)} M ${ccy()}`:u==="acc"?`${nf(v,1)} M`:u==="$"?`${nf(v,2)} ${ccy()}`:u==="%"?pct(v,2):u==="x"?nf(v,2)+"x":u==="pp"?(v>=0?"+":"")+nf(v,1)+" pp":nf(v,2); }
+function metricModal(id){
+  const d=MET[id]; if(!d) return; let r; try{ r=d.calc(mctx()); }catch(e){ console.error(e); r={terms:[],res:NaN,unit:"n"}; }
+  const rows=(r.terms||[]).map(t=>`<tr><td class="op">${esc(t.op||"")}</td><td style="text-align:left;white-space:normal">${esc(t.l)}${t.n?`<div class="note">${esc(t.n)}</div>`:""}</td><td>${fmtU(t.v,t.u)}</td><td style="text-align:left">${t.p?srcTag(t.p):""}</td></tr>`).join("");
+  $("modal").innerHTML=`<div style="display:flex;justify-content:space-between;gap:12px;align-items:flex-start"><div><div class="eyebrow">${esc(d.g)} · ${esc(cur.meta.name)}</div><h2 id="mTitle">${esc(d.n)}</h2></div><button type="button" class="x" data-close aria-label="Cerrar">×</button></div>
+    <p style="margin:0">${esc(d.q)}</p>
+    <div class="formula"><span class="eyebrow">Fórmula</span><b>${esc(d.f)}</b></div>
+    ${rows?`<div class="scroll"><table class="calc"><tbody>${rows}<tr class="em"><td class="op">=</td><td style="text-align:left">${esc(d.n)}</td><td>${fmtU(r.res,r.unit)}</td><td></td></tr></tbody></table></div>`:`<p class="empty">No hay datos suficientes para calcularla con las cifras actuales.</p>`}
+    <div class="g2" style="gap:12px"><div><div class="eyebrow">Cómo leerlo</div><p style="margin:4px 0 0;font-size:13px">${esc(d.leer)}</p></div><div><div class="eyebrow">Frente a otras fuentes</div><p style="margin:4px 0 0;font-size:13px">${esc(d.dif)}</p></div></div>
+    <p class="note" style="margin:0">Cifras en millones salvo indicación. «UDM» = últimos doce meses. Las fuentes enlazan al documento de la SEC del que sale cada cifra.</p>`;
+  $("overlay").hidden=false; setTimeout(()=>{const b=$("modal").querySelector("[data-close]"); if(b) b.focus();},0);
+}
+
+function growthHistHtml(cagrModel,vz){
+  if(!cur._data) return "";
+  const m=mctx(), g5=m.cagr(m.f.rev,5), g3=m.cagr(m.f.rev,3), e=MET.cagr_bpa.calc(m), fc=MET.cagr_fcf.calc(m), hist=g5||g3;
+  const lab=g=>g?`${g.ys}–${g.ye}`:"";
+  const bars=[["Histórico",hist&&hist.v,"--c6",hist?`ingresos ${lab(hist)}`:""],["Tu modelo",cagrModel,"--c1",`${cur.v.year0+1}–${cur.v.year0+5}`],["Descuenta el precio",vz&&vz.ig,"--c4","5 años"]];
+  const mx=Math.max(1,...bars.map(b=>fin(b[1])?Math.abs(b[1]):0));
+  return `<section class="card" style="--tc:var(--c6)"><h2>Crecimiento: lo que ha hecho, lo que supones y lo que paga el mercado</h2>
+    <p class="sub">Crecimiento anual compuesto (CAGR). Histórico con los ejercicios cerrados de la SEC.</p>
+    <div class="kpis">
+      ${kpi("Ingresos, 5 años"+info("cagr_ingresos"),g5?pct(g5.v):"–",`<span class="note">${lab(g5)||"menos de 5 ejercicios"}</span>`,true)}
+      ${kpi("Ingresos, 3 años"+info("cagr_ingresos"),g3?pct(g3.v):"–",`<span class="note">${lab(g3)}</span>`)}
+      ${kpi("BPA"+info("cagr_bpa"),pct(e.res),`<span class="note">${e.terms.length?esc(e.terms[1].l.replace("BPA ",""))+"–"+esc(e.terms[0].l.replace("BPA ","")):""}${!fin(e.res)&&e.terms.length?" · no calculable (pérdidas en el año inicial)":""}</span>`)}
+      ${kpi("Flujo de caja libre"+info("cagr_fcf"),pct(fc.res),`<span class="note">${!fin(fc.res)&&fc.terms.length?"no calculable (FCF negativo)":fc.terms.length?esc(fc.terms[1].l.replace("FCF ",""))+"–"+esc(fc.terms[0].l.replace("FCF ","")):""}</span>`)}
+    </div>
+    <div class="ff" style="padding-top:8px">${bars.map(([n,v,c,sub])=>`<div class="ffrow"><div class="ffname">${n}<div class="note">${esc(sub)}</div></div><div class="fftrack" style="height:26px"><div class="ffbar" style="left:0;width:${fin(v)?Math.max(.8,Math.abs(v)/mx*85):0}%;background:var(${c});top:5px"></div><span class="ffval" style="left:calc(${fin(v)?Math.abs(v)/mx*85:0}% + 6px);top:5px;font-weight:700">${fin(v)?pct(v):"–"}</span></div></div>`).join("")}</div>
+    <p class="note">Si tu modelo supone bastante más que el histórico, la valoración depende de una aceleración que conviene justificar en «Motores de crecimiento». Si el precio descuenta menos de lo que crees, hay margen.</p>
+  </section>`;
+}
+function roicHtml(){
+  if(!cur._data) return "";
+  const m=mctx(), roic=MET.roic.calc(m).res, roce=MET.roce.calc(m).res, w=cur.v.wacc, d=roic-w;
+  return `<section class="card"><h2>Rentabilidad sobre el capital</h2><p class="sub">Un foso real se nota en un ROIC por encima del coste de capital (WACC) durante años. % anual; la línea discontinua es el WACC de tu modelo.</p>
+    <div class="kpis">
+      ${kpi("ROIC "+esc(m.y(m.L))+info("roic"),pct(roic),"",true)}
+      ${kpi("WACC (tu modelo)",pct(w),`<span class="note">se cambia en Valoración</span>`)}
+      ${kpi("Diferencial ROIC − WACC"+info("roic_wacc"),fin(d)?(d>=0?"+":"")+nf(d,1)+" pp":"–",fin(d)?`<span class="pill ${d>=0?"up":"down"}">${d>=0?"crea valor":"destruye valor"}</span>`:"")}
+      ${kpi("ROCE "+esc(m.y(m.L))+info("roce"),pct(roce),`<span class="note">ROE ${pct(MET.roe.calc(m).res)}${info("roe")}</span>`)}
+    </div>
+    ${(()=>{const L=m.L, icv=m.ic[L], as=m.f.asA[L]; return fin(icv)&&fin(as)&&as>0&&icv<0.15*as?`<div class="alert" style="margin-top:8px">El capital invertido (deuda + patrimonio − caja) es muy pequeño frente al activo (${nf(icv/as*100,0)}%), porque la compañía tiene casi tanta caja como patrimonio${m.f.eqA[L]<m.f.eqA[0]?" o ha recomprado muchas acciones":""}. Un ROIC tan alto es poco significativo: fíjate más en el ROCE y en los márgenes.</div>`:"";})()}
+    <div class="cv h260" style="margin-top:8px"><canvas id="ch_mt_roic" role="img" aria-label="ROIC, ROCE y ROE frente al WACC"></canvas></div></section>`;
+}
+function holderHtml(){
+  if(!cur._data) return "";
+  const m=mctx(), ry=MET.rentab_accionista.calc(m), rb=m.ttm("recompras"), dv=m.ttm("dividendos"), sbc=MET.sbc_ingresos.calc(m), dil=MET.dilucion.calc(m), sbcM=m.f.sbc[m.L];
+  return `<section class="card" style="--tc:var(--c5)"><h2>Retribución al accionista</h2><p class="sub">Últimos doce meses, con las cifras de la SEC y la cotización actual.</p>
+    <div class="kpis">
+      ${kpi("Rentabilidad para el accionista"+info("rentab_accionista"),pct(ry.res),`<span class="note">recompras ${rb?big(rb.valor/M6):"0"} + dividendos ${dv?big(dv.valor/M6):"0"}</span>`,true)}
+      ${kpi("Pago en acciones / ingresos"+info("sbc_ingresos"),pct(sbc.res),`<span class="note">${big(sbcM)} en 12 meses${rb&&fin(sbcM)?` · ${rb.valor/M6>=sbcM?"las recompras lo superan":"mayor que las recompras"}`:""}</span>`)}
+      ${kpi("Variación de acciones (1 año)"+info("dilucion"),fin(dil.res)?(dil.res>0?"+":"")+pct(dil.res):"–",fin(dil.res)?`<span class="pill ${dil.res<=0?"up":"down"}">${dil.res<=0?"recompra neta":"dilución"}</span>`:"")}
+      ${kpi("Dividendos UDM",dv?big(dv.valor/M6):"Sin dividendo",dv?srcTag(dv):"")}
+    </div></section>`;
+}
+function glossaryHtml(){
+  const groups={}; Object.entries(MET).forEach(([id,d])=>{(groups[d.g]=groups[d.g]||[]).push([id,d]);});
+  return `<section class="card"><h2>Glosario de métricas</h2><p class="sub">Cómo se calcula cada métrica de esta web. Pulsa <span class="ib" style="pointer-events:none">i</span> junto a cualquier métrica para ver el cálculo con las cifras de ${esc(cur.meta.name)}.</p>
+    <div class="note" style="font-size:12.5px;margin-bottom:6px"><b>Convenciones:</b> cifras de SEC EDGAR (XBRL), en millones de dólares. UDM = suma de los últimos cuatro trimestres. Los saldos de balance en las rentabilidades son la media entre dos cierres consecutivos. EBITDA = beneficio operativo + amortizaciones (la SEC no publica EBITDA). Deuda = deuda financiera, sin arrendamientos. Acciones = diluidas medias.</div>
+    ${Object.entries(groups).map(([g,list])=>`<h3>${esc(g)}</h3><div class="gloss">${list.map(([id,d])=>`<details class="box"><summary>${esc(d.n)} <span class="note" style="font-weight:400">${esc(d.f)}</span></summary><div style="padding:0 14px 12px;font-size:13px"><p>${esc(d.q)}</p><p><b>Cómo leerlo.</b> ${esc(d.leer)}</p><p style="margin:0"><b>Frente a otras fuentes.</b> ${esc(d.dif)}</p><button type="button" class="add" data-metric="${id}" style="margin-top:8px">Ver el cálculo con las cifras de ${esc(cur.meta.name)}</button></div></details>`).join("")}</div>`).join("")}
+  </section>`;
+}
+/* semáforo de riesgo financiero (umbrales orientativos) */
+const FIN_RISK=[
+  {id:"nd_ebitda",n:"Deuda neta / EBITDA",v:m=>MET.nd_ebitda.calc(m).res,fmt:v=>nf(v,2)+"x",lvl:v=>v<1?0:v<=3?1:2,txt:["< 1x: holgado","1–3x: normal","> 3x: elevado"]},
+  {id:"cobertura",n:"Cobertura de intereses",v:m=>MET.cobertura.calc(m).res,fmt:v=>nf(v,1)+"x",lvl:v=>v>8?0:v>=3?1:2,txt:["> 8x: cómoda","3–8x: vigilar","< 3x: riesgo"]},
+  {id:"liquidez",n:"Liquidez corriente",v:m=>MET.liquidez.calc(m).res,fmt:v=>nf(v,2)+"x",lvl:v=>v>=1.2?0:v>=0.8?1:2,txt:["≥ 1,2x: holgada","0,8–1,2x: ajustada","< 0,8x: tensa"]},
+  {id:"deuda_capital",n:"Deuda / capital",v:m=>MET.deuda_capital.calc(m).res,fmt:v=>pct(v,0),lvl:v=>v<40?0:v<=60?1:2,txt:["< 40%: conservadora","40–60%: media","> 60%: apalancada"]}];
+function finRiskHtml(){
+  if(!cur._data) return "";
+  const m=mctx(), col=["--good","--warn","--crit"], lab=["Bajo","Medio","Alto"];
+  const rows=FIN_RISK.map(r=>{let v=NaN; try{v=r.v(m);}catch(e){} const caja=r.id==="nd_ebitda"&&fin(v)&&v<0; const l=fin(v)?(caja?0:r.lvl(v)):null;
+    return `<div class="kpi"><span class="eyebrow">${esc(r.n)} ${info(r.id)}</span><b>${fin(v)?(caja?"Caja neta":r.fmt(v)):"–"}</b>${l!=null?`<span class="sev" style="background:color-mix(in srgb,var(${col[l]}) 26%,transparent)"><i style="background:var(${col[l]})"></i>${lab[l]} · ${esc(caja?"más caja que deuda":r.txt[l])}</span>`:`<span class="note">sin datos</span>`}</div>`;}).join("");
+  return `<section class="card" style="--tc:var(--c8)"><h2>Riesgo financiero (calculado)</h2><p class="sub">Con las cifras de la SEC de ${esc(m.y(m.L))}. Umbrales orientativos para una empresa industrial o tecnológica; las eléctricas reguladas y las de ingresos muy estables soportan más deuda. No entra en tu puntuación de riesgo: úsalo para calibrarla.</p><div class="kpis">${rows}</div></section>`;
+}
+
 function matCoverage(mat,debt){
   const tot=mat.tramos.reduce((a,t)=>a+(fin(t.valor)?t.valor:0),0)/M6;
   if(!fin(debt)||debt<=0||tot>=debt*0.85) return "";
@@ -1048,7 +1281,7 @@ function bondsHtml(f,debt,sc){
   return `<div style="margin-top:16px"><h3 style="margin-top:0">Bonos y tipo de deuda</h3>
     <p class="sub">Emisiones vigentes según el XBRL del último 10-K y los 10-Q posteriores${src?` (el más reciente, ${esc(src.formulario)} del ${esc(fecha(src.fecha_presentacion))})`:""}. Cada empresa etiqueta su deuda a su manera: unas por bono, otras por emisión en varios tramos.</p>
     <div class="kpis">
-      ${kpi("Coste efectivo de la deuda",fin(cost)?pct(cost,2):"–",`<span class="note">intereses UDM / deuda media</span>`,true)}
+      ${kpi("Coste efectivo de la deuda"+info("coste_deuda"),fin(cost)?pct(cost,2):"–",`<span class="note">intereses UDM / deuda media</span>`,true)}
       ${kpi("Cupón medio ponderado",fin(cup)?pct(cup,2):"–",`<span class="note">${wc.length?`${wc.length} bonos con cupón publicado`:"la compañía no publica el cupón por emisión"}</span>`)}
       ${kpi("Vencimiento medio",fin(vm)&&st.calOk?nf(vm,1)+" años":"–",`<span class="note">${st.calOk?"ponderado por importe":"no hay vencimiento por emisión"}</span>`)}
       ${kpi("Deuda en otras divisas",allSum?pct(fx/allSum*100,0):"–",`<span class="note">${ccys.length?esc(ccys.join(", ")):"todo en dólares"}${nVar?` · ${nVar} a tipo variable`:""}</span>`)}
@@ -1087,6 +1320,7 @@ R.moat=()=>{
       ${add("moat.comps","comps","Añadir competidor")}
     </section>
   </div>
+  ${roicHtml()}
   <section class="card"><h2>Rentabilidad sostenida</h2><p class="sub">Un foso real se ve en márgenes altos que se mantienen o suben con los años. % sobre ingresos.</p><div class="cv h240"><canvas id="ch_mt_marg" role="img" aria-label="Márgenes históricos"></canvas></div></section>`;
 };
 
@@ -1097,9 +1331,10 @@ R.growth=()=>{
   <div class="kpis">
     ${kpi("Puntuación de crecimiento",EDIT?sc("growth.score"):nf(g.score,1)+" / 5",EDIT?"":pips(g.score),true)}
     ${kpi("Último trimestre",pct(lastQ,0),`<span class="note">${esc(q.labels.at(-1)||"")} · ${esc(q.series[0]?.n||"")}</span>`)}
-    ${kpi("Crecimiento anual proyectado",pct(cagr),`<span class="note">media ${cur.v.year0+1}–${cur.v.year0+5} en el DCF</span>`)}
-    ${kpi("Crecimiento que descuenta el precio",pct(vz.ig),`<span class="note">anual durante 5 años</span>`)}
+    ${kpi("Crecimiento anual proyectado"+info("crec_modelo"),pct(cagr),`<span class="note">media ${cur.v.year0+1}–${cur.v.year0+5} en el DCF</span>`)}
+    ${kpi("Crecimiento que descuenta el precio"+info("crec_implicito"),pct(vz.ig),`<span class="note">anual durante 5 años</span>`)}
   </div>
+  ${growthHistHtml(cagr,vz)}
   ${tx("growth.scoreNote",{rows:2})}
   <div class="g2">
     <section class="card"><h2>Crecimiento interanual por trimestre</h2><p class="sub">%. Total: SEC. Las series «manual» salen de fin_manual en analysis/${esc(cur._t)}.json.</p><div class="cv h260"><canvas id="ch_gr_q" role="img" aria-label="Crecimiento trimestral"></canvas></div>
@@ -1142,6 +1377,7 @@ R.management=()=>{
   const m=cur.mgmt, ma=avg(m.scores.map(x=>+x.s));
   return `
   ${callCard(m.call||{})}
+  ${holderHtml()}
   <section class="card"><h2>Quién dirige</h2>
     <div class="cards">${m.people.map((p,i)=>`<div class="mini">${del("mgmt.people",i)}<div class="t">${ln(`mgmt.people.${i}.n`,{ph:"Nombre"})}</div>
       <div class="s">${EDIT?`${ln(`mgmt.people.${i}.role`,{ph:"Cargo"})} ${ln(`mgmt.people.${i}.since`,{ph:"Desde"})}`:`${esc(p.role)}${p.since?" · desde "+esc(p.since):""}`}</div>
@@ -1183,6 +1419,7 @@ R.risk=()=>{
     ${kpi("Altos o críticos",String(counts[2].k+counts[3].k))}
     ${kpi("Puntuación de riesgo",nf(s.dims[4].s,1)+" / 5",`<span class="note">5 = poco riesgo</span>`)}
   </div>
+  ${finRiskHtml()}
   <div class="g2">
     <section class="card"><h2>Mapa de riesgos</h2><p class="sub">Eje vertical: probabilidad. Eje horizontal: impacto. Cada número es un riesgo de la tabla.</p>
       <div class="matrix">${grid}</div><div class="xl note" style="text-align:center">Impacto →</div>
@@ -1274,13 +1511,11 @@ function valOutHtml(){
     <section class="card"><h2>Sensibilidad del DCF</h2><p class="sub">Valor por acción. Filas: WACC. Columnas: ${useExit?"múltiplo de salida":"crecimiento perpetuo"}. Azul por encima de la cotización, rojo por debajo.</p>
       <div class="scroll"><table class="sens">${sens}</tbody></table></div></section>
     <section class="card"><h2>Múltiplos al precio actual</h2><p class="sub">Lo que pagas hoy a ${money(s.price)} ${srcTag(cur._data&&cur._data.precio)}. Real: cifras de la SEC de los últimos doce meses. Modelo: año 1 de tus supuestos.</p>
-      ${(()=>{const R=realMultiples(), x=(v,d=1)=>fin(v)?nf(v,d)+"x":"–", pc=v=>fin(v)?pct(v):"–";
-        const rows=[["PER",x(R.per),x(s.price/s.eps),"Modelo: con tu BPA de los próximos 12 meses"],["EV / EBITDA",x(R.evEbitda),x(evNow/y1.ebitda),""],["EV / ventas",x(R.evSales),x(evNow/y1.rev),""],
-          ["Precio / valor contable",x(R.pb),"–",""],["Rentabilidad por FCF",pc(R.fcfY),pc(y1.fcf/mcap*100),"FCF / capitalización"],["Rentabilidad por beneficio",pc(R.eY),pc(s.eps/s.price*100),"Inversa del PER"],
-          ["Deuda neta / EBITDA",x(R.ndEbitda,2),x(netDebt/y1.ebitda,2),""],[`Crecimiento de ingresos`,R.k>0?pct(R.cagr)+` <span class="note">CAGR ${R.k} años</span>`:"–",pct(y1.g*100),""],
-          ["PEG",fin(R.peg)?nf(R.peg,2):"–",nf((s.price/s.eps)/(y1.g*100),2),"PER / crecimiento. Real: con el CAGR histórico"]];
-        return `<div class="scroll"><table><thead><tr><th>Múltiplo</th><th>Real · UDM ${esc(R.label.replace(/^UDM /,""))}</th><th>Modelo · ${y1.year}e</th></tr></thead><tbody>${rows.map(([n,r,m,t])=>`<tr><td style="white-space:normal"${t?` title="${esc(t)}"`:""}>${n}</td><td>${r}</td><td>${m}</td></tr>`).join("")}</tbody></table></div>
-          <p class="note">Capitalización ${big(R.mcap)} con ${nf(R.sh,1)} M de acciones (SEC) · EV ${big(R.ev)}. ${Math.abs(R.sh-s.shares)>s.shares*0.02?`Tu modelo usa ${nf(s.shares,1)} M de acciones.`:""}</p>`;})()}
+      ${(()=>{const m=mctx(), X=(v,d=1)=>fin(v)?nf(v,d)+"x":"–", P2=v=>fin(v)?pct(v):"–", R=id=>MET[id].calc(m).res;
+        const rows=[["per",X(R("per")),X(s.price/s.eps),"precio / tu BPA"],["ev_ebitda",X(R("ev_ebitda")),X(evNow/y1.ebitda),""],["ev_ventas",X(R("ev_ventas")),X(evNow/y1.rev),""],
+          ["p_vc",X(R("p_vc")),"–",""],["fcf_yield",P2(R("fcf_yield")),P2(y1.fcf/mcap*100),""],["peg",fin(R("peg"))?nf(R("peg"),2):"–",nf((s.price/s.eps)/(y1.g*100),2),"con el crecimiento del año 1"]];
+        return `<div class="scroll"><table><thead><tr><th>Múltiplo</th><th>Real · ${esc(m.y(m.L))}</th><th>Modelo · ${y1.year}e</th></tr></thead><tbody>${rows.map(([id,r,mo,t])=>`<tr><td style="white-space:normal">${esc(MET[id].n)}${info(id)}</td><td>${r}</td><td>${mo}${t?`<div class="note">${esc(t)}</div>`:""}</td></tr>`).join("")}</tbody></table></div>
+          <p class="note">Capitalización ${big(m.mcap)} con ${nf(m.sh,1)} M de acciones (SEC) · EV ${big(m.ev)}${info("ev")}. ${Math.abs(m.sh-s.shares)>s.shares*0.02?`Tu modelo usa ${nf(s.shares,1)} M de acciones.`:""} El crecimiento, la rentabilidad sobre el capital y la deuda están en Crecimiento, MOAT y Riesgos.</p>`;})()}
     </section>
   </div>`;
 }
@@ -1344,6 +1579,7 @@ R.sources=()=>{
     <div class="tiles">${tiles.map(tileHtml).join("")}</div>
   </section>
   ${officialHtml()}
+  ${glossaryHtml()}
   ${socialHtml()}
   <div class="g2">
     <section class="card"><h2>Documentos de la compañía</h2><p class="sub">Resultados, formularios, informes anuales y presentaciones usados en este análisis.</p>
@@ -1504,6 +1740,10 @@ C.financial=()=>{
 C.moat=()=>{ const m=cur.moat;
   mk("ch_mt_radar",radarCfg(m.sources.map(x=>x.n),m.sources.map(x=>+x.s),V("--c2")));
   mk("ch_mt_comp",hbarCfg(m.comps.map(x=>x.n),m.comps.map(x=>+x.threat),V("--c2"),5,"/ 5"));
+  { const f=cur.fin, r=f.ratios||{}, cat=CAT(), p=a=>(a||[]).map(v=>fin(v)?v*100:null);
+    const ds=[{label:"ROIC",data:p(r.roic),borderColor:cat[0],backgroundColor:cat[0]},{label:"ROCE",data:p(r.roce),borderColor:cat[2],backgroundColor:cat[2]},{label:"ROE",data:p(r.roe),borderColor:cat[6],backgroundColor:cat[6]},
+      {label:"WACC (tu modelo)",data:f.years.map(()=>cur.v.wacc),borderColor:V("--ink"),borderDash:[6,4],borderWidth:1.5,pointRadius:0,pointHoverRadius:0}].filter(d=>d.data.some(fin));
+    if(ds.length>1) mk("ch_mt_roic",{type:"line",data:{labels:f.years,datasets:ds},options:{plugins:{legend:legend(ds.length),tooltip:tipU("%")},scales:{x:axisX,y:axisY({suf:"%",zero:false})}}}); }
   const ms=marginSets(); mk("ch_mt_marg",{type:"line",data:{labels:cur.fin.years,datasets:ms},options:{plugins:{legend:legend(ms.length),tooltip:tipU("%")},scales:{x:axisX,y:axisY({suf:"%",zero:false})}}});
 };
 function qChart(id){const q=cur.fin.q, cat=CAT(); const ds=q.series.map((s,i)=>({label:s.n,data:s.values.map(v=>fin(v)?v:null),borderColor:cat[i%8],backgroundColor:cat[i%8],tension:.25}));
@@ -1575,6 +1815,8 @@ document.addEventListener("change",e=>{const t=e.target; const p=t.dataset&&t.da
   if(t.type==="number"||t.type==="range"||t.type==="text") {rebuildCharts(); renderHeader(); if(TAB==="verdict") drawLevels();}
 });
 document.addEventListener("click",e=>{
+  const mi=e.target.closest("[data-metric]"); if(mi){e.preventDefault(); metricModal(mi.dataset.metric); return;}
+  if(e.target.closest("[data-close]")||e.target.id==="overlay"){closeModal(); return;}
   const tb=e.target.closest(".tab"); if(tb){goTab(tb.dataset.tab);return;}
   const fm=e.target.closest("[data-fmode]"); if(fm){FINMODE=fm.dataset.fmode; lsSet("valorador.finmode",FINMODE); renderTab(); return;}
   if(e.target.closest("#btnDl")){downloadAnalysis(cur);return;}

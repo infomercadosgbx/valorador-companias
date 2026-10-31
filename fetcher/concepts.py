@@ -90,6 +90,10 @@ FLOW_CONCEPTS = {
         "nombre": "Gastos por intereses", "unit": "USD", "combine": True, "opcional": True,
         "tags": ["InterestExpense", "InterestExpenseNonoperating", "InterestExpenseDebt"],
     },
+    "dividendos": {
+        "nombre": "Dividendos pagados", "unit": "USD", "combine": True, "opcional": True,
+        "tags": ["PaymentsOfDividends", "PaymentsOfDividendsCommonStock"],
+    },
     "recompras": {
         "nombre": "Recompras de acciones", "unit": "USD", "combine": True,
         "tags": ["PaymentsForRepurchaseOfCommonStock"],
