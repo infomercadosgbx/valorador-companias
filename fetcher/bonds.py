@@ -20,7 +20,7 @@ from .filings import archive_base, recent_rows
 
 AX_INSTR = "DebtInstrumentAxis"
 AX_TYPES = {"LongtermDebtTypeAxis", "ShortTermDebtTypeAxis", "DebtInstrumentAxis"}
-ALLOWED_EXTRA = {"LongtermDebtTypeAxis", "ShortTermDebtTypeAxis"}
+ALLOWED_EXTRA = {"LongtermDebtTypeAxis", "ShortTermDebtTypeAxis", "LegalEntityAxis"}
 
 C_COUPON = ("DebtInstrumentInterestRateStatedPercentage",)
 C_EFFECTIVE = ("DebtInstrumentInterestRateEffectivePercentage",)
@@ -35,6 +35,7 @@ C_TYPE_AMOUNT = ("LongTermDebt", "DebtInstrumentCarryingAmount", "LongTermDebtNo
 ISO = re.compile(r"iso4217:([A-Z]{3})")
 YEAR = re.compile(r"\b(20[2-9]\d|21\d\d)\b")
 DUE = re.compile(r"due[^0-9]{0,30}?((?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},?\s+\d{4}|\d{4})", re.I)
+PROGRAM = re.compile(r"^(?:(January|February|March|April|May|June|July|August|September|October|November|December)\s+)?((?:19|20)\d\d)\b(?!\s*Notes? due)", re.I)
 MONTHS = {m: i + 1 for i, m in enumerate(["january", "february", "march", "april", "may", "june", "july",
                                             "august", "september", "october", "november", "december"])}
 
@@ -140,8 +141,7 @@ def _pick_latest(rows):
 def maturity_from_label(label: str):
     m = DUE.search(label or "")
     if not m:
-        y = YEAR.findall(label or "")
-        return (y[-1] + "-12-31", True) if y else (None, False)
+        return None, False
     txt = m.group(1)
     if re.fullmatch(r"\d{4}", txt):
         return txt + "-12-31", True
@@ -188,8 +188,9 @@ def extract(inst_xml: bytes, lab_xml: bytes | None, period_end: str | None):
                 continue
             m = c["dims"][AX_INSTR]
             row = instr.setdefault(m, {"coupon": [], "eff": [], "face": [], "book": [], "mat": [], "iss": [], "ccy": set(), "tipo_ax": None})
-            if dims - {AX_INSTR}:
-                row["tipo_ax"] = next(iter(c["dims"][d] for d in dims - {AX_INSTR}))
+            extra = dims - {AX_INSTR} - {"LegalEntityAxis"}
+            if extra:
+                row["tipo_ax"] = c["dims"][next(iter(extra))]
             unit = units.get(f["unit"], "")
             if f["c"] in C_COUPON:
                 row["coupon"].append((c["end"], _num(f["v"]), None))
@@ -215,7 +216,15 @@ def extract(inst_xml: bytes, lab_xml: bytes | None, period_end: str | None):
     for m, r in instr.items():
         label = label_for(m, labels)
         coupon = _pick_latest(r["coupon"]); eff = _pick_latest(r["eff"])
-        face = _pick_latest(r["face"]); book = _pick_latest([x for x in r["book"] if not period_end or x[0] == period_end] or r["book"])
+        face_units = {}
+        for row in sorted(r["face"], key=lambda x: x[0] or ""):
+            if row[1] is not None:
+                face_units[row[2] or "USD"] = row
+        ccy = next((u for u in face_units if u not in ("USD", "pure") and re.fullmatch(r"[A-Z]{3}", u)), None) or \
+            next((u for u in r["ccy"] if u not in ("USD", "pure") and re.fullmatch(r"[A-Z]{3}", u or "")), None) or "USD"
+        face = face_units.get(ccy) or face_units.get("USD")
+        usd_book = [x for x in r["book"] if (x[2] or "USD") == "USD"]
+        book = _pick_latest([x for x in usd_book if period_end and x[0] == period_end] or usd_book)
         mat = _pick_latest(r["mat"]); iss = _pick_latest(r["iss"])
         if mat:
             venc, aprox = mat[1], False
@@ -223,16 +232,28 @@ def extract(inst_xml: bytes, lab_xml: bytes | None, period_end: str | None):
             venc, aprox = maturity_from_label(label)
         if not any([coupon, face, book]):
             continue
-        ccy = (face or book or (None, None, "USD"))[2] or "USD"
+        if book and book[1] == 0 and not (face and face[1]):
+            continue  # amortizado
+        prog = PROGRAM.match(label) if not mat and venc is None else None
+        tail = re.search(r"Notes\s+((?:19|20)\d\d)$", label) if not mat and venc is None else None
+        if not coupon and prog:
+            mon = MONTHS.get((prog.group(1) or "").lower())
+            emision_lbl = f"{prog.group(2)}-{mon:02d}" if mon else prog.group(2)
+        elif not coupon and tail:
+            emision_lbl = tail.group(1)
+        else:
+            emision_lbl = None
         out.append({
             "miembro": m, "nombre": label, "tipo": classify(label, m),
             "cupon": round(coupon[1] * 100, 4) if coupon and coupon[1] < 1 else (coupon[1] if coupon else None),
             "tipo_efectivo": round(eff[1] * 100, 4) if eff and eff[1] < 1 else (eff[1] if eff else None),
             "nominal": face[1] if face else None, "en_libros": book[1] if book else None,
             "en_libros_fecha": book[0] if book else None,
-            "moneda": ccy if re.fullmatch(r"[A-Z]{3}", ccy or "") else "USD",
+            "moneda": ccy,
+            "nominal_moneda": face[2] if face else None,
             "vencimiento": venc, "vencimiento_aprox": aprox,
-            "emision": iss[1] if iss else None,
+            "emision": iss[1] if iss else emision_lbl,
+            "programa": bool(emision_lbl),
         })
     comp = []
     by_member = {}
@@ -305,7 +326,9 @@ def build(client, cik, subs, previous=None):
             seen[it["miembro"]] = merged
         if c:
             comp = [dict(x, fuente=src) for x in c]
-    emisiones = [e for e in seen.values() if not e.get("vencimiento") or e["vencimiento"] >= today]
+    emisiones = [e for e in seen.values()
+                 if (not e.get("vencimiento") or e["vencimiento"] >= today or e.get("vencimiento_aprox"))
+                 and not (e.get("en_libros") == 0)]
     emisiones.sort(key=lambda e: (e.get("vencimiento") or "9999", e.get("nombre")))
     last_10k = next((s for s in used if s["formulario"] == "10-K"), None)
     for e in emisiones:
