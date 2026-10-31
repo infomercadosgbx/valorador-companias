@@ -139,7 +139,7 @@ INSTANT_CONCEPTS = {
              "optional": [["LongTermDebtCurrent", "DebtCurrent"]]},
             {"required": ["LongTermDebt"], "optional": []},
             {"required": ["LongTermDebtAndCapitalLeaseObligations"],
-             "optional": [["LongTermDebtAndCapitalLeaseObligationsCurrent", "DebtCurrent"]]},
+             "optional": [["LongTermDebtAndCapitalLeaseObligationsCurrent", "DebtCurrent", "ShortTermBorrowings"]]},
             {"required": ["ConvertibleNotesPayable"],
              "optional": [["ConvertibleNotesPayableCurrent"]]},
             {"required": ["SeniorLongTermNotes"], "optional": []},

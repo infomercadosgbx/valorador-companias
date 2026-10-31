@@ -49,9 +49,15 @@ def check_revenue_drop(flow):
 def check_jumps(flow):
     out = []
     q = flow.get("trimestral", [])
+    def per_day(p):   # trimestres de distinta duración (PepsiCo: 12 y 16 semanas) se comparan por día
+        try:
+            d = (_d(p["periodo_fin"]) - _d(p["periodo_inicio"])).days + 1
+            return p["valor"] / d if d > 0 else p["valor"]
+        except (KeyError, TypeError, ValueError):
+            return p["valor"]
     for prev, cur in zip(q, q[1:]):
         if prev["valor"] and prev["valor"] > 0:
-            ch = cur["valor"] / prev["valor"] - 1
+            ch = per_day(cur) / per_day(prev) - 1
             if ch > QOQ_UP or ch < QOQ_DOWN:
                 out.append(warn("aviso", "salto_raro",
                     f"Ingresos {cur['periodo']}: {ch:+.0%} frente a {prev['periodo']}. Revisa el informe.",

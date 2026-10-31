@@ -20,8 +20,8 @@ from . import concepts as C
 STALE_DAYS = 60
 ANNUAL_DAYS = (350, 380)
 QUARTER_DAYS = (80, 100)
-H1_DAYS = (170, 195)
-M9_DAYS = (260, 290)
+H1_DAYS = (160, 195)   # 24 semanas (PepsiCo: trimestres de 12 semanas) = 168 días
+M9_DAYS = (245, 290)   # 36 semanas = 252 días
 Q4_RATIO = (0.6, 1.9)
 BALANCE_WINDOW_DAYS = 487  # ~16 meses
 DATE_TOL = 4               # días de tolerancia al casar fechas (años de 52/53 semanas)
