@@ -1877,10 +1877,251 @@
   "amortizacion": {
    "nombre": "Amortizaciones (D&A)",
    "unidad": "USD",
-   "anual": [],
-   "trimestral": [],
-   "ttm": null,
-   "etiquetas_usadas": []
+   "anual": [
+    {
+     "valor": 10273000000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204424000022/0001652044-24-000022-index.htm",
+     "fecha_presentacion": "2024-01-31",
+     "etiqueta": "us-gaap:Depreciation",
+     "periodo_fin": "2021-12-31",
+     "formulario": "10-K",
+     "accn": "0001652044-24-000022",
+     "periodo_inicio": "2021-01-01",
+     "periodo": "2021",
+     "dias": 364,
+     "derivado": "Solo depreciación: no hay amortización de intangibles etiquetada para este periodo"
+    },
+    {
+     "valor": 13475000000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204425000014/0001652044-25-000014-index.htm",
+     "fecha_presentacion": "2025-02-05",
+     "etiqueta": "us-gaap:Depreciation",
+     "periodo_fin": "2022-12-31",
+     "formulario": "10-K",
+     "accn": "0001652044-25-000014",
+     "periodo_inicio": "2022-01-01",
+     "periodo": "2022",
+     "dias": 364,
+     "derivado": "Solo depreciación: no hay amortización de intangibles etiquetada para este periodo"
+    },
+    {
+     "valor": 11946000000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/0001652044-26-000018-index.htm",
+     "fecha_presentacion": "2026-02-05",
+     "etiqueta": "us-gaap:Depreciation",
+     "periodo_fin": "2023-12-31",
+     "formulario": "10-K",
+     "accn": "0001652044-26-000018",
+     "periodo_inicio": "2023-01-01",
+     "periodo": "2023",
+     "dias": 364,
+     "derivado": "Solo depreciación: no hay amortización de intangibles etiquetada para este periodo"
+    },
+    {
+     "valor": 15311000000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/0001652044-26-000018-index.htm",
+     "fecha_presentacion": "2026-02-05",
+     "etiqueta": "us-gaap:Depreciation",
+     "periodo_fin": "2024-12-31",
+     "formulario": "10-K",
+     "accn": "0001652044-26-000018",
+     "periodo_inicio": "2024-01-01",
+     "periodo": "2024",
+     "dias": 365,
+     "derivado": "Solo depreciación: no hay amortización de intangibles etiquetada para este periodo"
+    },
+    {
+     "valor": 21136000000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/0001652044-26-000018-index.htm",
+     "fecha_presentacion": "2026-02-05",
+     "etiqueta": "us-gaap:Depreciation",
+     "periodo_fin": "2025-12-31",
+     "formulario": "10-K",
+     "accn": "0001652044-26-000018",
+     "periodo_inicio": "2025-01-01",
+     "periodo": "2025",
+     "dias": 364,
+     "derivado": "Solo depreciación: no hay amortización de intangibles etiquetada para este periodo"
+    }
+   ],
+   "trimestral": [
+    {
+     "valor": 3316000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/0001652044-26-000018-index.htm",
+     "fecha_presentacion": "2026-02-05",
+     "etiqueta": "us-gaap:Depreciation",
+     "periodo_fin": "2023-12-31",
+     "formulario": "10-K",
+     "accn": "0001652044-26-000018",
+     "periodo_inicio": "2023-10-01",
+     "derivado": "Solo depreciación: no hay amortización de intangibles etiquetada para este periodo",
+     "periodo": "4T23"
+    },
+    {
+     "valor": 3413000000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204425000043/0001652044-25-000043-index.htm",
+     "fecha_presentacion": "2025-04-25",
+     "etiqueta": "us-gaap:Depreciation",
+     "periodo_fin": "2024-03-31",
+     "formulario": "10-Q",
+     "accn": "0001652044-25-000043",
+     "periodo_inicio": "2024-01-01",
+     "periodo": "1T24",
+     "derivado": "Solo depreciación: no hay amortización de intangibles etiquetada para este periodo"
+    },
+    {
+     "valor": 3708000000,
+     "fuente": "SEC EDGAR · 10-Q (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204425000062/0001652044-25-000062-index.htm",
+     "fecha_presentacion": "2025-07-24",
+     "etiqueta": "us-gaap:Depreciation",
+     "periodo_fin": "2024-06-30",
+     "formulario": "10-Q",
+     "accn": "0001652044-25-000062",
+     "periodo_inicio": "2024-04-01",
+     "derivado": "Solo depreciación: no hay amortización de intangibles etiquetada para este periodo",
+     "periodo": "2T24"
+    },
+    {
+     "valor": 3985000000,
+     "fuente": "SEC EDGAR · 10-Q (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204425000091/0001652044-25-000091-index.htm",
+     "fecha_presentacion": "2025-10-30",
+     "etiqueta": "us-gaap:Depreciation",
+     "periodo_fin": "2024-09-30",
+     "formulario": "10-Q",
+     "accn": "0001652044-25-000091",
+     "periodo_inicio": "2024-07-01",
+     "derivado": "Solo depreciación: no hay amortización de intangibles etiquetada para este periodo",
+     "periodo": "3T24"
+    },
+    {
+     "valor": 4205000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/0001652044-26-000018-index.htm",
+     "fecha_presentacion": "2026-02-05",
+     "etiqueta": "us-gaap:Depreciation",
+     "periodo_fin": "2024-12-31",
+     "formulario": "10-K",
+     "accn": "0001652044-26-000018",
+     "periodo_inicio": "2024-10-01",
+     "derivado": "Solo depreciación: no hay amortización de intangibles etiquetada para este periodo",
+     "periodo": "4T24"
+    },
+    {
+     "valor": 4609000000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000048/0001652044-26-000048-index.htm",
+     "fecha_presentacion": "2026-04-30",
+     "etiqueta": "us-gaap:Depreciation + us-gaap:AmortizationOfIntangibleAssets",
+     "periodo_fin": "2025-03-31",
+     "formulario": "10-Q",
+     "accn": "0001652044-26-000048",
+     "periodo_inicio": "2025-01-01",
+     "periodo": "1T25",
+     "derivado": "Depreciación + amortización de intangibles"
+    },
+    {
+     "valor": 5122000000,
+     "fuente": "SEC EDGAR · 10-Q (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000071/0001652044-26-000071-index.htm",
+     "fecha_presentacion": "2026-07-23",
+     "etiqueta": "us-gaap:Depreciation + us-gaap:AmortizationOfIntangibleAssets",
+     "periodo_fin": "2025-06-30",
+     "formulario": "10-Q",
+     "accn": "0001652044-26-000071",
+     "periodo_inicio": "2025-04-01",
+     "derivado": "Depreciación + amortización de intangibles",
+     "periodo": "2T25"
+    },
+    {
+     "valor": 5740000000,
+     "fuente": "SEC EDGAR · 10-Q (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/0001652044-26-000084-index.htm",
+     "fecha_presentacion": "2026-10-29",
+     "etiqueta": "us-gaap:Depreciation + us-gaap:AmortizationOfIntangibleAssets",
+     "periodo_fin": "2025-09-30",
+     "formulario": "10-Q",
+     "accn": "0001652044-26-000084",
+     "periodo_inicio": "2025-07-01",
+     "derivado": "Depreciación + amortización de intangibles",
+     "periodo": "3T25"
+    },
+    {
+     "valor": 6040000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/0001652044-26-000018-index.htm",
+     "fecha_presentacion": "2026-02-05",
+     "etiqueta": "us-gaap:Depreciation",
+     "periodo_fin": "2025-12-31",
+     "formulario": "10-K",
+     "accn": "0001652044-26-000018",
+     "periodo_inicio": "2025-10-01",
+     "derivado": "Solo depreciación: no hay amortización de intangibles etiquetada para este periodo",
+     "periodo": "4T25"
+    },
+    {
+     "valor": 6660000000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000048/0001652044-26-000048-index.htm",
+     "fecha_presentacion": "2026-04-30",
+     "etiqueta": "us-gaap:Depreciation + us-gaap:AmortizationOfIntangibleAssets",
+     "periodo_fin": "2026-03-31",
+     "formulario": "10-Q",
+     "accn": "0001652044-26-000048",
+     "periodo_inicio": "2026-01-01",
+     "periodo": "1T26",
+     "derivado": "Depreciación + amortización de intangibles"
+    },
+    {
+     "valor": 7471000000,
+     "fuente": "SEC EDGAR · 10-Q (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000071/0001652044-26-000071-index.htm",
+     "fecha_presentacion": "2026-07-23",
+     "etiqueta": "us-gaap:Depreciation + us-gaap:AmortizationOfIntangibleAssets",
+     "periodo_fin": "2026-06-30",
+     "formulario": "10-Q",
+     "accn": "0001652044-26-000071",
+     "periodo_inicio": "2026-04-01",
+     "derivado": "Depreciación + amortización de intangibles",
+     "periodo": "2T26"
+    },
+    {
+     "valor": 8744000000,
+     "fuente": "SEC EDGAR · 10-Q (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/0001652044-26-000084-index.htm",
+     "fecha_presentacion": "2026-10-29",
+     "etiqueta": "us-gaap:Depreciation + us-gaap:AmortizationOfIntangibleAssets",
+     "periodo_fin": "2026-09-30",
+     "formulario": "10-Q",
+     "accn": "0001652044-26-000084",
+     "periodo_inicio": "2026-07-01",
+     "derivado": "Depreciación + amortización de intangibles",
+     "periodo": "3T26"
+    }
+   ],
+   "ttm": {
+    "valor": 27995000000,
+    "fuente": "SEC EDGAR (suma de 4 trimestres)",
+    "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/0001652044-26-000084-index.htm",
+    "fecha_presentacion": "2026-10-29",
+    "etiqueta": "us-gaap:Depreciation",
+    "periodo_inicio": "2025-10-01",
+    "periodo_fin": "2026-09-30",
+    "derivado": "Solo depreciación: no hay amortización de intangibles etiquetada para este periodo"
+   },
+   "etiquetas_usadas": [
+    "us-gaap:Depreciation",
+    "us-gaap:Depreciation + us-gaap:AmortizationOfIntangibleAssets"
+   ],
+   "por_componentes": true
   },
   "remuneracion_acciones": {
    "nombre": "Remuneración en acciones (SBC)",
@@ -2153,6 +2394,328 @@
    "etiquetas_usadas": [
     "us-gaap:ShareBasedCompensation",
     "us-gaap:AllocatedShareBasedCompensationExpense"
+   ]
+  },
+  "depreciacion": {
+   "nombre": "Depreciación",
+   "unidad": "USD",
+   "anual": [
+    {
+     "valor": 10273000000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204424000022/0001652044-24-000022-index.htm",
+     "fecha_presentacion": "2024-01-31",
+     "etiqueta": "us-gaap:Depreciation",
+     "periodo_fin": "2021-12-31",
+     "formulario": "10-K",
+     "accn": "0001652044-24-000022",
+     "periodo_inicio": "2021-01-01",
+     "periodo": "2021",
+     "dias": 364
+    },
+    {
+     "valor": 13475000000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204425000014/0001652044-25-000014-index.htm",
+     "fecha_presentacion": "2025-02-05",
+     "etiqueta": "us-gaap:Depreciation",
+     "periodo_fin": "2022-12-31",
+     "formulario": "10-K",
+     "accn": "0001652044-25-000014",
+     "periodo_inicio": "2022-01-01",
+     "periodo": "2022",
+     "dias": 364
+    },
+    {
+     "valor": 11946000000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/0001652044-26-000018-index.htm",
+     "fecha_presentacion": "2026-02-05",
+     "etiqueta": "us-gaap:Depreciation",
+     "periodo_fin": "2023-12-31",
+     "formulario": "10-K",
+     "accn": "0001652044-26-000018",
+     "periodo_inicio": "2023-01-01",
+     "periodo": "2023",
+     "dias": 364
+    },
+    {
+     "valor": 15311000000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/0001652044-26-000018-index.htm",
+     "fecha_presentacion": "2026-02-05",
+     "etiqueta": "us-gaap:Depreciation",
+     "periodo_fin": "2024-12-31",
+     "formulario": "10-K",
+     "accn": "0001652044-26-000018",
+     "periodo_inicio": "2024-01-01",
+     "periodo": "2024",
+     "dias": 365
+    },
+    {
+     "valor": 21136000000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/0001652044-26-000018-index.htm",
+     "fecha_presentacion": "2026-02-05",
+     "etiqueta": "us-gaap:Depreciation",
+     "periodo_fin": "2025-12-31",
+     "formulario": "10-K",
+     "accn": "0001652044-26-000018",
+     "periodo_inicio": "2025-01-01",
+     "periodo": "2025",
+     "dias": 364
+    }
+   ],
+   "trimestral": [
+    {
+     "valor": 3316000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/0001652044-26-000018-index.htm",
+     "fecha_presentacion": "2026-02-05",
+     "etiqueta": "us-gaap:Depreciation",
+     "periodo_fin": "2023-12-31",
+     "formulario": "10-K",
+     "accn": "0001652044-26-000018",
+     "periodo_inicio": "2023-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T23"
+    },
+    {
+     "valor": 3413000000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204425000043/0001652044-25-000043-index.htm",
+     "fecha_presentacion": "2025-04-25",
+     "etiqueta": "us-gaap:Depreciation",
+     "periodo_fin": "2024-03-31",
+     "formulario": "10-Q",
+     "accn": "0001652044-25-000043",
+     "periodo_inicio": "2024-01-01",
+     "periodo": "1T24"
+    },
+    {
+     "valor": 3708000000,
+     "fuente": "SEC EDGAR · 10-Q (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204425000062/0001652044-25-000062-index.htm",
+     "fecha_presentacion": "2025-07-24",
+     "etiqueta": "us-gaap:Depreciation",
+     "periodo_fin": "2024-06-30",
+     "formulario": "10-Q",
+     "accn": "0001652044-25-000062",
+     "periodo_inicio": "2024-04-01",
+     "derivado": "Acumulado 6 meses − acumulado 3 meses",
+     "periodo": "2T24"
+    },
+    {
+     "valor": 3985000000,
+     "fuente": "SEC EDGAR · 10-Q (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204425000091/0001652044-25-000091-index.htm",
+     "fecha_presentacion": "2025-10-30",
+     "etiqueta": "us-gaap:Depreciation",
+     "periodo_fin": "2024-09-30",
+     "formulario": "10-Q",
+     "accn": "0001652044-25-000091",
+     "periodo_inicio": "2024-07-01",
+     "derivado": "Acumulado 9 meses − acumulado 6 meses",
+     "periodo": "3T24"
+    },
+    {
+     "valor": 4205000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/0001652044-26-000018-index.htm",
+     "fecha_presentacion": "2026-02-05",
+     "etiqueta": "us-gaap:Depreciation",
+     "periodo_fin": "2024-12-31",
+     "formulario": "10-K",
+     "accn": "0001652044-26-000018",
+     "periodo_inicio": "2024-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T24"
+    },
+    {
+     "valor": 4487000000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000048/0001652044-26-000048-index.htm",
+     "fecha_presentacion": "2026-04-30",
+     "etiqueta": "us-gaap:Depreciation",
+     "periodo_fin": "2025-03-31",
+     "formulario": "10-Q",
+     "accn": "0001652044-26-000048",
+     "periodo_inicio": "2025-01-01",
+     "periodo": "1T25"
+    },
+    {
+     "valor": 4998000000,
+     "fuente": "SEC EDGAR · 10-Q (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000071/0001652044-26-000071-index.htm",
+     "fecha_presentacion": "2026-07-23",
+     "etiqueta": "us-gaap:Depreciation",
+     "periodo_fin": "2025-06-30",
+     "formulario": "10-Q",
+     "accn": "0001652044-26-000071",
+     "periodo_inicio": "2025-04-01",
+     "derivado": "Acumulado 6 meses − acumulado 3 meses",
+     "periodo": "2T25"
+    },
+    {
+     "valor": 5611000000,
+     "fuente": "SEC EDGAR · 10-Q (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/0001652044-26-000084-index.htm",
+     "fecha_presentacion": "2026-10-29",
+     "etiqueta": "us-gaap:Depreciation",
+     "periodo_fin": "2025-09-30",
+     "formulario": "10-Q",
+     "accn": "0001652044-26-000084",
+     "periodo_inicio": "2025-07-01",
+     "derivado": "Acumulado 9 meses − acumulado 6 meses",
+     "periodo": "3T25"
+    },
+    {
+     "valor": 6040000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/0001652044-26-000018-index.htm",
+     "fecha_presentacion": "2026-02-05",
+     "etiqueta": "us-gaap:Depreciation",
+     "periodo_fin": "2025-12-31",
+     "formulario": "10-K",
+     "accn": "0001652044-26-000018",
+     "periodo_inicio": "2025-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T25"
+    },
+    {
+     "valor": 6482000000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000048/0001652044-26-000048-index.htm",
+     "fecha_presentacion": "2026-04-30",
+     "etiqueta": "us-gaap:Depreciation",
+     "periodo_fin": "2026-03-31",
+     "formulario": "10-Q",
+     "accn": "0001652044-26-000048",
+     "periodo_inicio": "2026-01-01",
+     "periodo": "1T26"
+    },
+    {
+     "valor": 7104000000,
+     "fuente": "SEC EDGAR · 10-Q (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000071/0001652044-26-000071-index.htm",
+     "fecha_presentacion": "2026-07-23",
+     "etiqueta": "us-gaap:Depreciation",
+     "periodo_fin": "2026-06-30",
+     "formulario": "10-Q",
+     "accn": "0001652044-26-000071",
+     "periodo_inicio": "2026-04-01",
+     "derivado": "Acumulado 6 meses − acumulado 3 meses",
+     "periodo": "2T26"
+    },
+    {
+     "valor": 8369000000,
+     "fuente": "SEC EDGAR · 10-Q (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/0001652044-26-000084-index.htm",
+     "fecha_presentacion": "2026-10-29",
+     "etiqueta": "us-gaap:Depreciation",
+     "periodo_fin": "2026-09-30",
+     "formulario": "10-Q",
+     "accn": "0001652044-26-000084",
+     "periodo_inicio": "2026-07-01",
+     "derivado": "Acumulado 9 meses − acumulado 6 meses",
+     "periodo": "3T26"
+    }
+   ],
+   "ttm": {
+    "valor": 27995000000,
+    "fuente": "SEC EDGAR (suma de 4 trimestres)",
+    "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/0001652044-26-000084-index.htm",
+    "fecha_presentacion": "2026-10-29",
+    "etiqueta": "us-gaap:Depreciation",
+    "periodo_inicio": "2025-10-01",
+    "periodo_fin": "2026-09-30",
+    "derivado": "4T25 + 1T26 + 2T26 + 3T26"
+   },
+   "etiquetas_usadas": [
+    "us-gaap:Depreciation"
+   ]
+  },
+  "amort_intangibles": {
+   "nombre": "Amortización de intangibles",
+   "unidad": "USD",
+   "anual": [],
+   "trimestral": [
+    {
+     "valor": 122000000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000048/0001652044-26-000048-index.htm",
+     "fecha_presentacion": "2026-04-30",
+     "etiqueta": "us-gaap:AmortizationOfIntangibleAssets",
+     "periodo_fin": "2025-03-31",
+     "formulario": "10-Q",
+     "accn": "0001652044-26-000048",
+     "periodo_inicio": "2025-01-01",
+     "periodo": "1T25"
+    },
+    {
+     "valor": 124000000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000071/0001652044-26-000071-index.htm",
+     "fecha_presentacion": "2026-07-23",
+     "etiqueta": "us-gaap:AmortizationOfIntangibleAssets",
+     "periodo_fin": "2025-06-30",
+     "formulario": "10-Q",
+     "accn": "0001652044-26-000071",
+     "periodo_inicio": "2025-04-01",
+     "periodo": "2T25"
+    },
+    {
+     "valor": 129000000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/0001652044-26-000084-index.htm",
+     "fecha_presentacion": "2026-10-29",
+     "etiqueta": "us-gaap:AmortizationOfIntangibleAssets",
+     "periodo_fin": "2025-09-30",
+     "formulario": "10-Q",
+     "accn": "0001652044-26-000084",
+     "periodo_inicio": "2025-07-01",
+     "periodo": "3T25"
+    },
+    {
+     "valor": 178000000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000048/0001652044-26-000048-index.htm",
+     "fecha_presentacion": "2026-04-30",
+     "etiqueta": "us-gaap:AmortizationOfIntangibleAssets",
+     "periodo_fin": "2026-03-31",
+     "formulario": "10-Q",
+     "accn": "0001652044-26-000048",
+     "periodo_inicio": "2026-01-01",
+     "periodo": "1T26"
+    },
+    {
+     "valor": 367000000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000071/0001652044-26-000071-index.htm",
+     "fecha_presentacion": "2026-07-23",
+     "etiqueta": "us-gaap:AmortizationOfIntangibleAssets",
+     "periodo_fin": "2026-06-30",
+     "formulario": "10-Q",
+     "accn": "0001652044-26-000071",
+     "periodo_inicio": "2026-04-01",
+     "periodo": "2T26"
+    },
+    {
+     "valor": 375000000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/0001652044-26-000084-index.htm",
+     "fecha_presentacion": "2026-10-29",
+     "etiqueta": "us-gaap:AmortizationOfIntangibleAssets",
+     "periodo_fin": "2026-09-30",
+     "formulario": "10-Q",
+     "accn": "0001652044-26-000084",
+     "periodo_inicio": "2026-07-01",
+     "periodo": "3T26"
+    }
+   ],
+   "ttm": null,
+   "etiquetas_usadas": [
+    "us-gaap:AmortizationOfIntangibleAssets"
    ]
   },
   "coste_ventas": {
@@ -4126,6 +4689,12 @@
   },
   {
    "nivel": "info",
+   "codigo": "amortizacion_por_componentes",
+   "mensaje": "Amortizaciones (D&A): la compañía no usa la etiqueta combinada; se suman depreciación (us-gaap:Depreciation) y amortización de intangibles (us-gaap:AmortizationOfIntangibleAssets).",
+   "concepto": "amortizacion"
+  },
+  {
+   "nivel": "info",
    "codigo": "acciones_diluidas",
    "mensaje": "Acciones: se usan las diluidas medias del 3T26 (12,368 M)."
   }
@@ -4768,5 +5337,5 @@
   "fuente": "Finnhub · recomendaciones de analistas",
   "url": "https://finnhub.io/docs/api/recommendation-trends"
  },
- "generado": "2026-10-31T14:59:12+00:00"
+ "generado": "2026-10-31T15:06:58+00:00"
 }

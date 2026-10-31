@@ -2001,6 +2001,223 @@
     "us-gaap:ShareBasedCompensation"
    ]
   },
+  "depreciacion": {
+   "nombre": "Depreciación",
+   "unidad": "USD",
+   "anual": [],
+   "trimestral": [
+    {
+     "valor": 1000000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344524000006/0001713445-24-000006-index.htm",
+     "fecha_presentacion": "2024-05-08",
+     "etiqueta": "us-gaap:Depreciation",
+     "periodo_fin": "2023-03-31",
+     "formulario": "10-Q",
+     "accn": "0001713445-24-000006",
+     "periodo_inicio": "2023-01-01",
+     "periodo": "1T23"
+    },
+    {
+     "valor": 1100000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344524000054/0001713445-24-000054-index.htm",
+     "fecha_presentacion": "2024-08-07",
+     "etiqueta": "us-gaap:Depreciation",
+     "periodo_fin": "2023-06-30",
+     "formulario": "10-Q",
+     "accn": "0001713445-24-000054",
+     "periodo_inicio": "2023-04-01",
+     "periodo": "2T23"
+    },
+    {
+     "valor": 1500000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344524000006/0001713445-24-000006-index.htm",
+     "fecha_presentacion": "2024-05-08",
+     "etiqueta": "us-gaap:Depreciation",
+     "periodo_fin": "2024-03-31",
+     "formulario": "10-Q",
+     "accn": "0001713445-24-000006",
+     "periodo_inicio": "2024-01-01",
+     "periodo": "1T24"
+    },
+    {
+     "valor": 1600000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344524000054/0001713445-24-000054-index.htm",
+     "fecha_presentacion": "2024-08-07",
+     "etiqueta": "us-gaap:Depreciation",
+     "periodo_fin": "2024-06-30",
+     "formulario": "10-Q",
+     "accn": "0001713445-24-000054",
+     "periodo_inicio": "2024-04-01",
+     "periodo": "2T24"
+    }
+   ],
+   "ttm": null,
+   "etiquetas_usadas": [
+    "us-gaap:Depreciation"
+   ]
+  },
+  "amort_intangibles": {
+   "nombre": "Amortización de intangibles",
+   "unidad": "USD",
+   "anual": [
+    {
+     "valor": 0,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344525000018/0001713445-25-000018-index.htm",
+     "fecha_presentacion": "2025-02-13",
+     "etiqueta": "us-gaap:AmortizationOfIntangibleAssets",
+     "periodo_fin": "2022-12-31",
+     "formulario": "10-K",
+     "accn": "0001713445-25-000018",
+     "periodo_inicio": "2022-01-01",
+     "periodo": "2022",
+     "dias": 364
+    },
+    {
+     "valor": 9000000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344525000018/0001713445-25-000018-index.htm",
+     "fecha_presentacion": "2025-02-13",
+     "etiqueta": "us-gaap:AmortizationOfIntangibleAssets",
+     "periodo_fin": "2023-12-31",
+     "formulario": "10-K",
+     "accn": "0001713445-25-000018",
+     "periodo_inicio": "2023-01-01",
+     "periodo": "2023",
+     "dias": 364
+    },
+    {
+     "valor": 9200000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344525000018/0001713445-25-000018-index.htm",
+     "fecha_presentacion": "2025-02-13",
+     "etiqueta": "us-gaap:AmortizationOfIntangibleAssets",
+     "periodo_fin": "2024-12-31",
+     "formulario": "10-K",
+     "accn": "0001713445-25-000018",
+     "periodo_inicio": "2024-01-01",
+     "periodo": "2024",
+     "dias": 365
+    }
+   ],
+   "trimestral": [
+    {
+     "valor": 2300000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344524000006/0001713445-24-000006-index.htm",
+     "fecha_presentacion": "2024-05-08",
+     "etiqueta": "us-gaap:AmortizationOfIntangibleAssets",
+     "periodo_fin": "2023-03-31",
+     "formulario": "10-Q",
+     "accn": "0001713445-24-000006",
+     "periodo_inicio": "2023-01-01",
+     "periodo": "1T23"
+    },
+    {
+     "valor": 2300000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344524000054/0001713445-24-000054-index.htm",
+     "fecha_presentacion": "2024-08-07",
+     "etiqueta": "us-gaap:AmortizationOfIntangibleAssets",
+     "periodo_fin": "2023-06-30",
+     "formulario": "10-Q",
+     "accn": "0001713445-24-000054",
+     "periodo_inicio": "2023-04-01",
+     "periodo": "2T23"
+    },
+    {
+     "valor": 0,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344524000102/0001713445-24-000102-index.htm",
+     "fecha_presentacion": "2024-10-30",
+     "etiqueta": "us-gaap:AmortizationOfIntangibleAssets",
+     "periodo_fin": "2023-09-30",
+     "formulario": "10-Q",
+     "accn": "0001713445-24-000102",
+     "periodo_inicio": "2023-07-01",
+     "periodo": "3T23"
+    },
+    {
+     "valor": 4400000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344525000018/0001713445-25-000018-index.htm",
+     "fecha_presentacion": "2025-02-13",
+     "etiqueta": "us-gaap:AmortizationOfIntangibleAssets",
+     "periodo_fin": "2023-12-31",
+     "formulario": "10-K",
+     "accn": "0001713445-25-000018",
+     "periodo_inicio": "2023-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T23"
+    },
+    {
+     "valor": 2200000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344524000006/0001713445-24-000006-index.htm",
+     "fecha_presentacion": "2024-05-08",
+     "etiqueta": "us-gaap:AmortizationOfIntangibleAssets",
+     "periodo_fin": "2024-03-31",
+     "formulario": "10-Q",
+     "accn": "0001713445-24-000006",
+     "periodo_inicio": "2024-01-01",
+     "periodo": "1T24"
+    },
+    {
+     "valor": 2200000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344524000054/0001713445-24-000054-index.htm",
+     "fecha_presentacion": "2024-08-07",
+     "etiqueta": "us-gaap:AmortizationOfIntangibleAssets",
+     "periodo_fin": "2024-06-30",
+     "formulario": "10-Q",
+     "accn": "0001713445-24-000054",
+     "periodo_inicio": "2024-04-01",
+     "periodo": "2T24"
+    },
+    {
+     "valor": 0,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344524000102/0001713445-24-000102-index.htm",
+     "fecha_presentacion": "2024-10-30",
+     "etiqueta": "us-gaap:AmortizationOfIntangibleAssets",
+     "periodo_fin": "2024-09-30",
+     "formulario": "10-Q",
+     "accn": "0001713445-24-000102",
+     "periodo_inicio": "2024-07-01",
+     "periodo": "3T24"
+    },
+    {
+     "valor": 4800000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344525000018/0001713445-25-000018-index.htm",
+     "fecha_presentacion": "2025-02-13",
+     "etiqueta": "us-gaap:AmortizationOfIntangibleAssets",
+     "periodo_fin": "2024-12-31",
+     "formulario": "10-K",
+     "accn": "0001713445-25-000018",
+     "periodo_inicio": "2024-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T24"
+    }
+   ],
+   "ttm": {
+    "valor": 9200000,
+    "fuente": "SEC EDGAR (suma de 4 trimestres)",
+    "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344525000018/0001713445-25-000018-index.htm",
+    "fecha_presentacion": "2025-02-13",
+    "etiqueta": "us-gaap:AmortizationOfIntangibleAssets",
+    "periodo_inicio": "2024-01-01",
+    "periodo_fin": "2024-12-31",
+    "derivado": "1T24 + 2T24 + 3T24 + 4T24"
+   },
+   "etiquetas_usadas": [
+    "us-gaap:AmortizationOfIntangibleAssets"
+   ]
+  },
   "coste_ventas": {
    "nombre": "Coste de ventas",
    "unidad": "USD",
@@ -2988,6 +3205,20 @@
  },
  "avisos": [
   {
+   "nivel": "info",
+   "codigo": "etiqueta_obsoleta",
+   "mensaje": "Depreciación: «Depreciation» termina el 2024-06-30; solo se usa para años antiguos.",
+   "concepto": "depreciacion",
+   "etiqueta": "Depreciation"
+  },
+  {
+   "nivel": "info",
+   "codigo": "etiqueta_obsoleta",
+   "mensaje": "Amortización de intangibles: «AmortizationOfIntangibleAssets» termina el 2024-12-31; solo se usa para años antiguos.",
+   "concepto": "amort_intangibles",
+   "etiqueta": "AmortizationOfIntangibleAssets"
+  },
+  {
    "nivel": "aviso",
    "codigo": "deuda_asumida_cero",
    "mensaje": "Deuda financiera: no hay ninguna etiqueta vigente; se asume 0.",
@@ -3061,5 +3292,5 @@
   "fuente": "Finnhub · recomendaciones de analistas",
   "url": "https://finnhub.io/docs/api/recommendation-trends"
  },
- "generado": "2026-10-31T14:59:17+00:00"
+ "generado": "2026-10-31T15:07:02+00:00"
 }
