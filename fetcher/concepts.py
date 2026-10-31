@@ -92,6 +92,14 @@ FLOW_CONCEPTS = {
                  "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
                  "IncomeLossFromContinuingOperationsBeforeIncomeTaxesDomestic"],
     },
+    "otros_no_operativos": {
+        "nombre": "Otros ingresos (gastos) no operativos", "unit": "USD", "combine": True, "opcional": True,
+        "tags": ["NonoperatingIncomeExpense", "OtherNonoperatingIncomeExpense"],
+    },
+    "ganancias_inversiones": {
+        "nombre": "Ganancias (pérdidas) en participaciones", "unit": "USD", "combine": True, "opcional": True,
+        "tags": ["EquitySecuritiesFvNiGainLoss", "EquitySecuritiesFvNiUnrealizedGainLoss"],
+    },
     "coste_ventas": {
         "nombre": "Coste de ventas", "unit": "USD", "combine": True, "opcional": True,
         "tags": ["CostOfRevenue", "CostOfGoodsAndServicesSold", "CostOfGoodsSold"],

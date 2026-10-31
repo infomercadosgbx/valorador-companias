@@ -32,6 +32,12 @@ class PriceProvider:
     def profile(self, ticker: str) -> dict | None:
         return None
 
+    def earnings(self, ticker: str) -> dict | None:
+        return None
+
+    def news(self, ticker: str) -> list | None:
+        return None
+
 
 class NoPriceProvider(PriceProvider):
     pass
@@ -93,6 +99,45 @@ class FinnhubProvider(PriceProvider):
 
     def profile(self, ticker):
         return self._get("/stock/profile2", symbol=ticker) or None
+
+    def earnings(self, ticker, today=None):
+        """Próxima fecha de resultados con previsiones y las sorpresas de los últimos trimestres."""
+        from datetime import date, timedelta
+        today = today or date.today()
+        out = {"fuente": "Finnhub · calendario de resultados y sorpresas", "url": "https://finnhub.io/docs/api/earnings-calendar"}
+        cal = (self._get("/calendar/earnings", symbol=ticker, **{"from": today.isoformat(),
+               "to": (today + timedelta(days=120)).isoformat()}) or {}).get("earningsCalendar") or []
+        cal = sorted([c for c in cal if c.get("date")], key=lambda c: c["date"])
+        if cal:
+            c = cal[0]
+            out["proximos"] = {"fecha": c.get("date"), "hora": {"bmo": "antes de la apertura", "amc": "tras el cierre",
+                               "dmh": "durante la sesión"}.get(c.get("hour"), c.get("hour") or None),
+                               "trimestre": c.get("quarter"), "anio": c.get("year"),
+                               "bpa_estimado": c.get("epsEstimate"), "ingresos_estimados": c.get("revenueEstimate")}
+        rows = self._get("/stock/earnings", symbol=ticker) or []
+        out["sorpresas"] = [{"periodo": r.get("period"), "trimestre": r.get("quarter"), "anio": r.get("year"),
+                             "bpa_real": r.get("actual"), "bpa_estimado": r.get("estimate"),
+                             "sorpresa_pct": r.get("surprisePercent")}
+                            for r in sorted(rows, key=lambda r: r.get("period") or "")][-8:]
+        return out if (out.get("proximos") or out["sorpresas"]) else None
+
+    def news(self, ticker, today=None, days=10, limit=12):
+        from datetime import date, timedelta
+        today = today or date.today()
+        rows = self._get("/company-news", symbol=ticker, **{"from": (today - timedelta(days=days)).isoformat(),
+                         "to": today.isoformat()}) or []
+        seen, out = set(), []
+        for r in sorted(rows, key=lambda r: -(r.get("datetime") or 0)):
+            h = (r.get("headline") or "").strip()
+            if not h or h.lower() in seen or not r.get("url"):
+                continue
+            seen.add(h.lower())
+            out.append({"titular": h, "medio": r.get("source"), "url": r.get("url"),
+                        "fecha": datetime.fromtimestamp(r["datetime"], tz=timezone.utc).date().isoformat() if r.get("datetime") else None,
+                        "resumen": (r.get("summary") or "")[:280]})
+            if len(out) >= limit:
+                break
+        return out
 
     def recommendations(self, ticker):
         rows = self._get("/stock/recommendation", symbol=ticker)

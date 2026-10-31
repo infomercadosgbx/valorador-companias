@@ -7,6 +7,9 @@ from . import concepts as C
 from . import extract as X
 from . import filings as F
 from . import bonds as BONDS
+from . import insiders as INS
+from . import riskfactors as RISK
+from . import segments as SEG
 from . import validate as V
 
 ESQUEMA = 1
@@ -184,6 +187,35 @@ def build_from_sec(company, cf, subs):
     return rec
 
 
+class Memo:
+    """Envuelve el cliente de la SEC y recuerda las descargas durante una compañía
+    (bonos y segmentos leen los mismos informes XBRL)."""
+
+    def __init__(self, client):
+        self._c, self._cache = client, {}
+
+    def __getattr__(self, name):
+        return getattr(self._c, name)
+
+    def _memo(self, kind, url):
+        k = (kind, url)
+        if k not in self._cache:
+            self._cache[k] = getattr(self._c, kind)(url)
+        return self._cache[k]
+
+    def get_bytes(self, url):
+        return self._memo("get_bytes", url)
+
+    def get_json(self, url):
+        return self._memo("get_json", url)
+
+    def get_text(self, url):
+        return self._c.get_text(url)
+
+    def clear(self):
+        self._cache.clear()
+
+
 def build_company(client, company, price_provider, price_warning=None, previous=None, history_provider=None, history_warning=None):
     cik = company["cik"]
     cf = client.companyfacts(cik)
@@ -191,12 +223,28 @@ def build_company(client, company, price_provider, price_warning=None, previous=
     rec = build_from_sec(company, cf, subs)
     if rec.get("ultimo_8k_resultados"):
         F.attach_exhibit(client, rec["ultimo_8k_resultados"])
+    client = Memo(client)
     rec["bonos"] = None
     if rec.get("soportada") and subs:
         try:
             rec["bonos"] = BONDS.build(client, company["cik"], subs, (previous or {}).get("bonos"))
         except Exception as e:  # noqa: BLE001  el detalle de bonos es un extra
             rec["avisos"].append(X.warn("info", "bonos_no_disponibles", f"No se pudo leer el detalle de bonos: {e}"))
+    prev = previous or {}
+    if rec.get("soportada") and subs:
+        fyem = 12
+        an = rec["resultados"]["ingresos"]["anual"]
+        if an:
+            fyem = X.d(an[-1]["periodo_fin"]).month
+        for key, mod, args, nombre in (("segmentos", SEG, {"fye_month": fyem}, "segmentos"),
+                                       ("directivos", INS, {}, "operaciones de directivos"),
+                                       ("riesgos_10k", RISK, {}, "cambios en los riesgos del 10-K")):
+            try:
+                rec[key] = mod.build(client, company["cik"], subs, prev.get(key), **args)
+            except Exception as e:  # noqa: BLE001  extras: un fallo solo genera aviso
+                rec[key] = prev.get(key)
+                rec["avisos"].append(X.warn("info", f"{key}_no_disponible", f"No se pudo leer {nombre}: {type(e).__name__}: {e}"))
+    client.clear()
     # Precio y recomendaciones (secundarios: un fallo solo genera aviso)
     rec["precio"] = None
     rec["consenso_automatico"] = None
@@ -210,6 +258,12 @@ def build_company(client, company, price_provider, price_warning=None, previous=
                     f"{price_provider.nombre} no devuelve precio para {company['ticker']}."))
         except Exception as e:  # noqa: BLE001
             rec["avisos"].append(X.warn("aviso", "sin_precio", f"Error del proveedor de precios: {e}"))
+        for key, fn in (("resultados_previstos", "earnings"), ("noticias", "news")):
+            try:
+                rec[key] = getattr(price_provider, fn)(company["ticker"])
+            except Exception as e:  # noqa: BLE001
+                rec[key] = prev.get(key)
+                rec["avisos"].append(X.warn("info", f"sin_{key}", f"{key.replace('_', ' ').capitalize()} no disponibles: {e}"))
         try:
             rec["consenso_automatico"] = price_provider.recommendations(company["ticker"])
         except Exception as e:  # noqa: BLE001
