@@ -369,6 +369,13 @@ table.mult td,table.mult th{padding:9px 12px} table.mult td:first-child{white-sp
 @media (max-width:1100px){.sensgrid{grid-template-columns:minmax(0,1fr)}}
 .sens td{line-height:1.25;padding:7px 10px} .sens td .su{font-size:10.5px;color:var(--ink2);font-weight:400}
 .sensexp p{font-size:13px;margin:0 0 8px}
+.glsum{cursor:pointer;list-style:none;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px}
+.glsum::-webkit-details-marker{display:none}
+.glsum h2{display:flex;align-items:center;gap:8px}
+.glsum h2::before{content:"";width:4px;height:16px;border-radius:2px;background:var(--tc)}
+.glsum h2::after{content:"▸";font-size:13px;color:var(--muted);transition:transform .15s}
+#glossary[open] .glsum h2::after{transform:rotate(90deg)}
+#glossary[open] .glsum{margin-bottom:8px}
 .recbar{display:flex;height:14px;border-radius:7px;overflow:hidden;gap:2px;margin:6px 0}
 .kpi .src{margin-top:2px}
 code{font-family:var(--f-num);font-size:.92em;background:var(--surface2);padding:0 4px;border-radius:4px}
@@ -1376,10 +1383,11 @@ function holderHtml(){
 }
 function glossaryHtml(){
   const groups={}; Object.entries(MET).forEach(([id,d])=>{(groups[d.g]=groups[d.g]||[]).push([id,d]);});
-  return `<section class="card"><h2>Glosario de métricas</h2><p class="sub">Cómo se calcula cada métrica de esta web. Pulsa <span class="ib" style="pointer-events:none">i</span> junto a cualquier métrica para ver el cálculo con las cifras de ${esc(cur.meta.name)}.</p>
+  const open=lsGet("valorador.glosario")==="1";
+  return `<section class="card"><details id="glossary"${open?" open":""}><summary class="glsum"><h2>Glosario de métricas</h2><span class="note">${Object.keys(MET).length} métricas · ${open?"pulsa para plegar":"pulsa para desplegar"}</span></summary><p class="sub">Cómo se calcula cada métrica de esta web. Pulsa <span class="ib" style="pointer-events:none">i</span> junto a cualquier métrica para ver el cálculo con las cifras de ${esc(cur.meta.name)}.</p>
     <div class="note" style="font-size:12.5px;margin-bottom:6px"><b>Convenciones:</b> cifras de SEC EDGAR (XBRL), en millones de dólares. UDM = suma de los últimos cuatro trimestres. Los saldos de balance en las rentabilidades son la media entre dos cierres consecutivos. EBITDA = beneficio operativo + amortizaciones (la SEC no publica EBITDA). Deuda = deuda financiera, sin arrendamientos. Acciones = diluidas medias.</div>
     ${Object.entries(groups).map(([g,list])=>`<h3>${esc(g)}</h3><div class="gloss">${list.map(([id,d])=>`<details class="box"><summary>${esc(d.n)} <span class="note" style="font-weight:400">${esc(d.f)}</span></summary><div style="padding:0 14px 12px;font-size:13px"><p>${esc(d.q)}</p><p><b>Cómo leerlo.</b> ${esc(d.leer)}</p><p style="margin:0"><b>Frente a otras fuentes.</b> ${esc(d.dif)}</p><button type="button" class="add" data-metric="${id}" style="margin-top:8px">Ver el cálculo con las cifras de ${esc(cur.meta.name)}</button></div></details>`).join("")}</div>`).join("")}
-  </section>`;
+  </details></section>`;
 }
 /* semáforo de riesgo financiero (umbrales orientativos) */
 const FIN_RISK=[
@@ -1990,6 +1998,7 @@ $("btnCopy").addEventListener("click",()=>{const t=JSON.stringify(exportAnalysis
   if(navigator.clipboard&&navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(()=>toast("JSON copiado"),()=>toast("No se pudo copiar")); else toast("Este navegador no permite copiar");});
 $("btnImport").addEventListener("click",()=>{try{const n=importOld($("jsonBox").value); renderHeader(); renderTab(); toast(n?`${n} ${n===1?"compañía importada":"compañías importadas"} como borrador`:"Ninguna compañía coincide por ticker");}
   catch(e){toast("El texto no es un JSON exportado desde el valorador antiguo");}});
+document.addEventListener("toggle",e=>{ const d=e.target; if(d&&d.id==="glossary"){ lsSet("valorador.glosario",d.open?"1":"0"); const n=d.querySelector(".glsum .note"); if(n) n.textContent=n.textContent.replace(/pulsa para (plegar|desplegar)/,d.open?"pulsa para plegar":"pulsa para desplegar"); } },true);
 window.addEventListener("hashchange",()=>{const h=location.hash.slice(1); if(h&&h!==TAB) goTab(h,false);});
 try{const mq=matchMedia("(prefers-color-scheme: dark)"); mq.addEventListener("change",()=>rebuildCharts());}catch(e){}
 new MutationObserver(()=>{rebuildCharts(); if(TAB==="valuation") drawFootball();}).observe(document.documentElement,{attributes:true,attributeFilter:["data-theme"]});
