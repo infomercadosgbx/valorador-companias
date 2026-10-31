@@ -589,6 +589,17 @@ body.report .asgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
   table{font-size:10.5px} th,td{padding:4px 6px}
   details>summary::after{display:none}
 }
+
+/* ================= Seguimiento ================= */
+body.watch .tabs,body.watch .cohead,body.watch #staleBox,body.watch #draftBar,body.watch #warnBox{display:none!important}
+#btnWatch[aria-pressed=true]{background:#fff;color:var(--bar);border-color:#fff}
+.wtable td,.wtable th{vertical-align:middle;padding:8px 7px} .wtable th{white-space:normal;line-height:1.25;min-width:64px}
+.wtable tbody tr{cursor:pointer} .wtable tbody tr:hover td{background:color-mix(in srgb,var(--tcx) 6%,transparent)}
+.wtable th[data-wsort]{cursor:pointer;user-select:none} .wtable th[data-wsort]:hover{color:var(--ink)}
+.wtable th.on{color:var(--ink)} .wtable th.on::after{content:" ▾"} .wtable th.on.asc::after{content:" ▴"}
+.wco{display:flex;align-items:center;gap:10px;min-width:170px} .wco b{font-size:13.5px} .wco small{color:var(--muted);font-size:11px}
+.wsub{display:block;font-size:11px;color:var(--muted);font-family:var(--f-body)}
+.wflags{display:flex;gap:4px;flex-wrap:wrap;justify-content:flex-end}
 </style>
 </head>
 <body>
@@ -600,6 +611,7 @@ body.report .asgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
     <div class="favs" id="favPills" role="group" aria-label="Compañías favoritas"></div>
     <div class="toolbar">
       <button type="button" id="btnEdit" aria-pressed="false">Editar</button>
+      <button type="button" id="btnWatch" aria-pressed="false">Seguimiento</button>
       <button type="button" id="btnReport">Informe PDF</button>
       <button type="button" id="btnData" aria-expanded="false">Mi análisis</button>
     </div>
@@ -1116,7 +1128,7 @@ function renderPicker(){
 function openPicker(){ $("picker").hidden=false; $("btnSwitch").setAttribute("aria-expanded","true"); pickQ=""; $("pickQ").value="";
   pickRows=pickList(); pickIdx=Math.max(0,pickRows.findIndex(x=>x.id===store.current)); renderPicker(); setTimeout(()=>$("pickQ").focus(),0); }
 function closePicker(focusBtn){ $("picker").hidden=true; $("btnSwitch").setAttribute("aria-expanded","false"); if(focusBtn) $("btnSwitch").focus(); }
-function selectCo(id){ if(!store.companies[id]) return; store.current=id; cur=store.companies[id]; lsSet("valorador.actual",id); closePicker(); renderHeader(); renderTab(); }
+function selectCo(id){ if(!store.companies[id]) return; if(WATCH) exitWatch(); store.current=id; cur=store.companies[id]; lsSet("valorador.actual",id); closePicker(); renderHeader(); renderTab(); }
 $("btnSwitch").addEventListener("click",()=>$("picker").hidden?openPicker():closePicker());
 $("pickQ").addEventListener("input",e=>{pickQ=e.target.value; pickIdx=0; renderPicker();});
 $("pickQ").addEventListener("keydown",e=>{
@@ -1138,7 +1150,62 @@ function renderTabs(){
 function head(){const t=TABS.find(x=>x.id===TAB);
   return `<div class="editbar">Modo edición: cambia textos, puntuaciones y supuestos. Se guarda como borrador en este navegador; descárgalo para publicarlo en analysis/. Las cifras de la SEC no se editan.</div>
   <div class="tabhead"><span class="bar"></span><div><div class="eyebrow tc">${esc(cur.meta.name)} · ${t.label}</div><h2>${t.title}</h2><p>${t.desc}</p></div></div>`;}
-let REPORT=false;
+let REPORT=false, WATCH=false, WSORT=lsGet("valorador.wsort")||"pot", WASC=lsGet("valorador.wasc")==="1";
+function watchRows(){
+  return Object.entries(store.companies).map(([k,c])=>{
+    const vz=valuation(c), sc=scorecard(c,vz), v=c.v, d=c._data||{}, P=d.precio||{}, st=staleInfo(c);
+    const E=d.resultados_previstos&&d.resultados_previstos.proximos, eDays=E?Math.round((Date.parse(E.fecha)-Date.now())/864e5):NaN;
+    const bb=+c.verdict.buyBelow, toBuy=fin(bb)&&bb>0&&fin(v.price)?(v.price/bb-1)*100:NaN;
+    const ws=(allWarnings(c)||[]).filter(w=>w.nivel!=="info").length;
+    const day=fin(P.valor)&&fin(P.cierre_anterior)&&P.cierre_anterior>0?(P.valor/P.cierre_anterior-1)*100:NaN;
+    let per=NaN, gr=NaN; try{ const prev=cur; cur=c; const m=mctx(); per=MET.per.calc(m).res; const pe=d.peers&&d.peers.propia; gr=pe?pe.crecimiento:NaN; cur=prev; }catch(e){}
+    const days=st?st.days:NaN;
+    return {k,c,name:c.meta.name,price:v.price,day,fv:vz.w,pot:fin(vz.w)&&v.price>0?(vz.w/v.price-1)*100:NaN,bb,toBuy,rating:c.verdict.rating||"",score:sc.total,
+      per,gr,eDate:E?E.fecha:null,eDays,age:days,stale:!!(st&&st.stale),isNew:!!(c.meta.autogenerado&&!c.meta.asOf),ws,fav:!!c.meta.fav};
+  });
+}
+function watchHtml(){
+  const rows=watchRows(); const key=WSORT, dir=WASC?1:-1;
+  const val=r=>{const x=r[key]; return typeof x==="string"?x:fin(x)?x:null;};
+  rows.sort((a,b)=>{const x=val(a), y=val(b); if(x==null&&y==null) return 0; if(x==null) return 1; if(y==null) return -1; return (typeof x==="string"?x.localeCompare(y):x-y)*dir;});
+  const below=rows.filter(r=>fin(r.toBuy)&&r.toBuy<=0), soon=rows.filter(r=>fin(r.eDays)&&r.eDays>=0&&r.eDays<=14), rev=rows.filter(r=>r.stale||r.isNew);
+  const th=(k,l,left)=>`<th data-wsort="${k}" class="${WSORT===k?"on"+(WASC?" asc":""):""}"${left?' style="text-align:left"':""}>${l}</th>`;
+  const sg=v=>!fin(v)?"–":`<span style="color:${v>=0?"var(--goodText)":"var(--critText)"}">${v>=0?"+":"−"}${nf(Math.abs(v),1)}%</span>`;
+  return `<div class="tabhead"><div><div class="eyebrow">Todas las compañías</div><h2>Seguimiento</h2><p>Precio, valor de tu modelo, puntuación y lo que toca vigilar. Pulsa una columna para ordenar y una fila para abrir la compañía.</p></div></div>
+  <div class="kpis">
+    ${kpi("Compañías",String(rows.length),`<span class="note">${rows.filter(r=>r.fav).length} favoritas</span>`)}
+    ${kpi("Por debajo de tu precio de compra",String(below.length),`<span class="note">${below.map(r=>esc(r.name)).join(", ")||"ninguna"}</span>`)}
+    ${kpi("Resultados en 14 días",String(soon.length),`<span class="note">${soon.map(r=>`${esc(r.name)} (${esc(fecha(r.eDate))})`).join(", ")||"ninguna"}</span>`)}
+    ${kpi("Análisis por revisar",String(rev.length),`<span class="note">${rev.map(r=>esc(r.name)).join(", ")||"todos al día"}</span>`)}
+  </div>
+  <section class="card"><div class="scroll"><table class="wtable"><thead><tr>
+    ${th("name","Compañía",true)}${th("price","Precio")}${th("fv","Valor razonable")}${th("pot","Potencial")}${th("toBuy","Hasta precio de compra")}${th("rating","Recomendación",true)}${th("score","Puntuación")}${th("per","PER")}${th("gr","Crec. ingresos")}${th("eDays","Próximos resultados")}${th("age","Análisis")}<th>Avisos</th>
+  </tr></thead><tbody>
+  ${rows.map(r=>`<tr data-wopen="${esc(r.k)}">
+    <td><div class="wco">${monoHtml(r.c,"sm")}<div><b>${esc(r.name)}</b> <small>${esc(r.k)}</small>${r.fav?' <small title="Favorita">★</small>':""}</div></div></td>
+    <td>${money(r.price)}<span class="wsub">${fin(r.day)?"hoy "+sg(r.day):""}</span></td>
+    <td>${money(r.fv)}</td>
+    <td>${fin(r.pot)?upPill(r.fv,r.price).replace(" vs cotización",""):"–"}</td>
+    <td>${fin(r.toBuy)?(r.toBuy<=0?`<span class="pill up">En zona de compra</span>`:`${sg(-r.toBuy)}<span class="wsub">compra < ${money(r.bb)}</span>`):"–"}</td>
+    <td style="text-align:left">${r.rating?ratingPill(r.rating):'<span class="pill neutral">Sin recomendación</span>'}</td>
+    <td>${fin(r.score)?nf(r.score,0):"–"}</td>
+    <td>${fin(r.per)&&r.per>0?nf(r.per,1)+"x":"–"}</td>
+    <td>${fin(r.gr)?sg(r.gr):"–"}</td>
+    <td>${r.eDate?`${esc(fecha(r.eDate))}<span class="wsub">${r.eDays>=0?"en "+r.eDays+" días":"pasados"}</span>`:"–"}</td>
+    <td>${r.isNew?'<span class="pill neutral">Nueva</span>':fin(r.age)?`${r.stale?'<span class="pill mid">Revisar</span>':(r.age<=0?"hoy":`hace ${r.age} d`)}`:"–"}${r.stale&&fin(r.age)?`<span class="wsub">hace ${r.age} días</span>`:""}</td>
+    <td>${r.ws?`<span class="pill mid">${r.ws}</span>`:'<span class="note">–</span>'}</td></tr>`).join("")}
+  </tbody></table></div>
+  <p class="note">Valor razonable: el ponderado de los escenarios de tu DCF. «Hasta precio de compra»: cuánto tendría que caer la cotización para llegar a tu «comprar por debajo de» (en el Veredicto). «Revisar»: el análisis tiene más de 90 días, el precio se ha movido más de un 5% o hay un informe nuevo desde que lo escribiste.</p></section>
+  <section class="card"><h2>Potencial según tu modelo</h2><p class="sub">Valor razonable frente a la cotización actual.</p><div class="cv h260"><canvas id="ch_w_pot" role="img" aria-label="Potencial por compañía"></canvas></div></section>`;
+}
+function renderWatch(){
+  killCharts(); document.body.classList.add("watch"); $("btnWatch").setAttribute("aria-pressed","true");
+  const m=$("main"); m.style.setProperty("--tc","var(--tcx)"); m.innerHTML=watchHtml();
+  requestAnimationFrame(()=>{ setDefaults(); const rows=watchRows().filter(r=>fin(r.pot)).sort((a,b)=>b.pot-a.pot);
+    mk("ch_w_pot",{type:"bar",data:{labels:rows.map(r=>r.name),datasets:[{data:rows.map(r=>+r.pot.toFixed(1)),backgroundColor:rows.map(r=>r.pot>=0?V("--good"):V("--crit"))}]},
+      options:{indexAxis:"y",plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>`${c.parsed.x>=0?"+":""}${nf(c.parsed.x,1)}%`}}},scales:{x:{...axisY({suf:"%",zero:true})},y:{grid:{display:false},border:{display:false}}}}}); });
+}
+function exitWatch(){ WATCH=false; document.body.classList.remove("watch"); $("btnWatch").setAttribute("aria-pressed","false"); }
 function reportCover(){
   const vz=valuation(cur), s=scorecard(cur,vz), b=brandOf(cur), v=cur.v, P=cur._data&&cur._data.precio, ref=cur._data&&cur._data.referencia_fecha_datos;
   const hoy=new Date().toISOString().slice(0,10);
@@ -1181,6 +1248,7 @@ function renderReport(){
 function exitReport(){ REPORT=false; document.body.classList.remove("report"); if(window.Chart&&window._anim!==undefined){ Chart.defaults.animation=window._anim; Chart.defaults.devicePixelRatio=window._dpr; } document.title="Valorador de Compañías"; renderTab(); }
 function renderTab(){
   if(REPORT){ renderReport(); return; }
+  if(WATCH){ renderWatch(); return; }
   killCharts(); const t=TABS.find(x=>x.id===TAB); const m=$("main");
   m.style.setProperty("--tc",`var(${t.c})`);
   m.innerHTML=head()+R[TAB]();
@@ -2726,7 +2794,10 @@ document.addEventListener("click",e=>{
   const mc=e.target.closest("[data-mchart]"); if(mc){MCHART=mc.dataset.mchart; lsSet("valorador.mchart",MCHART); renderValOut(); return;}
   const sn=e.target.closest("[data-sens]"); if(sn){SENSMODE=sn.dataset.sens; lsSet("valorador.sens",SENSMODE); renderValOut(); return;}
   const px=e.target.closest("[data-peerx]"); if(px){PEERX=px.dataset.peerx; lsSet("valorador.peerx",PEERX); renderValOut(); return;}
-  if(e.target.closest("#btnReport")){ REPORT=true; renderReport(); return; }
+  if(e.target.closest("#btnWatch")){ if(WATCH){ exitWatch(); renderTab(); try{history.replaceState(null,"","#"+TAB);}catch(_){} } else { WATCH=true; renderWatch(); try{history.replaceState(null,"","#seguimiento");}catch(_){} } return; }
+  const wo=e.target.closest("[data-wopen]"); if(wo){ exitWatch(); selectCo(wo.dataset.wopen); goTab("overview"); window.scrollTo(0,0); return; }
+  const wsh=e.target.closest("[data-wsort]"); if(wsh){ const k=wsh.dataset.wsort; if(WSORT===k) WASC=!WASC; else { WSORT=k; WASC=["name","eDays","toBuy","age"].includes(k); } lsSet("valorador.wsort",WSORT); lsSet("valorador.wasc",WASC?"1":"0"); renderWatch(); return; }
+  if(e.target.closest("#btnReport")){ if(WATCH) exitWatch(); REPORT=true; renderReport(); return; }
   if(e.target.closest("#btnPrint")){ window.print(); return; }
   if(e.target.closest("#btnReportExit")){ exitReport(); return; }
   if(e.target.closest("#btnAddCo")){ closePicker(); addCoModal(); return; }
@@ -2735,7 +2806,7 @@ document.addEventListener("click",e=>{
   if(e.target.closest("#btnDl")){downloadAnalysis(cur);return;}
   const dc=e.target.closest("#btnDiscard"); if(dc){ if(dc.dataset.armed!=="1"){dc.dataset.armed="1"; dc.textContent="¿Seguro? Pulsa otra vez"; setTimeout(()=>{if(dc.isConnected){dc.dataset.armed=""; dc.textContent="Descartar";}},3000); return;} discardDraft(); return;}
   const us=e.target.closest("[data-usesec]"); if(us){const k=us.dataset.usesec; cur.v[k]=+cur.sec[k].m.toFixed(k==="shares"?1:0); cur._auto[k]=true; save(); renderTab(); renderHeader(); return;}
-  const co=e.target.closest("[data-co]"); if(co){store.current=co.dataset.co; cur=store.companies[store.current]; lsSet("valorador.actual",store.current); renderHeader(); renderTab(); return;}
+  const co=e.target.closest("[data-co]"); if(co){ if(WATCH) exitWatch(); store.current=co.dataset.co; cur=store.companies[store.current]; lsSet("valorador.actual",store.current); renderHeader(); renderTab(); return;}
   const go=e.target.closest("[data-go]"); if(go){e.preventDefault();goTab(go.dataset.go);window.scrollTo({top:0});return;}
   const ad=e.target.closest("[data-add]"); if(ad){const a=get(ad.dataset.add)||[]; a.push(clone(TPL[ad.dataset.tpl])); setPath(cur,ad.dataset.add,a); save(); renderTab(); return;}
   const dl=e.target.closest("[data-del]"); if(dl){const a=get(dl.dataset.del); a.splice(+dl.dataset.i,1); save(); renderTab(); renderHeader(); return;}
@@ -2759,7 +2830,7 @@ $("btnCopy").addEventListener("click",()=>{const t=JSON.stringify(exportAnalysis
 $("btnImport").addEventListener("click",()=>{try{const n=importOld($("jsonBox").value); renderHeader(); renderTab(); toast(n?`${n} ${n===1?"compañía importada":"compañías importadas"} como borrador`:"Ninguna compañía coincide por ticker");}
   catch(e){toast("El texto no es un JSON exportado desde el valorador antiguo");}});
 document.addEventListener("toggle",e=>{ const d=e.target; if(d&&d.id==="socialBox") lsSet("valorador.social",d.open?"1":"0"); if(d&&d.id==="glossary"){ lsSet("valorador.glosario",d.open?"1":"0"); const n=d.querySelector(".glsum .note"); if(n) n.textContent=n.textContent.replace(/pulsa para (plegar|desplegar)/,d.open?"pulsa para plegar":"pulsa para desplegar"); } },true);
-window.addEventListener("hashchange",()=>{const h=location.hash.slice(1); if(h&&h!==TAB) goTab(h,false);});
+window.addEventListener("hashchange",()=>{const h=location.hash.slice(1); if(h==="seguimiento"){ if(!WATCH){ WATCH=true; renderWatch(); } return; } if(WATCH) exitWatch(); if(h&&h!==TAB) goTab(h,false);});
 try{const mq=matchMedia("(prefers-color-scheme: dark)"); mq.addEventListener("change",()=>rebuildCharts());}catch(e){}
 new MutationObserver(()=>{rebuildCharts(); if(TAB==="valuation") drawFootball();}).observe(document.documentElement,{attributes:true,attributeFilter:["data-theme"]});
 
@@ -2824,7 +2895,7 @@ async function boot(){
   const saved=lsGet("valorador.actual");
   store.current=store.companies[saved]?saved:(keys.find(k=>store.companies[k].meta.fav)||keys[0]);
   cur=store.companies[store.current];
-  renderHeader(); goTab((location.hash||"").slice(1)||"overview",false);
+  renderHeader(); if((location.hash||"").slice(1)==="seguimiento"){ WATCH=true; renderWatch(); } else goTab((location.hash||"").slice(1)||"overview",false);
 }
 boot();
 </script>
