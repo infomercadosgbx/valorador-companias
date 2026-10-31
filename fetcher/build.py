@@ -38,34 +38,61 @@ def _da_from_components(R, ref_end):
     if not (dep["anual"] or dep["trimestral"]):
         return []
 
+    # Se considera que la compañía publica la amortización de intangibles si la
+    # etiqueta cubre al menos el 75% de los periodos con depreciación (Broadcom sí;
+    # Alphabet solo la etiqueta en algún trimestre suelto).
+    published = {b: len(am[b]) >= 0.75 * max(1, len(dep[b])) for b in ("anual", "trimestral")}
+    gaps = []
+    cur_bucket = ["anual"]
+
     def combine(dp, ap):
-        if ap is not None and ap.get("periodo_fin") == dp.get("periodo_fin"):
+        if published[cur_bucket[0]] and (ap is None or ap.get("periodo_fin") != dp.get("periodo_fin")):
+            gaps.append(dp["periodo"])
+            return None  # la compañía tiene amortización de intangibles, pero no etiquetada este periodo
+        if published[cur_bucket[0]] and ap is not None and ap.get("periodo_fin") == dp.get("periodo_fin"):
             q = dict(dp, valor=dp["valor"] + ap["valor"],
                      etiqueta=f"{dp['etiqueta']} + {ap['etiqueta']}",
                      derivado="Depreciación + amortización de intangibles")
             q["fecha_presentacion"] = max(dp["fecha_presentacion"], ap["fecha_presentacion"])
         else:
-            q = dict(dp, derivado="Solo depreciación: no hay amortización de intangibles etiquetada para este periodo")
+            q = dict(dp, derivado="Depreciación: la compañía no publica por separado la amortización de intangibles")
         return q
 
     out = {}
     for b in ("anual", "trimestral"):
+        cur_bucket[0] = b
         am_by = {p["periodo"]: p for p in am[b]}
         merged = {p["periodo"]: p for p in da[b]}           # años antiguos con la etiqueta combinada
         for p in dep[b]:
-            merged[p["periodo"]] = combine(p, am_by.get(p["periodo"]))
+            q = combine(p, am_by.get(p["periodo"]))
+            if q is None:
+                merged.pop(p["periodo"], None)
+            else:
+                merged[p["periodo"]] = q
         out[b] = sorted(merged.values(), key=lambda p: p["periodo_fin"])
     da["anual"], da["trimestral"] = out["anual"][-8:], out["trimestral"][-12:]
     if dep["ttm"]:
-        da["ttm"] = combine(dep["ttm"], am["ttm"])
-        da["ttm"]["fuente"] = "SEC EDGAR (suma de 4 trimestres)"
+        cur_bucket[0] = "trimestral"
+        dt = dict(dep["ttm"], periodo="UDM")
+        da["ttm"] = combine(dt, am["ttm"])
+        if da["ttm"]:
+            da["ttm"]["fuente"] = "SEC EDGAR (suma de 4 trimestres)"
     used = []
     for p in da["anual"] + da["trimestral"]:
         if p["etiqueta"] not in used:
             used.append(p["etiqueta"])
     da["etiquetas_usadas"] = used
     da["por_componentes"] = True
-    return [X.warn("info", "amortizacion_por_componentes",
+    extra = []
+    gy = sorted({g for g in gaps if g and g.isdigit()})
+    if not published["anual"] and not published["trimestral"]:
+        da["solo_depreciacion"] = True
+    if gy:
+        extra.append(X.warn("aviso", "amortizacion_incompleta",
+            f"Amortizaciones (D&A) {', '.join(gy)}: la amortización de intangibles de esos años no está en una etiqueta "
+            f"estándar de la SEC; se dejan vacíos (y el EBITDA de esos años) en lugar de mostrar solo la depreciación.",
+            concepto="amortizacion"))
+    return extra + [X.warn("info", "amortizacion_por_componentes",
                    "Amortizaciones (D&A): la compañía no usa la etiqueta combinada; se suman depreciación "
                    "(us-gaap:Depreciation) y amortización de intangibles (us-gaap:AmortizationOfIntangibleAssets).",
                    concepto="amortizacion")]
