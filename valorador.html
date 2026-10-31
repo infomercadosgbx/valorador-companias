@@ -2,7 +2,7 @@
 <title>Valorador de Compañías</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
 <style>
 /* Layout: cabecera con la compañía; barra de pestañas fija, cada pestaña con su color; tarjetas en rejilla de 2 columnas que se apilan en móvil */
 :root{
@@ -415,6 +415,102 @@ table.mini2 td{padding:3px 6px;font-size:12px;border-bottom:1px solid var(--grid
 .recbar{display:flex;height:14px;border-radius:7px;overflow:hidden;gap:2px;margin:6px 0}
 .kpi .src{margin-top:2px}
 code{font-family:var(--f-num);font-size:.92em;background:var(--surface2);padding:0 4px;border-radius:4px}
+
+/* ================= Rediseño «profesional» (capa final: sobrescribe lo anterior) ================= */
+:root{
+  --bg:#F4F5F7; --surface:#FFFFFF; --surface2:#F8F9FB; --ink:#101828; --ink2:#475467; --muted:#667085;
+  --line:#E4E7EC; --grid:#EEF0F3; --bar:#0B1424; --bar2:#16233A; --barInk:#E6EAF0; --barMuted:#8A97AB;
+  --f-display:"Inter","Segoe UI",system-ui,sans-serif;
+  --f-body:"Inter","Segoe UI",system-ui,sans-serif;
+  --f-num:"Inter","Segoe UI",system-ui,sans-serif;
+  --shadow:0 1px 2px rgba(16,24,40,.05);
+  --r:8px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0B0F14; --surface:#121820; --surface2:#161D26; --ink:#E9EDF2; --ink2:#B8C1CC; --muted:#8792A0;
+  --line:#253040; --grid:#1C2530; --bar:#070B11; --bar2:#111A26; --shadow:none}}
+:root[data-theme="dark"]{--bg:#0B0F14; --surface:#121820; --surface2:#161D26; --ink:#E9EDF2; --ink2:#B8C1CC; --muted:#8792A0;
+  --line:#253040; --grid:#1C2530; --bar:#070B11; --bar2:#111A26; --shadow:none}
+body{font-feature-settings:"cv11","ss01";-webkit-font-smoothing:antialiased;font-size:13.5px}
+.num,td,.kpi b,input[type=number],.pricebox .px{font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
+h1{font-weight:700;letter-spacing:-.02em}
+h2{font-weight:600;font-size:15px;letter-spacing:-.005em}
+h3{font-weight:600;font-size:13.5px}
+.eyebrow{font-size:10.5px;letter-spacing:.08em;font-weight:600}
+
+/* barra superior oscura a todo el ancho */
+.appbar{border-top:0;background:var(--bar);box-shadow:0 0 0 100vmax var(--bar);clip-path:inset(0 -100vmax);border-bottom:0;padding-block:10px;color:var(--barInk)}
+.brand{color:#fff;font-size:15px;font-weight:700;letter-spacing:-.01em;gap:9px}
+.brand i{width:18px;height:18px;border-radius:5px;background:linear-gradient(135deg,#3B82F6,#14B8A6);box-shadow:inset 0 0 0 1px rgba(255,255,255,.2)}
+.brand::after{content:"Análisis con datos oficiales";font-weight:500;font-size:11.5px;color:var(--barMuted);border-left:1px solid var(--bar2);padding-left:10px;margin-left:2px}
+@media (max-width:760px){.brand::after{display:none}}
+.appbar button{background:transparent;color:var(--barInk);border-color:var(--bar2)}
+.appbar button:hover{border-color:#3A4A63;background:var(--bar2)}
+.switch{background:var(--bar2)!important;border-color:#24344D!important}
+.switch .nm{font-family:var(--f-body);font-size:14px;color:#fff}
+.switch small,.switch .ct{color:var(--barMuted)} .switch .ct{border-left-color:#2A3A54}
+.switch kbd{background:transparent;border-color:#2A3A54;color:var(--barMuted)}
+.copill{border-radius:6px;padding:5px 10px;font-weight:500;font-size:12.5px;align-items:center}
+.copill small{color:var(--barMuted)}
+.copill[aria-pressed=true]{background:#fff;color:var(--bar);border-color:#fff}
+.copill[aria-pressed=true] small{color:#475467;opacity:1}
+#btnEdit[aria-pressed=true]{background:#F59E0B;color:#111;border-color:#F59E0B}
+
+/* cabecera de la compañía: sobria, con el color de marca solo como acento */
+.cohead{margin-top:16px;border-radius:var(--r);border:1px solid var(--line);background:var(--surface);box-shadow:var(--shadow);position:relative;overflow:hidden;padding:18px 22px!important}
+.cohead::before{content:"";position:absolute;inset:0 auto 0 0;width:4px;background:var(--brand)}
+.cohead h1{color:var(--ink);font-size:clamp(22px,2.8vw,30px)}
+.mono{width:56px;height:56px;border-radius:12px;font-family:var(--f-body);font-size:20px;box-shadow:none;position:relative;overflow:hidden}
+.mono.logo{background:#fff;border:1px solid var(--line);padding:7px}
+.mono.logo img{width:100%;height:100%;object-fit:contain;display:block}
+.mono.logo b{display:none}
+.mono b{font-weight:700}
+.mono.sm{width:24px;height:24px;border-radius:6px;font-size:10.5px}
+.mono.sm.logo,.mono.xs.logo{padding:2px;border-radius:5px}
+.mono.xs{width:18px;height:18px;border-radius:5px;font-size:9px}
+@media (max-width:560px){.mono{width:44px;height:44px;border-radius:10px;font-size:17px}}
+.tick{font-family:var(--f-body);font-weight:600;letter-spacing:.02em;border-radius:5px}
+.pricebox .px{font-family:var(--f-body);font-weight:700;font-size:28px;letter-spacing:-.02em}
+.pill{border-radius:5px;font-weight:600;font-size:11.5px}
+
+/* pestañas: sin arcoíris, subrayado con el color de la compañía */
+.tabs{background:var(--bg);margin-top:10px}
+.tab{padding:11px 12px 9px;font-weight:500;font-size:13.5px;color:var(--muted);border-bottom-width:2px}
+.tab .dot{display:none}
+.tab[aria-selected=true]{color:var(--ink);font-weight:600;border-bottom-color:var(--brand)}
+.tab:hover{background:transparent;color:var(--ink)}
+
+/* encabezado de pestaña: texto limpio, sin caja */
+.tabhead{display:block;background:none;border:0;padding:6px 0 0;border-radius:0}
+.tabhead .bar{display:none}
+.tabhead .eyebrow{color:var(--muted)}
+.tabhead h2{font-size:clamp(20px,2.4vw,24px);font-weight:700;letter-spacing:-.015em}
+.tc{color:var(--ink2)}
+
+/* tarjetas */
+.card,details.box,.ascard,.coblock,.datapanel{border-radius:var(--r);box-shadow:var(--shadow)}
+.card{padding:18px 20px;gap:10px}
+.card > h2::before{display:none}
+.card > h2{font-size:15px}
+.sub{font-size:12.5px}
+.kpis{border-radius:var(--r);box-shadow:var(--shadow)}
+.kpi{padding:16px 18px}
+.kpi b{font-family:var(--f-body);font-size:22px;font-weight:700;letter-spacing:-.015em}
+.kpi.lead b{color:var(--ink)}
+.chip,.mini,.tile,.sp{border-radius:6px}
+.mini{border-top:1px solid var(--line);box-shadow:inset 0 2px 0 var(--tc)}
+
+/* tablas estilo informe */
+th{font-weight:600;font-size:10.5px;letter-spacing:.06em;background:var(--surface2);border-bottom:1px solid var(--line)}
+td{font-family:var(--f-body);font-size:12.5px}
+tbody tr:hover td{background:color-mix(in srgb,var(--brand) 4%,transparent)}
+input[type=number],select,input[type=text],textarea{border-radius:6px}
+input[type=number]{font-family:var(--f-body)}
+.thesis p{font-family:var(--f-body);font-weight:500;letter-spacing:-.01em}
+.card.thesis,.thesis.card{background:var(--surface);border-color:var(--line)}
+.btn-acc{background:var(--ink);border-color:var(--ink)}
+.foot{margin:8px 0 40px;font-size:12px;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 16px;border-top:1px solid var(--line);padding-top:14px}
+.foot a{color:var(--ink2)}
 </style>
 
 <div class="wrap">
@@ -461,6 +557,7 @@ code{font-family:var(--f-num);font-size:.92em;background:var(--surface2);padding
   </div>
   <nav class="tabs" id="tabs" role="tablist" aria-label="Secciones del análisis"></nav>
   <main id="main"></main>
+  <footer class="foot"><span>Cifras: SEC EDGAR (XBRL). Cotización y perfil: Finnhub. Histórico: Twelve Data. Se actualiza cada noche laborable.</span><a href="clasico.html">Ver el diseño anterior</a></footer>
 </div>
 <div class="toast" id="toast" hidden></div>
 <div class="overlay" id="overlay" hidden><div class="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle" id="modal"></div></div>
@@ -822,7 +919,7 @@ function renderHeader(){
     <span class="note">Capitalización ${big(mcap)}${fin(cur.v.lo52)&&fin(cur.v.hi52)?` · 52 semanas ${nf(cur.v.lo52,0)}–${nf(cur.v.hi52,0)}`:""}${cur.meta.nextEarnings?` · Resultados: ${esc(cur.meta.nextEarnings)}`:""}</span>
     <span class="note">${ref?`Cifras SEC hasta ${esc(fecha(ref))}`:"Sin datos de la SEC"}${cur._data&&cur._data.generado?` · datos actualizados ${esc(ago(cur._data.generado))}`:""}</span>
     <div class="draft" id="draftBar" hidden></div>`;
-  applyBrand(cur); $("hdrMono").textContent=brandOf(cur).mono;
+  applyBrand(cur); { const b=brandOf(cur), el=$("hdrMono"); el.className="mono"+(b.logo?" logo":""); el.style.background=b.logo?"":b.color; el.style.color=b.logo?"":b.ink; el.innerHTML=monoInner(b); }
   const n=Object.keys(store.companies).length, sym=symOf(cur);
   $("btnSwitch").innerHTML=`${monoHtml(cur,"sm")}<span class="nm">${esc(cur.meta.name||"Sin nombre")}</span>${sym?`<small>${esc(sym)}</small>`:""}<span class="ct">${n} ${n===1?"compañía":"compañías"} ▾</span><kbd>Ctrl K</kbd>`;
   const favs=Object.entries(store.companies).filter(([k,c])=>c.meta.fav);
@@ -837,12 +934,14 @@ function brandOf(c){ const b=(c.meta&&c.meta.brand)||{}; const name=(c.meta&&c.m
   const words=name.replace(/[^\p{L}\p{N} ]/gu,"").split(/\s+/).filter(Boolean);
   const auto=words.length>1?(words[0][0]+words[1][0]):(name.slice(0,2));
   const color=/^#[0-9a-f]{6}$/i.test(b.color||"")?b.color:`hsl(${hashHue(name)} 55% 42%)`;
-  return {color,mono:(b.mono||auto||"?").slice(0,3).toUpperCase(),ink:inkOn(color)}; }
+  const logo=(c._data&&c._data.perfil&&c._data.perfil.logo)||(c._co&&c._co.logo)||"";
+  return {color,mono:(b.mono||auto||"?").slice(0,3).toUpperCase(),ink:inkOn(color),logo}; }
 function inkOn(col){ const m=/^#([0-9a-f]{6})$/i.exec(col); if(!m) return "#ffffff"; const n=parseInt(m[1],16);
   const lin=v=>{v/=255;return v<=0.03928?v/12.92:Math.pow((v+0.055)/1.055,2.4);}; const L=0.2126*lin(n>>16&255)+0.7152*lin(n>>8&255)+0.0722*lin(n&255);
   return (1.05)/(L+0.05)>=4.5?"#ffffff":(L+0.05)/0.05>(1.05)/(L+0.05)?"#111111":"#ffffff"; }
 function applyBrand(c){ const b=brandOf(c), r=document.documentElement.style; r.setProperty("--brand",b.color); r.setProperty("--brand-ink",b.ink); }
-const monoHtml=(c,cls)=>{const b=brandOf(c);return `<span class="mono ${cls||""}" style="background:${b.color};color:${b.ink}" aria-hidden="true">${esc(b.mono)}</span>`;};
+const monoInner=b=>b.logo?`<img src="${esc(b.logo)}" alt="" loading="lazy" onerror="const m=this.parentNode;m.classList.remove('logo');m.style.background='${b.color}';m.style.color='${b.ink}';this.remove()"><b>${esc(b.mono)}</b>`:`<b>${esc(b.mono)}</b>`;
+const monoHtml=(c,cls)=>{const b=brandOf(c);return `<span class="mono ${cls||""}${b.logo?" logo":""}" style="${b.logo?"":`background:${b.color};color:${b.ink}`}" aria-hidden="true">${monoInner(b)}</span>`;};
 const symOf=c=>(((c.meta&&c.meta.ticker)||"").split(":").pop()||"").trim().toUpperCase();
 function ago(iso){const d=new Date(iso); if(isNaN(d)) return ""; const m=Math.round((Date.now()-d)/60000);
   if(m<1) return "ahora mismo"; if(m<60) return `hace ${m} min`; const h=Math.round(m/60); if(h<24) return `hace ${h} h`; const dd=Math.round(h/24); return dd<30?`hace ${dd} ${dd===1?"día":"días"}`:d.toLocaleDateString("es-ES");}

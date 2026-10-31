@@ -29,6 +29,9 @@ class PriceProvider:
     def recommendations(self, ticker: str) -> dict | None:
         return None
 
+    def profile(self, ticker: str) -> dict | None:
+        return None
+
 
 class NoPriceProvider(PriceProvider):
     pass
@@ -87,6 +90,9 @@ class FinnhubProvider(PriceProvider):
             "fuente": "Finnhub (API oficial, plan gratuito)",
             "url": f"https://finnhub.io/",
         }
+
+    def profile(self, ticker):
+        return self._get("/stock/profile2", symbol=ticker) or None
 
     def recommendations(self, ticker):
         rows = self._get("/stock/recommendation", symbol=ticker)

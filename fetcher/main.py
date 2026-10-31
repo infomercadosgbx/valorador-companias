@@ -17,7 +17,7 @@ import traceback
 from datetime import datetime, timezone
 from pathlib import Path
 
-from . import prices
+from . import logos, prices
 from .build import NoSecData, build_company
 from .extract import warn
 from .sec_client import SecClient, SecError, cik_10
@@ -132,6 +132,11 @@ def run(only=None, report=None, root=ROOT, client=None, provider=None, price_war
                 except json.JSONDecodeError:
                     previous = None
             rec = build_company(client, c, provider, price_warning, previous, hist, hist_warning)
+            perfil, logo_changed = logos.update(provider, c, root)
+            if perfil:
+                rec["perfil"] = perfil
+            if logo_changed:
+                changed.append(f"logo {c['ticker']}")
             if c["ticker"] in cik_issues:
                 rec["avisos"].insert(0, warn("aviso", "cik", cik_issues[c["ticker"]]))
             if write_if_changed(path, rec):
@@ -150,7 +155,7 @@ def run(only=None, report=None, root=ROOT, client=None, provider=None, price_war
             ui = rec.get("ultimo_informe") or {}
             index.append({
                 "ticker": c["ticker"].upper(), "nombre": c["nombre"], "color": c.get("color"),
-                "monograma": c.get("monograma"), "soportada": rec.get("soportada", True),
+                "monograma": c.get("monograma"), "logo": (rec.get("perfil") or {}).get("logo"), "soportada": rec.get("soportada", True),
                 "avisos": sum(1 for w in rec.get("avisos", []) if w["nivel"] != "info"),
                 "ultimo_informe": ui.get("fecha_presentacion"),
                 "datos_hasta": rec.get("referencia_fecha_datos"),

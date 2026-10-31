@@ -124,3 +124,21 @@ def test_historico_twelvedata_y_errores():
     bad = TwelveDataHistory("k", min_interval=0, opener=lambda r, timeout: FakeResp(b'{"status":"error","code":401,"message":"bad key"}'), sleep=lambda s: None)
     with pytest.raises(RuntimeError):
         bad.history("X")
+
+
+def test_logo_se_descarga_y_se_respeta_el_manual(tmp_path):
+    from fetcher import logos
+
+    class P:
+        def profile(self, t):
+            return {"logo": "https://x/l.png", "finnhubIndustry": "Media", "weburl": "https://ok.com"}
+    png = b"\x89PNG\r\n" + b"0" * 50
+    perfil, ch = logos.update(P(), {"ticker": "ok"}, tmp_path, opener=lambda r, timeout: FakeResp(png))
+    assert ch and perfil["logo"] == "logos/OK.png" and perfil["industria"] == "Media"
+    assert (tmp_path / "logos" / "OK.png").read_bytes() == png
+    _, ch2 = logos.update(P(), {"ticker": "ok"}, tmp_path, opener=lambda r, timeout: FakeResp(png))
+    assert ch2 is False
+    bad, _ = logos.update(P(), {"ticker": "zz"}, tmp_path, opener=lambda r, timeout: FakeResp(b"<html>no</html>"))
+    assert "logo" not in bad
+    man, _ = logos.update(P(), {"ticker": "ok", "logo": "logos/propio.svg"}, tmp_path)
+    assert man["logo"] == "logos/propio.svg"

@@ -33,6 +33,11 @@ jobs:
           mkdir _site
           cp index.html valorador.html companies.json _site/
           cp -r data analysis manual _site/
+          if [ -d logos ]; then cp -r logos _site/; fi
+          # Diseño anterior al rediseño, para comparar (rama version-1-antes-rediseno)
+          if git fetch --depth 1 origin version-1-antes-rediseno 2>/dev/null; then
+            git show FETCH_HEAD:valorador.html > _site/clasico.html
+          fi
           touch _site/.nojekyll
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
