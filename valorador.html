@@ -1010,7 +1010,7 @@ function renderHeader(){
   $("hdrName").textContent=cur.meta.name||"Sin nombre";
   $("hdrSector").textContent=[cur.meta.sector,cur.meta.hq].filter(Boolean).join(" · ")||"Valorador de compañías";
   const vz=valuation(cur), s=scorecard(cur,vz), mcap=cur.v.price*cur.v.shares;
-  $("hdrRow").innerHTML=`${cur.meta.ticker?`<span class="tick">${esc(cur.meta.ticker)}</span>`:""}${ratingPill(cur.verdict.rating||"—")}
+  $("hdrRow").innerHTML=`${cur.meta.ticker?`<span class="tick">${esc(cur.meta.ticker)}</span>`:""}${(cur.verdict.rating?ratingPill(cur.verdict.rating):`<span class="pill neutral">Sin recomendación</span>`)}
     <span class="pill neutral">Puntuación ${nf(s.total,0)}/100</span>${fin(vz.w)?upPill(vz.w,cur.v.price).replace("vs cotización","de potencial"):""}`;
   const P=cur._data&&cur._data.precio, ref=cur._data&&cur._data.referencia_fecha_datos;
   $("priceBox").innerHTML=`<span class="eyebrow">Cotización ${P?srcTag(P):""}</span><span class="px">${money(cur.v.price)}</span>
