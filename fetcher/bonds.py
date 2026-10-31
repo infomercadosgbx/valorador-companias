@@ -87,8 +87,9 @@ def parse_labels(lab_xml: bytes | None) -> dict:
 def humanize(member_q: str) -> str:
     name = qname_local(member_q)
     name = re.sub(r"Member$", "", name)
-    name = re.sub(r"(?<=[a-z])(?=[A-Z])|(?<=[A-Z])(?=[A-Z][a-z])", " ", name)
-    return name.strip()
+    name = re.sub(r"^A(?=\d)", "", name)
+    name = re.sub(r"(?<=[a-z])(?=[A-Z])|(?<=[A-Z])(?=[A-Z][a-z])|(?<=[A-Za-z])(?=\d)|(?<=\d)(?=[A-Za-z])", " ", name)
+    return re.sub(r"\s+", " ", name).strip()
 
 
 def label_for(member_q: str, labels: dict) -> str:
