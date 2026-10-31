@@ -1062,7 +1062,12 @@ function multHistory(){
     const q0=pts[k], mc=p[1]*q0.sh; if((TS(p[0])-TS(q0.fin))/864e5>200){ ps.push({x:TS(p[0]),y:null}); per.push({x:TS(p[0]),y:null}); return; } ps.push({x:TS(p[0]),y:mc/q0.rv}); per.push({x:TS(p[0]),y:q0.ni>0&&q0.ni/q0.rv>=0.03?mc/q0.ni:null}); });
   const st=a=>{ const v=a.map(p=>p.y).filter(fin); if(v.length<10) return null; const s=v.slice().sort((x,y)=>x-y), q=f=>s[Math.min(s.length-1,Math.floor(f*(s.length-1)))];
     return {mean:q(0.5),p10:q(0.1),p90:q(0.9),min:s[0],max:s.at(-1),sorted:s,desde:new Date(a.find(p=>fin(p.y)).x).toISOString().slice(0,10)}; };
-  return {per,ps,stPer:st(per),stPs:st(ps)};
+  /* tramos sin PER: beneficio negativo o margen < 3% (o sin datos recientes) */
+  const gaps=[]; let g0=null; per.forEach((p,i)=>{ if(p.y==null&&g0==null) g0=p.x; if(p.y!=null&&g0!=null){ if(p.x-g0>45*864e5) gaps.push([g0,per[i-1].x]); g0=null; } });
+  if(g0!=null&&per.at(-1).x-g0>45*864e5) gaps.push([g0,per.at(-1).x]);
+  const why=gaps.map(([a,b])=>{ const q=pts.filter(x=>TS(x.fin)>=a-120*864e5&&TS(x.fin)<=b); const neg=q.some(x=>x.ni!=null&&x.ni<=0), low=q.some(x=>x.ni>0&&x.ni/x.rv<0.03);
+    return {a,b,motivo:neg?"beneficio de los 12 meses anteriores negativo":low?"margen neto inferior al 3%":"faltan trimestres en la SEC"}; });
+  return {per,ps,stPer:st(per),stPs:st(ps),gaps:why};
 }
 const pctile=(st,v)=>st&&fin(v)?st.sorted.filter(x=>x<=v).length/st.sorted.length*100:NaN;
 function valTopHtml(){
@@ -1105,7 +1110,7 @@ function valTopHtml(){
         <p class="note">Capitalización ${big(m.mcap)} con ${nf(m.sh,1)} M de acciones (SEC) · EV ${big(m.ev)}${info("ev")}.${Math.abs(m.sh-s.shares)>s.shares*0.02?` Tu modelo usa ${nf(s.shares,1)} M de acciones.`:""} Percentil verde: cotiza en la parte barata de su historia; rojo: en la cara.</p></div>
       <div><div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;align-items:center"><div class="eyebrow">${MCHART==="per"?"PER":"Precio / ventas"} en el tiempo</div>${seg("data-mchart",MCHART,[["per","PER"],["ps","Precio / ventas"]])}</div>
         ${MH?`<div class="cv h260"><canvas id="ch_vl_mult" role="img" aria-label="Múltiplo histórico"></canvas></div>
-        <p class="note">${stt&&fin(curM)?`Hoy ${X(curM)} frente a una mediana de ${X(stt.mean)} y un rango habitual de ${X(stt.p10)}–${X(stt.p90)}. Desde ${esc(fecha(stt.desde))}, solo el ${nf(pctile(stt,curM),0)}% del tiempo ha cotizado más barato que hoy.`:"Sin datos suficientes (beneficio negativo en parte del periodo)."} Cada punto usa el beneficio o los ingresos de los 12 meses anteriores.</p>`:`<p class="empty">Aparecerá con el histórico de cotizaciones.</p>`}</div>
+        <p class="note">${stt&&fin(curM)?`Hoy ${X(curM)} frente a una mediana de ${X(stt.mean)} y un rango habitual de ${X(stt.p10)}–${X(stt.p90)}. Desde ${esc(fecha(stt.desde))}, solo el ${nf(pctile(stt,curM),0)}% del tiempo ha cotizado más barato que hoy.`:"Sin datos suficientes (beneficio negativo en parte del periodo)."} Cada punto usa el beneficio o los ingresos de los 12 meses anteriores.${MCHART==="per"&&MH.gaps&&MH.gaps.length?" <b>Huecos:</b> "+MH.gaps.map(g=>`${esc(mesCorto(new Date(g.a).toISOString().slice(0,10)))}–${esc(mesCorto(new Date(g.b).toISOString().slice(0,10)))} (${esc(g.motivo)})`).join("; ")+"; ahí el PER no tiene sentido.":""}</p>`:`<p class="empty">Aparecerá con el histórico de cotizaciones.</p>`}</div>
     </div>
   </section>`;
 }
@@ -1117,6 +1122,7 @@ function consensusHtml(){
   const tot=ca?K.reduce((a,[k])=>a+(ca[k]||0),0):0, pos=ca?(ca.compra_fuerte||0)+(ca.compra||0):0;
   const score=ca&&tot?K.reduce((a,[k],i)=>a+(ca[k]||0)*(5-i),0)/tot:NaN; /* 5 = compra fuerte … 1 = venta fuerte */
   const lab=v=>v>=4.5?"Compra fuerte":v>=3.5?"Compra":v>=2.5?"Mantener":v>=1.5?"Venta":"Venta fuerte";
+  const labCol=v=>(K.find(k=>k[1]===lab(v))||[,,"--ink"])[2];
   const hist=(ca&&ca.historial)||[], first=hist[0], ft=first?K.reduce((a,[k])=>a+(first[k]||0),0):0, fpos=first?(first.compra_fuerte||0)+(first.compra||0):0;
   const trend=first&&ft&&tot?(pos/tot-fpos/ft)*100:NaN;
   const up=v=>fin(v)&&s.price>0?(v/s.price-1)*100:NaN, pill=v=>fin(v)?`<span class="pill ${v>=0?"up":"down"}">${v>=0?"+":""}${nf(v,1)}%</span>`:"";
@@ -1124,7 +1130,7 @@ function consensusHtml(){
   return `<section class="card" style="--tc:var(--c4)"><h2>Consenso de analistas</h2>
     <p class="sub">Lo que opina el mercado, frente a tu valoración. Recomendaciones ${ca?srcTag({fuente:"Finnhub",fecha:ca.periodo,url:ca.url}):""}; precio objetivo ${srcTag({manual:true,fecha:m.fecha,fuente:m.fuente||"Introducido a mano"})}.</p>
     <div class="kpis">
-      ${kpi("Recomendación media",fin(score)?esc(lab(score)):"–",fin(score)?`<span class="note">${nf(score,1)} sobre 5 · ${tot} analistas</span>`:"",true)}
+      ${kpi("Recomendación media",fin(score)?`<span style="color:color-mix(in srgb,var(${labCol(score)}) 85%,var(--ink))">${esc(lab(score))}</span>`:"–",fin(score)?`<span class="note">${nf(score,1)} sobre 5 · ${tot} analistas</span>`:"")}
       ${kpi("Analistas que recomiendan comprar",tot?pct(pos/tot*100,0):"–",fin(trend)?`<span class="note">${trend>=0?"+":""}${nf(trend,0)} pp desde ${esc(mesCorto(first.periodo))}</span>`:"")}
       ${kpi("Precio objetivo medio",money(s.cMean),`${pill(up(s.cMean))}${fin(s.cLow)&&fin(s.cHigh)?`<span class="note">rango ${nf(s.cLow,0)}–${nf(s.cHigh,0)}</span>`:""}`)}
       ${kpi("Tu valor ponderado",money(mine),`${pill(up(mine))}${fin(mine)&&fin(s.cMean)?`<span class="note">${mine>=s.cMean?"por encima":"por debajo"} del consenso en ${nf(Math.abs(mine/s.cMean-1)*100,0)}%</span>`:""}`)}
