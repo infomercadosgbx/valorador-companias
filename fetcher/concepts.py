@@ -82,6 +82,16 @@ FLOW_CONCEPTS = {
         "nombre": "Amortización de intangibles", "unit": "USD", "combine": True, "opcional": True,
         "tags": ["AmortizationOfIntangibleAssets", "AmortizationOfAcquiredIntangibleAssets"],
     },
+    "impuestos": {
+        "nombre": "Impuesto sobre beneficios", "unit": "USD", "combine": True, "opcional": True,
+        "tags": ["IncomeTaxExpenseBenefit"],
+    },
+    "beneficio_antes_impuestos": {
+        "nombre": "Beneficio antes de impuestos", "unit": "USD", "combine": True, "opcional": True,
+        "tags": ["IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+                 "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
+                 "IncomeLossFromContinuingOperationsBeforeIncomeTaxesDomestic"],
+    },
     "coste_ventas": {
         "nombre": "Coste de ventas", "unit": "USD", "combine": True, "opcional": True,
         "tags": ["CostOfRevenue", "CostOfGoodsAndServicesSold", "CostOfGoodsSold"],
