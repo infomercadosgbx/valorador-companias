@@ -17,7 +17,7 @@ from datetime import date
 from .bonds import find_files, label_for, parse_instance, parse_labels, target_filings
 from .filings import archive_base
 
-VERSION = 2
+VERSION = 3
 AXES = {"StatementBusinessSegmentsAxis": "segmento", "ProductOrServiceAxis": "producto"}
 OK_EXTRA = {"ConsolidationItemsAxis"}
 REV = ("RevenueFromContractWithCustomerExcludingAssessedTax", "Revenues",
@@ -56,6 +56,9 @@ def extract(inst_xml: bytes, lab_xml: bytes | None):
         cons = dims.pop("ConsolidationItemsAxis", None)
         if cons and not cons.endswith("OperatingSegmentsMember"):
             continue
+        by_seg = None
+        if set(dims) == {"ProductOrServiceAxis", "StatementBusinessSegmentsAxis"}:
+            by_seg = dims.pop("StatementBusinessSegmentsAxis")   # producto desglosado por segmento: se suma
         if len(dims) != 1:
             continue
         axis, member = next(iter(dims.items()))
@@ -73,7 +76,18 @@ def extract(inst_xml: bytes, lab_xml: bytes | None):
                                               "ingresos": {}, "operativo": {}, "conceptos": {}})
         if kind == "ingresos":
             row["conceptos"][concept] = row["conceptos"].get(concept, 0) + 1
-        row[kind].setdefault(concept, {})[(per, c["start"], c["end"])] = v
+        key = (per, c["start"], c["end"])
+        if by_seg:
+            bucket = row.setdefault("_por_segmento", {}).setdefault(kind, {}).setdefault(concept, {})
+            bucket[key] = bucket.get(key, 0) + v
+        else:
+            row[kind].setdefault(concept, {})[key] = v
+    for row in out.values():   # el total del producto manda; si no existe, la suma por segmentos
+        for kind, by_c in row.pop("_por_segmento", {}).items():
+            for concept, vals in by_c.items():
+                dest = row[kind].setdefault(concept, {})
+                for key, v in vals.items():
+                    dest.setdefault(key, v)
     return out
 
 

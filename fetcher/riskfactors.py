@@ -14,7 +14,7 @@ from difflib import SequenceMatcher
 
 from .filings import archive_base, recent_rows
 
-VERSION = 2
+VERSION = 3
 BLOCK_END = re.compile(r"</(p|div|li|tr|h\d|table)>|<br\s*/?>", re.I)
 TAG = re.compile(r"<[^>]+>")
 START = re.compile(r"item\s*1a\.?\s*[\-–—:.]?\s*risk\s+factors", re.I)
@@ -46,7 +46,9 @@ def headings(section):
     out = []
     for i, p in enumerate(section[:-1]):
         nxt = section[i + 1]
-        if 40 <= len(p) <= 450 and len(nxt) > 250 and p[-1:] in ".:" and not p.lower().startswith(("see ", "for example")):
+        punct = p[-1:] in ".:"
+        title = not punct and len(p) <= 220 and not p.lower().startswith(("item ", "table of contents")) and not p[:1].islower()
+        if 25 <= len(p) <= 450 and len(nxt) > 250 and (punct or title) and not p.lower().startswith(("see ", "for example")):
             out.append(p)
     return out
 
