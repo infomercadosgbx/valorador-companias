@@ -53,6 +53,25 @@ def monogram(name: str) -> str:
     return (words[0][0] + words[1][0]).upper() if len(words) > 1 else name[:2].upper()
 
 
+INDUSTRIAS = {"Technology": "Tecnología", "Media": "Medios e internet", "Retail": "Comercio minorista", "Utilities": "Eléctricas y servicios públicos",
+    "Semiconductors": "Semiconductores", "Banking": "Banca", "Pharmaceuticals": "Farmacéuticas", "Biotechnology": "Biotecnología",
+    "Insurance": "Seguros", "Real Estate": "Inmobiliario", "Energy": "Energía", "Oil & Gas": "Petróleo y gas", "Financial Services": "Servicios financieros",
+    "Health Care": "Salud", "Life Sciences Tools & Services": "Equipos y servicios para ciencias de la vida", "Software": "Software",
+    "Communications": "Comunicaciones", "Telecommunication": "Telecomunicaciones", "Automobiles": "Automoción", "Aerospace & Defense": "Aeroespacial y defensa",
+    "Machinery": "Maquinaria", "Chemicals": "Química", "Beverages": "Bebidas", "Food Products": "Alimentación", "Hotels, Restaurants & Leisure": "Hoteles, restauración y ocio",
+    "Road & Rail": "Transporte terrestre", "Airlines": "Aerolíneas", "Logistics & Transportation": "Logística y transporte", "Textiles, Apparel & Luxury Goods": "Moda y lujo",
+    "Commercial Services & Supplies": "Servicios a empresas", "Professional Services": "Servicios profesionales", "Electrical Equipment": "Equipos eléctricos",
+    "Building": "Construcción", "Construction": "Construcción", "Metals & Mining": "Metales y minería", "Consumer products": "Productos de consumo", "Tobacco": "Tabaco",
+    "Trading Companies & Distributors": "Distribución", "Diversified Consumer Services": "Servicios al consumidor", "Industrial Conglomerates": "Conglomerados industriales"}
+
+
+def dump_companies(cj) -> str:
+    """Mantiene companies.json con una compañía por línea, como lo escribe una persona."""
+    rows = ",\n".join("    " + json.dumps(c, ensure_ascii=False) for c in cj["companies"])
+    return (json.dumps({"_nota": cj.get("_nota", "")}, ensure_ascii=False, indent=2)[:-2]
+            + ',\n  "companies": [\n' + rows + "\n  ]\n}\n")
+
+
 def resolve(client, ticker: str):
     table = client.company_tickers() or {}
     want = {ticker.upper(), ticker.upper().replace(".", "-"), ticker.upper().replace("-", ".")}
@@ -112,6 +131,11 @@ def seed_dcf(data: dict, tpl_v: dict):
     cx = ttm("capex")
     if cx is not None:
         v["capex"] = v["capex5"] = _r(cx / rev * 100)
+        ca, ra = anual("capex"), anual("ingresos")
+        hist = [c / r * 100 for c, r in zip(ca[-3:], ra[-3:]) if r] if len(ca) >= 3 and len(ra) >= 3 else []
+        if hist and sum(hist) / len(hist) < v["capex"]:
+            v["capex5"] = _r(sum(hist) / len(hist))           # un pico de inversión no se proyecta para siempre
+            hechos.append(f"capex del {v['capex']}% que vuelve a su media de 3 años ({v['capex5']}%)")
     tx, pbt = ttm("impuestos"), ttm("beneficio_antes_impuestos")
     if tx is not None and pbt and pbt > 0:
         v["tax"] = _r(min(25.0, max(15.0, tx / pbt * 100)))
@@ -142,7 +166,7 @@ def add(ticker: str, nombre=None, color=None, root=ROOT, client=None):
     comp = {"ticker": ticker, "slug": re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-"), "nombre": name, "cik": cik,
             "color": color or None, "monograma": monogram(name)}
     cj["companies"].append(comp)
-    cfile.write_text(json.dumps(cj, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    cfile.write_text(dump_companies(cj), encoding="utf-8")
 
     failures = M.run(only=[ticker], root=root, client=client)
     if failures:
@@ -154,7 +178,7 @@ def add(ticker: str, nombre=None, color=None, root=ROOT, client=None):
         logo = (data.get("perfil") or {}).get("logo")
         dom = colors.dominant((root / logo).read_bytes()) if logo and logo.endswith(".png") and (root / logo).exists() else None
         comp["color"] = dom or colors.fallback(ticker)
-        cfile.write_text(json.dumps(cj, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        cfile.write_text(dump_companies(cj), encoding="utf-8")
 
     # análisis inicial: datos de la ficha y punto de partida del DCF
     apath = root / "analysis" / f"{ticker}.json"
@@ -162,13 +186,16 @@ def add(ticker: str, nombre=None, color=None, root=ROOT, client=None):
     perfil = data.get("perfil") or {}
     addr = ((subs.get("addresses") or {}).get("business") or {})
     meta = an.setdefault("meta", {})
-    meta["sector"] = meta.get("sector") or perfil.get("industria") or subs.get("sicDescription") or ""
+    ind = perfil.get("industria")
+    meta["sector"] = meta.get("sector") or INDUSTRIAS.get(ind, ind) or subs.get("sicDescription") or ""
     if not meta.get("hq") and addr.get("city"):
         meta["hq"] = f"{str(addr['city']).title()}, {addr.get('stateOrCountryDescription') or addr.get('stateOrCountry') or ''}".strip(", ")
     meta["autogenerado"] = date.today().isoformat()
     src = an.setdefault("sources", {})
     if perfil.get("web") and not src.get("web"):
         src["web"] = perfil["web"]
+    ver = an.setdefault("verdict", {})
+    ver.update({"rating": "", "conviction": None})          # sin recomendación hasta que la escribas
     v, hechos = seed_dcf(data, an.get("v") or {})
     an["v"] = v
     an["_nota"] = ("Supuestos y textos propios. Creado automáticamente en el alta: el punto de partida del DCF sale de "
