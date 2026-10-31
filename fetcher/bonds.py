@@ -18,7 +18,7 @@ from datetime import date
 
 from .filings import archive_base, recent_rows
 
-VERSION = 4
+VERSION = 5
 AX_INSTR = "DebtInstrumentAxis"
 AX_TYPES = {"LongtermDebtTypeAxis", "ShortTermDebtTypeAxis", "DebtInstrumentAxis"}
 ALLOWED_EXTRA = {"LongtermDebtTypeAxis", "ShortTermDebtTypeAxis", "LegalEntityAxis"}
@@ -40,6 +40,8 @@ ISO = re.compile(r"iso4217:([A-Z]{3})")
 YEAR = re.compile(r"\b(20[2-9]\d|21\d\d)\b")
 DUE = re.compile(r"due[^0-9]{0,30}?((?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},?\s+\d{4}|\d{4})", re.I)
 PROGRAM = re.compile(r"^(?:(January|February|March|April|May|June|July|August|September|October|November|December)\s+)?((?:19|20)\d\d)\b(?!\s*Notes? due)", re.I)
+CCY_WORDS = [("euro", "EUR"), ("yen", "JPY"), ("sterling", "GBP"), ("pound", "GBP"), ("swiss franc", "CHF"),
+             ("canadian", "CAD"), ("australian", "AUD"), ("swedish", "SEK"), ("norwegian", "NOK"), ("danish", "DKK")]
 MONTHS = {m: i + 1 for i, m in enumerate(["january", "february", "march", "april", "may", "june", "july",
                                             "august", "september", "october", "november", "december"])}
 
@@ -228,7 +230,12 @@ def extract(inst_xml: bytes, lab_xml: bytes | None, period_end: str | None):
                 face_units[row[2] or "USD"] = row
         ccy = next((u for u in face_units if u not in ("USD", "pure") and re.fullmatch(r"[A-Z]{3}", u)), None) or \
             next((u for u in r["ccy"] if u not in ("USD", "pure") and re.fullmatch(r"[A-Z]{3}", u or "")), None) or "USD"
-        face = face_units.get(ccy) or face_units.get("USD")
+        lab_ccy = next((c for w, c in CCY_WORDS if w in label.lower()), None)
+        if ccy == "USD" and lab_ccy and lab_ccy not in face_units:
+            ccy = lab_ccy                     # la empresa etiquetó el nominal en USD por error
+            face = face_units.get("USD")
+        else:
+            face = face_units.get(ccy) or face_units.get("USD")
         usd_book = [x for x in r["book"] if (x[2] or "USD") == "USD"]
         book = _pick_latest([x for x in usd_book if period_end and x[0] == period_end] or usd_book)
         mat = _pick_latest(r["mat"]); iss = _pick_latest(r["iss"])
@@ -377,6 +384,12 @@ def build(client, cik, subs, previous=None):
                     best[k][1][f] = v
     emisiones = [b for _, b in best.values()]
     emisiones.sort(key=lambda e: (e.get("vencimiento") or "9999", e.get("nombre")))
+    tot = sum(e.get("en_libros") or 0 for e in emisiones)
+    for e in emisiones:
+        e["detalle"] = bool(e.get("vencimiento") and (e.get("cupon") is not None or e.get("variable")))
+        b = e.get("en_libros") or 0
+        e["agregado"] = bool(not e["detalle"] and b and len(emisiones) > 3 and b >= 0.4 * (tot - b)
+                             and re.fullmatch(r"(senior )?(unsecured )?(notes|debt|long-term debt|bonds)", e["nombre"].lower().strip()))
     last_10k = next((s for s in used if s["formulario"] == "10-K"), None)
     for e in emisiones:
         e["nueva"] = bool(last_10k and e["primera_vez"]["formulario"] == "10-Q")
