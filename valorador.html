@@ -1052,8 +1052,9 @@ function multHistory(){
   if(!pts.length) return null;
   const per=[], ps=[]; let k=0;
   h.serie.forEach((p,i)=>{ if(p[0]<pts[0].fin) return; while(k+1<pts.length&&pts[k+1].fin<=p[0]) k++; if(i%3) return;
-    const q0=pts[k], mc=p[1]*q0.sh; ps.push({x:TS(p[0]),y:mc/q0.rv}); per.push({x:TS(p[0]),y:q0.ni>0?mc/q0.ni:null}); });
-  const st=a=>{ const v=a.map(p=>p.y).filter(fin); if(v.length<10) return null; const s=v.slice().sort((x,y)=>x-y); return {mean:v.reduce((x,y)=>x+y,0)/v.length,min:s[0],max:s.at(-1),sorted:s,desde:new Date(a.find(p=>fin(p.y)).x).toISOString().slice(0,10)}; };
+    const q0=pts[k], mc=p[1]*q0.sh; if((TS(p[0])-TS(q0.fin))/864e5>200){ ps.push({x:TS(p[0]),y:null}); per.push({x:TS(p[0]),y:null}); return; } ps.push({x:TS(p[0]),y:mc/q0.rv}); per.push({x:TS(p[0]),y:q0.ni>0&&q0.ni/q0.rv>=0.03?mc/q0.ni:null}); });
+  const st=a=>{ const v=a.map(p=>p.y).filter(fin); if(v.length<10) return null; const s=v.slice().sort((x,y)=>x-y), q=f=>s[Math.min(s.length-1,Math.floor(f*(s.length-1)))];
+    return {mean:q(0.5),p10:q(0.1),p90:q(0.9),min:s[0],max:s.at(-1),sorted:s,desde:new Date(a.find(p=>fin(p.y)).x).toISOString().slice(0,10)}; };
   return {per,ps,stPer:st(per),stPs:st(ps)};
 }
 const pctile=(st,v)=>st&&fin(v)?st.sorted.filter(x=>x<=v).length/st.sorted.length*100:NaN;
@@ -1066,7 +1067,7 @@ function valTopHtml(){
   const rows=T.map(t=>`<tr><td style="white-space:normal"><span class="sev" style="background:transparent;padding:0"><i style="background:var(${t.c})"></i></span> ${esc(t.n)}<div class="note">${esc(t.sub)}</div></td><td>${money(t.v)}</td><td><span class="pill ${t.v>=s.price?"up":"down"}">${t.v>=s.price?"+":""}${nf((t.v/s.price-1)*100,1)}%</span></td></tr>`).join("");
   const MH=multHistory(), R=id=>{try{return MET[id].calc(m).res;}catch(e){return NaN;}}, X=(v,d=1)=>fin(v)?nf(v,d)+"x":"–", P2=v=>fin(v)?pct(v):"–";
   const vz=valuation(cur), y1=vz.ok?vz.base.yrs[0]:null, mcapM=s.price*s.shares, evM=mcapM+s.debt-s.cash;
-  const hRow=(stt,cur0)=>stt?[X(stt.mean),`${X(stt.min)} – ${X(stt.max)}`,fin(cur0)?`<span class="pill ${pctile(stt,cur0)>66?"down":pctile(stt,cur0)<33?"up":"mid"}">${nf(pctile(stt,cur0),0)}%</span>`:"–"]:["–","–","–"];
+  const hRow=(stt,cur0)=>stt?[X(stt.mean),`${X(stt.p10)} – ${X(stt.p90)}`,fin(cur0)?`<span class="pill ${pctile(stt,cur0)>66?"down":pctile(stt,cur0)<33?"up":"mid"}">${nf(pctile(stt,cur0),0)}%</span>`:"–"]:["–","–","–"];
   const per=R("per"), psr=fin(m.mcap)&&fin(m.f.rev[m.L])?m.mcap/m.f.rev[m.L]:NaN;
   const mrows=[
     ["per",X(per),...hRow(MH&&MH.stPer,per),y1&&fin(s.eps)?X(s.price/s.eps):"–","Modelo: precio / tu BPA"],
@@ -1089,14 +1090,14 @@ function valTopHtml(){
     </div>
   </section>
   <section class="card"><h2>Múltiplos al precio actual</h2>
-    <p class="sub">Real: cotización ${srcTag(cur._data.precio)} y cifras de la SEC de ${esc(m.y(m.L))}. Historia: ${MH&&MH.stPer?`desde ${esc(fecha(MH.stPer.desde))}`:"sin histórico de precios todavía"}; el percentil indica qué parte del tiempo cotizó más barato que hoy. Modelo: año ${y1?y1.year:""} de tus supuestos.</p>
+    <p class="sub">Real: cotización ${srcTag(cur._data.precio)} y cifras de la SEC de ${esc(m.y(m.L))}. Historia: ${MH&&MH.stPer?`desde ${esc(fecha(MH.stPer.desde))}`:"sin histórico de precios todavía"}; mediana y rango habitual (del percentil 10 al 90); en el PER se excluyen los periodos con margen neto inferior al 3%, en los que no tiene sentido; el percentil indica qué parte del tiempo cotizó más barato que hoy. Modelo: año ${y1?y1.year:""} de tus supuestos.</p>
     <div class="valmult">
-      <div class="scroll"><table class="mult"><thead><tr><th>Múltiplo</th><th>Hoy</th><th>Media histórica</th><th>Mín – máx</th><th>Percentil hoy</th><th>Modelo ${y1?y1.year+"e":""}</th></tr></thead>
+      <div class="scroll"><table class="mult"><thead><tr><th>Múltiplo</th><th>Hoy</th><th>Mediana histórica</th><th>Rango habitual</th><th>Percentil hoy</th><th>Modelo ${y1?y1.year+"e":""}</th></tr></thead>
         <tbody>${mrows.map(([id,r,a,b,c,mo,t])=>`<tr><td>${esc(MET[id].n)}${info(id)}${t?`<div class="note">${esc(t)}</div>`:""}</td><td class="em">${r}</td><td>${a}</td><td>${b}</td><td>${c}</td><td>${mo}</td></tr>`).join("")}</tbody></table>
         <p class="note">Capitalización ${big(m.mcap)} con ${nf(m.sh,1)} M de acciones (SEC) · EV ${big(m.ev)}${info("ev")}.${Math.abs(m.sh-s.shares)>s.shares*0.02?` Tu modelo usa ${nf(s.shares,1)} M de acciones.`:""} Percentil verde: cotiza en la parte barata de su historia; rojo: en la cara.</p></div>
       <div><div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;align-items:center"><div class="eyebrow">${MCHART==="per"?"PER":"Precio / ventas"} en el tiempo</div>${seg("data-mchart",MCHART,[["per","PER"],["ps","Precio / ventas"]])}</div>
         ${MH?`<div class="cv h260"><canvas id="ch_vl_mult" role="img" aria-label="Múltiplo histórico"></canvas></div>
-        <p class="note">${stt&&fin(curM)?`Hoy ${X(curM)} frente a una media de ${X(stt.mean)}: más caro que el ${nf(pctile(stt,curM),0)}% del tiempo desde ${esc(fecha(stt.desde))}.`:"Sin datos suficientes (beneficio negativo en parte del periodo)."} Cada punto usa el beneficio o los ingresos de los 12 meses anteriores.</p>`:`<p class="empty">Aparecerá con el histórico de cotizaciones.</p>`}</div>
+        <p class="note">${stt&&fin(curM)?`Hoy ${X(curM)} frente a una mediana de ${X(stt.mean)} y un rango habitual de ${X(stt.p10)}–${X(stt.p90)}. Desde ${esc(fecha(stt.desde))}, solo el ${nf(pctile(stt,curM),0)}% del tiempo ha cotizado más barato que hoy.`:"Sin datos suficientes (beneficio negativo en parte del periodo)."} Cada punto usa el beneficio o los ingresos de los 12 meses anteriores.</p>`:`<p class="empty">Aparecerá con el histórico de cotizaciones.</p>`}</div>
     </div>
   </section>`;
 }
@@ -1152,11 +1153,12 @@ function drawPriceCharts(){
   const MH=multHistory(); if($("ch_vl_mult")&&MH){
     const data=MCHART==="per"?MH.per:MH.ps, stt=MCHART==="per"?MH.stPer:MH.stPs; if(!stt) return;
     const xs=data.map(p=>p.x), mn=Math.min(...xs), mx=Math.max(...xs);
-    const cap=stt.sorted[Math.floor(stt.sorted.length*0.98)]*1.15;
+    const cap=Math.max(stt.p90*1.6, fin(MCHART==="per"?MET.per.calc(mctx()).res:0)?(MCHART==="per"?MET.per.calc(mctx()).res:0)*1.2:0);
     mk("ch_vl_mult",{type:"line",data:{datasets:[{label:MCHART==="per"?"PER":"Precio / ventas",data:data.map(p=>({x:p.x,y:fin(p.y)&&p.y<=cap?p.y:null})),borderColor:cat[0],backgroundColor:cat[0],borderWidth:1.6,pointRadius:0,spanGaps:false},
-      {label:`Media ${nf(stt.mean,1)}x`,data:[{x:mn,y:stt.mean},{x:mx,y:stt.mean}],borderColor:V("--muted"),borderDash:[5,4],borderWidth:1.2,pointRadius:0}]},
-      options:{parsing:false,plugins:{legend:{display:true,position:"top",align:"start"},tooltip:{callbacks:{title:it=>fecha(new Date(it[0].parsed.x).toISOString().slice(0,10)),label:c=>`${c.dataset.label.split(" ")[0]}: ${nf(c.parsed.y,1)}x`}}},
-        scales:{x:{type:"linear",min:mn,max:mx,grid:{display:false},border:{color:V("--line")},ticks:{maxTicksLimit:6,callback:v=>mesCorto(new Date(v).toISOString().slice(0,10))}},y:{...axisY({zero:false}),ticks:{callback:v=>nf(v,0)+"x"}}}}});
+      {label:`Mediana ${nf(stt.mean,1)}x`,data:[{x:mn,y:stt.mean},{x:mx,y:stt.mean}],borderColor:V("--muted"),borderDash:[5,4],borderWidth:1.2,pointRadius:0},
+      {label:`Rango habitual ${nf(stt.p10,0)}–${nf(stt.p90,0)}x`,data:[{x:mn,y:stt.p90},{x:mx,y:stt.p90}],borderColor:"transparent",backgroundColor:alpha(V("--c1"),.08),pointRadius:0,fill:{value:stt.p10}}]},
+      options:{parsing:false,plugins:{legend:{display:true,position:"top",align:"start"},tooltip:{callbacks:{title:it=>fecha(new Date(it[0].parsed.x).toISOString().slice(0,10)),label:c=>`${c.dataset.label.split(" ")[0]}: ${nf(c.parsed.y,1)}x`},filter:it=>it.datasetIndex===0}},
+        scales:{x:{type:"linear",min:mn,max:mx,grid:{display:false},border:{color:V("--line")},ticks:{maxTicksLimit:6,callback:v=>mesCorto(new Date(v).toISOString().slice(0,10))}},y:{...axisY({zero:true}),max:Math.ceil(cap/niceStep(cap/5))*niceStep(cap/5),ticks:{callback:v=>nf(v,0)+"x"}}}}});
   }
 }
 
