@@ -8,6 +8,7 @@ el fetcher (todas las candidatas, para poder probar cambios de etiqueta) y en
 sin modificar, solo recortados.
 """
 import gzip
+import re
 import json
 import sys
 from pathlib import Path
@@ -40,7 +41,8 @@ def trim_facts(cf):
     facts = cf.get("facts", {})
     out = {"cik": cf.get("cik"), "entityName": cf.get("entityName"), "facts": {}}
     if "us-gaap" in facts:
-        out["facts"]["us-gaap"] = {k: v for k, v in facts["us-gaap"].items() if k in keep}
+        out["facts"]["us-gaap"] = {k: v for k, v in facts["us-gaap"].items()
+                                   if k in keep or re.search(r"Depreciation|Amortization", k)}
     if "dei" in facts:
         out["facts"]["dei"] = {k: v for k, v in facts["dei"].items() if k == C.SHARES_OUTSTANDING_TAG[1]}
     for other in facts:
