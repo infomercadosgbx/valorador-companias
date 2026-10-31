@@ -1125,12 +1125,12 @@ function consensusHtml(){
     <p class="sub">Lo que opina el mercado, frente a tu valoración. Recomendaciones ${ca?srcTag({fuente:"Finnhub",fecha:ca.periodo,url:ca.url}):""}; precio objetivo ${srcTag({manual:true,fecha:m.fecha,fuente:m.fuente||"Introducido a mano"})}.</p>
     <div class="kpis">
       ${kpi("Recomendación media",fin(score)?esc(lab(score)):"–",fin(score)?`<span class="note">${nf(score,1)} sobre 5 · ${tot} analistas</span>`:"",true)}
-      ${kpi("Analistas que recomiendan comprar",tot?pct(pos/tot*100,0):"–",fin(trend)?`<span class="note">${trend>=0?"+":""}${nf(trend,0)} pp desde ${esc(first.periodo.slice(0,7))}</span>`:"")}
+      ${kpi("Analistas que recomiendan comprar",tot?pct(pos/tot*100,0):"–",fin(trend)?`<span class="note">${trend>=0?"+":""}${nf(trend,0)} pp desde ${esc(mesCorto(first.periodo))}</span>`:"")}
       ${kpi("Precio objetivo medio",money(s.cMean),`${pill(up(s.cMean))}${fin(s.cLow)&&fin(s.cHigh)?`<span class="note">rango ${nf(s.cLow,0)}–${nf(s.cHigh,0)}</span>`:""}`)}
       ${kpi("Tu valor ponderado",money(mine),`${pill(up(mine))}${fin(mine)&&fin(s.cMean)?`<span class="note">${mine>=s.cMean?"por encima":"por debajo"} del consenso en ${nf(Math.abs(mine/s.cMean-1)*100,0)}%</span>`:""}`)}
     </div>
     ${ca?`<div class="g2" style="margin-top:12px;align-items:start">
-      <div><div class="eyebrow" style="margin-bottom:6px">Reparto actual (${esc(ca.periodo||"")})</div>
+      <div><div class="eyebrow" style="margin-bottom:6px">Reparto actual (${esc(mesCorto(ca.periodo||""))})</div>
         <div class="recbar" role="img" aria-label="Reparto de recomendaciones">${K.filter(([k])=>ca[k]>0).map(([k,l,c])=>`<span style="flex:${ca[k]};background:var(${c})"></span>`).join("")}</div>
         <div class="legendrow">${K.map(([k,l,c])=>`<span><i style="background:var(${c})"></i>${l} ${ca[k]||0}</span>`).join("")}</div>
         <p class="note" style="margin-top:8px">El consenso suele ser optimista: en las grandes compañías de EE. UU. es raro ver más de un 10% de recomendaciones de venta. Es más útil su <b>cambio</b> que su nivel.</p></div>
