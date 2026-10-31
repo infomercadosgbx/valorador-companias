@@ -118,7 +118,7 @@ class TwelveDataHistory:
         self._open = opener or urllib.request.urlopen
         self._sleep = sleep
 
-    def history(self, ticker: str, days=1300):
+    def history(self, ticker: str, days=1320):
         params = {"symbol": ticker, "interval": "1day", "outputsize": days, "adjust": "splits",
                   "order": "ASC", "apikey": self.key}
         url = f"{self.BASE}?{urllib.parse.urlencode(params)}"

@@ -363,6 +363,12 @@ input.ro{background:var(--surface2);color:var(--ink2);border-style:dashed}
 table.calc td{white-space:normal} table.calc td.op{width:28px;font-weight:700;color:var(--muted);text-align:center}
 .gloss{display:flex;flex-direction:column;gap:6px}
 .chipline{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12px;color:var(--ink2);margin-top:6px}
+.valmult{display:grid;grid-template-columns:minmax(0,1fr);gap:18px}
+table.mult td,table.mult th{padding:9px 12px} table.mult td:first-child{white-space:normal;min-width:150px} table.mult td.em{font-weight:700;font-size:13.5px}
+.sensgrid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:20px;align-items:start;margin-top:10px}
+@media (max-width:1100px){.sensgrid{grid-template-columns:minmax(0,1fr)}}
+.sens td{line-height:1.25;padding:7px 10px} .sens td .su{font-size:10.5px;color:var(--ink2);font-weight:400}
+.sensexp p{font-size:13px;margin:0 0 8px}
 .recbar{display:flex;height:14px;border-radius:7px;overflow:hidden;gap:2px;margin:6px 0}
 .kpi .src{margin-top:2px}
 code{font-family:var(--f-num);font-size:.92em;background:var(--surface2);padding:0 4px;border-radius:4px}
@@ -1016,6 +1022,144 @@ R.financial=()=>{
   </section>`;
 };
 const dv2=(a,b)=>fin(a)&&fin(b)&&b!==0?a/b:NaN;
+/* ================= VALORACIÓN: precio, múltiplos históricos y sensibilidad ================= */
+let PRANGE=lsGet("valorador.prange")||"3", MCHART=lsGet("valorador.mchart")||"per", SENSMODE=lsGet("valorador.sens")||"wg";
+function horizonMonths(){ const m=/(\d+)/.exec(String((cur.verdict&&cur.verdict.horizon)||"")); return m?Math.min(36,Math.max(3,+m[1])):12; }
+function priceHist(){ const h=cur._data&&cur._data.historico_precio; return h&&h.serie&&h.serie.length>20?h:null; }
+const TS=d=>Date.parse(d+"T00:00:00Z");
+function priceTargets(){
+  const s=cur.v, vz=valuation(cur), out=[], col={Bajista:"--c8",Base:"--c1",Alcista:"--c3"};
+  if(vz.ok){ vz.sc.out.forEach(o=>out.push({n:o.n,sub:`escenario, ${nf(o.p,0)}%`,v:o.ps,c:col[o.n]||"--c7"})); out.push({n:"Valor ponderado",sub:"tu modelo",v:vz.w,c:"--accent",w:3}); }
+  if(fin(s.cMean)) out.push({n:"Consenso de analistas",sub:"manual",v:s.cMean,c:"--c4"});
+  return out.filter(t=>fin(t.v));
+}
+function priceStats(h){
+  const S=h.serie, last=S.at(-1), lastT=TS(last[0]);
+  const at=yrs=>{ const t=lastT-yrs*365.25*864e5; let best=null; for(const p of S){ if(TS(p[0])<=t) best=p; else break; } return best; };
+  const ch=yrs=>{ const p=at(yrs); return p?{v:(last[1]/p[1]-1)*100,cagr:yrs>1?(Math.pow(last[1]/p[1],1/yrs)-1)*100:null,desde:p[0]}:null; };
+  const mx=S.reduce((a,p)=>p[1]>a[1]?p:a,S[0]);
+  return {last,r1:ch(1),r3:ch(3),r5:ch(5),max:mx,dd:(last[1]/mx[1]-1)*100};
+}
+/* múltiplos históricos: precio diario × acciones del trimestre / beneficio o ingresos de los 12 meses previos */
+function multHistory(){
+  const h=priceHist(), R=(cur._data&&cur._data.resultados)||{}; if(!h) return null;
+  const q=k=>((R[k]&&R[k].trimestral)||[]).slice().sort((a,b)=>a.periodo_fin.localeCompare(b.periodo_fin));
+  const NI=q("beneficio_neto"), RV=q("ingresos"), SH=q("acciones_diluidas_media").map(p=>({...p}));
+  for(let i=SH.length-1;i>0;i--){ const r=SH[i].valor/SH[i-1].valor; if(r>1.8){ const f=[2,3,4,5,8,10,15,20,25,30,40,50].reduce((a,b)=>Math.abs(b-r)<Math.abs(a-r)?b:a); for(let j=0;j<i;j++) SH[j].valor*=f; } }
+  const ttm=(arr,i)=>{ if(i<3) return null; const w=arr.slice(i-3,i+1); const span=(TS(w[3].periodo_fin)-TS(w[0].periodo_fin))/864e5; return span>250&&span<300?w.reduce((a,p)=>a+p.valor,0):null; };
+  const pts=[]; RV.forEach((p,i)=>{ const rv=ttm(RV,i); const ni=(()=>{const j=NI.findIndex(x=>x.periodo_fin===p.periodo_fin); return j>=0?ttm(NI,j):null;})();
+    const sh=SH.filter(x=>x.periodo_fin<=p.periodo_fin).at(-1); if(rv&&sh) pts.push({fin:p.periodo_fin,rv,ni,sh:sh.valor}); });
+  if(!pts.length) return null;
+  const per=[], ps=[]; let k=0;
+  h.serie.forEach((p,i)=>{ if(p[0]<pts[0].fin) return; while(k+1<pts.length&&pts[k+1].fin<=p[0]) k++; if(i%3) return;
+    const q0=pts[k], mc=p[1]*q0.sh; ps.push({x:TS(p[0]),y:mc/q0.rv}); per.push({x:TS(p[0]),y:q0.ni>0?mc/q0.ni:null}); });
+  const st=a=>{ const v=a.map(p=>p.y).filter(fin); if(v.length<10) return null; const s=v.slice().sort((x,y)=>x-y); return {mean:v.reduce((x,y)=>x+y,0)/v.length,min:s[0],max:s.at(-1),sorted:s,desde:new Date(a.find(p=>fin(p.y)).x).toISOString().slice(0,10)}; };
+  return {per,ps,stPer:st(per),stPs:st(ps)};
+}
+const pctile=(st,v)=>st&&fin(v)?st.sorted.filter(x=>x<=v).length/st.sorted.length*100:NaN;
+function valTopHtml(){
+  if(!cur._data) return "";
+  const s=cur.v, h=priceHist(), H=horizonMonths(), T=priceTargets(), st=h&&priceStats(h), m=mctx();
+  const seg=(attr,cur0,opts)=>`<div class="seg tbl" role="group" style="width:max-content;max-width:100%">${opts.map(([k,l])=>`<button type="button" ${attr}="${k}" aria-pressed="${cur0===k}">${l}</button>`).join("")}</div>`;
+  const chg=(lab,r)=>`<div class="chip"><span>${lab}</span><b class="num" style="color:${r&&r.v>=0?"var(--goodText)":"var(--critText)"}">${r?(r.v>=0?"+":"")+nf(r.v,1)+"%":"–"}</b>${r&&r.cagr!=null?`<span style="text-transform:none;letter-spacing:0;font-weight:400">${nf(r.cagr,1)}% anual</span>`:""}</div>`;
+  const eps=MET.cagr_bpa.calc(m).res;
+  const rows=T.map(t=>`<tr><td style="white-space:normal"><span class="sev" style="background:transparent;padding:0"><i style="background:var(${t.c})"></i></span> ${esc(t.n)}<div class="note">${esc(t.sub)}</div></td><td>${money(t.v)}</td><td><span class="pill ${t.v>=s.price?"up":"down"}">${t.v>=s.price?"+":""}${nf((t.v/s.price-1)*100,1)}%</span></td></tr>`).join("");
+  const MH=multHistory(), R=id=>{try{return MET[id].calc(m).res;}catch(e){return NaN;}}, X=(v,d=1)=>fin(v)?nf(v,d)+"x":"–", P2=v=>fin(v)?pct(v):"–";
+  const vz=valuation(cur), y1=vz.ok?vz.base.yrs[0]:null, mcapM=s.price*s.shares, evM=mcapM+s.debt-s.cash;
+  const hRow=(stt,cur0)=>stt?[X(stt.mean),`${X(stt.min)} – ${X(stt.max)}`,fin(cur0)?`<span class="pill ${pctile(stt,cur0)>66?"down":pctile(stt,cur0)<33?"up":"mid"}">${nf(pctile(stt,cur0),0)}%</span>`:"–"]:["–","–","–"];
+  const per=R("per"), psr=fin(m.mcap)&&fin(m.f.rev[m.L])?m.mcap/m.f.rev[m.L]:NaN;
+  const mrows=[
+    ["per",X(per),...hRow(MH&&MH.stPer,per),y1&&fin(s.eps)?X(s.price/s.eps):"–","Modelo: precio / tu BPA"],
+    ["p_ventas",X(psr),...hRow(MH&&MH.stPs,psr),y1?X(mcapM/y1.rev):"–",""],
+    ["ev_ebitda",X(R("ev_ebitda")),"–","–","–",y1?X(evM/y1.ebitda):"–",""],["ev_ventas",X(R("ev_ventas")),"–","–","–",y1?X(evM/y1.rev):"–",""],
+    ["p_vc",X(R("p_vc")),"–","–","–","–",""],["fcf_yield",P2(R("fcf_yield")),"–","–","–",y1?P2(y1.fcf/mcapM*100):"–",""],
+    ["peg",fin(R("peg"))?nf(R("peg"),2):"–","–","–","–",y1&&fin(s.eps)?nf((s.price/s.eps)/(y1.g*100),2):"–","Modelo: con el crecimiento del año 1"]];
+  const stt=MCHART==="per"?(MH&&MH.stPer):(MH&&MH.stPs), curM=MCHART==="per"?per:psr;
+  return `
+  <section class="card" style="--tc:var(--c4)"><h2>Precio: de dónde viene y hacia dónde puede ir</h2>
+    <div style="display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between"><p class="sub" style="margin:0;max-width:80ch">Cierre diario ajustado por splits ${h?srcTag(h):""}. A la derecha, adónde llevaría el precio cada valoración de tu modelo y el consenso a ${H} meses (tu horizonte de inversión). La franja verde es tu zona de compra.</p>${h?seg("data-prange",PRANGE,[["1","1 año"],["3","3 años"],["5","5 años"]]):""}</div>
+    ${h?`<div class="cv h340"><canvas id="ch_vl_price" role="img" aria-label="Evolución de la cotización y objetivos de precio"></canvas></div>`:`<div class="alert">Falta el histórico de cotizaciones. Crea el secret <code>TWELVEDATA_API_KEY</code> (README) y aparecerá tras la siguiente actualización. Mientras, el gráfico muestra solo la proyección desde la cotización actual.</div><div class="cv h300"><canvas id="ch_vl_price" role="img" aria-label="Objetivos de precio"></canvas></div>`}
+    <div class="g2" style="margin-top:10px;align-items:start">
+      <div><div class="eyebrow" style="margin-bottom:6px">Rentabilidad de la acción</div>
+        ${st?`<div class="chips">${chg("1 año",st.r1)}${chg("3 años",st.r3)}${chg("5 años",st.r5)}<div class="chip"><span>Desde el máximo</span><b class="num" style="color:var(--critText)">${nf(st.dd,1)}%</b><span style="text-transform:none;letter-spacing:0;font-weight:400">máx. ${money(st.max[1])} (${esc(fecha(st.max[0]))})</span></div></div>
+        <p class="note" style="margin-top:8px">${st.r5&&fin(st.r5.cagr)&&fin(eps)?`En 5 años la acción ha subido un ${nf(st.r5.cagr,1)}% anual y el BPA un ${nf(eps,1)}% anual${info("cagr_bpa")}: ${st.r5.cagr>eps+3?"el precio ha crecido más que el beneficio, así que hoy pagas un múltiplo mayor.":st.r5.cagr<eps-3?"el beneficio ha crecido más que el precio, así que hoy pagas un múltiplo menor.":"precio y beneficio han crecido a un ritmo parecido."}`:""}</p>`:`<p class="empty">Disponible cuando llegue el histórico.</p>`}</div>
+      <div><div class="eyebrow" style="margin-bottom:6px">Objetivos a ${H} meses</div>
+        <div class="scroll"><table><thead><tr><th>Referencia</th><th>Precio</th><th>Potencial</th></tr></thead><tbody>${rows}
+        ${fin(cur.verdict.buyBelow)?`<tr><td><span class="sev" style="background:transparent;padding:0"><i style="background:var(--good)"></i></span> Zona de compra<div class="note">tu veredicto</div></td><td>&lt; ${money(cur.verdict.buyBelow)}</td><td><span class="pill ${s.price<=cur.verdict.buyBelow?"up":"neutral"}">${s.price<=cur.verdict.buyBelow?"dentro":nf((cur.verdict.buyBelow/s.price-1)*100,1)+"%"}</span></td></tr>`:""}</tbody></table></div></div>
+    </div>
+  </section>
+  <section class="card"><h2>Múltiplos al precio actual</h2>
+    <p class="sub">Real: cotización ${srcTag(cur._data.precio)} y cifras de la SEC de ${esc(m.y(m.L))}. Historia: ${MH&&MH.stPer?`desde ${esc(fecha(MH.stPer.desde))}`:"sin histórico de precios todavía"}; el percentil indica qué parte del tiempo cotizó más barato que hoy. Modelo: año ${y1?y1.year:""} de tus supuestos.</p>
+    <div class="valmult">
+      <div class="scroll"><table class="mult"><thead><tr><th>Múltiplo</th><th>Hoy</th><th>Media histórica</th><th>Mín – máx</th><th>Percentil hoy</th><th>Modelo ${y1?y1.year+"e":""}</th></tr></thead>
+        <tbody>${mrows.map(([id,r,a,b,c,mo,t])=>`<tr><td>${esc(MET[id].n)}${info(id)}${t?`<div class="note">${esc(t)}</div>`:""}</td><td class="em">${r}</td><td>${a}</td><td>${b}</td><td>${c}</td><td>${mo}</td></tr>`).join("")}</tbody></table>
+        <p class="note">Capitalización ${big(m.mcap)} con ${nf(m.sh,1)} M de acciones (SEC) · EV ${big(m.ev)}${info("ev")}.${Math.abs(m.sh-s.shares)>s.shares*0.02?` Tu modelo usa ${nf(s.shares,1)} M de acciones.`:""} Percentil verde: cotiza en la parte barata de su historia; rojo: en la cara.</p></div>
+      <div><div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;align-items:center"><div class="eyebrow">${MCHART==="per"?"PER":"Precio / ventas"} en el tiempo</div>${seg("data-mchart",MCHART,[["per","PER"],["ps","Precio / ventas"]])}</div>
+        ${MH?`<div class="cv h260"><canvas id="ch_vl_mult" role="img" aria-label="Múltiplo histórico"></canvas></div>
+        <p class="note">${stt&&fin(curM)?`Hoy ${X(curM)} frente a una media de ${X(stt.mean)}: más caro que el ${nf(pctile(stt,curM),0)}% del tiempo desde ${esc(fecha(stt.desde))}.`:"Sin datos suficientes (beneficio negativo en parte del periodo)."} Cada punto usa el beneficio o los ingresos de los 12 meses anteriores.</p>`:`<p class="empty">Aparecerá con el histórico de cotizaciones.</p>`}</div>
+    </div>
+  </section>`;
+}
+function sensHtml(s,vz){
+  const useExit=s.method==="exit", base=vz.base.ps, P=s.price, up=v=>(v/P-1)*100;
+  let rows,cols,rl,cl,val,isBase,expl;
+  if(SENSMODE==="gm"){
+    rows=[-6,-3,0,3,6]; cols=[-4,-2,0,2,4]; rl=r=>`${r>0?"+":""}${r} pp`; cl=c=>`${c>0?"+":""}${c} pp`;
+    val=(r,c)=>dcf(s,{adj:{dg:r,dm:c}}).ps; isBase=(r,c)=>r===0&&c===0;
+    expl=`<p><b>Filas:</b> crecimiento anual de los ingresos respecto a tu caso base (puntos porcentuales cada año). <b>Columnas:</b> margen EBITDA respecto a tu caso base. Es la pregunta operativa: «¿y si crece o gana menos de lo que creo?».</p>`;
+  } else {
+    rows=[-2,-1,0,1,2].map(d=>s.wacc+d); cols=useExit?[-4,-2,0,2,4].map(d=>s.exit+d):[-1,-.5,0,.5,1].map(d=>s.tg+d);
+    rl=r=>pct(r,1); cl=c=>useExit?nf(c,1)+"x":pct(c,1);
+    val=(r,c)=>(useExit||r>c)?dcf(s,useExit?{wacc:r,exit:c}:{wacc:r,tg:c}).ps:NaN; isBase=(r,c)=>r===s.wacc&&c===(useExit?s.exit:s.tg);
+    expl=`<p><b>Filas: WACC</b>${info("wacc")}, la rentabilidad anual que exiges para compensar el riesgo; los flujos futuros se descuentan a esa tasa. <b>Columnas: ${useExit?"múltiplo de salida (EV/EBITDA al final del año 5)":`crecimiento perpetuo${info("g_terminal")}, el ritmo al que crecería la empresa para siempre a partir del año 5`}</b>.</p>`;
+  }
+  const grid=rows.map(r=>cols.map(c=>val(r,c))), flat=grid.flat().filter(fin), below=flat.filter(v=>v<P).length;
+  const r0=rows.indexOf(SENSMODE==="gm"?0:s.wacc), c0=cols.findIndex(c=>isBase(rows[r0],c));
+  const dn=SENSMODE==="gm"?(grid[r0-1]&&grid[r0-1][c0]):(grid[r0+1]&&grid[r0+1][c0]), lf=grid[r0][c0-1];
+  const reading=SENSMODE==="gm"
+    ?`Con tus supuestos el valor es <b>${money(base)}</b> (${up(base)>=0?"+":""}${nf(up(base),1)}% frente a la cotización). Si los ingresos crecen 3 puntos menos cada año, baja a <b>${money(dn)}</b> (${nf((dn/base-1)*100,0)}%); si el margen es 2 puntos menor, a <b>${money(lf)}</b> (${nf((lf/base-1)*100,0)}%).`
+    :`Con tus supuestos el valor es <b>${money(base)}</b> (${up(base)>=0?"+":""}${nf(up(base),1)}% frente a la cotización). Si exiges 1 punto más de WACC, baja a <b>${money(dn)}</b> (${nf((dn/base-1)*100,0)}%); con ${useExit?"2 puntos menos de múltiplo":"medio punto menos de crecimiento perpetuo"}, a <b>${money(lf)}</b> (${nf((lf/base-1)*100,0)}%).`;
+  const tint=u=>!fin(u)?"":u>=0?`color-mix(in srgb,var(--c1) ${Math.min(55,8+u*0.9)}%,transparent)`:`color-mix(in srgb,var(--c8) ${Math.min(55,8-u*0.9)}%,transparent)`;
+  const tbl=`<thead><tr><th>${SENSMODE==="gm"?"Δ crecimiento ↓ · Δ margen →":useExit?"WACC ↓ · múltiplo →":"WACC ↓ · crec. perpetuo →"}</th>${cols.map(c=>`<th>${cl(c)}</th>`).join("")}</tr></thead><tbody>`+
+    rows.map((r,i)=>`<tr><td>${rl(r)}</td>${cols.map((c,j)=>{const v=grid[i][j], u=up(v); return `<td class="${isBase(r,c)?"c":""}" style="background:${tint(u)}">${fin(v)?`<b>${nf(v,0)}</b><div class="su">${Math.abs(u)<0.5?"0":(u>0?"+":"")+nf(u,0)}%</div>`:"–"}</td>`;}).join("")}</tr>`).join("")+"</tbody>";
+  return `<section class="card"><h2>Sensibilidad del DCF: ¿y si me equivoco en los supuestos?</h2>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;align-items:center"><p class="sub" style="margin:0">Cada casilla es el valor por acción que daría tu DCF cambiando solo dos supuestos; el resto queda igual. Debajo, el potencial frente a la cotización (${money(P)}).</p>
+      <div class="seg tbl" role="group" style="width:max-content;max-width:100%"><button type="button" data-sens="wg" aria-pressed="${SENSMODE==="wg"}">Descuento y valor terminal</button><button type="button" data-sens="gm" aria-pressed="${SENSMODE==="gm"}">Crecimiento y margen</button></div></div>
+    <div class="sensgrid">
+      <div class="scroll"><table class="sens">${tbl}</table></div>
+      <div class="sensexp">${expl}
+        <p><b>Cómo leerla.</b> La casilla recuadrada es tu caso base. Azul: valor por encima de la cotización (la acción estaría barata con esos supuestos); rojo: por debajo. Cuanto más intenso, mayor la diferencia.</p>
+        <p class="formula" style="display:block"><b style="font-family:var(--f-body)">Lectura con tus cifras.</b> ${reading} ${below===0?"Ninguna combinación de la tabla queda por debajo de la cotización: hay margen de error.":below===flat.length?"Todas las combinaciones quedan por debajo de la cotización: el precio exige supuestos más optimistas que los de la tabla.":`${below} de ${flat.length} combinaciones quedan por debajo de la cotización.`}</p></div>
+    </div></section>`;
+}
+function drawPriceCharts(){
+  const s=cur.v, h=priceHist(), H=horizonMonths(), T=priceTargets(), cat=CAT();
+  const el=$("ch_vl_price");
+  if(el){
+    const lastD=h?h.serie.at(-1)[0]:(cur._data&&cur._data.precio&&cur._data.precio.fecha)||new Date().toISOString().slice(0,10);
+    const lastT=TS(lastD), endT=lastT+H*30.44*864e5, startT=h?lastT-(+PRANGE)*365.25*864e5:lastT-H*30.44*864e5*0.6;
+    const serie=h?h.serie.filter(p=>TS(p[0])>=startT).map(p=>({x:TS(p[0]),y:p[1]})):[{x:lastT,y:s.price}];
+    const ds=[{label:"Cotización",data:serie,borderColor:V("--ink"),backgroundColor:V("--ink"),borderWidth:1.8,pointRadius:0,pointHoverRadius:3,tension:0,order:1}];
+    T.forEach(t=>ds.push({label:`${t.n}: ${nf(t.v,0)}`,data:[{x:lastT,y:s.price},{x:endT,y:t.v}],borderColor:V(t.c),backgroundColor:V(t.c),borderDash:t.w?[]:[6,4],borderWidth:t.w||1.8,pointRadius:[0,4],pointHoverRadius:5,order:2}));
+    const bb=cur.verdict.buyBelow;
+    if(fin(bb)) ds.push({label:`Zona de compra (< ${nf(bb,0)})`,data:[{x:startT,y:bb},{x:endT,y:bb}],borderColor:alpha(V("--good"),.7),backgroundColor:alpha(V("--good"),.12),borderWidth:1,pointRadius:0,fill:"start",order:3});
+    const ys=[...serie.map(p=>p.y),...T.map(t=>t.v),fin(bb)?bb:s.price].filter(fin), lo0=Math.min(...ys), hi0=Math.max(...ys), stp=niceStep(((hi0-lo0)||hi0*0.2)/5);
+    const lo=Math.max(0,Math.floor(lo0/stp)*stp), hi=Math.ceil(hi0/stp)*stp, pad=0;
+    mk("ch_vl_price",{type:"line",data:{datasets:ds},options:{parsing:false,interaction:{mode:"nearest",intersect:false},
+      plugins:{legend:{display:true,position:"top",align:"start",labels:{filter:it=>it.text!=="Cotización"||true}},tooltip:{callbacks:{title:it=>fecha(new Date(it[0].parsed.x).toISOString().slice(0,10)),label:c=>`${c.dataset.label.split(":")[0]}: ${nf(c.parsed.y,2)} ${ccy()}`}}},
+      scales:{x:{type:"linear",min:startT,max:endT,grid:{display:false},border:{color:V("--line")},ticks:{maxTicksLimit:8,callback:v=>mesCorto(new Date(v).toISOString().slice(0,10))}},y:{...axisY({zero:false}),min:Math.max(0,lo-pad),max:hi+pad}}}});
+  }
+  const MH=multHistory(); if($("ch_vl_mult")&&MH){
+    const data=MCHART==="per"?MH.per:MH.ps, stt=MCHART==="per"?MH.stPer:MH.stPs; if(!stt) return;
+    const xs=data.map(p=>p.x), mn=Math.min(...xs), mx=Math.max(...xs);
+    const cap=stt.sorted[Math.floor(stt.sorted.length*0.98)]*1.15;
+    mk("ch_vl_mult",{type:"line",data:{datasets:[{label:MCHART==="per"?"PER":"Precio / ventas",data:data.map(p=>({x:p.x,y:fin(p.y)&&p.y<=cap?p.y:null})),borderColor:cat[0],backgroundColor:cat[0],borderWidth:1.6,pointRadius:0,spanGaps:false},
+      {label:`Media ${nf(stt.mean,1)}x`,data:[{x:mn,y:stt.mean},{x:mx,y:stt.mean}],borderColor:V("--muted"),borderDash:[5,4],borderWidth:1.2,pointRadius:0}]},
+      options:{parsing:false,plugins:{legend:{display:true,position:"top",align:"start"},tooltip:{callbacks:{title:it=>fecha(new Date(it[0].parsed.x).toISOString().slice(0,10)),label:c=>`${c.dataset.label.split(" ")[0]}: ${nf(c.parsed.y,1)}x`}}},
+        scales:{x:{type:"linear",min:mn,max:mx,grid:{display:false},border:{color:V("--line")},ticks:{maxTicksLimit:6,callback:v=>mesCorto(new Date(v).toISOString().slice(0,10))}},y:{...axisY({zero:false}),ticks:{callback:v=>nf(v,0)+"x"}}}}});
+  }
+}
+
 /* ================= MÉTRICAS: definición, cálculo con cifras reales y lectura ================= */
 function mctx(){
   const c=cur, f=c.fin, L=f.years.length-1, Lp=L-1, S=c.sec, P=c._data&&c._data.precio, R=(c._data&&c._data.resultados)||{};
@@ -1132,6 +1276,12 @@ const MET={
    leer:"Útil cuando el beneficio es negativo o volátil. Solo comparable entre empresas con márgenes parecidos.",dif:"Ninguna relevante."},
  p_vc:{n:"Precio / valor contable",g:"Al precio actual",q:"Cuántas veces su patrimonio contable paga el mercado.",f:"Capitalización / patrimonio neto",
    calc:m=>ratio(m.mc,m.I(`Patrimonio neto (${m.y(m.L)})`,m.f.eqA[m.L],m.f.bsPts.eq[m.L]),"x"),leer:"Clave en bancos y aseguradoras; poco útil en software.",dif:"Ninguna relevante."},
+ p_ventas:{n:"Precio / ventas",g:"Al precio actual",q:"Cuántos años de ingresos pagas por las acciones de la empresa.",f:"Capitalización / ingresos UDM",calc:m=>ratio(m.mc,m.F("rev","Ingresos"),"x"),
+   leer:"Útil cuando el beneficio es negativo o volátil, y para ver la historia de la valoración sin el ruido de los extraordinarios.",dif:"A diferencia de EV/ventas, no tiene en cuenta la deuda ni la caja."},
+ wacc:{n:"WACC (coste medio ponderado del capital)",g:"Supuestos del DCF",q:"Rentabilidad anual que exiges a la inversión: mezcla el coste de la deuda y la rentabilidad que piden los accionistas por el riesgo.",f:"Supuesto tuyo (pestaña Valoración)",
+   calc:m=>({terms:[m.I("WACC de tu modelo",m.c.v.wacc,null,"","%")],res:m.c.v.wacc,unit:"%"}),leer:"Más alto = más exigente = menor valor. Para grandes empresas de EE. UU. suele estar entre el 8% y el 11%; más para negocios cíclicos o pequeños.",dif:"Cada analista usa el suyo; pequeñas diferencias cambian mucho el valor (mira la tabla de sensibilidad)."},
+ g_terminal:{n:"Crecimiento perpetuo",g:"Supuestos del DCF",q:"Ritmo al que supones que crecerán los flujos de caja para siempre a partir del año 5. Determina el valor terminal, que suele ser más de la mitad del valor total.",f:"Supuesto tuyo (pestaña Valoración)",
+   calc:m=>({terms:[m.I("Crecimiento perpetuo de tu modelo",m.c.v.tg,null,"","%")],res:m.c.v.tg,unit:"%"}),leer:"No debería superar el crecimiento nominal de la economía a largo plazo (2–4%). Siempre debe ser menor que el WACC.",dif:"—"},
  fcf_yield:{n:"Rentabilidad por FCF",g:"Al precio actual",q:"Caja libre que genera la empresa por cada dólar que pagas por ella.",f:"FCF UDM / capitalización",calc:m=>ratio(m.fcf,m.mc,"%",100),
    leer:"Compárala con el bono a 10 años: si es inferior, pagas por el crecimiento futuro. Negativa en plena inversión (Amazon, Alphabet).",dif:"Otras fuentes usan el EV en el denominador."},
  peg:{n:"PEG",g:"Al precio actual",q:"PER ajustado por crecimiento.",f:"PER / crecimiento anual de los ingresos (CAGR 5 años, en %)",
@@ -1450,7 +1600,7 @@ R.valuation=()=>{
       hint=`<div class="fieldsrc ${w?"bad":""}">${cur._auto[k]?"Dato de la SEC":`SEC: ${s&&fin(s.m)?nf(s.m,dec)+" M":"–"}`} ${srcTag(s&&s.p)}${!cur._auto[k]&&s&&fin(s.m)&&Math.abs(cur.v[k]-s.m)>=0.5?` <button type="button" class="add" data-usesec="${k}">Usar dato SEC</button>`:""}</div>`; }
     return lab+`<input type="number" id="v_${k}" step="${st||"any"}" data-k="num" data-p="v.${k}" value="${fin(cur.v[k])?cur.v[k]:""}">`+hint; };
   const v=cur.v;
-  return `<div class="valgrid">
+  return `<div id="valTop" style="display:flex;flex-direction:column;gap:16px"></div><div class="valgrid">
   <aside class="valin" id="valIn">
     <details class="box" open><summary>Mercado y balance</summary><div class="fields">
       ${F("price","Cotización","/acción",0.01)}${F("lo52","Mínimo 52 semanas","",0.01)}${F("hi52","Máximo 52 semanas","",0.01)}${F("shares","Acciones diluidas","M",0.1)}${F("cash","Caja","M",1)}${F("debt","Deuda financiera","M",1)}</div></details>
@@ -1473,7 +1623,7 @@ R.valuation=()=>{
       ${F("eps","BPA próximos 12 meses","",0.01)}${F("pe","PER objetivo","x",0.5)}${F("evm","EV/EBITDA objetivo","x",0.5)}
       ${F("cMean","Consenso: media","",1)}${F("cLow","Consenso: mínimo","",1)}${F("cHigh","Consenso: máximo","",1)}</div></details>
   </aside>
-  <div class="valout" id="valOut"></div></div>`;
+  <div class="valout" id="valOut"></div></div><div id="valBottom"></div>`;
 };
 function valOutHtml(){
   const s=cur.v, vz=valuation(cur);
@@ -1507,17 +1657,7 @@ function valOutHtml(){
     ${row("− Capex",y=>nf(-y.capex))}${row("− Δ Circulante",y=>nf(-y.dnwc))}${row("FCF no apalancado",y=>nf(y.fcf),"em")}${row("Valor presente",y=>nf(y.pv))}</tbody></table></div>
     <p class="note">VP de los flujos ${nf(base.pv)} + VP del valor terminal ${nf(base.pvTV)} (${pct(base.tvShare*100,0)} del total) = EV ${nf(base.ev)}; + caja ${nf(s.cash)} − deuda ${nf(s.debt)} = capital ${nf(base.eq)} → <b>${money(base.ps)}</b> por acción. El valor terminal implica ${nf(base.impliedExit,1)}x EBITDA y un crecimiento perpetuo del ${pct(base.impliedG*100)}.</p>
   </section>
-  <div class="g2">
-    <section class="card"><h2>Sensibilidad del DCF</h2><p class="sub">Valor por acción. Filas: WACC. Columnas: ${useExit?"múltiplo de salida":"crecimiento perpetuo"}. Azul por encima de la cotización, rojo por debajo.</p>
-      <div class="scroll"><table class="sens">${sens}</tbody></table></div></section>
-    <section class="card"><h2>Múltiplos al precio actual</h2><p class="sub">Lo que pagas hoy a ${money(s.price)} ${srcTag(cur._data&&cur._data.precio)}. Real: cifras de la SEC de los últimos doce meses. Modelo: año 1 de tus supuestos.</p>
-      ${(()=>{const m=mctx(), X=(v,d=1)=>fin(v)?nf(v,d)+"x":"–", P2=v=>fin(v)?pct(v):"–", R=id=>MET[id].calc(m).res;
-        const rows=[["per",X(R("per")),X(s.price/s.eps),"precio / tu BPA"],["ev_ebitda",X(R("ev_ebitda")),X(evNow/y1.ebitda),""],["ev_ventas",X(R("ev_ventas")),X(evNow/y1.rev),""],
-          ["p_vc",X(R("p_vc")),"–",""],["fcf_yield",P2(R("fcf_yield")),P2(y1.fcf/mcap*100),""],["peg",fin(R("peg"))?nf(R("peg"),2):"–",nf((s.price/s.eps)/(y1.g*100),2),"con el crecimiento del año 1"]];
-        return `<div class="scroll"><table><thead><tr><th>Múltiplo</th><th>Real · ${esc(m.y(m.L))}</th><th>Modelo · ${y1.year}e</th></tr></thead><tbody>${rows.map(([id,r,mo,t])=>`<tr><td style="white-space:normal">${esc(MET[id].n)}${info(id)}</td><td>${r}</td><td>${mo}${t?`<div class="note">${esc(t)}</div>`:""}</td></tr>`).join("")}</tbody></table></div>
-          <p class="note">Capitalización ${big(m.mcap)} con ${nf(m.sh,1)} M de acciones (SEC) · EV ${big(m.ev)}${info("ev")}. ${Math.abs(m.sh-s.shares)>s.shares*0.02?`Tu modelo usa ${nf(s.shares,1)} M de acciones.`:""} El crecimiento, la rentabilidad sobre el capital y la deuda están en Crecimiento, MOAT y Riesgos.</p>`;})()}
-    </section>
-  </div>`;
+`;
 }
 function niceStep(r){const p=Math.pow(10,Math.floor(Math.log10(r)));const n=r/p;return (n<1.5?1:n<3?2:n<7?5:10)*p;}
 function drawRanges(ffId,axId,rows,price){
@@ -1548,7 +1688,7 @@ function drawFootball(){
   ];
   drawRanges("ff","ffaxis",rows,s.price);
 }
-function renderValOut(){ if(!$("valOut")) return; killCharts(); $("valOut").innerHTML=valOutHtml(); drawFootball(); setDefaults(); C.valuation(); }
+function renderValOut(){ if(!$("valOut")) return; killCharts(); if($("valTop")) $("valTop").innerHTML=valTopHtml(); $("valOut").innerHTML=valOutHtml(); if($("valBottom")){ const vz=valuation(cur); $("valBottom").innerHTML=vz.ok&&cur.v.price>0?sensHtml(cur.v,vz):""; } drawFootball(); setDefaults(); C.valuation(); drawPriceCharts(); }
 let valT; function scheduleVal(){clearTimeout(valT); valT=setTimeout(()=>{renderValOut(); renderHeader();},140);}
 
 /* ---------- Fuentes ---------- */
@@ -1818,6 +1958,9 @@ document.addEventListener("click",e=>{
   const mi=e.target.closest("[data-metric]"); if(mi){e.preventDefault(); metricModal(mi.dataset.metric); return;}
   if(e.target.closest("[data-close]")||e.target.id==="overlay"){closeModal(); return;}
   const tb=e.target.closest(".tab"); if(tb){goTab(tb.dataset.tab);return;}
+  const pr=e.target.closest("[data-prange]"); if(pr){PRANGE=pr.dataset.prange; lsSet("valorador.prange",PRANGE); renderValOut(); return;}
+  const mc=e.target.closest("[data-mchart]"); if(mc){MCHART=mc.dataset.mchart; lsSet("valorador.mchart",MCHART); renderValOut(); return;}
+  const sn=e.target.closest("[data-sens]"); if(sn){SENSMODE=sn.dataset.sens; lsSet("valorador.sens",SENSMODE); renderValOut(); return;}
   const fm=e.target.closest("[data-fmode]"); if(fm){FINMODE=fm.dataset.fmode; lsSet("valorador.finmode",FINMODE); renderTab(); return;}
   if(e.target.closest("#btnDl")){downloadAnalysis(cur);return;}
   const dc=e.target.closest("#btnDiscard"); if(dc){ if(dc.dataset.armed!=="1"){dc.dataset.armed="1"; dc.textContent="¿Seguro? Pulsa otra vez"; setTimeout(()=>{if(dc.isConnected){dc.dataset.armed=""; dc.textContent="Descartar";}},3000); return;} discardDraft(); return;}
