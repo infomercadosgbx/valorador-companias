@@ -551,10 +551,18 @@ input[type=number]{font-family:var(--f-body)}
 body.report .rp-bar{display:flex;position:sticky;top:0;z-index:20;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:var(--bar);color:#fff;padding:10px 16px;border-radius:0 0 8px 8px;margin-bottom:12px}
 body.report .rp-bar button{background:#fff;color:var(--bar);border-color:#fff} body.report .rp-bar .ghost{background:transparent;color:#fff;border-color:#3A4A63}
 body.report .appbar,body.report .tabs,body.report #staleBox,body.report #draftBar,body.report #warnBox,body.report .cohead,body.report #dataPanel,body.report .foot{display:none!important}
-body.report main{max-width:760px;margin:0 auto;padding-top:0}
+body.report .wrap{width:700px;max-width:none;padding-left:0;padding-right:0}
+body.report main{max-width:none;margin:0 auto;padding-top:0}
+body.report .g2:has(.cv),body.report .g3:has(.cv){grid-template-columns:minmax(0,1fr)!important}
+body.report .rp-img{display:block;width:100%;height:100%;object-fit:contain}
+body.report .scroll{overflow:visible}
+body.report table{font-size:9.5px} body.report th{white-space:normal;font-size:8.5px;letter-spacing:.03em} body.report th,body.report td{padding:4px 5px}
+body.report td{white-space:nowrap} body.report td:first-child{white-space:normal}
+body.report .h200{height:190px} body.report .h240,body.report .h260{height:220px} body.report .h300,body.report .h340{height:250px}
 body.report details:not([open]),body.report .dwhich,body.report .seg,body.report .ib,body.report button.add,body.report .x,body.report #socialBox,body.report #glossary,body.report .tiles,body.report [data-usesec]{display:none!important}
 body.report input[type=number],body.report input[type=text],body.report textarea,body.report select{border:0;background:transparent;padding:0;resize:none}
 body.report .g2,body.report .g3{grid-template-columns:repeat(2,minmax(0,1fr))}
+body.report .rp-bar{width:700px}
 body.report .kpis{grid-template-columns:repeat(4,minmax(0,1fr))}
 body.report .asgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
 .rp-cover{display:flex;flex-direction:column;gap:14px}
@@ -571,6 +579,7 @@ body.report .asgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
   body{font-size:11.5px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
   .rp-bar{display:none!important}
   .wrap{max-width:none;padding:0}
+  body.report .wrap{width:auto}
   main{max-width:none!important;padding:0;gap:10px}
   .card,.kpis,.ascard,details.box{box-shadow:none;break-inside:avoid}
   .rp-sec{break-before:page}
@@ -1161,13 +1170,15 @@ function renderReport(){
   const m=$("main"); m.style.setProperty("--tc","var(--tcx)");
   const sec=t=>`<section class="rp-sec"><div class="tabhead"><div><div class="eyebrow">${esc(cur.meta.name)} · ${t.label}</div><h2>${t.title}</h2></div></div>${t.id==="sources"?officialHtml():R[t.id]()}</section>`;
   m.innerHTML=reportCover()+TABS.map(sec).join("");
-  setDefaults(); if(window.Chart){ if(window._anim===undefined) window._anim=Chart.defaults.animation; Chart.defaults.animation=false; }
+  setDefaults(); if(window.Chart){ if(window._anim===undefined){ window._anim=Chart.defaults.animation; window._dpr=Chart.defaults.devicePixelRatio; } Chart.defaults.animation=false; Chart.defaults.devicePixelRatio=2.5; }
   renderValOut();
   TABS.forEach(t=>{ if(t.id!=="valuation"&&t.id!=="sources") try{ (C[t.id]||(()=>{}))(); }catch(e){ console.error(e); } });
+  /* los gráficos pasan a imagen: el PDF no depende del tamaño de la pantalla (móvil) ni de que el navegador los redibuje al imprimir */
+  setTimeout(()=>{ charts.forEach(ch=>{ try{ const cv=ch.canvas; if(!cv||!cv.isConnected) return; const img=new Image(); img.src=ch.toBase64Image("image/png",1); img.className="rp-img"; img.alt=cv.getAttribute("aria-label")||""; cv.replaceWith(img); }catch(e){} }); killCharts(); },60);
   document.title=`Informe ${cur.meta.name} (${cur._t}) ${new Date().toISOString().slice(0,10)}`;
   window.scrollTo(0,0);
 }
-function exitReport(){ REPORT=false; document.body.classList.remove("report"); if(window.Chart&&window._anim!==undefined) Chart.defaults.animation=window._anim; document.title="Valorador de Compañías"; renderTab(); }
+function exitReport(){ REPORT=false; document.body.classList.remove("report"); if(window.Chart&&window._anim!==undefined){ Chart.defaults.animation=window._anim; Chart.defaults.devicePixelRatio=window._dpr; } document.title="Valorador de Compañías"; renderTab(); }
 function renderTab(){
   if(REPORT){ renderReport(); return; }
   killCharts(); const t=TABS.find(x=>x.id===TAB); const m=$("main");
