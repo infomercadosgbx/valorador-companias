@@ -376,6 +376,20 @@ table.mult td,table.mult th{padding:9px 12px} table.mult td:first-child{white-sp
 .glsum h2::after{content:"▸";font-size:13px;color:var(--muted);transition:transform .15s}
 #glossary[open] .glsum h2::after{transform:rotate(90deg)}
 #glossary[open] .glsum{margin-bottom:8px}
+.pxextra{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:10px}
+@media (max-width:640px){.pxextra{grid-template-columns:minmax(0,1fr)}}
+.pxbox{border:1px solid var(--line);border-radius:8px;padding:10px 12px;display:flex;flex-direction:column;gap:5px;background:var(--surface)}
+.r52{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:8px;align-items:center;font-size:12px}
+.r52bar{position:relative;height:8px;border-radius:4px;background:linear-gradient(90deg,color-mix(in srgb,var(--crit) 35%,var(--surface)),color-mix(in srgb,var(--warn) 35%,var(--surface)),color-mix(in srgb,var(--good) 40%,var(--surface)))}
+.r52bar i{position:absolute;top:-4px;width:4px;height:16px;border-radius:2px;background:var(--ink);transform:translateX(-50%)}
+table.mini2 td{padding:3px 6px;font-size:12px;border-bottom:1px solid var(--grid)} table.mini2 td:first-child{font-family:var(--f-body)}
+.keyin{display:flex;flex-direction:column;gap:12px;padding:4px 14px 14px}
+.keyin .kh{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.keyin .kh label{font-weight:600;font-size:13px}
+.keyin input[type=number]{width:100%;min-width:0}
+.eff{font-size:11.5px;color:var(--ink2)} .eff b{font-family:var(--f-num)}
+.mktline{font-size:12px;color:var(--ink2);background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;gap:4px}
+.mktline .num{color:var(--ink)}
 .recbar{display:flex;height:14px;border-radius:7px;overflow:hidden;gap:2px;margin:6px 0}
 .kpi .src{margin-top:2px}
 code{font-family:var(--f-num);font-size:.92em;background:var(--surface2);padding:0 4px;border-radius:4px}
@@ -592,6 +606,7 @@ function applyData(c){
   c.v=c.v||{}; c._auto={};
   c.v.price=P&&fin(P.valor)?P.valor:NaN;
   c.v.lo52=P&&fin(P.minimo_52s)?P.minimo_52s:null; c.v.hi52=P&&fin(P.maximo_52s)?P.maximo_52s:null;
+  { const H=d&&d.historico_precio&&d.historico_precio.serie; if(H&&H.length>200){ const t=Date.parse(H.at(-1)[0])-365.25*864e5, y=H.filter(p=>Date.parse(p[0])>=t).map(p=>p[1]); c.v.lo52=Math.min(...y); c.v.hi52=Math.max(...y); } }
   const n=x=>typeof x==="number"&&Number.isFinite(x)?x:null;
   c.v.cMean=n(man.precio_objetivo_medio); c.v.cLow=n(man.precio_objetivo_bajo); c.v.cHigh=n(man.precio_objetivo_alto);
   c.sec=secFigures(d);
@@ -1030,6 +1045,7 @@ R.financial=()=>{
 };
 const dv2=(a,b)=>fin(a)&&fin(b)&&b!==0?a/b:NaN;
 /* ================= VALORACIÓN: precio, múltiplos históricos y sensibilidad ================= */
+let INDICE=null;
 let PRANGE=lsGet("valorador.prange")||"3", MCHART=lsGet("valorador.mchart")||"per", SENSMODE=lsGet("valorador.sens")||"wg";
 function horizonMonths(){ const m=/(\d+)/.exec(String((cur.verdict&&cur.verdict.horizon)||"")); return m?Math.min(36,Math.max(3,+m[1])):12; }
 function priceHist(){ const h=cur._data&&cur._data.historico_precio; return h&&h.serie&&h.serie.length>20?h:null; }
@@ -1045,7 +1061,17 @@ function priceStats(h){
   const at=yrs=>{ const t=lastT-yrs*365.25*864e5; let best=null; for(const p of S){ if(TS(p[0])<=t) best=p; else break; } return best; };
   const ch=yrs=>{ const p=at(yrs); return p?{v:(last[1]/p[1]-1)*100,cagr:yrs>1?(Math.pow(last[1]/p[1],1/yrs)-1)*100:null,desde:p[0]}:null; };
   const mx=S.reduce((a,p)=>p[1]>a[1]?p:a,S[0]);
-  return {last,r1:ch(1),r3:ch(3),r5:ch(5),max:mx,dd:(last[1]/mx[1]-1)*100};
+  const y1=S.filter(p=>TS(p[0])>=lastT-365.25*864e5);
+  const lo52=y1.reduce((a,p)=>p[1]<a[1]?p:a,y1[0]), hi52=y1.reduce((a,p)=>p[1]>a[1]?p:a,y1[0]);
+  const ma=n=>S.length>=n?S.slice(-n).reduce((a,p)=>a+p[1],0)/n:NaN;
+  const rets=y1.slice(1).map((p,i)=>Math.log(p[1]/y1[i][1])), mu=rets.reduce((a,b)=>a+b,0)/rets.length;
+  const vol=Math.sqrt(rets.reduce((a,r)=>a+(r-mu)**2,0)/(rets.length-1))*Math.sqrt(252)*100;
+  let peak=y1[0][1], mdd=0, mddPk=y1[0], mddLo=y1[0], pk=y1[0]; y1.forEach(p=>{ if(p[1]>peak){peak=p[1];pk=p;} const d=(p[1]/peak-1)*100; if(d<mdd){mdd=d;mddPk=pk;mddLo=p;} });
+  /* frente al índice (S&P 500) */
+  let rel=null; const I=INDICE&&INDICE.serie;
+  if(I&&I.length>20){ const IL=I.at(-1), iT=TS(IL[0]); const iat=yrs=>{const t=iT-yrs*365.25*864e5; let b=null; for(const p of I){ if(TS(p[0])<=t) b=p; else break; } return b;};
+    rel=[1,3,5].map(y=>{ const a=at(y), b=iat(y); return a&&b?{y,acc:(last[1]/a[1]-1)*100,idx:(IL[1]/b[1]-1)*100}:null; }); }
+  return {last,r1:ch(1),r3:ch(3),r5:ch(5),max:mx,dd:(last[1]/mx[1]-1)*100,lo52,hi52,ma50:ma(50),ma200:ma(200),vol,mdd,mddPk,mddLo,rel};
 }
 /* múltiplos históricos: precio diario × acciones del trimestre / beneficio o ingresos de los 12 meses previos */
 function multHistory(){
@@ -1070,6 +1096,28 @@ function multHistory(){
   return {per,ps,stPer:st(per),stPs:st(ps),gaps:why};
 }
 const pctile=(st,v)=>st&&fin(v)?st.sorted.filter(x=>x<=v).length/st.sorted.length*100:NaN;
+
+function priceExtraHtml(st){
+  const P=st.last[1], lo=st.lo52[1], hi=st.hi52[1], pos=hi>lo?(P-lo)/(hi-lo)*100:50;
+  const d=(a,b)=>(a/b-1)*100, sg=v=>(v>=0?"+":"")+nf(v,1)+"%";
+  const trend=fin(st.ma200)?(P>=st.ma200?(fin(st.ma50)&&st.ma50>=st.ma200?"alcista":"recuperándose"):(fin(st.ma50)&&st.ma50<st.ma200?"bajista":"debilitándose")):null;
+  const tcol={alcista:"up",recuperándose:"mid",debilitándose:"mid",bajista:"down"}[trend]||"neutral";
+  const volTxt=st.vol<25?"baja":st.vol<40?"media":"alta";
+  const rel=(st.rel||[]).filter(Boolean);
+  return `<div class="pxextra">
+    <div class="pxbox"><div class="eyebrow">Rango de 52 semanas</div>
+      <div class="r52"><span class="num">${nf(lo,2)}</span><div class="r52bar"><i style="left:${Math.max(0,Math.min(100,pos))}%"></i></div><span class="num">${nf(hi,2)}</span></div>
+      <div class="note">Hoy ${nf(P,2)} ${ccy()}: ${sg(d(P,lo))} sobre el mínimo (${esc(fecha(st.lo52[0]))}) y ${sg(d(P,hi))} bajo el máximo (${esc(fecha(st.hi52[0]))}).</div></div>
+    <div class="pxbox"><div class="eyebrow">Tendencia</div>
+      <div>${trend?`<span class="pill ${tcol}">${esc(trend[0].toUpperCase()+trend.slice(1))}</span>`:"–"}</div>
+      <div class="note">Media de 50 sesiones ${nf(st.ma50,2)} (${sg(d(P,st.ma50))}); de 200 sesiones ${nf(st.ma200,2)} (${sg(d(P,st.ma200))}). Por encima de la media de 200, tendencia de fondo alcista.</div></div>
+    <div class="pxbox"><div class="eyebrow">Riesgo del último año</div>
+      <div><b class="num">${nf(st.vol,0)}%</b> <span class="note">volatilidad anual (${volTxt})</span></div>
+      <div class="note">Peor caída: <b style="color:var(--critText)">${nf(st.mdd,1)}%</b>, de ${esc(fecha(st.mddPk[0]))} a ${esc(fecha(st.mddLo[0]))}. El S&P 500 suele moverse un 15–20% al año.</div></div>
+    <div class="pxbox"><div class="eyebrow">Frente al S&P 500</div>
+      ${rel.length?`<table class="mini2"><tbody>${rel.map(r=>`<tr><td>${r.y} ${r.y===1?"año":"años"}</td><td class="num">${sg(r.acc)}</td><td class="note">índice ${sg(r.idx)}</td><td><span class="pill ${r.acc>=r.idx?"up":"down"}">${r.acc>=r.idx?"+":""}${nf(r.acc-r.idx,0)} pp</span></td></tr>`).join("")}</tbody></table>`:`<div class="note">Aparecerá tras la próxima actualización (ETF SPY, Twelve Data).</div>`}</div>
+  </div>`;
+}
 function valTopHtml(){
   if(!cur._data) return "";
   const s=cur.v, h=priceHist(), H=horizonMonths(), T=priceTargets(), st=h&&priceStats(h), m=mctx();
@@ -1095,7 +1143,7 @@ function valTopHtml(){
     <div class="g2" style="margin-top:10px;align-items:start">
       <div><div class="eyebrow" style="margin-bottom:6px">Rentabilidad de la acción</div>
         ${st?`<div class="chips">${chg("1 año",st.r1)}${chg("3 años",st.r3)}${chg("5 años",st.r5)}<div class="chip"><span>Desde el máximo</span><b class="num" style="color:var(--critText)">${nf(st.dd,1)}%</b><span style="text-transform:none;letter-spacing:0;font-weight:400">máx. ${money(st.max[1])} (${esc(fecha(st.max[0]))})</span></div></div>
-        <p class="note" style="margin-top:8px">${st.r5&&fin(st.r5.cagr)&&fin(eps)?`En 5 años la acción ha subido un ${nf(st.r5.cagr,1)}% anual y el BPA un ${nf(eps,1)}% anual${info("cagr_bpa")}: ${st.r5.cagr>eps+3?"el precio ha crecido más que el beneficio, así que hoy pagas un múltiplo mayor.":st.r5.cagr<eps-3?"el beneficio ha crecido más que el precio, así que hoy pagas un múltiplo menor.":"precio y beneficio han crecido a un ritmo parecido."}`:""}</p>`:`<p class="empty">Disponible cuando llegue el histórico.</p>`}</div>
+        ${priceExtraHtml(st)}<p class="note" style="margin-top:8px">${st.r5&&fin(st.r5.cagr)&&fin(eps)?`En 5 años la acción ha subido un ${nf(st.r5.cagr,1)}% anual y el BPA un ${nf(eps,1)}% anual${info("cagr_bpa")}: ${st.r5.cagr>eps+3?"el precio ha crecido más que el beneficio, así que hoy pagas un múltiplo mayor.":st.r5.cagr<eps-3?"el beneficio ha crecido más que el precio, así que hoy pagas un múltiplo menor.":"precio y beneficio han crecido a un ritmo parecido."}`:""}</p>`:`<p class="empty">Disponible cuando llegue el histórico.</p>`}</div>
       <div><div class="eyebrow" style="margin-bottom:6px">Objetivos a ${H} meses</div>
         <div class="scroll"><table><thead><tr><th>Referencia</th><th>Precio</th><th>Potencial</th></tr></thead><tbody>${rows}
         ${fin(cur.verdict.buyBelow)?`<tr><td><span class="sev" style="background:transparent;padding:0"><i style="background:var(--good)"></i></span> Zona de compra<div class="note">tu veredicto</div></td><td>&lt; ${money(cur.verdict.buyBelow)}</td><td><span class="pill ${s.price<=cur.verdict.buyBelow?"up":"neutral"}">${s.price<=cur.verdict.buyBelow?"dentro":nf((cur.verdict.buyBelow/s.price-1)*100,1)+"%"}</span></td></tr>`:""}</tbody></table></div></div>
@@ -1330,6 +1378,12 @@ const MET={
    leer:"Útil cuando el beneficio es negativo o volátil, y para ver la historia de la valoración sin el ruido de los extraordinarios.",dif:"A diferencia de EV/ventas, no tiene en cuenta la deuda ni la caja."},
  wacc:{n:"WACC (coste medio ponderado del capital)",g:"Supuestos del DCF",q:"Rentabilidad anual que exiges a la inversión: mezcla el coste de la deuda y la rentabilidad que piden los accionistas por el riesgo.",f:"Supuesto tuyo (pestaña Valoración)",
    calc:m=>({terms:[m.I("WACC de tu modelo",m.c.v.wacc,null,"","%")],res:m.c.v.wacc,unit:"%"}),leer:"Más alto = más exigente = menor valor. Para grandes empresas de EE. UU. suele estar entre el 8% y el 11%; más para negocios cíclicos o pequeños.",dif:"Cada analista usa el suyo; pequeñas diferencias cambian mucho el valor (mira la tabla de sensibilidad)."},
+ margen_modelo:{n:"Margen EBITDA de tu modelo",g:"Supuestos del DCF",q:"Qué parte de los ingresos queda como EBITDA cada año de la proyección. El modelo pasa linealmente del margen del año 1 al del año 5.",f:"Supuesto tuyo (año 1 y año 5)",
+   calc:m=>({terms:[m.I(`Margen año ${m.c.v.year0+1}`,m.c.v.m1,null,"","%"),m.I(`Margen año ${m.c.v.year0+5}`,m.c.v.m5,null,"","%"),m.I("Margen EBITDA real (UDM)",MET.margen_ebitda.calc(m).res,null,"referencia: dato SEC","%")],res:m.c.v.m5,unit:"%"}),
+   leer:"Compáralo con el margen real (en la ficha y en Finanzas). Suponer una mejora fuerte de márgenes es tan arriesgado como suponer mucho crecimiento.",dif:"Es un supuesto tuyo."},
+ multiplo_salida:{n:"Múltiplo de salida",g:"Supuestos del DCF",q:"EV/EBITDA al que supones que se valorará la empresa al final del año 5. Sustituye al crecimiento perpetuo para calcular el valor terminal.",f:"Supuesto tuyo",
+   calc:m=>({terms:[m.I("Múltiplo de salida de tu modelo",m.c.v.exit,null,"","x"),m.I("EV/EBITDA actual (real)",MET.ev_ebitda.calc(m).res,null,"referencia","x")],res:m.c.v.exit,unit:"x"}),
+   leer:"Debería ser menor que el actual si la empresa crecerá menos dentro de 5 años. Un múltiplo de salida alto esconde la mayor parte del valor en el último año.",dif:"Es un supuesto tuyo."},
  g_terminal:{n:"Crecimiento perpetuo",g:"Supuestos del DCF",q:"Ritmo al que supones que crecerán los flujos de caja para siempre a partir del año 5. Determina el valor terminal, que suele ser más de la mitad del valor total.",f:"Supuesto tuyo (pestaña Valoración)",
    calc:m=>({terms:[m.I("Crecimiento perpetuo de tu modelo",m.c.v.tg,null,"","%")],res:m.c.v.tg,unit:"%"}),leer:"No debería superar el crecimiento nominal de la economía a largo plazo (2–4%). Siempre debe ser menor que el WACC.",dif:"—"},
  fcf_yield:{n:"Rentabilidad por FCF",g:"Al precio actual",q:"Caja libre que genera la empresa por cada dólar que pagas por ella.",f:"FCF UDM / capitalización",calc:m=>ratio(m.fcf,m.mc,"%",100),
@@ -1651,28 +1705,41 @@ R.valuation=()=>{
       hint=`<div class="fieldsrc ${w?"bad":""}">${cur._auto[k]?"Dato de la SEC":`SEC: ${s&&fin(s.m)?nf(s.m,dec)+" M":"–"}`} ${srcTag(s&&s.p)}${!cur._auto[k]&&s&&fin(s.m)&&Math.abs(cur.v[k]-s.m)>=0.5?` <button type="button" class="add" data-usesec="${k}">Usar dato SEC</button>`:""}</div>`; }
     return lab+`<input type="number" id="v_${k}" step="${st||"any"}" data-k="num" data-p="v.${k}" value="${fin(cur.v[k])?cur.v[k]:""}">`+hint; };
   const v=cur.v;
+  const ovr=MODEL_SEC.some(([k])=>!cur._auto[k])||bad.some(x=>x.codigo==="contradiccion");
+  const N=(k,st,lab)=>`<input type="number" id="v_${k}" step="${st}" data-k="num" data-p="v.${k}" value="${fin(v[k])?v[k]:""}" aria-label="${esc(lab)}">`;
+  const twoCol=(a,b)=>`<div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px">${a}${b}</div>`;
+  const sub=(t,inp)=>`<label class="note" style="display:flex;flex-direction:column;gap:2px">${t}${inp}</label>`;
   return `<div id="valTop" style="display:flex;flex-direction:column;gap:16px"></div><div class="valgrid">
   <aside class="valin" id="valIn">
-    <details class="box" open><summary>Mercado y balance</summary><div class="fields">
-      ${F("price","Cotización","/acción",0.01)}${F("lo52","Mínimo 52 semanas","",0.01)}${F("hi52","Máximo 52 semanas","",0.01)}${F("shares","Acciones diluidas","M",0.1)}${F("cash","Caja","M",1)}${F("debt","Deuda financiera","M",1)}</div></details>
-    <details class="box" open><summary>Proyección operativa</summary><div class="fields">
+    <div class="mktline"><div class="eyebrow">Datos de mercado (automáticos)</div>
+      <div>Cotización <b class="num">${money(v.price)}</b> ${srcTag(P)}</div>
+      <div>Acciones <b class="num">${nf(v.shares,1)} M</b> · caja <b class="num">${nf(v.cash)}</b> · deuda <b class="num">${nf(v.debt)}</b> ${cur._auto.shares&&cur._auto.cash&&cur._auto.debt?"(SEC)":"(con ajustes tuyos)"}</div>
+      <details${ovr?" open":""}><summary class="note" style="cursor:pointer">Ajustar acciones, caja o deuda</summary><div class="fields" style="padding:6px 0 0">${F("shares","Acciones diluidas","M",0.1)}${F("cash","Caja","M",1)}${F("debt","Deuda financiera","M",1)}</div></details>
+    </div>
+    <details class="box" open><summary>Supuestos clave</summary><div class="keyin">
+      <div><div class="kh"><label>Crecimiento de los ingresos${info("crec_modelo")}</label><span class="note">% anual</span></div>
+        <div class="g5">${[0,1,2,3,4].map(i=>`<div><span>${v.year0+i+1}</span><input type="number" step="0.5" data-k="num" data-p="v.g.${i}" value="${v.g[i]}" aria-label="Crecimiento ${v.year0+i+1}"></div>`).join("")}</div>
+        <div class="eff" id="eff_g"></div></div>
+      <div><div class="kh"><label>Margen EBITDA${info("margen_modelo")}</label><span class="note">%</span></div>
+        ${twoCol(sub(`Año ${v.year0+1}`,N("m1",0.5,"Margen EBITDA año 1")),sub(`Año ${v.year0+5}`,N("m5",0.5,"Margen EBITDA año 5")))}
+        <div class="eff" id="eff_m"></div></div>
+      <div><div class="kh"><label>WACC${info("wacc")}</label><span class="note">%</span></div>${N("wacc",0.25,"WACC")}<div class="eff" id="eff_w"></div></div>
+      <div><div class="kh"><label>Valor terminal</label></div>
+        <div class="seg" role="group" aria-label="Método de valor terminal">${[["gordon","Crec. perpetuo"],["exit","Múltiplo"],["blend","Media"]].map(([k,l])=>`<button type="button" data-m="${k}" aria-pressed="${v.method===k}">${l}</button>`).join("")}</div>
+        ${twoCol(v.method!=="exit"?sub(`Crecimiento perpetuo (%)${info("g_terminal")}`,N("tg",0.25,"Crecimiento perpetuo")):"",v.method!=="gordon"?sub(`Múltiplo de salida (x)${info("multiplo_salida")}`,N("exit",0.5,"Múltiplo de salida")):"")}
+        <div class="eff" id="eff_t"></div></div>
+    </div></details>
+    <details class="box"><summary>Supuestos detallados</summary><div class="fields">
       ${F("rev0","Ingresos año base","M",1)}${F("year0","Año base","",1)}
-      <div class="full eyebrow">Crecimiento de ingresos por año (%)</div>
-      <div class="g5">${[0,1,2,3,4].map(i=>`<div><span>${v.year0+i+1}</span><input type="number" step="0.5" data-k="num" data-p="v.g.${i}" value="${v.g[i]}" aria-label="Crecimiento ${v.year0+i+1}"></div>`).join("")}</div>
-      ${F("m1","Margen EBITDA año 1","%",0.5)}${F("m5","Margen EBITDA año 5","%",0.5)}
       ${F("da","Amortizaciones año 1","% ventas",0.1)}${F("da5","Amortizaciones año 5","% ventas",0.1)}
       ${F("sbc","Pago en acciones","% ventas",0.1)}${F("capex","Capex año 1","% ventas",0.1)}${F("capex5","Capex año 5","% ventas",0.1)}
-      ${F("nwc","Circulante","% Δventas",1)}${F("tax","Tipo impositivo","%",0.5)}</div></details>
-    <details class="box" open><summary>Descuento y valor terminal</summary><div class="fields">
-      ${F("wacc","WACC","%",0.25)}${F("tg","Crecimiento perpetuo","%",0.25)}${F("exit","Múltiplo de salida","EV/EBITDA",0.5)}
-      <div class="full eyebrow">Método de valor terminal</div>
-      <div class="seg" role="group" aria-label="Método de valor terminal">${[["gordon","Gordon"],["exit","Múltiplo"],["blend","Media"]].map(([k,l])=>`<button type="button" data-m="${k}" aria-pressed="${v.method===k}">${l}</button>`).join("")}</div></div></details>
-    <details class="box" open><summary>Escenarios</summary>
-      <div class="scn"><span></span><span class="h">Δ crec. pp</span><span class="h">Δ margen pp</span><span class="h">Prob. %</span>
-      ${v.scn.map((c,i)=>`<span>${esc(c.n)}</span><input type="number" step="1" data-k="num" data-p="v.scn.${i}.dg" value="${c.dg}" aria-label="${esc(c.n)}: cambio de crecimiento"><input type="number" step="0.5" data-k="num" data-p="v.scn.${i}.dm" value="${c.dm}" aria-label="${esc(c.n)}: cambio de margen"><input type="number" step="5" data-k="num" data-p="v.scn.${i}.p" value="${c.p}" aria-label="${esc(c.n)}: probabilidad">`).join("")}</div></details>
-    <details class="box" open><summary>Múltiplos y consenso</summary><div class="fields">
+      ${F("nwc","Circulante","% Δventas",1)}${F("tax","Tipo impositivo","%",0.5)}
+      <div class="full eyebrow" style="margin-top:6px">Escenarios</div>
+      <div class="full"><div class="scn" style="padding:0"><span></span><span class="h">Δ crec. pp</span><span class="h">Δ margen pp</span><span class="h">Prob. %</span>
+      ${v.scn.map((c,i)=>`<span>${esc(c.n)}</span><input type="number" step="1" data-k="num" data-p="v.scn.${i}.dg" value="${c.dg}" aria-label="${esc(c.n)}: cambio de crecimiento"><input type="number" step="0.5" data-k="num" data-p="v.scn.${i}.dm" value="${c.dm}" aria-label="${esc(c.n)}: cambio de margen"><input type="number" step="5" data-k="num" data-p="v.scn.${i}.p" value="${c.p}" aria-label="${esc(c.n)}: probabilidad">`).join("")}</div></div>
+      <div class="full eyebrow" style="margin-top:6px">Múltiplos objetivo</div>
       ${F("eps","BPA próximos 12 meses","",0.01)}${F("pe","PER objetivo","x",0.5)}${F("evm","EV/EBITDA objetivo","x",0.5)}
-      ${F("cMean","Consenso: media","",1)}${F("cLow","Consenso: mínimo","",1)}${F("cHigh","Consenso: máximo","",1)}</div></details>
+    </div></details>
   </aside>
   <div class="valout" id="valOut"></div></div><div id="valBottom"></div>`;
 };
@@ -1739,7 +1806,17 @@ function drawFootball(){
   ];
   drawRanges("ff","ffaxis",rows,s.price);
 }
-function renderValOut(){ if(!$("valOut")) return; killCharts(); if($("valTop")) $("valTop").innerHTML=valTopHtml(); $("valOut").innerHTML=valOutHtml(); if($("valBottom")){ const vz=valuation(cur); $("valBottom").innerHTML=vz.ok&&cur.v.price>0?sensHtml(cur.v,vz):""; } drawFootball(); setDefaults(); C.valuation(); drawPriceCharts(); }
+function updateEffects(){
+  const s=cur.v, vz=valuation(cur); if(!vz.ok) return; const b=vz.base.ps, P=s.price;
+  const pc=v=>{ if(!fin(v)) return "–"; const d=(v/b-1)*100; return `<b>${d>=0?"+":"−"}${nf(Math.abs(d),0)}%</b>`; };
+  const set=(id,h)=>{const el=$(id); if(el) el.innerHTML=h;};
+  set("eff_g",`+1 pp cada año → ${pc(dcf(s,{adj:{dg:1,dm:0}}).ps)} · −1 pp → ${pc(dcf(s,{adj:{dg:-1,dm:0}}).ps)} en el valor`);
+  set("eff_m",`+1 pp de margen → ${pc(dcf(s,{adj:{dg:0,dm:1}}).ps)} · −1 pp → ${pc(dcf(s,{adj:{dg:0,dm:-1}}).ps)}`);
+  set("eff_w",`+1 pp de WACC → ${pc(dcf(s,{wacc:s.wacc+1}).ps)} · −1 pp → ${pc(dcf(s,{wacc:s.wacc-1}).ps)}`);
+  const t=[]; if(s.method!=="exit") t.push(`+0,5 pp de crec. perpetuo → ${pc(s.wacc>s.tg+0.5?dcf(s,{tg:s.tg+0.5}).ps:NaN)}`); if(s.method!=="gordon") t.push(`+1x de múltiplo → ${pc(dcf(s,{exit:s.exit+1}).ps)}`);
+  set("eff_t",t.join(" · ")+` · el valor terminal es el ${nf(vz.base.tvShare*100,0)}% del total`);
+}
+function renderValOut(){ if(!$("valOut")) return; killCharts(); if($("valTop")) $("valTop").innerHTML=valTopHtml(); $("valOut").innerHTML=valOutHtml(); if($("valBottom")){ const vz=valuation(cur); $("valBottom").innerHTML=vz.ok&&cur.v.price>0?sensHtml(cur.v,vz):""; } drawFootball(); setDefaults(); C.valuation(); drawPriceCharts(); updateEffects(); }
 let valT; function scheduleVal(){clearTimeout(valT); valT=setTimeout(()=>{renderValOut(); renderHeader();},140);}
 
 /* ---------- Fuentes ---------- */
@@ -2020,7 +2097,7 @@ document.addEventListener("click",e=>{
   const go=e.target.closest("[data-go]"); if(go){e.preventDefault();goTab(go.dataset.go);window.scrollTo({top:0});return;}
   const ad=e.target.closest("[data-add]"); if(ad){const a=get(ad.dataset.add)||[]; a.push(clone(TPL[ad.dataset.tpl])); setPath(cur,ad.dataset.add,a); save(); renderTab(); return;}
   const dl=e.target.closest("[data-del]"); if(dl){const a=get(dl.dataset.del); a.splice(+dl.dataset.i,1); save(); renderTab(); renderHeader(); return;}
-  const m=e.target.closest(".seg button"); if(m){cur.v.method=m.dataset.m; document.querySelectorAll(".seg button").forEach(x=>x.setAttribute("aria-pressed",x===m)); save(); renderValOut(); renderHeader(); return;}
+  const m=e.target.closest(".seg button[data-m]"); if(m){cur.v.method=m.dataset.m; save(); renderTab(); renderHeader(); return;}
   const act=e.target.closest("[data-act]"); if(act){const f=cur.fin, a=act.dataset.act;
     if(a==="ser+"||a==="ser-"){const o=get(act.dataset.base); if(a==="ser+"){o.labels.push("nuevo"); o.values.push(null);} else if(o.labels.length>2){o.labels.shift(); o.values.shift();} save(); renderTab(); return;}
     if(a==="yearAdd"){const ly=f.years.at(-1)||"2025"; f.years.push(String((parseInt(ly)||2025)+1)); ["rev","profit","ni","fcf","capex"].forEach(k=>f[k].push(null));}
@@ -2089,7 +2166,8 @@ function dataStamp(){const d=cur._data, P=d&&d.precio; return [d&&d.referencia_f
 async function boot(){
   $("main").innerHTML='<p class="note" style="padding:24px 0">Cargando datos…</p>';
   try{
-    const [cos,tpl]=await Promise.all([getJSON("companies.json"),getJSON("analysis/_plantilla.json").catch(()=>({}))]);
+    const [cos,tpl,idx]=await Promise.all([getJSON("companies.json"),getJSON("analysis/_plantilla.json").catch(()=>({})),getJSON("data/_indice.json").catch(()=>null)]);
+    INDICE=idx;
     TEMPLATE=tpl||{};
     const rows=await Promise.all(cos.companies.map(async co=>{ const t=co.ticker.toUpperCase();
       const [an,d,man]=await Promise.all([getJSON(`analysis/${t}.json`).catch(()=>null),getJSON(`data/${t}.json`).catch(()=>null),getJSON(`manual/${t}.json`).catch(()=>null)]);

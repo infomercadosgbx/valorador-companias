@@ -157,6 +157,16 @@ def run(only=None, report=None, root=ROOT, client=None, provider=None, price_war
                 "precio": (rec.get("precio") or {}).get("valor"),
             })
 
+    if hist is not None:
+        try:
+            h = hist.history("SPY")
+            if h:
+                h["nombre"] = "S&P 500 (ETF SPY)"
+                if write_if_changed(root / "data" / "_indice.json", h):
+                    changed.append("_indice.json")
+        except Exception as e:  # noqa: BLE001  la referencia es secundaria
+            print(f"Índice de referencia no disponible: {e}", file=sys.stderr)
+
     if not only:
         idx = {"esquema": 1, "companias": index,
                "generado": datetime.now(timezone.utc).isoformat(timespec="seconds")}
