@@ -72,6 +72,16 @@ FLOW_CONCEPTS = {
         "nombre": "Remuneración en acciones (SBC)", "unit": "USD", "combine": True,
         "tags": ["ShareBasedCompensation", "AllocatedShareBasedCompensationExpense"],
     },
+    # Componentes de las amortizaciones para compañías que no usan la etiqueta
+    # combinada (Broadcom, Alphabet): D&A = depreciación + amortización de intangibles.
+    "depreciacion": {
+        "nombre": "Depreciación", "unit": "USD", "combine": True, "opcional": True,
+        "tags": ["Depreciation", "DepreciationNonproduction"],
+    },
+    "amort_intangibles": {
+        "nombre": "Amortización de intangibles", "unit": "USD", "combine": True, "opcional": True,
+        "tags": ["AmortizationOfIntangibleAssets", "AmortizationOfAcquiredIntangibleAssets"],
+    },
     "coste_ventas": {
         "nombre": "Coste de ventas", "unit": "USD", "combine": True, "opcional": True,
         "tags": ["CostOfRevenue", "CostOfGoodsAndServicesSold", "CostOfGoodsSold"],

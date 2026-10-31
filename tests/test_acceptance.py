@@ -93,3 +93,15 @@ def test_amazon_4t_estacionales_no_se_descartan():
 def test_acciones_siempre_presentes():
     for t in COMPANIES:
         assert rec(t)["acciones_en_circulacion"]["valor"] > 0
+
+
+def test_broadcom_y_alphabet_amortizaciones_por_componentes():
+    avgo = rec("AVGO")["resultados"]["amortizacion"]
+    assert avgo["por_componentes"] and mill(a(rec("AVGO"), "amortizacion", "2025")) == 574 + 8062
+    assert avgo["ttm"] is not None
+    googl = rec("GOOGL")["resultados"]["amortizacion"]
+    assert googl["ttm"] is not None and mill(a(rec("GOOGL"), "amortizacion", "2025")) >= 21136
+
+
+def test_amazon_mantiene_la_etiqueta_combinada():
+    assert not rec("AMZN")["resultados"]["amortizacion"].get("por_componentes")
