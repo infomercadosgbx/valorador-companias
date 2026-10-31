@@ -31,7 +31,7 @@ jobs:
       - name: Preparar el sitio
         run: |
           mkdir _site
-          cp index.html valorador.html companies.json _site/
+          cp index.html valorador.html companies.json logo.svg _site/
           cp -r data analysis manual _site/
           if [ -d logos ]; then cp -r logos _site/; fi
           # Diseño anterior al rediseño, para comparar (rama version-1-antes-rediseno)

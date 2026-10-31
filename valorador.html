@@ -1,5 +1,7 @@
 <!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>Valorador de Compañías</title>
+<link rel="icon" type="image/svg+xml" href="logo.svg">
+<link rel="apple-touch-icon" href="logo.svg">
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
@@ -510,12 +512,28 @@ input[type=number]{font-family:var(--f-body)}
 .btn-acc{background:var(--ink);border-color:var(--ink)}
 .foot{margin:8px 0 40px;font-size:12px;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 16px;border-top:1px solid var(--line);padding-top:14px}
 .foot a{color:var(--ink2)}
+
+/* logo de la app y pestañas más visibles */
+.brand img{width:26px;height:26px;border-radius:7px;display:block}
+.brand i{display:none}
+.tabs{gap:4px;padding-top:4px}
+.tab{font-size:15.5px;padding:14px 16px 12px;font-weight:500;color:var(--ink2);border-bottom-width:3px;border-radius:6px 6px 0 0}
+.tab:hover{background:color-mix(in srgb,var(--brand) 6%,transparent)}
+.tab[aria-selected=true]{font-weight:700;background:color-mix(in srgb,var(--brand) 7%,var(--surface))}
+@media (max-width:640px){.tab{font-size:14.5px;padding:12px 12px 10px}}
+.draft{margin-top:10px;justify-content:space-between;gap:10px 16px;padding:12px 16px;border-radius:var(--r);font-size:13px;color:var(--ink);
+  background:color-mix(in srgb,#F59E0B 12%,var(--surface));border:1px solid color-mix(in srgb,#F59E0B 45%,var(--line))}
+.draft .dtext{flex:1 1 380px;min-width:0} .draft .dbtns{display:flex;gap:8px;flex-wrap:wrap}
+.dwhich{display:inline} .dwhich summary{display:inline;cursor:pointer;color:var(--ink2);text-decoration:underline;font-size:12.5px;margin-left:4px}
+.dwhich[open]{display:block}
+.draftlist{margin:6px 0 0;padding-left:18px;font-size:12.5px;color:var(--ink2);max-height:160px;overflow:auto}
+.draftlist b{font-variant-numeric:tabular-nums}
 </style>
 
 <div class="wrap">
   <div class="appwrap">
   <div class="appbar">
-    <div class="brand"><i></i>Valorador</div>
+    <div class="brand"><img src="logo.svg" alt="" width="26" height="26">Valorador</div>
     <button type="button" class="switch" id="btnSwitch" aria-haspopup="listbox" aria-expanded="false" aria-controls="picker"></button>
     <div class="favs" id="favPills" role="group" aria-label="Compañías favoritas"></div>
     <div class="toolbar">
@@ -544,6 +562,7 @@ input[type=number]{font-family:var(--f-body)}
     </div></div>
     <div class="pricebox" id="priceBox"></div>
   </header>
+  <div class="draft" id="draftBar" hidden></div>
   <div id="warnBox" hidden></div>
   <div class="datapanel" id="dataPanel" hidden>
     <div class="eyebrow">Tu análisis</div>
@@ -744,13 +763,13 @@ function exportAnalysis(c){
   return o;
 }
 function favSet(){try{return JSON.parse(lsGet("valorador.favs")||"null");}catch(e){return null;}}
-function buildCompany(co,an,d,man){
+function buildCompany(co,an,d,man,noDraft){
   const t=co.ticker.toUpperCase();
   const c=clone(an||TEMPLATE); fillMissing(c,clone(TEMPLATE));
   /* acciones, caja y deuda que el análisis no fija siguen al dato de la SEC (no a la plantilla) */
   MODEL_SEC.forEach(([k])=>{ if(!(an&&an.v&&fin(an.v[k]))) delete c.v[k]; });
   c._base=an?clone(an):null; c._draft=false;
-  const dr=lsGet(DRAFT(t)); if(dr){try{const dj=JSON.parse(dr); ANALYSIS_KEYS.forEach(k=>{ if(dj[k]!==undefined) c[k]=dj[k]; }); c._draft=true;}catch(e){}}
+  const dr=noDraft?null:lsGet(DRAFT(t)); if(dr){try{const dj=JSON.parse(dr); ANALYSIS_KEYS.forEach(k=>{ if(dj[k]!==undefined) c[k]=dj[k]; }); c._draft=true;}catch(e){}}
   c.meta=Object.assign({},c.meta,{name:co.nombre,ticker:co.ticker,ccy:"USD",brand:{color:co.color,mono:co.monograma}});
   const fs=favSet(); if(fs) c.meta.fav=fs.includes(t);
   c._co=co; c._data=d; c._manual=man; c._t=t;
@@ -785,9 +804,27 @@ function renderWarnings(){
   box.innerHTML=`<details${imp.length&&imp.some(w=>w.codigo==="contradiccion"||w.nivel==="error")?" open":""}><summary>${imp.length?`⚠ ${imp.length} ${imp.length===1?"aviso":"avisos"} sobre los datos`:"Datos sin avisos"}${inf?` · ${inf} ${inf===1?"nota informativa":"notas informativas"}`:""}</summary>
     ${warnList([...imp,...ws.filter(w=>w.nivel==="info")])}<p class="note" style="margin:8px 0 0">Los avisos los genera el Action al validar los datos de la SEC, y la web al comparar tu modelo con esos datos. Ninguna cifra se corrige en silencio.</p></details>`;
 }
+const DLAB={"v.wacc":"WACC","v.tg":"Crecimiento perpetuo","v.exit":"Múltiplo de salida","v.method":"Método del valor terminal","v.m1":"Margen EBITDA año 1","v.m5":"Margen EBITDA año 5",
+  "v.da":"Amortizaciones año 1","v.da5":"Amortizaciones año 5","v.sbc":"Pago en acciones","v.capex":"Capex año 1","v.capex5":"Capex año 5","v.nwc":"Circulante","v.tax":"Tipo impositivo",
+  "v.rev0":"Ingresos año base","v.year0":"Año base","v.eps":"BPA próximos 12 meses","v.pe":"PER objetivo","v.evm":"EV/EBITDA objetivo","v.shares":"Acciones","v.cash":"Caja","v.debt":"Deuda"};
+function draftLabel(p){ if(DLAB[p]) return DLAB[p]; let m=/^v\.g\.(\d)$/.exec(p); if(m) return `Crecimiento año ${+m[1]+1}`;
+  m=/^v\.scn\.(\d)\.(dg|dm|p)$/.exec(p); if(m){ const n=((cur.v.scn||[])[+m[1]]||{}).n||"Escenario"; return `${n}: ${{dg:"Δ crecimiento",dm:"Δ margen",p:"probabilidad"}[m[2]]}`; }
+  return p.replace(/\./g," › "); }
+function draftDiff(c){
+  let base; try{ base=exportAnalysis(buildCompany(c._co,c._base,c._data,c._manual,true)); }catch(e){ return null; }
+  const now=exportAnalysis(c), out=[], empty=x=>x==null||x===""||(Array.isArray(x)&&!x.length);
+  const walk=(a,b,p)=>{ if(out.length>40) return;
+    if(a&&typeof a==="object"&&b&&typeof b==="object"&&Array.isArray(a)===Array.isArray(b)){ new Set([...Object.keys(a),...Object.keys(b)]).forEach(k=>walk(a[k],b[k],p?p+"."+k:k)); return; }
+    if(empty(a)&&empty(b)) return; if(typeof a==="number"&&typeof b==="number"&&Math.abs(a-b)<1e-9) return; if(JSON.stringify(a)===JSON.stringify(b)) return;
+    out.push({p,a,b}); };
+  walk(base,now,""); return out.filter(d=>!/^(_nota|esquema)$/.test(d.p));
+}
 function renderDraft(){
   const el=$("draftBar"); if(!el||!cur) return;
-  el.innerHTML=cur._draft?`<span><b>Cambios sin publicar</b> en tu análisis de ${esc(cur.meta.name)}</span><button type="button" id="btnDl" class="btn-acc">Descargar ${esc(cur._t)}.json</button><button type="button" id="btnDiscard">Descartar</button>`:"";
+  let dif=cur._draft?draftDiff(cur):[];
+  if(cur._draft&&dif&&!dif.length){ lsSet(DRAFT(cur._t),null); cur._draft=false; }
+  const show=v=>typeof v==="object"&&v!==null?"(texto)":typeof v==="string"?(v.length>40?esc(v.slice(0,40))+"…":esc(v)||"vacío"):v==null?"vacío":esc(String(v));
+  el.innerHTML=cur._draft?`<div class="dtext"><b>${dif?`${dif.length>40?"Más de 40":dif.length} ${dif.length===1?"cambio":"cambios"}`:"Cambios"} sin publicar</b> en tu análisis de ${esc(cur.meta.name)}${dif&&dif.length?` <details class="dwhich"><summary>ver cuáles</summary><ul class="draftlist">${dif.slice(0,40).map(d=>`<li>${esc(draftLabel(d.p))}: ${show(d.a)} → <b>${show(d.b)}</b></li>`).join("")}</ul></details>`:""}<br><span class="note">Solo están en este navegador. Para guardarlos, descarga el archivo y súbelo a la carpeta analysis/ del repositorio.</span></div><div class="dbtns"><button type="button" id="btnDl" class="btn-acc">Descargar ${esc(cur._t)}.json</button><button type="button" id="btnDiscard">Descartar</button></div>`:"";
   el.hidden=!cur._draft;
 }
 function repoUploadUrl(){ const h=location.hostname, m=/^([^.]+)\.github\.io$/.exec(h); const seg=location.pathname.split("/").filter(Boolean)[0];
@@ -916,8 +953,7 @@ function renderHeader(){
   const P=cur._data&&cur._data.precio, ref=cur._data&&cur._data.referencia_fecha_datos;
   $("priceBox").innerHTML=`<span class="eyebrow">Cotización ${P?srcTag(P):""}</span><span class="px">${money(cur.v.price)}</span>
     <span class="note">Capitalización ${big(mcap)}${fin(cur.v.lo52)&&fin(cur.v.hi52)?` · 52 semanas ${nf(cur.v.lo52,0)}–${nf(cur.v.hi52,0)}`:""}${cur.meta.nextEarnings?` · Resultados: ${esc(cur.meta.nextEarnings)}`:""}</span>
-    <span class="note">${ref?`Cifras SEC hasta ${esc(fecha(ref))}`:"Sin datos de la SEC"}${cur._data&&cur._data.generado?` · datos actualizados ${esc(ago(cur._data.generado))}`:""}</span>
-    <div class="draft" id="draftBar" hidden></div>`;
+    <span class="note">${ref?`Cifras SEC hasta ${esc(fecha(ref))}`:"Sin datos de la SEC"}${cur._data&&cur._data.generado?` · datos actualizados ${esc(ago(cur._data.generado))}`:""}</span>`;
   applyBrand(cur); { const b=brandOf(cur), el=$("hdrMono"); el.className="mono"+(b.logo?" logo":""); el.style.background=b.logo?"":b.color; el.style.color=b.logo?"":b.ink; el.innerHTML=monoInner(b); }
   const n=Object.keys(store.companies).length, sym=symOf(cur);
   $("btnSwitch").innerHTML=`${monoHtml(cur,"sm")}<span class="nm">${esc(cur.meta.name||"Sin nombre")}</span>${sym?`<small>${esc(sym)}</small>`:""}<span class="ct">${n} ${n===1?"compañía":"compañías"} ▾</span><kbd>Ctrl K</kbd>`;
