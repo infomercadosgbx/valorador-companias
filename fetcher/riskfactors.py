@@ -14,28 +14,48 @@ from difflib import SequenceMatcher
 
 from .filings import archive_base, recent_rows
 
-VERSION = 3
+VERSION = 4
 BLOCK_END = re.compile(r"</(p|div|li|tr|h\d|table)>|<br\s*/?>", re.I)
 TAG = re.compile(r"<[^>]+>")
 START = re.compile(r"item\s*1a\.?\s*[\-–—:.]?\s*risk\s+factors", re.I)
 END = re.compile(r"item\s*1b\.?|item\s*1c\.?|item\s*2\.?\s*[\-–—:.]?\s*properties|unresolved\s+staff\s+comments", re.I)
 
 
-def to_paragraphs(doc_html: str):
+STYLED = re.compile(r"<(b|strong|i|em)\b[^>]*>(.*?)</\1>|<span[^>]*style=\"[^\"]*(?:font-weight:\s*(?:bold|[6-9]00)|font-style:\s*italic)[^\"]*\"[^>]*>(.*?)</span>", re.I | re.S)
+
+
+def _clean(x):
+    return re.sub(r"\s+", " ", H.unescape(TAG.sub(" ", x))).strip()
+
+
+def to_blocks(doc_html: str):
+    """[(texto, destacado)]: destacado = casi todo el párrafo en negrita o cursiva (así se marcan los titulares)."""
     doc_html = re.sub(r"(?is)<(script|style|ix:header)[^>]*>.*?</\1>", " ", doc_html)
-    txt = BLOCK_END.sub("\n", doc_html)
-    txt = H.unescape(TAG.sub(" ", txt))
-    paras = [re.sub(r"\s+", " ", p).strip() for p in txt.split("\n")]
-    return [p for p in paras if p]
+    out = []
+    for blk in BLOCK_END.split(doc_html):
+        if not blk or blk.lower() in ("p", "div", "li", "tr", "table") or re.fullmatch(r"h\d", blk or "", re.I):
+            continue
+        t = _clean(blk)
+        if not t:
+            continue
+        sty = sum(len(_clean(m.group(2) or m.group(3) or "")) for m in STYLED.finditer(blk))
+        out.append((t, sty >= 0.8 * len(t)))
+    return out
+
+
+def to_paragraphs(doc_html: str):
+    return [t for t, _ in to_blocks(doc_html)]
 
 
 def risk_section(paras):
-    """Párrafos del Item 1A (el tramo más largo entre «Item 1A» y el siguiente Item)."""
+    """Párrafos del Item 1A (el tramo más largo entre «Item 1A» y el siguiente Item).
+    Acepta textos o pares (texto, destacado)."""
     best = []
-    for i, p in enumerate(paras):
+    txt = [x[0] if isinstance(x, tuple) else x for x in paras]
+    for i, p in enumerate(txt):
         if len(p) < 120 and START.search(p):
             j = i + 1
-            while j < len(paras) and not (len(paras[j]) < 120 and END.search(paras[j])):
+            while j < len(txt) and not (len(txt[j]) < 120 and END.search(txt[j])):
                 j += 1
             if j - i > len(best):
                 best = paras[i + 1:j]
@@ -43,6 +63,11 @@ def risk_section(paras):
 
 
 def headings(section):
+    if section and isinstance(section[0], tuple):
+        styled = [t for t, st in section if st and 25 <= len(t) <= 700 and not re.match(r"(?i)risks? (related|relating) to", t)]
+        if len(styled) >= 10:
+            return styled
+        section = [t for t, _ in section]
     out = []
     for i, p in enumerate(section[:-1]):
         nxt = section[i + 1]
@@ -54,7 +79,7 @@ def headings(section):
 
 
 def norm(s):
-    return re.sub(r"[^a-z0-9 ]", "", s.lower())
+    return re.sub(r"\s+", " ", re.sub(r"[^a-z ]", "", s.lower())).strip()
 
 
 def compare(new, old, thr=0.72):
@@ -93,9 +118,9 @@ def build(client, cik, subs, previous=None):
         base = archive_base(cik, r["accessionNumber"])
         url = f"{base}/{r['primaryDocument']}"
         html = client.get_text(url)
-        sec = risk_section(to_paragraphs(html or ""))
+        sec = risk_section(to_blocks(html or ""))
         docs.append({"formulario": "10-K", "fecha_presentacion": r["filingDate"], "fecha_periodo": r.get("reportDate"),
-                     "url": url, "palabras": sum(len(p.split()) for p in sec), "titulares": headings(sec)})
+                     "url": url, "palabras": sum(len(t.split()) for t, _ in sec), "titulares": headings(sec)})
     new, old = docs
     if len(new["titulares"]) < 5 or len(old["titulares"]) < 5:
         return {"version": VERSION, "informes_accn": accns, "ok": False, "informes": [{k: v for k, v in d.items() if k != "titulares"} for d in docs],
