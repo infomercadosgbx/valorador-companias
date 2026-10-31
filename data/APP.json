@@ -4104,6 +4104,7 @@
   }
  ],
  "bonos": {
+  "version": 3,
   "informes_accn": [
    "0001751008-26-000059",
    "0001751008-26-000044",
@@ -4115,13 +4116,16 @@
     "nombre": "Senior Notes Due December 1, 2029",
     "tipo": "Bono senior",
     "cupon": 5.125,
+    "variable": false,
     "tipo_efectivo": 5.34,
     "nominal": 1000000000.0,
     "en_libros": 1000000000.0,
     "en_libros_fecha": "2025-12-31",
     "moneda": "USD",
+    "nominal_moneda": "USD",
     "vencimiento": "2029-12-01",
     "vencimiento_aprox": false,
+    "programa": false,
     "primera_vez": {
      "formulario": "10-K",
      "fecha_presentacion": "2026-02-19",
@@ -4143,13 +4147,16 @@
     "nombre": "Senior Notes Due December 1, 2031",
     "tipo": "Bono senior",
     "cupon": 5.375,
+    "variable": false,
     "tipo_efectivo": 5.56,
     "nominal": 1000000000.0,
     "en_libros": 1000000000.0,
     "en_libros_fecha": "2025-12-31",
     "moneda": "USD",
+    "nominal_moneda": "USD",
     "vencimiento": "2031-12-01",
     "vencimiento_aprox": false,
+    "programa": false,
     "primera_vez": {
      "formulario": "10-K",
      "fecha_presentacion": "2026-02-19",
@@ -4171,13 +4178,16 @@
     "nombre": "Senior Notes Due December 1, 2034",
     "tipo": "Bono senior",
     "cupon": 5.5,
+    "variable": false,
     "tipo_efectivo": 5.66,
     "nominal": 1000000000.0,
     "en_libros": 1000000000.0,
     "en_libros_fecha": "2025-12-31",
     "moneda": "USD",
+    "nominal_moneda": "USD",
     "vencimiento": "2034-12-01",
     "vencimiento_aprox": false,
+    "programa": false,
     "primera_vez": {
      "formulario": "10-K",
      "fecha_presentacion": "2026-02-19",
@@ -4199,13 +4209,16 @@
     "nombre": "Senior Notes Due December 1, 2054",
     "tipo": "Bono senior",
     "cupon": 5.95,
+    "variable": false,
     "tipo_efectivo": 6.07,
     "nominal": 550000000.0,
     "en_libros": 550000000.0,
     "en_libros_fecha": "2025-12-31",
     "moneda": "USD",
+    "nominal_moneda": "USD",
     "vencimiento": "2054-12-01",
     "vencimiento_aprox": false,
+    "programa": false,
     "primera_vez": {
      "formulario": "10-K",
      "fecha_presentacion": "2026-02-19",
@@ -4246,7 +4259,15 @@
     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000059/0001751008-26-000059-index.htm",
     "fuente": "SEC EDGAR · 10-Q (XBRL)"
    }
-  ]
+  ],
+  "conceptos_xbrl": {
+   "DebtInstrumentCarryingAmount": 8,
+   "DebtInstrumentFaceAmount": 4,
+   "DebtInstrumentInterestRateStatedPercentage": 4,
+   "DebtInstrumentInterestRateEffectivePercentage": 4,
+   "ProceedsFromLongTermLinesOfCredit": 1,
+   "RepaymentsOfLongTermLinesOfCredit": 1
+  }
  },
  "precio": {
   "minimo_52s": 252,
@@ -4268,5 +4289,5 @@
   "fuente": "Finnhub · recomendaciones de analistas",
   "url": "https://finnhub.io/docs/api/recommendation-trends"
  },
- "generado": "2026-10-31T14:51:29+00:00"
+ "generado": "2026-10-31T14:55:38+00:00"
 }
