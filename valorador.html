@@ -568,7 +568,7 @@ input[type=number]{font-family:var(--f-body)}
     </div>
     <div class="plist" id="pickList" role="listbox" aria-label="Compañías"></div>
     <div class="pfoot"><span><kbd>↑</kbd> <kbd>↓</kbd> para moverte, <kbd>Enter</kbd> para abrir, <kbd>Esc</kbd> para cerrar</span>
-      <span>Cifras de la SEC y cotización actualizadas cada noche laborable</span></div>
+      <button type="button" id="btnAddCo" class="btn-acc">＋ Añadir compañía</button></div>
   </div>
   </div>
   <header class="cohead">
@@ -859,6 +859,7 @@ function staleInfo(c){
 }
 function renderStale(){
   const el=$("staleBox"); if(!el||!cur) return; const s=staleInfo(cur);
+  if(cur.meta&&cur.meta.autogenerado&&!cur.meta.asOf){ el.innerHTML=`<span>✨ <b>Compañía recién añadida</b> (${esc(fecha(cur.meta.autogenerado))}). Las cifras, segmentos y previsiones ya son automáticos, y el DCF arranca con los datos reales de los últimos 12 meses.</span><span class="note">Falta tu criterio: pulsa «Editar» para escribir la tesis, el negocio, el MOAT, la directiva, los riesgos y el veredicto, revisa los supuestos y rellena «Análisis a».</span>`; el.hidden=false; return; }
   if(!s||!s.stale||s.days<1){ el.hidden=true; el.innerHTML=""; return; }
   const parts=[]; if(fin(s.dp)) parts.push(`precio <b>${s.dp>=0?"+":"−"}${nf(Math.abs(s.dp),1)}%</b> (de ${nf(s.p0[1],2)} a ${nf(cur.v.price,2)})`);
   s.docs.forEach(d=>parts.push(`nuevo <a href="${esc(d.url_indice||d.url_documento||"#")}" target="_blank" rel="noopener">${esc(d.formulario)}</a> del ${esc(fecha(d.fecha_presentacion))}`));
@@ -872,6 +873,21 @@ function renderDraft(){
   const show=v=>typeof v==="object"&&v!==null?"(texto)":typeof v==="string"?(v.length>40?esc(v.slice(0,40))+"…":esc(v)||"vacío"):v==null?"vacío":esc(String(v));
   el.innerHTML=cur._draft?`<div class="dtext"><b>${dif?`${dif.length>40?"Más de 40":dif.length} ${dif.length===1?"cambio":"cambios"}`:"Cambios"} sin publicar</b> en tu análisis de ${esc(cur.meta.name)}${dif&&dif.length?` <details class="dwhich"><summary>ver cuáles</summary><ul class="draftlist">${dif.slice(0,40).map(d=>`<li>${esc(draftLabel(d.p))}: ${show(d.a)} → <b>${show(d.b)}</b></li>`).join("")}</ul></details>`:""}<br><span class="note">Solo están en este navegador. Para guardarlos, descarga el archivo y súbelo a la carpeta analysis/ del repositorio.</span></div><div class="dbtns"><button type="button" id="btnDl" class="btn-acc">Descargar ${esc(cur._t)}.json</button><button type="button" id="btnDiscard">Descartar</button></div>`:"";
   el.hidden=!cur._draft;
+}
+function repoUrl(){ const h=location.hostname, m=/^([^.]+)\.github\.io$/.exec(h); const seg=location.pathname.split("/").filter(Boolean)[0];
+  return m&&seg?`https://github.com/${m[1]}/${seg}`:"https://github.com/infomercadosgbx/valorador-companias"; }
+function addCoModal(){
+  const u=repoUrl()+"/actions/workflows/anadir-compania.yml";
+  $("modal").innerHTML=`<div style="display:flex;justify-content:space-between;gap:12px;align-items:flex-start"><div><div class="eyebrow">Alta de compañía</div><h2 id="mTitle">Añadir una compañía</h2></div><button type="button" class="x" data-close aria-label="Cerrar">×</button></div>
+    <p style="margin:0">La lista de compañías vive en GitHub, así que el alta la hace el robot. Tarda unos 3 minutos.</p>
+    <ol class="steps" style="list-style:decimal;padding-left:20px">
+      <li style="display:list-item">Abre <a href="${esc(u)}" target="_blank" rel="noopener"><b>Añadir compañía</b> en GitHub Actions</a>.</li>
+      <li style="display:list-item">Pulsa <b>Run workflow</b> y escribe el <b>ticker</b> (por ejemplo MSFT). El nombre y el color son opcionales: si los dejas vacíos se toman de la SEC y del logo.</li>
+      <li style="display:list-item">Pulsa el botón verde <b>Run workflow</b>. Cuando el círculo se ponga verde, recarga esta página.</li>
+    </ol>
+    <p class="note" style="margin:0">El robot comprueba el ticker en la lista oficial de la SEC, descarga sus cifras, precio, logo y segmentos, y prepara el DCF con los datos reales de los últimos 12 meses. Las compañías extranjeras que presentan 20-F (normalmente IFRS) todavía no están soportadas: el robot lo indica y no añade nada. Si algo falla, se abre un Issue en GitHub.</p>
+    <div><a class="btn-acc" href="${esc(u)}" target="_blank" rel="noopener" style="display:inline-block;padding:8px 14px;border-radius:6px;text-decoration:none;font-weight:600">Abrir «Añadir compañía» en GitHub</a></div>`;
+  $("overlay").hidden=false; setTimeout(()=>{const b=$("modal").querySelector("[data-close]"); if(b) b.focus();},0);
 }
 function repoUploadUrl(){ const h=location.hostname, m=/^([^.]+)\.github\.io$/.exec(h); const seg=location.pathname.split("/").filter(Boolean)[0];
   return m&&seg?`https://github.com/${m[1]}/${seg}/upload/main/analysis`:null; }
@@ -2568,6 +2584,7 @@ document.addEventListener("click",e=>{
   const pr=e.target.closest("[data-prange]"); if(pr){PRANGE=pr.dataset.prange; lsSet("valorador.prange",PRANGE); renderValOut(); return;}
   const mc=e.target.closest("[data-mchart]"); if(mc){MCHART=mc.dataset.mchart; lsSet("valorador.mchart",MCHART); renderValOut(); return;}
   const sn=e.target.closest("[data-sens]"); if(sn){SENSMODE=sn.dataset.sens; lsSet("valorador.sens",SENSMODE); renderValOut(); return;}
+  if(e.target.closest("#btnAddCo")){ closePicker(); addCoModal(); return; }
   const sgm=e.target.closest("[data-segmode]"); if(sgm){SEGMODE=sgm.dataset.segmode; lsSet("valorador.segmode",SEGMODE); renderTab(); return;}
   const fm=e.target.closest("[data-fmode]"); if(fm){FINMODE=fm.dataset.fmode; lsSet("valorador.finmode",FINMODE); renderTab(); return;}
   if(e.target.closest("#btnDl")){downloadAnalysis(cur);return;}

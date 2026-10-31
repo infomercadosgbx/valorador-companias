@@ -41,6 +41,22 @@ Necesitas permisos de administrador en el repositorio. Todo se hace desde la web
 
 A partir de ahí se ejecuta solo de lunes a viernes a las 23:17 UTC (00:17 en Madrid en invierno, 01:17 en verano).
 
+## Añadir una compañía
+
+1. En GitHub, pestaña **Actions** → **Añadir compañía** (columna izquierda) → botón **Run workflow**. También puedes llegar desde la web: selector de compañías → **＋ Añadir compañía**.
+2. Escribe el **ticker** (por ejemplo `MSFT`; para clases con punto vale `BRK.B`). *Nombre* y *color* son opcionales: si los dejas vacíos, el nombre se toma de la SEC (sin «Inc.», «Corp.»…) y el color de marca se saca del logo.
+3. Pulsa **Run workflow**. En unos 3 minutos el círculo se pone verde y, tras la publicación automática, la compañía aparece en la web.
+
+Qué hace el robot (`fetcher/add_company.py`):
+
+- Resuelve el CIK con <https://www.sec.gov/files/company_tickers.json>. Si el ticker no existe, o la compañía presenta 20-F/40-F (emisor extranjero, normalmente IFRS), **no añade nada**: la ejecución termina en rojo, el resumen explica el motivo y se abre un Issue.
+- Añade la compañía al final de `companies.json` (ticker, nombre, CIK, color y monograma).
+- Descarga sus datos como cada noche (SEC, precio, histórico, logo, segmentos, directivos, riesgos del 10-K) y crea `analysis/<TICKER>.json` y `manual/<TICKER>.json`.
+- Prepara el punto de partida del DCF con las cifras reales de los últimos 12 meses: ingresos base, crecimiento a partir del CAGR de 3 años moderándose, margen EBITDA, amortizaciones, capex, pago en acciones, tipo impositivo efectivo (entre 15% y 25%) y BPA. WACC 9%, crecimiento perpetuo 3% y múltiplos estándar. Acciones, caja y deuda siguen a la SEC. La web marca la compañía como «recién añadida» hasta que rellenes «Análisis a».
+- Hace un commit `Alta de compañía: <TICKER>`. Si el ticker ya estaba en la lista, solo actualiza sus datos.
+
+Para **quitar** una compañía, borra su línea de `companies.json` (los archivos de `data/`, `analysis/` y `manual/` pueden quedarse como archivo histórico o borrarse).
+
 ## La web
 
 `valorador.html` carga `companies.json` y, para cada compañía, `data/<TICKER>.json` (cifras de la SEC y cotización), `analysis/<TICKER>.json` (tu criterio) y `manual/<TICKER>.json` (precios objetivo). No guarda nada en ningún servidor.

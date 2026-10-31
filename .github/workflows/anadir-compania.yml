@@ -1,0 +1,72 @@
+name: Añadir compañía
+
+# Alta de una compañía: Actions → «Añadir compañía» → Run workflow → escribe el ticker.
+on:
+  workflow_dispatch:
+    inputs:
+      ticker:
+        description: "Ticker de la compañía (por ejemplo MSFT o NVDA)"
+        required: true
+      nombre:
+        description: "Nombre a mostrar (opcional; si lo dejas vacío se toma de la SEC)"
+        required: false
+        default: ""
+      color:
+        description: "Color de marca en formato #RRGGBB (opcional; si lo dejas vacío se saca del logo)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+  issues: write
+
+# Comparte cola con la actualización nocturna para no pisar sus commits
+concurrency:
+  group: actualizar-datos
+  cancel-in-progress: false
+
+jobs:
+  alta:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Dar de alta y descargar sus datos
+        id: alta
+        env:
+          SEC_USER_AGENT: ${{ vars.SEC_USER_AGENT || secrets.SEC_USER_AGENT }}
+          FINNHUB_API_KEY: ${{ secrets.FINNHUB_API_KEY }}
+          TWELVEDATA_API_KEY: ${{ secrets.TWELVEDATA_API_KEY }}
+          TICKER: ${{ inputs.ticker }}
+          NOMBRE: ${{ inputs.nombre }}
+          COLOR: ${{ inputs.color }}
+        run: |
+          if [[ ! "$TICKER" =~ ^[A-Za-z0-9.\ -]{1,12}$ ]]; then echo "::error title=Ticker no válido::$TICKER"; exit 3; fi
+          python -m fetcher.add_company "$(echo "$TICKER" | tr -d ' ')" --nombre "$NOMBRE" --color "$COLOR"
+
+      - name: Guardar en el repositorio
+        run: |
+          git config user.name "valorador-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add companies.json data analysis manual
+          if [ -d logos ]; then git add logos; fi
+          if git diff --cached --quiet; then echo "Sin cambios."; exit 0; fi
+          git commit -m "Alta de compañía: $(echo "${{ inputs.ticker }}" | tr '[:lower:]' '[:upper:]' | tr -cd 'A-Z0-9.-')"
+          git pull --rebase --quiet
+          git push
+
+      - name: Abrir un Issue si el alta falla
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TICKER: ${{ inputs.ticker }}
+        run: |
+          body="No se ha podido dar de alta «$TICKER». El motivo está en el resumen de la ejecución: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+          gh issue create --title "Alta de compañía fallida: $TICKER" --body "$body" || true

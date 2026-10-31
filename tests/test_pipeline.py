@@ -142,3 +142,37 @@ def test_logo_se_descarga_y_se_respeta_el_manual(tmp_path):
     assert "logo" not in bad
     man, _ = logos.update(P(), {"ticker": "ok", "logo": "logos/propio.svg"}, tmp_path)
     assert man["logo"] == "logos/propio.svg"
+
+
+def test_alta_de_compania(tmp_path):
+    from fetcher import add_company as A
+    root = _repo(tmp_path)
+    rev = [fact("2026-09-30", 10, start="2026-07-01")]
+
+    class C(FakeClient):
+        def company_tickers(self):
+            return {"0": {"cik_str": 1, "ticker": "OK", "title": "Ok"}, "1": {"cik_str": 99, "ticker": "BAD", "title": "Bad"},
+                    "2": {"cik_str": 7, "ticker": "NEWC", "title": "NEW COMPANY HOLDINGS, INC."},
+                    "3": {"cik_str": 8, "ticker": "FRGN", "title": "Foreign SA"}}
+    subs_ok = submissions([{"form": "10-Q", "accessionNumber": "0000000007-26-000001", "filingDate": "2026-10-30", "reportDate": "2026-09-30"}])
+    subs_ok["name"] = "NEW COMPANY HOLDINGS, INC."
+    subs_ok["addresses"] = {"business": {"city": "AUSTIN", "stateOrCountry": "TX"}}
+    subs_f = submissions([{"form": "20-F", "accessionNumber": "0000000008-26-000001", "filingDate": "2026-03-01", "reportDate": "2025-12-31"}])
+    client = C({"0000000001": (companyfacts({"Revenues": rev}), submissions([])),
+                "0000000007": (companyfacts({"Revenues": rev}), subs_ok), "0000000008": (None, subs_f)})
+    M.run(root=root, client=client, provider=NoPriceProvider(), price_warning="x")   # índice inicial
+    comp, added = A.add("newc", root=root, client=client)
+    assert added and comp["nombre"] == "New Company Holdings" and comp["monograma"] == "NC" and comp["color"].startswith("#")
+    cj = json.loads((root / "companies.json").read_text())
+    assert [c["ticker"] for c in cj["companies"]] == ["OK", "BAD", "NEWC"]
+    idx = json.loads((root / "data" / "index.json").read_text())
+    assert [c["ticker"] for c in idx["companias"]] == ["OK", "NEWC"]
+    an = json.loads((root / "analysis" / "NEWC.json").read_text())
+    assert an["meta"]["hq"] == "Austin, TX" and "shares" not in an["v"]
+    _, again = A.add("NEWC", root=root, client=client)
+    assert again is False
+    with pytest.raises(A.NoSoportada):
+        A.add("FRGN", root=root, client=client)
+    with pytest.raises(A.NoSoportada):
+        A.add("ZZZZ", root=root, client=client)
+    assert len(json.loads((root / "companies.json").read_text())["companies"]) == 3

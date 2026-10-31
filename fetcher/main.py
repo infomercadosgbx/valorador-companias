@@ -181,11 +181,19 @@ def run(only=None, report=None, root=ROOT, client=None, provider=None, price_war
         except Exception as e:  # noqa: BLE001  la referencia es secundaria
             print(f"Índice de referencia no disponible: {e}", file=sys.stderr)
 
-    if not only:
-        idx = {"esquema": 1, "companias": index,
-               "generado": datetime.now(timezone.utc).isoformat(timespec="seconds")}
-        if write_if_changed(root / "data" / "index.json", idx):
-            changed.append("index.json")
+    if only:   # se conserva lo ya publicado del resto y se respeta el orden de companies.json
+        old = {}
+        try:
+            old = {c["ticker"]: c for c in json.loads((root / "data" / "index.json").read_text(encoding="utf-8"))["companias"]}
+        except (OSError, json.JSONDecodeError, KeyError):
+            pass
+        new = {c["ticker"]: c for c in index}
+        index = [new.get(c["ticker"].upper()) or old.get(c["ticker"].upper()) for c in load_companies(root)]
+        index = [c for c in index if c]
+    idx = {"esquema": 1, "companias": index,
+           "generado": datetime.now(timezone.utc).isoformat(timespec="seconds")}
+    if write_if_changed(root / "data" / "index.json", idx):
+        changed.append("index.json")
 
     if report:
         lines = [f"# Fallo de la actualización de datos ({datetime.now(timezone.utc):%Y-%m-%d %H:%M} UTC)", ""]
