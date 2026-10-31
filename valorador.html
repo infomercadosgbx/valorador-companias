@@ -523,7 +523,8 @@ input[type=number]{font-family:var(--f-body)}
 .brand i{display:none}
 .tabs{gap:4px;padding-top:4px}
 .tab{font-size:15.5px;padding:14px 16px 12px;font-weight:500;color:var(--ink2);border-bottom-width:3px;border-radius:6px 6px 0 0}
-.tab:hover{background:color-mix(in srgb,var(--brand) 6%,transparent)}
+.tab:hover{background:color-mix(in srgb,var(--brand) 6%,transparent);border-color:transparent;color:var(--ink)}
+.tab[aria-selected=true]:hover{border-bottom-color:var(--brand)}
 .tab[aria-selected=true]{font-weight:700;background:color-mix(in srgb,var(--brand) 7%,var(--surface))}
 @media (max-width:640px){.tab{font-size:14.5px;padding:12px 12px 10px}}
 .draft{margin-top:10px;justify-content:space-between;gap:10px 16px;padding:12px 16px;border-radius:var(--r);font-size:13px;color:var(--ink);
@@ -1752,7 +1753,7 @@ R.growth=()=>{
     ${kpi("Crecimiento que descuenta el precio"+info("crec_implicito"),pct(vz.ig),`<span class="note">anual durante 5 años</span>`)}
   </div>
   ${growthHistHtml(cagr,vz)}
-  ${tx("growth.scoreNote",{rows:2})}
+  <section class="card"><h2>Mi lectura del crecimiento</h2>${tx("growth.scoreNote",{rows:2})}</section>
   <div class="g2">
     <section class="card"><h2>Crecimiento interanual por trimestre</h2><p class="sub">%. Total: SEC. Las series «manual» salen de fin_manual en analysis/${esc(cur._t)}.json.</p><div class="cv h260"><canvas id="ch_gr_q" role="img" aria-label="Crecimiento trimestral"></canvas></div>
       ${false?`<div class="scroll"><table><thead><tr><th>Serie</th>${q.labels.map((l,i)=>`<th><input type="text" data-p="fin.q.labels.${i}" value="${esc(l)}" aria-label="Trimestre"></th>`).join("")}</tr></thead><tbody>
