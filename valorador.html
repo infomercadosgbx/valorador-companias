@@ -642,8 +642,10 @@ body.watch .tabs,body.watch .cohead,body.watch #staleBox,body.watch #draftBar,bo
   <div id="warnBox" hidden></div>
   <div class="datapanel" id="dataPanel" hidden>
     <div class="eyebrow">Tu análisis</div>
-    <p class="note" style="margin:0">Las cifras financieras y la cotización llegan solas cada noche y no se editan. Tus textos y supuestos viven en <code>analysis/&lt;TICKER&gt;.json</code> del repositorio. Lo que cambies con «Editar» se guarda como borrador en este navegador hasta que descargues el archivo y lo subas a GitHub (carpeta <code>analysis/</code>).</p>
+    <p class="note" style="margin:0">Las cifras financieras y la cotización llegan solas cada noche y no se editan. Tus textos y supuestos viven en <code>analysis/&lt;TICKER&gt;.json</code> del repositorio. Lo que cambies con «Editar» se guarda como borrador en este navegador hasta que lo guardes en GitHub: con un clic si conectas la web (abajo) o descargando el archivo y subiéndolo a la carpeta <code>analysis/</code>.</p>
     <div class="toolbar"><button type="button" id="btnDl2">Descargar el análisis de esta compañía</button><button type="button" id="btnCopy">Copiar JSON</button><span class="saved" id="savedMsg"></span></div>
+    <div class="eyebrow" style="margin-top:6px">Guardar directamente en GitHub</div>
+    <div id="ghBox"></div>
     <div class="eyebrow" style="margin-top:6px">Traer cambios del valorador antiguo</div>
     <p class="note" style="margin:0">Si editaste algo en la versión anterior: allí pulsa «Datos» → «Copiar JSON» y pégalo aquí. Se convierte en borradores de cada compañía sin tocar las cifras de la SEC.</p>
     <textarea id="jsonBox" rows="4" aria-label="JSON del valorador antiguo" spellcheck="false"></textarea>
@@ -929,7 +931,7 @@ function renderDraft(){
   let dif=cur._draft?draftDiff(cur):[];
   if(cur._draft&&dif&&!dif.length){ lsSet(DRAFT(cur._t),null); cur._draft=false; }
   const show=v=>typeof v==="object"&&v!==null?"(texto)":typeof v==="string"?(v.length>40?esc(v.slice(0,40))+"…":esc(v)||"vacío"):v==null?"vacío":esc(String(v));
-  el.innerHTML=cur._draft?`<div class="dtext"><b>${dif?`${dif.length>40?"Más de 40":dif.length} ${dif.length===1?"cambio":"cambios"}`:"Cambios"} sin publicar</b> en tu análisis de ${esc(cur.meta.name)}${dif&&dif.length?` <details class="dwhich"><summary>ver cuáles</summary><ul class="draftlist">${dif.slice(0,40).map(d=>`<li>${esc(draftLabel(d.p))}: ${show(d.a)} → <b>${show(d.b)}</b></li>`).join("")}</ul></details>`:""}<br><span class="note">Solo están en este navegador. Para guardarlos, descarga el archivo y súbelo a la carpeta analysis/ del repositorio.</span></div><div class="dbtns"><button type="button" id="btnDl" class="btn-acc">Descargar ${esc(cur._t)}.json</button><button type="button" id="btnDiscard">Descartar</button></div>`:"";
+  el.innerHTML=cur._draft?`<div class="dtext"><b>${dif?`${dif.length>40?"Más de 40":dif.length} ${dif.length===1?"cambio":"cambios"}`:"Cambios"} sin publicar</b> en tu análisis de ${esc(cur.meta.name)}${dif&&dif.length?` <details class="dwhich"><summary>ver cuáles</summary><ul class="draftlist">${dif.slice(0,40).map(d=>`<li>${esc(draftLabel(d.p))}: ${show(d.a)} → <b>${show(d.b)}</b></li>`).join("")}</ul></details>`:""}<br><span class="note">${ghToken()?"Solo están en este navegador hasta que pulses «Guardar en GitHub».":"Solo están en este navegador. Para guardarlos, descarga el archivo y súbelo a la carpeta analysis/ del repositorio, o conecta la web con GitHub una vez y guárdalos con un clic."}</span></div><div class="dbtns">${ghToken()?`<label class="note" style="display:flex;align-items:center;gap:5px"><input type="checkbox" id="ghAsOf" checked> «Análisis a» = hoy</label><button type="button" id="btnGhSave" class="btn-acc">Guardar en GitHub</button><button type="button" id="btnDl">Descargar ${esc(cur._t)}.json</button>`:`<button type="button" id="btnDl" class="btn-acc">Descargar ${esc(cur._t)}.json</button><button type="button" id="btnGhSetup">Guardar directamente en GitHub…</button>`}<button type="button" id="btnDiscard">Descartar</button></div>`:"";
   el.hidden=!cur._draft;
 }
 function repoUrl(){ const h=location.hostname, m=/^([^.]+)\.github\.io$/.exec(h); const seg=location.pathname.split("/").filter(Boolean)[0];
@@ -997,6 +999,42 @@ const lc=s=>/^[A-Z]{2}/.test(s||"")?s:(s||"").charAt(0).toLowerCase()+(s||"").sl
 const para=s=>String(s||"").split(/\n+/).filter(Boolean).map(l=>`<p>${esc(l)}</p>`).join("");
 function get(p,o=cur){return p.split(".").reduce((x,k)=>x==null?x:x[k],o);}
 function setPath(o,p,v){const ks=p.split(".");let x=o;for(let i=0;i<ks.length-1;i++){if(x[ks[i]]==null)x[ks[i]]=/^\d+$/.test(ks[i+1])?[]:{};x=x[ks[i]];}x[ks[ks.length-1]]=v;}
+/* ================= Guardar en GitHub (token personal solo en este navegador) ================= */
+const ghToken=()=>lsGet("valorador.ghtoken")||"";
+function ghRepo(){ const m=/github\.com\/([^/]+)\/([^/]+)/.exec(repoUrl()); return m?{o:m[1],r:m[2]}:null; }
+async function gh(path,opt={}){ const t=ghToken(); const r=await fetch("https://api.github.com"+path,{...opt,headers:{"Accept":"application/vnd.github+json","Authorization":"Bearer "+t,"X-GitHub-Api-Version":"2022-11-28",...(opt.headers||{})}});
+  let j=null; try{ j=await r.json(); }catch(e){} return {ok:r.ok,status:r.status,j}; }
+function ghErr(st,j){ return st===401?"GitHub no acepta el token (caducado o mal copiado).":st===403?"El token no tiene permiso de escritura en este repositorio (Contents: Read and write).":st===404?"El token no tiene acceso a este repositorio o el archivo no existe.":st===409?"Hay un cambio más reciente en GitHub. Recarga la página y vuelve a guardar.":st===422?"GitHub rechaza el contenido: "+((j&&j.message)||""):"Error de GitHub ("+st+"): "+((j&&j.message)||"sin detalle"); }
+function ghBoxHtml(){ const R=ghRepo(); const t=ghToken();
+  return t?`<p class="note" style="margin:0">Conectado a <b>${esc(R?R.o+"/"+R.r:"")}</b> con un token guardado solo en este navegador (…${esc(t.slice(-4))}). En la franja de cambios aparece «Guardar en GitHub».</p>
+    <div class="toolbar"><button type="button" id="btnGhTest">Probar conexión</button><button type="button" id="btnGhForget">Olvidar el token</button><span class="saved" id="ghMsg"></span></div>`
+  :`<p class="note" style="margin:0">Una sola vez: crea un token en GitHub con permiso solo sobre este repositorio y pégalo aquí. Se guarda únicamente en este navegador (no en la web ni en el repositorio).</p>
+    <ol class="note" style="margin:4px 0;padding-left:18px"><li>Abre <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">GitHub → nuevo token (fine-grained)</a>. Nombre: «Valorador». Caducidad: la que prefieras (hasta 1 año).</li>
+      <li><b>Repository access</b> → <i>Only select repositories</i> → <b>${esc(R?R.r:"valorador-companias")}</b>.</li>
+      <li><b>Permissions</b> → <b>Contents</b>: <i>Read and write</i>. Nada más. Pulsa <b>Generate token</b> y copia el código (empieza por github_pat_).</li></ol>
+    <div class="toolbar"><input type="password" id="ghTok" placeholder="github_pat_…" autocomplete="off" style="flex:1;min-width:220px"><button type="button" id="btnGhSaveTok" class="btn-acc">Conectar</button><span class="saved" id="ghMsg"></span></div>`; }
+function renderGhBox(){ const el=$("ghBox"); if(el) el.innerHTML=ghBoxHtml(); }
+async function ghTest(){ const R=ghRepo(), msg=$("ghMsg"); if(!R){ if(msg) msg.textContent="No se reconoce el repositorio."; return false; }
+  const r=await gh(`/repos/${R.o}/${R.r}`); const ok=r.ok&&r.j&&r.j.permissions&&r.j.permissions.push!==false;
+  if(msg) msg.textContent=r.ok?(ok?"Conexión correcta: puede guardar.":"Conecta, pero sin permiso de escritura."):ghErr(r.status,r.j); return r.ok; }
+function hoyEs(){ const d=new Date(); return `${d.getDate()}-${MESES[d.getMonth()]}-${d.getFullYear()}`; }
+async function ghSave(){
+  const R=ghRepo(); if(!R||!ghToken()) return; const btn=$("btnGhSave"); if(btn){ btn.disabled=true; btn.textContent="Guardando…"; }
+  try{
+    if($("ghAsOf")&&$("ghAsOf").checked) cur.meta.asOf=hoyEs();
+    const path=`analysis/${cur._t}.json`, url=`/repos/${R.o}/${R.r}/contents/${path}`;
+    const g=await gh(url+"?ref=main"); if(!g.ok&&g.status!==404) throw new Error(ghErr(g.status,g.j));
+    const obj=exportAnalysis(cur), txt=JSON.stringify(obj,null,1)+"\n";
+    const bytes=new TextEncoder().encode(txt); let bin=""; for(let i=0;i<bytes.length;i+=8192) bin+=String.fromCharCode.apply(null,bytes.subarray(i,i+8192)); const b64=btoa(bin);
+    const dif=draftDiff(cur)||[];
+    const msg=`Análisis: ${cur._t} desde la web (${dif.length} ${dif.length===1?"cambio":"cambios"})`;
+    const r=await gh(url,{method:"PUT",body:JSON.stringify({message:msg,content:b64,branch:"main",...(g.ok&&g.j&&g.j.sha?{sha:g.j.sha}:{})})});
+    if(!r.ok) throw new Error(ghErr(r.status,r.j));
+    lsSet(DRAFT(cur._t),null); cur._base=clone(obj); cur._draft=false; renderHeader(); renderDraft();
+    toast("Guardado en GitHub. La web publicada se actualiza en 1–2 minutos.");
+  }catch(e){ toast(e.message||String(e)); if(btn){ btn.disabled=false; btn.textContent="Guardar en GitHub"; } alertBox(e.message||String(e)); }
+}
+function alertBox(t){ const el=$("draftBar"); if(!el) return; let n=el.querySelector(".gherr"); if(!n){ n=document.createElement("div"); n.className="gherr note"; n.style.cssText="flex-basis:100%;color:var(--critText)"; el.appendChild(n); } n.textContent=t; }
 function toast(t){const el=$("toast");el.textContent=t;el.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>el.hidden=true,1900);}
 
 /* campos: lectura o edición */
@@ -2804,6 +2842,11 @@ document.addEventListener("click",e=>{
   const sgm=e.target.closest("[data-segmode]"); if(sgm){SEGMODE=sgm.dataset.segmode; lsSet("valorador.segmode",SEGMODE); renderTab(); return;}
   const fm=e.target.closest("[data-fmode]"); if(fm){FINMODE=fm.dataset.fmode; lsSet("valorador.finmode",FINMODE); renderTab(); return;}
   if(e.target.closest("#btnDl")){downloadAnalysis(cur);return;}
+  if(e.target.closest("#btnGhSave")){ ghSave(); return; }
+  if(e.target.closest("#btnGhSetup")){ const pnl=$("dataPanel"); if(pnl){ pnl.hidden=false; $("btnData").setAttribute("aria-expanded","true"); renderGhBox(); pnl.scrollIntoView({behavior:"smooth",block:"start"}); setTimeout(()=>{const i=$("ghTok"); if(i) i.focus();},300);} return; }
+  if(e.target.closest("#btnGhSaveTok")){ const v=($("ghTok").value||"").trim(); if(!/^(github_pat_|ghp_)/.test(v)){ $("ghMsg").textContent="El token debe empezar por github_pat_"; return; } lsSet("valorador.ghtoken",v); renderGhBox(); ghTest().then(()=>renderDraft()); return; }
+  if(e.target.closest("#btnGhTest")){ ghTest(); return; }
+  if(e.target.closest("#btnGhForget")){ lsSet("valorador.ghtoken",null); renderGhBox(); renderDraft(); toast("Token olvidado en este navegador"); return; }
   const dc=e.target.closest("#btnDiscard"); if(dc){ if(dc.dataset.armed!=="1"){dc.dataset.armed="1"; dc.textContent="¿Seguro? Pulsa otra vez"; setTimeout(()=>{if(dc.isConnected){dc.dataset.armed=""; dc.textContent="Descartar";}},3000); return;} discardDraft(); return;}
   const us=e.target.closest("[data-usesec]"); if(us){const k=us.dataset.usesec; cur.v[k]=+cur.sec[k].m.toFixed(k==="shares"?1:0); cur._auto[k]=true; save(); renderTab(); renderHeader(); return;}
   const co=e.target.closest("[data-co]"); if(co){ if(WATCH) exitWatch(); store.current=co.dataset.co; cur=store.companies[store.current]; lsSet("valorador.actual",store.current); renderHeader(); renderTab(); return;}
@@ -2823,7 +2866,7 @@ document.addEventListener("click",e=>{
     save(); renderTab(); }
 });
 $("btnEdit").addEventListener("click",()=>{EDIT=!EDIT; $("btnEdit").classList.toggle("on",EDIT); $("btnEdit").setAttribute("aria-pressed",EDIT); $("btnEdit").textContent=EDIT?"Terminar edición":"Editar"; renderTab();});
-$("btnData").addEventListener("click",()=>{const p=$("dataPanel"); p.hidden=!p.hidden; $("btnData").setAttribute("aria-expanded",!p.hidden);});
+$("btnData").addEventListener("click",()=>{const p=$("dataPanel"); p.hidden=!p.hidden; $("btnData").setAttribute("aria-expanded",!p.hidden); if(!p.hidden) renderGhBox();});
 $("btnDl2").addEventListener("click",()=>downloadAnalysis(cur));
 $("btnCopy").addEventListener("click",()=>{const t=JSON.stringify(exportAnalysis(cur),null,1);
   if(navigator.clipboard&&navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(()=>toast("JSON copiado"),()=>toast("No se pudo copiar")); else toast("Este navegador no permite copiar");});
