@@ -5108,6 +5108,85 @@
     "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest"
    ]
   },
+  "otros_no_operativos": {
+   "nombre": "Otros ingresos (gastos) no operativos",
+   "unidad": "USD",
+   "anual": [],
+   "trimestral": [
+    {
+     "valor": 87000000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281925000035/0001692819-25-000035-index.htm",
+     "fecha_presentacion": "2025-05-08",
+     "etiqueta": "us-gaap:OtherNonoperatingIncomeExpense",
+     "periodo_fin": "2024-03-31",
+     "formulario": "10-Q",
+     "accn": "0001692819-25-000035",
+     "periodo_inicio": "2024-01-01",
+     "periodo": "1T24"
+    },
+    {
+     "valor": 59000000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281925000085/0001692819-25-000085-index.htm",
+     "fecha_presentacion": "2025-08-08",
+     "etiqueta": "us-gaap:OtherNonoperatingIncomeExpense",
+     "periodo_fin": "2024-06-30",
+     "formulario": "10-Q",
+     "accn": "0001692819-25-000085",
+     "periodo_inicio": "2024-04-01",
+     "periodo": "2T24"
+    },
+    {
+     "valor": -5000000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281925000035/0001692819-25-000035-index.htm",
+     "fecha_presentacion": "2025-05-08",
+     "etiqueta": "us-gaap:OtherNonoperatingIncomeExpense",
+     "periodo_fin": "2025-03-31",
+     "formulario": "10-Q",
+     "accn": "0001692819-25-000035",
+     "periodo_inicio": "2025-01-01",
+     "periodo": "1T25"
+    },
+    {
+     "valor": 191000000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
+     "fecha_presentacion": "2026-08-10",
+     "etiqueta": "us-gaap:OtherNonoperatingIncomeExpense",
+     "periodo_fin": "2025-06-30",
+     "formulario": "10-Q",
+     "accn": "0001692819-26-000019",
+     "periodo_inicio": "2025-04-01",
+     "periodo": "2T25"
+    },
+    {
+     "valor": 186000000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
+     "fecha_presentacion": "2026-08-10",
+     "etiqueta": "us-gaap:OtherNonoperatingIncomeExpense",
+     "periodo_fin": "2026-06-30",
+     "formulario": "10-Q",
+     "accn": "0001692819-26-000019",
+     "periodo_inicio": "2026-04-01",
+     "periodo": "2T26"
+    }
+   ],
+   "ttm": null,
+   "etiquetas_usadas": [
+    "us-gaap:OtherNonoperatingIncomeExpense"
+   ]
+  },
+  "ganancias_inversiones": {
+   "nombre": "Ganancias (pérdidas) en participaciones",
+   "unidad": "USD",
+   "anual": [],
+   "trimestral": [],
+   "ttm": null,
+   "etiquetas_usadas": []
+  },
   "coste_ventas": {
    "nombre": "Coste de ventas",
    "unidad": "USD",
@@ -8717,6 +8796,2084 @@
    "RepaymentsOfLinesOfCredit": 1
   }
  },
+ "segmentos": {
+  "version": 2,
+  "informes_accn": [
+   "0001692819-26-000019",
+   "0001692819-26-000014",
+   "0001692819-26-000006"
+  ],
+  "segmento": [
+   {
+    "miembro": "vistra:RetailSegmentMember",
+    "nombre": "Retail Segment",
+    "ajuste": false,
+    "trimestral": [
+     {
+      "periodo": "1T25",
+      "periodo_inicio": "2025-01-01",
+      "periodo_fin": "2025-03-31",
+      "valor": 3025000000.0
+     },
+     {
+      "periodo": "2T25",
+      "periodo_inicio": "2025-04-01",
+      "periodo_fin": "2025-06-30",
+      "valor": 2999000000.0
+     },
+     {
+      "periodo": "1T26",
+      "periodo_inicio": "2026-01-01",
+      "periodo_fin": "2026-03-31",
+      "valor": 3153000000.0
+     },
+     {
+      "periodo": "2T26",
+      "periodo_inicio": "2026-04-01",
+      "periodo_fin": "2026-06-30",
+      "valor": 3344000000.0
+     }
+    ],
+    "anual": [
+     {
+      "periodo": "2023",
+      "periodo_inicio": "2023-01-01",
+      "periodo_fin": "2023-12-31",
+      "valor": 9316000000.0
+     },
+     {
+      "periodo": "2024",
+      "periodo_inicio": "2024-01-01",
+      "periodo_fin": "2024-12-31",
+      "valor": 11659000000.0
+     },
+     {
+      "periodo": "2025",
+      "periodo_inicio": "2025-01-01",
+      "periodo_fin": "2025-12-31",
+      "valor": 13025000000.0
+     }
+    ],
+    "operativo_trimestral": [],
+    "operativo_anual": []
+   },
+   {
+    "miembro": "vistra:EastSegmentMember",
+    "nombre": "East Segment",
+    "ajuste": false,
+    "trimestral": [
+     {
+      "periodo": "1T25",
+      "periodo_inicio": "2025-01-01",
+      "periodo_fin": "2025-03-31",
+      "valor": 920000000.0
+     },
+     {
+      "periodo": "2T25",
+      "periodo_inicio": "2025-04-01",
+      "periodo_fin": "2025-06-30",
+      "valor": 534000000.0
+     },
+     {
+      "periodo": "1T26",
+      "periodo_inicio": "2026-01-01",
+      "periodo_fin": "2026-03-31",
+      "valor": 1435000000.0
+     },
+     {
+      "periodo": "2T26",
+      "periodo_inicio": "2026-04-01",
+      "periodo_fin": "2026-06-30",
+      "valor": 774000000.0
+     }
+    ],
+    "anual": [
+     {
+      "periodo": "2023",
+      "periodo_inicio": "2023-01-01",
+      "periodo_fin": "2023-12-31",
+      "valor": 2193000000.0
+     },
+     {
+      "periodo": "2024",
+      "periodo_inicio": "2024-01-01",
+      "periodo_fin": "2024-12-31",
+      "valor": 1823000000.0
+     },
+     {
+      "periodo": "2025",
+      "periodo_inicio": "2025-01-01",
+      "periodo_fin": "2025-12-31",
+      "valor": 3311000000.0
+     }
+    ],
+    "operativo_trimestral": [],
+    "operativo_anual": []
+   },
+   {
+    "miembro": "vistra:TexasSegmentMember",
+    "nombre": "Texas Segment",
+    "ajuste": false,
+    "trimestral": [
+     {
+      "periodo": "1T25",
+      "periodo_inicio": "2025-01-01",
+      "periodo_fin": "2025-03-31",
+      "valor": 207000000.0
+     },
+     {
+      "periodo": "2T25",
+      "periodo_inicio": "2025-04-01",
+      "periodo_fin": "2025-06-30",
+      "valor": 150000000.0
+     },
+     {
+      "periodo": "1T26",
+      "periodo_inicio": "2026-01-01",
+      "periodo_fin": "2026-03-31",
+      "valor": 341000000.0
+     },
+     {
+      "periodo": "2T26",
+      "periodo_inicio": "2026-04-01",
+      "periodo_fin": "2026-06-30",
+      "valor": 203000000.0
+     }
+    ],
+    "anual": [
+     {
+      "periodo": "2023",
+      "periodo_inicio": "2023-01-01",
+      "periodo_fin": "2023-12-31",
+      "valor": 1695000000.0
+     },
+     {
+      "periodo": "2024",
+      "periodo_inicio": "2024-01-01",
+      "periodo_fin": "2024-12-31",
+      "valor": 821000000.0
+     },
+     {
+      "periodo": "2025",
+      "periodo_inicio": "2025-01-01",
+      "periodo_fin": "2025-12-31",
+      "valor": 918000000.0
+     }
+    ],
+    "operativo_trimestral": [],
+    "operativo_anual": []
+   },
+   {
+    "miembro": "vistra:WestSegmentMember",
+    "nombre": "West Segment",
+    "ajuste": false,
+    "trimestral": [
+     {
+      "periodo": "1T25",
+      "periodo_inicio": "2025-01-01",
+      "periodo_fin": "2025-03-31",
+      "valor": 94000000.0
+     },
+     {
+      "periodo": "2T25",
+      "periodo_inicio": "2025-04-01",
+      "periodo_fin": "2025-06-30",
+      "valor": 68000000.0
+     },
+     {
+      "periodo": "1T26",
+      "periodo_inicio": "2026-01-01",
+      "periodo_fin": "2026-03-31",
+      "valor": 71000000.0
+     },
+     {
+      "periodo": "2T26",
+      "periodo_inicio": "2026-04-01",
+      "periodo_fin": "2026-06-30",
+      "valor": 79000000.0
+     }
+    ],
+    "anual": [
+     {
+      "periodo": "2023",
+      "periodo_inicio": "2023-01-01",
+      "periodo_fin": "2023-12-31",
+      "valor": 555000000.0
+     },
+     {
+      "periodo": "2024",
+      "periodo_inicio": "2024-01-01",
+      "periodo_fin": "2024-12-31",
+      "valor": 420000000.0
+     },
+     {
+      "periodo": "2025",
+      "periodo_inicio": "2025-01-01",
+      "periodo_fin": "2025-12-31",
+      "valor": 328000000.0
+     }
+    ],
+    "operativo_trimestral": [],
+    "operativo_anual": []
+   },
+   {
+    "miembro": "vistra:AssetClosureSegmentMember",
+    "nombre": "Asset Closure Segment",
+    "ajuste": false,
+    "trimestral": [
+     {
+      "periodo": "1T25",
+      "periodo_inicio": "2025-01-01",
+      "periodo_fin": "2025-03-31",
+      "valor": 4000000.0
+     },
+     {
+      "periodo": "2T25",
+      "periodo_inicio": "2025-04-01",
+      "periodo_fin": "2025-06-30",
+      "valor": 1000000.0
+     },
+     {
+      "periodo": "1T26",
+      "periodo_inicio": "2026-01-01",
+      "periodo_fin": "2026-03-31",
+      "valor": 0.0
+     },
+     {
+      "periodo": "2T26",
+      "periodo_inicio": "2026-04-01",
+      "periodo_fin": "2026-06-30",
+      "valor": 0.0
+     }
+    ],
+    "anual": [
+     {
+      "periodo": "2023",
+      "periodo_inicio": "2023-01-01",
+      "periodo_fin": "2023-12-31",
+      "valor": 45000000.0
+     },
+     {
+      "periodo": "2024",
+      "periodo_inicio": "2024-01-01",
+      "periodo_fin": "2024-12-31",
+      "valor": 38000000.0
+     },
+     {
+      "periodo": "2025",
+      "periodo_inicio": "2025-01-01",
+      "periodo_fin": "2025-12-31",
+      "valor": 4000000.0
+     }
+    ],
+    "operativo_trimestral": [],
+    "operativo_anual": []
+   }
+  ],
+  "producto": [
+   {
+    "miembro": "vistra:RetailEnergyChargeInERCOTMember",
+    "nombre": "Retail Energy Charge In ERCOT",
+    "ajuste": false,
+    "trimestral": [
+     {
+      "periodo": "1T25",
+      "periodo_inicio": "2025-01-01",
+      "periodo_fin": "2025-03-31",
+      "valor": 1986000000.0
+     },
+     {
+      "periodo": "2T25",
+      "periodo_inicio": "2025-04-01",
+      "periodo_fin": "2025-06-30",
+      "valor": 2206000000.0
+     },
+     {
+      "periodo": "1T26",
+      "periodo_inicio": "2026-01-01",
+      "periodo_fin": "2026-03-31",
+      "valor": 1894000000.0
+     },
+     {
+      "periodo": "2T26",
+      "periodo_inicio": "2026-04-01",
+      "periodo_fin": "2026-06-30",
+      "valor": 2253000000.0
+     }
+    ],
+    "anual": [
+     {
+      "periodo": "2023",
+      "periodo_inicio": "2023-01-01",
+      "periodo_fin": "2023-12-31",
+      "valor": 7674000000.0
+     },
+     {
+      "periodo": "2024",
+      "periodo_inicio": "2024-01-01",
+      "periodo_fin": "2024-12-31",
+      "valor": 8064000000.0
+     },
+     {
+      "periodo": "2025",
+      "periodo_inicio": "2025-01-01",
+      "periodo_fin": "2025-12-31",
+      "valor": 8966000000.0
+     }
+    ],
+    "operativo_trimestral": [],
+    "operativo_anual": []
+   },
+   {
+    "miembro": "vistra:RetailEnergyChargeInNortheastMidwestMember",
+    "nombre": "Retail Energy Charge In Northeast/Midwest",
+    "ajuste": false,
+    "trimestral": [
+     {
+      "periodo": "1T25",
+      "periodo_inicio": "2025-01-01",
+      "periodo_fin": "2025-03-31",
+      "valor": 1039000000.0
+     },
+     {
+      "periodo": "2T25",
+      "periodo_inicio": "2025-04-01",
+      "periodo_fin": "2025-06-30",
+      "valor": 793000000.0
+     },
+     {
+      "periodo": "1T26",
+      "periodo_inicio": "2026-01-01",
+      "periodo_fin": "2026-03-31",
+      "valor": 1259000000.0
+     },
+     {
+      "periodo": "2T26",
+      "periodo_inicio": "2026-04-01",
+      "periodo_fin": "2026-06-30",
+      "valor": 1091000000.0
+     }
+    ],
+    "anual": [
+     {
+      "periodo": "2023",
+      "periodo_inicio": "2023-01-01",
+      "periodo_fin": "2023-12-31",
+      "valor": 1642000000.0
+     },
+     {
+      "periodo": "2024",
+      "periodo_inicio": "2024-01-01",
+      "periodo_fin": "2024-12-31",
+      "valor": 3595000000.0
+     },
+     {
+      "periodo": "2025",
+      "periodo_inicio": "2025-01-01",
+      "periodo_fin": "2025-12-31",
+      "valor": 4059000000.0
+     }
+    ],
+    "operativo_trimestral": [],
+    "operativo_anual": []
+   },
+   {
+    "miembro": "vistra:WholesaleGenerationRevenueFromERCOTMember",
+    "nombre": "Wholesale Generation Revenue From ERCOT",
+    "ajuste": false,
+    "trimestral": [
+     {
+      "periodo": "1T25",
+      "periodo_inicio": "2025-01-01",
+      "periodo_fin": "2025-03-31",
+      "valor": 874000000.0
+     },
+     {
+      "periodo": "2T25",
+      "periodo_inicio": "2025-04-01",
+      "periodo_fin": "2025-06-30",
+      "valor": 474000000.0
+     },
+     {
+      "periodo": "1T26",
+      "periodo_inicio": "2026-01-01",
+      "periodo_fin": "2026-03-31",
+      "valor": 1376000000.0
+     },
+     {
+      "periodo": "2T26",
+      "periodo_inicio": "2026-04-01",
+      "periodo_fin": "2026-06-30",
+      "valor": 620000000.0
+     }
+    ],
+    "anual": [
+     {
+      "periodo": "2023",
+      "periodo_inicio": "2023-01-01",
+      "periodo_fin": "2023-12-31",
+      "valor": 2909000000.0
+     },
+     {
+      "periodo": "2024",
+      "periodo_inicio": "2024-01-01",
+      "periodo_fin": "2024-12-31",
+      "valor": 1978000000.0
+     },
+     {
+      "periodo": "2025",
+      "periodo_inicio": "2025-01-01",
+      "periodo_fin": "2025-12-31",
+      "valor": 3188000000.0
+     }
+    ],
+    "operativo_trimestral": [],
+    "operativo_anual": []
+   },
+   {
+    "miembro": "vistra:RevenueFromOtherWholesaleContractsMember",
+    "nombre": "Revenue From Other Wholesale Contracts",
+    "ajuste": false,
+    "trimestral": [
+     {
+      "periodo": "1T25",
+      "periodo_inicio": "2025-01-01",
+      "periodo_fin": "2025-03-31",
+      "valor": 331000000.0
+     },
+     {
+      "periodo": "2T25",
+      "periodo_inicio": "2025-04-01",
+      "periodo_fin": "2025-06-30",
+      "valor": 250000000.0
+     },
+     {
+      "periodo": "1T26",
+      "periodo_inicio": "2026-01-01",
+      "periodo_fin": "2026-03-31",
+      "valor": 350000000.0
+     },
+     {
+      "periodo": "2T26",
+      "periodo_inicio": "2026-04-01",
+      "periodo_fin": "2026-06-30",
+      "valor": 303000000.0
+     }
+    ],
+    "anual": [
+     {
+      "periodo": "2023",
+      "periodo_inicio": "2023-01-01",
+      "periodo_fin": "2023-12-31",
+      "valor": 1481000000.0
+     },
+     {
+      "periodo": "2024",
+      "periodo_inicio": "2024-01-01",
+      "periodo_fin": "2024-12-31",
+      "valor": 1050000000.0
+     },
+     {
+      "periodo": "2025",
+      "periodo_inicio": "2025-01-01",
+      "periodo_fin": "2025-12-31",
+      "valor": 1146000000.0
+     }
+    ],
+    "operativo_trimestral": [],
+    "operativo_anual": []
+   },
+   {
+    "miembro": "vistra:TransferableNuclearProductionTaxCreditRevenuesMember",
+    "nombre": "Transferable Nuclear Production Tax Credit Revenues",
+    "ajuste": false,
+    "trimestral": [],
+    "anual": [
+     {
+      "periodo": "2024",
+      "periodo_inicio": "2024-01-01",
+      "periodo_fin": "2024-12-31",
+      "valor": 545000000.0
+     },
+     {
+      "periodo": "2025",
+      "periodo_inicio": "2025-01-01",
+      "periodo_fin": "2025-12-31",
+      "valor": 220000000.0
+     }
+    ],
+    "operativo_trimestral": [],
+    "operativo_anual": []
+   },
+   {
+    "miembro": "vistra:HedgingRevenueRealizedMember",
+    "nombre": "Hedging Revenue, Realized",
+    "ajuste": true,
+    "trimestral": [
+     {
+      "periodo": "1T25",
+      "periodo_inicio": "2025-01-01",
+      "periodo_fin": "2025-03-31",
+      "valor": 195000000.0
+     },
+     {
+      "periodo": "2T25",
+      "periodo_inicio": "2025-04-01",
+      "periodo_fin": "2025-06-30",
+      "valor": 427000000.0
+     },
+     {
+      "periodo": "1T26",
+      "periodo_inicio": "2026-01-01",
+      "periodo_fin": "2026-03-31",
+      "valor": -3000000.0
+     },
+     {
+      "periodo": "2T26",
+      "periodo_inicio": "2026-04-01",
+      "periodo_fin": "2026-06-30",
+      "valor": 154000000.0
+     }
+    ],
+    "anual": [
+     {
+      "periodo": "2023",
+      "periodo_inicio": "2023-01-01",
+      "periodo_fin": "2023-12-31",
+      "valor": 252000000.0
+     },
+     {
+      "periodo": "2024",
+      "periodo_inicio": "2024-01-01",
+      "periodo_fin": "2024-12-31",
+      "valor": 895000000.0
+     },
+     {
+      "periodo": "2025",
+      "periodo_inicio": "2025-01-01",
+      "periodo_fin": "2025-12-31",
+      "valor": 583000000.0
+     }
+    ],
+    "operativo_trimestral": [],
+    "operativo_anual": []
+   },
+   {
+    "miembro": "vistra:CapacityRevenueMember",
+    "nombre": "Capacity Revenue",
+    "ajuste": false,
+    "trimestral": [
+     {
+      "periodo": "1T25",
+      "periodo_inicio": "2025-01-01",
+      "periodo_fin": "2025-03-31",
+      "valor": 20000000.0
+     },
+     {
+      "periodo": "2T25",
+      "periodo_inicio": "2025-04-01",
+      "periodo_fin": "2025-06-30",
+      "valor": 30000000.0
+     },
+     {
+      "periodo": "1T26",
+      "periodo_inicio": "2026-01-01",
+      "periodo_fin": "2026-03-31",
+      "valor": 122000000.0
+     },
+     {
+      "periodo": "2T26",
+      "periodo_inicio": "2026-04-01",
+      "periodo_fin": "2026-06-30",
+      "valor": 134000000.0
+     }
+    ],
+    "anual": [
+     {
+      "periodo": "2023",
+      "periodo_inicio": "2023-01-01",
+      "periodo_fin": "2023-12-31",
+      "valor": 98000000.0
+     },
+     {
+      "periodo": "2024",
+      "periodo_inicio": "2024-01-01",
+      "periodo_fin": "2024-12-31",
+      "valor": 74000000.0
+     },
+     {
+      "periodo": "2025",
+      "periodo_inicio": "2025-01-01",
+      "periodo_fin": "2025-12-31",
+      "valor": 227000000.0
+     }
+    ],
+    "operativo_trimestral": [],
+    "operativo_anual": []
+   },
+   {
+    "miembro": "vistra:BusinessInterruptionInsuranceProceedsMember",
+    "nombre": "Business Interruption Insurance Proceeds",
+    "ajuste": false,
+    "trimestral": [
+     {
+      "periodo": "2T25",
+      "periodo_inicio": "2025-04-01",
+      "periodo_fin": "2025-06-30",
+      "valor": 21000000.0
+     },
+     {
+      "periodo": "1T26",
+      "periodo_inicio": "2026-01-01",
+      "periodo_fin": "2026-03-31",
+      "valor": 6000000.0
+     },
+     {
+      "periodo": "2T26",
+      "periodo_inicio": "2026-04-01",
+      "periodo_fin": "2026-06-30",
+      "valor": 22000000.0
+     }
+    ],
+    "anual": [
+     {
+      "periodo": "2025",
+      "periodo_inicio": "2025-01-01",
+      "periodo_fin": "2025-12-31",
+      "valor": 118000000.0
+     }
+    ],
+    "operativo_trimestral": [],
+    "operativo_anual": []
+   },
+   {
+    "miembro": "vistra:TransferableProductionTaxCreditRevenuesMember",
+    "nombre": "Transferable Production Tax Credit Revenues",
+    "ajuste": false,
+    "trimestral": [
+     {
+      "periodo": "1T25",
+      "periodo_inicio": "2025-01-01",
+      "periodo_fin": "2025-03-31",
+      "valor": 2000000.0
+     },
+     {
+      "periodo": "2T25",
+      "periodo_inicio": "2025-04-01",
+      "periodo_fin": "2025-06-30",
+      "valor": 4000000.0
+     },
+     {
+      "periodo": "1T26",
+      "periodo_inicio": "2026-01-01",
+      "periodo_fin": "2026-03-31",
+      "valor": 2000000.0
+     },
+     {
+      "periodo": "2T26",
+      "periodo_inicio": "2026-04-01",
+      "periodo_fin": "2026-06-30",
+      "valor": 3000000.0
+     }
+    ],
+    "anual": [
+     {
+      "periodo": "2023",
+      "periodo_inicio": "2023-01-01",
+      "periodo_fin": "2023-12-31",
+      "valor": 10000000.0
+     },
+     {
+      "periodo": "2024",
+      "periodo_inicio": "2024-01-01",
+      "periodo_fin": "2024-12-31",
+      "valor": 556000000.0
+     },
+     {
+      "periodo": "2025",
+      "periodo_inicio": "2025-01-01",
+      "periodo_fin": "2025-12-31",
+      "valor": 229000000.0
+     }
+    ],
+    "operativo_trimestral": [],
+    "operativo_anual": []
+   },
+   {
+    "miembro": "vistra:IntersegmentSalesMember",
+    "nombre": "Intersegment Sales",
+    "ajuste": true,
+    "trimestral": [
+     {
+      "periodo": "1T25",
+      "periodo_inicio": "2025-01-01",
+      "periodo_fin": "2025-03-31",
+      "valor": 0.0
+     },
+     {
+      "periodo": "2T25",
+      "periodo_inicio": "2025-04-01",
+      "periodo_fin": "2025-06-30",
+      "valor": 0.0
+     },
+     {
+      "periodo": "1T26",
+      "periodo_inicio": "2026-01-01",
+      "periodo_fin": "2026-03-31",
+      "valor": 0.0
+     },
+     {
+      "periodo": "2T26",
+      "periodo_inicio": "2026-04-01",
+      "periodo_fin": "2026-06-30",
+      "valor": 0.0
+     }
+    ],
+    "anual": [
+     {
+      "periodo": "2023",
+      "periodo_inicio": "2023-01-01",
+      "periodo_fin": "2023-12-31",
+      "valor": 0.0
+     },
+     {
+      "periodo": "2024",
+      "periodo_inicio": "2024-01-01",
+      "periodo_fin": "2024-12-31",
+      "valor": 0.0
+     },
+     {
+      "periodo": "2025",
+      "periodo_inicio": "2025-01-01",
+      "periodo_fin": "2025-12-31",
+      "valor": 0.0
+     }
+    ],
+    "operativo_trimestral": [],
+    "operativo_anual": []
+   },
+   {
+    "miembro": "vistra:IntersegmentSalesUnrealizedMember",
+    "nombre": "Intersegment Sales Unrealized",
+    "ajuste": true,
+    "trimestral": [
+     {
+      "periodo": "1T25",
+      "periodo_inicio": "2025-01-01",
+      "periodo_fin": "2025-03-31",
+      "valor": 0.0
+     },
+     {
+      "periodo": "2T25",
+      "periodo_inicio": "2025-04-01",
+      "periodo_fin": "2025-06-30",
+      "valor": 0.0
+     },
+     {
+      "periodo": "1T26",
+      "periodo_inicio": "2026-01-01",
+      "periodo_fin": "2026-03-31",
+      "valor": 0.0
+     },
+     {
+      "periodo": "2T26",
+      "periodo_inicio": "2026-04-01",
+      "periodo_fin": "2026-06-30",
+      "valor": 0.0
+     }
+    ],
+    "anual": [],
+    "operativo_trimestral": [],
+    "operativo_anual": []
+   },
+   {
+    "miembro": "vistra:IntangibleAmortizationAndOtherRevenuesMember",
+    "nombre": "Intangible Amortization And Other Revenues",
+    "ajuste": false,
+    "trimestral": [
+     {
+      "periodo": "1T25",
+      "periodo_inicio": "2025-01-01",
+      "periodo_fin": "2025-03-31",
+      "valor": -1000000.0
+     },
+     {
+      "periodo": "2T25",
+      "periodo_inicio": "2025-04-01",
+      "periodo_fin": "2025-06-30",
+      "valor": -5000000.0
+     },
+     {
+      "periodo": "1T26",
+      "periodo_inicio": "2026-01-01",
+      "periodo_fin": "2026-03-31",
+      "valor": -2000000.0
+     },
+     {
+      "periodo": "2T26",
+      "periodo_inicio": "2026-04-01",
+      "periodo_fin": "2026-06-30",
+      "valor": -1000000.0
+     }
+    ],
+    "anual": [
+     {
+      "periodo": "2023",
+      "periodo_inicio": "2023-01-01",
+      "periodo_fin": "2023-12-31",
+      "valor": -1000000.0
+     },
+     {
+      "periodo": "2024",
+      "periodo_inicio": "2024-01-01",
+      "periodo_fin": "2024-12-31",
+      "valor": -1000000.0
+     },
+     {
+      "periodo": "2025",
+      "periodo_inicio": "2025-01-01",
+      "periodo_fin": "2025-12-31",
+      "valor": -12000000.0
+     }
+    ],
+    "operativo_trimestral": [],
+    "operativo_anual": []
+   },
+   {
+    "miembro": "vistra:TotalOtherRevenuesMember",
+    "nombre": "Total Other Revenues",
+    "ajuste": false,
+    "trimestral": [
+     {
+      "periodo": "1T25",
+      "periodo_inicio": "2025-01-01",
+      "periodo_fin": "2025-03-31",
+      "valor": -317000000.0
+     },
+     {
+      "periodo": "2T25",
+      "periodo_inicio": "2025-04-01",
+      "periodo_fin": "2025-06-30",
+      "valor": 497000000.0
+     },
+     {
+      "periodo": "1T26",
+      "periodo_inicio": "2026-01-01",
+      "periodo_fin": "2026-03-31",
+      "valor": 639000000.0
+     },
+     {
+      "periodo": "2T26",
+      "periodo_inicio": "2026-04-01",
+      "periodo_fin": "2026-06-30",
+      "valor": -384000000.0
+     }
+    ],
+    "anual": [
+     {
+      "periodo": "2023",
+      "periodo_inicio": "2023-01-01",
+      "periodo_fin": "2023-12-31",
+      "valor": 975000000.0
+     },
+     {
+      "periodo": "2024",
+      "periodo_inicio": "2024-01-01",
+      "periodo_fin": "2024-12-31",
+      "valor": 2463000000.0
+     },
+     {
+      "periodo": "2025",
+      "periodo_inicio": "2025-01-01",
+      "periodo_fin": "2025-12-31",
+      "valor": 152000000.0
+     }
+    ],
+    "operativo_trimestral": [],
+    "operativo_anual": []
+   },
+   {
+    "miembro": "vistra:HedgingAndOtherRevenuesMember",
+    "nombre": "Hedging And Other Revenues",
+    "ajuste": true,
+    "trimestral": [
+     {
+      "periodo": "1T25",
+      "periodo_inicio": "2025-01-01",
+      "periodo_fin": "2025-03-31",
+      "valor": -513000000.0
+     },
+     {
+      "periodo": "2T25",
+      "periodo_inicio": "2025-04-01",
+      "periodo_fin": "2025-06-30",
+      "valor": 50000000.0
+     },
+     {
+      "periodo": "1T26",
+      "periodo_inicio": "2026-01-01",
+      "periodo_fin": "2026-03-31",
+      "valor": 636000000.0
+     },
+     {
+      "periodo": "2T26",
+      "periodo_inicio": "2026-04-01",
+      "periodo_fin": "2026-06-30",
+      "valor": -562000000.0
+     }
+    ],
+    "anual": [
+     {
+      "periodo": "2023",
+      "periodo_inicio": "2023-01-01",
+      "periodo_fin": "2023-12-31",
+      "valor": 714000000.0
+     },
+     {
+      "periodo": "2024",
+      "periodo_inicio": "2024-01-01",
+      "periodo_fin": "2024-12-31",
+      "valor": 1013000000.0
+     },
+     {
+      "periodo": "2025",
+      "periodo_inicio": "2025-01-01",
+      "periodo_fin": "2025-12-31",
+      "valor": -766000000.0
+     }
+    ],
+    "operativo_trimestral": [],
+    "operativo_anual": []
+   }
+  ],
+  "informes": [
+   {
+    "formulario": "10-K",
+    "fecha_presentacion": "2026-02-27",
+    "fecha_periodo": "2025-12-31",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000006/0001692819-26-000006-index.htm",
+    "fuente": "SEC EDGAR · 10-K (XBRL)"
+   },
+   {
+    "formulario": "10-Q",
+    "fecha_presentacion": "2026-05-08",
+    "fecha_periodo": "2026-03-31",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000014/0001692819-26-000014-index.htm",
+    "fuente": "SEC EDGAR · 10-Q (XBRL)"
+   },
+   {
+    "formulario": "10-Q",
+    "fecha_presentacion": "2026-08-10",
+    "fecha_periodo": "2026-06-30",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
+    "fuente": "SEC EDGAR · 10-Q (XBRL)"
+   }
+  ],
+  "fuente": "SEC EDGAR · XBRL completo (dimensiones de segmento y producto)"
+ },
+ "directivos": {
+  "version": 1,
+  "fuente": "SEC EDGAR · formularios 4",
+  "resumen": {
+   "compras_mercado": 1173069.25,
+   "ventas_mercado": 25878802.75,
+   "n_compras": 3,
+   "n_ventas": 14,
+   "ventas_con_plan": 24318002.75,
+   "compradores": [
+    "BURKE JAMES A"
+   ],
+   "desde": "2026-05-01"
+  },
+  "operaciones": [
+   {
+    "fecha": "2026-10-07",
+    "codigo": "S",
+    "tipo": "Venta en mercado",
+    "acciones": 20000.0,
+    "precio": 165.0,
+    "importe": 3300000.0,
+    "sentido": "venta",
+    "tras_operacion": 179044.0,
+    "clase": "Common Stock",
+    "persona": "Moldovan Kristopher E.",
+    "cargo": "EVP and CFO",
+    "plan_10b5_1": true,
+    "fecha_presentacion": "2026-10-08",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000194049426000008/0001940494-26-000008-index.htm"
+   },
+   {
+    "fecha": "2026-10-06",
+    "codigo": "S",
+    "tipo": "Venta en mercado",
+    "acciones": 22222.0,
+    "precio": 160.14,
+    "importe": 3558631.08,
+    "sentido": "venta",
+    "tras_operacion": 308915.0,
+    "clase": "Common Stock",
+    "persona": "HUDSON SCOTT A",
+    "cargo": "EVP & President Vistra Retail",
+    "plan_10b5_1": true,
+    "fecha_presentacion": "2026-10-07",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000172855326000008/0001728553-26-000008-index.htm"
+   },
+   {
+    "fecha": "2026-09-08",
+    "codigo": "S",
+    "tipo": "Venta en mercado",
+    "acciones": 20000.0,
+    "precio": 151.03,
+    "importe": 3020600.0,
+    "sentido": "venta",
+    "tras_operacion": 199044.0,
+    "clase": "Common Stock",
+    "persona": "Moldovan Kristopher E.",
+    "cargo": "EVP and CFO",
+    "plan_10b5_1": true,
+    "fecha_presentacion": "2026-09-10",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000194049426000006/0001940494-26-000006-index.htm"
+   },
+   {
+    "fecha": "2026-09-08",
+    "codigo": "S",
+    "tipo": "Venta en mercado",
+    "acciones": 7777.0,
+    "precio": 150.97,
+    "importe": 1174093.69,
+    "sentido": "venta",
+    "tras_operacion": 367804.0,
+    "clase": "Common Stock",
+    "persona": "HUDSON SCOTT A",
+    "cargo": "EVP & President Vistra Retail",
+    "plan_10b5_1": true,
+    "fecha_presentacion": "2026-09-10",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000172855326000006/0001728553-26-000006-index.htm"
+   },
+   {
+    "fecha": "2026-09-08",
+    "codigo": "S",
+    "tipo": "Venta en mercado",
+    "acciones": 28826.0,
+    "precio": 151.85,
+    "importe": 4377228.1,
+    "sentido": "venta",
+    "tras_operacion": 338978.0,
+    "clase": "Common Stock",
+    "persona": "HUDSON SCOTT A",
+    "cargo": "EVP & President Vistra Retail",
+    "plan_10b5_1": true,
+    "fecha_presentacion": "2026-09-10",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000172855326000006/0001728553-26-000006-index.htm"
+   },
+   {
+    "fecha": "2026-09-08",
+    "codigo": "S",
+    "tipo": "Venta en mercado",
+    "acciones": 7841.0,
+    "precio": 152.56,
+    "importe": 1196222.96,
+    "sentido": "venta",
+    "tras_operacion": 331137.0,
+    "clase": "Common Stock",
+    "persona": "HUDSON SCOTT A",
+    "cargo": "EVP & President Vistra Retail",
+    "plan_10b5_1": true,
+    "fecha_presentacion": "2026-09-10",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000172855326000006/0001728553-26-000006-index.htm"
+   },
+   {
+    "fecha": "2026-09-01",
+    "codigo": "P",
+    "tipo": "Compra en mercado",
+    "acciones": 4465.0,
+    "precio": 135.25,
+    "importe": 603891.25,
+    "sentido": "compra",
+    "tras_operacion": 1146352.0,
+    "clase": "Common Stock",
+    "persona": "BURKE JAMES A",
+    "cargo": "Consejero, President and CEO",
+    "plan_10b5_1": false,
+    "fecha_presentacion": "2026-09-02",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000126840626000009/0001268406-26-000009-index.htm"
+   },
+   {
+    "fecha": "2026-08-31",
+    "codigo": "P",
+    "tipo": "Compra en mercado",
+    "acciones": 2200.0,
+    "precio": 135.99,
+    "importe": 299178.0,
+    "sentido": "compra",
+    "tras_operacion": 1141887.0,
+    "clase": "Common Stock",
+    "persona": "BURKE JAMES A",
+    "cargo": "Consejero, President and CEO",
+    "plan_10b5_1": false,
+    "fecha_presentacion": "2026-09-02",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000126840626000009/0001268406-26-000009-index.htm"
+   },
+   {
+    "fecha": "2026-08-24",
+    "codigo": "P",
+    "tipo": "Compra en mercado",
+    "acciones": 2000.0,
+    "precio": 135.0,
+    "importe": 270000.0,
+    "sentido": "compra",
+    "tras_operacion": 1139687.0,
+    "clase": "Common Stock",
+    "persona": "BURKE JAMES A",
+    "cargo": "Consejero, President and CEO",
+    "plan_10b5_1": false,
+    "fecha_presentacion": "2026-08-24",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000126840626000007/0001268406-26-000007-index.htm"
+   },
+   {
+    "fecha": "2026-06-18",
+    "codigo": "S",
+    "tipo": "Venta en mercado",
+    "acciones": 7500.0,
+    "precio": 165.04,
+    "importe": 1237800.0,
+    "sentido": "venta",
+    "tras_operacion": 40107.0,
+    "clase": "Common Stock",
+    "persona": "Acosta Arcilia",
+    "cargo": "Consejero",
+    "plan_10b5_1": true,
+    "fecha_presentacion": "2026-06-23",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000162903926000016/0001629039-26-000016-index.htm"
+   },
+   {
+    "fecha": "2026-06-18",
+    "codigo": "S",
+    "tipo": "Venta en mercado",
+    "acciones": 7500.0,
+    "precio": 170.0,
+    "importe": 1275000.0,
+    "sentido": "venta",
+    "tras_operacion": 32607.0,
+    "clase": "Common Stock",
+    "persona": "Acosta Arcilia",
+    "cargo": "Consejero",
+    "plan_10b5_1": true,
+    "fecha_presentacion": "2026-06-23",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000162903926000016/0001629039-26-000016-index.htm"
+   },
+   {
+    "fecha": "2026-06-18",
+    "codigo": "S",
+    "tipo": "Venta en mercado",
+    "acciones": 6500.0,
+    "precio": 170.0,
+    "importe": 1105000.0,
+    "sentido": "venta",
+    "tras_operacion": 70714.0,
+    "clase": "Common Stock",
+    "persona": "SULT JOHN R",
+    "cargo": "Consejero",
+    "plan_10b5_1": true,
+    "fecha_presentacion": "2026-06-23",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000134293226000004/0001342932-26-000004-index.htm"
+   },
+   {
+    "fecha": "2026-06-16",
+    "codigo": "S",
+    "tipo": "Venta en mercado",
+    "acciones": 25000.0,
+    "precio": 160.0,
+    "importe": 4000000.0,
+    "sentido": "venta",
+    "tras_operacion": 232200.0,
+    "clase": "Common Stock",
+    "persona": "HELM SCOTT B",
+    "cargo": "Consejero",
+    "plan_10b5_1": true,
+    "fecha_presentacion": "2026-06-18",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000171193626000004/0001711936-26-000004-index.htm"
+   },
+   {
+    "fecha": "2026-06-15",
+    "codigo": "S",
+    "tipo": "Venta en mercado",
+    "acciones": 244.0,
+    "precio": 153.0,
+    "importe": 37332.0,
+    "sentido": "venta",
+    "tras_operacion": 53006.0,
+    "clase": "Common Stock",
+    "persona": "BARBAS PAUL M",
+    "cargo": "Consejero",
+    "plan_10b5_1": true,
+    "fecha_presentacion": "2026-06-16",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000117645326000004/0001176453-26-000004-index.htm"
+   },
+   {
+    "fecha": "2026-06-12",
+    "codigo": "S",
+    "tipo": "Venta en mercado",
+    "acciones": 244.0,
+    "precio": 147.93,
+    "importe": 36094.92,
+    "sentido": "venta",
+    "tras_operacion": 53250.0,
+    "clase": "Common Stock",
+    "persona": "BARBAS PAUL M",
+    "cargo": "Consejero",
+    "plan_10b5_1": true,
+    "fecha_presentacion": "2026-06-16",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000117645326000004/0001176453-26-000004-index.htm"
+   },
+   {
+    "fecha": "2026-06-02",
+    "codigo": "S",
+    "tipo": "Venta en mercado",
+    "acciones": 4600.0,
+    "precio": 160.0,
+    "importe": 736000.0,
+    "sentido": "venta",
+    "tras_operacion": 9760.0,
+    "clase": "Common Stock",
+    "persona": "Montemayor Margaret",
+    "cargo": "SVP, Chief Accounting Officer",
+    "plan_10b5_1": false,
+    "fecha_presentacion": "2026-06-04",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000160211426000006/0001602114-26-000006-index.htm"
+   },
+   {
+    "fecha": "2026-05-27",
+    "codigo": "S",
+    "tipo": "Venta en mercado",
+    "acciones": 5000.0,
+    "precio": 164.96,
+    "importe": 824800.0,
+    "sentido": "venta",
+    "tras_operacion": 14360.0,
+    "clase": "Common Stock",
+    "persona": "Montemayor Margaret",
+    "cargo": "SVP, Chief Accounting Officer",
+    "plan_10b5_1": false,
+    "fecha_presentacion": "2026-05-29",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000160211426000004/0001602114-26-000004-index.htm"
+   },
+   {
+    "fecha": "2026-05-15",
+    "codigo": "A",
+    "tipo": "Concesión (sueldo en acciones)",
+    "acciones": 1268.0,
+    "precio": 0.0,
+    "importe": null,
+    "sentido": "compra",
+    "tras_operacion": 2431.0,
+    "clase": "Common Stock",
+    "persona": "Walters Robert Charles",
+    "cargo": "Consejero",
+    "plan_10b5_1": false,
+    "fecha_presentacion": "2026-05-19",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000205144726000002/0002051447-26-000002-index.htm"
+   },
+   {
+    "fecha": "2026-05-15",
+    "codigo": "A",
+    "tipo": "Concesión (sueldo en acciones)",
+    "acciones": 1268.0,
+    "precio": 0.0,
+    "importe": null,
+    "sentido": "compra",
+    "tras_operacion": 5898.0,
+    "clase": "Common Stock",
+    "persona": "Pitesa John William",
+    "cargo": "Consejero",
+    "plan_10b5_1": false,
+    "fecha_presentacion": "2026-05-19",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000201579526000002/0002015795-26-000002-index.htm"
+   },
+   {
+    "fecha": "2026-05-15",
+    "codigo": "A",
+    "tipo": "Concesión (sueldo en acciones)",
+    "acciones": 1268.0,
+    "precio": 0.0,
+    "importe": null,
+    "sentido": "compra",
+    "tras_operacion": 21321.0,
+    "clase": "Common Stock",
+    "persona": "Lagacy Julie A.",
+    "cargo": "Consejero",
+    "plan_10b5_1": false,
+    "fecha_presentacion": "2026-05-19",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000171256726000002/0001712567-26-000002-index.htm"
+   },
+   {
+    "fecha": "2026-05-15",
+    "codigo": "A",
+    "tipo": "Concesión (sueldo en acciones)",
+    "acciones": 2008.0,
+    "precio": 0.0,
+    "importe": null,
+    "sentido": "compra",
+    "tras_operacion": 257200.0,
+    "clase": "Common Stock",
+    "persona": "HELM SCOTT B",
+    "cargo": "Consejero",
+    "plan_10b5_1": false,
+    "fecha_presentacion": "2026-05-19",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000171193626000002/0001711936-26-000002-index.htm"
+   },
+   {
+    "fecha": "2026-05-15",
+    "codigo": "A",
+    "tipo": "Concesión (sueldo en acciones)",
+    "acciones": 1268.0,
+    "precio": 0.0,
+    "importe": null,
+    "sentido": "compra",
+    "tras_operacion": 47607.0,
+    "clase": "Common Stock",
+    "persona": "Acosta Arcilia",
+    "cargo": "Consejero",
+    "plan_10b5_1": false,
+    "fecha_presentacion": "2026-05-19",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000162903926000010/0001629039-26-000010-index.htm"
+   },
+   {
+    "fecha": "2026-05-15",
+    "codigo": "A",
+    "tipo": "Concesión (sueldo en acciones)",
+    "acciones": 1268.0,
+    "precio": 0.0,
+    "importe": null,
+    "sentido": "compra",
+    "tras_operacion": 51641.0,
+    "clase": "Common Stock",
+    "persona": "Baiera Gavin R.",
+    "cargo": "Consejero",
+    "plan_10b5_1": false,
+    "fecha_presentacion": "2026-05-19",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000160561626000002/0001605616-26-000002-index.htm"
+   },
+   {
+    "fecha": "2026-05-15",
+    "codigo": "A",
+    "tipo": "Concesión (sueldo en acciones)",
+    "acciones": 1268.0,
+    "precio": 0.0,
+    "importe": null,
+    "sentido": "compra",
+    "tras_operacion": 34618.0,
+    "clase": "Common Stock",
+    "persona": "Crutchfield Lisa",
+    "cargo": "Consejero",
+    "plan_10b5_1": false,
+    "fecha_presentacion": "2026-05-19",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000156467526000002/0001564675-26-000002-index.htm"
+   },
+   {
+    "fecha": "2026-05-15",
+    "codigo": "A",
+    "tipo": "Concesión (sueldo en acciones)",
+    "acciones": 1268.0,
+    "precio": 0.0,
+    "importe": null,
+    "sentido": "compra",
+    "tras_operacion": 68852.0,
+    "clase": "Common Stock",
+    "persona": "Ackermann Hilary E.",
+    "cargo": "Consejero",
+    "plan_10b5_1": false,
+    "fecha_presentacion": "2026-05-19",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000155858226000002/0001558582-26-000002-index.htm"
+   },
+   {
+    "fecha": "2026-05-15",
+    "codigo": "A",
+    "tipo": "Concesión (sueldo en acciones)",
+    "acciones": 1268.0,
+    "precio": 0.0,
+    "importe": null,
+    "sentido": "compra",
+    "tras_operacion": 77214.0,
+    "clase": "Common Stock",
+    "persona": "SULT JOHN R",
+    "cargo": "Consejero",
+    "plan_10b5_1": false,
+    "fecha_presentacion": "2026-05-19",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000134293226000002/0001342932-26-000002-index.htm"
+   },
+   {
+    "fecha": "2026-05-15",
+    "codigo": "A",
+    "tipo": "Concesión (sueldo en acciones)",
+    "acciones": 1268.0,
+    "precio": 0.0,
+    "importe": null,
+    "sentido": "compra",
+    "tras_operacion": 53494.0,
+    "clase": "Common Stock",
+    "persona": "BARBAS PAUL M",
+    "cargo": "Consejero",
+    "plan_10b5_1": false,
+    "fecha_presentacion": "2026-05-19",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000117645326000002/0001176453-26-000002-index.htm"
+   }
+  ],
+  "operaciones_por_filing": [
+   {
+    "accn": "0001940494-26-000008",
+    "fecha_presentacion": "2026-10-08",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000194049426000008/0001940494-26-000008-index.htm",
+    "personas": [
+     {
+      "nombre": "Moldovan Kristopher E.",
+      "cargo": "EVP and CFO"
+     }
+    ],
+    "plan_10b5_1": true,
+    "operaciones": [
+     {
+      "fecha": "2026-10-07",
+      "codigo": "S",
+      "tipo": "Venta en mercado",
+      "acciones": 20000.0,
+      "precio": 165.0,
+      "importe": 3300000.0,
+      "sentido": "venta",
+      "tras_operacion": 179044.0,
+      "clase": "Common Stock"
+     }
+    ]
+   },
+   {
+    "accn": "0001728553-26-000008",
+    "fecha_presentacion": "2026-10-07",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000172855326000008/0001728553-26-000008-index.htm",
+    "personas": [
+     {
+      "nombre": "HUDSON SCOTT A",
+      "cargo": "EVP & President Vistra Retail"
+     }
+    ],
+    "plan_10b5_1": true,
+    "operaciones": [
+     {
+      "fecha": "2026-10-06",
+      "codigo": "S",
+      "tipo": "Venta en mercado",
+      "acciones": 22222.0,
+      "precio": 160.14,
+      "importe": 3558631.08,
+      "sentido": "venta",
+      "tras_operacion": 308915.0,
+      "clase": "Common Stock"
+     }
+    ]
+   },
+   {
+    "accn": "0001940494-26-000006",
+    "fecha_presentacion": "2026-09-10",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000194049426000006/0001940494-26-000006-index.htm",
+    "personas": [
+     {
+      "nombre": "Moldovan Kristopher E.",
+      "cargo": "EVP and CFO"
+     }
+    ],
+    "plan_10b5_1": true,
+    "operaciones": [
+     {
+      "fecha": "2026-09-08",
+      "codigo": "S",
+      "tipo": "Venta en mercado",
+      "acciones": 20000.0,
+      "precio": 151.03,
+      "importe": 3020600.0,
+      "sentido": "venta",
+      "tras_operacion": 199044.0,
+      "clase": "Common Stock"
+     }
+    ]
+   },
+   {
+    "accn": "0001728553-26-000006",
+    "fecha_presentacion": "2026-09-10",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000172855326000006/0001728553-26-000006-index.htm",
+    "personas": [
+     {
+      "nombre": "HUDSON SCOTT A",
+      "cargo": "EVP & President Vistra Retail"
+     }
+    ],
+    "plan_10b5_1": true,
+    "operaciones": [
+     {
+      "fecha": "2026-09-08",
+      "codigo": "S",
+      "tipo": "Venta en mercado",
+      "acciones": 7777.0,
+      "precio": 150.97,
+      "importe": 1174093.69,
+      "sentido": "venta",
+      "tras_operacion": 367804.0,
+      "clase": "Common Stock"
+     },
+     {
+      "fecha": "2026-09-08",
+      "codigo": "S",
+      "tipo": "Venta en mercado",
+      "acciones": 28826.0,
+      "precio": 151.85,
+      "importe": 4377228.1,
+      "sentido": "venta",
+      "tras_operacion": 338978.0,
+      "clase": "Common Stock"
+     },
+     {
+      "fecha": "2026-09-08",
+      "codigo": "S",
+      "tipo": "Venta en mercado",
+      "acciones": 7841.0,
+      "precio": 152.56,
+      "importe": 1196222.96,
+      "sentido": "venta",
+      "tras_operacion": 331137.0,
+      "clase": "Common Stock"
+     }
+    ]
+   },
+   {
+    "accn": "0001268406-26-000009",
+    "fecha_presentacion": "2026-09-02",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000126840626000009/0001268406-26-000009-index.htm",
+    "personas": [
+     {
+      "nombre": "BURKE JAMES A",
+      "cargo": "Consejero, President and CEO"
+     }
+    ],
+    "plan_10b5_1": false,
+    "operaciones": [
+     {
+      "fecha": "2026-08-31",
+      "codigo": "P",
+      "tipo": "Compra en mercado",
+      "acciones": 2200.0,
+      "precio": 135.99,
+      "importe": 299178.0,
+      "sentido": "compra",
+      "tras_operacion": 1141887.0,
+      "clase": "Common Stock"
+     },
+     {
+      "fecha": "2026-09-01",
+      "codigo": "P",
+      "tipo": "Compra en mercado",
+      "acciones": 4465.0,
+      "precio": 135.25,
+      "importe": 603891.25,
+      "sentido": "compra",
+      "tras_operacion": 1146352.0,
+      "clase": "Common Stock"
+     }
+    ]
+   },
+   {
+    "accn": "0001268406-26-000007",
+    "fecha_presentacion": "2026-08-24",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000126840626000007/0001268406-26-000007-index.htm",
+    "personas": [
+     {
+      "nombre": "BURKE JAMES A",
+      "cargo": "Consejero, President and CEO"
+     }
+    ],
+    "plan_10b5_1": false,
+    "operaciones": [
+     {
+      "fecha": "2026-08-24",
+      "codigo": "P",
+      "tipo": "Compra en mercado",
+      "acciones": 2000.0,
+      "precio": 135.0,
+      "importe": 270000.0,
+      "sentido": "compra",
+      "tras_operacion": 1139687.0,
+      "clase": "Common Stock"
+     }
+    ]
+   },
+   {
+    "accn": "0001629039-26-000016",
+    "fecha_presentacion": "2026-06-23",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000162903926000016/0001629039-26-000016-index.htm",
+    "personas": [
+     {
+      "nombre": "Acosta Arcilia",
+      "cargo": "Consejero"
+     }
+    ],
+    "plan_10b5_1": true,
+    "operaciones": [
+     {
+      "fecha": "2026-06-18",
+      "codigo": "S",
+      "tipo": "Venta en mercado",
+      "acciones": 7500.0,
+      "precio": 165.04,
+      "importe": 1237800.0,
+      "sentido": "venta",
+      "tras_operacion": 40107.0,
+      "clase": "Common Stock"
+     },
+     {
+      "fecha": "2026-06-18",
+      "codigo": "S",
+      "tipo": "Venta en mercado",
+      "acciones": 7500.0,
+      "precio": 170.0,
+      "importe": 1275000.0,
+      "sentido": "venta",
+      "tras_operacion": 32607.0,
+      "clase": "Common Stock"
+     }
+    ]
+   },
+   {
+    "accn": "0001342932-26-000004",
+    "fecha_presentacion": "2026-06-23",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000134293226000004/0001342932-26-000004-index.htm",
+    "personas": [
+     {
+      "nombre": "SULT JOHN R",
+      "cargo": "Consejero"
+     }
+    ],
+    "plan_10b5_1": true,
+    "operaciones": [
+     {
+      "fecha": "2026-06-18",
+      "codigo": "S",
+      "tipo": "Venta en mercado",
+      "acciones": 6500.0,
+      "precio": 170.0,
+      "importe": 1105000.0,
+      "sentido": "venta",
+      "tras_operacion": 70714.0,
+      "clase": "Common Stock"
+     }
+    ]
+   },
+   {
+    "accn": "0001711936-26-000004",
+    "fecha_presentacion": "2026-06-18",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000171193626000004/0001711936-26-000004-index.htm",
+    "personas": [
+     {
+      "nombre": "HELM SCOTT B",
+      "cargo": "Consejero"
+     }
+    ],
+    "plan_10b5_1": true,
+    "operaciones": [
+     {
+      "fecha": "2026-06-16",
+      "codigo": "S",
+      "tipo": "Venta en mercado",
+      "acciones": 25000.0,
+      "precio": 160.0,
+      "importe": 4000000.0,
+      "sentido": "venta",
+      "tras_operacion": 232200.0,
+      "clase": "Common Stock"
+     }
+    ]
+   },
+   {
+    "accn": "0001176453-26-000004",
+    "fecha_presentacion": "2026-06-16",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000117645326000004/0001176453-26-000004-index.htm",
+    "personas": [
+     {
+      "nombre": "BARBAS PAUL M",
+      "cargo": "Consejero"
+     }
+    ],
+    "plan_10b5_1": true,
+    "operaciones": [
+     {
+      "fecha": "2026-06-12",
+      "codigo": "S",
+      "tipo": "Venta en mercado",
+      "acciones": 244.0,
+      "precio": 147.93,
+      "importe": 36094.92,
+      "sentido": "venta",
+      "tras_operacion": 53250.0,
+      "clase": "Common Stock"
+     },
+     {
+      "fecha": "2026-06-15",
+      "codigo": "S",
+      "tipo": "Venta en mercado",
+      "acciones": 244.0,
+      "precio": 153.0,
+      "importe": 37332.0,
+      "sentido": "venta",
+      "tras_operacion": 53006.0,
+      "clase": "Common Stock"
+     }
+    ]
+   },
+   {
+    "accn": "0001602114-26-000006",
+    "fecha_presentacion": "2026-06-04",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000160211426000006/0001602114-26-000006-index.htm",
+    "personas": [
+     {
+      "nombre": "Montemayor Margaret",
+      "cargo": "SVP, Chief Accounting Officer"
+     }
+    ],
+    "plan_10b5_1": false,
+    "operaciones": [
+     {
+      "fecha": "2026-06-02",
+      "codigo": "S",
+      "tipo": "Venta en mercado",
+      "acciones": 4600.0,
+      "precio": 160.0,
+      "importe": 736000.0,
+      "sentido": "venta",
+      "tras_operacion": 9760.0,
+      "clase": "Common Stock"
+     }
+    ]
+   },
+   {
+    "accn": "0001602114-26-000004",
+    "fecha_presentacion": "2026-05-29",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000160211426000004/0001602114-26-000004-index.htm",
+    "personas": [
+     {
+      "nombre": "Montemayor Margaret",
+      "cargo": "SVP, Chief Accounting Officer"
+     }
+    ],
+    "plan_10b5_1": false,
+    "operaciones": [
+     {
+      "fecha": "2026-05-27",
+      "codigo": "S",
+      "tipo": "Venta en mercado",
+      "acciones": 5000.0,
+      "precio": 164.96,
+      "importe": 824800.0,
+      "sentido": "venta",
+      "tras_operacion": 14360.0,
+      "clase": "Common Stock"
+     }
+    ]
+   },
+   {
+    "accn": "0002051447-26-000002",
+    "fecha_presentacion": "2026-05-19",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000205144726000002/0002051447-26-000002-index.htm",
+    "personas": [
+     {
+      "nombre": "Walters Robert Charles",
+      "cargo": "Consejero"
+     }
+    ],
+    "plan_10b5_1": false,
+    "operaciones": [
+     {
+      "fecha": "2026-05-15",
+      "codigo": "A",
+      "tipo": "Concesión (sueldo en acciones)",
+      "acciones": 1268.0,
+      "precio": 0.0,
+      "importe": null,
+      "sentido": "compra",
+      "tras_operacion": 2431.0,
+      "clase": "Common Stock"
+     }
+    ]
+   },
+   {
+    "accn": "0002015795-26-000002",
+    "fecha_presentacion": "2026-05-19",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000201579526000002/0002015795-26-000002-index.htm",
+    "personas": [
+     {
+      "nombre": "Pitesa John William",
+      "cargo": "Consejero"
+     }
+    ],
+    "plan_10b5_1": false,
+    "operaciones": [
+     {
+      "fecha": "2026-05-15",
+      "codigo": "A",
+      "tipo": "Concesión (sueldo en acciones)",
+      "acciones": 1268.0,
+      "precio": 0.0,
+      "importe": null,
+      "sentido": "compra",
+      "tras_operacion": 5898.0,
+      "clase": "Common Stock"
+     }
+    ]
+   },
+   {
+    "accn": "0001712567-26-000002",
+    "fecha_presentacion": "2026-05-19",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000171256726000002/0001712567-26-000002-index.htm",
+    "personas": [
+     {
+      "nombre": "Lagacy Julie A.",
+      "cargo": "Consejero"
+     }
+    ],
+    "plan_10b5_1": false,
+    "operaciones": [
+     {
+      "fecha": "2026-05-15",
+      "codigo": "A",
+      "tipo": "Concesión (sueldo en acciones)",
+      "acciones": 1268.0,
+      "precio": 0.0,
+      "importe": null,
+      "sentido": "compra",
+      "tras_operacion": 21321.0,
+      "clase": "Common Stock"
+     }
+    ]
+   },
+   {
+    "accn": "0001711936-26-000002",
+    "fecha_presentacion": "2026-05-19",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000171193626000002/0001711936-26-000002-index.htm",
+    "personas": [
+     {
+      "nombre": "HELM SCOTT B",
+      "cargo": "Consejero"
+     }
+    ],
+    "plan_10b5_1": false,
+    "operaciones": [
+     {
+      "fecha": "2026-05-15",
+      "codigo": "A",
+      "tipo": "Concesión (sueldo en acciones)",
+      "acciones": 2008.0,
+      "precio": 0.0,
+      "importe": null,
+      "sentido": "compra",
+      "tras_operacion": 257200.0,
+      "clase": "Common Stock"
+     }
+    ]
+   },
+   {
+    "accn": "0001629039-26-000010",
+    "fecha_presentacion": "2026-05-19",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000162903926000010/0001629039-26-000010-index.htm",
+    "personas": [
+     {
+      "nombre": "Acosta Arcilia",
+      "cargo": "Consejero"
+     }
+    ],
+    "plan_10b5_1": false,
+    "operaciones": [
+     {
+      "fecha": "2026-05-15",
+      "codigo": "A",
+      "tipo": "Concesión (sueldo en acciones)",
+      "acciones": 1268.0,
+      "precio": 0.0,
+      "importe": null,
+      "sentido": "compra",
+      "tras_operacion": 47607.0,
+      "clase": "Common Stock"
+     }
+    ]
+   },
+   {
+    "accn": "0001605616-26-000002",
+    "fecha_presentacion": "2026-05-19",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000160561626000002/0001605616-26-000002-index.htm",
+    "personas": [
+     {
+      "nombre": "Baiera Gavin R.",
+      "cargo": "Consejero"
+     }
+    ],
+    "plan_10b5_1": false,
+    "operaciones": [
+     {
+      "fecha": "2026-05-15",
+      "codigo": "A",
+      "tipo": "Concesión (sueldo en acciones)",
+      "acciones": 1268.0,
+      "precio": 0.0,
+      "importe": null,
+      "sentido": "compra",
+      "tras_operacion": 51641.0,
+      "clase": "Common Stock"
+     }
+    ]
+   },
+   {
+    "accn": "0001564675-26-000002",
+    "fecha_presentacion": "2026-05-19",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000156467526000002/0001564675-26-000002-index.htm",
+    "personas": [
+     {
+      "nombre": "Crutchfield Lisa",
+      "cargo": "Consejero"
+     }
+    ],
+    "plan_10b5_1": false,
+    "operaciones": [
+     {
+      "fecha": "2026-05-15",
+      "codigo": "A",
+      "tipo": "Concesión (sueldo en acciones)",
+      "acciones": 1268.0,
+      "precio": 0.0,
+      "importe": null,
+      "sentido": "compra",
+      "tras_operacion": 34618.0,
+      "clase": "Common Stock"
+     }
+    ]
+   },
+   {
+    "accn": "0001558582-26-000002",
+    "fecha_presentacion": "2026-05-19",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000155858226000002/0001558582-26-000002-index.htm",
+    "personas": [
+     {
+      "nombre": "Ackermann Hilary E.",
+      "cargo": "Consejero"
+     }
+    ],
+    "plan_10b5_1": false,
+    "operaciones": [
+     {
+      "fecha": "2026-05-15",
+      "codigo": "A",
+      "tipo": "Concesión (sueldo en acciones)",
+      "acciones": 1268.0,
+      "precio": 0.0,
+      "importe": null,
+      "sentido": "compra",
+      "tras_operacion": 68852.0,
+      "clase": "Common Stock"
+     }
+    ]
+   },
+   {
+    "accn": "0001342932-26-000002",
+    "fecha_presentacion": "2026-05-19",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000134293226000002/0001342932-26-000002-index.htm",
+    "personas": [
+     {
+      "nombre": "SULT JOHN R",
+      "cargo": "Consejero"
+     }
+    ],
+    "plan_10b5_1": false,
+    "operaciones": [
+     {
+      "fecha": "2026-05-15",
+      "codigo": "A",
+      "tipo": "Concesión (sueldo en acciones)",
+      "acciones": 1268.0,
+      "precio": 0.0,
+      "importe": null,
+      "sentido": "compra",
+      "tras_operacion": 77214.0,
+      "clase": "Common Stock"
+     }
+    ]
+   },
+   {
+    "accn": "0001176453-26-000002",
+    "fecha_presentacion": "2026-05-19",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000117645326000002/0001176453-26-000002-index.htm",
+    "personas": [
+     {
+      "nombre": "BARBAS PAUL M",
+      "cargo": "Consejero"
+     }
+    ],
+    "plan_10b5_1": false,
+    "operaciones": [
+     {
+      "fecha": "2026-05-15",
+      "codigo": "A",
+      "tipo": "Concesión (sueldo en acciones)",
+      "acciones": 1268.0,
+      "precio": 0.0,
+      "importe": null,
+      "sentido": "compra",
+      "tras_operacion": 53494.0,
+      "clase": "Common Stock"
+     }
+    ]
+   }
+  ],
+  "n_formularios": 22
+ },
+ "riesgos_10k": {
+  "version": 2,
+  "informes_accn": [
+   "0001692819-26-000006",
+   "0001692819-25-000013"
+  ],
+  "ok": true,
+  "informes": [
+   {
+    "formulario": "10-K",
+    "fecha_presentacion": "2026-02-27",
+    "fecha_periodo": "2025-12-31",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000006/vistra-20251231.htm",
+    "palabras": 21698,
+    "n_riesgos": 68
+   },
+   {
+    "formulario": "10-K",
+    "fecha_presentacion": "2025-02-28",
+    "fecha_periodo": "2024-12-31",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281925000013/vistra-20241231.htm",
+    "palabras": 21083,
+    "n_riesgos": 63
+   }
+  ],
+  "nuevos": [
+   "• If electricity demand does not grow at the rate expected, or if we are unable to execute on large load offtake opportunities, including under long-term power purchase or offtake agreements that we have entered into, our financial performance, growth opportunities, and stock price could be adversely impacted.",
+   "• Following completion of the Cogentrix Transactions, we may not realize the anticipated synergies and other expected benefits of the Cogentrix Transactions on the anticipated timeline or at all.",
+   "If electricity demand does not grow at the rate expected, or if we are unable to execute on large load offtake opportunities, including under long-term power purchase or offtake agreements that we have entered into, our financial performance, growth opportunities, and stock price could be adversely impacted.",
+   "• limiting our ability to adjust to changing market conditions and placing us at a competitive disadvantage compared to our competitors who may have less debt.",
+   "We may not be able to consummate the Cogentrix Transactions on the anticipated terms, on the anticipated timeline, or at all, which could adversely affect our business, financial condition, results of operation and stock price.",
+   "In connection with the Cogentrix Transactions, a portion of the consideration payable at closing consists of 5,000,000 shares of our common stock. The issuance of these shares will dilute the ownership interests of our existing stockholders. Although the issuance represents a relatively small percentage of our currently outstanding common stock, such dilution could adversely affect the market price of our common stock.",
+   "Following the completion of the Cogentrix Transactions, we may not realize the anticipated synergies and other expected benefits of the Cogentrix Transactions on the anticipated timeline or at all.",
+   "U.S. federal, state and local tax laws and regulations are extremely complex and subject to varying interpretations. Our tax positions may not be sustained if challenged by relevant tax authorities and if not sustained, there could be a material impact on our results of operations and financial condition.",
+   "• Regulatory Risk. The NRC may modify, suspend or revoke licenses and impose civil penalties for failure to comply with the Atomic Energy Act, the regulations under it or the terms of the licenses of nuclear generation facilities. Changes in regulations by the NRC could require a substantial increase in capital expenditures or result in increased operating or decommissioning costs."
+  ],
+  "eliminados": [
+   "• The agreements and instruments governing our debt, including the Vistra Operations Credit Facilities and indentures, contain restrictions and limitations that could affect our ability to operate our business, our liquidity, and our results of operations, and any failure to comply with these restrictions could have a material adverse effect on us.",
+   "A downgrade in long-term debt ratings generally causes borrowing costs to increase and the potential pool of investors to shrink and could trigger liquidity demands pursuant to contractual arrangements. Future transactions by Vistra or any of its subsidiaries, including the issuance of additional debt, could result in a temporary or permanent downgrade in our credit ratings.",
+   "U.S. federal, state and local tax laws and regulations are extremely complex and subject to varying interpretations. There can be no assurance that our tax positions will be sustained if challenged by relevant tax authorities and if not sustained, there could be a material impact on our results of operations and financial condition.",
+   "If electricity demand does not grow at the rate expected, or if we are unable to execute on large load offtake opportunities, our financial performance, growth opportunities, and stock price could be adversely impacted."
+  ],
+  "n_nuevos": 9,
+  "n_eliminados": 4,
+  "fuente": "SEC EDGAR · 10-K, Item 1A (comparación automática)"
+ },
  "precio": {
   "minimo_52s": 132.66,
   "maximo_52s": 200.73,
@@ -8771,6 +10928,138 @@
   "fuente": "Finnhub · recomendaciones de analistas",
   "url": "https://finnhub.io/docs/api/recommendation-trends"
  },
+ "resultados_previstos": {
+  "fuente": "Finnhub · calendario de resultados y sorpresas",
+  "url": "https://finnhub.io/docs/api/earnings-calendar",
+  "proximos": {
+   "fecha": "2026-11-06",
+   "hora": "antes de la apertura",
+   "trimestre": 3,
+   "anio": 2026,
+   "bpa_estimado": 2.9622,
+   "ingresos_estimados": 6758766338
+  },
+  "sorpresas": [
+   {
+    "periodo": "2025-09-30",
+    "trimestre": 3,
+    "anio": 2025,
+    "bpa_real": 1.75,
+    "bpa_estimado": 2.1248,
+    "sorpresa_pct": -17.6393
+   },
+   {
+    "periodo": "2025-12-31",
+    "trimestre": 4,
+    "anio": 2025,
+    "bpa_real": 0.54,
+    "bpa_estimado": 2.3689,
+    "sorpresa_pct": -77.2046
+   },
+   {
+    "periodo": "2026-03-31",
+    "trimestre": 1,
+    "anio": 2026,
+    "bpa_real": 2.87,
+    "bpa_estimado": 1.3526,
+    "sorpresa_pct": 112.1839
+   },
+   {
+    "periodo": "2026-06-30",
+    "trimestre": 2,
+    "anio": 2026,
+    "bpa_real": 0.76,
+    "bpa_estimado": 1.6938,
+    "sorpresa_pct": -55.1305
+   }
+  ]
+ },
+ "noticias": [
+  {
+   "titular": "Are You Overpaying For Constellation Energy Stock Versus Its Rivals?",
+   "medio": "Yahoo",
+   "url": "https://finnhub.io/api/news?id=c64a5fedc8724660469cfbf7cdc2b7c45e875702ecdec802b13cdf7943a000bb",
+   "fecha": "2026-10-31",
+   "resumen": "For questions about this article or underlying research, email help@trefis.com."
+  },
+  {
+   "titular": "Dividend Champion, Contender, And Challenger Highlights: Week November 1",
+   "medio": "SeekingAlpha",
+   "url": "https://finnhub.io/api/news?id=5d6453c7a542dfd0da7d8ced9919c6e3d89a065a4872003b12f2b24d92fd0fff",
+   "fecha": "2026-10-30",
+   "resumen": "Get a weekly dividend summary for Champions, Contenders, and Challengers."
+  },
+  {
+   "titular": "Vistra Completes Acquisition of Cogentrix Energy, Expanding Diverse Generation Fleet",
+   "medio": "Yahoo",
+   "url": "https://finnhub.io/api/news?id=9a82ce455f6b9a4242f8fa0db5bafc8d8c772f672aaa3c1e9210e4031ef6445c",
+   "fecha": "2026-10-30",
+   "resumen": "Vistra Corp. (NYSE: VST) today announced it has completed the acquisition of Cogentrix Energy, consisting of 10 modern natural gas generation facilities totaling approximately 5,500 MW of capacity, from funds managed by Quantum Capital Group. The transaction closing follows recei"
+  },
+  {
+   "titular": "VST or SO: Which Utility Stock Offers Stronger Growth Potential?",
+   "medio": "Yahoo",
+   "url": "https://finnhub.io/api/news?id=d80bee90a1340fb2bc47ccc82399bf80789615b470ba1faf46cf726c342cf50c",
+   "fecha": "2026-10-30",
+   "resumen": "Vistra offers a cheaper valuation, but The Southern Company leads in dividends, debt management, profitability and stock performance."
+  },
+  {
+   "titular": "Vistra Corp. (VST) Reports Next Week: Wall Street Expects Earnings Growth",
+   "medio": "Yahoo",
+   "url": "https://finnhub.io/api/news?id=5ebdcee8369282f61c7424a7b8ad7e7b9f4223b977cd596fa201f745ace2633d",
+   "fecha": "2026-10-30",
+   "resumen": "Vistra (VST) doesn't possess the right combination of the two key ingredients for a likely earnings beat in its upcoming report. Get prepared with the key expectations."
+  },
+  {
+   "titular": "Vistra Declares Dividend on Common Stock, Series B Preferred Stock, and Series C Preferred Stock",
+   "medio": "Yahoo",
+   "url": "https://finnhub.io/api/news?id=83a7084fdc286a37948c90dbbe5fbf6ba15f60228f66ab3e1e64d093624c4b61",
+   "fecha": "2026-10-29",
+   "resumen": "Vistra (NYSE: VST) announced today that its board of directors has declared a quarterly dividend of $0.231 per share of Vistra's common stock, reflecting an estimated aggregate payment of approximately $75 million this quarter. The common dividend is payable on Dec. 31, 2026, to "
+  },
+  {
+   "titular": "APA Gears Up to Report Q3 Earnings: Here's How It Will Fare",
+   "medio": "Yahoo",
+   "url": "https://finnhub.io/api/news?id=2c16b750a53dd9f651d0e76575352cc9e8a3c33ede11163febb7233f6dd9139b",
+   "fecha": "2026-10-29",
+   "resumen": "APA Corporation is set to report Q3 2026 results, with higher oil prices potentially boosting revenues, while rising operating expenses could pressure earnings."
+  },
+  {
+   "titular": "This Under-the-Radar Utility Just Signed a Massive Data Center Deal Without Anyone Noticing",
+   "medio": "Yahoo",
+   "url": "https://finnhub.io/api/news?id=1b6e0d5216c5363381a2480773752efef47ebcd1576d677b890dac097e40238a",
+   "fecha": "2026-10-29",
+   "resumen": "If you look beyond the biggest names in the business, you'll find smaller players are cashing in on the AI revolution just as well."
+  },
+  {
+   "titular": "Energy Transition Today - Nautilus Solar Celebrates 20 Years Advancing US Renewable Energy",
+   "medio": "Yahoo",
+   "url": "https://finnhub.io/api/news?id=316873f0e6b521479e57824a878a76499331b9b0b1dde5aead77b848bc843ce9",
+   "fecha": "2026-10-29",
+   "resumen": "Nautilus Solar Energy recently celebrated its 20th anniversary, marking a significant milestone in its contributions to the U.S. renewable energy sector. Over the past two decades, the company has evolved from an early leader in distributed generation to one of the largest operat"
+  },
+  {
+   "titular": "Can Vistra Stock Rally 50% After This Dip?",
+   "medio": "Yahoo",
+   "url": "https://finnhub.io/api/news?id=3631f0a283df585028cf280d3d5378631134f623c04f260b5d65c5bb5b579b5c",
+   "fecha": "2026-10-29",
+   "resumen": "For questions about this article or underlying research, email help@trefis.com."
+  },
+  {
+   "titular": "Nuclear Power Is Back, But Only a Few Stocks Have Customers Signed",
+   "medio": "Yahoo",
+   "url": "https://finnhub.io/api/news?id=f28a1555764c80961c3c484bbaba68869c791bdecc50c4d11af62bdfd0f60998",
+   "fecha": "2026-10-29",
+   "resumen": "Eight nuclear stocks are in the spotlight, but contracts, licenses, and valuations separate established suppliers from early-stage developers."
+  },
+  {
+   "titular": "Is Vistra Stock Engineered To Make You Money?",
+   "medio": "Yahoo",
+   "url": "https://finnhub.io/api/news?id=70c7f5e3e6098c4479ef02df44e1b36d8ffad7cb6132b3675d3e326311c66418",
+   "fecha": "2026-10-29",
+   "resumen": "For questions about this article or underlying research, email help@trefis.com."
+  }
+ ],
  "historico_precio": {
   "serie": [
    [
@@ -14059,7 +16348,7 @@
   "fecha": "2026-10-30",
   "ajuste": "splits"
  },
- "generado": "2026-10-31T20:40:29+00:00",
+ "generado": "2026-10-31T21:20:54+00:00",
  "perfil": {
   "industria": "Utilities",
   "web": "https://www.vistracorp.com/",
