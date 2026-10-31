@@ -6,6 +6,7 @@ from datetime import datetime, timezone
 from . import concepts as C
 from . import extract as X
 from . import filings as F
+from . import bonds as BONDS
 from . import validate as V
 
 ESQUEMA = 1
@@ -111,13 +112,19 @@ def build_from_sec(company, cf, subs):
     return rec
 
 
-def build_company(client, company, price_provider, price_warning=None):
+def build_company(client, company, price_provider, price_warning=None, previous=None):
     cik = company["cik"]
     cf = client.companyfacts(cik)
     subs = client.submissions(cik)
     rec = build_from_sec(company, cf, subs)
     if rec.get("ultimo_8k_resultados"):
         F.attach_exhibit(client, rec["ultimo_8k_resultados"])
+    rec["bonos"] = None
+    if rec.get("soportada") and subs:
+        try:
+            rec["bonos"] = BONDS.build(client, company["cik"], subs, (previous or {}).get("bonos"))
+        except Exception as e:  # noqa: BLE001  el detalle de bonos es un extra
+            rec["avisos"].append(X.warn("info", "bonos_no_disponibles", f"No se pudo leer el detalle de bonos: {e}"))
     # Precio y recomendaciones (secundarios: un fallo solo genera aviso)
     rec["precio"] = None
     rec["consenso_automatico"] = None

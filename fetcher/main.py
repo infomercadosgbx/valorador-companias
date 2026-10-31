@@ -124,7 +124,13 @@ def run(only=None, report=None, root=ROOT, client=None, provider=None, price_war
         ensure_companion_files(c, root)
         path = root / "data" / f"{c['ticker'].upper()}.json"
         try:
-            rec = build_company(client, c, provider, price_warning)
+            previous = None
+            if path.exists():
+                try:
+                    previous = json.loads(path.read_text(encoding="utf-8"))
+                except json.JSONDecodeError:
+                    previous = None
+            rec = build_company(client, c, provider, price_warning, previous)
             if c["ticker"] in cik_issues:
                 rec["avisos"].insert(0, warn("aviso", "cik", cik_issues[c["ticker"]]))
             if write_if_changed(path, rec):
