@@ -57,6 +57,12 @@ Qué hace el robot (`fetcher/add_company.py`):
 
 Para **quitar** una compañía, borra su línea de `companies.json` (los archivos de `data/`, `analysis/` y `manual/` pueden quedarse como archivo histórico o borrarse).
 
+## Comparativa con competidores e informe PDF
+
+- **Comparativa con competidores** (pestaña *Valoración*): capitalización, crecimiento de ingresos, márgenes bruto, operativo y de FCF, PER, precio/ventas, EV/EBITDA, rentabilidad por FCF y deuda neta/EBITDA de la compañía frente a cada competidor y a su mediana, con colores (mejor o peor en más de un 15%), un gráfico de crecimiento frente a múltiplo y lo que valdría con el EV/EBITDA de la mediana. Las cifras de los competidores salen de la SEC con las mismas reglas (se recalculan una vez por semana) y el precio de Finnhub cada noche. Los que presentan 20-F no se comparan.
+- **Lista de competidores:** la de `analysis/<TICKER>.json` → `"peers"` (tu criterio; se edita en la web con «Editar», un ticker por línea) o, si está vacía, la de Finnhub (misma industria). Los cambios se aplican en la siguiente actualización nocturna.
+- **Informe PDF:** botón «Informe PDF» en la barra superior. Muestra una vista de informe (portada con cifras clave, tesis y conclusión, y después todas las secciones con sus gráficos, cada una en página nueva) y «Imprimir / Guardar PDF» abre el diálogo del navegador: elige «Guardar como PDF». Los controles, las listas largas plegadas, las redes sociales y el glosario no se imprimen.
+
 ## La web
 
 `valorador.html` carga `companies.json` y, para cada compañía, `data/<TICKER>.json` (cifras de la SEC y cotización), `analysis/<TICKER>.json` (tu criterio) y `manual/<TICKER>.json` (precios objetivo). No guarda nada en ningún servidor.

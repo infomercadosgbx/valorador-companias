@@ -545,6 +545,41 @@ input[type=number]{font-family:var(--f-body)}
 .stale{margin-top:10px;display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;padding:10px 16px;border-radius:var(--r);font-size:13px;
   background:var(--surface);border:1px solid var(--line);border-left:3px solid #F59E0B;box-shadow:var(--shadow)}
 .stale b{font-variant-numeric:tabular-nums} .stale .note{flex-basis:100%}
+
+/* ================= Informe PDF ================= */
+.rp-bar{display:none}
+body.report .rp-bar{display:flex;position:sticky;top:0;z-index:20;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:var(--bar);color:#fff;padding:10px 16px;border-radius:0 0 8px 8px;margin-bottom:12px}
+body.report .rp-bar button{background:#fff;color:var(--bar);border-color:#fff} body.report .rp-bar .ghost{background:transparent;color:#fff;border-color:#3A4A63}
+body.report .appbar,body.report .tabs,body.report #staleBox,body.report #draftBar,body.report #warnBox,body.report .cohead,body.report #dataPanel,body.report .foot{display:none!important}
+body.report main{max-width:760px;margin:0 auto;padding-top:0}
+body.report details:not([open]),body.report .dwhich,body.report .seg,body.report .ib,body.report button.add,body.report .x,body.report #socialBox,body.report #glossary,body.report .tiles,body.report [data-usesec]{display:none!important}
+body.report input[type=number],body.report input[type=text],body.report textarea,body.report select{border:0;background:transparent;padding:0;resize:none}
+body.report .g2,body.report .g3{grid-template-columns:repeat(2,minmax(0,1fr))}
+body.report .kpis{grid-template-columns:repeat(4,minmax(0,1fr))}
+body.report .asgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.rp-cover{display:flex;flex-direction:column;gap:14px}
+.rp-cover .top{display:flex;gap:16px;align-items:center}
+.rp-cover h1{font-size:32px}
+.rp-cover .big{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.rp-cover .big div{background:var(--surface);padding:12px 14px} .rp-cover .big b{display:block;font-size:20px;font-variant-numeric:tabular-nums}
+.rp-sec>.tabhead{border-top:3px solid var(--brand);padding-top:10px;margin-top:6px}
+.rp-sec{display:flex;flex-direction:column;gap:14px}
+@page{size:A4;margin:12mm}
+@media print{
+  :root{color-scheme:light}
+  html,body{background:#fff!important}
+  body{font-size:11.5px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .rp-bar{display:none!important}
+  .wrap{max-width:none;padding:0}
+  main{max-width:none!important;padding:0;gap:10px}
+  .card,.kpis,.ascard,details.box{box-shadow:none;break-inside:avoid}
+  .rp-sec{break-before:page}
+  .cv{break-inside:avoid}
+  a{color:inherit;text-decoration:none}
+  .scroll{overflow:visible}
+  table{font-size:10.5px} th,td{padding:4px 6px}
+  details>summary::after{display:none}
+}
 </style>
 </head>
 <body>
@@ -556,6 +591,7 @@ input[type=number]{font-family:var(--f-body)}
     <div class="favs" id="favPills" role="group" aria-label="Compañías favoritas"></div>
     <div class="toolbar">
       <button type="button" id="btnEdit" aria-pressed="false">Editar</button>
+      <button type="button" id="btnReport">Informe PDF</button>
       <button type="button" id="btnData" aria-expanded="false">Mi análisis</button>
     </div>
   </div>
@@ -593,6 +629,7 @@ input[type=number]{font-family:var(--f-body)}
     <div class="toolbar"><button type="button" id="btnImport">Importar como borradores</button></div>
   </div>
   <nav class="tabs" id="tabs" role="tablist" aria-label="Secciones del análisis"></nav>
+  <div class="rp-bar" id="rpBar"><span><b>Vista de informe</b> · elige «Guardar como PDF» como impresora</span><span style="display:flex;gap:8px"><button type="button" id="btnPrint">Imprimir / Guardar PDF</button><button type="button" class="ghost" id="btnReportExit">Volver</button></span></div>
   <main id="main"></main>
   <footer class="foot"><span>Cifras: SEC EDGAR (XBRL). Cotización y perfil: Finnhub. Histórico: Twelve Data. Se actualiza cada noche laborable.</span><a href="clasico.html">Ver el diseño anterior</a></footer>
 </div>
@@ -660,7 +697,7 @@ const TPL={
   drivers:{n:"Nuevo motor",impact:3,h:"",d:""}, people:{n:"Nombre",role:"Cargo",since:"",note:""}, scores:{n:"Nuevo criterio",s:3,note:""},
   items:{n:"Nueva partida",v:0}, docs:{cat:"Formularios SEC",t:"Nuevo documento",d:"",u:"https://"}, videos:{t:"Nuevo vídeo",u:"https://www.youtube.com/watch?v="}, news:{t:"Nueva fuente",src:"",u:"https://"}, risks:{n:"Nuevo riesgo",cat:"Operativo",p:3,i:3,note:""}
 };
-const ANALYSIS_KEYS=["meta","overview","business","moat","growth","mgmt","risks","v","verdict","notes","sources","social","fin_manual"];
+const ANALYSIS_KEYS=["peers","meta","overview","business","moat","growth","mgmt","risks","v","verdict","notes","sources","social","fin_manual"];
 const DATA_V=["price","lo52","hi52","cMean","cLow","cHigh"];
 const MODEL_SEC=[["shares","Acciones"],["cash","Caja"],["debt","Deuda"]];
 const M6=1e6;
@@ -1092,7 +1129,47 @@ function renderTabs(){
 function head(){const t=TABS.find(x=>x.id===TAB);
   return `<div class="editbar">Modo edición: cambia textos, puntuaciones y supuestos. Se guarda como borrador en este navegador; descárgalo para publicarlo en analysis/. Las cifras de la SEC no se editan.</div>
   <div class="tabhead"><span class="bar"></span><div><div class="eyebrow tc">${esc(cur.meta.name)} · ${t.label}</div><h2>${t.title}</h2><p>${t.desc}</p></div></div>`;}
+let REPORT=false;
+function reportCover(){
+  const vz=valuation(cur), s=scorecard(cur,vz), b=brandOf(cur), v=cur.v, P=cur._data&&cur._data.precio, ref=cur._data&&cur._data.referencia_fecha_datos;
+  const hoy=new Date().toISOString().slice(0,10);
+  return `<section class="card rp-cover">
+    <div class="top"><span class="mono${b.logo?" logo":""}" style="${b.logo?"":`background:${b.color};color:${b.ink}`}">${monoInner(b)}</span>
+      <div><div class="eyebrow">Informe de valoración · ${esc(fecha(hoy))}</div><h1>${esc(cur.meta.name)} <span class="note" style="font-size:16px">${esc(cur._t)}</span></h1>
+      <div class="note">${esc([cur.meta.sector,cur.meta.hq].filter(Boolean).join(" · "))}</div></div></div>
+    <div class="big">
+      <div><span class="eyebrow">Cotización</span><b>${money(v.price)}</b><span class="note">${P?esc(P.fuente.split(" (")[0])+" · "+esc(fecha(P.fecha)):""}</span></div>
+      <div><span class="eyebrow">Valor razonable</span><b>${money(vz.w)}</b>${fin(vz.w)?upPill(vz.w,v.price):""}</div>
+      <div><span class="eyebrow">Recomendación</span><b>${esc(cur.verdict.rating||"Sin recomendación")}</b><span class="note">${fin(cur.verdict.buyBelow)?"comprar por debajo de "+money(cur.verdict.buyBelow):""}</span></div>
+      <div><span class="eyebrow">Puntuación</span><b>${nf(s.total,0)} / 100</b><span class="note">convicción ${fin(cur.verdict.conviction)?nf(cur.verdict.conviction,0)+"/5":"–"}</span></div>
+    </div>
+    ${(()=>{ let m; try{ m=mctx(); }catch(e){ return ""; } const f=m.f, L=m.L, g=f.rev[L-1]&&!f.addTTM?NaN:NaN;
+      const val=id=>{ try{ return MET[id].calc(m).res; }catch(e){ return NaN; } };
+      const items=[["Ingresos "+esc(f.years[L]),big(f.rev[L])],["Margen operativo",pct(f.profit[L]/f.rev[L]*100,1)],["Flujo de caja libre",big(f.fcf[L])],
+        [m.cash>=m.debt?"Caja neta":"Deuda neta",big(Math.abs(m.cash-m.debt))],["PER",fin(val("per"))?nf(val("per"),1)+"x":"–"],["EV / EBITDA",fin(val("ev_ebitda"))?nf(val("ev_ebitda"),1)+"x":"–"],
+        ["ROIC",fin(f.ratios.roic[L])?pct(f.ratios.roic[L]*100,1):"–"],["Capitalización",big(m.mcap)]];
+      const sc=scorecard(cur,vz);
+      return `<div class="g2" style="gap:14px"><div><span class="eyebrow">Cifras clave (SEC, últimos 12 meses)</span><div class="facts" style="grid-template-columns:minmax(0,1fr) auto;margin-top:6px">${items.map(([k,v])=>`<span class="k">${k}</span><span class="v">${v}</span>`).join("")}</div></div>
+        <div><span class="eyebrow">Puntuación por área</span><div class="facts" style="grid-template-columns:minmax(0,1fr) auto auto;margin-top:6px">${sc.dims.map(d=>`<span class="k">${esc(d.n)}</span><span class="v">${fin(d.s)?nf(d.s,1)+" / 5":"–"}</span><span class="v note">${d.w}%</span>`).join("")}</div></div></div>`; })()}
+    ${cur.overview&&cur.overview.thesis?`<div><span class="eyebrow">Tesis</span><p style="font-size:16px;font-weight:500;margin:4px 0 0">${esc(cur.overview.thesis)}</p></div>`:""}
+    ${cur.verdict.summary?`<div><span class="eyebrow">Conclusión</span><p style="margin:4px 0 0">${esc(cur.verdict.summary)}</p></div>`:""}
+    <p class="note" style="margin:0">Cifras financieras: SEC EDGAR (XBRL), datos hasta ${esc(fecha(ref||""))}. Cotización, perfil y previsiones: Finnhub. Histórico: Twelve Data. Análisis propio a ${esc(cur.meta.asOf||"—")}. Herramienta de análisis personal, no es una recomendación de inversión.</p>
+  </section>`;
+}
+function renderReport(){
+  killCharts(); EDIT=false; document.body.classList.remove("editing"); document.body.classList.add("report");
+  const m=$("main"); m.style.setProperty("--tc","var(--tcx)");
+  const sec=t=>`<section class="rp-sec"><div class="tabhead"><div><div class="eyebrow">${esc(cur.meta.name)} · ${t.label}</div><h2>${t.title}</h2></div></div>${t.id==="sources"?officialHtml():R[t.id]()}</section>`;
+  m.innerHTML=reportCover()+TABS.map(sec).join("");
+  setDefaults(); if(window.Chart){ if(window._anim===undefined) window._anim=Chart.defaults.animation; Chart.defaults.animation=false; }
+  renderValOut();
+  TABS.forEach(t=>{ if(t.id!=="valuation"&&t.id!=="sources") try{ (C[t.id]||(()=>{}))(); }catch(e){ console.error(e); } });
+  document.title=`Informe ${cur.meta.name} (${cur._t}) ${new Date().toISOString().slice(0,10)}`;
+  window.scrollTo(0,0);
+}
+function exitReport(){ REPORT=false; document.body.classList.remove("report"); if(window.Chart&&window._anim!==undefined) Chart.defaults.animation=window._anim; document.title="Valorador de Compañías"; renderTab(); }
 function renderTab(){
+  if(REPORT){ renderReport(); return; }
   killCharts(); const t=TABS.find(x=>x.id===TAB); const m=$("main");
   m.style.setProperty("--tc",`var(${t.c})`);
   m.innerHTML=head()+R[TAB]();
@@ -1340,6 +1417,59 @@ function priceExtraHtml(st){
     <div class="pxbox"><div class="eyebrow">Frente al S&P 500</div>
       ${rel.length?`<table class="mini2"><tbody>${rel.map(r=>`<tr><td>${r.y} ${r.y===1?"año":"años"}</td><td class="num">${sg(r.acc)}</td><td class="note">índice ${sg(r.idx)}</td><td><span class="pill ${r.acc>=r.idx?"up":"down"}">${r.acc>=r.idx?"+":""}${nf(r.acc-r.idx,0)} pp</span></td></tr>`).join("")}</tbody></table>`:`<div class="note">Aparecerá tras la próxima actualización (ETF SPY, Twelve Data).</div>`}</div>
   </div>`;
+}
+let PEERX=lsGet("valorador.peerx")||"precio_ventas";
+const PEERCOLS=[["capitalizacion","Capitalización","big",0],["crecimiento","Crec. ingresos","pct",1],["margen_bruto","Margen bruto","pct",1],["margen_operativo","Margen operativo","pct",1],
+  ["margen_fcf","Margen FCF","pct",1],["per","PER","x",-1],["precio_ventas","Precio / ventas","x",-1],["ev_ebitda","EV / EBITDA","x",-1],["rentabilidad_fcf","Rentab. FCF","pct",1],["deuda_neta_ebitda","Deuda neta / EBITDA","x",-1]];
+function peerData(){
+  const P=cur._data&&cur._data.peers; if(!P) return null;
+  const own={...P.propia}; const s=cur.v;
+  if(fin(s.price)&&fin(own.acciones)) Object.assign(own,{precio:s.price});
+  const ok=(P.competidores||[]).filter(x=>x.soportada&&fin(x.capitalizacion));
+  const med=k=>{ const v=ok.map(x=>x[k]).filter(x=>fin(x)&&!(["per","ev_ebitda","precio_ventas"].includes(k)&&x<=0)).sort((a,b)=>a-b); if(!v.length) return NaN; const m=v.length>>1; return v.length%2?v[m]:(v[m-1]+v[m])/2; };
+  const median={}; PEERCOLS.forEach(([k])=>median[k]=med(k));
+  return {P,own,ok,bad:(P.competidores||[]).filter(x=>!x.soportada||!fin(x.capitalizacion)),median};
+}
+function peersHtml(){
+  const D=peerData(); if(!D) return EDIT?`<section class="card"><h2>Comparativa con competidores</h2>${peerEdit()}</section>`:"";
+  const {P,own,ok,bad,median}=D;
+  const fmt=(t,v)=>!fin(v)?"–":t==="big"?big(v/M6):t==="pct"?pct(v,1):(v<0?"neg.":nf(v,1)+"x");
+  const tint=(k,dir,v)=>{ const m=median[k]; if(!fin(v)||!fin(m)||dir===0||m===0) return ""; let r=(v-m)/Math.abs(m)*dir; if(dir<0&&v<=0) return "";
+    return r>0.15?`background:color-mix(in srgb,var(--good) 16%,transparent)`:r<-0.15?`background:color-mix(in srgb,var(--crit) 13%,transparent)`:""; };
+  const row=(x,cls,name)=>`<tr class="${cls||""}"><td style="white-space:normal;min-width:150px">${name||`<b>${esc(x.ticker)}</b> <span class="note">${esc(x.nombre||"")}</span>`}</td>${PEERCOLS.map(([k,,t,dir])=>`<td style="${(cls||"").includes("own")?tint(k,dir,x[k]):""}">${fmt(t,x[k])}</td>`).join("")}</tr>`;
+  const reads=[]; const cmp=(k,hi,lo,u)=>{ const v=own[k], m=median[k]; if(!fin(v)||!fin(m)||m===0) return; const r=(v/m-1)*100;
+    if(Math.abs(r)<15) return; reads.push(`${r>0?hi:lo} que la mediana: ${fmt(u,v)} frente a ${fmt(u,m)}`); };
+  cmp("crecimiento","Crece más","Crece menos","pct"); cmp("margen_operativo","Margen operativo más alto","Margen operativo más bajo","pct");
+  cmp("margen_fcf","Convierte más ventas en caja","Convierte menos ventas en caja","pct");
+  cmp("ev_ebitda","Más cara por EV/EBITDA","Más barata por EV/EBITDA","x"); cmp("per","PER más alto","PER más bajo","x");
+  const prem=fin(own.ev_ebitda)&&fin(median.ev_ebitda)?(own.ev_ebitda/median.ev_ebitda-1)*100:NaN;
+  return `<section class="card"><h2>Comparativa con competidores</h2>
+    <p class="sub">Últimos doce meses. Cifras de la SEC con las mismas reglas que ${esc(cur.meta.name)}; precio de Finnhub. Lista de competidores: ${esc(P.fuente_lista)}${P.fuente_lista==="manual"?"":" (puedes fijar la tuya con «Editar»)"}. Verde y rojo: ${esc(cur.meta.name)} frente a la mediana (mejor o peor en más de un 15%). Actualizado ${esc(fecha(P.actualizado))}.</p>
+    ${peerEdit()}
+    <div class="scroll"><table><thead><tr><th>Compañía</th>${PEERCOLS.map(([,l])=>`<th>${l}</th>`).join("")}</tr></thead><tbody>
+      ${row({...own,ticker:own.ticker||cur._t,nombre:cur.meta.name},"own em")}
+      ${ok.map(x=>row(x)).join("")}
+      ${ok.length?row(median,"em",`<b>Mediana de competidores</b> <span class="note">${ok.length}</span>`):""}
+    </tbody></table></div>
+    ${bad.length?`<p class="note">Sin comparar: ${bad.map(x=>`${esc(x.ticker)} (${esc(x.motivo||"sin precio")})`).join(", ")}.</p>`:""}
+    ${ok.length?`<div class="g2" style="margin-top:6px"><div><div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap"><span class="eyebrow">Crecimiento frente a múltiplo</span>
+      <div class="seg tbl" role="group" style="width:max-content">${[["precio_ventas","P/V"],["ev_ebitda","EV/EBITDA"],["per","PER"]].map(([k,l])=>`<button type="button" data-peerx="${k}" aria-pressed="${PEERX===k}">${l}</button>`).join("")}</div></div>
+      <div class="cv h260"><canvas id="ch_vl_peers" role="img" aria-label="Crecimiento frente a múltiplo de los competidores"></canvas></div></div>
+      <div><span class="eyebrow">Lectura</span><ul class="bul" style="margin-top:6px">${reads.length?reads.map(r=>`<li>${r}.</li>`).join(""):"<li>En línea con la mediana de sus competidores en crecimiento, márgenes y múltiplos.</li>"}
+        ${fin(prem)?`<li>Con el EV/EBITDA de la mediana, ${esc(cur.meta.name)} valdría <b>${money(((median.ev_ebitda*own.ebitda)-(own.deuda||0)+(own.caja||0))/own.acciones)}</b> por acción (${prem>=0?"hoy cotiza con prima":"hoy cotiza con descuento"} del ${nf(Math.abs(prem),0)}%).</li>`:""}</ul>
+        <p class="note">Un múltiplo más alto se justifica si crece más o tiene mejores márgenes: en el gráfico, las compañías por encima de la nube son las más caras para su crecimiento.</p></div></div>`:""}
+  </section>`;
+}
+function peerEdit(){ if(!EDIT) return "";
+  return `<label class="note" style="display:block;margin:4px 0 8px">Mis competidores (un ticker por línea; vacío = lista automática de Finnhub). Se aplican en la siguiente actualización nocturna.
+    <textarea rows="3" data-k="list" data-p="peers" placeholder="MSFT&#10;META">${esc((cur.peers||[]).join("\n"))}</textarea></label>`; }
+function drawPeers(){
+  const D=peerData(); if(!D||!D.ok.length||!$("ch_vl_peers")) return; const cat=CAT();
+  const pts=[{x:D.own,own:true},...D.ok.map(x=>({x}))].filter(o=>fin(o.x.crecimiento)&&fin(o.x[PEERX])&&o.x[PEERX]>0);
+  mk("ch_vl_peers",{type:"scatter",data:{datasets:pts.map((o,i)=>({label:o.own?(cur._t+" (esta)"):o.x.ticker,data:[{x:o.x.crecimiento,y:o.x[PEERX]}],
+      backgroundColor:o.own?V("--brand"):alpha(cat[(i)%8],.75),borderColor:o.own?V("--ink"):"transparent",borderWidth:o.own?2:0,pointRadius:o.own?9:6,pointHoverRadius:o.own?11:8}))},
+    options:{plugins:{legend:{display:true,position:"bottom",labels:{boxWidth:8,usePointStyle:true}},tooltip:{callbacks:{label:c=>`${c.dataset.label}: crece ${nf(c.parsed.x,1)}%, ${nf(c.parsed.y,1)}x`}}},
+      scales:{x:{...axisY({suf:"%",zero:false}),title:{display:true,text:"Crecimiento de ingresos (UDM, %)"}},y:{...axisY({suf:"x",zero:true}),title:{display:true,text:{precio_ventas:"Precio / ventas",ev_ebitda:"EV / EBITDA",per:"PER"}[PEERX]}}}}});
 }
 function valTopHtml(){
   if(!cur._data) return "";
@@ -2241,7 +2371,7 @@ function updateEffects(){
     set("ver_evm",fin(evr)?(s.evm>evr*1.2?V3("Por encima del actual","down"):s.evm<evr*0.8?V3("Por debajo del actual","up"):V3("Cerca del actual","mid")):"");
     set("eff_evm",`Valor por EV/EBITDA: <b>${money(vEv)}</b> ${s.price>0&&fin(vEv)?upPill(vEv,s.price):""}. Cada 1x más → +${money(y1.ebitda/s.shares)} por acción.`); }
 }
-function renderValOut(){ if(!$("valOut")) return; killCharts(); if($("valTop")) $("valTop").innerHTML=valTopHtml(); $("valOut").innerHTML=valOutHtml(); if($("valBottom")){ const vz=valuation(cur); $("valBottom").innerHTML=vz.ok&&cur.v.price>0?sensHtml(cur.v,vz):""; } drawFootball(); setDefaults(); C.valuation(); drawPriceCharts(); updateEffects(); }
+function renderValOut(){ if(!$("valOut")) return; killCharts(); if($("valTop")) $("valTop").innerHTML=valTopHtml()+peersHtml(); $("valOut").innerHTML=valOutHtml(); if($("valBottom")){ const vz=valuation(cur); $("valBottom").innerHTML=vz.ok&&cur.v.price>0?sensHtml(cur.v,vz):""; } drawFootball(); setDefaults(); C.valuation(); drawPriceCharts(); drawPeers(); updateEffects(); }
 let valT; function scheduleVal(){clearTimeout(valT); valT=setTimeout(()=>{renderValOut(); renderHeader();},140);}
 
 /* ---------- Fuentes ---------- */
@@ -2584,6 +2714,10 @@ document.addEventListener("click",e=>{
   const pr=e.target.closest("[data-prange]"); if(pr){PRANGE=pr.dataset.prange; lsSet("valorador.prange",PRANGE); renderValOut(); return;}
   const mc=e.target.closest("[data-mchart]"); if(mc){MCHART=mc.dataset.mchart; lsSet("valorador.mchart",MCHART); renderValOut(); return;}
   const sn=e.target.closest("[data-sens]"); if(sn){SENSMODE=sn.dataset.sens; lsSet("valorador.sens",SENSMODE); renderValOut(); return;}
+  const px=e.target.closest("[data-peerx]"); if(px){PEERX=px.dataset.peerx; lsSet("valorador.peerx",PEERX); renderValOut(); return;}
+  if(e.target.closest("#btnReport")){ REPORT=true; renderReport(); return; }
+  if(e.target.closest("#btnPrint")){ window.print(); return; }
+  if(e.target.closest("#btnReportExit")){ exitReport(); return; }
   if(e.target.closest("#btnAddCo")){ closePicker(); addCoModal(); return; }
   const sgm=e.target.closest("[data-segmode]"); if(sgm){SEGMODE=sgm.dataset.segmode; lsSet("valorador.segmode",SEGMODE); renderTab(); return;}
   const fm=e.target.closest("[data-fmode]"); if(fm){FINMODE=fm.dataset.fmode; lsSet("valorador.finmode",FINMODE); renderTab(); return;}
