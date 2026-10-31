@@ -1,0 +1,77 @@
+{
+ "ticker": "RDDT",
+ "versiones": [
+  {
+   "fecha_commit": "2026-10-30",
+   "commit": "74436bf77a",
+   "analisis_a": null,
+   "recomendacion": "",
+   "conviccion": null,
+   "comprar_por_debajo": null,
+   "horizonte": null,
+   "resumen": "",
+   "supuestos": {}
+  },
+  {
+   "fecha_commit": "2026-10-30",
+   "commit": "d20c519784",
+   "analisis_a": "27-oct-2026",
+   "recomendacion": "Acumular",
+   "conviccion": 3,
+   "comprar_por_debajo": 125,
+   "horizonte": "12–24 meses",
+   "resumen": "Negocio muy rentable y sin deuda que sigue creciendo cerca del 50%, a un precio que ha caído más de un 45% desde máximos por el miedo a perder el tráfico de Google. Si el crecimiento internacional y Reddit Max compensan la búsqueda, el precio actual es atractivo; si el tráfico se hunde, el múltiplo aún puede bajar. Resultados del 3T26 esta misma tarde.",
+   "supuestos": {
+    "shares": 207,
+    "cash": 2786,
+    "debt": 0,
+    "rev0": 3390,
+    "year0": 2026,
+    "g": [
+     30,
+     24,
+     19,
+     16,
+     13
+    ],
+    "m1": 46,
+    "m5": 50,
+    "da": 0.6,
+    "da5": 0.6,
+    "sbc": 8,
+    "capex": 0.3,
+    "capex5": 0.3,
+    "nwc": 8,
+    "tax": 18,
+    "wacc": 10.5,
+    "tg": 3,
+    "exit": 15,
+    "method": "blend",
+    "eps": 6.5,
+    "pe": 25,
+    "evm": 18,
+    "scn": [
+     {
+      "n": "Bajista",
+      "dg": -14,
+      "dm": -8,
+      "p": 25
+     },
+     {
+      "n": "Base",
+      "dg": 0,
+      "dm": 0,
+      "p": 50
+     },
+     {
+      "n": "Alcista",
+      "dg": 8,
+      "dm": 3,
+      "p": 25
+     }
+    ]
+   }
+  }
+ ],
+ "fuente": "Historial de git de analysis/RDDT.json"
+}

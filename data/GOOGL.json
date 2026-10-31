@@ -8817,7 +8817,7 @@
   }
  },
  "segmentos": {
-  "version": 2,
+  "version": 3,
   "informes_accn": [
    "0001652044-26-000084",
    "0001652044-26-000071",
@@ -9225,7 +9225,363 @@
     ]
    }
   ],
-  "producto": [],
+  "producto": [
+   {
+    "miembro": "goog:GoogleAdvertisingRevenueMember",
+    "nombre": "Google Advertising Revenue",
+    "ajuste": false,
+    "trimestral": [
+     {
+      "periodo": "1T25",
+      "periodo_inicio": "2025-01-01",
+      "periodo_fin": "2025-03-31",
+      "valor": 66885000000.0
+     },
+     {
+      "periodo": "2T25",
+      "periodo_inicio": "2025-04-01",
+      "periodo_fin": "2025-06-30",
+      "valor": 71340000000.0
+     },
+     {
+      "periodo": "3T25",
+      "periodo_inicio": "2025-07-01",
+      "periodo_fin": "2025-09-30",
+      "valor": 74182000000.0
+     },
+     {
+      "periodo": "4T25",
+      "periodo_inicio": "2025-10-01",
+      "periodo_fin": "2025-12-31",
+      "valor": 82284000000.0
+     },
+     {
+      "periodo": "1T26",
+      "periodo_inicio": "2026-01-01",
+      "periodo_fin": "2026-03-31",
+      "valor": 77253000000.0
+     },
+     {
+      "periodo": "2T26",
+      "periodo_inicio": "2026-04-01",
+      "periodo_fin": "2026-06-30",
+      "valor": 81629000000.0
+     },
+     {
+      "periodo": "3T26",
+      "periodo_inicio": "2026-07-01",
+      "periodo_fin": "2026-09-30",
+      "valor": 82012000000.0
+     }
+    ],
+    "anual": [
+     {
+      "periodo": "2023",
+      "periodo_inicio": "2023-01-01",
+      "periodo_fin": "2023-12-31",
+      "valor": 237855000000.0
+     },
+     {
+      "periodo": "2024",
+      "periodo_inicio": "2024-01-01",
+      "periodo_fin": "2024-12-31",
+      "valor": 264590000000.0
+     },
+     {
+      "periodo": "2025",
+      "periodo_inicio": "2025-01-01",
+      "periodo_fin": "2025-12-31",
+      "valor": 294691000000.0
+     }
+    ],
+    "operativo_trimestral": [],
+    "operativo_anual": []
+   },
+   {
+    "miembro": "goog:GoogleSearchOtherMember",
+    "nombre": "Google Search & Other",
+    "ajuste": false,
+    "trimestral": [
+     {
+      "periodo": "1T25",
+      "periodo_inicio": "2025-01-01",
+      "periodo_fin": "2025-03-31",
+      "valor": 50702000000.0
+     },
+     {
+      "periodo": "2T25",
+      "periodo_inicio": "2025-04-01",
+      "periodo_fin": "2025-06-30",
+      "valor": 54190000000.0
+     },
+     {
+      "periodo": "3T25",
+      "periodo_inicio": "2025-07-01",
+      "periodo_fin": "2025-09-30",
+      "valor": 56567000000.0
+     },
+     {
+      "periodo": "4T25",
+      "periodo_inicio": "2025-10-01",
+      "periodo_fin": "2025-12-31",
+      "valor": 63073000000.0
+     },
+     {
+      "periodo": "1T26",
+      "periodo_inicio": "2026-01-01",
+      "periodo_fin": "2026-03-31",
+      "valor": 60399000000.0
+     },
+     {
+      "periodo": "2T26",
+      "periodo_inicio": "2026-04-01",
+      "periodo_fin": "2026-06-30",
+      "valor": 63271000000.0
+     },
+     {
+      "periodo": "3T26",
+      "periodo_inicio": "2026-07-01",
+      "periodo_fin": "2026-09-30",
+      "valor": 63350000000.0
+     }
+    ],
+    "anual": [
+     {
+      "periodo": "2023",
+      "periodo_inicio": "2023-01-01",
+      "periodo_fin": "2023-12-31",
+      "valor": 175033000000.0
+     },
+     {
+      "periodo": "2024",
+      "periodo_inicio": "2024-01-01",
+      "periodo_fin": "2024-12-31",
+      "valor": 198084000000.0
+     },
+     {
+      "periodo": "2025",
+      "periodo_inicio": "2025-01-01",
+      "periodo_fin": "2025-12-31",
+      "valor": 224532000000.0
+     }
+    ],
+    "operativo_trimestral": [],
+    "operativo_anual": []
+   },
+   {
+    "miembro": "goog:SubscriptionsPlatformsAndDevicesRevenueMember",
+    "nombre": "Subscriptions, Platforms, And Devices Revenue",
+    "ajuste": false,
+    "trimestral": [
+     {
+      "periodo": "1T25",
+      "periodo_inicio": "2025-01-01",
+      "periodo_fin": "2025-03-31",
+      "valor": 10379000000.0
+     },
+     {
+      "periodo": "2T25",
+      "periodo_inicio": "2025-04-01",
+      "periodo_fin": "2025-06-30",
+      "valor": 11203000000.0
+     },
+     {
+      "periodo": "3T25",
+      "periodo_inicio": "2025-07-01",
+      "periodo_fin": "2025-09-30",
+      "valor": 12870000000.0
+     },
+     {
+      "periodo": "4T25",
+      "periodo_inicio": "2025-10-01",
+      "periodo_fin": "2025-12-31",
+      "valor": 13578000000.0
+     },
+     {
+      "periodo": "1T26",
+      "periodo_inicio": "2026-01-01",
+      "periodo_fin": "2026-03-31",
+      "valor": 12384000000.0
+     },
+     {
+      "periodo": "2T26",
+      "periodo_inicio": "2026-04-01",
+      "periodo_fin": "2026-06-30",
+      "valor": 12911000000.0
+     },
+     {
+      "periodo": "3T26",
+      "periodo_inicio": "2026-07-01",
+      "periodo_fin": "2026-09-30",
+      "valor": 14290000000.0
+     }
+    ],
+    "anual": [
+     {
+      "periodo": "2023",
+      "periodo_inicio": "2023-01-01",
+      "periodo_fin": "2023-12-31",
+      "valor": 34688000000.0
+     },
+     {
+      "periodo": "2024",
+      "periodo_inicio": "2024-01-01",
+      "periodo_fin": "2024-12-31",
+      "valor": 40340000000.0
+     },
+     {
+      "periodo": "2025",
+      "periodo_inicio": "2025-01-01",
+      "periodo_fin": "2025-12-31",
+      "valor": 48030000000.0
+     }
+    ],
+    "operativo_trimestral": [],
+    "operativo_anual": []
+   },
+   {
+    "miembro": "goog:YouTubeAdvertisingRevenueMember",
+    "nombre": "YouTube Advertising Revenue",
+    "ajuste": false,
+    "trimestral": [
+     {
+      "periodo": "1T25",
+      "periodo_inicio": "2025-01-01",
+      "periodo_fin": "2025-03-31",
+      "valor": 8927000000.0
+     },
+     {
+      "periodo": "2T25",
+      "periodo_inicio": "2025-04-01",
+      "periodo_fin": "2025-06-30",
+      "valor": 9796000000.0
+     },
+     {
+      "periodo": "3T25",
+      "periodo_inicio": "2025-07-01",
+      "periodo_fin": "2025-09-30",
+      "valor": 10261000000.0
+     },
+     {
+      "periodo": "4T25",
+      "periodo_inicio": "2025-10-01",
+      "periodo_fin": "2025-12-31",
+      "valor": 11383000000.0
+     },
+     {
+      "periodo": "1T26",
+      "periodo_inicio": "2026-01-01",
+      "periodo_fin": "2026-03-31",
+      "valor": 9883000000.0
+     },
+     {
+      "periodo": "2T26",
+      "periodo_inicio": "2026-04-01",
+      "periodo_fin": "2026-06-30",
+      "valor": 11055000000.0
+     },
+     {
+      "periodo": "3T26",
+      "periodo_inicio": "2026-07-01",
+      "periodo_fin": "2026-09-30",
+      "valor": 11207000000.0
+     }
+    ],
+    "anual": [
+     {
+      "periodo": "2023",
+      "periodo_inicio": "2023-01-01",
+      "periodo_fin": "2023-12-31",
+      "valor": 31510000000.0
+     },
+     {
+      "periodo": "2024",
+      "periodo_inicio": "2024-01-01",
+      "periodo_fin": "2024-12-31",
+      "valor": 36147000000.0
+     },
+     {
+      "periodo": "2025",
+      "periodo_inicio": "2025-01-01",
+      "periodo_fin": "2025-12-31",
+      "valor": 40367000000.0
+     }
+    ],
+    "operativo_trimestral": [],
+    "operativo_anual": []
+   },
+   {
+    "miembro": "goog:GoogleNetworkMember",
+    "nombre": "Google Network",
+    "ajuste": false,
+    "trimestral": [
+     {
+      "periodo": "1T25",
+      "periodo_inicio": "2025-01-01",
+      "periodo_fin": "2025-03-31",
+      "valor": 7256000000.0
+     },
+     {
+      "periodo": "2T25",
+      "periodo_inicio": "2025-04-01",
+      "periodo_fin": "2025-06-30",
+      "valor": 7354000000.0
+     },
+     {
+      "periodo": "3T25",
+      "periodo_inicio": "2025-07-01",
+      "periodo_fin": "2025-09-30",
+      "valor": 7354000000.0
+     },
+     {
+      "periodo": "4T25",
+      "periodo_inicio": "2025-10-01",
+      "periodo_fin": "2025-12-31",
+      "valor": 7828000000.0
+     },
+     {
+      "periodo": "1T26",
+      "periodo_inicio": "2026-01-01",
+      "periodo_fin": "2026-03-31",
+      "valor": 6971000000.0
+     },
+     {
+      "periodo": "2T26",
+      "periodo_inicio": "2026-04-01",
+      "periodo_fin": "2026-06-30",
+      "valor": 7303000000.0
+     },
+     {
+      "periodo": "3T26",
+      "periodo_inicio": "2026-07-01",
+      "periodo_fin": "2026-09-30",
+      "valor": 7455000000.0
+     }
+    ],
+    "anual": [
+     {
+      "periodo": "2023",
+      "periodo_inicio": "2023-01-01",
+      "periodo_fin": "2023-12-31",
+      "valor": 31312000000.0
+     },
+     {
+      "periodo": "2024",
+      "periodo_inicio": "2024-01-01",
+      "periodo_fin": "2024-12-31",
+      "valor": 30359000000.0
+     },
+     {
+      "periodo": "2025",
+      "periodo_inicio": "2025-01-01",
+      "periodo_fin": "2025-12-31",
+      "valor": 29792000000.0
+     }
+    ],
+    "operativo_trimestral": [],
+    "operativo_anual": []
+   }
+  ],
   "informes": [
    {
     "formulario": "10-K",
@@ -18317,7 +18673,7 @@
   "n_formularios": 91
  },
  "riesgos_10k": {
-  "version": 2,
+  "version": 3,
   "informes_accn": [
    "0001652044-26-000018",
    "0001652044-25-000014"
@@ -18330,7 +18686,7 @@
     "fecha_periodo": "2025-12-31",
     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/goog-20251231.htm",
     "palabras": 13657,
-    "n_riesgos": 45
+    "n_riesgos": 52
    },
    {
     "formulario": "10-K",
@@ -18338,11 +18694,12 @@
     "fecha_periodo": "2024-12-31",
     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204425000014/goog-20241231.htm",
     "palabras": 13817,
-    "n_riesgos": 51
+    "n_riesgos": 58
    }
   ],
   "nuevos": [
    "As of December 31, 2025, Alphabet had 190,820 employees. We have work councils and statutory employee representation obligations in certain countries, and we are committed to supporting protected labor rights, maintaining an open culture, and listening to our employees.",
+   "Risks Specific to our Company",
    "We generate a significant portion of our revenues from advertising. Reduced spending by advertisers, a loss of partners, shifts in online advertising, new and evolving advertising formats, or new or existing technologies that block ads online or affect our ability to personalize ads could harm our business.",
    "We believe AI is quickly reshaping the advertising industry, including how ads are delivered online, and we and our competitors are constantly adjusting to meet this shift and provide new and evolving advertising formats. There is no assurance that we will adapt effectively and competitively to meet this shift, and that such advertising formats, strategies, and offerings will be successful.",
    "Our increasing investment in new businesses, products, services, and technologies is inherently risky, and could divert management attention and harm our business, financial condition, and operating results.",
@@ -18353,7 +18710,8 @@
    "Disruptions in our ability to access future financing or manage our indebtedness could adversely affect our ability to execute our strategy and harm our financial condition.",
    "significantly in efforts to promote high-quality and relevant results and to detect and prevent low-quality content and invalid traffic, we have been unable and may continue to be unable to detect and prevent all such abuses or promote uniformly high-quality content. Increased use of AI in our offerings and internal systems may create new instances of problematic content and increased potential for misuse and abuse.",
    "regulatory inquiries, which could result in monetary penalties and damages, divert management's time and attention, and lead to enhanced regulatory oversight.",
-   "• Stockholders must provide advance notice to nominate individuals for election to the Board of Directors or to propose matters that can be acted upon at a stockholders' meeting. These provisions may discourage or deter a potential acquirer from conducting a solicitation of proxies to elect the acquirer's own slate of directors or otherwise attempting to obtain control of our company."
+   "• Stockholders must provide advance notice to nominate individuals for election to the Board of Directors or to propose matters that can be acted upon at a stockholders' meeting. These provisions may discourage or deter a potential acquirer from conducting a solicitation of proxies to elect the acquirer's own slate of directors or otherwise attempting to obtain control of our company.",
+   "• failure to realize the value of investments and joint ventures due to a lack of liquidity or an inability to identify buyers or negotiate favorable terms for intended divestitures;"
   ],
   "eliminados": [
    "Through our products, we have an aspiration to help individuals, cities, and other partners collectively reduce one gigaton of their carbon equivalent emissions annually by 2030.",
@@ -18368,15 +18726,17 @@
    "We face a number of risks related to manufacturing and supply chain management, which could affect our ability to supply both our products and our services.",
    "Our devices have had, and in the future may have, quality issues resulting from design, manufacturing, or operations. Sometimes, these issues may be caused by components we purchase from other manufacturers or suppliers. If the quality of our products and services does not meet expectations or our products or services are defective or require a recall, it could harm our business, reputation, financial condition, and operating results.",
    "The fair value of our debt and equity investments may in the future be, and certain investments have been in the past, negatively affected by liquidity, credit deterioration or losses, performance and financial results of the underlying entities, foreign exchange rates, changes in interest rates, the effect of new or changing regulations, the stock market in general, or other factors.",
+   "Risks Related to our Industry",
    "we face the risk of cyber attacks by nation-states and state-sponsored actors. These attacks may target us or our customers, particularly our public sector customers (including federal, state, and local governments). Geopolitical tensions or armed conflicts, such as the ongoing conflict in the Middle East and Ukraine, may increase these risks.",
    "implementation of AI in our offerings and internal systems) could subject us to regulatory action and legal liability, including under specific legislation regulating AI, as well as new applications of existing data protection, cybersecurity, privacy, intellectual property, and other laws.",
    "We are subject to claims, lawsuits, regulatory and government inquiries and investigations, other proceedings, and orders involving competition, intellectual property, data privacy and security, tax and related compliance, labor and employment, commercial disputes, content generated by our users, goods and services offered by advertisers or publishers using our platforms, personal injury, and other matters.",
    "The U.S. Department of Justice (DOJ), various U.S. states, and other plaintiffs have filed, and may continue to file in the future, several antitrust lawsuits about various aspects of our business, including our advertising technologies and practices, the operation and distribution of Google Search, and the operation and distribution of the Android operating system and Play Store.",
    "The concentration of our stock ownership limits our stockholders’ ability to influence corporate matters.",
-   "The trading price for our Class A stock and non-voting Class C stock may continue to be volatile."
+   "The trading price for our Class A stock and non-voting Class C stock may continue to be volatile.",
+   "• failure to realize the value of investments and joint ventures due to a lack of liquidity;"
   ],
-  "n_nuevos": 12,
-  "n_eliminados": 18,
+  "n_nuevos": 14,
+  "n_eliminados": 20,
   "fuente": "SEC EDGAR · 10-K, Item 1A (comparación automática)"
  },
  "precio": {
@@ -23853,7 +24213,7 @@
   "fecha": "2026-10-30",
   "ajuste": "splits"
  },
- "generado": "2026-10-31T21:19:59+00:00",
+ "generado": "2026-10-31T21:23:38+00:00",
  "perfil": {
   "industria": "Media",
   "web": "https://abc.xyz/",

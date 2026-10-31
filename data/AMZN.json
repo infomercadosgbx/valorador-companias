@@ -8987,7 +8987,7 @@
   }
  },
  "segmentos": {
-  "version": 2,
+  "version": 3,
   "informes_accn": [
    "0001018724-26-000040",
    "0001018724-26-000026",
@@ -13195,29 +13195,38 @@
   "n_formularios": 31
  },
  "riesgos_10k": {
-  "version": 2,
+  "version": 3,
   "informes_accn": [
    "0001018724-26-000004",
    "0001018724-25-000004"
   ],
-  "ok": false,
+  "ok": true,
   "informes": [
    {
     "formulario": "10-K",
     "fecha_presentacion": "2026-02-06",
     "fecha_periodo": "2025-12-31",
     "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000004/amzn-20251231.htm",
-    "palabras": 8871
+    "palabras": 8871,
+    "n_riesgos": 31
    },
    {
     "formulario": "10-K",
     "fecha_presentacion": "2025-02-07",
     "fecha_periodo": "2024-12-31",
     "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872425000004/amzn-20241231.htm",
-    "palabras": 8697
+    "palabras": 8697,
+    "n_riesgos": 33
    }
   ],
-  "motivo": "No se ha podido aislar el apartado de riesgos de forma fiable."
+  "nuevos": [],
+  "eliminados": [
+   "unable to prevent third parties from acquiring domain names that are similar to, infringe upon, or diminish the value of our trademarks and other proprietary rights.",
+   "We are not always able to accurately forecast our growth rate. We base our expense levels and investment plans on sales estimates. A significant portion of our expenses and investments is fixed, and we are not always able to adjust our spending quickly enough if our sales are less than expected."
+  ],
+  "n_nuevos": 0,
+  "n_eliminados": 2,
+  "fuente": "SEC EDGAR · 10-K, Item 1A (comparación automática)"
  },
  "precio": {
   "minimo_52s": 196,
@@ -18693,7 +18702,7 @@
   "fecha": "2026-10-30",
   "ajuste": "splits"
  },
- "generado": "2026-10-31T21:20:38+00:00",
+ "generado": "2026-10-31T21:24:00+00:00",
  "perfil": {
   "industria": "Retail",
   "web": "https://www.amazon.com/",

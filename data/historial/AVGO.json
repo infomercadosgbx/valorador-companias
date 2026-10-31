@@ -1,0 +1,77 @@
+{
+ "ticker": "AVGO",
+ "versiones": [
+  {
+   "fecha_commit": "2026-10-30",
+   "commit": "74436bf77a",
+   "analisis_a": null,
+   "recomendacion": "",
+   "conviccion": null,
+   "comprar_por_debajo": null,
+   "horizonte": null,
+   "resumen": "",
+   "supuestos": {}
+  },
+  {
+   "fecha_commit": "2026-10-30",
+   "commit": "d20c519784",
+   "analisis_a": "28-oct-2026",
+   "recomendacion": "Mantener",
+   "conviccion": 3.5,
+   "comprar_por_debajo": 310,
+   "horizonte": "12–24 meses",
+   "resumen": "Probablemente el mejor posicionado para el crecimiento de la IA después de Nvidia, con márgenes y caja excepcionales y un equipo directivo muy disciplinado. Pero a ~352 $ el precio ya descuenta un crecimiento anual del ~20% durante cinco años, y el riesgo de concentración en pocos clientes y de que se frene el gasto en IA es real. Mantener y comprar por debajo de ~310 $.",
+   "supuestos": {
+    "shares": 4880,
+    "cash": 23975,
+    "debt": 59419,
+    "rev0": 105990,
+    "year0": 2026,
+    "g": [
+     55,
+     25,
+     15,
+     10,
+     7
+    ],
+    "m1": 64,
+    "m5": 60,
+    "da": 4,
+    "da5": 2,
+    "sbc": 4,
+    "capex": 1.2,
+    "capex5": 1,
+    "nwc": 10,
+    "tax": 15,
+    "wacc": 9.5,
+    "tg": 3,
+    "exit": 16,
+    "method": "blend",
+    "eps": 17.41,
+    "pe": 28,
+    "evm": 22,
+    "scn": [
+     {
+      "n": "Bajista",
+      "dg": -15,
+      "dm": -6,
+      "p": 25
+     },
+     {
+      "n": "Base",
+      "dg": 0,
+      "dm": 0,
+      "p": 50
+     },
+     {
+      "n": "Alcista",
+      "dg": 8,
+      "dm": 2,
+      "p": 25
+     }
+    ]
+   }
+  }
+ ],
+ "fuente": "Historial de git de analysis/AVGO.json"
+}
