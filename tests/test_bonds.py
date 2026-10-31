@@ -40,7 +40,7 @@ LAB = b"""<?xml version="1.0"?>
 
 
 def test_emisiones_cupon_vencimiento_divisa():
-    items, comp = B.extract(INST, LAB, "2025-12-31")
+    items, comp, _ = B.extract(INST, LAB, "2025-12-31")
     by = {i["miembro"]: i for i in items}
     a = by["tst:A4250NotesDueAugust2057Member"]
     assert a["nombre"] == "4.250% Notes due on August 22, 2057"
@@ -71,3 +71,14 @@ def test_ultimo_10k_y_10q_posteriores():
         {"accessionNumber": "1", "filingDate": "2026-02-06", "form": "10-K"},
         {"accessionNumber": "0", "filingDate": "2025-10-30", "form": "10-Q"}])
     assert [r["accessionNumber"] for r in B.target_filings(subs)] == ["3", "2", "1"]
+
+
+def test_mes_y_anio_emision_o_vencimiento():
+    inst = INST.replace(b"tst:EuroNotesMember", b"tst:April2032SeniorNotesMember").replace(b"<us-gaap:DebtInstrumentMaturityDate contextRef=\"c2\">2031-03-15</us-gaap:DebtInstrumentMaturityDate>", b"")
+    items, _, _ = B.extract(inst, None, "2025-12-31")
+    a = {i["miembro"]: i for i in items}["tst:April2032SeniorNotesMember"]
+    assert a["vencimiento"] == "2032-04-30" and a["vencimiento_aprox"] and a["emision"] is None
+    inst2 = INST.replace(b"tst:EuroNotesMember", b"tst:March2025EuroDenominatedNotesMember").replace(b"<us-gaap:DebtInstrumentMaturityDate contextRef=\"c2\">2031-03-15</us-gaap:DebtInstrumentMaturityDate>", b"")
+    items, _, _ = B.extract(inst2, None, "2025-12-31")
+    b = {i["miembro"]: i for i in items}["tst:March2025EuroDenominatedNotesMember"]
+    assert b["emision"] == "2025-03" and b["vencimiento"] is None

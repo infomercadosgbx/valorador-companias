@@ -18,6 +18,7 @@ from datetime import date
 
 from .filings import archive_base, recent_rows
 
+VERSION = 3
 AX_INSTR = "DebtInstrumentAxis"
 AX_TYPES = {"LongtermDebtTypeAxis", "ShortTermDebtTypeAxis", "DebtInstrumentAxis"}
 ALLOWED_EXTRA = {"LongtermDebtTypeAxis", "ShortTermDebtTypeAxis", "LegalEntityAxis"}
@@ -25,8 +26,9 @@ ALLOWED_EXTRA = {"LongtermDebtTypeAxis", "ShortTermDebtTypeAxis", "LegalEntityAx
 C_COUPON = ("DebtInstrumentInterestRateStatedPercentage",)
 C_EFFECTIVE = ("DebtInstrumentInterestRateEffectivePercentage",)
 C_FACE = ("DebtInstrumentFaceAmount",)
-C_BOOK = ("LongTermDebt", "DebtInstrumentCarryingAmount", "LongTermDebtNoncurrent",
-          "SeniorNotes", "ConvertibleNotesPayable")
+C_BOOK = ("LongTermDebt", "DebtInstrumentCarryingAmount", "LongTermDebtNoncurrent", "LongTermDebtGross",
+          "SeniorNotes", "ConvertibleNotesPayable", "SecuredDebt", "UnsecuredDebt", "SecuredLongTermDebt",
+          "UnsecuredLongTermDebt", "LongTermLineOfCredit", "OtherLongTermDebt", "NotesPayable", "SeniorLongTermNotes")
 C_MATURITY = ("DebtInstrumentMaturityDate", "DebtInstrumentMaturityDateRangeEnd")
 C_ISSUED = ("DebtInstrumentIssuanceDate", "DebtInstrumentIssueDate")
 C_TYPE_AMOUNT = ("LongTermDebt", "DebtInstrumentCarryingAmount", "LongTermDebtNoncurrent",
@@ -177,7 +179,7 @@ def extract(inst_xml: bytes, lab_xml: bytes | None, period_end: str | None):
     """Emisiones y composición por tipo de UN informe."""
     facts, ctx, units = parse_instance(inst_xml)
     labels = parse_labels(lab_xml)
-    instr, types = {}, {}
+    instr, types, seen_concepts = {}, {}, {}
     for f in facts:
         c = ctx.get(f["ctx"])
         if not c or not c["dims"]:
@@ -187,6 +189,7 @@ def extract(inst_xml: bytes, lab_xml: bytes | None, period_end: str | None):
             if not dims - {AX_INSTR} <= ALLOWED_EXTRA:
                 continue
             m = c["dims"][AX_INSTR]
+            seen_concepts[f["c"]] = seen_concepts.get(f["c"], 0) + 1
             row = instr.setdefault(m, {"coupon": [], "eff": [], "face": [], "book": [], "mat": [], "iss": [], "ccy": set(), "tipo_ax": None})
             extra = dims - {AX_INSTR} - {"LegalEntityAxis"}
             if extra:
@@ -236,16 +239,27 @@ def extract(inst_xml: bytes, lab_xml: bytes | None, period_end: str | None):
             continue  # amortizado
         prog = PROGRAM.match(label) if not mat and venc is None else None
         tail = re.search(r"Notes\s+((?:19|20)\d\d)$", label) if not mat and venc is None else None
-        if not coupon and prog:
+        emision_lbl = None
+        if prog:
             mon = MONTHS.get((prog.group(1) or "").lower())
-            emision_lbl = f"{prog.group(2)}-{mon:02d}" if mon else prog.group(2)
-        elif not coupon and tail:
+            yr = int(prog.group(2))
+            ref = period_end or date.today().isoformat()
+            if mon:
+                last_day = (date(yr + (mon == 12), mon % 12 + 1, 1) - date.resolution).isoformat()
+                if last_day > ref:                     # «April 2028 Senior Notes»: vence en esa fecha
+                    venc, aprox = last_day, True
+                else:                                  # «March 2026 Euro Notes»: se emitió entonces
+                    emision_lbl = f"{yr}-{mon:02d}"
+            elif str(yr) <= ref[:4]:
+                emision_lbl = str(yr)
+        elif tail:
             emision_lbl = tail.group(1)
-        else:
-            emision_lbl = None
+        variable = bool(re.search(r"floating|variable|sofr|libor", label, re.I))
         out.append({
             "miembro": m, "nombre": label, "tipo": classify(label, m),
-            "cupon": round(coupon[1] * 100, 4) if coupon and coupon[1] < 1 else (coupon[1] if coupon else None),
+            "cupon": None if variable else (round(coupon[1] * 100, 4) if coupon and coupon[1] < 1 else (coupon[1] if coupon else None)),
+            "diferencial": (round(coupon[1] * 100, 4) if coupon[1] < 1 else coupon[1]) if (variable and coupon) else None,
+            "variable": variable,
             "tipo_efectivo": round(eff[1] * 100, 4) if eff and eff[1] < 1 else (eff[1] if eff else None),
             "nominal": face[1] if face else None, "en_libros": book[1] if book else None,
             "en_libros_fecha": book[0] if book else None,
@@ -264,7 +278,7 @@ def extract(inst_xml: bytes, lab_xml: bytes | None, period_end: str | None):
     for m, (_, v) in by_member.items():
         lab = label_for(m, labels)
         comp.append({"miembro": m, "nombre": lab, "tipo": classify(lab, m), "importe": v})
-    return out, comp
+    return out, comp, seen_concepts
 
 
 # ------------------------------------------------------------ orquestación
@@ -296,8 +310,9 @@ def build(client, cik, subs, previous=None):
     if not fl:
         return None
     accns = [r["accessionNumber"] for r in fl]
-    if previous and previous.get("informes_accn") == accns:
+    if previous and previous.get("informes_accn") == accns and previous.get("version") == VERSION:
         return previous
+    diag = {}
     today = date.today().isoformat()
     seen, comp, used = {}, [], []
     for r in reversed(fl):  # del 10-K al 10-Q más reciente: lo nuevo sobrescribe
@@ -311,7 +326,9 @@ def build(client, cik, subs, previous=None):
         if not inst:
             continue
         try:
-            items, c = extract(inst, lab, r.get("reportDate"))
+            items, c, sc = extract(inst, lab, r.get("reportDate"))
+            for k, v in sc.items():
+                diag[k] = diag.get(k, 0) + v
         except ET.ParseError:
             continue
         src = {"formulario": r["form"], "fecha_presentacion": r["filingDate"], "fecha_periodo": r.get("reportDate"),
@@ -329,10 +346,29 @@ def build(client, cik, subs, previous=None):
     emisiones = [e for e in seen.values()
                  if (not e.get("vencimiento") or e["vencimiento"] >= today or e.get("vencimiento_aprox"))
                  and not (e.get("en_libros") == 0)]
+    def key(e):
+        if e.get("cupon") and e.get("vencimiento"):
+            return ("cv", e["cupon"], e["vencimiento"][:4])
+        return ("n", " ".join(sorted(re.findall(r"[a-z0-9]+", e["nombre"].lower().replace("seniors", "senior")))))
+    best = {}
+    for e in emisiones:
+        k = key(e)
+        score = (e["fuente"]["fecha_presentacion"], sum(1 for f in ("cupon", "nominal", "en_libros", "vencimiento") if e.get(f) is not None))
+        if k not in best or score > best[k][0]:
+            if k in best:  # completa huecos con el duplicado
+                for f, v in best[k][1].items():
+                    if e.get(f) is None and v is not None:
+                        e[f] = v
+            best[k] = (score, e)
+        else:
+            for f, v in e.items():
+                if best[k][1].get(f) is None and v is not None:
+                    best[k][1][f] = v
+    emisiones = [b for _, b in best.values()]
     emisiones.sort(key=lambda e: (e.get("vencimiento") or "9999", e.get("nombre")))
     last_10k = next((s for s in used if s["formulario"] == "10-K"), None)
     for e in emisiones:
         e["nueva"] = bool(last_10k and e["primera_vez"]["formulario"] == "10-Q")
-    if not emisiones and not comp:
-        return {"informes_accn": accns, "emisiones": [], "composicion": [], "informes": used}
-    return {"informes_accn": accns, "emisiones": emisiones, "composicion": comp, "informes": used}
+    top = dict(sorted(diag.items(), key=lambda kv: -kv[1])[:25])
+    return {"version": VERSION, "informes_accn": accns, "emisiones": emisiones, "composicion": comp, "informes": used,
+            "conceptos_xbrl": top}
