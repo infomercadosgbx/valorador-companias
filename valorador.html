@@ -969,7 +969,7 @@ R.financial=()=>{
     <section class="card"><h2>Ingresos y ${esc(lc(f.profitLabel))}</h2><p class="sub">${sc.u}</p><div class="cv h260"><canvas id="ch_fn_rev" role="img" aria-label="Ingresos y beneficio por año"></canvas></div></section>
     <section class="card"><h2>Evolución de los márgenes</h2><p class="sub">% sobre ingresos. EBITDA = beneficio operativo + amortizaciones (la SEC no publica EBITDA).</p><div class="cv h260"><canvas id="ch_fn_mg" role="img" aria-label="Márgenes por año"></canvas></div></section>
     <section class="card"><h2>Beneficio, caja e inversión</h2><p class="sub">${sc.u}</p><div class="cv h260"><canvas id="ch_fn_cash" role="img" aria-label="Beneficio neto, flujo de caja libre y capex"></canvas></div></section>
-    <section class="card"><h2>Inversión y conversión en caja</h2><p class="sub">Capex sobre ingresos y flujo de caja libre sobre beneficio neto, en %.</p><div class="cv h260"><canvas id="ch_fn_conv" role="img" aria-label="Intensidad de capex y conversión en caja"></canvas></div></section>
+    <section class="card"><h2>Intensidad de la inversión</h2><p class="sub">Capex sobre ingresos y sobre caja operativa, en %. Por encima de la línea del 100%, la compañía invierte más caja de la que genera su negocio y la diferencia sale de su caja o de deuda.</p><div class="cv h260"><canvas id="ch_fn_conv" role="img" aria-label="Intensidad de capex y conversión en caja"></canvas></div></section>
   </div>
   <section class="card"><h2>Tabla de datos</h2>
     <div style="display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between"><p class="sub" style="margin:0">Fuente: SEC EDGAR. Pasa el ratón por una cifra para ver su etiqueta XBRL; el año enlaza al 10-K.</p>${seg}</div>
@@ -1423,9 +1423,10 @@ C.financial=()=>{
   mk("ch_fn_cash",{type:"bar",data:{labels:f.years,datasets:cds},options:{plugins:{legend:legend(cds.length),tooltip:tipU(sc.u)},scales:{x:axisX,y:axisY()}}});
   { const q=f.qrev; if(q){const big1=Math.max(...q.values.filter(fin))>=20000, d=big1?1000:1;
     mk("ch_fn_q",{type:"bar",data:{labels:q.labels,datasets:[{label:"Ingresos",data:q.values.map(v=>fin(v)?v/d:null),backgroundColor:q.labels.map(l=>/gu[ií]a|e$/i.test(l)?alpha(V("--c3"),.45):V("--c3"))}]},options:{plugins:{legend:{display:false},tooltip:tipU(big1?"mil M "+ccy():"M "+ccy())},scales:{x:axisX,y:axisY()}}});}
-    const cap=f.rev.map((v,i)=>fin(v)&&fin(f.capex[i])?f.capex[i]/v*100:null), conv=f.ni.map((v,i)=>fin(v)&&v>0&&fin(f.fcf[i])?f.fcf[i]/v*100:null);
-    const ds=[{label:"Capex / ingresos",data:cap,borderColor:cat[0],backgroundColor:cat[0]},{label:"FCF / beneficio neto",data:conv,borderColor:cat[1],backgroundColor:cat[1]}].filter(d=>d.data.some(fin));
-    mk("ch_fn_conv",{type:"line",data:{labels:f.years,datasets:ds},options:{plugins:{legend:legend(ds.length),tooltip:tipU("%",0)},scales:{x:axisX,y:axisY({suf:"%"})}}}); }
+    const cap=f.rev.map((v,i)=>fin(v)&&v>0&&fin(f.capex[i])?f.capex[i]/v*100:null), reinv=f.ocf.map((v,i)=>fin(v)&&v>0&&fin(f.capex[i])?f.capex[i]/v*100:null);
+    const ds=[{label:"Capex / ingresos",data:cap,borderColor:cat[0],backgroundColor:cat[0]},{label:"Capex / caja operativa",data:reinv,borderColor:cat[1],backgroundColor:cat[1]},
+      {label:"100% de la caja operativa",data:f.years.map(()=>100),borderColor:V("--muted"),borderDash:[4,4],borderWidth:1.5,pointRadius:0,pointHoverRadius:0}].filter(d=>d.data.some(fin));
+    if(ds.length>1) mk("ch_fn_conv",{type:"line",data:{labels:f.years,datasets:ds},options:{plugins:{legend:legend(ds.length),tooltip:{filter:it=>it.datasetIndex<2,callbacks:{label:c=>`${c.dataset.label}: ${nf(c.parsed.y,0)}%`}}},scales:{x:axisX,y:axisY({suf:"%"})}}}); }
   { const lab=f.years, nd=f.debtA.map((d,i)=>fin(d)&&fin(f.cashA[i])?(d-f.cashA[i])/sc.d:null);
     mk("ch_fn_debt",{type:"bar",data:{labels:lab,datasets:[{label:"Deuda",data:sc1(f.debtA,sc.d),backgroundColor:cat[1]},{label:"Caja",data:sc1(f.cashA,sc.d),backgroundColor:cat[0]},{type:"line",label:"Deuda neta",data:nd,borderColor:V("--ink"),backgroundColor:V("--ink"),borderDash:[5,4],pointRadius:3}]},
       options:{plugins:{legend:legend(3),tooltip:tipU(sc.u)},scales:{x:axisX,y:axisY({zero:false})}}});
