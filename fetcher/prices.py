@@ -105,6 +105,56 @@ class FinnhubProvider(PriceProvider):
         }
 
 
+class TwelveDataHistory:
+    """Histórico de cierres diarios (API oficial de Twelve Data, plan gratuito:
+    800 consultas al día y 8 por minuto). Ajustado por splits."""
+    nombre = "Twelve Data"
+    BASE = "https://api.twelvedata.com/time_series"
+
+    def __init__(self, api_key: str, min_interval=8.0, opener=None, sleep=time.sleep):
+        self.key = api_key
+        self.min_interval = min_interval
+        self._last = 0.0
+        self._open = opener or urllib.request.urlopen
+        self._sleep = sleep
+
+    def history(self, ticker: str, days=1300):
+        params = {"symbol": ticker, "interval": "1day", "outputsize": days, "adjust": "splits",
+                  "order": "ASC", "apikey": self.key}
+        url = f"{self.BASE}?{urllib.parse.urlencode(params)}"
+        for attempt in range(4):
+            wait = self._last + self.min_interval - time.monotonic()
+            if wait > 0:
+                self._sleep(wait)
+            self._last = time.monotonic()
+            try:
+                with self._open(urllib.request.Request(url, headers={"User-Agent": "valorador"}), timeout=60) as r:
+                    j = json.loads(r.read())
+            except (urllib.error.URLError, TimeoutError):
+                self._sleep(5 * (attempt + 1))
+                continue
+            if j.get("status") == "error":
+                if j.get("code") == 429:
+                    self._sleep(61)
+                    continue
+                raise RuntimeError(f"Twelve Data: {j.get('message')}")
+            vals = j.get("values") or []
+            serie = [[v["datetime"][:10], round(float(v["close"]), 4)] for v in vals if v.get("close")]
+            serie.sort()
+            if not serie:
+                return None
+            return {"serie": serie, "fuente": "Twelve Data (API oficial, plan gratuito)",
+                    "url": "https://twelvedata.com/", "fecha": serie[-1][0], "ajuste": "splits"}
+        raise RuntimeError("Twelve Data no responde")
+
+
+def history_from_env():
+    key = os.environ.get("TWELVEDATA_API_KEY", "").strip()
+    if key:
+        return TwelveDataHistory(key), None
+    return None, "Sin histórico de cotizaciones: falta el secret TWELVEDATA_API_KEY (ver README)."
+
+
 PROVIDERS = {"finnhub": FinnhubProvider}
 
 

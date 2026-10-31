@@ -114,3 +114,13 @@ def test_cik_que_no_coincide_genera_aviso(tmp_path):
     M.run(root=root, client=client, provider=NoPriceProvider(), price_warning="x")
     bad = json.loads((root / "data" / "BAD.json").read_text())
     assert bad["avisos"][0]["codigo"] == "cik"
+
+
+def test_historico_twelvedata_y_errores():
+    from fetcher.prices import TwelveDataHistory
+    body = b'{"status":"ok","values":[{"datetime":"2026-10-29","close":"10.5"},{"datetime":"2026-10-30","close":"11"}]}'
+    h = TwelveDataHistory("k", min_interval=0, opener=lambda r, timeout: FakeResp(body), sleep=lambda s: None).history("X")
+    assert h["serie"] == [["2026-10-29", 10.5], ["2026-10-30", 11.0]] and h["fecha"] == "2026-10-30"
+    bad = TwelveDataHistory("k", min_interval=0, opener=lambda r, timeout: FakeResp(b'{"status":"error","code":401,"message":"bad key"}'), sleep=lambda s: None)
+    with pytest.raises(RuntimeError):
+        bad.history("X")

@@ -109,7 +109,7 @@ def check_ciks(client, companies):
     return out
 
 
-def run(only=None, report=None, root=ROOT, client=None, provider=None, price_warning=None):
+def run(only=None, report=None, root=ROOT, client=None, provider=None, price_warning=None, history=None):
     companies = load_companies(root)
     if only:
         wanted = {t.upper() for t in only}
@@ -117,6 +117,7 @@ def run(only=None, report=None, root=ROOT, client=None, provider=None, price_war
     client = client or SecClient()
     if provider is None:
         provider, price_warning = prices.from_env()
+    hist, hist_warning = (history if history is not None else prices.history_from_env())
     cik_issues = check_ciks(client, companies)
 
     failures, changed, index = [], [], []
@@ -130,7 +131,7 @@ def run(only=None, report=None, root=ROOT, client=None, provider=None, price_war
                     previous = json.loads(path.read_text(encoding="utf-8"))
                 except json.JSONDecodeError:
                     previous = None
-            rec = build_company(client, c, provider, price_warning, previous)
+            rec = build_company(client, c, provider, price_warning, previous, hist, hist_warning)
             if c["ticker"] in cik_issues:
                 rec["avisos"].insert(0, warn("aviso", "cik", cik_issues[c["ticker"]]))
             if write_if_changed(path, rec):

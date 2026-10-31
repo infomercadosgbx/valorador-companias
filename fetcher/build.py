@@ -140,7 +140,7 @@ def build_from_sec(company, cf, subs):
     rec["resultados"] = {}
     q4_state = {"aceptados": set(), "rechazados": set()}
     for key in C.FLOW_CONCEPTS:  # «ingresos» va primero: decide qué 4T son coherentes
-        flow, w = X.build_flow(cf, cik, key, ref_end, fye, q4_state=q4_state)
+        flow, w = X.build_flow(cf, cik, key, ref_end, fye, max_quarters=24, q4_state=q4_state)
         rec["resultados"][key] = flow
         avisos += w
 
@@ -184,7 +184,7 @@ def build_from_sec(company, cf, subs):
     return rec
 
 
-def build_company(client, company, price_provider, price_warning=None, previous=None):
+def build_company(client, company, price_provider, price_warning=None, previous=None, history_provider=None, history_warning=None):
     cik = company["cik"]
     cf = client.companyfacts(cik)
     subs = client.submissions(cik)
@@ -214,5 +214,17 @@ def build_company(client, company, price_provider, price_warning=None, previous=
             rec["consenso_automatico"] = price_provider.recommendations(company["ticker"])
         except Exception as e:  # noqa: BLE001
             rec["avisos"].append(X.warn("info", "sin_consenso", f"Recomendaciones no disponibles: {e}"))
+    # Histórico de cotizaciones (secundario: si falla, se conserva el anterior y se avisa)
+    rec["historico_precio"] = (previous or {}).get("historico_precio")
+    if history_provider is None:
+        if history_warning:
+            rec["avisos"].append(X.warn("info", "sin_historico", history_warning))
+    else:
+        try:
+            h = history_provider.history(company["ticker"])
+            if h:
+                rec["historico_precio"] = h
+        except Exception as e:  # noqa: BLE001
+            rec["avisos"].append(X.warn("info", "sin_historico", f"Histórico de cotizaciones no disponible: {e}"))
     rec["generado"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
     return rec
