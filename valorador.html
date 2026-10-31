@@ -1170,11 +1170,11 @@ function info(id){ const d=MET[id]; return d?`<button type="button" class="ib" d
 function fmtU(v,u){ if(!fin(v)) return "–"; return u==="M"?`${nf(v,0)} M ${ccy()}`:u==="acc"?`${nf(v,1)} M`:u==="$"?`${nf(v,2)} ${ccy()}`:u==="%"?pct(v,2):u==="x"?nf(v,2)+"x":u==="pp"?(v>=0?"+":"")+nf(v,1)+" pp":nf(v,2); }
 function metricModal(id){
   const d=MET[id]; if(!d) return; let r; try{ r=d.calc(mctx()); }catch(e){ console.error(e); r={terms:[],res:NaN,unit:"n"}; }
-  const rows=(r.terms||[]).map(t=>`<tr><td class="op">${esc(t.op||"")}</td><td style="text-align:left;white-space:normal">${esc(t.l)}${t.n?`<div class="note">${esc(t.n)}</div>`:""}</td><td>${fmtU(t.v,t.u)}</td><td style="text-align:left">${t.p?srcTag(t.p):""}</td></tr>`).join("");
+  const rows=(r.terms||[]).map(t=>`<tr><td class="op">${esc(t.op||"")}</td><td style="text-align:left;white-space:normal">${esc(t.l)}${t.n?`<div class="note">${esc(t.n)}</div>`:""}${t.p?`<div>${srcTag(t.p)}</div>`:""}</td><td style="white-space:nowrap">${fmtU(t.v,t.u)}</td></tr>`).join("");
   $("modal").innerHTML=`<div style="display:flex;justify-content:space-between;gap:12px;align-items:flex-start"><div><div class="eyebrow">${esc(d.g)} · ${esc(cur.meta.name)}</div><h2 id="mTitle">${esc(d.n)}</h2></div><button type="button" class="x" data-close aria-label="Cerrar">×</button></div>
     <p style="margin:0">${esc(d.q)}</p>
     <div class="formula"><span class="eyebrow">Fórmula</span><b>${esc(d.f)}</b></div>
-    ${rows?`<div class="scroll"><table class="calc"><tbody>${rows}<tr class="em"><td class="op">=</td><td style="text-align:left">${esc(d.n)}</td><td>${fmtU(r.res,r.unit)}</td><td></td></tr></tbody></table></div>`:`<p class="empty">No hay datos suficientes para calcularla con las cifras actuales.</p>`}
+    ${rows?`<div class="scroll"><table class="calc"><tbody>${rows}<tr class="em"><td class="op">=</td><td style="text-align:left">${esc(d.n)}</td><td style="white-space:nowrap">${fmtU(r.res,r.unit)}</td></tr></tbody></table></div>`:`<p class="empty">No hay datos suficientes para calcularla con las cifras actuales.</p>`}
     <div class="g2" style="gap:12px"><div><div class="eyebrow">Cómo leerlo</div><p style="margin:4px 0 0;font-size:13px">${esc(d.leer)}</p></div><div><div class="eyebrow">Frente a otras fuentes</div><p style="margin:4px 0 0;font-size:13px">${esc(d.dif)}</p></div></div>
     <p class="note" style="margin:0">Cifras en millones salvo indicación. «UDM» = últimos doce meses. Las fuentes enlazan al documento de la SEC del que sale cada cifra.</p>`;
   $("overlay").hidden=false; setTimeout(()=>{const b=$("modal").querySelector("[data-close]"); if(b) b.focus();},0);
