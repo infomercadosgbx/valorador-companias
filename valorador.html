@@ -583,6 +583,8 @@ function favSet(){try{return JSON.parse(lsGet("valorador.favs")||"null");}catch(
 function buildCompany(co,an,d,man){
   const t=co.ticker.toUpperCase();
   const c=clone(an||TEMPLATE); fillMissing(c,clone(TEMPLATE));
+  /* acciones, caja y deuda que el análisis no fija siguen al dato de la SEC (no a la plantilla) */
+  MODEL_SEC.forEach(([k])=>{ if(!(an&&an.v&&fin(an.v[k]))) delete c.v[k]; });
   c._base=an?clone(an):null; c._draft=false;
   const dr=lsGet(DRAFT(t)); if(dr){try{const dj=JSON.parse(dr); ANALYSIS_KEYS.forEach(k=>{ if(dj[k]!==undefined) c[k]=dj[k]; }); c._draft=true;}catch(e){}}
   c.meta=Object.assign({},c.meta,{name:co.nombre,ticker:co.ticker,ccy:"USD",brand:{color:co.color,mono:co.monograma}});
