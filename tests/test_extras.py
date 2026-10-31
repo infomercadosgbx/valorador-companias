@@ -91,3 +91,23 @@ def test_comparativa_con_competidores():
     assert lst == ["AAA", "BBB"] and src.startswith("Finnhub")
     lst, src = P.peer_list("OWN", ["BBB"], Prov(), {"AAA": ("1", "A"), "BBB": ("2", "B")})
     assert lst == ["BBB"] and src == "manual"
+
+
+def test_avisos_sin_repetir(tmp_path):
+    import json
+    from datetime import date
+    from fetcher import alerts as A
+    c = {"ticker": "OK", "nombre": "Ok"}
+    data = {"precio": {"valor": 90, "cierre_anterior": 100, "fecha": "2026-10-30"},
+            "ultimo_informe": {"accn": "2", "formulario": "10-Q", "fecha_presentacion": "2026-10-29", "url_indice": "u"},
+            "directivos": {"operaciones": [{"codigo": "P", "persona": "Ana", "cargo": "CEO", "fecha": "2026-10-28", "acciones": 100, "precio": 90, "importe": 9000, "url": "f4"}]},
+            "resultados_previstos": {"proximos": {"fecha": "2026-11-02", "bpa_estimado": 1.2}}}
+    prev = {"ultimo_informe": {"accn": "1"}, "directivos": {"operaciones": []}}
+    an = {"verdict": {"buyBelow": 95}, "meta": {"asOf": "1-jun-2026"}}
+    st = {}
+    out = A.company_alerts(c, data, prev, an, st, date(2026, 11, 1))
+    txt = " ".join(t for _, t in out)
+    assert "zona de compra" in txt and "10-Q" in txt and "Compra de un directivo" in txt and "−10,0%" in txt
+    assert "mañana" in txt and "153 días" in txt
+    again = A.company_alerts(c, data, data, an, st, date(2026, 11, 1))
+    assert again == []

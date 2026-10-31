@@ -50,6 +50,11 @@ jobs:
           if [[ ! "$TICKERS" =~ ^[A-Za-z0-9.\ -]*$ ]]; then echo "Tickers no válidos: $TICKERS"; exit 1; fi
           python -m fetcher.main --report "$RUNNER_TEMP/informe.md" ${TICKERS:+--only $TICKERS}
 
+      - name: Preparar avisos (zona de compra, resultados, compras de directivos…)
+        id: avisos
+        continue-on-error: true
+        run: python -m fetcher.alerts --out "$RUNNER_TEMP/avisos.md"
+
       - name: Commit si algo cambió
         run: |
           git config user.name "valorador-bot"
@@ -62,6 +67,15 @@ jobs:
           git commit -m "datos: actualización $(date -u +%Y-%m-%d)"
           git pull --rebase --quiet
           git push
+
+      - name: Enviar avisos por Issue (GitHub los manda por email)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ ! -s "$RUNNER_TEMP/avisos.md" ]; then echo "Sin avisos nuevos."; exit 0; fi
+          gh label create aviso --color F59E0B --description "Avisos automáticos del valorador" --force >/dev/null 2>&1 || true
+          n=$(grep -c '^\S.*\*\*' "$RUNNER_TEMP/avisos.md" || true)
+          gh issue create --title "Avisos del valorador · $(TZ=Europe/Madrid date +%d-%m-%Y) ($n)" --label aviso --body-file "$RUNNER_TEMP/avisos.md"
 
       - name: Abrir o actualizar un Issue si la SEC falla
         if: steps.fetch.outcome == 'failure'
