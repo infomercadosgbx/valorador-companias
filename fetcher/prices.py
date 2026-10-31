@@ -100,6 +100,9 @@ class FinnhubProvider(PriceProvider):
             "mantener": last.get("hold", 0),
             "venta": last.get("sell", 0),
             "venta_fuerte": last.get("strongSell", 0),
+            "historial": [{"periodo": r.get("period"), "compra_fuerte": r.get("strongBuy", 0), "compra": r.get("buy", 0),
+                           "mantener": r.get("hold", 0), "venta": r.get("sell", 0), "venta_fuerte": r.get("strongSell", 0)}
+                          for r in sorted(rows, key=lambda r: r.get("period", ""))[-6:]],
             "fuente": "Finnhub · recomendaciones de analistas",
             "url": "https://finnhub.io/docs/api/recommendation-trends",
         }
