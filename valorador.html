@@ -507,7 +507,6 @@ tbody tr:hover td{background:color-mix(in srgb,var(--brand) 4%,transparent)}
 input[type=number],select,input[type=text],textarea{border-radius:6px}
 input[type=number]{font-family:var(--f-body)}
 .thesis p{font-family:var(--f-body);font-weight:500;letter-spacing:-.01em}
-.card.thesis,.thesis.card{background:var(--surface);border-color:var(--line)}
 .btn-acc{background:var(--ink);border-color:var(--ink)}
 .foot{margin:8px 0 40px;font-size:12px;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 16px;border-top:1px solid var(--line);padding-top:14px}
 .foot a{color:var(--ink2)}
@@ -1018,7 +1017,7 @@ const kpi=(lab,val,extra="",lead)=>`<div class="kpi ${lead?"lead":""}"><span cla
 R.overview=()=>{
   const vz=valuation(cur), s=scorecard(cur,vz), mcap=cur.v.price*cur.v.shares;
   return `
-  <section class="card" style="background:color-mix(in srgb,var(--tc) 6%,var(--surface))">
+  <section class="card" style="border-left:3px solid var(--brand)">
     <div class="eyebrow tc">Tesis en una línea</div>
     ${tx("overview.thesis",{cls:"thesis",rows:2,ph:"La idea principal en una frase"})}
     ${EDIT?`<div class="g3">${["sector:Sector","hq:Sede","founded:Fundación","employees:Empleados","asOf:Fecha del análisis","nextEarnings:Próximos resultados"].map(x=>{const [k,l]=x.split(":");return `<label class="note">${l}${ln("meta."+k,{ph:l})}</label>`;}).join("")}
