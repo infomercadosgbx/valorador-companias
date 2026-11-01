@@ -603,6 +603,13 @@ body.watch .tabs,body.watch .cohead,body.watch #staleBox,body.watch #draftBar,bo
 
 .chg{display:flex;flex-wrap:wrap;gap:2px 6px;font-size:12px;color:var(--ink2);align-items:baseline}
 .chg .up{color:var(--goodText);font-weight:600} .chg .dn{color:var(--critText);font-weight:600} .chg .sep{color:var(--line)}
+
+.kfgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:4px}
+@media (max-width:560px){.kfgrid{grid-template-columns:minmax(0,1fr)}}
+.kf{background:var(--surface2);border:1px solid var(--line);border-radius:8px;padding:10px 12px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.kf b{font-size:17px;font-weight:700;letter-spacing:-.01em;font-variant-numeric:tabular-nums;line-height:1.2} .kf b.neg{color:var(--critText)}
+.kf .pill{font-size:11px;padding:1px 7px}
+.kfd{font-size:12px;color:var(--ink2);line-height:1.35}
 </style>
 </head>
 <body>
@@ -1331,7 +1338,8 @@ R.overview=()=>{
   <div class="g2">
     <section class="card"><h2>Qué hace</h2>${tx("overview.summary",{rows:6})}
       <h3>Datos clave</h3>
-      <div class="facts">${arr("overview.keyFacts").map((f,i)=>`<div class="k">${ln(`overview.keyFacts.${i}.k`,{ph:"Dato"})}</div><div class="v">${ln(`overview.keyFacts.${i}.v`,{ph:"Valor"})}</div><div>${del("overview.keyFacts",i)}</div>`).join("")}</div>
+      ${EDIT?`<div class="facts">${arr("overview.keyFacts").map((f,i)=>`<div class="k">${ln(`overview.keyFacts.${i}.k`,{ph:"Dato"})}</div><div class="v">${ln(`overview.keyFacts.${i}.v`,{ph:"Valor"})}</div><div>${del("overview.keyFacts",i)}</div>`).join("")}</div>`
+        :`<div class="kfgrid">${arr("overview.keyFacts").map(f=>kfTile(f)).join("")}</div>`}
       ${add("overview.keyFacts","keyFacts","Añadir dato")}
     </section>
     <section class="card"><h2>Puntuación por área</h2><p class="sub">De 0 a 5. Sale de las pestañas Negocio, MOAT, Crecimiento, Directiva, Riesgos y Valoración.</p>
@@ -2883,6 +2891,23 @@ new MutationObserver(()=>{rebuildCharts(); if(TAB==="valuation") drawFootball();
 
 /* ---------- Cifras oficiales (Overview) y documentos oficiales (Fuentes) ---------- */
 /* variaciones para las cifras oficiales: interanual y frente al trimestre anterior */
+/* «Datos clave»: la primera cifra como titular, el primer % entre paréntesis como etiqueta y el resto como detalle */
+function kfTile(f){
+  const v=String(f.v||"").trim(); let head=v, rest="", pillTxt="";
+  /* corta en el primer «(», «; », «, » o «: » (no en la coma decimal de «2,34») */
+  let cut=-1; ["(","; ",", ",": "].forEach(sp=>{ const i=v.indexOf(sp); if(i>0&&(cut<0||i<cut)) cut=i; });
+  if(cut>0&&/\d/.test(v.slice(0,cut))){
+    head=v.slice(0,cut).trim(); let tail=v.slice(cut);
+    if(tail.startsWith("(")){ const close=tail.indexOf(")"); let inner=close>0?tail.slice(1,close):tail.slice(1); tail=close>0?tail.slice(close+1):"";
+      const pm=/^\s*(~?[+\-−]\d[\d.,]*\s*%)\s*[;,]?\s*(.*)$/.exec(inner);
+      if(pm){ pillTxt=pm[1].replace(/\s+/g,""); inner=pm[2]; }
+      rest=[inner.trim(),tail.replace(/^\s*[,;:]\s*/,"").trim()].filter(Boolean).join(" · "); }
+    else rest=tail.replace(/^\s*[,;:]\s*/,"").trim();
+  }
+  const neg=/^[−-]/.test(head), up=pillTxt&&!/^~?[−-]/.test(pillTxt);
+  return `<div class="kf"><span class="eyebrow">${esc(f.k||"")}</span><b class="${neg?"neg":""}">${esc(head)}</b>
+    ${pillTxt?`<span class="pill ${up?"up":"down"}">${up?"▲":"▼"} ${esc(pillTxt)}</span>`:""}${rest?`<span class="kfd">${esc(rest)}</span>`:""}</div>`;
+}
 function officialChanges(){
   const d=cur._data||{}, R=d.resultados||{}, B=d.balance||{};
   const Q=k=>((R[k]&&R[k].trimestral)||[]).slice().sort((a,b)=>a.periodo_fin.localeCompare(b.periodo_fin));
