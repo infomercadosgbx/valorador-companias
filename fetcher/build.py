@@ -178,7 +178,18 @@ def build_from_sec(company, cf, subs):
     rev = rec["resultados"]["ingresos"]
     if not rev["anual"] and not rev["trimestral"]:
         raise NoSecData(f"{company['ticker']}: no se ha podido construir la serie de ingresos.")
-    avisos += V.check_revenue_drop(rev)
+    corte = _restatement_cut(cf, rec["resultados"], avisos)
+    drops = V.check_revenue_drop({"anual": (rev.get("anual_no_comparable") or []) + rev["anual"]})
+    for w in drops:
+        if corte and corte.get("anual_desde") and w.get("periodo") == corte["anual_desde"]:
+            w["mensaje"] = (f"Ingresos {w['periodo']}: la caída frente al año anterior no es real. La compañía reexpresó "
+                            f"sus cuentas (operaciones discontinuadas) desde {corte['anual_desde']} y los años anteriores "
+                            f"incluyen el negocio vendido: no son comparables y la web los deja fuera de gráficos y crecimientos.")
+            w["confirmado"] = True
+            w["nivel"] = "info"
+    if corte:
+        rec["reexpresion"] = corte
+    avisos += drops
     avisos += V.check_jumps(rev)
     avisos += V.check_fiscal_calendar(rev)
     for key in ("ingresos", "beneficio_operativo", "beneficio_neto"):
@@ -186,6 +197,67 @@ def build_from_sec(company, cf, subs):
     avisos += V.check_latest_filing(ref_end, rec["ultimo_informe"])
     rec["avisos"] = avisos
     return rec
+
+
+RESTATE_RATIO = 1.10
+NOT_RESTATED = {"acciones_diluidas_media", "bpa_diluido"}
+
+
+def _restatement_cut(cf, flows, avisos):
+    """Reexpresiones por operaciones discontinuadas (AppLovin 2025): el mismo periodo
+    de ingresos aparece con valores muy distintos en dos informes. Los periodos
+    anteriores al primero reexpresado mezclan el negocio vendido: se apartan a
+    «anual_no_comparable» / «trimestral_no_comparable» (siguen en el JSON) para que
+    gráficos, crecimientos y el 4T no mezclen perímetros."""
+    groups = {}
+    for t in C.FLOW_CONCEPTS["ingresos"]["tags"]:
+        for f in X.raw_facts(cf, t, "USD"):
+            if f.get("start") and f.get("form") in ("10-K", "10-Q", "10-K/A", "10-Q/A"):
+                groups.setdefault((f["start"], f["end"]), []).append(f["val"])
+    a_starts, q_starts = [], []
+    for (s, e), vals in groups.items():
+        vals = [v for v in vals if v and v > 0]
+        if len(vals) < 2 or max(vals) / min(vals) < RESTATE_RATIO:
+            continue
+        days = (X.d(e) - X.d(s)).days
+        if 350 <= days <= 380:
+            a_starts.append(s)
+        elif 80 <= days <= 100:
+            q_starts.append(s)
+    if not a_starts and not q_starts:
+        return None
+    a0, q0 = (min(a_starts) if a_starts else None), (min(q_starts) if q_starts else None)
+    corte = {}
+    for key, fl in flows.items():
+        if key in NOT_RESTATED:
+            continue
+        if a0:
+            old = [p for p in fl.get("anual", []) if p["periodo_fin"] < a0]
+            if old:
+                fl["anual"] = [p for p in fl["anual"] if p["periodo_fin"] >= a0]
+                fl["anual_no_comparable"] = old
+        if q0:
+            old = [p for p in fl.get("trimestral", []) if p["periodo_fin"] < q0]
+            if old:
+                fl["trimestral"] = [p for p in fl["trimestral"] if p["periodo_fin"] >= q0]
+                fl["trimestral_no_comparable"] = old
+    rev = flows.get("ingresos") or {}
+    if rev.get("anual"):
+        corte["anual_desde"] = rev["anual"][0]["periodo"]
+    if rev.get("trimestral"):
+        corte["trimestral_desde"] = rev["trimestral"][0]["periodo"]
+    corte["motivo"] = "Reexpresión de cuentas (operaciones discontinuadas): los periodos anteriores no son comparables."
+    # Los 4T descartados por mezclar perímetros dejan de ser un aviso: ya están fuera de la serie
+    for w in avisos:
+        if w.get("codigo") == "4t_descartado" and q0:
+            w["nivel"] = "info"
+            w["mensaje"] += " Es consecuencia de la reexpresión: ese periodo queda fuera de la serie comparable."
+    avisos.append(X.warn("info", "reexpresion",
+        f"Cuentas reexpresadas: serie anual comparable desde {corte.get('anual_desde', '–')} y trimestral desde "
+        f"{corte.get('trimestral_desde', '–')}. Los periodos anteriores incluyen negocios que ya no forman parte "
+        f"de la compañía y se guardan aparte («no comparable»)."))
+    rec_corte = corte
+    return rec_corte
 
 
 def _id_from_extension(rec):

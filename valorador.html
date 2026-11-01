@@ -479,6 +479,18 @@ h3{font-weight:600;font-size:13.5px}
 .tick{font-family:var(--f-body);font-weight:600;letter-spacing:.02em;border-radius:5px}
 .pricebox .px{font-family:var(--f-body);font-weight:700;font-size:28px;letter-spacing:-.02em}
 .pill{border-radius:5px;font-weight:600;font-size:11.5px}
+.idrow{gap:8px!important;margin-top:8px} .idrow .pill,.idrow .tick{font-size:13px;padding:4px 10px}
+#hdrSector{font-size:12px;letter-spacing:.06em}
+.pxrow{display:flex;align-items:baseline;gap:10px;justify-content:flex-end}
+.pricebox .px{font-size:32px}
+.daychg{font-weight:700;font-size:14px;padding:2px 8px;border-radius:6px} .daychg.up{color:var(--goodText);background:color-mix(in srgb,var(--good) 14%,transparent)} .daychg.dn{color:var(--critText);background:color-mix(in srgb,var(--crit) 12%,transparent)}
+.r52{display:grid;grid-template-columns:auto auto minmax(110px,180px) auto;align-items:center;gap:8px;font-size:12.5px;font-variant-numeric:tabular-nums}
+.r52 .lab{color:var(--ink2);font-size:11px;text-transform:uppercase;letter-spacing:.05em} .r52 .v{color:var(--ink);font-weight:600}
+.r52 .bar{position:relative;height:6px;margin:0 7px;border-radius:3px;background:linear-gradient(90deg,color-mix(in srgb,var(--crit) 35%,var(--surface2)),var(--surface2) 50%,color-mix(in srgb,var(--good) 35%,var(--surface2)))}
+.r52 .bar i{position:absolute;top:50%;width:12px;height:12px;border-radius:50%;background:var(--ink);border:2px solid var(--surface);transform:translate(-50%,-50%);box-shadow:0 0 0 1px var(--ink)}
+.hstrip{flex-basis:100%;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:6px 16px;border-top:1px solid var(--line);padding-top:10px;margin-top:2px;font-size:13.5px}
+.hs-k{color:var(--ink2)} .soon{font-size:12px;font-weight:700;padding:1px 7px;border-radius:99px;background:var(--surface2);color:var(--ink)} .soon.hot{background:color-mix(in srgb,var(--warn) 25%,transparent)}
+@media (max-width:640px){.pxrow{justify-content:flex-start} .r52{grid-template-columns:auto auto minmax(80px,1fr) auto} .hs-r{width:100%}}
 
 /* pestañas: sin arcoíris, subrayado con el color de la compañía */
 .tabs{background:var(--bg);margin-top:10px}
@@ -702,6 +714,7 @@ body.report .seg{display:none}
       <div class="idrow" id="hdrRow"></div>
     </div></div>
     <div class="pricebox" id="priceBox"></div>
+    <div class="hstrip" id="hdrStrip"></div>
   </header>
   <div class="draft" id="draftBar" hidden></div>
   <div class="stale" id="staleBox" hidden></div>
@@ -962,6 +975,7 @@ const WEXP={
   no_soportada:"La compañía presenta 20-F (extranjera, normalmente IFRS): todavía no está soportada.",
   etiqueta_obsoleta:"La compañía cambió la etiqueta contable de estas partidas; la antigua solo se usa para años anteriores. No afecta a las cifras recientes.",
   id_tecnologia:"La compañía no publica I+D. Se usa su gasto de tecnología, que solo está en sus informes recientes: la serie es más corta.",
+  reexpresion:"La compañía vendió un negocio y reexpresó sus cuentas: el robot separa los periodos anteriores (no comparables) para que los gráficos y crecimientos no mezclen perímetros.",
   split:"Hubo un split: las acciones y el BPA antiguos se ajustan para comparar bien.",
   acciones_diluidas:"La SEC no publica las acciones en circulación totales: se usan las diluidas medias del último trimestre.",
   componente_no_etiquetado:"Una parte de una partida (por ejemplo, la deuda a corto) no aparece en el informe y cuenta como 0.",
@@ -1263,10 +1277,20 @@ function renderHeader(){
   const vz=valuation(cur), s=scorecard(cur,vz), mcap=cur.v.price*cur.v.shares;
   $("hdrRow").innerHTML=`${cur.meta.ticker?`<span class="tick">${esc(cur.meta.ticker)}</span>`:""}${(cur.verdict.rating?ratingPill(cur.verdict.rating):`<span class="pill neutral">Sin recomendación</span>`)}
     <span class="pill neutral">Puntuación ${nf(s.total,0)}/100</span>${fin(vz.w)?upPill(vz.w,cur.v.price).replace("vs cotización","de potencial"):""}`;
-  const P=cur._data&&cur._data.precio, ref=cur._data&&cur._data.referencia_fecha_datos;
-  $("priceBox").innerHTML=`<span class="eyebrow">Cotización ${P?srcTag(P):""}</span><span class="px">${money(cur.v.price)}</span>
-    <span class="note">Capitalización ${big(mcap)}${fin(cur.v.lo52)&&fin(cur.v.hi52)?` · 52 semanas ${nf(cur.v.lo52,0)}–${nf(cur.v.hi52,0)}`:""}${(()=>{const P=cur._data&&cur._data.resultados_previstos&&cur._data.resultados_previstos.proximos; return P?` · Resultados: ${esc(fecha(P.fecha))}`:cur.meta.nextEarnings?` · Resultados: ${esc(cur.meta.nextEarnings)}`:"";})()}</span>
-    <span class="note">${ref?`Cifras SEC hasta ${esc(fecha(ref))}`:"Sin datos de la SEC"}${cur._data&&cur._data.generado?` · datos actualizados ${esc(ago(cur._data.generado))}`:""}</span>`;
+  const P=cur._data&&cur._data.precio, ref=cur._data&&cur._data.referencia_fecha_datos, px=cur.v.price;
+  const day=P&&fin(P.cierre_anterior)&&P.cierre_anterior>0&&fin(px)?(px/P.cierre_anterior-1)*100:NaN;
+  const lo=cur.v.lo52, hi=cur.v.hi52, pos=fin(lo)&&fin(hi)&&hi>lo&&fin(px)?Math.min(100,Math.max(0,(px-lo)/(hi-lo)*100)):NaN;
+  $("priceBox").innerHTML=`<span class="eyebrow">Cotización ${P?srcTag(P):""}</span>
+    <div class="pxrow"><span class="px">${money(px)}</span>${fin(day)?`<span class="daychg ${day>=0?"up":"dn"}" title="Variación en la última sesión">${day>=0?"▲":"▼"} ${nf(Math.abs(day),1)}%</span>`:""}</div>
+    ${fin(pos)?`<div class="r52" title="Rango de 52 semanas"><span class="lab">52 semanas</span><span class="v">${nf(lo,2)}</span><span class="bar"><i style="left:${pos.toFixed(1)}%"></i></span><span class="v">${nf(hi,2)}</span></div>
+      <span class="note">${pos<5?"En mínimos del año":pos>95?"En máximos del año":`${nf((px/hi-1)*100,0)}% desde el máximo · +${nf((px/lo-1)*100,0)}% desde el mínimo`}</span>`:""}
+    <span class="note">Capitalización <b>${big(mcap)}</b></span>`;
+  const E=cur._data&&cur._data.resultados_previstos&&cur._data.resultados_previstos.proximos;
+  const days=E&&E.fecha?Math.round((Date.parse(E.fecha+"T00:00:00Z")-Date.parse(new Date().toISOString().slice(0,10)+"T00:00:00Z"))/864e5):NaN;
+  const dow=E&&E.fecha?["dom","lun","mar","mié","jue","vie","sáb"][new Date(E.fecha+"T12:00:00Z").getUTCDay()]:"";
+  const nx=E&&E.fecha?`<span class="hs-k">Próximos resultados</span> <b>${dow} ${esc(fecha(E.fecha))}</b>${E.hora?` · ${esc(E.hora)}`:""}${fin(days)&&days>=0?` <span class="soon${days<=7?" hot":""}">${days===0?"hoy":days===1?"mañana":`en ${days} días`}</span>`:""}${fin(E.bpa_estimado)?` · BPA esperado <b>${nf(E.bpa_estimado,2)} $</b>`:""}${fin(E.ingresos_estimados)?` · ingresos esperados <b>${big(E.ingresos_estimados/M6)}</b>`:""} <span class="note">· Finnhub</span>`
+    :cur.meta.nextEarnings?`<span class="hs-k">Próximos resultados</span> <b>${esc(cur.meta.nextEarnings)}</b> <span class="note">· según tu análisis</span>`:`<span class="note">Sin fecha de próximos resultados</span>`;
+  $("hdrStrip").innerHTML=`<div class="hs-l">🗓 ${nx}</div><div class="hs-r note">${ref?`Cifras SEC hasta ${esc(fecha(ref))}`:"Sin datos de la SEC"}${cur._data&&cur._data.generado?` · datos actualizados ${esc(ago(cur._data.generado))}`:""}</div>`;
   applyBrand(cur); { const b=brandOf(cur), el=$("hdrMono"); el.className="mono"+(b.logo?" logo":""); el.style.background=b.logo?"":b.color; el.style.color=b.logo?"":b.ink; el.innerHTML=monoInner(b); }
   const n=Object.keys(store.companies).length, sym=symOf(cur);
   $("btnSwitch").innerHTML=`${monoHtml(cur,"sm")}<span class="nm">${esc(cur.meta.name||"Sin nombre")}</span>${sym?`<small>${esc(sym)}</small>`:""}<span class="ct">${n} ${n===1?"compañía":"compañías"} ▾</span><kbd>Ctrl K</kbd>`;

@@ -83,3 +83,21 @@ def test_cita_con_dicho_antes():
     html = "<p>Sundar Pichai, CEO of Alphabet and Google, said:</p><p>“We delivered a strong quarter with growth across Search, YouTube and Cloud, and AI is driving it all.”</p>"
     c = PR.extract(html)["cita"]
     assert c["cita"].startswith("We delivered") and c["quien"].startswith("Sundar Pichai")
+
+
+def test_reexpresion_aparta_periodos_no_comparables():
+    from fetcher.build import _restatement_cut
+    def f(s, e, v, filed, form="10-K"):
+        return {"start": s, "end": e, "val": v, "filed": filed, "form": form, "accn": filed, "fy": 0, "fp": "FY"}
+    raw = [f("2022-01-01", "2022-12-31", 2800, "2023-02-28"), f("2023-01-01", "2023-12-31", 3300, "2024-02-26"),
+           f("2023-01-01", "2023-12-31", 1800, "2026-02-19"), f("2024-01-01", "2024-12-31", 3200, "2026-02-19")]
+    cf = {"facts": {"us-gaap": {"Revenues": {"units": {"USD": raw}}}}}
+    flows = {"ingresos": {"anual": [{"periodo": y, "periodo_fin": f"{y}-12-31", "valor": v} for y, v in (("2022", 2800), ("2023", 1800), ("2024", 3200))], "trimestral": []},
+             "acciones_diluidas_media": {"anual": [{"periodo": "2022", "periodo_fin": "2022-12-31", "valor": 1}], "trimestral": []}}
+    avisos = []
+    corte = _restatement_cut(cf, flows, avisos)
+    assert corte["anual_desde"] == "2023"
+    assert [p["periodo"] for p in flows["ingresos"]["anual"]] == ["2023", "2024"]
+    assert flows["ingresos"]["anual_no_comparable"][0]["periodo"] == "2022"
+    assert flows["acciones_diluidas_media"]["anual"]   # las acciones no se tocan
+    assert any(w["codigo"] == "reexpresion" for w in avisos)
