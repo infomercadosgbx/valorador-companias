@@ -714,6 +714,17 @@ body.report #ratioCard .seg{display:none}
 .vs{display:flex;flex-direction:column;gap:1px;padding:9px 12px;min-width:0} .vs+.vs{border-left:1px solid var(--line)} .vs>span{font-size:11px;color:var(--ink2);text-transform:uppercase;letter-spacing:.05em} .vs b{font-size:17px;font-variant-numeric:tabular-nums} .vs em{font-style:normal;font-size:12px;color:var(--ink2)}
 @media (max-width:760px){.vsnap{grid-template-columns:repeat(2,minmax(0,1fr))} .vs+.vs{border-left:0} .vs{border-top:1px solid var(--line)} .vs:nth-child(-n+2){border-top:0} .vs:nth-child(even){border-left:1px solid var(--line)} .vs:last-child:nth-child(odd){grid-column:span 2}}
 .cnota{font-size:14px;margin:0 0 8px}
+.dgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:12px}
+@media (max-width:520px){.dgrid{grid-template-columns:1fr}}
+.dcard{border:1px solid var(--line);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:8px;position:relative;background:var(--surface)}
+.dch{display:flex;gap:10px;align-items:flex-start} .dnum{flex:0 0 28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--tcx);color:#fff;font-weight:700;font-size:13px}
+.dct{display:flex;flex-direction:column;gap:5px;min-width:0} .dct b{font-size:15.5px;line-height:1.25}
+.dchips{display:flex;flex-wrap:wrap;gap:6px;align-items:center} .dchip{font-size:11.5px;padding:2px 8px;border-radius:99px;background:color-mix(in srgb,var(--cc) 15%,transparent);color:var(--ink);border:1px solid color-mix(in srgb,var(--cc) 45%,transparent);font-weight:600}
+.dchip.plain{background:var(--surface2);border-color:var(--line);font-weight:500;color:var(--ink2)}
+.dkey{font-size:16px;font-weight:700;color:var(--tcx);line-height:1.3;font-variant-numeric:tabular-nums} .dkey .note{font-weight:500}
+.dd{margin:0;font-size:13.5px;line-height:1.5;color:var(--ink)}
+.ddl{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;margin:0;font-size:13px;background:var(--surface2);border-radius:8px;padding:8px 10px} .ddl dt{font-weight:600;white-space:nowrap;color:var(--ink2)} .ddl dd{margin:0;color:var(--ink)}
+@media (max-width:520px){.ddl{grid-template-columns:1fr}.ddl dd{margin-bottom:4px}}
 .cgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin:4px 0 8px}
 .ccard{border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:6px;position:relative;background:var(--surface);box-shadow:0 1px 2px rgba(0,0,0,.04)}
 .cch{display:flex;gap:10px;align-items:center} .cct{display:flex;flex-direction:column;gap:3px;align-items:flex-start;min-width:0} .cct b{font-size:15px;line-height:1.2}
@@ -862,7 +873,7 @@ function fillMissing(t,src){Object.keys(src).forEach(k=>{ if(t[k]===undefined) t
 const TPL={
   keyFacts:{k:"",v:""}, catalysts:{d:"",t:""}, segments:{n:"Nuevo segmento",v:0}, customerTypes:{n:"Nuevo cliente",d:""}, ckpis:{k:"Indicador",v:"",d:""}, cnamed:{n:"Cliente",t:"",sector:"",cifra:"",d:"",u:"",f:""},
   quality:{n:"Nuevo criterio",s:3,note:""}, sources:{n:"Nueva fuente",s:2,note:""}, comps:{n:"Nuevo competidor",threat:3,note:""},
-  drivers:{n:"Nuevo motor",impact:3,h:"",d:""}, people:{n:"Nombre",role:"Cargo",since:"",note:""}, scores:{n:"Nuevo criterio",s:3,note:""},
+  drivers:{n:"Nuevo motor",impact:3,h:"",st:"",k:"",peso:"",d:"",ev:"",r:"",u:""}, people:{n:"Nombre",role:"Cargo",since:"",note:""}, scores:{n:"Nuevo criterio",s:3,note:""},
   items:{n:"Nueva partida",v:0}, docs:{cat:"Formularios SEC",t:"Nuevo documento",d:"",u:"https://"}, videos:{t:"Nuevo vídeo",u:"https://www.youtube.com/watch?v="}, news:{t:"Nueva fuente",src:"",u:"https://"}, risks:{n:"Nuevo riesgo",cat:"Operativo",p:3,i:3,note:""}
 };
 const ANALYSIS_KEYS=["peers","meta","overview","business","moat","growth","mgmt","risks","v","verdict","notes","sources","social","fin_manual"];
@@ -2844,6 +2855,8 @@ R.growth=()=>{
   </div>
   ${growthHistHtml(cagr,vz)}
   <section class="card"><h2>Mi lectura del crecimiento</h2>${tx("growth.scoreNote",{rows:2})}</section>
+  ${driversHtml()}
+  <section class="card"><h2>Mercado y guía</h2><div class="g2" style="gap:16px"><div><h3 style="margin-top:0">Tamaño del mercado</h3>${tx("growth.tam",{rows:3})}</div><div><h3 style="margin-top:0">Guía de la empresa</h3>${tx("growth.guidance",{rows:3})}</div></div></section>
   ${earnHtml()}
   <div class="g2">
     <section class="card"><h2>Crecimiento interanual por trimestre</h2><p class="sub">%. Total: SEC. Las series «manual» salen de fin_manual en analysis/${esc(cur._t)}.json.</p><div class="cv h260"><canvas id="ch_gr_q" role="img" aria-label="Crecimiento trimestral"></canvas></div>
@@ -2854,21 +2867,31 @@ R.growth=()=>{
     <section class="card"><h2>Ingresos: histórico y proyección</h2><p class="sub">${finScale().u}. La proyección sale de la pestaña Valoración.</p><div class="cv h260"><canvas id="ch_gr_proj" role="img" aria-label="Ingresos históricos y proyectados"></canvas></div></section>
   </div>
   <div class="g2">
-    <section class="card"><h2>Motores de crecimiento</h2><p class="sub">Impacto esperado de 1 a 5.</p><div class="cv h240"><canvas id="ch_gr_drv" role="img" aria-label="Impacto de cada motor"></canvas></div></section>
-    <section class="card"><h2>Mercado y guía</h2><h3 style="margin-top:0">Tamaño del mercado</h3>${tx("growth.tam",{rows:3})}<h3>Guía de la empresa</h3>${tx("growth.guidance",{rows:3})}</section>
-  </div>
-  <div class="g2">
+
     <section class="card"><h2>Crecimiento anual de ingresos</h2><p class="sub">% frente al año anterior</p><div class="cv h240"><canvas id="ch_gr_yoy" role="img" aria-label="Crecimiento anual"></canvas></div></section>
     <section class="card"><h2>Ingresos por escenario</h2><p class="sub">${finScale().u}. Bajista, base y alcista de la pestaña Valoración.</p><div class="cv h240"><canvas id="ch_gr_scn" role="img" aria-label="Ingresos proyectados por escenario"></canvas></div></section>
   </div>
-  <section class="card"><h2>Detalle de los motores</h2>
-    <div class="cards">${g.drivers.map((d,i)=>`<div class="mini">${del("growth.drivers",i)}<div class="t">${ln(`growth.drivers.${i}.n`)}</div>
-      <div class="s">${EDIT?`Horizonte ${ln(`growth.drivers.${i}.h`,{ph:"Horizonte"})} Impacto ${sc(`growth.drivers.${i}.impact`)}`:`${pips(d.impact)} · ${esc(d.h||"")}`}</div>
-      ${EDIT?tx(`growth.drivers.${i}.d`,{rows:3}):`<div style="font-size:13px">${esc(d.d)}</div>`}</div>`).join("")}</div>
-    ${add("growth.drivers","drivers","Añadir motor")}
-  </section>`;
+`;
 };
 
+const DRV_ST={temprano:["Temprano","--c4"],"en marcha":["En marcha","--c1"],maduro:["Maduro","--good"]};
+function driversHtml(){
+  const g=cur.growth, all=arr("growth.drivers").map((d,i)=>({d,i}));
+  const list=EDIT?all:all.slice().sort((a,b)=>(+b.d.impact||0)-(+a.d.impact||0));
+  const card=({d,i},n)=>{ const st=DRV_ST[String(d.st||"").toLowerCase()];
+    const dom=okUrl(d.u)?String(d.u).replace(/^https?:\/\/(www\.)?/,"").split("/")[0]:"";
+    return `<article class="dcard">${del("growth.drivers",i)}
+      <header class="dch"><span class="dnum">${n+1}</span><div class="dct"><b>${ln(`growth.drivers.${i}.n`,{ph:"Motor"})}</b>
+        <div class="dchips">${EDIT?`<label class="note">Estado ${sel(`growth.drivers.${i}.st`,["","temprano","en marcha","maduro"])}</label><label class="note">Horizonte ${ln(`growth.drivers.${i}.h`,{ph:"2026–2028"})}</label><label class="note">Impacto ${sc(`growth.drivers.${i}.impact`)}</label>`
+          :`${st?`<span class="dchip" style="--cc:var(${st[1]})">${st[0]}</span>`:""}${d.h?`<span class="dchip plain">🗓 ${esc(d.h)}</span>`:""}<span class="dchip plain" title="Impacto esperado de 1 a 5">Impacto ${pips(d.impact)}</span>`}</div></div></header>
+      ${d.k||EDIT?`<div class="dkey">${ln(`growth.drivers.${i}.k`,{ph:"Cifra clave (crecimiento, tamaño, cartera…)"})}${d.peso||EDIT?`<div class="note" style="font-weight:500;margin-top:2px">${ln(`growth.drivers.${i}.peso`,{ph:"Peso hoy (p. ej. 15% de los ingresos)"})}</div>`:""}</div>`:""}
+      ${EDIT?tx(`growth.drivers.${i}.d`,{rows:3}):`<p class="dd">${esc(d.d||"")}</p>`}
+      ${d.ev||d.r||EDIT?`<dl class="ddl">${d.ev||EDIT?`<dt>📈 Qué vigilar</dt><dd>${ln(`growth.drivers.${i}.ev`,{ph:"Indicador que confirma que funciona"})}</dd>`:""}${d.r||EDIT?`<dt>⚠️ Riesgo</dt><dd>${ln(`growth.drivers.${i}.r`,{ph:"Qué puede fallar"})}</dd>`:""}</dl>`:""}
+      ${EDIT?`<div class="note">Fuente: ${ln(`growth.drivers.${i}.u`,{ph:"Enlace"})}</div>`:dom?`<div class="ccs"><a href="${esc(d.u)}" target="_blank" rel="noopener noreferrer">${esc(dom)} ↗</a></div>`:""}
+    </article>`; };
+  return `<section class="card" id="driversCard"><h2>Motores de crecimiento</h2><p class="sub">Qué puede hacer crecer a la compañía, ordenados por impacto esperado (1 a 5): cifra clave, en qué fase está, qué vigilar y qué puede fallar.</p>
+    <div class="dgrid">${list.map(card).join("")||`<p class="note">Sin motores todavía.</p>`}</div>${add("growth.drivers","drivers","Añadir motor")}</section>`;
+}
 function callCard(k){
   const has=k.q||(k.dir||[]).length||(k.ret||[]).length||(k.guia||[]).length||(k.cap||[]).length;
   const cols=[["dir","Hacia dónde va","--c3"],["ret","Retos y riesgos que reconoce","--c4"],["guia","Guía y perspectivas","--c1"],["cap","Capital: recompras, dividendo y deuda","--c2"]];
@@ -3577,7 +3600,7 @@ C.growth=()=>{
     if(vz.ok){ const s=cur.v, cols=[cat[1],cat[0],cat[2]];
       const sets=s.scn.map((c,i)=>({label:c.n,data:[s.rev0/sc.d,...project(s,{dg:c.dg,dm:c.dm}).map(y=>y.rev/sc.d)],borderColor:cols[i]||cat[i%8],backgroundColor:cols[i]||cat[i%8],borderDash:c.n==="Base"?[]:[5,4]}));
       mk("ch_gr_scn",{type:"line",data:{labels:[String(s.year0),...[1,2,3,4,5].map(k=>String(s.year0+k)+"p")],datasets:sets},options:{plugins:{legend:legend(sets.length),tooltip:tipU(sc.u)},scales:{x:axisX,y:axisY({zero:false})}}}); } }
-  const d=cur.growth.drivers; mk("ch_gr_drv",hbarCfg(d.map(x=>x.n),d.map(x=>+x.impact),V("--tcx"),5,"/ 5"));
+
 };
 C.management=()=>{ const m=cur.mgmt;
   mk("ch_mg_sc",hbarCfg(m.scores.map(x=>x.n),m.scores.map(x=>+x.s),V("--tcx"),5,"/ 5"));

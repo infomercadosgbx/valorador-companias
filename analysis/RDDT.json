@@ -254,34 +254,59 @@
     "guidance": "4T26: ingresos de 1.000–1.030 M$ (+38–42%; el consenso esperaba 1.046 M$) y EBITDA ajustado de 480–510 M$. Usuarios diarios: posible caída de un porcentaje de dos dígitos frente a los 130 M del 3T26 si siguen bajando las visitas desde buscadores.",
     "drivers": [
       {
-        "n": "Más ingresos por usuario (Reddit Max)",
+        "n": "Más ingresos por usuario",
         "impact": 5,
         "h": "2026–2027",
-        "d": "ARPU +36%; los ingresos de Max crecieron más del 150% trimestral."
+        "st": "en marcha",
+        "k": "ARPU +36%",
+        "peso": "~95% de los ingresos es publicidad",
+        "d": "Reddit monetiza poco a sus usuarios frente a Meta. Con mejores formatos y la herramienta Reddit Max los anunciantes pagan más por usuario; es la palanca más directa de crecimiento.",
+        "ev": "ARPU por región y crecimiento de los ingresos publicitarios.",
+        "r": "Caída de usuarios: la guía del 4T26 contempla un descenso de dos dígitos por menos visitas desde Google."
       },
       {
         "n": "Crecimiento internacional",
         "impact": 4,
         "h": "2026–2028",
-        "d": "Usuarios internacionales +28% con traducción automática; ARPU aún bajo."
+        "st": "en marcha",
+        "k": "Usuarios intl. +24% · ingresos +67%",
+        "peso": "ARPU intl. 2,26 $ vs 11,85 $ en EE. UU.",
+        "d": "Con traducción automática el contenido en inglés llega a otros idiomas. Fuera de EE. UU. el ARPU es una quinta parte, así que hay mucho margen para monetizar.",
+        "ev": "Usuarios diarios internacionales e ingresos fuera de EE. UU.",
+        "r": "Usuarios menos valiosos para los anunciantes y competencia local."
       },
       {
         "n": "Licencias de datos para IA",
         "impact": 3,
         "h": "2026",
-        "d": "Renovación con Google y OpenAI; Wells Fargo estima hasta 550 M$ al año."
+        "st": "en marcha",
+        "k": "Google ~60 M$ al año",
+        "peso": "~5% de los ingresos",
+        "d": "Google y OpenAI pagan por usar las conversaciones de Reddit para entrenar sus modelos. Los contratos se renegocian en 2026 y Reddit quiere un precio ligado al uso.",
+        "ev": "Renovaciones y nuevos acuerdos; evolución de «otros ingresos».",
+        "r": "Que no se renueve con Google o que el precio baje.",
+        "u": "https://www.sherwood.news/business/reddit-bounces-on-report-that-its-in-talks-with-google-openai-on-fresh-data"
       },
       {
         "n": "Búsqueda propia y Reddit Answers",
         "impact": 3,
         "h": "2027+",
-        "d": "Convertir a lectores de Google en usuarios directos de la app."
+        "st": "temprano",
+        "k": "Más del 80% de los ingresos, con sesión iniciada",
+        "d": "Convertir a quien llega desde Google en usuario directo de la app, con su propio buscador y respuestas con IA; reduce la dependencia de Google.",
+        "ev": "Usuarios con sesión iniciada y uso de Reddit Answers.",
+        "r": "Cambios en el algoritmo de Google que recorten el tráfico."
       },
       {
         "n": "Recompras",
         "impact": 2,
         "h": "Continuo",
-        "d": "Programa de 1.000 M$; 240 M$ ejecutados en el 1S26."
+        "st": "en marcha",
+        "k": "Programa de 1.000 M$",
+        "peso": "240 M$ ejecutados en el 1S26",
+        "d": "Compensan la dilución del pago en acciones.",
+        "ev": "Acciones en circulación.",
+        "r": "Poco efecto si el pago en acciones sigue alto."
       }
     ]
   },
