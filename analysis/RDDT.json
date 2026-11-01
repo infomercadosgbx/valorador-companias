@@ -1,63 +1,75 @@
 {
- "_nota": "Supuestos y textos propios. Se editan a mano (o desde el botón «Editar» de la web, que descarga este archivo) y se versionan en git. El Action nunca los toca.",
+ "_nota": "Supuestos y textos propios. Se editan a mano (o desde «Editar» en la web, que descarga este archivo) y se versionan en git. El Action nunca los toca.",
  "esquema": 1,
+ "peers": [
+  "META",
+  "PINS",
+  "SNAP",
+  "GOOGL",
+  "TTD"
+ ],
  "meta": {
   "nextEarnings": "29-oct-2026",
   "sector": "Redes sociales y publicidad",
   "hq": "San Francisco, California",
   "founded": "2005",
   "employees": "2.555 (dic-25)",
-  "asOf": "27-oct-2026"
+  "asOf": "1-nov-2026",
+  "fav": false
  },
  "overview": {
-  "thesis": "Crece al 60% con márgenes de software y caja sin deuda, pero el mercado duda de su tráfico: depende de Google, y la búsqueda con IA responde sin enviar visitas.",
+  "thesis": "Sigue creciendo al 40–50% con márgenes de software y 3.000 M$ de caja, pero el riesgo principal ya se está cumpliendo: Google le envía cada vez menos visitas y sus usuarios diarios pueden caer en el 4T. A ~92 $ (−29% tras los resultados) el precio descuenta crecimiento cero.",
   "summary": "Red de más de 100.000 comunidades donde los usuarios conversan sobre cualquier tema. Gana dinero con publicidad (95% de los ingresos) y con licencias de su contenido a empresas de IA como Google y OpenAI.\nEl contenido lo crean y moderan los propios usuarios de forma gratuita, por eso su margen bruto es del 91%. Gran parte de sus visitas llega desde el buscador de Google.",
   "keyFacts": [
    {
-    "k": "Ingresos 2T26",
-    "v": "805 M$ (+61%)"
+    "k": "Ingresos 3T26",
+    "v": "895 M$ (+53%)"
    },
    {
-    "k": "EBITDA ajustado 2T26",
-    "v": "343 M$ (42,6%)"
+    "k": "Publicidad 3T26",
+    "v": "847 M$ (+54%)"
    },
    {
-    "k": "Beneficio neto 2T26",
-    "v": "253 M$ (31% de margen)"
+    "k": "Beneficio neto 3T26",
+    "v": "283 M$ (32% de margen)"
    },
    {
-    "k": "FCF 2T26",
-    "v": "261 M$"
+    "k": "FCF 3T26",
+    "v": "363 M$ (capex de 1 M$)"
    },
    {
     "k": "Usuarios diarios (DAUq)",
-    "v": "130,3 M (+18%)"
+    "v": "130,3 M (+12%; se esperaban 134 M)"
    },
    {
     "k": "Ingreso por usuario (ARPU)",
-    "v": "6,18 $ (+36%)"
+    "v": "6,87 $ (+36%)"
    },
    {
-    "k": "Caja / deuda (jun-26)",
-    "v": "2.786 M$ / sin deuda"
+    "k": "Guía 4T26",
+    "v": "1.000–1.030 M$ (+38–42%); EBITDA ajustado 480–510 M$"
+   },
+   {
+    "k": "Caja / deuda (sep-26)",
+    "v": "3.030 M$ / sin deuda"
    }
   ],
   "catalysts": [
    {
-    "d": "29-oct-26",
-    "t": "Resultados 3T26 tras el cierre: guía 860–870 M$ (+47–49%). El consenso espera 875 M$."
-   },
-   {
     "d": "4T26",
-    "t": "Primer trimestre de más de 1.000 M$ de ingresos según el consenso."
+    "t": "Prueba de acceso solo con sesión iniciada en algunos países fuera de EE. UU.: menos alcance a cambio de más usuarios que monetizan."
    },
    {
-    "d": "2026",
-    "t": "Renovación de las licencias de datos con Google y OpenAI (~130 M$ al año hoy)."
+    "d": "3-feb-27",
+    "t": "Resultados del 4T26: ¿cuánto caen los usuarios diarios? La previsión de la dirección es una caída de dos dígitos si sigue la tendencia."
+   },
+   {
+    "d": "Mar-27",
+    "t": "Cierre del acceso público a su API de datos: más poder para negociar licencias."
    },
    {
     "d": "En curso",
-    "t": "Reddit Max (campañas automáticas con IA) abierto a todos los anunciantes desde septiembre."
+    "t": "Renovación de las licencias de datos con Google (~60 M$ al año) y OpenAI; sin acuerdo garantizado."
    }
   ]
  },
@@ -188,10 +200,10 @@
   ]
  },
  "growth": {
-  "score": 4,
-  "scoreNote": "Sigue creciendo cerca del 50% con ingresos por usuario al alza, pero el crecimiento de usuarios en EE. UU. es bajo (+6%) y depende del tráfico de búsqueda.",
+  "score": 3.5,
+  "scoreNote": "Los ingresos crecen al 53% gracias al ingreso por usuario (+36%) y al exterior (+67%), pero la guía del 4T26 baja al 38–42% y los usuarios diarios pueden caer por la pérdida de visitas desde Google.",
   "tam": "Publicidad digital mundial: Meta factura más de 160.000 M$ al año; Reddit, unos 3.400 M$. El ARPU internacional (2,26 $) es una quinta parte del de EE. UU. (11,85 $).",
-  "guidance": "Guía 3T26: ingresos 860–870 M$ (+47–49%), EBITDA ajustado 385–395 M$. Desde el 3T26 deja de separar usuarios conectados y anónimos.",
+  "guidance": "4T26: ingresos de 1.000–1.030 M$ (+38–42%; el consenso esperaba 1.046 M$) y EBITDA ajustado de 480–510 M$. Usuarios diarios: posible caída de un porcentaje de dos dígitos frente a los 130 M del 3T26 si siguen bajando las visitas desde buscadores.",
   "drivers": [
    {
     "n": "Más ingresos por usuario (Reddit Max)",
@@ -311,29 +323,29 @@
    ]
   },
   "call": {
-   "periodEnd": "2026-06-30",
-   "q": "2T 2026",
-   "date": "30-jul-2026",
-   "doc": "Carta a los accionistas (8-K, Exhibit 99.2)",
-   "url": "https://www.sec.gov/Archives/edgar/data/0001713445/000171344526000098/exhibit992q226.htm",
-   "nota": "El 3T26 se presenta hoy, 29-oct, después del cierre: esta ficha se actualizará con esa carta.",
+   "periodEnd": "2026-09-30",
+   "q": "3T 2026",
+   "date": "29-oct-2026",
+   "doc": "Nota de resultados (8-K, Exhibit 99.1)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000114/earningspressreleaseq326.htm",
+   "nota": "Resumen de la nota de resultados y de la llamada con analistas del 29-oct-2026.",
    "dir": [
-    "Prioridad número uno: aumentar los usuarios diarios mejorando la experiencia de los nuevos usuarios. Objetivos: 1.000 millones de usuarios diarios en el mundo y 100 millones en EE. UU.",
-    "Producto: nuevos modelos del feed (más contribuciones y sesiones), vídeo en comentarios y empujón a la app, con la retención de nuevos usuarios de app un 50% mayor en términos relativos.",
-    "Publicidad: anuncios de compra (Shopping Listing Ads, en alfa), integración con Shopify y un 22% menos de coste por acción en campañas de instalación de apps.",
-    "Frase de Huffman: no construyen para tráfico de paso, sino un «destino diario»."
+    "Ingresos de 895 M$ (+53%) y BPA de 1,40 $, por encima de lo esperado; ARPU +36%.",
+    "Internacional: 79,6 M de usuarios diarios (+24%) e ingresos +67% (176 M$).",
+    "Más del 80% de los ingresos viene de usuarios con sesión iniciada en la app: prueba de acceso solo con sesión fuera de EE. UU. en el 4T."
    ],
    "ret": [
-    "El tráfico que llega desde buscadores fue «irregular» y más volátil al final del trimestre; la visibilidad sobre esa fuente es baja.",
-    "Los usuarios diarios con sesión iniciada en EE. UU. solo crecieron un 1% (+7% en el mundo); el crecimiento viene de usuarios sin sesión (+27%) y del exterior (+28%)."
+    "Las visitas desde Google cayeron con fuerza al final del trimestre y en octubre (más de 1 M menos por semana) por AI Overviews y AI Mode.",
+    "Usuarios diarios: 130,3 M (+12%), por debajo de los 134 M esperados; pueden caer un porcentaje de dos dígitos en el 4T.",
+    "Huffman: AI Mode «no genera tráfico»; no da por hecho que se recupere."
    ],
    "guia": [
-    "3T26: ingresos de 860–870 M$ y EBITDA ajustado de 385–395 M$.",
-    "2T26: ingresos de 805 M$ (+61%), margen EBITDA ajustado del 43% y FCF de 261 M$."
+    "4T26: ingresos de 1.000–1.030 M$ (+38–42%) y EBITDA ajustado de 480–510 M$.",
+    "Más marketing para captar usuarios fuera de EE. UU. y descargas de la app en EE. UU."
    ],
    "cap": [
-    "Recompró 1,5 M de acciones por 235 M$ (a 157,57 $ de media).",
-    "Caja e inversiones de 2.800 M$ y sin deuda financiera."
+    "Recompró unas 670.000 acciones por 100 M$ (a 149,81 $ de media).",
+    "3.030 M$ de caja y sin deuda; FCF de 363 M$ en el trimestre."
    ]
   }
  },
@@ -341,23 +353,23 @@
   {
    "n": "Menos tráfico desde Google",
    "cat": "Competencia",
-   "p": 4,
+   "p": 5,
    "i": 5,
-   "note": "Referencias de búsqueda «irregulares» en el 2T26; Wells Fargo lo valora en ~16.000 M$ de EV"
+   "note": "Ya ocurre: las visitas desde Google caen más de 1 M por semana en octubre por AI Overviews y AI Mode"
   },
   {
-   "n": "Usuarios de EE. UU. estancados",
+   "n": "Caída de usuarios diarios",
    "cat": "Operativo",
-   "p": 3,
+   "p": 4,
    "i": 4,
-   "note": "Usuarios conectados en EE. UU. +1% en 2T26"
+   "note": "130,3 M en 3T26 (+12%, se esperaban 134 M); podrían bajar un porcentaje de dos dígitos en el 4T26"
   },
   {
    "n": "Desaceleración del crecimiento",
    "cat": "Operativo",
    "p": 4,
    "i": 3,
-   "note": "Del 61% al 47–49% guiado para el 3T26"
+   "note": "+61% (2T26) → +53% (3T26) → +38–42% guiado para el 4T26"
   },
   {
    "n": "Renovación de licencias de IA",
@@ -396,17 +408,17 @@
   }
  ],
  "v": {
-  "shares": 207,
-  "cash": 2786,
+  "shares": 206.3,
+  "cash": 3030,
   "debt": 0,
-  "rev0": 3390,
+  "rev0": 3380,
   "year0": 2026,
   "g": [
-   30,
-   24,
-   19,
-   16,
-   13
+   22,
+   18,
+   15,
+   13,
+   11
   ],
   "m1": 46,
   "m5": 50,
@@ -421,8 +433,8 @@
   "tg": 3,
   "exit": 15,
   "method": "blend",
-  "eps": 6.5,
-  "pe": 25,
+  "eps": 6,
+  "pe": 22,
   "evm": 18,
   "scn": [
    {
@@ -448,29 +460,29 @@
  "verdict": {
   "rating": "Acumular",
   "conviction": 3,
-  "buyBelow": 125,
+  "buyBelow": 100,
   "horizon": "12–24 meses",
-  "summary": "Negocio muy rentable y sin deuda que sigue creciendo cerca del 50%, a un precio que ha caído más de un 45% desde máximos por el miedo a perder el tráfico de Google. Si el crecimiento internacional y Reddit Max compensan la búsqueda, el precio actual es atractivo; si el tráfico se hunde, el múltiplo aún puede bajar. Resultados del 3T26 esta misma tarde.",
+  "summary": "El riesgo que más pesaba en la tesis se ha cumplido: Google envía cada vez menos visitas y los usuarios diarios pueden caer en el 4T. Aun así, el negocio sigue creciendo al 40–50% con márgenes de software, 3.000 M$ de caja y recompras. Tras caer un 29%, a ~92 $ el precio descuenta crecimiento cero y coincide con el escenario bajista del modelo (~87 $), con un valor ponderado de ~167 $. Para acumular con prudencia y en tramos: la clave es que los usuarios con sesión iniciada sigan creciendo aunque caiga el tráfico de búsqueda.",
   "bull": [
-   "Margen bruto del 91% y FCF del 32% de los ingresos",
-   "ARPU +36%: monetiza mejor cada usuario",
-   "Usuarios internacionales +28% con mucho margen de ARPU",
-   "2.786 M$ de caja, sin deuda y con recompras"
+   "Ingresos +53% y ARPU +36%: cada usuario monetiza más",
+   "El precio descuenta crecimiento cero; el escenario bajista ya está en la cotización",
+   "Usuarios internacionales +24% e ingresos internacionales +67%",
+   "3.030 M$ de caja, sin deuda y recompras a ~150 $"
   ],
   "bear": [
-   "Gran dependencia del tráfico de Google",
-   "Usuarios conectados de EE. UU. casi planos",
-   "Deja de publicar parte del desglose de usuarios",
-   "Renovación incierta de las licencias de IA"
+   "Las visitas desde Google caen por AI Overviews y AI Mode",
+   "Usuarios diarios por debajo de lo esperado y con posible caída en el 4T",
+   "Guía del 4T26 por debajo del consenso (+38–42%)",
+   "Renovación incierta de las licencias de datos con Google y OpenAI"
   ],
   "watch": [
-   "Resultados y guía del 4T26 (hoy tras el cierre)",
-   "Crecimiento de usuarios diarios en EE. UU.",
-   "Acuerdos de datos con Google y OpenAI",
-   "Adopción de Reddit Max por pymes"
+   "Usuarios diarios del 4T26 y de los que inician sesión (feb-27)",
+   "Resultado de la prueba de acceso solo con sesión fuera de EE. UU.",
+   "Renovación de las licencias de datos",
+   "Crecimiento del ARPU por encima del 30%"
   ]
  },
- "notes": "Cotización de 137,83 $ del 27-oct-2026. Reddit publica resultados del 3T26 hoy, 29-oct, tras el cierre: actualiza precio y cifras después.",
+ "notes": "Cotización de 91,73 $ del 30-oct-2026, tras caer un 29,2% por los resultados del 3T26 (cierre del 29-oct: 129,60 $).",
  "sources": {
   "web": "https://www.redditinc.com",
   "ir": "https://investor.redditinc.com",
@@ -612,12 +624,5 @@
    ]
   },
   "nota_antigua": "La pérdida de 2024 se debe al pago en acciones de la salida a bolsa. EBITDA ajustado y FCF de 2022–23 no disponibles aquí. 2026e: primer semestre real + guía del 3T + consenso del 4T."
- },
- "peers": [
-  "META",
-  "PINS",
-  "SNAP",
-  "GOOGL",
-  "TTD"
- ]
+ }
 }
