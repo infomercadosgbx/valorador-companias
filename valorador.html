@@ -427,6 +427,17 @@ table.mini2 td{padding:3px 6px;font-size:12px;border-bottom:1px solid var(--grid
 .menu button{all:unset;cursor:pointer;padding:9px 12px;border-radius:7px;font-size:13.5px;color:var(--ink)} .menu button:hover,.menu button:focus-visible{background:var(--surface2)}
 #btnMore.on{background:var(--tcx);color:#fff;border-color:var(--tcx)}
 #main span.up:not(.pill),#main b.up{color:var(--goodText)} #main span.dn:not(.pill),#main b.dn{color:var(--critText)}
+.toolbar{margin-left:auto}
+@media (max-width:760px){.appbar .brand{order:1} .appbar .toolbar{order:2;margin-left:auto} .appbar .switch{order:3;flex:1 1 100%} .appbar .favs{order:4;flex-basis:100%} .appbar .brand::after{display:none} #btnHome .ml,#btnMore .ml{display:none}}
+.favs[hidden]{display:none!important}
+.htiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.htile{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:6px;padding:20px;border:1px solid var(--line);border-radius:14px;background:var(--surface);box-shadow:var(--shadow);min-height:150px;transition:transform .12s,border-color .12s}
+.htile:hover,.htile:focus-visible{border-color:var(--tcx);transform:translateY(-2px)} .hic{font-size:26px;line-height:1} .ht{font-size:17px;font-weight:700;color:var(--ink)} .hd{font-size:13px;color:var(--ink2)} .hs{margin-top:auto;font-size:12.5px;color:var(--ink);font-weight:600}
+.fgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px}
+.fcard{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;align-items:center;border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.fcard .star{all:unset;cursor:pointer;font-size:20px;color:var(--line);grid-row:span 3;align-self:start} .fcard .star[aria-pressed=true]{color:#f5b301}
+.fopen{all:unset;cursor:pointer;display:flex;gap:8px;align-items:center} .fopen small{color:var(--muted);font-size:11px} .fnum{display:flex;flex-direction:column;font-size:13px}
+.homenav{overflow-x:auto;scrollbar-width:none} .homenav>button[role=tab]{white-space:nowrap;flex:0 0 auto}
 .homenav{display:flex;gap:4px;border-bottom:1px solid var(--line);margin:-4px 0 14px} .homenav button{all:unset;cursor:pointer;padding:9px 14px;font-weight:600;font-size:14px;color:var(--ink2);border-bottom:2px solid transparent;margin-bottom:-1px} .homenav button[aria-selected=true]{color:var(--ink);border-bottom-color:var(--tcx)}
 #btnHome{display:inline-flex;align-items:center;gap:6px}
 .carform{display:grid;grid-template-columns:2fr 1fr 1fr 1fr auto;gap:10px;align-items:end} .carform label{display:flex;flex-direction:column;gap:4px;font-size:12px;color:var(--ink2)} .carform select,.carform input{font:inherit;font-size:14px;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink)}
@@ -717,18 +728,12 @@ body.report .seg{display:none}
     <button type="button" class="switch" id="btnSwitch" aria-haspopup="listbox" aria-expanded="false" aria-controls="picker"></button>
     <div class="favs" id="favPills" role="group" aria-label="Compañías favoritas"></div>
     <div class="toolbar">
-      <button type="button" id="btnHome" aria-haspopup="menu" aria-expanded="false" aria-pressed="false" title="Inicio: seguimiento y cartera"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h5v-6h4v6h5V9.5"/></svg> <span class="ml">Inicio</span></button>
-      <div class="menu" id="homeMenu" role="menu" hidden>
-        <button type="button" role="menuitem" data-home="lista">📋 Lista de seguimiento</button>
-        <button type="button" role="menuitem" data-home="cartera">💼 Cartera</button>
-        <button type="button" role="menuitem" data-home="salir" id="homeBack" hidden>← Volver a la compañía</button>
-      </div>
+      <button type="button" id="btnHome" data-home="inicio" aria-pressed="false" title="Inicio: favoritas, seguimiento, cartera y ajustes"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h5v-6h4v6h5V9.5"/></svg> <span class="ml">Inicio</span></button>
       <div class="menuwrap"><button type="button" id="btnMore" aria-haspopup="menu" aria-expanded="false" title="Más acciones">⋯ <span class="ml">Más</span></button>
         <div class="menu" id="moreMenu" role="menu" hidden>
           <button type="button" role="menuitem" id="btnEdit" aria-pressed="false">✎ Editar</button>
           <button type="button" role="menuitem" id="btnReport">⎙ Informe PDF</button>
           <button type="button" role="menuitem" id="btnData" aria-expanded="false">⚙ Mi análisis y guardado</button>
-          <button type="button" role="menuitem" id="btnTheme">◐ Tema: automático</button>
         </div></div>
     </div>
   </div>
@@ -1360,7 +1365,8 @@ function renderHeader(){
   $("btnSwitch").innerHTML=`${monoHtml(cur,"sm")}<span class="nm">${esc(cur.meta.name||"Sin nombre")}</span>${sym?`<small>${esc(sym)}</small>`:""}<span class="ct">${n} ${n===1?"compañía":"compañías"} ▾</span><kbd>Ctrl K</kbd>`;
   const favs=Object.entries(store.companies).filter(([k,c])=>c.meta.fav);
   $("favPills").innerHTML=favs.map(([k,c])=>`<button type="button" class="copill" data-co="${esc(k)}" aria-pressed="${k===store.current}" title="Favorita">${monoHtml(c,"xs")} ${esc(c.meta.name||"Sin nombre")}${symOf(c)?`<small>${esc(symOf(c))}</small>`:""}</button>`).join("")
-    ||`<span class="note">Marca favoritas con ★ en el selector para tenerlas aquí a un clic.</span>`;
+    ||"";
+  $("favPills").hidden=!favs.length;
   if(!$("picker").hidden) renderPicker();
   renderWarnings(); renderDraft();
 }
@@ -1446,7 +1452,48 @@ function carRows(){
   rows.forEach(r=>{ r.peso=tot>0&&fin(r.val)?r.val/tot*100:NaN; });
   return {C,rows,tot};
 }
-function homeNav(){ return `<div class="homenav" role="tablist"><button type="button" role="tab" data-home="lista" aria-selected="${WVIEW==="lista"}">📋 Lista de seguimiento</button><button type="button" role="tab" data-home="cartera" aria-selected="${WVIEW==="cartera"}">💼 Cartera</button></div>`; }
+const HOMEV=[["inicio","Inicio","⌂"],["favoritas","Favoritas","★"],["lista","Lista de seguimiento","📋"],["cartera","Cartera","💼"],["ajustes","Ajustes","⚙"]];
+function homeNav(){ return `<div class="homenav" role="tablist">${HOMEV.map(([k,l,i])=>`<button type="button" role="tab" data-home="${k}" aria-selected="${WVIEW===k}">${i} ${l}</button>`).join("")}</div>`; }
+function homeHead(t,p){ return `<div class="tabhead"><div><div class="eyebrow">Valorador</div><h2>${t}</h2>${p?`<p>${p}</p>`:""}</div></div>${homeNav()}`; }
+function inicioHtml(){
+  const W=watchRows(), favs=W.filter(r=>r.fav), below=W.filter(r=>fin(r.toBuy)&&r.toBuy<=0), soon=W.filter(r=>fin(r.eDays)&&r.eDays>=0&&r.eDays<=14).sort((a,b)=>a.eDays-b.eDays);
+  const {rows,tot}=carRows(), cost=rows.reduce((a,r)=>a+r.cost,0);
+  const tile=(k,ic,t,d,stat)=>`<button type="button" class="htile" data-home="${k}"><span class="hic">${ic}</span><span class="ht">${t}</span><span class="hd">${d}</span>${stat?`<span class="hs">${stat}</span>`:""}</button>`;
+  return homeHead("Menú principal","Elige qué quieres ver. Para volver a una compañía, ábrela desde el selector de arriba o desde cualquier lista.")+`
+   <div class="htiles">
+    ${tile("favoritas","★","Favoritas","Tus compañías marcadas, a un clic.",favs.length?`${favs.length} favorita${favs.length>1?"s":""}: ${favs.map(r=>esc(r.name)).join(", ")}`:"Aún no tienes favoritas")}
+    ${tile("lista","📋","Lista de seguimiento","Precio, valor de tu modelo, puntuación y lo que toca vigilar de todas las compañías.",`${W.length} compañías · ${below.length} en zona de compra${soon.length?` · resultados: ${soon.slice(0,2).map(r=>`${esc(r.name)} ${esc(fecha(r.eDate))}`).join(", ")}`:""}`)}
+    ${tile("cartera","💼","Cartera","Tus posiciones con el precio de cada noche y tu valoración.",rows.length?`${nf(tot,0)} $ · ${tot>=cost?"+":"−"}${nf(Math.abs(cost>0?(tot/cost-1)*100:0),1)}% · ${rows.length} posiciones`:"Sin posiciones todavía")}
+    ${tile("ajustes","⚙","Ajustes","Tema, favoritas, guardado en GitHub, copia de la cartera y avisos revisados.","")}
+   </div>`;
+}
+function favoritasHtml(){
+  const W=watchRows().sort((a,b)=>(b.fav-a.fav)||a.name.localeCompare(b.name)), F=W.filter(r=>r.fav);
+  const sg=v=>!fin(v)?"–":`<span class="${v>=0?"up":"dn"}">${v>=0?"+":"−"}${nf(Math.abs(v),1)}%</span>`;
+  const card=r=>`<div class="fcard"><button type="button" class="star" data-favt="${esc(r.k)}" aria-pressed="${r.fav}" aria-label="${r.fav?"Quitar de favoritas":"Marcar como favorita"}">★</button>
+     <button type="button" class="fopen" data-wopen="${esc(r.k)}">${monoHtml(r.c,"sm")}<span><b>${esc(r.name)}</b> <small>${esc(r.k)}</small></span></button>
+     <div class="fnum"><span>${money(r.price)} ${fin(r.day)?sg(r.day):""}</span><span class="note">valor ${money(r.fv)} · ${fin(r.pot)?sg(r.pot):"–"}</span></div>
+     <div>${r.rating?ratingPill(r.rating):""}</div></div>`;
+  return homeHead("Favoritas","Pulsa ★ para marcar o quitar. Las favoritas aparecen arriba, junto al selector, para abrirlas a un clic. Se recuerdan en este navegador.")+`
+   ${F.length?`<section class="card"><h2>Tus favoritas</h2><div class="fgrid">${F.map(card).join("")}</div></section>`:`<section class="card"><p class="empty">Aún no tienes favoritas: márcalas con ★ en la lista de abajo.</p></section>`}
+   <section class="card"><h2>Todas las compañías</h2><div class="fgrid">${W.filter(r=>!r.fav).map(card).join("")||'<p class="note">Todas son favoritas.</p>'}</div></section>`;
+}
+function ajustesHtml(){
+  const t=lsGet("valorador.tema")||"auto", tok=!!lsGet("valorador.ghtoken");
+  const revs=(()=>{ let n=0; try{ for(let i=0;i<localStorage.length;i++){ if((localStorage.key(i)||"").startsWith("valorador.avisorev.")) n++; } }catch(e){} return n; })();
+  const C=carLoad();
+  return homeHead("Ajustes","Preferencias de esta web. Todo se guarda en este navegador salvo lo que guardes en GitHub.")+`
+   <section class="card"><h2>Tema</h2><p class="sub">Automático sigue el modo claro u oscuro de tu dispositivo.</p>
+     <div class="seg" role="group" aria-label="Tema" style="align-self:flex-start">${THEMES.map(([k,l])=>`<button type="button" data-themeset="${k}" aria-pressed="${t===k}">${l.charAt(0).toUpperCase()+l.slice(1)}</button>`).join("")}</div></section>
+   <section class="card"><h2>Favoritas</h2><p class="sub">Tienes ${watchRows().filter(r=>r.fav).length} favoritas.</p><div class="carbtns"><button type="button" data-home="favoritas">★ Gestionar favoritas</button></div></section>
+   <section class="card"><h2>Guardar tu análisis en GitHub</h2><p class="sub">${tok?"Conexión configurada en este navegador: puedes guardar desde «Más → Mi análisis y guardado».":"Sin configurar en este navegador: los cambios que hagas con «Editar» se quedan como borrador local."}</p>
+     <div class="carbtns"><button type="button" data-gosetup>⚙ ${tok?"Revisar la conexión":"Configurar la conexión"}</button></div></section>
+   <section class="card"><h2>Copia de la cartera</h2><p class="sub">${C.posiciones.length} posiciones guardadas en este navegador. Exporta el archivo para llevarla a otro dispositivo.</p>
+     <div class="carbtns"><button type="button" data-cexp>⬇ Exportar cartera</button><label class="btnlike">⬆ Importar cartera<input type="file" accept="application/json,.json" id="carImp" hidden></label></div></section>
+   <section class="card"><h2>Avisos revisados</h2><p class="sub">${revs?`Has marcado ${revs} aviso${revs>1?"s":""} como revisado${revs>1?"s":""} en este navegador.`:"No has marcado ningún aviso como revisado."}</p>
+     ${revs?`<div class="carbtns"><button type="button" data-revreset>Volver a mostrar todos los avisos</button></div>`:""}</section>
+   <section class="card"><h2>Datos</h2><p class="sub">Cifras de la SEC (EDGAR, XBRL), cotización y perfil de Finnhub, histórico de Twelve Data y bono a 10 años del Tesoro de EE. UU. El robot actualiza cada noche laborable tras el cierre de EE. UU.</p></section>`;
+}
 function carteraHtml(){
   const {C,rows,tot}=carRows(), cost=rows.reduce((a,r)=>a+r.cost,0), pl=tot-cost, plp=cost>0?(tot/cost-1)*100:NaN;
   const dayAbs=rows.reduce((a,r)=>a+(fin(r.dayAbs)?r.dayAbs:0),0), dayP=tot-dayAbs>0?dayAbs/(tot-dayAbs)*100:NaN;
@@ -1460,7 +1507,7 @@ function carteraHtml(){
      <label>Precio medio ($)<input name="pm" type="number" step="any" min="0" required value="${ed?esc(ed.precio):""}" placeholder="250,00"></label>
      <label>Fecha de compra<input name="f" type="date" value="${ed?esc(ed.fecha||""):""}"></label>
      <div class="carbtns"><button type="submit" class="primary">${ed?"Guardar cambios":"Añadir posición"}</button>${ed?`<button type="button" data-cancel>Cancelar</button>`:""}</div></form>`;
-  return `<div class="tabhead"><div><div class="eyebrow">Inicio</div><h2>Cartera</h2><p>Tus posiciones con el precio de cada noche y el valor de tu modelo. Se guarda solo en este navegador.</p></div></div>${homeNav()}
+  return `<div class="tabhead"><div><div class="eyebrow">Valorador</div><h2>Cartera</h2><p>Tus posiciones con el precio de cada noche y el valor de tu modelo. Se guarda solo en este navegador.</p></div></div>${homeNav()}
   ${rows.length?`<div class="kpis">
     ${kpi("Valor de la cartera",usd(tot),`<span class="note">coste ${usd(cost)} · ${rows.length} posiciones</span>`,true)}
     ${kpi("Ganancia / pérdida",`<span class="${pl>=0?"up":"dn"}">${pl>=0?"+":"−"}${nf(Math.abs(pl),0)} $</span>`,sg(plp))}
@@ -1517,7 +1564,7 @@ function watchHtml(){
   const below=rows.filter(r=>fin(r.toBuy)&&r.toBuy<=0), soon=rows.filter(r=>fin(r.eDays)&&r.eDays>=0&&r.eDays<=14), rev=rows.filter(r=>r.stale||r.isNew);
   const th=(k,l,left)=>`<th data-wsort="${k}" class="${WSORT===k?"on"+(WASC?" asc":""):""}"${left?' style="text-align:left"':""}>${l}</th>`;
   const sg=v=>!fin(v)?"–":`<span style="color:${v>=0?"var(--goodText)":"var(--critText)"}">${v>=0?"+":"−"}${nf(Math.abs(v),1)}%</span>`;
-  return `<div class="tabhead"><div><div class="eyebrow">Inicio</div><h2>Lista de seguimiento</h2><p>Precio, valor de tu modelo, puntuación y lo que toca vigilar. Pulsa una columna para ordenar y una fila para abrir la compañía.</p></div></div>${homeNav()}
+  return `<div class="tabhead"><div><div class="eyebrow">Valorador</div><h2>Lista de seguimiento</h2><p>Precio, valor de tu modelo, puntuación y lo que toca vigilar. Pulsa una columna para ordenar y una fila para abrir la compañía.</p></div></div>${homeNav()}
   <div class="kpis">
     ${kpi("Compañías",String(rows.length),`<span class="note">${rows.filter(r=>r.fav).length} favoritas</span>`)}
     ${kpi("Por debajo de tu precio de compra",String(below.length),`<span class="note">${below.map(r=>esc(r.name)).join(", ")||"ninguna"}</span>`)}
@@ -1547,15 +1594,17 @@ function watchHtml(){
 function renderWatch(){
   killCharts(); document.body.classList.add("watch"); $("btnHome").setAttribute("aria-pressed","true");
   const m=$("main"); m.style.setProperty("--tc","var(--tcx)");
-  $("btnHome").querySelector(".ml").textContent=WVIEW==="cartera"?"Cartera":"Seguimiento";
   if(WVIEW==="cartera"){ m.innerHTML=carteraHtml(); requestAnimationFrame(()=>{ setDefaults(); drawCartera(); }); return; }
+  if(WVIEW==="inicio"){ m.innerHTML=inicioHtml(); return; }
+  if(WVIEW==="favoritas"){ m.innerHTML=favoritasHtml(); return; }
+  if(WVIEW==="ajustes"){ m.innerHTML=ajustesHtml(); return; }
   m.innerHTML=watchHtml();
   requestAnimationFrame(()=>{ setDefaults(); const rows=watchRows().filter(r=>fin(r.pot)).sort((a,b)=>b.pot-a.pot);
     mk("ch_w_pot",{type:"bar",data:{labels:rows.map(r=>r.name),datasets:[{data:rows.map(r=>+r.pot.toFixed(1)),backgroundColor:rows.map(r=>r.pot>=0?V("--good"):V("--crit"))}]},
       options:{indexAxis:"y",plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>`${c.parsed.x>=0?"+":""}${nf(c.parsed.x,1)}%`}}},scales:{x:{...axisY({suf:"%",zero:true})},y:{grid:{display:false},border:{display:false}}}}}); });
 }
-function exitWatch(){ WATCH=false; document.body.classList.remove("watch"); $("btnHome").setAttribute("aria-pressed","false"); $("btnHome").querySelector(".ml").textContent="Inicio"; renderTabs();
-  if(location.hash==="#seguimiento"||location.hash==="#cartera"){ try{history.replaceState(null,"","#"+TAB);}catch(e){} } }
+function exitWatch(){ WATCH=false; document.body.classList.remove("watch"); $("btnHome").setAttribute("aria-pressed","false"); renderTabs();
+  if(["#seguimiento","#cartera","#inicio","#favoritas","#ajustes"].includes(location.hash)){ try{history.replaceState(null,"","#"+TAB);}catch(e){} } }
 function reportCover(){
   const vz=valuation(cur), s=scorecard(cur,vz), b=brandOf(cur), v=cur.v, P=cur._data&&cur._data.precio, ref=cur._data&&cur._data.referencia_fecha_datos;
   const hoy=new Date().toISOString().slice(0,10);
@@ -3517,7 +3566,11 @@ document.addEventListener("click",e=>{
   const sn=e.target.closest("[data-sens]"); if(sn){SENSMODE=sn.dataset.sens; lsSet("valorador.sens",SENSMODE); renderValOut(); return;}
   const px=e.target.closest("[data-peerx]"); if(px){PEERX=px.dataset.peerx; lsSet("valorador.peerx",PEERX); renderValOut(); return;}
   const hm=e.target.closest("[data-home]"); if(hm){ const v=hm.dataset.home; if(v==="salir"){ exitWatch(); renderTab(); try{history.replaceState(null,"","#"+TAB);}catch(_){} return; }
-    WVIEW=v; WATCH=true; CEDIT=null; renderWatch(); try{history.replaceState(null,"",v==="cartera"?"#cartera":"#seguimiento");}catch(_){} window.scrollTo(0,0); return; }
+    WVIEW=v; WATCH=true; CEDIT=null; renderWatch(); try{history.replaceState(null,"","#"+(v==="lista"?"seguimiento":v));}catch(_){} window.scrollTo(0,0); return; }
+  const ts=e.target.closest("[data-themeset]"); if(ts){ lsSet("valorador.tema",ts.dataset.themeset); applyTheme(ts.dataset.themeset); renderWatch(); return; }
+  const ft=e.target.closest("[data-favt]"); if(ft){ const c=store.companies[ft.dataset.favt]; if(c){ c.meta.fav=!c.meta.fav; saveFavs(); renderHeader(); renderWatch(); } return; }
+  if(e.target.closest("[data-gosetup]")){ exitWatch(); renderTab(); try{history.replaceState(null,"","#"+TAB);}catch(_){} const pnl=$("dataPanel"); if(pnl){ pnl.hidden=false; $("btnData").setAttribute("aria-expanded","true"); renderGhBox(); setTimeout(()=>pnl.scrollIntoView({behavior:"smooth",block:"start"}),50); } return; }
+  if(e.target.closest("[data-revreset]")){ try{ const ks=[]; for(let i=0;i<localStorage.length;i++){ const k=localStorage.key(i)||""; if(k.startsWith("valorador.avisorev.")) ks.push(k); } ks.forEach(k=>localStorage.removeItem(k)); }catch(_){} renderHeader(); renderWatch(); return; }
   const ce=e.target.closest("[data-cedit]"); if(ce){ CEDIT=+ce.dataset.cedit; renderWatch(); setTimeout(()=>{ const f=$("carEdit"); if(f) f.scrollIntoView({behavior:"smooth",block:"center"}); },50); return; }
   const cd=e.target.closest("[data-cdel]"); if(cd){ const C=carLoad(), p=C.posiciones[+cd.dataset.cdel]; if(p&&confirmLite(`¿Eliminar la posición en ${p.t}?`)){ C.posiciones.splice(+cd.dataset.cdel,1); carSave(C); CEDIT=null; renderWatch(); } return; }
   if(e.target.closest("[data-cancel]")){ CEDIT=null; renderWatch(); return; }
@@ -3569,20 +3622,16 @@ document.addEventListener("click",e=>{
 });
 $("btnEdit").addEventListener("click",()=>{EDIT=!EDIT; $("btnEdit").classList.toggle("on",EDIT); $("btnEdit").setAttribute("aria-pressed",EDIT); $("btnEdit").textContent=EDIT?"✓ Terminar edición":"✎ Editar"; $("btnMore").classList.toggle("on",EDIT); $("btnMore").querySelector(".ml").textContent=EDIT?"Editando":"Más"; renderTab();});
 const THEMES=[["auto","automático"],["light","claro"],["dark","oscuro"]];
-function applyTheme(t){ if(t==="light"||t==="dark") document.documentElement.setAttribute("data-theme",t); else document.documentElement.removeAttribute("data-theme"); const b=$("btnTheme"); if(b) b.textContent="◐ Tema: "+(THEMES.find(x=>x[0]===t)||THEMES[0])[1]; }
+function applyTheme(t){ if(t==="light"||t==="dark") document.documentElement.setAttribute("data-theme",t); else document.documentElement.removeAttribute("data-theme"); }
 applyTheme(lsGet("valorador.tema")||"auto");
-$("btnTheme").addEventListener("click",()=>{ const cur0=lsGet("valorador.tema")||"auto", i=THEMES.findIndex(x=>x[0]===cur0), nx=THEMES[(i+1)%3][0]; lsSet("valorador.tema",nx); applyTheme(nx); });
-document.body.appendChild($("moreMenu")); document.body.appendChild($("homeMenu"));
+document.body.appendChild($("moreMenu"));
 function confirmLite(msg){ try{ return window.confirm(msg); }catch(e){ return true; } }
-$("btnHome").addEventListener("click",ev=>{ ev.stopPropagation(); const m=$("homeMenu"); $("moreMenu").hidden=true; m.hidden=!m.hidden; $("btnHome").setAttribute("aria-expanded",!m.hidden); $("homeBack").hidden=!WATCH;
-  if(!m.hidden){ const r=$("btnHome").getBoundingClientRect(), w=m.offsetWidth||230; m.style.top=(r.bottom+6)+"px"; m.style.left=Math.max(8,Math.min(r.left,window.innerWidth-w-8))+"px"; } });
-document.addEventListener("click",ev=>{ const m=$("homeMenu"); if(m&&!m.hidden&&(!ev.target.closest("#btnHome,#homeMenu")||ev.target.closest(".menu button"))){ m.hidden=true; $("btnHome").setAttribute("aria-expanded","false"); } });
 document.addEventListener("submit",ev=>{ if(ev.target.id!=="carForm") return; ev.preventDefault(); const f=new FormData(ev.target), C=carLoad();
   const p={t:String(f.get("t")),acciones:+String(f.get("n")).replace(",","."),precio:+String(f.get("pm")).replace(",","."),fecha:String(f.get("f")||"")};
   if(!p.t||!(p.acciones>0)||!(p.precio>0)) return; if(CEDIT!=null) C.posiciones[CEDIT]=p; else C.posiciones.push(p); carSave(C); CEDIT=null; renderWatch(); });
 document.addEventListener("change",ev=>{ if(ev.target.id!=="carImp"||!ev.target.files[0]) return; const rd=new FileReader(); rd.onload=()=>{ try{ const j=JSON.parse(rd.result); if(!Array.isArray(j.posiciones)) throw 0;
   carSave({posiciones:j.posiciones.filter(p=>p&&p.t&&+p.acciones>0&&+p.precio>0),efectivo:+j.efectivo||0}); renderWatch(); }catch(e){ alert("El archivo no es una cartera exportada desde el valorador."); } }; rd.readAsText(ev.target.files[0]); });
-$("btnMore").addEventListener("click",ev=>{ ev.stopPropagation(); $("homeMenu").hidden=true; const m=$("moreMenu"); m.hidden=!m.hidden;
+$("btnMore").addEventListener("click",ev=>{ ev.stopPropagation(); const m=$("moreMenu"); m.hidden=!m.hidden;
   if(!m.hidden){ const r=$("btnMore").getBoundingClientRect(); const w=m.offsetWidth||230; m.style.top=(r.bottom+6)+"px"; m.style.left=Math.max(8,Math.min(r.right-w,window.innerWidth-w-8))+"px"; } $("btnMore").setAttribute("aria-expanded",!m.hidden); });
 document.addEventListener("click",ev=>{ const m=$("moreMenu"); if(m&&!m.hidden&&(!ev.target.closest(".menuwrap,#moreMenu")||ev.target.closest(".menu button"))){ m.hidden=true; $("btnMore").setAttribute("aria-expanded","false"); } });
 document.addEventListener("keydown",ev=>{ if(ev.key==="Escape"){ const m=$("moreMenu"); if(m&&!m.hidden){ m.hidden=true; $("btnMore").setAttribute("aria-expanded","false"); $("btnMore").focus(); } } });
@@ -3593,7 +3642,7 @@ $("btnCopy").addEventListener("click",()=>{const t=JSON.stringify(exportAnalysis
 $("btnImport").addEventListener("click",()=>{try{const n=importOld($("jsonBox").value); renderHeader(); renderTab(); toast(n?`${n} ${n===1?"compañía importada":"compañías importadas"} como borrador`:"Ninguna compañía coincide por ticker");}
   catch(e){toast("El texto no es un JSON exportado desde el valorador antiguo");}});
 document.addEventListener("toggle",e=>{ const d=e.target; if(d&&d.id==="warnDet") lsSet("valorador.avisosabiertos",d.open?"1":"0"); if(d&&d.id==="keyAs") lsSet("valorador.supclave",d.open?"1":"0"); if(d&&d.id==="srcKeys") lsSet("valorador.srckeys",d.open?"1":"0"); if(d&&d.id==="srcWarn") lsSet("valorador.srcwarn",d.open?"1":"0"); if(d&&d.id==="socialBox") lsSet("valorador.social",d.open?"1":"0"); if(d&&d.id==="glossary"){ lsSet("valorador.glosario",d.open?"1":"0"); const n=d.querySelector(".glsum .note"); if(n) n.textContent=n.textContent.replace(/pulsa para (plegar|desplegar)/,d.open?"pulsa para plegar":"pulsa para desplegar"); } },true);
-window.addEventListener("hashchange",()=>{const h=location.hash.slice(1); if(h==="seguimiento"||h==="cartera"){ const v=h==="cartera"?"cartera":"lista"; if(!WATCH||WVIEW!==v){ WVIEW=v; WATCH=true; renderWatch(); } return; } if(WATCH) exitWatch(); if(h&&h!==TAB) goTab(h,false);});
+window.addEventListener("hashchange",()=>{const h=location.hash.slice(1); const HV={seguimiento:"lista",cartera:"cartera",inicio:"inicio",favoritas:"favoritas",ajustes:"ajustes"}; if(HV[h]){ const v=HV[h]; if(!WATCH||WVIEW!==v){ WVIEW=v; WATCH=true; renderWatch(); } return; } if(WATCH) exitWatch(); if(h&&h!==TAB) goTab(h,false);});
 try{const mq=matchMedia("(prefers-color-scheme: dark)"); mq.addEventListener("change",()=>rebuildCharts());}catch(e){}
 new MutationObserver(()=>{rebuildCharts(); if(TAB==="valuation") drawFootball();}).observe(document.documentElement,{attributes:true,attributeFilter:["data-theme"]});
 
@@ -3711,7 +3760,7 @@ async function boot(){
   const saved=lsGet("valorador.actual");
   store.current=store.companies[saved]?saved:(keys.find(k=>store.companies[k].meta.fav)||keys[0]);
   cur=store.companies[store.current];
-  renderHeader(); renderTabs(); if(["seguimiento","cartera"].includes((location.hash||"").slice(1))){ WVIEW=location.hash==="#cartera"?"cartera":"lista"; WATCH=true; renderWatch(); } else goTab((location.hash||"").slice(1)||"overview",false);
+  renderHeader(); renderTabs(); if({seguimiento:1,cartera:1,inicio:1,favoritas:1,ajustes:1}[(location.hash||"").slice(1)]){ const h=location.hash.slice(1); WVIEW=h==="seguimiento"?"lista":h; WATCH=true; renderWatch(); } else goTab((location.hash||"").slice(1)||"overview",false);
 }
 boot();
 </script>
