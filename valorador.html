@@ -1366,7 +1366,7 @@ function renderHeader(){
   const favs=Object.entries(store.companies).filter(([k,c])=>c.meta.fav);
   $("favPills").innerHTML=favs.map(([k,c])=>`<button type="button" class="copill" data-co="${esc(k)}" aria-pressed="${k===store.current}" title="Favorita">${monoHtml(c,"xs")} ${esc(c.meta.name||"Sin nombre")}${symOf(c)?`<small>${esc(symOf(c))}</small>`:""}</button>`).join("")
     ||"";
-  $("favPills").hidden=!favs.length;
+  $("favPills").hidden=true;   /* las favoritas viven en el menú principal (casa → Favoritas) */
   if(!$("picker").hidden) renderPicker();
   renderWarnings(); renderDraft();
 }
@@ -1474,7 +1474,7 @@ function favoritasHtml(){
      <button type="button" class="fopen" data-wopen="${esc(r.k)}">${monoHtml(r.c,"sm")}<span><b>${esc(r.name)}</b> <small>${esc(r.k)}</small></span></button>
      <div class="fnum"><span>${money(r.price)} ${fin(r.day)?sg(r.day):""}</span><span class="note">valor ${money(r.fv)} · ${fin(r.pot)?sg(r.pot):"–"}</span></div>
      <div>${r.rating?ratingPill(r.rating):""}</div></div>`;
-  return homeHead("Favoritas","Pulsa ★ para marcar o quitar. Las favoritas aparecen arriba, junto al selector, para abrirlas a un clic. Se recuerdan en este navegador.")+`
+  return homeHead("Favoritas","Pulsa ★ para marcar o quitar y el nombre para abrir su análisis. Se recuerdan en este navegador.")+`
    ${F.length?`<section class="card"><h2>Tus favoritas</h2><div class="fgrid">${F.map(card).join("")}</div></section>`:`<section class="card"><p class="empty">Aún no tienes favoritas: márcalas con ★ en la lista de abajo.</p></section>`}
    <section class="card"><h2>Todas las compañías</h2><div class="fgrid">${W.filter(r=>!r.fav).map(card).join("")||'<p class="note">Todas son favoritas.</p>'}</div></section>`;
 }
