@@ -1,0 +1,63 @@
+{
+ "ticker": "CVX",
+ "versiones": [
+  {
+   "fecha_commit": "2026-11-01",
+   "commit": "7a5a817c45",
+   "analisis_a": "",
+   "recomendacion": "",
+   "conviccion": null,
+   "comprar_por_debajo": null,
+   "horizonte": "",
+   "resumen": "",
+   "supuestos": {
+    "rev0": 208711,
+    "year0": 2026,
+    "g": [
+     -5.0,
+     -3.0,
+     -1.0,
+     1.0,
+     3.0
+    ],
+    "m1": 25,
+    "m5": 27,
+    "da": 11.3,
+    "da5": 11.3,
+    "sbc": 1,
+    "capex": 8.8,
+    "capex5": 8.6,
+    "nwc": 5,
+    "tax": 25.0,
+    "wacc": 9,
+    "tg": 3,
+    "exit": 12,
+    "method": "blend",
+    "eps": 10.42,
+    "pe": 20,
+    "evm": 12,
+    "scn": [
+     {
+      "n": "Bajista",
+      "dg": -5,
+      "dm": -3,
+      "p": 25
+     },
+     {
+      "n": "Base",
+      "dg": 0,
+      "dm": 0,
+      "p": 50
+     },
+     {
+      "n": "Alcista",
+      "dg": 4,
+      "dm": 2,
+      "p": 25
+     }
+    ]
+   }
+  }
+ ],
+ "fuente": "Historial de git de analysis/CVX.json"
+}
