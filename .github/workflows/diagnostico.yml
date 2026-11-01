@@ -1,0 +1,48 @@
+name: Diagnóstico de etiquetas SEC
+
+# Lista las etiquetas XBRL de una compañía que contienen un texto (p. ej. «Debt»),
+# con su último periodo y formulario. Solo lectura: no cambia nada del repositorio.
+on:
+  workflow_dispatch:
+    inputs:
+      ticker:
+        description: "Ticker"
+        required: true
+      buscar:
+        description: "Texto a buscar en el nombre de la etiqueta"
+        required: true
+        default: "Debt"
+
+permissions:
+  contents: read
+
+jobs:
+  diagnostico:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Etiquetas
+        env:
+          SEC_USER_AGENT: ${{ vars.SEC_USER_AGENT || secrets.SEC_USER_AGENT }}
+          TICKER: ${{ inputs.ticker }}
+          BUSCAR: ${{ inputs.buscar }}
+        run: |
+          python - <<'PY'
+          import os, json
+          from fetcher.sec_client import SecClient
+          from fetcher.main import load_companies
+          t=os.environ["TICKER"].upper(); q=os.environ["BUSCAR"].lower()
+          c=next(x for x in load_companies() if x["ticker"].upper()==t)
+          cf=SecClient().companyfacts(c["cik"])
+          rows=[]
+          for tx,facts in cf["facts"].items():
+            for tag,v in facts.items():
+              if q in tag.lower():
+                for u,fs in v["units"].items():
+                  last=max(fs,key=lambda f:(f["end"],f["filed"]))
+                  rows.append((last["end"],tx,tag,u,last["form"],last["val"],len(fs)))
+          for r in sorted(rows,reverse=True)[:60]: print(*r)
+          PY
