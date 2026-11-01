@@ -1243,7 +1243,8 @@ function renderWatch(){
     mk("ch_w_pot",{type:"bar",data:{labels:rows.map(r=>r.name),datasets:[{data:rows.map(r=>+r.pot.toFixed(1)),backgroundColor:rows.map(r=>r.pot>=0?V("--good"):V("--crit"))}]},
       options:{indexAxis:"y",plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>`${c.parsed.x>=0?"+":""}${nf(c.parsed.x,1)}%`}}},scales:{x:{...axisY({suf:"%",zero:true})},y:{grid:{display:false},border:{display:false}}}}}); });
 }
-function exitWatch(){ WATCH=false; document.body.classList.remove("watch"); $("btnWatch").setAttribute("aria-pressed","false"); }
+function exitWatch(){ WATCH=false; document.body.classList.remove("watch"); $("btnWatch").setAttribute("aria-pressed","false"); renderTabs();
+  if(location.hash==="#seguimiento"){ try{history.replaceState(null,"","#"+TAB);}catch(e){} } }
 function reportCover(){
   const vz=valuation(cur), s=scorecard(cur,vz), b=brandOf(cur), v=cur.v, P=cur._data&&cur._data.precio, ref=cur._data&&cur._data.referencia_fecha_datos;
   const hoy=new Date().toISOString().slice(0,10);
@@ -2938,7 +2939,7 @@ async function boot(){
   const saved=lsGet("valorador.actual");
   store.current=store.companies[saved]?saved:(keys.find(k=>store.companies[k].meta.fav)||keys[0]);
   cur=store.companies[store.current];
-  renderHeader(); if((location.hash||"").slice(1)==="seguimiento"){ WATCH=true; renderWatch(); } else goTab((location.hash||"").slice(1)||"overview",false);
+  renderHeader(); renderTabs(); if((location.hash||"").slice(1)==="seguimiento"){ WATCH=true; renderWatch(); } else goTab((location.hash||"").slice(1)||"overview",false);
 }
 boot();
 </script>
