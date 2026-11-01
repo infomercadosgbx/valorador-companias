@@ -385,6 +385,20 @@ table.mult td,table.mult th{padding:9px 12px} table.mult td:first-child{white-sp
 .glsum h2::after{content:"▸";font-size:13px;color:var(--muted);transition:transform .15s}
 #glossary[open] .glsum h2::after{transform:rotate(90deg)}
 #glossary[open] .glsum{margin-bottom:8px}
+.pxsum{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:24px;margin-top:12px;align-items:start}
+@media (max-width:760px){.pxsum{grid-template-columns:minmax(0,1fr)}}
+.pxsum .chips{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:520px){.pxsum .chips{grid-template-columns:repeat(2,minmax(0,1fr))}.tgt td .note{display:block}.tgt th,.tgt td{padding-left:6px;padding-right:6px}}
+.w52{display:flex;flex-direction:column;gap:6px}
+.w52track{position:relative;height:10px;border-radius:99px;background:var(--surface2);border:1px solid var(--line);margin-top:26px}
+.w52fill{position:absolute;left:0;top:0;bottom:0;border-radius:99px;background:linear-gradient(90deg,color-mix(in srgb,var(--crit) 45%,transparent),color-mix(in srgb,var(--warn) 45%,transparent),color-mix(in srgb,var(--good) 50%,transparent))}
+.w52pin{position:absolute;top:-5px;width:3px;height:18px;border-radius:2px;background:var(--ink);transform:translateX(-50%)}
+.w52pin b{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);white-space:nowrap;font-size:12px;font-variant-numeric:tabular-nums;background:var(--ink);color:var(--surface);padding:2px 7px;border-radius:6px}
+.w52pin.l b{left:-2px;transform:none} .w52pin.r b{left:auto;right:-2px;transform:none}
+.w52ends{display:flex;justify-content:space-between;gap:10px} .w52ends div{display:flex;flex-direction:column;gap:1px} .w52ends .r{align-items:flex-end} .w52ends span{font-size:11.5px;color:var(--ink2)} .w52ends b{font-size:14px}
+.pxdl{display:grid;grid-template-columns:auto 1fr;gap:8px 14px;margin:0;font-size:13px;align-items:baseline} .pxdl dt{color:var(--ink2);font-weight:600;white-space:nowrap} .pxdl dd{margin:0}
+.pxrel{display:inline-flex;gap:4px;align-items:center;margin-right:8px;white-space:nowrap}
+@media (max-width:520px){.pxdl{grid-template-columns:1fr;gap:2px}.pxdl dd{margin-bottom:8px}}
 .pxextra{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:10px}
 @media (max-width:640px){.pxextra{grid-template-columns:minmax(0,1fr)}}
 .pxbox{border:1px solid var(--line);border-radius:8px;padding:10px 12px;display:flex;flex-direction:column;gap:5px;background:var(--surface)}
@@ -2021,26 +2035,25 @@ function multHistory(){
 }
 const pctile=(st,v)=>st&&fin(v)?st.sorted.filter(x=>x<=v).length/st.sorted.length*100:NaN;
 
-function priceExtraHtml(st){
-  const P=st.last[1], lo=st.lo52[1], hi=st.hi52[1], pos=hi>lo?(P-lo)/(hi-lo)*100:50;
-  const d=(a,b)=>(a/b-1)*100, sg=v=>(v>=0?"+":"")+nf(v,1)+"%";
+function range52Html(st){
+  const P=st.last[1], lo=st.lo52[1], hi=st.hi52[1], pos=Math.max(0,Math.min(100,hi>lo?(P-lo)/(hi-lo)*100:50));
+  const d=(a,b)=>(a/b-1)*100, sg=v=>(v>=0?"+":"−")+nf(Math.abs(v),1)+"%", al=pos<14?"l":pos>86?"r":"c";
+  return `<div class="w52"><div class="eyebrow">Rango de 52 semanas</div>
+    <div class="w52track"><i class="w52fill" style="width:${pos.toFixed(1)}%"></i><span class="w52pin ${al}" style="left:${pos.toFixed(1)}%"><b>Hoy ${nf(P,2)}</b></span></div>
+    <div class="w52ends"><div><b class="num">${nf(lo,2)}</b><span>mínimo · ${esc(fecha(st.lo52[0]))}</span></div><div class="r"><b class="num">${nf(hi,2)}</b><span>máximo · ${esc(fecha(st.hi52[0]))}</span></div></div>
+    <div class="note">${sg(d(P,lo))} sobre el mínimo · ${sg(d(P,hi))} bajo el máximo</div></div>`;
+}
+function pxRiskHtml(st){
+  const P=st.last[1], d=(a,b)=>(a/b-1)*100, sg=v=>(v>=0?"+":"−")+nf(Math.abs(v),1)+"%";
   const trend=fin(st.ma200)?(P>=st.ma200?(fin(st.ma50)&&st.ma50>=st.ma200?"alcista":"recuperándose"):(fin(st.ma50)&&st.ma50<st.ma200?"bajista":"debilitándose")):null;
   const tcol={alcista:"up",recuperándose:"mid",debilitándose:"mid",bajista:"down"}[trend]||"neutral";
-  const volTxt=st.vol<25?"baja":st.vol<40?"media":"alta";
-  const rel=(st.rel||[]).filter(Boolean);
-  return `<div class="pxextra">
-    <div class="pxbox"><div class="eyebrow">Rango de 52 semanas</div>
-      <div class="r52"><span class="num">${nf(lo,2)}</span><div class="r52bar"><i style="left:${Math.max(0,Math.min(100,pos))}%"></i></div><span class="num">${nf(hi,2)}</span></div>
-      <div class="note">Hoy ${nf(P,2)} ${ccy()}: ${sg(d(P,lo))} sobre el mínimo (${esc(fecha(st.lo52[0]))}) y ${sg(d(P,hi))} bajo el máximo (${esc(fecha(st.hi52[0]))}).</div></div>
-    <div class="pxbox"><div class="eyebrow">Tendencia</div>
-      <div>${trend?`<span class="pill ${tcol}">${esc(trend[0].toUpperCase()+trend.slice(1))}</span>`:"–"}</div>
-      <div class="note">Media de 50 sesiones ${nf(st.ma50,2)} (${sg(d(P,st.ma50))}); de 200 sesiones ${nf(st.ma200,2)} (${sg(d(P,st.ma200))}). Por encima de la media de 200, tendencia de fondo alcista.</div></div>
-    <div class="pxbox"><div class="eyebrow">Riesgo del último año</div>
-      <div><b class="num">${nf(st.vol,0)}%</b> <span class="note">volatilidad anual (${volTxt})</span></div>
-      <div class="note">Peor caída: <b style="color:var(--critText)">${nf(st.mdd,1)}%</b>, de ${esc(fecha(st.mddPk[0]))} a ${esc(fecha(st.mddLo[0]))}. El S&P 500 suele moverse un 15–20% al año.</div></div>
-    <div class="pxbox"><div class="eyebrow">Frente al S&P 500</div>
-      ${rel.length?`<table class="mini2"><tbody>${rel.map(r=>`<tr><td>${r.y} ${r.y===1?"año":"años"}</td><td class="num">${sg(r.acc)}</td><td class="note">índice ${sg(r.idx)}</td><td><span class="pill ${r.acc>=r.idx?"up":"down"}">${r.acc>=r.idx?"+":""}${nf(r.acc-r.idx,0)} pp</span></td></tr>`).join("")}</tbody></table>`:`<div class="note">Aparecerá tras la próxima actualización (ETF SPY, Twelve Data).</div>`}</div>
-  </div>`;
+  const volTxt=st.vol<25?"baja":st.vol<40?"media":"alta", rel=(st.rel||[]).filter(Boolean);
+  return `<dl class="pxdl">
+    <dt>Tendencia</dt><dd>${trend?`<span class="pill ${tcol}">${esc(trend[0].toUpperCase()+trend.slice(1))}</span>`:"–"} <span class="note">media 50 s. ${nf(st.ma50,2)} (${sg(d(P,st.ma50))}) · 200 s. ${nf(st.ma200,2)} (${sg(d(P,st.ma200))})</span></dd>
+    <dt>Volatilidad</dt><dd><b class="num">${nf(st.vol,0)}%</b> <span class="note">anual, ${volTxt} (el S&P 500 suele moverse un 15–20%)</span></dd>
+    <dt>Peor caída</dt><dd><b class="num" style="color:var(--critText)">${nf(st.mdd,1)}%</b> <span class="note">${esc(fecha(st.mddPk[0]))} → ${esc(fecha(st.mddLo[0]))}</span></dd>
+    <dt>Frente al S&P 500</dt><dd>${rel.length?rel.map(r=>`<span class="pxrel"><span class="note">${r.y} ${r.y===1?"año":"años"}</span> <span class="pill ${r.acc>=r.idx?"up":"down"}">${r.acc>=r.idx?"+":""}${nf(r.acc-r.idx,0)} pp</span></span>`).join(" "):`<span class="note">Tras la próxima actualización.</span>`}</dd>
+  </dl>`;
 }
 let PEERX=lsGet("valorador.peerx")||"precio_ventas";
 const PEERCOLS=[["capitalizacion","Capitalización","big",0],["crecimiento","Crec. ingresos","pct",1],["margen_bruto","Margen bruto","pct",1],["margen_operativo","Margen operativo","pct",1],
@@ -2124,7 +2137,7 @@ function valTopHtml(){
   const seg=(attr,cur0,opts)=>`<div class="seg tbl" role="group" style="width:max-content;max-width:100%">${opts.map(([k,l])=>`<button type="button" ${attr}="${k}" aria-pressed="${cur0===k}">${l}</button>`).join("")}</div>`;
   const chg=(lab,r)=>`<div class="chip"><span>${lab}</span><b class="num" style="color:${r&&r.v>=0?"var(--goodText)":"var(--critText)"}">${r?(r.v>=0?"+":"")+nf(r.v,1)+"%":"–"}</b>${r&&r.cagr!=null?`<span style="text-transform:none;letter-spacing:0;font-weight:400">${nf(r.cagr,1)}% anual</span>`:""}</div>`;
   const eps=MET.cagr_bpa.calc(m).res;
-  const rows=T.map(t=>`<tr><td style="white-space:normal"><span class="sev" style="background:transparent;padding:0"><i style="background:var(${t.c})"></i></span> ${esc(t.n)}<div class="note">${esc(t.sub)}</div></td><td>${money(t.v)}</td><td><span class="pill ${t.v>=s.price?"up":"down"}">${t.v>=s.price?"+":""}${nf((t.v/s.price-1)*100,1)}%</span></td></tr>`).join("");
+  const rows=T.map(t=>`<tr><td style="white-space:normal"><span class="sev" style="background:transparent;padding:0"><i style="background:var(${t.c})"></i></span> ${esc(t.n)} <span class="note">· ${esc(t.sub)}</span></td><td>${money(t.v)}</td><td><span class="pill ${t.v>=s.price?"up":"down"}">${t.v>=s.price?"+":""}${nf((t.v/s.price-1)*100,1)}%</span></td></tr>`).join("");
   const MH=multHistory(), R=id=>{try{return MET[id].calc(m).res;}catch(e){return NaN;}}, X=(v,d=1)=>fin(v)?nf(v,d)+"x":"–", P2=v=>fin(v)?pct(v):"–";
   const vz=valuation(cur), y1=vz.ok?vz.base.yrs[0]:null, mcapM=s.price*s.shares, evM=mcapM+s.debt-s.cash;
   const hRow=(stt,cur0)=>stt?[X(stt.mean),`${X(stt.p10)} – ${X(stt.p90)}`,fin(cur0)?`<span class="pill ${pctile(stt,cur0)>66?"down":pctile(stt,cur0)<33?"up":"mid"}">${nf(pctile(stt,cur0),0)}%</span>`:"–"]:["–","–","–"];
@@ -2138,16 +2151,19 @@ function valTopHtml(){
   const stt=MCHART==="per"?(MH&&MH.stPer):(MH&&MH.stPs), curM=MCHART==="per"?per:psr;
   return `
   <section class="card" style="--tc:var(--c4)"><h2>Precio: de dónde viene y hacia dónde puede ir</h2>
-    <div style="display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between"><p class="sub" style="margin:0;max-width:80ch">Cierre diario ajustado por splits ${h?srcTag(h):""}. A la derecha, adónde llevaría el precio cada valoración de tu modelo y el consenso a ${H} meses (tu horizonte de inversión). La franja verde es tu zona de compra.</p>${h?seg("data-prange",PRANGE,[["1","1 año"],["3","3 años"],["5","5 años"]]):""}</div>
+    <div style="display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between"><p class="sub" style="margin:0;max-width:80ch">Cierre diario ajustado por splits ${h?srcTag(h):""}. A la derecha, adónde llevaría el precio cada valoración a ${H} meses; la franja verde es tu zona de compra.</p>${h?seg("data-prange",PRANGE,[["1","1 año"],["3","3 años"],["5","5 años"]]):""}</div>
     ${h?`<div class="cv h340"><canvas id="ch_vl_price" role="img" aria-label="Evolución de la cotización y objetivos de precio"></canvas></div>`:`<div class="alert">Falta el histórico de cotizaciones. Crea el secret <code>TWELVEDATA_API_KEY</code> (README) y aparecerá tras la siguiente actualización. Mientras, el gráfico muestra solo la proyección desde la cotización actual.</div><div class="cv h300"><canvas id="ch_vl_price" role="img" aria-label="Objetivos de precio"></canvas></div>`}
-    <div class="g2" style="margin-top:10px;align-items:start">
+    ${st?`<div class="pxsum">
       <div><div class="eyebrow" style="margin-bottom:6px">Rentabilidad de la acción</div>
-        ${st?`<div class="chips">${chg("1 año",st.r1)}${chg("3 años",st.r3)}${chg("5 años",st.r5)}<div class="chip"><span>Desde el máximo</span><b class="num" style="color:var(--critText)">${nf(st.dd,1)}%</b><span style="text-transform:none;letter-spacing:0;font-weight:400">máx. ${money(st.max[1])} (${esc(fecha(st.max[0]))})</span></div></div>
-        ${priceExtraHtml(st)}<p class="note" style="margin-top:8px">${st.r5&&fin(st.r5.cagr)&&fin(eps)?`En 5 años la acción ha subido un ${nf(st.r5.cagr,1)}% anual y el BPA un ${nf(eps,1)}% anual${info("cagr_bpa")}: ${st.r5.cagr>eps+3?"el precio ha crecido más que el beneficio, así que hoy pagas un múltiplo mayor.":st.r5.cagr<eps-3?"el beneficio ha crecido más que el precio, así que hoy pagas un múltiplo menor.":"precio y beneficio han crecido a un ritmo parecido."}`:""}</p>`:`<p class="empty">Disponible cuando llegue el histórico.</p>`}</div>
+        <div class="chips">${chg("1 año",st.r1)}${chg("3 años",st.r3)}${chg("5 años",st.r5)}<div class="chip"><span>Desde el máximo</span><b class="num" style="color:var(--critText)">${nf(st.dd,1)}%</b><span style="text-transform:none;letter-spacing:0;font-weight:400">${money(st.max[1])} · ${esc(fecha(st.max[0]))}</span></div></div></div>
+      ${range52Html(st)}</div>`:`<p class="empty">La rentabilidad aparecerá cuando llegue el histórico.</p>`}
+    <div class="g2" style="margin-top:14px;align-items:start">
       <div><div class="eyebrow" style="margin-bottom:6px">Objetivos a ${H} meses</div>
-        <div class="scroll"><table><thead><tr><th>Referencia</th><th>Precio</th><th>Potencial</th></tr></thead><tbody>${rows}
-        ${fin(cur.verdict.buyBelow)?`<tr><td><span class="sev" style="background:transparent;padding:0"><i style="background:var(--good)"></i></span> Zona de compra<div class="note">tu veredicto</div></td><td>&lt; ${money(cur.verdict.buyBelow)}</td><td><span class="pill ${s.price<=cur.verdict.buyBelow?"up":"neutral"}">${s.price<=cur.verdict.buyBelow?"dentro":nf((cur.verdict.buyBelow/s.price-1)*100,1)+"%"}</span></td></tr>`:""}</tbody></table></div></div>
+        <div class="scroll"><table class="tgt"><thead><tr><th>Referencia</th><th>Precio</th><th>Potencial</th></tr></thead><tbody>${rows}
+        ${fin(cur.verdict.buyBelow)?`<tr><td><span class="sev" style="background:transparent;padding:0"><i style="background:var(--good)"></i></span> Zona de compra <span class="note">· tu veredicto</span></td><td>&lt; ${money(cur.verdict.buyBelow)}</td><td><span class="pill ${s.price<=cur.verdict.buyBelow?"up":"neutral"}">${s.price<=cur.verdict.buyBelow?"dentro":nf((cur.verdict.buyBelow/s.price-1)*100,1)+"%"}</span></td></tr>`:""}</tbody></table></div></div>
+      <div><div class="eyebrow" style="margin-bottom:6px">Comportamiento del último año</div>${st?pxRiskHtml(st):`<p class="empty">Disponible cuando llegue el histórico.</p>`}</div>
     </div>
+    ${st&&st.r5&&fin(st.r5.cagr)&&fin(eps)?`<p class="note" style="margin-top:10px">En 5 años la acción ha subido un ${nf(st.r5.cagr,1)}% anual y el BPA un ${nf(eps,1)}% anual${info("cagr_bpa")}: ${st.r5.cagr>eps+3?"el precio ha crecido más que el beneficio, así que hoy pagas un múltiplo mayor.":st.r5.cagr<eps-3?"el beneficio ha crecido más que el precio, así que hoy pagas un múltiplo menor.":"precio y beneficio han crecido a un ritmo parecido."}</p>`:""}
   </section>
   ${consensusHtml()}
   <section class="card"><h2>Múltiplos al precio actual</h2>
@@ -2233,13 +2249,20 @@ function drawPriceCharts(){
     const lastT=TS(lastD), endT=lastT+H*30.44*864e5, startT=h?lastT-(+PRANGE)*365.25*864e5:lastT-H*30.44*864e5*0.6;
     const serie=h?h.serie.filter(p=>TS(p[0])>=startT).map(p=>({x:TS(p[0]),y:p[1]})):[{x:lastT,y:s.price}];
     const ds=[{label:"Cotización",data:serie,borderColor:V("--ink"),backgroundColor:V("--ink"),borderWidth:1.8,pointRadius:0,pointHoverRadius:3,tension:0,order:1}];
-    T.forEach(t=>ds.push({label:`${t.n}: ${nf(t.v,0)}`,data:[{x:lastT,y:s.price},{x:endT,y:t.v}],borderColor:V(t.c),backgroundColor:V(t.c),borderDash:t.w?[]:[6,4],borderWidth:t.w||1.8,pointRadius:[0,4],pointHoverRadius:5,order:2}));
+    const short={"Valor ponderado":"Ponderado","Consenso de analistas":"Consenso"};
+    T.forEach(t=>ds.push({label:t.n,_tag:short[t.n]||t.n,_val:t.v,data:[{x:lastT,y:s.price},{x:endT,y:t.v}],borderColor:V(t.c),backgroundColor:V(t.c),borderDash:t.w?[]:[6,4],borderWidth:t.w||1.8,pointRadius:[0,4],pointHoverRadius:5,order:2,clip:false}));
     const bb=cur.verdict.buyBelow;
     if(fin(bb)) ds.push({label:`Zona de compra (< ${nf(bb,0)})`,data:[{x:startT,y:bb},{x:endT,y:bb}],borderColor:alpha(V("--good"),.7),backgroundColor:alpha(V("--good"),.12),borderWidth:1,pointRadius:0,fill:"start",order:3});
     const ys=[...serie.map(p=>p.y),...T.map(t=>t.v),fin(bb)?bb:s.price].filter(fin), lo0=Math.min(...ys), hi0=Math.max(...ys), stp=niceStep(((hi0-lo0)||hi0*0.2)/5);
     const lo=Math.max(0,Math.floor(lo0/stp)*stp), hi=Math.ceil(hi0/stp)*stp, pad=0;
-    mk("ch_vl_price",{type:"line",data:{datasets:ds},options:{parsing:false,interaction:{mode:"nearest",intersect:false},
-      plugins:{legend:{display:true,position:"top",align:"start",labels:{filter:it=>it.text!=="Cotización"||true}},tooltip:{callbacks:{title:it=>fecha(new Date(it[0].parsed.x).toISOString().slice(0,10)),label:c=>`${c.dataset.label.split(":")[0]}: ${nf(c.parsed.y,2)} ${ccy()}`}}},
+    const narrow=el.parentNode.clientWidth<560;
+    const endTags={id:"endTags",afterDatasetsDraw(ch){ const ctx=ch.ctx, items=[];
+      ch.data.datasets.forEach((d,i)=>{ if(!d._tag||!ch.isDatasetVisible(i)) return; const pt=ch.getDatasetMeta(i).data.at(-1); if(pt) items.push({y:pt.y,x:pt.x,c:d.borderColor,t:narrow?nf(d._val,0):`${d._tag} ${nf(d._val,0)}`,w:d.borderWidth>2}); });
+      items.sort((a,b)=>a.y-b.y); for(let i=1;i<items.length;i++) if(items[i].y-items[i-1].y<14) items[i].y=items[i-1].y+14;
+      const top=ch.chartArea.top-4, bot=ch.chartArea.bottom; const over=items.length?items.at(-1).y-bot:0; if(over>0) items.forEach(it=>it.y-=over); if(items.length&&items[0].y<top){ const sh=top-items[0].y; items.forEach(it=>it.y+=sh); }
+      ctx.save(); ctx.textBaseline="middle"; items.forEach(it=>{ ctx.font=`${it.w?700:600} 11px ${Chart.defaults.font.family}`; ctx.fillStyle=it.c; ctx.fillText(it.t,it.x+9,it.y); }); ctx.restore(); }};
+    mk("ch_vl_price",{type:"line",data:{datasets:ds},plugins:[endTags],options:{parsing:false,interaction:{mode:"nearest",intersect:false},layout:{padding:{right:narrow?34:96,top:8}},
+      plugins:{legend:{display:true,position:"top",align:"start",labels:{filter:it=>!ds[it.datasetIndex]._tag}},tooltip:{callbacks:{title:it=>fecha(new Date(it[0].parsed.x).toISOString().slice(0,10)),label:c=>`${c.dataset.label}: ${nf(c.parsed.y,2)} ${ccy()}`}}},
       scales:{x:{type:"linear",min:startT,max:endT,grid:{display:false},border:{color:V("--line")},ticks:{maxTicksLimit:8,callback:v=>mesCorto(new Date(v).toISOString().slice(0,10))}},y:{...axisY({zero:false}),min:Math.max(0,lo-pad),max:hi+pad}}}});
   }
   { const ca=cur._data&&cur._data.consenso_automatico, H=(ca&&ca.historial)||[];
