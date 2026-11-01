@@ -187,6 +187,32 @@ def build_from_sec(company, cf, subs):
     return rec
 
 
+def _id_from_extension(rec):
+    """Sin I+D en companyfacts (Amazon): usa el gasto de tecnología de su etiqueta
+    propia, leído del XBRL completo de los últimos informes."""
+    R = rec.get("resultados") or {}
+    cur = R.get("investigacion_desarrollo") or {}
+    tech = (rec.get("segmentos") or {}).get("gasto_tecnologia")
+    if cur.get("anual") or cur.get("trimestral") or not tech or not (tech.get("anual") or tech.get("trimestral")):
+        return
+    tri, anu = tech.get("trimestral") or [], tech.get("anual") or []
+    ttm = None
+    last4 = tri[-4:]
+    if len(last4) == 4 and (X.d(last4[-1]["periodo_fin"]) - X.d(last4[0]["periodo_inicio"])).days <= 380:
+        ttm = dict(last4[-1], valor=sum(p["valor"] for p in last4), periodo_inicio=last4[0]["periodo_inicio"],
+                   derivado=" + ".join(p["periodo"] for p in last4), periodo="UDM")
+    elif anu:
+        ttm = dict(anu[-1], periodo="UDM")
+    ref = (R.get("ingresos") or {}).get("ttm") or {}
+    if ttm and ref.get("periodo_fin") and ttm["periodo_fin"] != ref["periodo_fin"]:
+        ttm = None
+    R["investigacion_desarrollo"] = dict(cur, nombre="Tecnología e infraestructura (en lugar de I+D)", anual=anu, trimestral=tri, ttm=ttm,
+                                         etiquetas_usadas=sorted({p["etiqueta"] for p in tri + anu}),
+                                         nota="La compañía no publica I+D: se usa su gasto de tecnología (etiqueta propia, XBRL completo de los últimos informes).")
+    rec.setdefault("avisos", []).append(X.warn("info", "id_tecnologia",
+        f"I+D: la compañía no lo publica; se usa «{tech.get('concepto')}» de sus últimos informes (XBRL completo), solo los últimos años."))
+
+
 class Memo:
     """Envuelve el cliente de la SEC y recuerda las descargas durante una compañía
     (bonos y segmentos leen los mismos informes XBRL)."""
@@ -245,6 +271,7 @@ def build_company(client, company, price_provider, price_warning=None, previous=
                 rec[key] = prev.get(key)
                 rec["avisos"].append(X.warn("info", f"{key}_no_disponible", f"No se pudo leer {nombre}: {type(e).__name__}: {e}"))
     client.clear()
+    _id_from_extension(rec)
     # Precio y recomendaciones (secundarios: un fallo solo genera aviso)
     rec["precio"] = None
     rec["consenso_automatico"] = None

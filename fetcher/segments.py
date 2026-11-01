@@ -17,12 +17,15 @@ from datetime import date
 from .bonds import find_files, label_for, parse_instance, parse_labels, target_filings
 from .filings import archive_base
 
-VERSION = 3
+VERSION = 4
 AXES = {"StatementBusinessSegmentsAxis": "segmento", "ProductOrServiceAxis": "producto"}
 OK_EXTRA = {"ConsolidationItemsAxis"}
 REV = ("RevenueFromContractWithCustomerExcludingAssessedTax", "Revenues",
        "RevenueFromContractWithCustomerIncludingAssessedTax", "SalesRevenueNet")
 OPI = ("OperatingIncomeLoss", "SegmentReportingInformationOperatingIncomeLoss")
+# Gasto de tecnología con etiqueta propia de la compañía (Amazon: «Technology and
+# infrastructure», antes «Technology and content»): companyfacts no trae extensiones.
+TECH = re.compile(r"^Technology(And\w+)?(Expense|Expenses|Costs)?$")
 ADJ = re.compile(r"eliminat|reconcil|corporate|unallocated|hedg|intersegment|other than|all other|adjust", re.I)
 
 
@@ -41,11 +44,20 @@ def _num(v):
 
 
 def extract(inst_xml: bytes, lab_xml: bytes | None):
-    facts, ctx, _ = parse_instance(inst_xml)
+    facts, ctx, units = parse_instance(inst_xml)
     labels = parse_labels(lab_xml)
     out = {}
     for f in facts:
         concept = f["c"]
+        if TECH.match(concept):
+            c = ctx.get(f["ctx"])
+            v = _num(f["v"])
+            if c and not c["dims"] and c.get("start") and v is not None and f.get("unit") and "USD" in str(units.get(f["unit"], "")):
+                days = (_d(c["end"]) - _d(c["start"])).days
+                per = "T" if 80 <= days <= 100 else "A" if 350 <= days <= 380 else None
+                if per:
+                    out.setdefault(("_tech", "_tech"), {}).setdefault(concept, {})[(per, c["start"], c["end"])] = v
+            continue
         kind = "ingresos" if concept in REV else "operativo" if concept in OPI else None
         if not kind:
             continue
@@ -130,6 +142,30 @@ def _assemble(series: dict, fye_month: int, max_q=12, max_a=5):
     return tri, anu
 
 
+def _tech_block(tech, fye_month):
+    """Serie del gasto de tecnología (etiqueta propia) con su informe de origen."""
+    if not tech:
+        return None
+    concept = max(tech, key=lambda c: (max(k[2] for k in tech[c]), len(tech[c])))
+    vals = tech[concept]
+    tri, anu = _assemble({k: v for k, (v, _) in vals.items()}, fye_month, max_q=12, max_a=5)
+    def src_for(s, e):
+        for (p, ks, ke), (_, src) in vals.items():
+            if ke == e:
+                return src
+        return None
+    def pt(x, derived=None):
+        src = src_for(x["periodo_inicio"], x["periodo_fin"]) or {}
+        out = {"periodo": x["periodo"], "valor": x["valor"], "periodo_inicio": x["periodo_inicio"], "periodo_fin": x["periodo_fin"],
+               "fuente": f"SEC EDGAR · {src.get('formulario', '')} (XBRL)", "url": src.get("url"),
+               "fecha_presentacion": src.get("fecha_presentacion"), "formulario": src.get("formulario"),
+               "etiqueta": f"{src.get('ns') or 'ext'}:{concept}"}
+        if (x["periodo_inicio"], x["periodo_fin"]) not in {(k[1], k[2]) for k in vals}:
+            out["derivado"] = "Anual − tres trimestres"
+        return out
+    return {"concepto": concept, "trimestral": [pt(x) for x in tri], "anual": [pt(x) for x in anu]}
+
+
 def build(client, cik, subs, previous=None, fye_month=12):
     fl = target_filings(subs)
     if not fl:
@@ -137,7 +173,7 @@ def build(client, cik, subs, previous=None, fye_month=12):
     accns = [r["accessionNumber"] for r in fl]
     if previous and previous.get("informes_accn") == accns and previous.get("version") == VERSION:
         return previous
-    merged, used = {}, []
+    merged, used, tech = {}, [], {}
     for r in reversed(fl):  # lo más reciente sobrescribe
         base = archive_base(cik, r["accessionNumber"])
         idx = client.get_json(f"{base}/index.json")
@@ -152,6 +188,11 @@ def build(client, cik, subs, previous=None, fye_month=12):
             rows = extract(inst, lab)
         except ET.ParseError:
             continue
+        src = {"formulario": r["form"], "fecha_presentacion": r["filingDate"], "url": f"{base}/{r['accessionNumber']}-index.htm",
+               "ns": inst_name.split("-")[0].split("_")[0]}
+        for concept, vals in rows.pop(("_tech", "_tech"), {}).items():
+            for key, v in vals.items():
+                tech.setdefault(concept, {})[key] = (v, src)
         used.append({"formulario": r["form"], "fecha_presentacion": r["filingDate"], "fecha_periodo": r.get("reportDate"),
                      "url": f"{base}/{r['accessionNumber']}-index.htm", "fuente": f"SEC EDGAR · {r['form']} (XBRL)"})
         for k, row in rows.items():
@@ -172,7 +213,8 @@ def build(client, cik, subs, previous=None, fye_month=12):
         out[m["tipo"]].append({"miembro": member, "nombre": m["nombre"], "ajuste": bool(ADJ.search(m["nombre"] + " " + member)),
                                "trimestral": tri, "anual": anu,
                                "operativo_trimestral": opi_t, "operativo_anual": opi_a})
-    for k in out:
+    out["gasto_tecnologia"] = _tech_block(tech, fye_month)
+    for k in ("segmento", "producto"):
         out[k].sort(key=lambda x: -((x["trimestral"] or x["anual"] or [{"valor": 0}])[-1]["valor"] or 0))
     if not out["segmento"] and not out["producto"]:
         return {"version": VERSION, "informes_accn": accns, "segmento": [], "producto": [], "informes": used}
