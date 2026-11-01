@@ -652,6 +652,10 @@ body.report .cv.radar{height:250px}
 .asc b{font-size:15px;font-variant-numeric:tabular-nums}
 .assum{padding:2px 0 10px} #valIn:has(#keyAs[open]) .assum{display:none}
 tr.grp td{background:var(--surface2);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--ink2);text-align:left!important;padding-top:7px;padding-bottom:5px}
+.invhead{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px} .invhead h2{margin:0;flex:1 1 auto;white-space:nowrap} .invhead .seg{flex:0 0 auto}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--surface2)} .seg button{flex:0 0 auto;white-space:nowrap;border:0;background:transparent;padding:5px 11px;font-size:12.5px;font-weight:600;color:var(--ink2);cursor:pointer;border-radius:0}
+.seg button+button{border-left:1px solid var(--line)} .seg button[aria-selected="true"]{background:var(--tc,var(--tcx));color:#fff}
+body.report .seg{display:none}
 .wl .wsub li{display:list-item;font-size:12px;color:var(--ink2);margin:1px 0;overflow-wrap:anywhere} .wn{color:var(--ink2);font-size:12px}
 .wl li.wrow{display:grid;grid-template-columns:62px minmax(0,1fr) auto;align-items:start}
 @media (max-width:640px){.wl li.wrow{grid-template-columns:62px minmax(0,1fr)} .wl li.wrow .wok{grid-column:2;justify-self:start}}
@@ -860,7 +864,7 @@ function buildFin(c){
     eps:epsA, bvps:eqA.map((e,i)=>dv(e,dilA[i])), taxUsed:tax,
     taxEff:val(pts.tax).map((t,i)=>{const b=val(pts.pbt)[i]; return fin(t)&&fin(b)&&b>0?t/b:null;}),
     ocfNi:ocf.map((o,i)=>fin(ni[i])&&ni[i]>0?dv(o,ni[i]):null), niOp:ni.map((x,i)=>fin(op[i])&&op[i]>0?dv(x,op[i]):null)};
-  return {years:labels,rev,profit:op,ni,fcf,capex,ocf,gross,ebitda,da,sbc:val(pts.sbc),int:val(pts.int),nonop:val(pts.nonop),gains:val(pts.gains),taxv:val(pts.tax),pbt:val(pts.pbt),sharesFromEps,debtA,cashA,eqA,asA,caA,clA,invA,dilA,ic,hasInv,ratios,
+  return {years:labels,rev,profit:op,ni,fcf,capex,ocf,gross,ebitda,da,sbc:val(pts.sbc),buyb:val(ser("recompras")),divs:val(ser("dividendos")),int:val(pts.int),nonop:val(pts.nonop),gains:val(pts.gains),taxv:val(pts.tax),pbt:val(pts.pbt),sharesFromEps,debtA,cashA,eqA,asA,caA,clA,invA,dilA,ic,hasInv,ratios,
     bsPts:{debt:bsPts("deuda"),cash:bsPts("caja"),eq:bsPts("patrimonio_neto"),assets:bsPts("activo_total"),ca:bsPts("activo_corriente"),cl:bsPts("pasivo_corriente")},
     maturities:(d.vencimientos_deuda)||null,debtAssumed:!!(B.deuda&&B.deuda.asumido),addTTM,splits,capexAssumed,
     profitLabel:"Beneficio operativo",pts,
@@ -1583,7 +1587,8 @@ R.financial=()=>{
     <section class="card"><h2>Ingresos y ${esc(lc(f.profitLabel))}</h2><p class="sub">${sc.u}</p><div class="cv h260"><canvas id="ch_fn_rev" role="img" aria-label="Ingresos y beneficio por año"></canvas></div></section>
     <section class="card"><h2>Evolución de los márgenes</h2><p class="sub">% sobre ingresos.</p><div class="cv h260"><canvas id="ch_fn_mg" role="img" aria-label="Márgenes por año"></canvas></div><div class="chipline">Cómo se calculan: <span>Bruto${info("margen_bruto")}</span><span>EBITDA${info("margen_ebitda")}</span><span>Operativo${info("margen_operativo")}</span><span>Neto${info("margen_neto")}</span><span>FCF${info("margen_fcf")}</span></div></section>
     <section class="card"><h2>Beneficio, caja e inversión</h2><p class="sub">${sc.u}</p><div class="cv h260"><canvas id="ch_fn_cash" role="img" aria-label="Beneficio neto, flujo de caja libre y capex"></canvas></div></section>
-    <section class="card"><h2>Intensidad de la inversión</h2><p class="sub">Capex sobre ingresos y sobre caja operativa, en %. Por encima de la línea del 100%, la compañía invierte más caja de la que genera su negocio y la diferencia sale de su caja o de deuda.</p><div class="cv h260"><canvas id="ch_fn_conv" role="img" aria-label="Intensidad de capex y conversión en caja"></canvas></div><div class="chipline">Cómo se calculan: <span>Capex / ingresos${info("capex_ingresos")}</span><span>Capex / caja operativa${info("capex_ocf")}</span></div></section>
+    <section class="card" id="invCard"><div class="invhead"><h2>Análisis de la inversión</h2><div class="seg" role="tablist" aria-label="Vista">${INV_VIEWS.map(v=>`<button type="button" role="tab" data-inv="${v.id}" aria-selected="${v.id===invView()}">${v.b}</button>`).join("")}</div></div>
+      <p class="sub" id="invSub">${esc(INV_VIEWS.find(v=>v.id===invView()).sub)}</p><div class="cv h260"><canvas id="ch_fn_conv" role="img" aria-label="Análisis de la inversión"></canvas></div><div class="chipline" id="invFoot">${invFoot(invView())}</div></section>
   </div>
   <section class="card"><h2>Tabla de datos</h2>
     <div style="display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between"><p class="sub" style="margin:0">Fuente: SEC EDGAR. Cada año enlaza a su 10-K; las etiquetas XBRL y el origen de cada cifra están en la pestaña Fuentes.</p>${seg}</div>
@@ -2881,6 +2886,34 @@ C.business=()=>{
   mk("ch_bz_mix",mixCfg()); { const c=segQCfg(); if(c) mk("ch_bz_segq",c); }
   const q=cur.business.quality; mk("ch_bz_q",hbarCfg(q.map(x=>x.n),q.map(x=>+x.s),V("--tcx"),5,"/ 5"));
 };
+const INV_VIEWS=[
+ {id:"capex",b:"Capex",sub:"Capex sobre ingresos, sobre caja operativa y frente a las amortizaciones, en %. Por encima del 100% de la caja operativa invierte más de lo que genera; por encima del 100% de las amortizaciones invierte para crecer, no solo para mantener."},
+ {id:"sbc",b:"Acciones",sub:"La inversión «oculta» de las compañías de software: el pago en acciones a empleados. Barras: FCF antes y después de restarlo. Líneas: pago en acciones sobre ingresos y variación anual de las acciones diluidas (%)."},
+ {id:"uso",b:"Destino de la caja",sub:"Qué hace la compañía con la caja que genera: FCF frente a recompras y dividendos, y el pago en acciones que las recompras tienen que compensar."}];
+function invAuto(){ const f=cur.fin, L=f.years.length-1, r=f.rev[L], cx=f.capex[L], sb=f.sbc[L];
+  if(fin(r)&&r>0&&fin(cx)&&cx/r>0.08) return "capex"; if(fin(r)&&r>0&&fin(sb)&&sb/r>0.08) return "sbc"; return "uso"; }
+function invView(){ const m=lsGet("valorador.inv."+cur._t), a=cur.vistaInversion; return INV_VIEWS.some(v=>v.id===m)?m:INV_VIEWS.some(v=>v.id===a)?a:invAuto(); }
+function invFoot(id){ return id==="capex"?`Cómo se calculan: <span>Capex / ingresos${info("capex_ingresos")}</span><span>Capex / caja operativa${info("capex_ocf")}</span><span>Capex / amortizaciones</span>`
+  :id==="sbc"?`Cómo se calculan: <span>Pago en acciones / ingresos${info("sbc_ingresos")}</span><span>Variación de acciones${info("dilucion")}</span><span>FCF − pago en acciones</span>`
+  :`Cómo se calculan: <span>FCF${info("fcf")}</span><span>Rentabilidad para el accionista${info("rentab_accionista")}</span><span>Recompras y dividendos: estado de flujos de caja (SEC)</span>`; }
+function invChart(){ const f=cur.fin, sc=finScale(), cat=CAT(), id=invView(), yrs=f.years;
+  const pc=(a,b)=>a.map((v,i)=>fin(v)&&fin(b[i])&&b[i]>0?v/b[i]*100:null);
+  if(id==="capex"){ const ds=[{label:"Capex / ingresos",data:pc(f.capex,f.rev),borderColor:cat[0],backgroundColor:cat[0]},{label:"Capex / caja operativa",data:pc(f.capex,f.ocf),borderColor:cat[1],backgroundColor:cat[1]},
+      {label:"Capex / amortizaciones",data:pc(f.capex,f.da),borderColor:cat[2],backgroundColor:cat[2],hidden:false},
+      {label:"100%",data:yrs.map(()=>100),borderColor:V("--muted"),borderDash:[4,4],borderWidth:1.5,pointRadius:0,pointHoverRadius:0}].filter(d=>d.data.some(fin));
+    return {type:"line",data:{labels:yrs,datasets:ds},options:{plugins:{legend:legend(ds.length),tooltip:{filter:it=>it.dataset.label!=="100%",callbacks:{label:c=>`${c.dataset.label}: ${nf(c.parsed.y,0)}%`}}},scales:{x:axisX,y:axisY({suf:"%"})}}}; }
+  if(id==="sbc"){ const after=f.fcf.map((v,i)=>fin(v)&&fin(f.sbc[i])?v-f.sbc[i]:null);
+    const dil=f.dilA.map((v,i)=>i>0&&fin(v)&&fin(f.dilA[i-1])&&f.dilA[i-1]>0?(v/f.dilA[i-1]-1)*100:null);
+    const ds=[{type:"bar",label:"FCF",data:sc1(f.fcf,sc.d),backgroundColor:alpha(cat[0],.45),yAxisID:"y"},{type:"bar",label:"FCF después del pago en acciones",data:sc1(after,sc.d),backgroundColor:cat[0],yAxisID:"y"},
+      {type:"line",label:"Pago en acciones / ingresos",data:pc(f.sbc,f.rev),borderColor:cat[1],backgroundColor:cat[1],yAxisID:"y1",order:-1},
+      {type:"line",label:"Variación de acciones",data:dil,borderColor:cat[3]||cat[2],backgroundColor:cat[3]||cat[2],yAxisID:"y1",order:-1}].filter(d=>d.data.some(fin));
+    return {type:"bar",data:{labels:yrs,datasets:ds},options:{plugins:{legend:(()=>{const l=legend(ds.length); l.labels={...(l.labels||{}),sort:(a,b)=>a.datasetIndex-b.datasetIndex}; return l;})(),tooltip:{callbacks:{label:c=>c.dataset.yAxisID==="y1"?`${c.dataset.label}: ${nf(c.parsed.y,1)}%`:`${c.dataset.label}: ${nf(c.parsed.y,sc.d>1?1:0)} ${sc.u}`}}},
+      scales:{x:axisX,y:axisY(),y1:{...axisY({suf:"%"}),position:"right",grid:{drawOnChartArea:false}}}}}; }
+  const neg=a=>a.map(v=>fin(v)?-Math.abs(v):null);
+  const ds=[{label:"FCF generado",data:sc1(f.fcf,sc.d),backgroundColor:cat[0],stack:"a"},
+    {label:"Recompras",data:sc1(neg(f.buyb),sc.d),backgroundColor:cat[1],stack:"b"},{label:"Dividendos",data:sc1(neg(f.divs),sc.d),backgroundColor:cat[2],stack:"b"},
+    {type:"line",label:"Pago en acciones",data:sc1(neg(f.sbc),sc.d),borderColor:V("--muted"),backgroundColor:V("--muted"),borderDash:[4,4],borderWidth:1.5}].filter(d=>d.data.some(v=>fin(v)&&v!==0));
+  return {type:"bar",data:{labels:yrs,datasets:ds},options:{plugins:{legend:legend(ds.length),tooltip:{callbacks:{label:c=>`${c.dataset.label}: ${nf(Math.abs(c.parsed.y),sc.d>1?1:0)} ${sc.u}`}}},scales:{x:{...axisX,stacked:true},y:{...axisY(),stacked:true}}}}; }
 C.financial=()=>{
   const f=cur.fin, sc=finScale(), cat=CAT();
   mk("ch_fn_rev",{type:"bar",data:{labels:f.years,datasets:[{label:"Ingresos",data:sc1(f.rev,sc.d),backgroundColor:cat[0]},{label:f.profitLabel,data:sc1(f.profit,sc.d),backgroundColor:cat[1]}]},options:{plugins:{legend:legend(2),tooltip:tipU(sc.u)},scales:{x:axisX,y:axisY()}}});
@@ -2890,66 +2923,7 @@ C.financial=()=>{
   mk("ch_fn_cash",{type:"bar",data:{labels:f.years,datasets:cds},options:{plugins:{legend:legend(cds.length),tooltip:tipU(sc.u)},scales:{x:axisX,y:axisY()}}});
   { const q=f.qrev; if(q){const big1=Math.max(...q.values.filter(fin))>=20000, d=big1?1000:1;
     mk("ch_fn_q",{type:"bar",data:{labels:q.labels,datasets:[{label:"Ingresos",data:q.values.map(v=>fin(v)?v/d:null),backgroundColor:q.labels.map(l=>/gu[ií]a|e$/i.test(l)?alpha(V("--tcx"),.45):V("--tcx"))}]},options:{plugins:{legend:{display:false},tooltip:tipU(big1?"mil M "+ccy():"M "+ccy())},scales:{x:axisX,y:axisY()}}});}
-    const cap=f.rev.map((v,i)=>fin(v)&&v>0&&fin(f.capex[i])?f.capex[i]/v*100:null), reinv=f.ocf.map((v,i)=>fin(v)&&v>0&&fin(f.capex[i])?f.capex[i]/v*100:null);
-    const ds=[{label:"Capex / ingresos",data:cap,borderColor:cat[0],backgroundColor:cat[0]},{label:"Capex / caja operativa",data:reinv,borderColor:cat[1],backgroundColor:cat[1]},
-      {label:"100% de la caja operativa",data:f.years.map(()=>100),borderColor:V("--muted"),borderDash:[4,4],borderWidth:1.5,pointRadius:0,pointHoverRadius:0}].filter(d=>d.data.some(fin));
-    if(ds.length>1) mk("ch_fn_conv",{type:"line",data:{labels:f.years,datasets:ds},options:{plugins:{legend:legend(ds.length),tooltip:{filter:it=>it.datasetIndex<2,callbacks:{label:c=>`${c.dataset.label}: ${nf(c.parsed.y,0)}%`}}},scales:{x:axisX,y:axisY({suf:"%"})}}}); }
-  { const lab=f.years, nd=f.debtA.map((d,i)=>fin(d)&&fin(f.cashA[i])?(d-f.cashA[i])/sc.d:null);
-    mk("ch_fn_debt",{type:"bar",data:{labels:lab,datasets:[{label:"Deuda",data:sc1(f.debtA,sc.d),backgroundColor:cat[1]},{label:"Caja",data:sc1(f.cashA,sc.d),backgroundColor:cat[0]},{type:"line",label:"Deuda neta",data:nd,borderColor:V("--ink"),backgroundColor:V("--ink"),borderDash:[5,4],pointRadius:3}]},
-      options:{plugins:{legend:legend(3),tooltip:tipU(sc.u)},scales:{x:axisX,y:axisY({zero:false})}}});
-    { const st=bondState(), mix=bondMix(st);
-      if(mix.length) mk("ch_fn_mix",{type:"doughnut",data:{labels:mix.map(x=>x[0]),datasets:[{data:mix.map(x=>x[1]/sc.d),backgroundColor:mix.map(x=>V(TIPO_COL[x[0]]||"--muted")),borderColor:V("--surface"),borderWidth:2}]},
-        options:{cutout:"58%",plugins:{legend:{position:"right",labels:{color:V("--ink2")}},tooltip:{callbacks:{label:c=>`${c.label}: ${nf(c.parsed,1)} ${sc.u}`}}}}});
-      if(st.calOk){ const by={}; st.det.forEach(e=>{const y=e.vencimiento.slice(0,4); by[y]=(by[y]||0)+e.en_libros/M6;}); const ys=Object.keys(by).sort();
-        mk("ch_fn_bmat",{type:"bar",data:{labels:ys,datasets:[{label:"Vence",data:ys.map(y=>by[y]/sc.d),backgroundColor:cat[7]}]},options:{plugins:{legend:{display:false},tooltip:tipU(sc.u)},scales:{x:axisX,y:axisY()}}}); } }
-    const m=f.maturities; if(m&&m.tramos.length) mk("ch_fn_mat",{type:"bar",data:{labels:m.tramos.map(t=>t.tramo),datasets:[{label:"Vencimientos",data:m.tramos.map(t=>t.valor/M6/sc.d),backgroundColor:cat[7]}]},options:{plugins:{legend:{display:false},tooltip:tipU(sc.u)},scales:{x:axisX,y:axisY()}}}); }
-  mk("ch_fn_bal",{type:"bar",data:{labels:f.bal.labels,datasets:[{label:"Caja",data:sc1(f.bal.cash,sc.d),backgroundColor:cat[0]},{label:"Deuda",data:sc1(f.bal.debt,sc.d),backgroundColor:cat[1]}]},options:{plugins:{legend:legend(2),tooltip:tipU(sc.u)},scales:{x:axisX,y:axisY()}}});
-};
-C.moat=()=>{ const m=cur.moat;
-  mk("ch_mt_radar",radarCfg(m.sources.map(x=>x.n),m.sources.map(x=>+x.s),V("--tcx")));
-  mk("ch_mt_comp",hbarCfg(m.comps.map(x=>x.n),m.comps.map(x=>+x.threat),V("--tcx"),5,"/ 5"));
-  { const f=cur.fin, r=f.ratios||{}, cat=CAT(), p=a=>(a||[]).map(v=>fin(v)?v*100:null);
-    const ds=[{label:"ROIC",data:p(r.roic),borderColor:cat[0],backgroundColor:cat[0]},{label:"ROCE",data:p(r.roce),borderColor:cat[2],backgroundColor:cat[2]},{label:"ROE",data:p(r.roe),borderColor:cat[6],backgroundColor:cat[6]},
-      {label:"WACC (tu modelo)",data:f.years.map(()=>cur.v.wacc),borderColor:V("--ink"),borderDash:[6,4],borderWidth:1.5,pointRadius:0,pointHoverRadius:0}].filter(d=>d.data.some(fin));
-    if(ds.length>1) mk("ch_mt_roic",{type:"line",data:{labels:f.years,datasets:ds},options:{plugins:{legend:legend(ds.length),tooltip:tipU("%")},scales:{x:axisX,y:axisY({suf:"%",zero:false})}}}); }
-  const ms=marginSets(); mk("ch_mt_marg",{type:"line",data:{labels:cur.fin.years,datasets:ms},options:{plugins:{legend:legend(ms.length),tooltip:tipU("%")},scales:{x:axisX,y:axisY({suf:"%",zero:false})}}});
-};
-function qChart(id){const q=cur.fin.q, cat=CAT(); const ds=q.series.map((s,i)=>({label:s.n,data:s.values.map(v=>fin(v)?v:null),borderColor:cat[i%8],backgroundColor:cat[i%8],tension:.25}));
-  mk(id,{type:"line",data:{labels:q.labels,datasets:ds},options:{plugins:{legend:legend(ds.length),tooltip:tipU("%",0)},scales:{x:axisX,y:axisY({suf:"%"})}}});}
-C.growth=()=>{
-  { const E=cur._data&&cur._data.resultados_previstos, S=E?(E.sorpresas||[]).filter(x=>fin(x.bpa_real)&&fin(x.bpa_estimado)):[];
-    if(S.length) mk("ch_gr_surp",{type:"bar",data:{labels:S.map(x=>`${x.trimestre}T${String(x.anio%100).padStart(2,"0")}`),datasets:[{label:"Sorpresa",data:S.map(x=>fin(x.sorpresa_pct)?x.sorpresa_pct:(x.bpa_real/x.bpa_estimado-1)*100),backgroundColor:S.map(x=>x.bpa_real>=x.bpa_estimado?V("--good"):V("--crit"))}]},
-      options:{plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>{const x=S[c.dataIndex]; return `Real ${nf(x.bpa_real,2)} frente a ${nf(x.bpa_estimado,2)} previsto (${c.parsed.y>=0?"+":""}${nf(c.parsed.y,1)}%)`;}}}},scales:{x:axisX,y:axisY({suf:"%",zero:true})}}}); }
-  qChart("ch_gr_q");
-  const f=cur.fin, sc=finScale(), vz=valuation(cur), cat=CAT();
-  if(vz.ok){ const py=vz.base.yrs.map(y=>String(y.year)+"p"); const labels=[...f.years,...py], n=f.years.length;
-    const hist=[...sc1(f.rev,sc.d),...py.map(()=>null)];
-    const proj=[...f.years.map((_,i)=>i===n-1?cur.v.rev0/sc.d:null),...vz.base.yrs.map(y=>y.rev/sc.d)];
-    mk("ch_gr_proj",{type:"line",data:{labels,datasets:[{label:"Histórico",data:hist,borderColor:cat[0],backgroundColor:cat[0]},{label:"Proyección (caso base)",data:proj,borderColor:cat[1],backgroundColor:cat[1],borderDash:[6,4]}]},
-      options:{plugins:{legend:legend(2),tooltip:tipU(sc.u)},scales:{x:axisX,y:axisY()}}});}
-  { const yoy=f.rev.map((v,i)=>i&&fin(v)&&fin(f.rev[i-1])?(v/f.rev[i-1]-1)*100:null);
-    mk("ch_gr_yoy",{type:"bar",data:{labels:f.years,datasets:[{label:"Crecimiento",data:yoy,backgroundColor:yoy.map(v=>v!=null&&v<0?V("--c8"):V("--tcx"))}]},options:{plugins:{legend:{display:false},tooltip:tipU("%")},scales:{x:axisX,y:axisY({suf:"%",zero:true})}}});
-    if(vz.ok){ const s=cur.v, cols=[cat[1],cat[0],cat[2]];
-      const sets=s.scn.map((c,i)=>({label:c.n,data:[s.rev0/sc.d,...project(s,{dg:c.dg,dm:c.dm}).map(y=>y.rev/sc.d)],borderColor:cols[i]||cat[i%8],backgroundColor:cols[i]||cat[i%8],borderDash:c.n==="Base"?[]:[5,4]}));
-      mk("ch_gr_scn",{type:"line",data:{labels:[String(s.year0),...[1,2,3,4,5].map(k=>String(s.year0+k)+"p")],datasets:sets},options:{plugins:{legend:legend(sets.length),tooltip:tipU(sc.u)},scales:{x:axisX,y:axisY({zero:false})}}}); } }
-  const d=cur.growth.drivers; mk("ch_gr_drv",hbarCfg(d.map(x=>x.n),d.map(x=>+x.impact),V("--tcx"),5,"/ 5"));
-};
-C.management=()=>{ const m=cur.mgmt;
-  mk("ch_mg_sc",hbarCfg(m.scores.map(x=>x.n),m.scores.map(x=>+x.s),V("--tcx"),5,"/ 5"));
-  const it=m.alloc.items; mk("ch_mg_alloc",hbarCfg(it.map(x=>x.n),it.map(x=>+x.v||0),V("--tcx"),undefined,"M "+ccy()));
-  const vt=(m.vote&&m.vote.items||[]).filter(x=>fin(+x.v)&&+x.v>0), cat=CAT();
-  mk("ch_mg_vote",{type:"doughnut",data:{labels:vt.map(x=>x.n),datasets:[{data:vt.map(x=>+x.v),backgroundColor:[V("--tcx"),V("--grid"),cat[0],cat[2]],borderColor:V("--surface"),borderWidth:2}]},
-    options:{cutout:"62%",plugins:{legend:{position:"bottom"},tooltip:{callbacks:{label:c=>`${c.label}: ${nf(c.parsed,1)}%`}}}}});
-  const sh=cur.fin.shares; if(sh) mk("ch_mg_sh",{type:"line",data:{labels:sh.labels,datasets:[{label:"Acciones (M)",data:sh.values.map(v=>fin(v)?v:null),borderColor:V("--tcx"),backgroundColor:alpha(V("--tcx"),.15),fill:true,tension:.2}]},
-    options:{plugins:{legend:{display:false},tooltip:tipU("M",1)},scales:{x:axisX,y:axisY({zero:false})}}});
-};
-C.risk=()=>{ const by={}; cur.risks.forEach(r=>{const k=r.cat||"Sin categoría"; by[k]=(by[k]||0)+(+r.p)*(+r.i);});
-  const e=Object.entries(by).sort((a,b)=>b[1]-a[1]); mk("ch_rk_cat",hbarCfg(e.map(x=>x[0]),e.map(x=>x[1]),V("--c8"),undefined,"puntos"));
-  const cnt=SEV.map(x=>cur.risks.filter(r=>sevOf((+r.p)*(+r.i))===x).length);
-  mk("ch_rk_sev",{type:"bar",data:{labels:SEV.map(x=>x.n),datasets:[{label:"Riesgos",data:cnt,backgroundColor:SEV.map(x=>V(x.c))}]},options:{plugins:{legend:{display:false}},scales:{x:axisX,y:axisY({})}}});};
-C.sources=()=>{ const S=cur.social; if(S&&S.pulse.some(x=>fin(x.s))){ const L=["Muy bajista","Bajista","Neutral","Alcista","Muy alcista"];
-  mk("ch_src_pulse",{type:"bar",data:{labels:S.pulse.map(x=>x.p),datasets:[{label:"Sentimiento",data:S.pulse.map(x=>fin(x.s)?(x.s===0?0.08:x.s):null),backgroundColor:S.pulse.map(x=>x.s>0?V("--c1"):x.s<0?V("--c8"):V("--muted"))}]},
-   options:{indexAxis:"y",plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>L[Math.round(c.parsed.x)+2]}}},scales:{x:{min:-2,max:2,grid:{color:V("--grid")},border:{display:false},ticks:{stepSize:1,callback:v=>L[v+2]}},y:{grid:{display:false},border:{display:false},ticks:{color:V("--ink2")}}}}}); }
+    mk("ch_fn_conv",invChart()); }
   const cnt=DOCCATS.map(([c])=>cur.sources.docs.filter(d=>(DOCCATS.some(x=>x[0]===d.cat)?d.cat:"Otros")===c).length);
   const keep=DOCCATS.map((x,i)=>({n:x[0],c:V(x[1]),v:cnt[i]})).filter(x=>x.v>0);
   mk("ch_src_cnt",{type:"bar",data:{labels:keep.map(x=>x.n),datasets:[{label:"Documentos",data:keep.map(x=>x.v),backgroundColor:keep.map(x=>x.c)}]},options:{indexAxis:"y",plugins:{legend:{display:false}},scales:{x:{...axisY({}),ticks:{stepSize:1}},y:{grid:{display:false},border:{display:false},ticks:{color:V("--ink2")}}}}});};
@@ -3000,6 +2974,7 @@ document.addEventListener("click",e=>{
   if(e.target.closest("#btnPrint")){ window.print(); return; }
   if(e.target.closest("#btnReportExit")){ exitReport(); return; }
   if(e.target.closest("#btnAddCo")){ closePicker(); addCoModal(); return; }
+  const iv=e.target.closest("[data-inv]"); if(iv){ lsSet("valorador.inv."+cur._t,iv.dataset.inv); document.querySelectorAll("#invCard [data-inv]").forEach(b=>b.setAttribute("aria-selected",b===iv)); const v=INV_VIEWS.find(x=>x.id===iv.dataset.inv); document.getElementById("invSub").textContent=v.sub; document.getElementById("invFoot").innerHTML=invFoot(v.id); { const old=window.Chart&&Chart.getChart($("ch_fn_conv")); if(old){ old.destroy(); charts=charts.filter(x=>x!==old); } } mk("ch_fn_conv",invChart()); return; }
   const wk=e.target.closest("[data-wok]"); if(wk){ wk.dataset.wok.split("|").forEach(k=>lsSet(k,"1")); renderWarnings(); return; }
   const wr=e.target.closest("[data-wreset]"); if(wr){ allWarnings(cur).forEach(w=>lsSet(wKey(cur._t,w),null)); renderWarnings(); return; }
   const sgm=e.target.closest("[data-segmode]"); if(sgm){SEGMODE=sgm.dataset.segmode; lsSet("valorador.segmode",SEGMODE); renderTab(); return;}
