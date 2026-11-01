@@ -205,7 +205,8 @@ INSTANT_CONCEPTS = {
     "cuentas_cobrar": {
         "nombre": "Cuentas a cobrar", "opcional": True,
         "strategies": [{"required": ["AccountsReceivableNetCurrent"], "optional": []},
-                       {"required": ["ReceivablesNetCurrent"], "optional": []}],
+                       {"required": ["ReceivablesNetCurrent"], "optional": []},
+                       {"required": ["AccountsNotesAndLoansReceivableNetCurrent"], "optional": []}],
     },
     "inmovilizado": {
         "nombre": "Inmovilizado material neto", "opcional": True,

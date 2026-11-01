@@ -344,7 +344,7 @@ a.src:hover{color:var(--ink);border-bottom-color:var(--ink2)}
 .src.warn{color:var(--critText);border-bottom-color:color-mix(in srgb,var(--crit) 40%,transparent)}
 .official{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden}
 .official .kpi b{font-size:18px}
-@media (max-width:760px){.official{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:760px){.official{grid-template-columns:repeat(2,minmax(0,1fr))!important} .official>.kpi:last-child:nth-child(odd){grid-column:span 2}}
 .avisos{margin-top:10px;border-radius:10px;border:1px solid color-mix(in srgb,var(--warn) 45%,var(--line));background:color-mix(in srgb,var(--warn) 12%,var(--surface));padding:8px 12px;font-size:13px}
 .avisos.bad{border-color:color-mix(in srgb,var(--crit) 40%,var(--line));background:color-mix(in srgb,var(--crit) 9%,var(--surface))}
 .avisos.quiet{border-color:var(--line);background:var(--surface)}
@@ -559,7 +559,7 @@ body.report .scroll{overflow:visible}
 body.report table{font-size:9.5px} body.report th{white-space:normal;font-size:8.5px;letter-spacing:.03em} body.report th,body.report td{padding:4px 5px}
 body.report td{white-space:nowrap} body.report td:first-child{white-space:normal}
 body.report .h200{height:190px} body.report .h240,body.report .h260{height:220px} body.report .h300,body.report .h340{height:250px}
-body.report details:not([open]),body.report .dwhich,body.report .seg,body.report .ib,body.report button.add,body.report .x,body.report #socialBox,body.report #glossary,body.report .tiles,body.report [data-usesec]{display:none!important}
+body.report details:not([open]),body.report .dwhich,body.report .seg,body.report .ib,body.report button.add,body.report .x,body.report #socialBox,body.report #glossary,body.report .tiles,body.report [data-usesec],body.report [data-usewacc]{display:none!important}
 body.report input[type=number],body.report input[type=text],body.report textarea,body.report select{border:0;background:transparent;padding:0;resize:none}
 body.report .g2,body.report .g3{grid-template-columns:repeat(2,minmax(0,1fr))}
 body.report .rp-bar{width:700px}
@@ -652,6 +652,10 @@ body.report .cv.radar{height:250px}
 .asc b{font-size:15px;font-variant-numeric:tabular-nums}
 .assum{padding:2px 0 10px} #valIn:has(#keyAs[open]) .assum{display:none}
 tr.grp td{background:var(--surface2);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--ink2);text-align:left!important;padding-top:7px;padding-bottom:5px}
+.qgrid{gap:12px} .qcard{border:1px solid var(--line);border-radius:10px;padding:12px;display:flex;flex-direction:column;gap:4px;min-width:0;background:var(--surface)}
+.qhead{display:flex;justify-content:space-between;align-items:flex-start;gap:8px} .qhead h3{margin:0;font-size:14px} .qval{display:flex;flex-direction:column;align-items:flex-end;gap:3px} .qval b{font-size:20px;font-variant-numeric:tabular-nums}
+.qrow{display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:6px;align-items:baseline;font-size:12.5px;padding:3px 0;border-bottom:1px solid color-mix(in srgb,var(--line) 50%,transparent)} .qrow .note{text-align:right;font-variant-numeric:tabular-nums}
+.qok{font-weight:700;font-size:11px;text-align:center;border-radius:5px;padding:1px 0} .qok.ok{color:var(--goodText);background:color-mix(in srgb,var(--good) 15%,transparent)} .qok.ko{color:var(--critText);background:color-mix(in srgb,var(--crit) 12%,transparent)} .qok.nd{color:var(--ink2);background:var(--surface2)}
 .invhead{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px} .invhead h2{margin:0;flex:1 1 auto;white-space:nowrap} .invhead .seg{flex:0 0 auto}
 .seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--surface2)} .seg button{flex:0 0 auto;white-space:nowrap;border:0;background:transparent;padding:5px 11px;font-size:12.5px;font-weight:600;color:var(--ink2);cursor:pointer;border-radius:0}
 .seg button+button{border-left:1px solid var(--line)} .seg button[aria-selected="true"]{background:var(--tc,var(--tcx));color:#fff}
@@ -1480,6 +1484,7 @@ R.overview=()=>{
   </div>
   ${eqHtml()}
   ${officialCard()}
+  ${qtrHtml()}
   <div class="g2">
     <section class="card"><h2>Qué hace</h2>${tx("overview.summary",{rows:6})}
       <h3>Datos clave</h3>
@@ -1591,6 +1596,7 @@ R.financial=()=>{
     <section class="card" id="invCard"><div class="invhead"><h2>Análisis de la inversión</h2><div class="seg" role="tablist" aria-label="Vista">${invViews().map(v=>`<button type="button" role="tab" data-inv="${v.id}" aria-selected="${v.id===invView()}">${v.b}</button>`).join("")}</div></div>
       <p class="sub" id="invSub">${esc(invSub(invView()))}</p><div class="cv h260"><canvas id="ch_fn_conv" role="img" aria-label="Análisis de la inversión"></canvas></div><div class="chipline" id="invFoot">${invFoot(invView())}</div></section>
   </div>
+  ${qualityHtml()}
   <section class="card"><h2>Tabla de datos</h2>
     <div style="display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between"><p class="sub" style="margin:0">Fuente: SEC EDGAR. Cada año enlaza a su 10-K; las etiquetas XBRL y el origen de cada cifra están en la pestaña Fuentes.</p>${seg}</div>
     <div class="scroll"><table>${tbl}</table></div>
@@ -1908,6 +1914,23 @@ function mctx(){
 }
 const ratio=(num,den,unit,mult=1)=>({terms:[num,{...den,op:"÷"}],res:fin(num.v)&&fin(den.v)&&den.v!==0?num.v/den.v*mult:NaN,unit});
 const MET={
+ piotroski:{n:"Piotroski F-Score",g:"Calidad contable",q:"Nueve pruebas sencillas de salud financiera (rentabilidad, solidez y eficiencia) comparando el último ejercicio con el anterior. Un punto por cada una que se cumple.",
+   f:"Suma de 9 pruebas: beneficio > 0, caja operativa > 0, ROA sube, caja > beneficio, deuda/activo baja, liquidez sube, sin emisión de acciones, margen bruto sube, rotación sube",
+   calc:m=>{ const Q=qualityData(); if(!Q) return {terms:[],res:NaN,unit:"n"}; const p=piotroski(Q); return {terms:p.L.map(x=>({l:x.n,v:x.ok===null?NaN:x.ok?1:0,n:x.txt.replace(/<[^>]+>/g,""),u:"n"})),res:p.score,unit:"n"}; },
+   leer:"7–9: empresa sólida y mejorando. 4–6: normal. 0–3: deterioro. Funciona mejor en empresas maduras; en compañías en plena expansión (más activos, más acciones) penaliza el crecimiento.",
+   dif:"Algunas fuentes usan el activo al inicio del año para el ROA o la deuda a largo plazo sin la parte a corto. Aquí: activo y deuda al cierre del ejercicio."},
+ altman:{n:"Altman Z-Score",g:"Calidad contable",q:"Fórmula de 1968 que combina cinco ratios para estimar el riesgo de insolvencia en los dos años siguientes.",
+   f:"1,2·(circulante/activo) + 1,4·(retenidos/activo) + 3,3·(EBIT/activo) + 0,6·(capitalización/pasivo) + 1,0·(ventas/activo)",
+   calc:m=>{ const Q=qualityData(), a=Q&&altman(Q); if(!a||!a.ok) return {terms:[],res:NaN,unit:"n"}; const W={x1:1.2,x2:1.4,x3:3.3,x4:0.6,x5:1};
+     return {terms:Object.entries(a.x).map(([k,v],i)=>({l:`${k.toUpperCase()} × ${nf(W[k],1)}`,v:fin(v)?v*W[k]:0,n:fin(v)?`ratio ${nf(v,3)}`:"sin dato: cuenta 0",u:"n",op:i?"+":""})),res:a.z,unit:"n"}; },
+   leer:"> 2,99 zona segura; 1,81–2,99 zona gris; < 1,81 riesgo. Pensado para industriales: con mucha caja o una capitalización muy alta frente al pasivo sale muy alto; con activos pesados y deuda (eléctricas), bajo aunque el negocio sea estable.",
+   dif:"Hay versiones para empresas no industriales (Z'') que no usan la capitalización. Aquí, la original con la capitalización de hoy y el balance del último 10-K."},
+ beneish:{n:"Beneish M-Score",g:"Calidad contable",q:"Modelo de 8 variables que detecta patrones típicos de beneficios inflados: cobros que crecen más que las ventas, márgenes que se deterioran, devengos altos…",
+   f:"−4,84 + 0,92·DSRI + 0,528·GMI + 0,404·AQI + 0,892·SGI + 0,115·DEPI − 0,172·SGAI + 4,679·TATA − 0,327·LVGI",
+   calc:m=>{ const Q=qualityData(), b=Q&&beneish(Q); if(!b||!b.ok) return {terms:[],res:NaN,unit:"n"}; const W={DSRI:0.92,GMI:0.528,AQI:0.404,SGI:0.892,DEPI:0.115,SGAI:-0.172,TATA:4.679,LVGI:-0.327};
+     return {terms:[{l:"Constante",v:-4.84,u:"n"},...Object.entries(b.vars).map(([k,v])=>({l:`${k} × ${nf(W[k],3)}`,v:v*W[k],n:b.used.includes(k)?"sin dato: valor neutro":`índice ${nf(v,3)}`,u:"n",op:"+"}))],res:b.M,unit:"n"}; },
+   leer:"< −2,22: sin señales. Entre −2,22 y −1,78: vigilar. > −1,78: conviene revisar las cuentas. Un crecimiento de ventas muy fuerte (SGI alto) lo eleva sin que haya nada raro.",
+   dif:"Existe una versión de 5 variables con umbral −2,22. Aquí, la de 8 variables (umbral −1,78)."},
  /* --- márgenes y caja --- */
  ebitda:{n:"EBITDA",g:"Márgenes y caja",q:"Beneficio de la actividad antes de amortizaciones: aproxima la caja que genera el negocio antes de invertir, pagar intereses e impuestos.",
    f:"Beneficio operativo + amortizaciones (D&A)",calc:m=>({terms:[m.F("profit","Beneficio operativo"),{...m.F("da","Amortizaciones"),op:"+"}],res:m.f.ebitda[m.L],unit:"M"}),
@@ -2060,6 +2083,149 @@ const MET={
      return {terms:a&&b?[m.I(`Acciones diluidas ${a.periodo}`,a.valor/M6,a,"","acc"),{...m.I(`Acciones diluidas ${b.periodo}`,b.valor/M6,b,sp?"hubo un split en el último año: no comparable":"","acc"),op:"÷"}]:[],res:a&&b&&!sp?(r-1)*100:NaN,unit:"%"};},
    leer:"Una reducción constante multiplica el BPA aunque el beneficio no crezca.",dif:"Usa acciones diluidas medias del trimestre."}
 };
+/* ---------- calidad contable: Piotroski F, Altman Z y Beneish M (cifras anuales de la SEC) ---------- */
+function qualityData(){
+  const d=cur._data; if(!d||!d.resultados) return null;
+  const R=d.resultados, B=d.balance||{};
+  const ys=((R.ingresos&&R.ingresos.anual)||[]).map(p=>p.periodo).filter(y=>/^\d{4}$/.test(y));
+  if(ys.length<2) return null;
+  const t=ys.at(-1), p=ys.at(-2);
+  const F=(k,y)=>{ const q=((R[k]&&R[k].anual)||[]).find(x=>x.periodo===y); return q&&fin(q.valor)?q.valor/M6:NaN; };
+  const I=(k,y)=>{ const q=((B[k]&&B[k].anual)||[]).find(x=>x.periodo===y); return q&&fin(q.valor)?q.valor/M6:NaN; };
+  const sga=y=>{ const a=F("gastos_generales",y); if(fin(a)) return a; const s=F("ventas_marketing",y), g=F("gastos_admin",y); return fin(s)||fin(g)?(fin(s)?s:0)+(fin(g)?g:0):NaN; };
+  const dep=y=>{ const a=F("depreciacion",y); return fin(a)?a:F("amortizacion",y); };
+  const gross=y=>{ const g=F("beneficio_bruto",y); if(fin(g)) return g; const r=F("ingresos",y), c=F("coste_ventas",y); return fin(r)&&fin(c)?r-c:NaN; };
+  const liab=y=>{ const l=I("pasivo_total",y); if(fin(l)) return l; const a=I("activo_total",y), e=I("patrimonio_neto",y); return fin(a)&&fin(e)?a-e:NaN; };
+  const sh=y=>{ const v=F("acciones_diluidas_media",y); return fin(v)?v*M6/M6:NaN; };
+  const at=y=>({rev:F("ingresos",y),ni:F("beneficio_neto",y),cfo:F("caja_operativa",y),op:F("beneficio_operativo",y),ta:I("activo_total",y),ca:I("activo_corriente",y),cl:I("pasivo_corriente",y),
+    debt:I("deuda",y),re:I("beneficios_retenidos",y),tl:liab(y),ar:I("cuentas_cobrar",y),ppe:I("inmovilizado",y),gp:gross(y),sga:sga(y),dep:dep(y),sh:F("acciones_diluidas_media",y)});
+  return {t,p,T:at(t),P:at(p),src:(R.ingresos.anual.find(x=>x.periodo===t)||{})};
+}
+function piotroski(Q){
+  const {T,P}=Q, dv=(a,b)=>fin(a)&&fin(b)&&b!==0?a/b:NaN;
+  const roaT=dv(T.ni,T.ta), roaP=dv(P.ni,P.ta), levT=dv(T.debt,T.ta), levP=dv(P.debt,P.ta), crT=dv(T.ca,T.cl), crP=dv(P.ca,P.cl);
+  const gmT=dv(T.gp,T.rev), gmP=dv(P.gp,P.rev), atT=dv(T.rev,T.ta), atP=dv(P.rev,P.ta);
+  const c=(g,n,ok,txt)=>({g,n,ok:ok===null?null:!!ok,txt});
+  const nn=(...a)=>a.every(fin);
+  const L=[
+    c("Rentabilidad","Beneficio neto positivo",nn(T.ni)?T.ni>0:null,`ROA ${pct(roaT*100,1)}`),
+    c("Rentabilidad","Caja operativa positiva",nn(T.cfo)?T.cfo>0:null,big(T.cfo)),
+    c("Rentabilidad","El ROA mejora",nn(roaT,roaP)?roaT>roaP:null,`${pct(roaP*100,1)} → ${pct(roaT*100,1)}`),
+    c("Rentabilidad","La caja operativa supera al beneficio",nn(T.cfo,T.ni)?T.cfo>T.ni:null,`${big(T.cfo)} frente a ${big(T.ni)}`),
+    c("Solidez","Menos deuda sobre activos",nn(levT,levP)?levT<=levP:null,`${pct(levP*100,1)} → ${pct(levT*100,1)}`),
+    c("Solidez","Mejora la liquidez (activo / pasivo corriente)",nn(crT,crP)?crT>crP:null,`${nf(crP,2)} → ${nf(crT,2)}`),
+    c("Solidez","No emite acciones nuevas",nn(T.sh,P.sh)?T.sh<=P.sh*1.005:null,`${nf(P.sh,0)} M → ${nf(T.sh,0)} M acciones`),
+    c("Eficiencia","Mejora el margen bruto",nn(gmT,gmP)?gmT>gmP:null,`${pct(gmP*100,1)} → ${pct(gmT*100,1)}`),
+    c("Eficiencia","Mejora la rotación del activo (ventas / activo)",nn(atT,atP)?atT>atP:null,`${nf(atP,2)}x → ${nf(atT,2)}x`)];
+  const av=L.filter(x=>x.ok!==null), sc=av.filter(x=>x.ok).length;
+  return {L,score:sc,n:av.length,zone:av.length<7?"nd":sc>=7?"up":sc>=4?"mid":"down"};
+}
+function altman(Q){
+  const {T}=Q; if(!fin(T.ta)||T.ta<=0) return null;
+  const m=(()=>{ try{ return mctx(); }catch(e){ return null; } })(), mcap=m&&fin(m.mcap)?m.mcap:NaN;
+  const x={x1:fin(T.ca)&&fin(T.cl)?(T.ca-T.cl)/T.ta:NaN, x2:fin(T.re)?T.re/T.ta:NaN, x3:fin(T.op)?T.op/T.ta:NaN, x4:fin(mcap)&&fin(T.tl)&&T.tl>0?mcap/T.tl:NaN, x5:fin(T.rev)?T.rev/T.ta:NaN};
+  const miss=Object.entries(x).filter(([,v])=>!fin(v)).map(([k])=>k);
+  if(miss.length>1) return {ok:false,miss};
+  const v=k=>fin(x[k])?x[k]:0;
+  const z=1.2*v("x1")+1.4*v("x2")+3.3*v("x3")+0.6*v("x4")+1.0*v("x5");
+  return {ok:true,z,x,miss,zone:z>2.99?"up":z>=1.81?"mid":"down"};
+}
+function beneish(Q){
+  const {T,P}=Q, dv=(a,b)=>fin(a)&&fin(b)&&b!==0?a/b:NaN, used=[];
+  const r=(k,v)=>{ if(fin(v)) return v; used.push(k); return k==="TATA"?0:1; };
+  const vars={
+    DSRI:r("DSRI",dv(dv(T.ar,T.rev),dv(P.ar,P.rev))),
+    GMI:r("GMI",dv(dv(P.gp,P.rev),dv(T.gp,T.rev))),
+    AQI:r("AQI",dv(1-dv(T.ca+T.ppe,T.ta),1-dv(P.ca+P.ppe,P.ta))),
+    SGI:r("SGI",dv(T.rev,P.rev)),
+    DEPI:r("DEPI",dv(dv(P.dep,P.dep+P.ppe),dv(T.dep,T.dep+T.ppe))),
+    SGAI:r("SGAI",dv(dv(T.sga,T.rev),dv(P.sga,P.rev))),
+    LVGI:r("LVGI",dv(dv(T.cl+(fin(T.debt)?T.debt:0),T.ta),dv(P.cl+(fin(P.debt)?P.debt:0),P.ta))),
+    TATA:r("TATA",dv(T.ni-T.cfo,T.ta))};
+  if(used.length>2) return {ok:false,used};
+  const v=vars, M=-4.84+0.92*v.DSRI+0.528*v.GMI+0.404*v.AQI+0.892*v.SGI+0.115*v.DEPI-0.172*v.SGAI+4.679*v.TATA-0.327*v.LVGI;
+  return {ok:true,M,vars,used,zone:M>-1.78?"down":M>-2.22?"mid":"up"};
+}
+const QZ={up:"good",mid:"warn",down:"crit",nd:"muted"};
+function qualityHtml(){
+  const Q=qualityData(); if(!Q) return "";
+  const pi=piotroski(Q), az=altman(Q), bm=beneish(Q);
+  const pill=(z,t)=>`<span class="pill ${z==="up"?"up":z==="down"?"down":"mid"}">${t}</span>`;
+  const head=(t,inf,val,z,zt)=>`<div class="qhead"><h3>${t}${info(inf)}</h3><div class="qval"><b>${val}</b>${z?pill(z,zt):""}</div></div>`;
+  const piRows=["Rentabilidad","Solidez","Eficiencia"].map(g=>`<div class="eyebrow" style="margin-top:6px">${g}</div>`+pi.L.filter(x=>x.g===g).map(x=>`<div class="qrow"><span class="qok ${x.ok===null?"nd":x.ok?"ok":"ko"}">${x.ok===null?"–":x.ok?"✓":"✗"}</span><span>${esc(x.n)}</span><span class="note">${x.txt}</span></div>`).join("")).join("");
+  const VN={x1:"Capital circulante / activo",x2:"Beneficios retenidos / activo",x3:"Beneficio operativo / activo",x4:"Capitalización / pasivo total",x5:"Ventas / activo"};
+  const BN={DSRI:"Cobros pendientes / ventas",GMI:"Deterioro del margen bruto",AQI:"Calidad del activo",SGI:"Crecimiento de las ventas",DEPI:"Ritmo de amortización",SGAI:"Gastos generales / ventas",LVGI:"Apalancamiento",TATA:"Devengos (beneficio − caja) / activo"};
+  const yrs=`${Q.p} → ${Q.t}`;
+  return `<section class="card" style="--tc:var(--c6)"><h2>Calidad contable y solidez</h2><p class="sub">Tres puntuaciones clásicas calculadas con las cifras anuales de la SEC (ejercicio ${esc(Q.t)} frente a ${esc(Q.p)}). No sustituyen al análisis, pero detectan señales que conviene mirar.</p>
+   <div class="g3 qgrid">
+    <div class="qcard">${head("Piotroski F-Score","piotroski",`${pi.score} / ${pi.n}`,pi.zone==="nd"?"":pi.zone,pi.zone==="up"?"Sólida":pi.zone==="mid"?"Normal":"Débil")}
+      <p class="note">Nueve pruebas de salud financiera: un punto por cada una que se cumple. 7–9 es sólido; 0–3, débil.</p>${piRows}</div>
+    <div class="qcard">${az&&az.ok?head("Altman Z","altman",nf(az.z,2),az.zone,az.zone==="up"?"Zona segura":az.zone==="mid"?"Zona gris":"Riesgo de insolvencia"):head("Altman Z","altman","–")}
+      <p class="note">Probabilidad de apuros financieros en dos años. Por encima de 2,99, zona segura; por debajo de 1,81, riesgo. Pensado para industriales: en tecnológicas con mucha caja sale muy alto y en eléctricas, bajo por el peso del activo.</p>
+      ${az&&az.ok?Object.entries(az.x).map(([k,v])=>`<div class="qrow"><span class="qok nd">${k.toUpperCase()}</span><span>${VN[k]}</span><span class="note">${fin(v)?nf(v,2):"sin dato (cuenta 0)"}</span></div>`).join(""):`<p class="empty">Faltan partidas del balance para calcularlo.</p>`}</div>
+    <div class="qcard">${bm&&bm.ok?head("Beneish M","beneish",nf(bm.M,2),bm.zone,bm.zone==="up"?"Sin señales":bm.zone==="mid"?"Vigilar":"Señales de manipulación"):head("Beneish M","beneish","–")}
+      <p class="note">Busca patrones típicos de beneficios «maquillados». Por debajo de −2,22, sin señales; por encima de −1,78, conviene revisar las cuentas. Un crecimiento muy fuerte también lo sube.</p>
+      ${bm&&bm.ok?Object.entries(bm.vars).map(([k,v])=>`<div class="qrow"><span class="qok nd">${k}</span><span>${BN[k]}</span><span class="note">${bm.used.includes(k)?"sin dato (neutro)":nf(v,2)}</span></div>`).join(""):`<p class="empty">Faltan partidas para calcularlo (${(bm&&bm.used||[]).join(", ")}).</p>`}</div>
+   </div>
+   <p class="note" style="margin:0">Ejercicios ${esc(yrs)}. Fuentes: 10-K en SEC EDGAR (cuenta de resultados, balance y flujos). ${az&&az.ok&&az.miss.length||bm&&bm.ok&&bm.used.length?"Las partidas sin dato cuentan como neutras y se indica en cada tabla.":""}</p></section>`;
+}
+/* ---------- resumen automático del último trimestre (cifras de la SEC + sorpresa de Finnhub) ---------- */
+function qtrData(){
+  const d=cur._data; if(!d||!d.resultados) return null; const R=d.resultados;
+  const Q=k=>(R[k]&&R[k].trimestral)||[], rev=Q("ingresos"); if(rev.length<2) return null;
+  const last=rev.at(-1), lab=last.periodo, m=/^(\d)T(\d{2})$/.exec(lab);
+  const ya=m?`${m[1]}T${String(+m[2]-1).padStart(2,"0")}`:"", pq=rev.at(-2).periodo;
+  const pqm=/^(\d)T(\d{2})$/.exec(pq), pqya=pqm?`${pqm[1]}T${String(+pqm[2]-1).padStart(2,"0")}`:"";
+  const v=(k,l)=>{ const p=Q(k).find(x=>x.periodo===l); return p&&fin(p.valor)?p.valor:NaN; }, pt=(k,l)=>Q(k).find(x=>x.periodo===l)||null;
+  const gp=l=>{ const g=v("beneficio_bruto",l); if(fin(g)) return g; const r=v("ingresos",l), c=v("coste_ventas",l); return fin(r)&&fin(c)?r-c:NaN; };
+  const fcf=l=>{ const o=v("caja_operativa",l), c=v("capex",l); return fin(o)?o-(fin(c)?c:0):NaN; };
+  const at=l=>({rev:v("ingresos",l),op:v("beneficio_operativo",l),ni:v("beneficio_neto",l),eps:v("bpa_diluido",l),gp:gp(l),fcf:fcf(l),sh:v("acciones_diluidas_media",l),rd:v("investigacion_desarrollo",l),sbc:v("remuneracion_acciones",l)});
+  const sp=((d.resultados_previstos||{}).sorpresas||[]).find(x=>x.periodo&&Math.abs(new Date(x.periodo)-new Date(last.periodo_fin))<20*864e5)||null;
+  return {lab,ya,pq,pqya,T:at(lab),Y:at(ya),P:at(pq),PY:at(pqya),src:last,k8:d.ultimo_8k_resultados,ui:d.ultimo_informe,sp,next:(d.resultados_previstos||{}).proximos,
+    pt:{rev:pt("ingresos",lab),op:pt("beneficio_operativo",lab),ni:pt("beneficio_neto",lab),fcf:pt("caja_operativa",lab)}};
+}
+function qtrHtml(){
+  const q=qtrData(); if(!q) return "";
+  const {T,Y,P,PY}=q, g=(a,b)=>fin(a)&&fin(b)&&b>0?(a/b-1)*100:NaN, mg=(a,b)=>fin(a)&&fin(b)&&b>0?a/b*100:NaN;
+  const gr=g(T.rev,Y.rev), grP=g(P.rev,PY.rev), om=mg(T.op,T.rev), omY=mg(Y.op,Y.rev), nm=mg(T.ni,T.rev), fm=mg(T.fcf,T.rev), fmY=mg(Y.fcf,Y.rev);
+  const gm=mg(T.gp,T.rev), gmY=mg(Y.gp,Y.rev), dil=g(T.sh,Y.sh), epsG=g(T.eps,Y.eps), rdm=mg(T.rd,T.rev), rdmY=mg(Y.rd,Y.rev);
+  const pp=(a,b)=>fin(a)&&fin(b)?`${a-b>=0?"+":"−"}${nf(Math.abs(a-b),1)} pp`:"";
+  const tone=(x,good)=>fin(x)?`<span class="${(x>=0)===good?"up":"dn"}">${x>=0?"+":"−"}${nf(Math.abs(x),1)}${typeof good==="boolean"?"%":""}</span>`:"";
+  const good=[], watch=[];
+  if(fin(gr)){ if(fin(grP)&&gr-grP>=2) good.push(`El crecimiento de los ingresos se acelera: ${pct(gr,0)} frente al ${pct(grP,0)} del ${q.pq}.`);
+    else if(fin(grP)&&grP-gr>=3) watch.push(`El crecimiento de los ingresos se frena: ${pct(gr,0)} frente al ${pct(grP,0)} del ${q.pq}.`);
+    else if(gr>=15) good.push(`Los ingresos crecen un ${pct(gr,0)} interanual.`); else if(gr<0) watch.push(`Los ingresos caen un ${pct(Math.abs(gr),0)} interanual.`); }
+  if(fin(om)&&fin(omY)){ if(om-omY>=2) good.push(`Mejora el margen operativo: ${pct(om,1)} (${pp(om,omY)} frente al ${q.ya}).`); else if(omY-om>=2) watch.push(`Baja el margen operativo: ${pct(om,1)} (${pp(om,omY)} frente al ${q.ya}).`); }
+  if(fin(gm)&&fin(gmY)&&Math.abs(gm-gmY)>=1.5) (gm>gmY?good:watch).push(`Margen bruto ${pct(gm,1)} (${pp(gm,gmY)} interanual).`);
+  if(q.sp&&fin(q.sp.sorpresa_pct)){ const s=q.sp.sorpresa_pct; if(s>=3) good.push(`BPA de ${nf(q.sp.bpa_real,2)} $, un ${pct(s,0)} por encima de lo que esperaban los analistas (${nf(q.sp.bpa_estimado,2)} $).`);
+    else if(s<=-3) watch.push(`BPA de ${nf(q.sp.bpa_real,2)} $, un ${pct(Math.abs(s),0)} por debajo de lo esperado (${nf(q.sp.bpa_estimado,2)} $).`);
+    else good.push(`BPA de ${nf(q.sp.bpa_real,2)} $, en línea con lo esperado (${nf(q.sp.bpa_estimado,2)} $).`); }
+  if(fin(fm)&&fin(fmY)){ if(fm-fmY>=3) good.push(`Más caja: margen de FCF del ${pct(fm,0)} (${pp(fm,fmY)}).`); else if(fmY-fm>=3) watch.push(`Menos caja: margen de FCF del ${pct(fm,0)} (${pp(fm,fmY)}).`); }
+  if(fin(T.fcf)&&T.fcf<0) watch.push(`El flujo de caja libre del trimestre es negativo (${big(T.fcf/M6)}).`);
+  if(fin(dil)){ if(dil>=2) watch.push(`Las acciones diluidas suben un ${pct(dil,1)} en un año: dilución.`); else if(dil<=-1) good.push(`Las acciones diluidas bajan un ${pct(Math.abs(dil),1)} en un año: recompras netas.`); }
+  if(fin(T.ni)&&fin(T.op)&&T.op>0&&T.ni>T.op*1.15) watch.push(`El beneficio neto supera al operativo: hay ingresos no recurrentes o fiscales, mira el beneficio operativo.`);
+  const it=(lab,val,ch,src)=>`<div class="kpi"><span class="eyebrow">${lab}</span><b>${val}</b>${ch?`<span class="chg">${ch}</span>`:""}${src?srcTag(src):""}</div>`;
+  const yoy=x=>fin(x)?`${tone(x,true)} <span class="note">vs ${esc(q.ya)}</span>`:"";
+  const link=(u,t)=>u?`<a class="ext" href="${esc(u)}" target="_blank" rel="noopener noreferrer">${t}</a>`:"";
+  const k8=q.k8&&q.k8.fecha_presentacion&&Math.abs(new Date(q.k8.fecha_presentacion)-new Date(q.src.periodo_fin))<75*864e5?q.k8:null;
+  const nx=q.next&&q.next.fecha?`Próximos resultados: <b>${esc(fecha(q.next.fecha))}</b>${q.next.hora?" ("+esc(q.next.hora)+")":""}${fin(q.next.bpa_estimado)?` · BPA esperado ${nf(q.next.bpa_estimado,2)} $`:""}${fin(q.next.ingresos_estimados)?` · ingresos esperados ${big(q.next.ingresos_estimados/M6)}`:""}`:"";
+  return `<section class="card" style="--tc:var(--c1)"><h2>Resultados del ${esc(q.lab)} en un vistazo</h2>
+   <p class="sub">Resumen automático con las cifras de la SEC${q.sp?" y la previsión de BPA de Finnhub":""}, comparado con el mismo trimestre del año anterior.${k8?` Presentados el ${esc(fecha(k8.fecha_presentacion))}.`:""}</p>
+   <div class="official" style="grid-template-columns:repeat(${4+!!q.sp+fin(rdm)===5?5:4+!!q.sp+fin(rdm)===6?3:4},minmax(0,1fr))">
+    ${it("Ingresos",big(T.rev/M6),[yoy(gr),fin(grP)?`<span class="note">${q.pq}: ${pct(grP,0)}</span>`:""].filter(Boolean).join(" · "),q.pt.rev)}
+    ${it("Margen operativo",pct(om,1),fin(omY)?`<span class="${om>=omY?"up":"dn"}">${pp(om,omY)}</span> <span class="note">vs ${esc(q.ya)}</span>`:"",q.pt.op)}
+    ${it("Beneficio neto",big(T.ni/M6),[fin(nm)?`margen ${pct(nm,1)}`:"",fin(T.eps)?`BPA ${nf(T.eps,2)} $`:"",fin(epsG)?tone(epsG,true):""].filter(Boolean).join(" · "),q.pt.ni)}
+    ${it("Flujo de caja libre",big(T.fcf/M6),fin(fm)?`margen ${pct(fm,1)}${fin(fmY)?` <span class="${fm>=fmY?"up":"dn"}">${pp(fm,fmY)}</span>`:""}`:"",q.pt.fcf)}
+    ${q.sp?it("BPA frente a lo esperado",`${nf(q.sp.bpa_real,2)} $`,`<span class="${q.sp.sorpresa_pct>=0?"up":"dn"}">${q.sp.sorpresa_pct>=0?"+":"−"}${nf(Math.abs(q.sp.sorpresa_pct),1)}%</span> <span class="note">esperado ${nf(q.sp.bpa_estimado,2)} $ · Finnhub</span>`,null):""}
+    ${fin(rdm)?it("I+D / ingresos",pct(rdm,1),fin(rdmY)?`<span class="note">${pp(rdm,rdmY)} vs ${esc(q.ya)}</span>`:"",null):""}
+   </div>
+   <div class="g2" style="gap:12px;margin-top:4px">
+    <div><div class="eyebrow" style="color:var(--goodText)">Lo positivo</div>${good.length?`<ul class="thl up">${good.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`:`<p class="note">Nada destacable.</p>`}</div>
+    <div><div class="eyebrow" style="color:var(--critText)">A vigilar</div>${watch.length?`<ul class="thl dn">${watch.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`:`<p class="note">Nada destacable en las cifras.</p>`}</div>
+   </div>
+   <p class="note" style="margin:0">${[link(k8&&k8.url_ex99_1,"Nota de resultados (Exhibit 99.1)"),link(q.ui&&(q.ui.url_documento||q.ui.url_indice),(q.ui&&q.ui.formulario)||"Informe"),nx].filter(Boolean).join(" · ")}. La guía y los comentarios de la dirección no vienen en datos estructurados: revísalos en la nota de resultados o en la propuesta de actualización.</p>
+  </section>`;
+}
 function eqTax(f){ const L=f.years.length-1, t=f.ratios.taxEff&&f.ratios.taxEff[L]; return fin(t)&&t>0.05&&t<0.4?t:0.21; }
 function eqHtml(){
   if(!cur._data) return ""; let m; try{ m=mctx(); }catch(e){ return ""; }
@@ -2550,6 +2716,24 @@ function drawFootball(){
   ];
   drawRanges("ff","ffaxis",rows,s.price);
 }
+/* ---------- referencia del WACC: CAPM con datos oficiales y de mercado ---------- */
+let MKT;
+function loadMkt(){ if(MKT!==undefined) return; MKT=null;
+  Promise.all(["data/_mercado.json","manual/_mercado.json"].map(u=>fetch(u,{cache:"no-cache"}).then(r=>r.ok?r.json():{}).catch(()=>({}))))
+    .then(([a,b])=>{ MKT={bono:a.bono_10a||null,erp:fin(b.prima_riesgo)?b.prima_riesgo:4.5,erpSrc:b.fuente?"manual/_mercado.json":"referencia por defecto"}; if(TAB==="valuation") updateEffects(); }); }
+function waccRef(){
+  loadMkt(); if(!MKT) return null; const d=cur._data; if(!d) return {why:"sin datos automáticos"};
+  if(!MKT.bono) return {why:"falta el bono a 10 años (se descarga cada noche)"};
+  const beta=d.precio&&d.precio.beta; if(!fin(beta)) return {why:"Finnhub no da la beta de esta compañía todavía"};
+  const rf=MKT.bono.valor, erp=MKT.erp, ke=rf+beta*erp;
+  let m=null; try{ m=mctx(); }catch(e){}
+  const E=m&&fin(m.mcap)?m.mcap:NaN, D=fin(cur.v.debt)?cur.v.debt:NaN;
+  const it=d.resultados&&d.resultados.gastos_intereses&&d.resultados.gastos_intereses.ttm, I=it&&fin(it.valor)?it.valor/M6:NaN;
+  let kd=fin(I)&&fin(D)&&D>0?I/D*100:NaN, kdNote="";
+  if(!fin(kd)||kd<rf-1||kd>rf+6){ kd=rf+1.5; kdNote="(estimado: bono + 1,5 pp, porque el interés publicado no es representativo)"; } else kdNote="(gastos por intereses UDM / deuda)";
+  const t=(fin(cur.v.tax)?cur.v.tax:21)/100, kdAt=kd*(1-t), wd=fin(E)&&fin(D)&&E+D>0?D/(E+D):0;
+  return {rf,rfDate:MKT.bono.fecha,beta,erp,erpSrc:MKT.erpSrc==="manual/_mercado.json"?"Damodaran, editable en manual/_mercado.json":"referencia por defecto",ke,kd,kdAt,kdNote,wd,wacc:(1-wd)*ke+wd*kdAt};
+}
 function updateEffects(){
   const s=cur.v, vz=valuation(cur); if(!vz.ok||!$("valIn")) return; const b=vz.base.ps;
   const pc=v=>{ if(!fin(v)) return "–"; const d=(v/b-1)*100; if(Math.abs(d)<0.5) return "<b>≈0%</b>"; return `<b>${d>=0?"+":"−"}${nf(Math.abs(d),0)}%</b>`; };
@@ -2570,9 +2754,19 @@ function updateEffects(){
     set("ver_m",!fin(d5)?"":d5>5?V3("Ambicioso","down"):d5<-3?V3("Conservador","up"):V3("En línea con el actual","mid"));
     set("eff_m",`Un punto más de margen todos los años → ${pc(dcf(s,{adj:{dg:0,dm:1}}).ps)}; un punto menos → ${pc(dcf(s,{adj:{dg:0,dm:-1}}).ps)}. ${Math.abs(s.m5-s.m1)>=3?`Pasar de ${pct(s.m1,0)} a ${pct(s.m5,0)} es una ${s.m5>s.m1?"mejora":"caída"} de ${nf(Math.abs(s.m5-s.m1),1)} puntos que el negocio tiene que demostrar.`:""}`); }
   /* WACC */
-  { const w=s.wacc;
-    set("ctx_w",`Para grandes empresas de EE. UU. suele estar entre el <b>8%</b> y el <b>11%</b>: más bajo para negocios estables (eléctricas reguladas, consumo), más alto para cíclicos, pequeños o endeudados. Tu WACC: <b>${pct(w,2)}</b>.`);
-    set("ver_w",w<7.5?V3("Poco exigente","down"):w>11.5?V3("Muy exigente","up"):V3("Razonable","mid"));
+  { const w=s.wacc, R=waccRef();
+    const rng=`Para grandes empresas de EE. UU. suele estar entre el <b>8%</b> y el <b>11%</b>: más bajo para negocios estables (eléctricas reguladas, consumo), más alto para cíclicos, pequeños o endeudados.`;
+    if(R&&fin(R.wacc)){
+      set("ctx_w",`<b>Referencia (CAPM): ${pct(R.wacc,2)}</b>. Coste del capital = bono a 10 años <b>${pct(R.rf,2)}</b> <span class="note">(Tesoro de EE. UU., ${esc(fecha(R.rfDate))})</span> + beta <b>${nf(R.beta,2)}</b> <span class="note">(Finnhub)</span> × prima de riesgo <b>${pct(R.erp,1)}</b> <span class="note">(${esc(R.erpSrc)})</span> = <b>${pct(R.ke,2)}</b>.
+        ${R.wd>0.005?` Deuda: interés medio <b>${pct(R.kd,2)}</b>${R.kdNote?` <span class="note">${R.kdNote}</span>`:""}, <b>${pct(R.kdAt,2)}</b> tras impuestos, con un peso del <b>${pct(R.wd*100,0)}</b>.`:" Sin deuda relevante: el WACC es el coste del capital."}
+        Tu WACC: <b>${pct(w,2)}</b> (${w-R.wacc>=0?"+":"−"}${nf(Math.abs(w-R.wacc),2)} pp). ${Math.abs(w-R.wacc)>0.25?`<button type="button" class="add" data-usewacc="${R.wacc.toFixed(2)}">Usar ${pct(R.wacc,2)}</button>`:""}
+        <div class="note" style="margin-top:4px">${rng} La beta mide cuánto se mueve la acción frente al mercado; con betas muy bajas o muy altas el CAPM se queda corto y conviene redondear con criterio.</div>`);
+      const dd=w-R.wacc;
+      set("ver_w",dd>1.5?V3("Más exigente que la referencia","up"):dd<-1.5?V3("Menos exigente que la referencia","down"):V3("En línea con la referencia","mid"));
+    } else {
+      set("ctx_w",`${rng} Tu WACC: <b>${pct(w,2)}</b>.${R&&R.why?` <span class="note">Referencia CAPM no disponible: ${esc(R.why)}.</span>`:""}`);
+      set("ver_w",w<7.5?V3("Poco exigente","down"):w>11.5?V3("Muy exigente","up"):V3("Razonable","mid"));
+    }
     set("eff_w",`Un punto más de WACC → ${pc(dcf(s,{wacc:w+1}).ps)}; un punto menos → ${pc(dcf(s,{wacc:w-1}).ps)}. Es el supuesto al que el valor es más sensible: con ${pct(w+2,1)} la acción valdría ${money(dcf(s,{wacc:w+2}).ps)}.`); }
   /* valor terminal */
   { const tv=vz.base.tvShare*100, ie=vz.base.impliedExit, ig=vz.base.impliedG*100, evr=m?MET.ev_ebitda.calc(m).res:NaN;
@@ -2761,7 +2955,10 @@ function histHtml(){
     let val=NaN; try{ val=valuation({v:Object.assign({},cur.v,x.supuestos||{},{price:cur.v.price})}).w; }catch(e){}
     const ch=fin(p0)?(cur.v.price/p0-1)*100:NaN;
     return `<tr><td>${esc(fecha(iso))}</td><td style="text-align:left;font-family:var(--f-body)">${ratingPill(x.recomendacion)}</td><td>${fin(x.conviccion)?nf(x.conviccion,0)+"/5":"–"}</td><td>${fin(+x.comprar_por_debajo)?money(+x.comprar_por_debajo):"–"}</td><td>${money(val)}</td><td>${fin(p0)?money(p0):"–"}</td><td>${fin(ch)?`<span style="color:${ch>=0?"var(--goodText)":"var(--critText)"}">${ch>=0?"+":""}${nf(ch,1)}%</span>`:"–"}</td></tr>`; }).join("");
-  return `<section class="card"><h2>Historial de veredictos</h2><p class="sub">Cada vez que guardas un análisis en GitHub queda una versión. Así ves qué pensabas, a qué precio y qué ha pasado desde entonces.</p>
+  const fvc=vs.length&&Hs?`<section class="card" style="--tc:var(--c4)"><h2>Valor razonable frente al precio</h2><p class="sub">El precio diario frente al valor que daba tu DCF en cada versión guardada del análisis y tu precio de compra. La distancia entre las dos líneas es el margen de seguridad: así ves si la oportunidad se abre o se cierra y cuánto mueven el valor tus cambios de supuestos.</p>
+    <div class="cv h300"><canvas id="ch_vd_fv" role="img" aria-label="Valor razonable frente al precio"></canvas></div>
+    <p class="note" style="margin:0">${(()=>{ const w=valuation(cur).w, p=cur.v.price; return fin(w)&&fin(p)?`Hoy: valor ${money(w)} y precio ${money(p)} → margen de seguridad <b style="color:${w>=p?"var(--goodText)":"var(--critText)"}">${w>=p?"+":"−"}${nf(Math.abs(w/p-1)*100,0)}%</b>. `:""; })()}Precio: Twelve Data (cierre diario, ajustado por splits). Valor: tus supuestos de cada versión con las cifras de la SEC actuales; las líneas punteadas llevan tu valor y tu precio de compra de hoy hacia atrás, como referencia. El historial crece cada vez que guardas el análisis.</p></section>`:"";
+  return fvc+`<section class="card"><h2>Historial de veredictos</h2><p class="sub">Cada vez que guardas un análisis en GitHub queda una versión. Así ves qué pensabas, a qué precio y qué ha pasado desde entonces.</p>
     ${vs.length?`<div class="scroll"><table><thead><tr><th>Análisis a</th><th style="text-align:left">Recomendación</th><th>Convicción</th><th>Comprar por debajo de</th><th>Valor con tus supuestos de entonces</th><th>Precio entonces</th><th>Desde entonces</th></tr></thead><tbody>${rows}</tbody></table></div>
     <p class="note">El valor se recalcula con los supuestos de cada versión y las cifras de la SEC actuales. Hoy: ${money(cur.v.price)}.</p>`:`<p class="empty">Aún no hay versiones guardadas con recomendación.</p>`}</section>`;
 }
@@ -2954,11 +3151,34 @@ C.valuation=()=>{
   const Y=b.yrs; mk("ch_vl_fcf",{type:"bar",data:{labels:Y.map(y=>y.year+"e"),datasets:[{label:"FCF no apalancado",data:Y.map(y=>y.fcf/d),backgroundColor:cat[0]},{label:"Valor presente",data:Y.map(y=>y.pv/d),backgroundColor:cat[1]}]},
     options:{plugins:{legend:legend(2),tooltip:tipU(sc.u)},scales:{x:axisX,y:axisY()}}});
 };
+function fvChart(){
+  const H=cur._hist, Hs=cur._data&&cur._data.historico_precio&&cur._data.historico_precio.serie; if(!H||!Hs||!$("ch_vd_fv")) return;
+  const vs=(H.versiones||[]).filter(x=>x.recomendacion||x.supuestos);
+  if(!vs.length) return;
+  const pts=vs.map(x=>{ const iso=parseEsDate(x.analisis_a)||x.fecha_commit; let val=NaN; try{ val=valuation({v:Object.assign({},cur.v,x.supuestos||{},{price:cur.v.price})}).w; }catch(e){} return {t:TS(iso),v:val,b:+x.comprar_por_debajo}; })
+    .filter(p=>fin(p.t)).sort((a,b)=>a.t-b.t);
+  const cv=valuation(cur).w; let now=TS(Hs.at(-1)[0]); pts.forEach(p=>{ if(p.t>now) now=p.t; });
+  if(fin(cv)&&(!pts.length||Math.abs(cv-pts.at(-1).v)>0.5)) pts.push({t:now,v:cv,b:+cur.verdict.buyBelow,draft:true});
+  const t0=Math.min(pts[0].t-120*864e5, now-2*365*864e5), cb=+cur.verdict.buyBelow;
+  const price=Hs.filter(q=>TS(q[0])>=t0).map(q=>({x:TS(q[0]),y:q[1]}));
+  const step=k=>{ const o=[]; pts.forEach((p,i)=>{ if(fin(p[k])&&p[k]>0) o.push({x:p.t,y:p[k]}); }); const l=o.at(-1); if(l&&l.x<now) o.push({x:now,y:l.y}); return o; };
+  const fv=step("v"), bb=step("b"), cat=CAT();
+  const ys=[...price.map(p=>p.y),...fv.map(p=>p.y),...bb.map(p=>p.y),cv,cb].filter(v=>fin(v)&&v>0), lo=Math.min(...ys), hi=Math.max(...ys), pad=(hi-lo)*0.08;
+  const ds=[{label:"Precio",data:price,borderColor:V("--ink"),backgroundColor:V("--ink"),borderWidth:1.6,pointRadius:0,pointHoverRadius:3,tension:0},
+    {label:"Valor razonable (tu DCF)",data:fv,borderColor:V("--tcx"),backgroundColor:V("--tcx"),borderWidth:2.2,stepped:"before",pointRadius:fv.map((_,i)=>i<fv.length-1||!pts.at(-1).draft?3:5),pointHoverRadius:5},
+    ...(fin(cv)?[{label:"Tu valor de hoy",data:[{x:t0,y:cv},{x:now,y:cv}],borderColor:alpha(V("--tcx"),.45),borderDash:[3,3],borderWidth:1.2,pointRadius:0,pointHoverRadius:0}]:[]),
+    ...(fin(cb)&&cb>0?[{label:"Tu precio de compra de hoy",data:[{x:t0,y:cb},{x:now,y:cb}],borderColor:alpha(V("--good"),.5),backgroundColor:alpha(V("--good"),.08),borderDash:[3,3],borderWidth:1.2,pointRadius:0,pointHoverRadius:0,fill:"start"}]:[]),
+    ...(bb.length?[{label:"Comprar por debajo de",data:bb,borderColor:alpha(V("--good"),.85),backgroundColor:alpha(V("--good"),.85),borderDash:[5,4],borderWidth:1.5,stepped:"before",pointRadius:0}]:[])];
+  mk("ch_vd_fv",{type:"line",data:{datasets:ds},options:{parsing:true,interaction:{mode:"nearest",axis:"x",intersect:false},plugins:{legend:legend(ds.length),
+      tooltip:{callbacks:{title:it=>it.length?fecha(new Date(it[0].parsed.x).toISOString().slice(0,10)):"",label:c=>`${c.dataset.label}: ${money(c.parsed.y)}`},filter:it=>!/de hoy$/.test(it.dataset.label)||it.dataIndex===0}},
+    scales:{x:{type:"linear",min:t0,max:now,grid:{display:false},border:{color:V("--line")},ticks:{maxTicksLimit:8,callback:v=>mesCorto(new Date(v).toISOString().slice(0,10))}},y:{...axisY({zero:false}),min:Math.max(0,lo-pad),max:hi+pad}}}});
+}
 C.verdict=()=>{
   const s=scorecard(cur), t=fin(s.total)?s.total:0;
   const col=t>=70?V("--good"):t>=50?V("--warn"):V("--crit");
   mk("ch_vd_gauge",{type:"doughnut",data:{labels:["Puntuación","Resto"],datasets:[{data:[t,100-t],backgroundColor:[col,V("--grid")],borderWidth:0}]},
     options:{rotation:-90,circumference:180,cutout:"74%",plugins:{legend:{display:false},tooltip:{enabled:false}}}});
+  fvChart();
   mk("ch_vd_radar",radarCfg(s.dims.map(d=>d.n),s.dims.map(d=>fin(d.s)?+d.s.toFixed(2):null),V("--tcx")));
   drawLevels();
 };
@@ -3006,6 +3226,7 @@ document.addEventListener("click",e=>{
   if(e.target.closest("#btnGhTest")){ ghTest(); return; }
   if(e.target.closest("#btnGhForget")){ lsSet("valorador.ghtoken",null); renderGhBox(); renderDraft(); toast("Token olvidado en este navegador"); return; }
   const dc=e.target.closest("#btnDiscard"); if(dc){ if(dc.dataset.armed!=="1"){dc.dataset.armed="1"; dc.textContent="¿Seguro? Pulsa otra vez"; setTimeout(()=>{if(dc.isConnected){dc.dataset.armed=""; dc.textContent="Descartar";}},3000); return;} discardDraft(); return;}
+  const uw=e.target.closest("[data-usewacc]"); if(uw){ cur.v.wacc=+uw.dataset.usewacc; save(); renderTab(); renderHeader(); return; }
   const us=e.target.closest("[data-usesec]"); if(us){const k=us.dataset.usesec; cur.v[k]=+cur.sec[k].m.toFixed(k==="shares"?1:0); cur._auto[k]=true; save(); renderTab(); renderHeader(); return;}
   const co=e.target.closest("[data-co]"); if(co){ if(WATCH) exitWatch(); store.current=co.dataset.co; cur=store.companies[store.current]; lsSet("valorador.actual",store.current); renderHeader(); renderTab(); return;}
   const go=e.target.closest("[data-go]"); if(go){e.preventDefault();goTab(go.dataset.go);window.scrollTo({top:0});return;}
