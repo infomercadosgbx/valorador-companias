@@ -387,6 +387,20 @@ table.mult td,table.mult th{padding:9px 12px} table.mult td:first-child{white-sp
 #glossary[open] .glsum{margin-bottom:8px}
 .pxsum{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:24px;margin-top:12px;align-items:start}
 @media (max-width:760px){.pxsum{grid-template-columns:minmax(0,1fr)}}
+.pxgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-areas:"ret rng" "tgt beh";gap:14px;margin-top:14px}
+@media (max-width:760px){.pxgrid{grid-template-columns:minmax(0,1fr);grid-template-areas:"ret" "rng" "tgt" "beh"}}
+.pxp{border:1px solid var(--line);border-radius:12px;padding:12px 16px 14px;background:var(--surface);display:flex;flex-direction:column;min-width:0}
+.pxh{font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--ink2);padding-bottom:9px;margin-bottom:10px;border-bottom:1px solid var(--line)}
+.rett{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));flex:1;align-items:center}
+.rett>div{display:flex;flex-direction:column;gap:3px;padding:2px 12px;border-left:1px solid var(--line)} .rett>div:first-child{border-left:0;padding-left:0}
+.rett span{font-size:11.5px;color:var(--ink2)} .rett b{font-size:20px;font-weight:700} .rett b.up{color:var(--goodText)} .rett b.dn{color:var(--critText)} .rett small{font-size:11.5px;color:var(--ink2)}
+@media (max-width:520px){.rett{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:12px}.rett>div:nth-child(3){border-left:0;padding-left:0}}
+.pxp .tgt{margin:0} .pxp .tgt thead th{background:transparent}
+.pxrows{display:flex;flex-direction:column}
+.pxr{display:grid;grid-template-columns:130px auto;grid-template-rows:auto auto;column-gap:12px;padding:9px 0;border-bottom:1px solid var(--line);align-items:center}
+.pxr:last-child{border-bottom:0} .pxr .k{grid-row:1/3;font-weight:600;font-size:13px;color:var(--ink)} .pxr .v{font-size:13.5px} .pxr .n{font-size:12px;color:var(--ink2)}
+@media (max-width:520px){.pxr{grid-template-columns:105px auto}}
+.pxrel{display:inline-flex;gap:3px;align-items:center;margin-right:8px;white-space:nowrap}
 .pxsum .chips{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
 @media (max-width:520px){.pxsum .chips{grid-template-columns:repeat(2,minmax(0,1fr))}.tgt td .note{display:block}.tgt th,.tgt td{padding-left:6px;padding-right:6px}}
 .w52{display:flex;flex-direction:column;gap:6px}
@@ -2038,7 +2052,7 @@ const pctile=(st,v)=>st&&fin(v)?st.sorted.filter(x=>x<=v).length/st.sorted.lengt
 function range52Html(st){
   const P=st.last[1], lo=st.lo52[1], hi=st.hi52[1], pos=Math.max(0,Math.min(100,hi>lo?(P-lo)/(hi-lo)*100:50));
   const d=(a,b)=>(a/b-1)*100, sg=v=>(v>=0?"+":"−")+nf(Math.abs(v),1)+"%", al=pos<14?"l":pos>86?"r":"c";
-  return `<div class="w52"><div class="eyebrow">Rango de 52 semanas</div>
+  return `<div class="w52">
     <div class="w52track"><i class="w52fill" style="width:${pos.toFixed(1)}%"></i><span class="w52pin ${al}" style="left:${pos.toFixed(1)}%"><b>Hoy ${nf(P,2)}</b></span></div>
     <div class="w52ends"><div><b class="num">${nf(lo,2)}</b><span>mínimo · ${esc(fecha(st.lo52[0]))}</span></div><div class="r"><b class="num">${nf(hi,2)}</b><span>máximo · ${esc(fecha(st.hi52[0]))}</span></div></div>
     <div class="note">${sg(d(P,lo))} sobre el mínimo · ${sg(d(P,hi))} bajo el máximo</div></div>`;
@@ -2048,12 +2062,13 @@ function pxRiskHtml(st){
   const trend=fin(st.ma200)?(P>=st.ma200?(fin(st.ma50)&&st.ma50>=st.ma200?"alcista":"recuperándose"):(fin(st.ma50)&&st.ma50<st.ma200?"bajista":"debilitándose")):null;
   const tcol={alcista:"up",recuperándose:"mid",debilitándose:"mid",bajista:"down"}[trend]||"neutral";
   const volTxt=st.vol<25?"baja":st.vol<40?"media":"alta", rel=(st.rel||[]).filter(Boolean);
-  return `<dl class="pxdl">
-    <dt>Tendencia</dt><dd>${trend?`<span class="pill ${tcol}">${esc(trend[0].toUpperCase()+trend.slice(1))}</span>`:"–"} <span class="note">media 50 s. ${nf(st.ma50,2)} (${sg(d(P,st.ma50))}) · 200 s. ${nf(st.ma200,2)} (${sg(d(P,st.ma200))})</span></dd>
-    <dt>Volatilidad</dt><dd><b class="num">${nf(st.vol,0)}%</b> <span class="note">anual, ${volTxt} (el S&P 500 suele moverse un 15–20%)</span></dd>
-    <dt>Peor caída</dt><dd><b class="num" style="color:var(--critText)">${nf(st.mdd,1)}%</b> <span class="note">${esc(fecha(st.mddPk[0]))} → ${esc(fecha(st.mddLo[0]))}</span></dd>
-    <dt>Frente al S&P 500</dt><dd>${rel.length?rel.map(r=>`<span class="pxrel"><span class="note">${r.y} ${r.y===1?"año":"años"}</span> <span class="pill ${r.acc>=r.idx?"up":"down"}">${r.acc>=r.idx?"+":""}${nf(r.acc-r.idx,0)} pp</span></span>`).join(" "):`<span class="note">Tras la próxima actualización.</span>`}</dd>
-  </dl>`;
+  const row=(k,v,n)=>`<div class="pxr"><span class="k">${k}</span><span class="v">${v}</span>${n?`<span class="n">${n}</span>`:""}</div>`;
+  return `<div class="pxrows">
+    ${row("Tendencia",trend?`<span class="pill ${tcol}">${esc(trend[0].toUpperCase()+trend.slice(1))}</span>`:"–",`Media 50 sesiones ${nf(st.ma50,2)} (${sg(d(P,st.ma50))}) · 200 sesiones ${nf(st.ma200,2)} (${sg(d(P,st.ma200))})`)}
+    ${row("Volatilidad",`<b class="num">${nf(st.vol,0)}%</b>`,`Anual, ${volTxt}. El S&P 500 suele moverse un 15–20%.`)}
+    ${row("Peor caída",`<b class="num" style="color:var(--critText)">${nf(st.mdd,1)}%</b>`,`Del ${esc(fecha(st.mddPk[0]))} al ${esc(fecha(st.mddLo[0]))}`)}
+    ${row("Frente al S&P 500",rel.length?rel.map(r=>`<span class="pxrel"><span class="note">${r.y}a</span> <span class="pill ${r.acc>=r.idx?"up":"down"}">${r.acc>=r.idx?"+":""}${nf(r.acc-r.idx,0)} pp</span></span>`).join(""):"–",rel.length?"Diferencia de rentabilidad en puntos porcentuales":"Tras la próxima actualización")}
+  </div>`;
 }
 let PEERX=lsGet("valorador.peerx")||"precio_ventas";
 const PEERCOLS=[["capitalizacion","Capitalización","big",0],["crecimiento","Crec. ingresos","pct",1],["margen_bruto","Margen bruto","pct",1],["margen_operativo","Margen operativo","pct",1],
@@ -2153,15 +2168,15 @@ function valTopHtml(){
   <section class="card" style="--tc:var(--c4)"><h2>Precio: de dónde viene y hacia dónde puede ir</h2>
     <div style="display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between"><p class="sub" style="margin:0;max-width:80ch">Cierre diario ajustado por splits ${h?srcTag(h):""}. A la derecha, adónde llevaría el precio cada valoración a ${H} meses; la franja verde es tu zona de compra.</p>${h?seg("data-prange",PRANGE,[["1","1 año"],["3","3 años"],["5","5 años"]]):""}</div>
     ${h?`<div class="cv h340"><canvas id="ch_vl_price" role="img" aria-label="Evolución de la cotización y objetivos de precio"></canvas></div>`:`<div class="alert">Falta el histórico de cotizaciones. Crea el secret <code>TWELVEDATA_API_KEY</code> (README) y aparecerá tras la siguiente actualización. Mientras, el gráfico muestra solo la proyección desde la cotización actual.</div><div class="cv h300"><canvas id="ch_vl_price" role="img" aria-label="Objetivos de precio"></canvas></div>`}
-    ${st?`<div class="pxsum">
-      <div><div class="eyebrow" style="margin-bottom:6px">Rentabilidad de la acción</div>
-        <div class="chips">${chg("1 año",st.r1)}${chg("3 años",st.r3)}${chg("5 años",st.r5)}<div class="chip"><span>Desde el máximo</span><b class="num" style="color:var(--critText)">${nf(st.dd,1)}%</b><span style="text-transform:none;letter-spacing:0;font-weight:400">${money(st.max[1])} · ${esc(fecha(st.max[0]))}</span></div></div></div>
-      ${range52Html(st)}</div>`:`<p class="empty">La rentabilidad aparecerá cuando llegue el histórico.</p>`}
-    <div class="g2" style="margin-top:14px;align-items:start">
-      <div><div class="eyebrow" style="margin-bottom:6px">Objetivos a ${H} meses</div>
+    <div class="pxgrid">
+      <div class="pxp" style="grid-area:ret"><div class="pxh">Rentabilidad de la acción</div>
+        ${st?`<div class="rett">${[["1 año",st.r1],["3 años",st.r3],["5 años",st.r5]].map(([l,r])=>`<div><span>${l}</span><b class="num ${r&&r.v>=0?"up":"dn"}">${r?(r.v>=0?"+":"−")+nf(Math.abs(r.v),1)+"%":"–"}</b><small>${r&&r.cagr!=null?nf(r.cagr,1)+"% anual":"&nbsp;"}</small></div>`).join("")}
+          <div><span>Desde el máximo</span><b class="num dn">${nf(st.dd,1)}%</b><small>${money(st.max[1])} · ${esc(fecha(st.max[0]))}</small></div></div>`:`<p class="empty">Aparecerá cuando llegue el histórico.</p>`}</div>
+      <div class="pxp" style="grid-area:rng"><div class="pxh">Rango de 52 semanas</div>${st?range52Html(st):`<p class="empty">Aparecerá cuando llegue el histórico.</p>`}</div>
+      <div class="pxp" style="grid-area:tgt"><div class="pxh">Objetivos a ${H} meses</div>
         <div class="scroll"><table class="tgt"><thead><tr><th>Referencia</th><th>Precio</th><th>Potencial</th></tr></thead><tbody>${rows}
         ${fin(cur.verdict.buyBelow)?`<tr><td><span class="sev" style="background:transparent;padding:0"><i style="background:var(--good)"></i></span> Zona de compra <span class="note">· tu veredicto</span></td><td>&lt; ${money(cur.verdict.buyBelow)}</td><td><span class="pill ${s.price<=cur.verdict.buyBelow?"up":"neutral"}">${s.price<=cur.verdict.buyBelow?"dentro":nf((cur.verdict.buyBelow/s.price-1)*100,1)+"%"}</span></td></tr>`:""}</tbody></table></div></div>
-      <div><div class="eyebrow" style="margin-bottom:6px">Comportamiento del último año</div>${st?pxRiskHtml(st):`<p class="empty">Disponible cuando llegue el histórico.</p>`}</div>
+      <div class="pxp" style="grid-area:beh"><div class="pxh">Comportamiento del último año</div>${st?pxRiskHtml(st):`<p class="empty">Disponible cuando llegue el histórico.</p>`}</div>
     </div>
     ${st&&st.r5&&fin(st.r5.cagr)&&fin(eps)?`<p class="note" style="margin-top:10px">En 5 años la acción ha subido un ${nf(st.r5.cagr,1)}% anual y el BPA un ${nf(eps,1)}% anual${info("cagr_bpa")}: ${st.r5.cagr>eps+3?"el precio ha crecido más que el beneficio, así que hoy pagas un múltiplo mayor.":st.r5.cagr<eps-3?"el beneficio ha crecido más que el precio, así que hoy pagas un múltiplo menor.":"precio y beneficio han crecido a un ritmo parecido."}</p>`:""}
   </section>
