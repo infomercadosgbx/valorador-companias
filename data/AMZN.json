@@ -6680,12 +6680,139 @@
    "etiquetas_usadas": []
   },
   "investigacion_desarrollo": {
-   "nombre": "Investigación y desarrollo (I+D)",
+   "nombre": "Tecnología e infraestructura (en lugar de I+D)",
    "unidad": "USD",
-   "anual": [],
-   "trimestral": [],
-   "ttm": null,
-   "etiquetas_usadas": []
+   "anual": [
+    {
+     "periodo": "2023",
+     "valor": 85622000000.0,
+     "periodo_inicio": "2023-01-01",
+     "periodo_fin": "2023-12-31",
+     "fuente": "SEC EDGAR · 10-K (XBRL)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000004/0001018724-26-000004-index.htm",
+     "fecha_presentacion": "2026-02-06",
+     "formulario": "10-K",
+     "etiqueta": "amzn:TechnologyAndInfrastructureExpense"
+    },
+    {
+     "periodo": "2024",
+     "valor": 88544000000.0,
+     "periodo_inicio": "2024-01-01",
+     "periodo_fin": "2024-12-31",
+     "fuente": "SEC EDGAR · 10-K (XBRL)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000004/0001018724-26-000004-index.htm",
+     "fecha_presentacion": "2026-02-06",
+     "formulario": "10-K",
+     "etiqueta": "amzn:TechnologyAndInfrastructureExpense"
+    },
+    {
+     "periodo": "2025",
+     "valor": 108521000000.0,
+     "periodo_inicio": "2025-01-01",
+     "periodo_fin": "2025-12-31",
+     "fuente": "SEC EDGAR · 10-K (XBRL)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000004/0001018724-26-000004-index.htm",
+     "fecha_presentacion": "2026-02-06",
+     "formulario": "10-K",
+     "etiqueta": "amzn:TechnologyAndInfrastructureExpense"
+    }
+   ],
+   "trimestral": [
+    {
+     "periodo": "1T25",
+     "valor": 22994000000.0,
+     "periodo_inicio": "2025-01-01",
+     "periodo_fin": "2025-03-31",
+     "fuente": "SEC EDGAR · 10-Q (XBRL)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000014/0001018724-26-000014-index.htm",
+     "fecha_presentacion": "2026-04-30",
+     "formulario": "10-Q",
+     "etiqueta": "amzn:TechnologyAndInfrastructureExpense"
+    },
+    {
+     "periodo": "2T25",
+     "valor": 27166000000.0,
+     "periodo_inicio": "2025-04-01",
+     "periodo_fin": "2025-06-30",
+     "fuente": "SEC EDGAR · 10-Q (XBRL)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000026/0001018724-26-000026-index.htm",
+     "fecha_presentacion": "2026-07-31",
+     "formulario": "10-Q",
+     "etiqueta": "amzn:TechnologyAndInfrastructureExpense"
+    },
+    {
+     "periodo": "3T25",
+     "valor": 28962000000.0,
+     "periodo_inicio": "2025-07-01",
+     "periodo_fin": "2025-09-30",
+     "fuente": "SEC EDGAR · 10-Q (XBRL)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/0001018724-26-000040-index.htm",
+     "fecha_presentacion": "2026-10-30",
+     "formulario": "10-Q",
+     "etiqueta": "amzn:TechnologyAndInfrastructureExpense"
+    },
+    {
+     "periodo": "4T25",
+     "valor": 29399000000.0,
+     "periodo_inicio": "2025-10-01",
+     "periodo_fin": "2025-12-31",
+     "fuente": "SEC EDGAR · 10-K (XBRL)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000004/0001018724-26-000004-index.htm",
+     "fecha_presentacion": "2026-02-06",
+     "formulario": "10-K",
+     "etiqueta": "amzn:TechnologyAndInfrastructureExpense",
+     "derivado": "Anual − tres trimestres"
+    },
+    {
+     "periodo": "1T26",
+     "valor": 29567000000.0,
+     "periodo_inicio": "2026-01-01",
+     "periodo_fin": "2026-03-31",
+     "fuente": "SEC EDGAR · 10-Q (XBRL)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000014/0001018724-26-000014-index.htm",
+     "fecha_presentacion": "2026-04-30",
+     "formulario": "10-Q",
+     "etiqueta": "amzn:TechnologyAndInfrastructureExpense"
+    },
+    {
+     "periodo": "2T26",
+     "valor": 33158000000.0,
+     "periodo_inicio": "2026-04-01",
+     "periodo_fin": "2026-06-30",
+     "fuente": "SEC EDGAR · 10-Q (XBRL)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000026/0001018724-26-000026-index.htm",
+     "fecha_presentacion": "2026-07-31",
+     "formulario": "10-Q",
+     "etiqueta": "amzn:TechnologyAndInfrastructureExpense"
+    },
+    {
+     "periodo": "3T26",
+     "valor": 34814000000.0,
+     "periodo_inicio": "2026-07-01",
+     "periodo_fin": "2026-09-30",
+     "fuente": "SEC EDGAR · 10-Q (XBRL)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/0001018724-26-000040-index.htm",
+     "fecha_presentacion": "2026-10-30",
+     "formulario": "10-Q",
+     "etiqueta": "amzn:TechnologyAndInfrastructureExpense"
+    }
+   ],
+   "ttm": {
+    "periodo": "UDM",
+    "valor": 126938000000.0,
+    "periodo_inicio": "2025-10-01",
+    "periodo_fin": "2026-09-30",
+    "fuente": "SEC EDGAR · 10-Q (XBRL)",
+    "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/0001018724-26-000040-index.htm",
+    "fecha_presentacion": "2026-10-30",
+    "formulario": "10-Q",
+    "etiqueta": "amzn:TechnologyAndInfrastructureExpense",
+    "derivado": "4T25 + 1T26 + 2T26 + 3T26"
+   },
+   "etiquetas_usadas": [
+    "amzn:TechnologyAndInfrastructureExpense"
+   ],
+   "nota": "La compañía no publica I+D: se usa su gasto de tecnología (etiqueta propia, XBRL completo de los últimos informes)."
   },
   "recompras": {
    "nombre": "Recompras de acciones",
@@ -8381,6 +8508,11 @@
    "mensaje": "Caja e inversiones a corto: se descarta «CashCashEquivalentsAndShortTermInvestments» (último dato 2017-03-31, ingresos hasta 2026-09-30).",
    "concepto": "caja",
    "etiqueta": "CashCashEquivalentsAndShortTermInvestments"
+  },
+  {
+   "nivel": "info",
+   "codigo": "id_tecnologia",
+   "mensaje": "I+D: la compañía no lo publica; se usa «TechnologyAndInfrastructureExpense» de sus últimos informes (XBRL completo), solo los últimos años."
   }
  ],
  "bonos": {
@@ -8995,7 +9127,7 @@
   }
  },
  "segmentos": {
-  "version": 3,
+  "version": 4,
   "informes_accn": [
    "0001018724-26-000040",
    "0001018724-26-000026",
@@ -10047,6 +10179,124 @@
     "operativo_anual": []
    }
   ],
+  "gasto_tecnologia": {
+   "concepto": "TechnologyAndInfrastructureExpense",
+   "trimestral": [
+    {
+     "periodo": "1T25",
+     "valor": 22994000000.0,
+     "periodo_inicio": "2025-01-01",
+     "periodo_fin": "2025-03-31",
+     "fuente": "SEC EDGAR · 10-Q (XBRL)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000014/0001018724-26-000014-index.htm",
+     "fecha_presentacion": "2026-04-30",
+     "formulario": "10-Q",
+     "etiqueta": "amzn:TechnologyAndInfrastructureExpense"
+    },
+    {
+     "periodo": "2T25",
+     "valor": 27166000000.0,
+     "periodo_inicio": "2025-04-01",
+     "periodo_fin": "2025-06-30",
+     "fuente": "SEC EDGAR · 10-Q (XBRL)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000026/0001018724-26-000026-index.htm",
+     "fecha_presentacion": "2026-07-31",
+     "formulario": "10-Q",
+     "etiqueta": "amzn:TechnologyAndInfrastructureExpense"
+    },
+    {
+     "periodo": "3T25",
+     "valor": 28962000000.0,
+     "periodo_inicio": "2025-07-01",
+     "periodo_fin": "2025-09-30",
+     "fuente": "SEC EDGAR · 10-Q (XBRL)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/0001018724-26-000040-index.htm",
+     "fecha_presentacion": "2026-10-30",
+     "formulario": "10-Q",
+     "etiqueta": "amzn:TechnologyAndInfrastructureExpense"
+    },
+    {
+     "periodo": "4T25",
+     "valor": 29399000000.0,
+     "periodo_inicio": "2025-10-01",
+     "periodo_fin": "2025-12-31",
+     "fuente": "SEC EDGAR · 10-K (XBRL)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000004/0001018724-26-000004-index.htm",
+     "fecha_presentacion": "2026-02-06",
+     "formulario": "10-K",
+     "etiqueta": "amzn:TechnologyAndInfrastructureExpense",
+     "derivado": "Anual − tres trimestres"
+    },
+    {
+     "periodo": "1T26",
+     "valor": 29567000000.0,
+     "periodo_inicio": "2026-01-01",
+     "periodo_fin": "2026-03-31",
+     "fuente": "SEC EDGAR · 10-Q (XBRL)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000014/0001018724-26-000014-index.htm",
+     "fecha_presentacion": "2026-04-30",
+     "formulario": "10-Q",
+     "etiqueta": "amzn:TechnologyAndInfrastructureExpense"
+    },
+    {
+     "periodo": "2T26",
+     "valor": 33158000000.0,
+     "periodo_inicio": "2026-04-01",
+     "periodo_fin": "2026-06-30",
+     "fuente": "SEC EDGAR · 10-Q (XBRL)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000026/0001018724-26-000026-index.htm",
+     "fecha_presentacion": "2026-07-31",
+     "formulario": "10-Q",
+     "etiqueta": "amzn:TechnologyAndInfrastructureExpense"
+    },
+    {
+     "periodo": "3T26",
+     "valor": 34814000000.0,
+     "periodo_inicio": "2026-07-01",
+     "periodo_fin": "2026-09-30",
+     "fuente": "SEC EDGAR · 10-Q (XBRL)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/0001018724-26-000040-index.htm",
+     "fecha_presentacion": "2026-10-30",
+     "formulario": "10-Q",
+     "etiqueta": "amzn:TechnologyAndInfrastructureExpense"
+    }
+   ],
+   "anual": [
+    {
+     "periodo": "2023",
+     "valor": 85622000000.0,
+     "periodo_inicio": "2023-01-01",
+     "periodo_fin": "2023-12-31",
+     "fuente": "SEC EDGAR · 10-K (XBRL)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000004/0001018724-26-000004-index.htm",
+     "fecha_presentacion": "2026-02-06",
+     "formulario": "10-K",
+     "etiqueta": "amzn:TechnologyAndInfrastructureExpense"
+    },
+    {
+     "periodo": "2024",
+     "valor": 88544000000.0,
+     "periodo_inicio": "2024-01-01",
+     "periodo_fin": "2024-12-31",
+     "fuente": "SEC EDGAR · 10-K (XBRL)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000004/0001018724-26-000004-index.htm",
+     "fecha_presentacion": "2026-02-06",
+     "formulario": "10-K",
+     "etiqueta": "amzn:TechnologyAndInfrastructureExpense"
+    },
+    {
+     "periodo": "2025",
+     "valor": 108521000000.0,
+     "periodo_inicio": "2025-01-01",
+     "periodo_fin": "2025-12-31",
+     "fuente": "SEC EDGAR · 10-K (XBRL)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000004/0001018724-26-000004-index.htm",
+     "fecha_presentacion": "2026-02-06",
+     "formulario": "10-K",
+     "etiqueta": "amzn:TechnologyAndInfrastructureExpense"
+    }
+   ]
+  },
   "informes": [
    {
     "formulario": "10-K",
@@ -18707,7 +18957,7 @@
   "fecha": "2026-10-30",
   "ajuste": "splits"
  },
- "generado": "2026-11-01T11:50:28+00:00",
+ "generado": "2026-11-01T11:53:38+00:00",
  "peers": {
   "fuente_lista": "manual",
   "fuente_cifras": "SEC EDGAR (companyfacts, UDM) · precio Finnhub",
