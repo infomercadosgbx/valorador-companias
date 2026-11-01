@@ -600,6 +600,9 @@ body.watch .tabs,body.watch .cohead,body.watch #staleBox,body.watch #draftBar,bo
 .wco{display:flex;align-items:center;gap:10px;min-width:170px} .wco b{font-size:13.5px} .wco small{color:var(--muted);font-size:11px}
 .wsub{display:block;font-size:11px;color:var(--muted);font-family:var(--f-body)}
 .wflags{display:flex;gap:4px;flex-wrap:wrap;justify-content:flex-end}
+
+.chg{display:flex;flex-wrap:wrap;gap:2px 6px;font-size:12px;color:var(--ink2);align-items:baseline}
+.chg .up{color:var(--goodText);font-weight:600} .chg .dn{color:var(--critText);font-weight:600} .chg .sep{color:var(--line)}
 </style>
 </head>
 <body>
@@ -2879,21 +2882,46 @@ try{const mq=matchMedia("(prefers-color-scheme: dark)"); mq.addEventListener("ch
 new MutationObserver(()=>{rebuildCharts(); if(TAB==="valuation") drawFootball();}).observe(document.documentElement,{attributes:true,attributeFilter:["data-theme"]});
 
 /* ---------- Cifras oficiales (Overview) y documentos oficiales (Fuentes) ---------- */
+/* variaciones para las cifras oficiales: interanual y frente al trimestre anterior */
+function officialChanges(){
+  const d=cur._data||{}, R=d.resultados||{}, B=d.balance||{};
+  const Q=k=>((R[k]&&R[k].trimestral)||[]).slice().sort((a,b)=>a.periodo_fin.localeCompare(b.periodo_fin));
+  const days=(a,b)=>(Date.parse(a)-Date.parse(b))/864e5;
+  const ttmEnd=(arr,end)=>{ const i=arr.findIndex(x=>x.periodo_fin===end); if(i<3) return NaN; const w=arr.slice(i-3,i+1); const sp=days(w[3].periodo_fin,w[0].periodo_fin); return sp>240&&sp<300?w.reduce((a,x)=>a+x.valor,0):NaN; };
+  const yearAgo=(arr,end)=>{ const t=arr.filter(x=>Math.abs(days(end,x.periodo_fin)-364)<25); return t.length?t.at(-1):null; };
+  const rev=Q("ingresos"), last=rev.at(-1); if(!last) return {};
+  const end=last.periodo_fin, ya=yearAgo(rev,end), endYA=ya&&ya.periodo_fin, prevQ=rev.at(-2);
+  const ttmPair=k=>{ const a=Q(k); return [ttmEnd(a,end),endYA?ttmEnd(a,endYA):NaN]; };
+  const [revT,revTY]=ttmPair("ingresos"), [niT,niTY]=ttmPair("beneficio_neto"), [ocT,ocTY]=ttmPair("caja_operativa"), [cxT,cxTY]=ttmPair("capex");
+  const H=k=>((B[k]&&B[k].historico)||[]).slice().sort((a,b)=>a.periodo_fin.localeCompare(b.periodo_fin));
+  const bal=k=>{ const h=H(k); const l=h.at(-1); if(!l) return {}; const y=yearAgo(h,l.periodo_fin), q=h.length>1?h.at(-2):null; return {now:l.valor,ya:y&&y.valor,pq:q&&q.valor}; };
+  const sh=Q("acciones_diluidas_media"), shL=sh.at(-1), shY=shL&&yearAgo(sh,shL.periodo_fin);
+  const P=d.precio||{}, Hs=d.historico_precio&&d.historico_precio.serie; let p1y=null;
+  if(Hs&&Hs.length){ const t=Date.parse(Hs.at(-1)[0])-365*864e5; for(const x of Hs){ if(Date.parse(x[0])<=t) p1y=x[1]; else break; } }
+  return {revQ:{yoy:ya?last.valor/ya.valor-1:NaN,qoq:prevQ?last.valor/prevQ.valor-1:NaN,ya:ya&&ya.periodo,pq:prevQ&&prevQ.periodo},
+    revT:{now:revT,ya:revTY}, niT:{now:niT,ya:niTY,marg:fin(niT)&&fin(revT)?niT/revT:NaN,margYA:fin(niTY)&&fin(revTY)?niTY/revTY:NaN},
+    fcf:{now:ocT-cxT,ya:ocTY-cxTY}, cash:bal("caja"), debt:bal("deuda"),
+    shares:{yoy:shL&&shY?shL.valor/shY.valor-1:NaN}, price:{day:fin(P.valor)&&fin(P.cierre_anterior)?P.valor/P.cierre_anterior-1:NaN,y1:p1y&&fin(P.valor)?P.valor/p1y-1:NaN}};
+}
+function chgLine(parts){ const ok=parts.filter(Boolean); return ok.length?`<span class="chg">${ok.join('<span class="sep">·</span>')}</span>`:""; }
+function chg(r,lab,good=1){ if(!fin(r)) return ""; const v=r*100, cls=Math.abs(v)<0.05?"":(v*good>0?"up":"dn");
+  return `<span class="${cls}">${v>=0?"▲ +":"▼ −"}${nf(Math.abs(v),1)}%</span> ${lab}`; }
+function chgAbs(now,ya,lab){ if(!fin(now)||!fin(ya)) return ""; if(ya>0&&now>0) return chg(now/ya-1,lab); return `<span class="${now>=ya?"up":"dn"}">${big(ya)} ${lab}</span>`; }
 function officialCard(){
   if(!cur._data) return "";
-  const s=cur.sec, P=cur._data.precio, rq=s.revQ.p;
-  const t=(lab,m,p,extra="")=>`<div class="kpi"><span class="eyebrow">${lab}</span><b>${fin(m)?big(m):"–"}</b>${extra}${srcTag(p)}</div>`;
+  const s=cur.sec, P=cur._data.precio, rq=s.revQ.p, X=officialChanges();
+  const t=(lab,m,p,extra="",ch="")=>`<div class="kpi"><span class="eyebrow">${lab}</span><b>${fin(m)?big(m):"–"}</b>${ch}${extra}${srcTag(p)}</div>`;
   const fcf=fin(s.ocfTTM.m)&&fin(s.capexTTM.m)?s.ocfTTM.m-s.capexTTM.m:NaN;
   return `<section class="card"><h2>Cifras oficiales</h2><p class="sub">Del último informe en la SEC y de Finnhub. Pasa el ratón por la fuente para ver la etiqueta XBRL y el periodo; haz clic para abrir el documento. UDM = últimos doce meses.</p>
    <div class="official">
-    ${t("Ingresos "+esc(rq?rq.periodo:""),s.revQ.m,rq)}
-    ${t("Ingresos UDM",s.revTTM.m,s.revTTM.p)}
-    ${t("Beneficio neto UDM",s.niTTM.m,s.niTTM.p)}
-    ${t("FCF UDM",fcf,s.ocfTTM.p,fin(fcf)?`<span class="note">caja operativa ${big(s.ocfTTM.m)} − capex ${big(s.capexTTM.m)}</span>`:"")}
-    ${t("Caja e inversiones a corto",s.cash.m,s.cash.p)}
-    ${t("Deuda financiera",s.debt.m,s.debt.p)}
-    <div class="kpi"><span class="eyebrow">Acciones</span><b>${fin(s.shares.m)?nf(s.shares.m,1)+" M":"–"}</b>${srcTag(s.shares.p)}</div>
-    <div class="kpi"><span class="eyebrow">Cotización</span><b>${money(cur.v.price)}</b>${srcTag(P)}</div>
+    ${t("Ingresos "+esc(rq?rq.periodo:""),s.revQ.m,rq,"",chgLine([X.revQ&&chg(X.revQ.yoy,"vs "+(X.revQ.ya||"hace un año")),X.revQ&&chg(X.revQ.qoq,"vs "+(X.revQ.pq||"trim. anterior"))]))}
+    ${t("Ingresos UDM",s.revTTM.m,s.revTTM.p,"",chgLine([X.revT&&chgAbs(X.revT.now,X.revT.ya,"interanual")]))}
+    ${t("Beneficio neto UDM",s.niTTM.m,s.niTTM.p,"",chgLine([X.niT&&chgAbs(X.niT.now,X.niT.ya,"interanual"),X.niT&&fin(X.niT.marg)?`margen ${pct(X.niT.marg*100,1)}${fin(X.niT.margYA)?` (antes ${pct(X.niT.margYA*100,1)})`:""}`:""]))}
+    ${t("FCF UDM",fcf,s.ocfTTM.p,fin(fcf)?`<span class="note">caja operativa ${big(s.ocfTTM.m)} − capex ${big(s.capexTTM.m)}</span>`:"",chgLine([X.fcf&&fin(X.fcf.ya)?(X.fcf.ya>0&&X.fcf.now>0?chg(X.fcf.now/X.fcf.ya-1,"interanual"):`<span class="${X.fcf.now>=X.fcf.ya?"up":"dn"}">hace un año ${big(X.fcf.ya/M6)}</span>`):""]))}
+    ${t("Caja e inversiones a corto",s.cash.m,s.cash.p,"",chgLine([X.cash&&X.cash.ya?chg(X.cash.now/X.cash.ya-1,"interanual"):"",X.cash&&X.cash.pq?chg(X.cash.now/X.cash.pq-1,"trimestral"):""]))}
+    ${t("Deuda financiera",s.debt.m,s.debt.p,"",chgLine([X.debt&&X.debt.ya?chg(X.debt.now/X.debt.ya-1,"interanual",-1):"",X.debt&&X.debt.pq?chg(X.debt.now/X.debt.pq-1,"trimestral",-1):""]))}
+    <div class="kpi"><span class="eyebrow">Acciones</span><b>${fin(s.shares.m)?nf(s.shares.m,1)+" M":"–"}</b>${chgLine([X.shares&&chg(X.shares.yoy,X.shares&&X.shares.yoy>0?"interanual (dilución)":"interanual (recompras)",-1)])}${srcTag(s.shares.p)}</div>
+    <div class="kpi"><span class="eyebrow">Cotización</span><b>${money(cur.v.price)}</b>${chgLine([X.price&&chg(X.price.day,"en la sesión"),X.price&&chg(X.price.y1,"en un año")])}${srcTag(P)}</div>
    </div></section>`;
 }
 function officialHtml(){
