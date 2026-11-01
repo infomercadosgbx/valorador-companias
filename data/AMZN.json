@@ -10203,7 +10203,7 @@
   }
  },
  "segmentos": {
-  "version": 4,
+  "version": 5,
   "informes_accn": [
    "0001018724-26-000040",
    "0001018724-26-000026",
@@ -11255,6 +11255,148 @@
     "operativo_anual": []
    }
   ],
+  "geografia": [
+   {
+    "miembro": "country:US",
+    "nombre": "UNITED STATES",
+    "ajuste": false,
+    "trimestral": [],
+    "anual": [
+     {
+      "periodo": "2023",
+      "periodo_inicio": "2023-01-01",
+      "periodo_fin": "2023-12-31",
+      "valor": 395637000000.0
+     },
+     {
+      "periodo": "2024",
+      "periodo_inicio": "2024-01-01",
+      "periodo_fin": "2024-12-31",
+      "valor": 438015000000.0
+     },
+     {
+      "periodo": "2025",
+      "periodo_inicio": "2025-01-01",
+      "periodo_fin": "2025-12-31",
+      "valor": 489657000000.0
+     }
+    ],
+    "operativo_trimestral": [],
+    "operativo_anual": []
+   },
+   {
+    "miembro": "us-gaap:NonUsMember",
+    "nombre": "Non-US",
+    "ajuste": false,
+    "trimestral": [],
+    "anual": [
+     {
+      "periodo": "2023",
+      "periodo_inicio": "2023-01-01",
+      "periodo_fin": "2023-12-31",
+      "valor": 81967000000.0
+     },
+     {
+      "periodo": "2024",
+      "periodo_inicio": "2024-01-01",
+      "periodo_fin": "2024-12-31",
+      "valor": 93832000000.0
+     },
+     {
+      "periodo": "2025",
+      "periodo_inicio": "2025-01-01",
+      "periodo_fin": "2025-12-31",
+      "valor": 107467000000.0
+     }
+    ],
+    "operativo_trimestral": [],
+    "operativo_anual": []
+   },
+   {
+    "miembro": "country:DE",
+    "nombre": "GERMANY",
+    "ajuste": false,
+    "trimestral": [],
+    "anual": [
+     {
+      "periodo": "2023",
+      "periodo_inicio": "2023-01-01",
+      "periodo_fin": "2023-12-31",
+      "valor": 37588000000.0
+     },
+     {
+      "periodo": "2024",
+      "periodo_inicio": "2024-01-01",
+      "periodo_fin": "2024-12-31",
+      "valor": 40856000000.0
+     },
+     {
+      "periodo": "2025",
+      "periodo_inicio": "2025-01-01",
+      "periodo_fin": "2025-12-31",
+      "valor": 45900000000.0
+     }
+    ],
+    "operativo_trimestral": [],
+    "operativo_anual": []
+   },
+   {
+    "miembro": "country:GB",
+    "nombre": "UNITED KINGDOM",
+    "ajuste": false,
+    "trimestral": [],
+    "anual": [
+     {
+      "periodo": "2023",
+      "periodo_inicio": "2023-01-01",
+      "periodo_fin": "2023-12-31",
+      "valor": 33591000000.0
+     },
+     {
+      "periodo": "2024",
+      "periodo_inicio": "2024-01-01",
+      "periodo_fin": "2024-12-31",
+      "valor": 37855000000.0
+     },
+     {
+      "periodo": "2025",
+      "periodo_inicio": "2025-01-01",
+      "periodo_fin": "2025-12-31",
+      "valor": 43212000000.0
+     }
+    ],
+    "operativo_trimestral": [],
+    "operativo_anual": []
+   },
+   {
+    "miembro": "country:JP",
+    "nombre": "JAPAN",
+    "ajuste": false,
+    "trimestral": [],
+    "anual": [
+     {
+      "periodo": "2023",
+      "periodo_inicio": "2023-01-01",
+      "periodo_fin": "2023-12-31",
+      "valor": 26002000000.0
+     },
+     {
+      "periodo": "2024",
+      "periodo_inicio": "2024-01-01",
+      "periodo_fin": "2024-12-31",
+      "valor": 27401000000.0
+     },
+     {
+      "periodo": "2025",
+      "periodo_inicio": "2025-01-01",
+      "periodo_fin": "2025-12-31",
+      "valor": 30688000000.0
+     }
+    ],
+    "operativo_trimestral": [],
+    "operativo_anual": []
+   }
+  ],
   "gasto_tecnologia": {
    "concepto": "TechnologyAndInfrastructureExpense",
    "trimestral": [
@@ -11373,6 +11515,7 @@
     }
    ]
   },
+  "clientes_concentracion": [],
   "informes": [
    {
     "formulario": "10-K",
@@ -14662,11 +14805,32 @@
  },
  "noticias": [
   {
+   "titular": "Andy Jassy Says Robots Will Replace Many Repetitive Warehouse Jobs — Amazon Already Has Over 1 Million Machines, and the Impact Could Be Much Bigger in Five Years",
+   "medio": "Yahoo",
+   "url": "https://finnhub.io/api/news?id=da8aed83265e6246fcacb6b20ab6f92c0ddd4aaa5d506afc29eeb886099e2315",
+   "fecha": "2026-11-01",
+   "resumen": "Amazon.com Inc. CEO Andy Jassy said the company now has more than a million robots in its fulfillment network and expects many repetitive jobs that people do to be handled by robots, but noted that Amazon will \"always have a..."
+  },
+  {
    "titular": "A big sell-off collides with more Big Tech earnings and a midterm election: What to watch this week",
    "medio": "Yahoo",
    "url": "https://finnhub.io/api/news?id=e3fc075388fa22e93319eb80a0d4b4b723e182fb6039f97cdb968f7f8473f8d6",
    "fecha": "2026-11-01",
    "resumen": "Coming into this week, all eyes will be on potential sparks to re-light the fire under the tech sector. Fire, to be clear, in a bad way."
+  },
+  {
+   "titular": "Amazon: Keep It Simple, Buy The Dip",
+   "medio": "SeekingAlpha",
+   "url": "https://finnhub.io/api/news?id=b2646490190262235eb706df516f27ea5ec1ea62e983968feb20bd01e50d3bdb",
+   "fecha": "2026-11-01",
+   "resumen": "Amazon Q3 earnings show surging operating income, AWS growth, and AI investment tradeoffs. Click for more on AMZN stock."
+  },
+  {
+   "titular": "I'm Not Swayed By AI Bubble Burst Doomerism",
+   "medio": "SeekingAlpha",
+   "url": "https://finnhub.io/api/news?id=57d1f90f6c602355fad20bd02a0339c61272b83ba71a21bd3633591b67db0cd6",
+   "fecha": "2026-11-01",
+   "resumen": "See why Microsoft, Amazon, Google, and Meta lead AI infrastructure growth post-earnings despite CapEx risks. Click for an updated market outlook."
   },
   {
    "titular": "Anthropic Is “Reduplicating AWS” as It Rents Its Own Data Centers. Amazon Reports Thursday",
@@ -14723,27 +14887,6 @@
    "url": "https://finnhub.io/api/news?id=cf6b35c09fe9f00457441e1789eaee0c09a2c0d4fa9cb9d8d0e058f15e5cec5a",
    "fecha": "2026-10-31",
    "resumen": "Communities across the U.S. courting data centers face an economic bargain: billions in private investment and potentially lucrative tax revenue, alongside mounting public backlash."
-  },
-  {
-   "titular": "Amazon Is Borrowing Against Its Own Data Center Gear to Fund More Data Centers",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=66687a88aa2277b590ef30830abec06562cd19731444b650782099b696544d0f",
-   "fecha": "2026-10-31",
-   "resumen": "Amazon just filed paperwork for a borrowing tool it has never used before, one that puts actual equipment on the line as collateral, and the reason behind that shift reveals how stretched even the world's largest cloud business has become."
-  },
-  {
-   "titular": "The AI Red Queen Effect: Why Big Tech Can’t Afford to Stop Spending",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=9c3fcb2a8dbab3d6553981143a572055677d2be28ae8d887220eee0f6433c89f",
-   "fecha": "2026-10-31",
-   "resumen": "Amazon, Microsoft, Meta, and Alphabet are betting hundreds of billions of dollars that falling behind their rivals would be more costly than investing too much."
-  },
-  {
-   "titular": "Amazon (AMZN) Stock Slips As Q3 Earnings Reflect Profit Reset",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=0695abd2b2ec37bdf0c58d4d7d877fc43b97bfe3959d09aa8d382765634cee0b",
-   "fecha": "2026-10-31",
-   "resumen": "Amazon.com just dropped Q3 2026 numbers that show a bruising hit to profit even as the business kept pulling in more sales. Net income landed at US$20.7b on revenue of US$201.9b, and earnings per share stepped down sharply from the unusually strong prior quarter. The stock told a"
   }
  ],
  "historico_precio": {
@@ -20034,7 +20177,7 @@
   "fecha": "2026-10-30",
   "ajuste": "splits"
  },
- "generado": "2026-11-01T13:24:29+00:00",
+ "generado": "2026-11-01T17:35:30+00:00",
  "peers": {
   "fuente_lista": "manual",
   "fuente_cifras": "SEC EDGAR (companyfacts, UDM) · precio Finnhub",

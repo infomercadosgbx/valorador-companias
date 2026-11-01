@@ -12177,7 +12177,7 @@
   }
  },
  "segmentos": {
-  "version": 4,
+  "version": 5,
   "informes_accn": [
    "0001730168-26-000080",
    "0001730168-26-000054",
@@ -12596,7 +12596,399 @@
     "operativo_anual": []
    }
   ],
+  "geografia": [
+   {
+    "miembro": "srt:AsiaPacificMember",
+    "nombre": "Asia Pacific",
+    "ajuste": false,
+    "trimestral": [
+     {
+      "periodo": "1T25",
+      "periodo_inicio": "2024-11-04",
+      "periodo_fin": "2025-02-02",
+      "valor": 8032000000.0
+     },
+     {
+      "periodo": "2T25",
+      "periodo_inicio": "2025-02-03",
+      "periodo_fin": "2025-05-04",
+      "valor": 8100000000.0
+     },
+     {
+      "periodo": "3T25",
+      "periodo_inicio": "2025-05-05",
+      "periodo_fin": "2025-08-03",
+      "valor": 8960000000.0
+     },
+     {
+      "periodo": "4T25",
+      "periodo_inicio": "2025-08-04",
+      "periodo_fin": "2025-11-02",
+      "valor": 10804000000.0
+     },
+     {
+      "periodo": "1T26",
+      "periodo_inicio": "2025-11-03",
+      "periodo_fin": "2026-02-01",
+      "valor": 11615000000.0
+     },
+     {
+      "periodo": "2T26",
+      "periodo_inicio": "2026-02-02",
+      "periodo_fin": "2026-05-03",
+      "valor": 14535000000.0
+     },
+     {
+      "periodo": "3T26",
+      "periodo_inicio": "2026-05-04",
+      "periodo_fin": "2026-08-02",
+      "valor": 20944000000.0
+     }
+    ],
+    "anual": [
+     {
+      "periodo": "2023",
+      "periodo_inicio": "2022-10-31",
+      "periodo_fin": "2023-10-29",
+      "valor": 23920000000.0
+     },
+     {
+      "periodo": "2024",
+      "periodo_inicio": "2023-10-30",
+      "periodo_fin": "2024-11-03",
+      "valor": 28422000000.0
+     },
+     {
+      "periodo": "2025",
+      "periodo_inicio": "2024-11-04",
+      "periodo_fin": "2025-11-02",
+      "valor": 35896000000.0
+     }
+    ],
+    "operativo_trimestral": [],
+    "operativo_anual": []
+   },
+   {
+    "miembro": "avgo:AllOtherGeographiesMemberMember",
+    "nombre": "AllOtherGeographiesMember",
+    "ajuste": false,
+    "trimestral": [],
+    "anual": [
+     {
+      "periodo": "2023",
+      "periodo_inicio": "2022-10-31",
+      "periodo_fin": "2023-10-29",
+      "valor": 12832000000.0
+     },
+     {
+      "periodo": "2024",
+      "periodo_inicio": "2023-10-30",
+      "periodo_fin": "2024-11-03",
+      "valor": 18645000000.0
+     },
+     {
+      "periodo": "2025",
+      "periodo_inicio": "2024-11-04",
+      "periodo_fin": "2025-11-02",
+      "valor": 18979000000.0
+     }
+    ],
+    "operativo_trimestral": [],
+    "operativo_anual": []
+   },
+   {
+    "miembro": "country:US",
+    "nombre": "UNITED STATES",
+    "ajuste": false,
+    "trimestral": [],
+    "anual": [
+     {
+      "periodo": "2023",
+      "periodo_inicio": "2022-10-31",
+      "periodo_fin": "2023-10-29",
+      "valor": 6975000000.0
+     },
+     {
+      "periodo": "2024",
+      "periodo_inicio": "2023-10-30",
+      "periodo_fin": "2024-11-03",
+      "valor": 12887000000.0
+     },
+     {
+      "periodo": "2025",
+      "periodo_inicio": "2024-11-04",
+      "periodo_fin": "2025-11-02",
+      "valor": 16506000000.0
+     }
+    ],
+    "operativo_trimestral": [],
+    "operativo_anual": []
+   },
+   {
+    "miembro": "avgo:ChinaincludingHongKongMember",
+    "nombre": "China (including Hong Kong)",
+    "ajuste": false,
+    "trimestral": [],
+    "anual": [
+     {
+      "periodo": "2023",
+      "periodo_inicio": "2022-10-31",
+      "periodo_fin": "2023-10-29",
+      "valor": 11533000000.0
+     },
+     {
+      "periodo": "2024",
+      "periodo_inicio": "2023-10-30",
+      "periodo_fin": "2024-11-03",
+      "valor": 10483000000.0
+     },
+     {
+      "periodo": "2025",
+      "periodo_inicio": "2024-11-04",
+      "periodo_fin": "2025-11-02",
+      "valor": 11155000000.0
+     }
+    ],
+    "operativo_trimestral": [],
+    "operativo_anual": []
+   },
+   {
+    "miembro": "country:SG",
+    "nombre": "SINGAPORE",
+    "ajuste": false,
+    "trimestral": [],
+    "anual": [
+     {
+      "periodo": "2023",
+      "periodo_inicio": "2022-10-31",
+      "periodo_fin": "2023-10-29",
+      "valor": 4479000000.0
+     },
+     {
+      "periodo": "2024",
+      "periodo_inicio": "2023-10-30",
+      "periodo_fin": "2024-11-03",
+      "valor": 9559000000.0
+     },
+     {
+      "periodo": "2025",
+      "periodo_inicio": "2024-11-04",
+      "periodo_fin": "2025-11-02",
+      "valor": 10796000000.0
+     }
+    ],
+    "operativo_trimestral": [],
+    "operativo_anual": []
+   },
+   {
+    "miembro": "country:TW",
+    "nombre": "TAIWAN",
+    "ajuste": false,
+    "trimestral": [],
+    "anual": [
+     {
+      "periodo": "2025",
+      "periodo_inicio": "2024-11-04",
+      "periodo_fin": "2025-11-02",
+      "valor": 6451000000.0
+     }
+    ],
+    "operativo_trimestral": [],
+    "operativo_anual": []
+   },
+   {
+    "miembro": "srt:AmericasMember",
+    "nombre": "Americas",
+    "ajuste": false,
+    "trimestral": [
+     {
+      "periodo": "1T25",
+      "periodo_inicio": "2024-11-04",
+      "periodo_fin": "2025-02-02",
+      "valor": 4632000000.0
+     },
+     {
+      "periodo": "2T25",
+      "periodo_inicio": "2025-02-03",
+      "periodo_fin": "2025-05-04",
+      "valor": 4706000000.0
+     },
+     {
+      "periodo": "3T25",
+      "periodo_inicio": "2025-05-05",
+      "periodo_fin": "2025-08-03",
+      "valor": 4724000000.0
+     },
+     {
+      "periodo": "4T25",
+      "periodo_inicio": "2025-08-04",
+      "periodo_fin": "2025-11-02",
+      "valor": 4877000000.0
+     },
+     {
+      "periodo": "1T26",
+      "periodo_inicio": "2025-11-03",
+      "periodo_fin": "2026-02-01",
+      "valor": 5081000000.0
+     },
+     {
+      "periodo": "2T26",
+      "periodo_inicio": "2026-02-02",
+      "periodo_fin": "2026-05-03",
+      "valor": 5202000000.0
+     },
+     {
+      "periodo": "3T26",
+      "periodo_inicio": "2026-05-04",
+      "periodo_fin": "2026-08-02",
+      "valor": 5513000000.0
+     }
+    ],
+    "anual": [
+     {
+      "periodo": "2023",
+      "periodo_inicio": "2022-10-31",
+      "periodo_fin": "2023-10-29",
+      "valor": 8279000000.0
+     },
+     {
+      "periodo": "2024",
+      "periodo_inicio": "2023-10-30",
+      "periodo_fin": "2024-11-03",
+      "valor": 14970000000.0
+     },
+     {
+      "periodo": "2025",
+      "periodo_inicio": "2024-11-04",
+      "periodo_fin": "2025-11-02",
+      "valor": 18939000000.0
+     }
+    ],
+    "operativo_trimestral": [],
+    "operativo_anual": []
+   },
+   {
+    "miembro": "us-gaap:EMEAMember",
+    "nombre": "EMEA",
+    "ajuste": false,
+    "trimestral": [
+     {
+      "periodo": "1T25",
+      "periodo_inicio": "2024-11-04",
+      "periodo_fin": "2025-02-02",
+      "valor": 2252000000.0
+     },
+     {
+      "periodo": "2T25",
+      "periodo_inicio": "2025-02-03",
+      "periodo_fin": "2025-05-04",
+      "valor": 2198000000.0
+     },
+     {
+      "periodo": "3T25",
+      "periodo_inicio": "2025-05-05",
+      "periodo_fin": "2025-08-03",
+      "valor": 2268000000.0
+     },
+     {
+      "periodo": "4T25",
+      "periodo_inicio": "2025-08-04",
+      "periodo_fin": "2025-11-02",
+      "valor": 2334000000.0
+     },
+     {
+      "periodo": "1T26",
+      "periodo_inicio": "2025-11-03",
+      "periodo_fin": "2026-02-01",
+      "valor": 2615000000.0
+     },
+     {
+      "periodo": "2T26",
+      "periodo_inicio": "2026-02-02",
+      "periodo_fin": "2026-05-03",
+      "valor": 2450000000.0
+     },
+     {
+      "periodo": "3T26",
+      "periodo_inicio": "2026-05-04",
+      "periodo_fin": "2026-08-02",
+      "valor": 3134000000.0
+     }
+    ],
+    "anual": [
+     {
+      "periodo": "2023",
+      "periodo_inicio": "2022-10-31",
+      "periodo_fin": "2023-10-29",
+      "valor": 3620000000.0
+     },
+     {
+      "periodo": "2024",
+      "periodo_inicio": "2023-10-30",
+      "periodo_fin": "2024-11-03",
+      "valor": 8182000000.0
+     },
+     {
+      "periodo": "2025",
+      "periodo_inicio": "2024-11-04",
+      "periodo_fin": "2025-11-02",
+      "valor": 9052000000.0
+     }
+    ],
+    "operativo_trimestral": [],
+    "operativo_anual": []
+   }
+  ],
   "gasto_tecnologia": null,
+  "clientes_concentracion": [
+   {
+    "miembro": "avgo:MajorCustomerOneMember",
+    "nombre": "Major Customer One",
+    "ultimo": {
+     "periodo": "2025",
+     "tipo": "año",
+     "periodo_inicio": "2024-11-04",
+     "periodo_fin": "2025-11-02",
+     "porcentaje": 32.0,
+     "fuente": "SEC EDGAR · 10-K (XBRL)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1730168/000173016825000121/0001730168-25-000121-index.htm",
+     "fecha_presentacion": "2025-12-18"
+    },
+    "anual": [
+     {
+      "periodo": "2023",
+      "tipo": "año",
+      "periodo_inicio": "2022-10-31",
+      "periodo_fin": "2023-10-29",
+      "porcentaje": 21.0,
+      "fuente": "SEC EDGAR · 10-K (XBRL)",
+      "url": "https://www.sec.gov/Archives/edgar/data/1730168/000173016825000121/0001730168-25-000121-index.htm",
+      "fecha_presentacion": "2025-12-18"
+     },
+     {
+      "periodo": "2024",
+      "tipo": "año",
+      "periodo_inicio": "2023-10-30",
+      "periodo_fin": "2024-11-03",
+      "porcentaje": 28.0,
+      "fuente": "SEC EDGAR · 10-K (XBRL)",
+      "url": "https://www.sec.gov/Archives/edgar/data/1730168/000173016825000121/0001730168-25-000121-index.htm",
+      "fecha_presentacion": "2025-12-18"
+     },
+     {
+      "periodo": "2025",
+      "tipo": "año",
+      "periodo_inicio": "2024-11-04",
+      "periodo_fin": "2025-11-02",
+      "porcentaje": 32.0,
+      "fuente": "SEC EDGAR · 10-K (XBRL)",
+      "url": "https://www.sec.gov/Archives/edgar/data/1730168/000173016825000121/0001730168-25-000121-index.htm",
+      "fecha_presentacion": "2025-12-18"
+     }
+    ],
+    "trimestral": []
+   }
+  ],
   "informes": [
    {
     "formulario": "10-K",
@@ -15166,6 +15558,27 @@
  },
  "noticias": [
   {
+   "titular": "I'm Not Swayed By AI Bubble Burst Doomerism",
+   "medio": "SeekingAlpha",
+   "url": "https://finnhub.io/api/news?id=57d1f90f6c602355fad20bd02a0339c61272b83ba71a21bd3633591b67db0cd6",
+   "fecha": "2026-11-01",
+   "resumen": "See why Microsoft, Amazon, Google, and Meta lead AI infrastructure growth post-earnings despite CapEx risks. Click for an updated market outlook."
+  },
+  {
+   "titular": "The Credit Market's Warning Is Coming Back To Haunt AI Stocks",
+   "medio": "SeekingAlpha",
+   "url": "https://finnhub.io/api/news?id=fe99fc6e84a1585d5739b00c194255e7d65f050458b6f19b677d0a3d06bacf27",
+   "fecha": "2026-11-01",
+   "resumen": "Credit default swap markets are signaling rising credit risk for major AI-driven companies. Read more on CDS markets here."
+  },
+  {
+   "titular": "Jim Cramer Warns ‘Don’t Assume the Worst Is Behind Us’ After $1 Trillion Chip Stock Rout",
+   "medio": "Benzinga",
+   "url": "https://finnhub.io/api/news?id=b9bc5c76c524615ac0e54312d2511025d59d38c682d93ca4347171cd1088ca5a",
+   "fecha": "2026-10-31",
+   "resumen": "Semiconductor stocks lost $1T after Intel plunged 28% on weak guidance. Cramer warned volatility may persist ahead of earnings and midterms."
+  },
+  {
    "titular": "1 Big Winner and 1 Loser From the Upcoming Anthropic IPO",
    "medio": "Yahoo",
    "url": "https://finnhub.io/api/news?id=86a07bce162076ca292361cc81b1064479fd4e812dbac9cfea20f38a41af0a8c",
@@ -15201,6 +15614,13 @@
    "resumen": "Key TakeawaysBroadcom’s new backstop on a $63 billion Anthropic rack financing carries a maximum potential liability of about $43 billion, on top of an earlier $29 billion backstop. AI semiconductor revenue rose 221% to $16."
   },
   {
+   "titular": "MarketBeat Week in Review – 10/26 - 10/30",
+   "medio": "Yahoo",
+   "url": "https://finnhub.io/api/news?id=34cc4b510c5ef64adb8eb3762c2ddf83c2621cc279b87890a58bb4b58e1e121d",
+   "fecha": "2026-10-31",
+   "resumen": "Stocks wavered after the Fed held rates steady and Alphabet's earnings missed on Search revenue, fueling AI bubble concerns despite strong results from Microsoft and resilient earnings elsewhere."
+  },
+  {
    "titular": "R&D: A Long-Term Investment",
    "medio": "SeekingAlpha",
    "url": "https://finnhub.io/api/news?id=24e3659649b4a7fd51b08369fda705ecf87bd285f25ae16785f389217999f0f6",
@@ -15220,34 +15640,6 @@
    "url": "https://finnhub.io/api/news?id=e2f0af8721c0673a58c1d46368bdc76993a28f624a74d62f63c17a5020d28ea5",
    "fecha": "2026-10-31",
    "resumen": "Warren slammed Trump for trusting AI companies to regulate themselves, warning that voluntary safety commitments are no substitute."
-  },
-  {
-   "titular": "Meta's $145 Billion AI Spending Plan Raises Credit Concerns as S&P Global Turns Outlook Negative: ‘Less Certain That It Will Curtail Its Spending’",
-   "medio": "Benzinga",
-   "url": "https://finnhub.io/api/news?id=5d35dc4ac4f3edf30c5de037663f805f71fc54427fc9823b93c6857ff78d320d",
-   "fecha": "2026-10-31",
-   "resumen": "S&amp;P Global cuts Meta’s credit outlook to negative as rising AI spending and cash flow pressures raise concerns over leverage."
-  },
-  {
-   "titular": "Dividend Income Report: +15.25% And A Listener's Portfolio Roast",
-   "medio": "SeekingAlpha",
-   "url": "https://finnhub.io/api/news?id=29195c7330c6a0345435d337c4b578d80e75f3cb148875a665c17671faede09d",
-   "fecha": "2026-10-31",
-   "resumen": "This month I tried something different on the podcast - a listener sent me one of his portfolios and asked me to roast it. Read more here."
-  },
-  {
-   "titular": "Cracks are emerging in the AI spending boom",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=d06f04fb421777e9671651d5e06a5d9ce8ac7696c65521db9c4aeb909671a979",
-   "fecha": "2026-10-30",
-   "resumen": "Big Tech is pouring billions into AI infrastructure, but mounting debt, negative cash flow, and growing investor skepticism are raising questions about the sustainability of the AI spending boom."
-  },
-  {
-   "titular": "Former SEC Chair: Broadcom’s $63 Billion Package Feels Like “That 08 Off-Balance Sheet Craze”",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=41a140d2d1263e4696049a3826e4b9a26b80cbd382b3a6d9f615d19e6cb1ee6b",
-   "fecha": "2026-10-30",
-   "resumen": "Key TakeawaysBanks plan to sell as much as about $21 billion of bonds for the $63 billion package Broadcom put together to finance Anthropic’s chips, Bloomberg reported. Former SEC Chair Gary Gensler compared the package to the off-balance-sheet deals of 2008 and raised concerns "
   }
  ],
  "historico_precio": {
@@ -20538,7 +20930,7 @@
   "fecha": "2026-10-30",
   "ajuste": "splits"
  },
- "generado": "2026-11-01T12:37:36+00:00",
+ "generado": "2026-11-01T17:36:09+00:00",
  "peers": {
   "fuente_lista": "manual",
   "fuente_cifras": "SEC EDGAR (companyfacts, UDM) · precio Finnhub",

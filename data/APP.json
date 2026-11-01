@@ -9378,7 +9378,7 @@
   }
  },
  "segmentos": {
-  "version": 4,
+  "version": 5,
   "informes_accn": [
    "0001751008-26-000059",
    "0001751008-26-000044",
@@ -9440,7 +9440,78 @@
    }
   ],
   "producto": [],
+  "geografia": [
+   {
+    "miembro": "country:US",
+    "nombre": "UNITED STATES",
+    "ajuste": false,
+    "trimestral": [
+     {
+      "periodo": "1T25",
+      "periodo_inicio": "2025-01-01",
+      "periodo_fin": "2025-03-31",
+      "valor": 615703000.0
+     },
+     {
+      "periodo": "2T25",
+      "periodo_inicio": "2025-04-01",
+      "periodo_fin": "2025-06-30",
+      "valor": 658321000.0
+     },
+     {
+      "periodo": "1T26",
+      "periodo_inicio": "2026-01-01",
+      "periodo_fin": "2026-03-31",
+      "valor": 907219000.0
+     },
+     {
+      "periodo": "2T26",
+      "periodo_inicio": "2026-04-01",
+      "periodo_fin": "2026-06-30",
+      "valor": 989626000.0
+     }
+    ],
+    "anual": [],
+    "operativo_trimestral": [],
+    "operativo_anual": []
+   },
+   {
+    "miembro": "us-gaap:NonUsMember",
+    "nombre": "Non-US",
+    "ajuste": false,
+    "trimestral": [
+     {
+      "periodo": "1T25",
+      "periodo_inicio": "2025-01-01",
+      "periodo_fin": "2025-03-31",
+      "valor": 543271000.0
+     },
+     {
+      "periodo": "2T25",
+      "periodo_inicio": "2025-04-01",
+      "periodo_fin": "2025-06-30",
+      "valor": 600433000.0
+     },
+     {
+      "periodo": "1T26",
+      "periodo_inicio": "2026-01-01",
+      "periodo_fin": "2026-03-31",
+      "valor": 935230000.0
+     },
+     {
+      "periodo": "2T26",
+      "periodo_inicio": "2026-04-01",
+      "periodo_fin": "2026-06-30",
+      "valor": 934060000.0
+     }
+    ],
+    "anual": [],
+    "operativo_trimestral": [],
+    "operativo_anual": []
+   }
+  ],
   "gasto_tecnologia": null,
+  "clientes_concentracion": [],
   "informes": [
    {
     "formulario": "10-K",
@@ -15941,6 +16012,13 @@
  },
  "noticias": [
   {
+   "titular": "Earnings Volatility Watch: 10 Stocks Are Set to Swing More Than 10% This Week",
+   "medio": "Benzinga",
+   "url": "https://finnhub.io/api/news?id=11580ea46adbde2a6243b452b62d658eeaae614850c1595b883ece0ea213f70f",
+   "fecha": "2026-11-01",
+   "resumen": "Ten stocks carry implied earnings moves above 10% next week, led by Moderna and AppLovin. Five are tech names hit in Friday&#39;s chip rout."
+  },
+  {
    "titular": "AppLovin Sank 12% in a Week to a New 52-Week Low: Citi Says It Could Double",
    "medio": "Yahoo",
    "url": "https://finnhub.io/api/news?id=5a04609de722bd4d8b591ef5de5a56512cea590689e4e06db15975b5954a8c4e",
@@ -16016,13 +16094,6 @@
    "url": "https://finnhub.io/api/news?id=df8902ff05eff1f232561a646addf92bbbc374b1c2ef8c34f9aa44c3190a708a",
    "fecha": "2026-10-29",
    "resumen": "GigaCloud Technology Inc. (GCT) doesn't possess the right combination of the two key ingredients for a likely earnings beat in its upcoming report. Get prepared with the key expectations."
-  },
-  {
-   "titular": "Is AppLovin (APP) a Buy as Wall Street Analysts Look Optimistic?",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=86abd2de79b5836b6b6dbc18de9ab9d92ffe170dd9294792ac51e3b64c54fa35",
-   "fecha": "2026-10-29",
-   "resumen": "The average brokerage recommendation (ABR) for AppLovin (APP) is equivalent to a Buy. The overly optimistic recommendations of Wall Street analysts make the effectiveness of this highly sought-after metric questionable. So, is it worth buying the stock?"
   }
  ],
  "historico_precio": {
@@ -21313,7 +21384,7 @@
   "fecha": "2026-10-30",
   "ajuste": "splits"
  },
- "generado": "2026-11-01T13:20:20+00:00",
+ "generado": "2026-11-01T17:34:34+00:00",
  "peers": {
   "fuente_lista": "manual",
   "fuente_cifras": "SEC EDGAR (companyfacts, UDM) · precio Finnhub",

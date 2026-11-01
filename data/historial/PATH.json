@@ -1,0 +1,120 @@
+{
+ "ticker": "PATH",
+ "versiones": [
+  {
+   "fecha_commit": "2026-11-01",
+   "commit": "fc4b419a13",
+   "analisis_a": "",
+   "recomendacion": "",
+   "conviccion": null,
+   "comprar_por_debajo": null,
+   "horizonte": "",
+   "resumen": "",
+   "supuestos": {
+    "rev0": 1721,
+    "year0": 2026,
+    "g": [
+     15.0,
+     13.1,
+     11.3,
+     9.4,
+     7.5
+    ],
+    "m1": 10.4,
+    "m5": 10.4,
+    "da": 1.5,
+    "da5": 1.5,
+    "sbc": 13.6,
+    "capex": 0.6,
+    "capex5": 0.6,
+    "nwc": 5,
+    "tax": 15.0,
+    "wacc": 9,
+    "tg": 3,
+    "exit": 12,
+    "method": "blend",
+    "eps": 0.69,
+    "pe": 20,
+    "evm": 12,
+    "scn": [
+     {
+      "n": "Bajista",
+      "dg": -5,
+      "dm": -3,
+      "p": 25
+     },
+     {
+      "n": "Base",
+      "dg": 0,
+      "dm": 0,
+      "p": 50
+     },
+     {
+      "n": "Alcista",
+      "dg": 4,
+      "dm": 2,
+      "p": 25
+     }
+    ]
+   }
+  },
+  {
+   "fecha_commit": "2026-11-01",
+   "commit": "0f6b87bab5",
+   "analisis_a": "1-nov-2026",
+   "recomendacion": "Mantener",
+   "conviccion": 2.5,
+   "comprar_por_debajo": 11,
+   "horizonte": "2–3 años",
+   "resumen": "UiPath es hoy un negocio rentable, sin deuda y con recompras, que cotiza a unas 3 veces las ventas y a un ~5–6% de rentabilidad por caja libre. El problema no es el presente sino el futuro: si los agentes de IA de los grandes la vuelven prescindible, el ARR se estancará; si consigue ser la capa neutral que coordina agentes en empresas reguladas, el crecimiento puede volver al 15–20%. El modelo da ",
+   "supuestos": {
+    "rev0": 1790,
+    "year0": 2027,
+    "g": [
+     11,
+     11,
+     10,
+     9,
+     8
+    ],
+    "m1": 27,
+    "m5": 32,
+    "da": 1.2,
+    "da5": 1.2,
+    "sbc": 11,
+    "capex": 0.8,
+    "capex5": 0.8,
+    "nwc": 0,
+    "tax": 15,
+    "wacc": 10,
+    "tg": 3,
+    "exit": 14,
+    "method": "blend",
+    "eps": 0.85,
+    "pe": 18,
+    "evm": 14,
+    "scn": [
+     {
+      "n": "Bajista",
+      "dg": -7,
+      "dm": -5,
+      "p": 30
+     },
+     {
+      "n": "Base",
+      "dg": 0,
+      "dm": 0,
+      "p": 45
+     },
+     {
+      "n": "Alcista",
+      "dg": 5,
+      "dm": 3,
+      "p": 25
+     }
+    ]
+   }
+  }
+ ],
+ "fuente": "Historial de git de analysis/PATH.json"
+}
