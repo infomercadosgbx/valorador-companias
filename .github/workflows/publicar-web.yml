@@ -36,6 +36,7 @@ jobs:
           cp -r data analysis manual _site/
           if [ -d logos ]; then cp -r logos _site/; fi
           if [ -d propuestas ]; then cp -r propuestas _site/; fi
+          if [ -d i18n ]; then cp -r i18n _site/; fi
           # Diseño anterior al rediseño, para comparar (rama version-1-antes-rediseno)
           if git fetch --depth 1 origin version-1-antes-rediseno 2>/dev/null; then
             git show FETCH_HEAD:valorador.html > _site/clasico.html

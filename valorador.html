@@ -281,6 +281,8 @@ td input[type=text]{width:84px;padding:3px 6px}
 .rdot{width:22px;height:22px;border-radius:50%;background:var(--surface);border:2px solid var(--ink);font-family:var(--f-num);font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:center;cursor:default}
 .sev{display:inline-flex;align-items:center;gap:5px;font-weight:700;font-size:11.5px;padding:2px 8px;border-radius:99px;color:var(--ink)}
 .sev i{width:8px;height:8px;border-radius:2px;display:inline-block}
+.reclist{display:flex;flex-direction:column;margin-top:10px} .reclist div{display:grid;grid-template-columns:12px 1fr 34px 42px 30%;gap:8px;align-items:center;padding:6px 0;border-bottom:1px solid var(--line);font-size:13px} .reclist div:last-child{border-bottom:0}
+.reclist i{width:10px;height:10px;border-radius:3px} .reclist b{text-align:right} .reclist em{font-style:normal;color:var(--ink2);text-align:right;font-size:12px} .reclist u{display:block;height:6px;border-radius:3px;background:var(--surface2);overflow:hidden;text-decoration:none} .reclist s{display:block;height:100%;text-decoration:none}
 .legendrow{display:flex;flex-wrap:wrap;gap:12px;font-size:12px;color:var(--ink2)}
 .legendrow span{display:inline-flex;align-items:center;gap:6px}
 .legendrow i{width:12px;height:12px;border-radius:3px;display:inline-block}
@@ -327,13 +329,16 @@ details.box summary::after{content:"+";color:var(--muted)} details.box[open] sum
 .gaugebox{position:relative}
 .gaugeval{position:absolute;left:0;right:0;bottom:6px;text-align:center}
 .gaugeval b{font-family:var(--f-num);font-size:34px;font-weight:600;display:block;line-height:1}
-.levels{position:relative;height:74px;margin:26px 8px 6px}
-.levels .track{position:absolute;left:0;right:0;top:30px;height:10px;border-radius:5px;background:linear-gradient(90deg,color-mix(in srgb,var(--good) 45%,var(--surface)),color-mix(in srgb,var(--warn) 45%,var(--surface)),color-mix(in srgb,var(--crit) 40%,var(--surface)))}
-.levels .mk{position:absolute;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:2px;font-size:11px;white-space:nowrap}
-.levels .mk.up{top:-22px}
-.levels .mk.dn{top:42px}
-.levels .mk i{width:2px;height:14px;background:var(--ink)}
-.levels .mk b{font-family:var(--f-num);font-size:11.5px}
+.levels{position:relative;height:150px;margin:8px 10px 4px}
+.levels .track{position:absolute;left:0;right:0;top:46px;height:12px;border-radius:6px;background:linear-gradient(90deg,color-mix(in srgb,var(--good) 30%,var(--surface2)),color-mix(in srgb,var(--warn) 30%,var(--surface2)),color-mix(in srgb,var(--crit) 28%,var(--surface2)));overflow:hidden}
+.levels .track .buyz{position:absolute;left:0;top:0;bottom:0;background:color-mix(in srgb,var(--good) 55%,transparent)}
+.levels .now{position:absolute;top:0;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;z-index:2}
+.levels .now b{background:var(--ink);color:var(--surface);font-size:14px;font-weight:700;padding:4px 10px;border-radius:8px;white-space:nowrap;font-variant-numeric:tabular-nums;box-shadow:0 2px 6px rgba(0,0,0,.18)}
+.levels .now.l{align-items:flex-start;transform:translateX(-2px)} .levels .now.r{align-items:flex-end;transform:translateX(calc(-100% + 2px))}
+.levels .now i{width:3px;height:30px;background:var(--ink);border-radius:2px}
+.levels .mk{position:absolute;top:44px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:1px;font-size:11.5px;white-space:nowrap;color:var(--ink2)}
+.levels .mk i{width:2px;height:22px;background:var(--mc)} .levels .mk.r1 i{height:58px}
+.levels .mk b{font-family:var(--f-num);font-size:13px;color:var(--ink)} .levels .mk em{font-style:normal;font-size:11px;color:var(--ink2)}
 .bigrate{font-family:var(--f-display);font-size:30px;font-weight:700;line-height:1.1}
 .listcard ul{margin:0}
 .toast{position:fixed;bottom:calc(16px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:8px 14px;border-radius:6px;font-size:13px;z-index:20}
@@ -387,6 +392,19 @@ table.mult td,table.mult th{padding:9px 12px} table.mult td:first-child{white-sp
 #glossary[open] .glsum{margin-bottom:8px}
 .pxsum{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:24px;margin-top:12px;align-items:start}
 @media (max-width:760px){.pxsum{grid-template-columns:minmax(0,1fr)}}
+.rtiles{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.rtile{display:flex;flex-direction:column;gap:3px;padding:12px 14px;border-left:1px solid var(--line)} .rtile:first-child{border-left:0}
+.rtile span{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink2)} .rtile b{font-size:22px;font-weight:700} .rtile b.up{color:var(--goodText)} .rtile b.dn{color:var(--critText)} .rtile small{font-size:12px;color:var(--ink2);line-height:1.35}
+@media (max-width:900px){.rtiles{grid-template-columns:repeat(2,minmax(0,1fr))}.rtile{border-left:0;border-top:1px solid var(--line)}.rtile:nth-child(-n+2){border-top:0}.rtile:nth-child(even){border-left:1px solid var(--line)}.rtile:last-child:nth-child(odd){grid-column:1/-1}}
+.ladder{position:relative;display:flex;gap:3px;height:30px;margin:22px 0 10px} .ladder span{display:grid;place-items:center;font-size:11.5px;font-weight:600;border-radius:6px;background:color-mix(in srgb,var(--lc) 22%,var(--surface));color:var(--ink);min-width:0;overflow:hidden;white-space:nowrap}
+.ladder span.on{background:color-mix(in srgb,var(--lc) 55%,var(--surface));outline:2px solid var(--lc)}
+.ladder i{position:absolute;top:-10px;bottom:-6px;width:3px;background:var(--ink);border-radius:2px;transform:translateX(-50%)} .ladder i::after{content:"Hoy";position:absolute;top:-16px;left:50%;transform:translateX(-50%);font-size:11px;font-weight:700;font-style:normal}
+.lrows{display:flex;flex-direction:column} .lrows div{display:grid;grid-template-columns:12px 90px 1fr;gap:8px;align-items:center;padding:6px 0;border-bottom:1px solid var(--line);font-size:13px} .lrows div:last-child{border-bottom:0} .lrows i{width:10px;height:10px;border-radius:3px} .lrows div.on{font-weight:600} .lrows span{color:var(--ink2);font-variant-numeric:tabular-nums}
+.pulsegrid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:24px;align-items:center}
+@media (max-width:760px){.pulsegrid{grid-template-columns:minmax(0,1fr)}}
+.plist{display:flex;flex-direction:column} .prow{display:grid;grid-template-columns:80px 120px 1fr;gap:10px;align-items:start;padding:10px 0;border-bottom:1px solid var(--line)} .prow:last-child{border-bottom:0}
+.prow b{font-size:13.5px} .prow .pill{justify-self:start} .prow p{margin:0;font-size:13px;line-height:1.45;color:var(--ink)}
+@media (max-width:520px){.prow{grid-template-columns:80px 1fr}.prow p{grid-column:1/-1}}
 .pxgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-areas:"ret rng" "tgt beh";gap:14px;margin-top:14px}
 @media (max-width:760px){.pxgrid{grid-template-columns:minmax(0,1fr);grid-template-areas:"ret" "rng" "tgt" "beh"}}
 .pxp{border:1px solid var(--line);border-radius:12px;padding:12px 16px 14px;background:var(--surface);display:flex;flex-direction:column;min-width:0}
@@ -565,7 +583,7 @@ h3{font-weight:600;font-size:13.5px}
 .card,details.box,.ascard,.coblock,.datapanel{border-radius:var(--r);box-shadow:var(--shadow)}
 .card{padding:18px 20px;gap:10px}
 .card > h2::before{display:none}
-.card > h2{font-size:15px}
+.card > h2{font-size:18px;font-weight:700;letter-spacing:-.01em}
 .sub{font-size:12.5px}
 .kpis{border-radius:var(--r);box-shadow:var(--shadow)}
 .kpi{padding:16px 18px}
@@ -2225,12 +2243,12 @@ function consensusHtml(){
       ${kpi("Precio objetivo medio",money(s.cMean),`${pill(up(s.cMean))}${fin(s.cLow)&&fin(s.cHigh)?`<span class="note">rango ${nf(s.cLow,0)}–${nf(s.cHigh,0)}</span>`:""}`)}
       ${kpi("Tu valor ponderado",money(mine),`${pill(up(mine))}${fin(mine)&&fin(s.cMean)?`<span class="note">${mine>=s.cMean?"por encima":"por debajo"} del consenso en ${nf(Math.abs(mine/s.cMean-1)*100,0)}%</span>`:""}`)}
     </div>
-    ${ca?`<div class="g2" style="margin-top:12px;align-items:start">
-      <div><div class="eyebrow" style="margin-bottom:6px">Reparto actual (${esc(mesCorto(ca.periodo||""))})</div>
+    ${ca?`<div class="g2" style="margin-top:16px;align-items:stretch;gap:24px">
+      <div><div class="pxh">Reparto actual (${esc(mesCorto(ca.periodo||""))})</div>
         <div class="recbar" role="img" aria-label="Reparto de recomendaciones">${K.filter(([k])=>ca[k]>0).map(([k,l,c])=>`<span style="flex:${ca[k]};background:var(${c})"></span>`).join("")}</div>
-        <div class="legendrow">${K.map(([k,l,c])=>`<span><i style="background:var(${c})"></i>${l} ${ca[k]||0}</span>`).join("")}</div>
+        <div class="reclist">${K.map(([k,l,c])=>`<div><i style="background:var(${c})"></i><span>${l}</span><b class="num">${ca[k]||0}</b><em class="num">${tot?nf((ca[k]||0)/tot*100,0)+"%":"–"}</em><u><s style="width:${tot?(ca[k]||0)/tot*100:0}%;background:var(${c})"></s></u></div>`).join("")}</div>
         <p class="note" style="margin-top:8px">El consenso suele ser optimista: en las grandes compañías de EE. UU. es raro ver más de un 10% de recomendaciones de venta. Es más útil su <b>cambio</b> que su nivel.</p></div>
-      <div><div class="eyebrow" style="margin-bottom:6px">Evolución mensual</div>${hist.length>1?`<div class="cv h200"><canvas id="ch_vl_rec" role="img" aria-label="Evolución de las recomendaciones"></canvas></div>`:`<p class="empty">El historial mensual aparecerá con la próxima actualización.</p>`}</div>
+      <div><div class="pxh">Evolución mensual</div>${hist.length>1?`<div class="cv h240"><canvas id="ch_vl_rec" role="img" aria-label="Evolución de las recomendaciones"></canvas></div>`:`<p class="empty">El historial mensual aparecerá con la próxima actualización.</p>`}</div>
     </div>`:`<p class="empty">Sin recomendaciones automáticas.</p>`}
     <p class="note">No hay fuente gratuita fiable de precios objetivo: se editan a mano en <code>manual/${esc(cur._t)}.json</code>${m.fecha?` (último dato: ${esc(m.fecha)})`:""}.</p>
   </section>`;
@@ -3009,11 +3027,13 @@ R.management=()=>{
   </div>`;
 };
 
+let RIESGOS_ES={};
+const riesgoEs=x=>RIESGOS_ES[x]||null;
 function risk10kHtml(){
   const K=cur._data&&cur._data.riesgos_10k; if(!K) return "";
   const [a,b]=K.informes||[]; const lk=d=>d?`<a href="${esc(d.url)}" target="_blank" rel="noopener">10-K del ${esc(fecha(d.fecha_presentacion))}</a>`:"";
   if(!K.ok) return `<section class="card"><h2>Qué ha cambiado en los riesgos del 10-K</h2><p class="sub">${esc(K.motivo||"")} Puedes compararlos a mano: ${lk(a)} y ${lk(b)}.</p></section>`;
-  const one=x=>`<li>${esc(x.length>260?x.slice(0,260)+"…":x)}</li>`;
+  const one=x=>{ const es=riesgoEs(x), t=es||x; return `<li${es?` title="${esc(x)}"`:` lang="en"`}>${esc(t.length>260?t.slice(0,260)+"…":t)}${es?"":` <span class="note">(en inglés)</span>`}</li>`; };
   const li=xs=>xs.length?`<ul class="bul">${xs.slice(0,8).map(one).join("")}</ul>${xs.length>8?`<details class="dwhich"><summary>ver ${xs.length-8} más</summary><ul class="bul">${xs.slice(8).map(one).join("")}</ul></details>`:""}`:`<p class="empty">Ninguno.</p>`;
   const dw=a&&b&&b.palabras?(a.palabras/b.palabras-1)*100:NaN;
   return `<section class="card"><h2>Qué ha cambiado en los riesgos del 10-K</h2><p class="sub">Comparación automática del apartado de riesgos (Item 1A) entre el ${lk(a)} y el ${lk(b)}. Orientativa: compara los titulares de cada riesgo; un cambio de redacción puede aparecer como nuevo y eliminado.</p>
@@ -3024,7 +3044,7 @@ function risk10kHtml(){
       ${kpi("Extensión del apartado",fin(dw)?(dw>=0?"+":"")+nf(dw,0)+"%":"–",`<span class="note">${nf(a.palabras,0)} palabras</span>`)}
     </div>
     <div class="g2"><div><h3>Nuevos en el último 10-K</h3>${li(K.nuevos||[])}</div><div><h3>Ya no aparecen (o se han reescrito)</h3>${li(K.eliminados||[])}</div></div>
-    <p class="note">Los titulares están en inglés, tal y como los publica la compañía. Si alguno nuevo es relevante, añádelo al registro de abajo.</p></section>`;
+    <p class="note">Titulares traducidos al español; pasa el ratón por encima para ver el original en inglés. Si alguno nuevo es relevante, añádelo al registro de abajo.</p></section>`;
 }
 R.risk=()=>{
   const rs=cur.risks.map((r,i)=>({...r,i0:i,sv:(+r.p)*(+r.i)})); const s=scorecard(cur);
@@ -3405,14 +3425,14 @@ function socialHtml(){
     <div class="social">${P.map(pl=>`<div class="sp" style="--k:var(${pl.k})"><div class="hd"><span class="badge">${pl.n.toUpperCase()}</span><b>${pl.n}</b></div><span class="s">${pl.d}</span>
       ${pl.links.map(([l,u,t])=>`<a class="lk" href="${esc(u)}" target="_blank" rel="noopener noreferrer"><span class="ext">${esc(l)}</span><small>${t}</small></a>`).join("")}</div>`).join("")}</div>
   </section>
-  <div class="g2">
+    <section class="card" style="--tc:var(--c1)" id="pulseCard"><h2>Lectura del sentimiento en redes</h2><p class="sub">${S.pulseFuente?esc(S.pulseFuente)+" ":""}Tono general de cada red sobre ${esc(name)}. ${EDIT?"Cámbialo con tu propia lectura.":"Pulsa «Editar» para ajustarlo con tu propia lectura."}</p>
+      <div class="pulsegrid"><div>${EDIT?`<div class="pulse">${S.pulse.map((x,i)=>`<b>${esc(x.p)}</b><select data-p="social.pulse.${i}.s" data-k="num" aria-label="Sentimiento en ${esc(x.p)}">${OPTS.map(([v,l])=>`<option value="${v}" ${(v===""?!fin(x.s):+v===x.s)?"selected":""}>${l}</option>`).join("")}</select><input type="text" data-p="social.pulse.${i}.note" value="${esc(x.note||"")}" placeholder="Qué se comenta" aria-label="Nota sobre ${esc(x.p)}">`).join("")}</div>`:`<div class="plist">${S.pulse.map(x=>{ const o=OPTS.find(([v])=>v!==""&&+v===x.s); const cls=!fin(x.s)?"neutral":x.s>0?"up":x.s<0?"down":"mid";
+        return `<div class="prow"><b>${esc(x.p)}</b><span class="pill ${cls}">${o?esc(o[1]):"Sin valorar"}</span><p>${esc(x.note||"")}</p></div>`; }).join("")}</div>`}</div>
+      <div>${anyPulse?`<div class="cv h240"><canvas id="ch_src_pulse" role="img" aria-label="Sentimiento por red social"></canvas></div><p class="note" style="text-align:center">De −2 (muy bajista) a +2 (muy alcista)</p>`:`<p class="empty">Cuando valores al menos una red, aquí aparece el gráfico comparativo.</p>`}</div></div>
+    </section>
     <section class="card" style="--tc:var(--c8)"><h2>Vídeos destacados en YouTube</h2><p class="sub">Selección de análisis recientes. Para lo último, usa «Análisis más recientes».</p>
       ${EDIT?`<div class="scroll"><table><tbody>${S.videos.map((v,i)=>`<tr><td>${ln(`social.videos.${i}.t`)}</td><td>${ln(`social.videos.${i}.u`)}</td><td>${del("social.videos",i)}</td></tr>`).join("")}</tbody></table></div>${add("social.videos","videos","Añadir vídeo")}`
       :S.videos.length?`<div class="doclist">${S.videos.map(v=>`<div class="doc" style="--k:var(--c8)"><i></i>${okUrl(v.u)?`<a class="ext" href="${esc(v.u)}" target="_blank" rel="noopener noreferrer">${esc(v.t)}</a>`:esc(v.t)}<span class="dt">YouTube</span></div>`).join("")}</div>`:`<p class="empty">Sin vídeos guardados. Pulsa «Editar» para añadir.</p>`}
-    </section>
-    <section class="card" style="--tc:var(--c1)"><h2>Mi lectura del sentimiento</h2><p class="sub">Después de leer cada red, apunta el tono general y una frase. Se guarda con la compañía.</p>
-      <div class="pulse">${S.pulse.map((x,i)=>`<b>${esc(x.p)}</b><select data-p="social.pulse.${i}.s" data-k="num" aria-label="Sentimiento en ${esc(x.p)}">${OPTS.map(([v,l])=>`<option value="${v}" ${(v===""?!fin(x.s):+v===x.s)?"selected":""}>${l}</option>`).join("")}</select><input type="text" data-p="social.pulse.${i}.note" value="${esc(x.note||"")}" placeholder="Qué se comenta" aria-label="Nota sobre ${esc(x.p)}">`).join("")}</div>
-      ${anyPulse?`<div class="cv h200"><canvas id="ch_src_pulse" role="img" aria-label="Sentimiento por red social"></canvas></div>`:`<p class="empty">Cuando valores al menos una red, aquí aparece el gráfico comparativo.</p>`}
     </section>
   </div>`;
 }
@@ -3435,6 +3455,39 @@ function histHtml(){
   return fvc+`<section class="card"><h2>Historial de veredictos</h2><p class="sub">Cada vez que guardas un análisis en GitHub queda una versión. Así ves qué pensabas, a qué precio y qué ha pasado desde entonces.</p>
     ${vs.length?`<div class="scroll"><table><thead><tr><th>Análisis a</th><th style="text-align:left">Recomendación</th><th>Convicción</th><th>Comprar por debajo de</th><th>Valor con tus supuestos de entonces</th><th>Precio entonces</th><th>Desde entonces</th></tr></thead><tbody>${rows}</tbody></table></div>
     <p class="note">El valor se recalcula con los supuestos de cada versión y las cifras de la SEC actuales. Hoy: ${money(cur.v.price)}.</p>`:`<p class="empty">Aún no hay versiones guardadas con recomendación.</p>`}</section>`;
+}
+function retHtml(vz,s){
+  if(!vz.ok||!fin(cur.v.price)) return "";
+  const P=cur.v.price, H=horizonMonths(), out=vz.sc.out.slice().sort((a,b)=>a.ps-b.ps);
+  const up=v=>(v/P-1)*100, sg=(v,d=1)=>fin(v)?(v>=0?"+":"−")+nf(Math.abs(v),d)+"%":"–";
+  const exp=up(vz.w), ann=(Math.pow(vz.w/P,12/H)-1)*100;
+  const bear=out[0], bull=out.at(-1), downside=up(bear.ps), upside=up(bull.ps);
+  const ratio=downside<0&&upside>0?upside/Math.abs(downside):NaN;
+  const pLoss=out.filter(o=>o.ps<P).reduce((a,o)=>a+(+o.p||0),0);
+  const w=vz.w, lad=[["Comprar",w/1.25,"--good"],["Acumular",w/1.10,"--c3"],["Mantener",w/0.90,"--c4"],["Reducir",Infinity,"--crit"]];
+  let prev=0; const steps=lad.map(([n,hi,c])=>{ const r={n,lo:prev,hi,c}; prev=hi; return r; });
+  const curStep=steps.find(x=>P>=x.lo&&P<x.hi)||steps.at(-1);
+  const maxV=Math.max(w/0.90*1.12,P*1.05), minV=Math.min(P*0.9,w/1.25*0.8), Xp=v=>Math.max(0,Math.min(100,(v-minV)/(maxV-minV)*100));
+  const tile=(k,v,n,cls)=>`<div class="rtile"><span>${k}</span><b class="num ${cls||""}">${v}</b><small>${n}</small></div>`;
+  return `<section class="card" id="retCard"><h2>¿Cuánto puedo ganar o perder?</h2>
+    <p class="sub">Con tus escenarios de la pestaña Valoración y la cotización de hoy (${money(P)}), a ${H} meses. Sin contar dividendos.</p>
+    <div class="rtiles">
+      ${tile("Rentabilidad esperada",sg(exp),`ponderada por probabilidad · ${sg(ann)} anual`,exp>=0?"up":"dn")}
+      ${tile("Si sale bien",sg(upside),`escenario ${esc(bull.n.toLowerCase())} · ${money(bull.ps)}`,"up")}
+      ${tile("Si sale mal",sg(downside),`escenario ${esc(bear.n.toLowerCase())} · ${money(bear.ps)}`,downside>=0?"up":"dn")}
+      ${tile("Asimetría",fin(ratio)?nf(ratio,1)+" a 1":downside>=0?"Sin pérdida":"–",fin(ratio)?(ratio>=2?"se puede ganar bastante más de lo que se arriesga":ratio>=1?"algo más de subida que de bajada":"se arriesga más de lo que se puede ganar"):"ningún escenario queda por debajo de la cotización")}
+      ${tile("Probabilidad de perder",nf(pLoss,0)+"%",pLoss?"suma de los escenarios por debajo de la cotización":"ningún escenario por debajo del precio actual",pLoss>=40?"dn":"")}
+    </div>
+    <div class="g2" style="margin-top:14px;gap:18px;align-items:start">
+      <div><div class="pxh">Escenarios</div><div class="scroll"><table><thead><tr><th>Escenario</th><th>Prob.</th><th>Valor</th><th>Potencial</th></tr></thead><tbody>
+        ${out.map(o=>`<tr><td>${esc(o.n)}</td><td>${nf(o.p,0)}%</td><td>${money(o.ps)}</td><td><span class="pill ${o.ps>=P?"up":"down"}">${sg(up(o.ps))}</span></td></tr>`).join("")}
+        <tr class="em"><td>Ponderado</td><td>100%</td><td>${money(w)}</td><td><span class="pill ${w>=P?"up":"down"}">${sg(exp)}</span></td></tr></tbody></table></div></div>
+      <div><div class="pxh">Qué haría según el precio</div>
+        <div class="ladder">${steps.map(x=>`<span style="flex:${Math.max(6,Xp(Math.min(x.hi,maxV))-Xp(Math.max(x.lo,minV)))};--lc:var(${x.c})" class="${x===curStep?"on":""}">${x.n}</span>`).join("")}<i style="left:${Xp(P)}%"></i></div>
+        <div class="lrows">${steps.map(x=>`<div class="${x===curStep?"on":""}"><i style="background:var(${x.c})"></i><b>${x.n}</b><span>${x.lo<=0?`por debajo de ${money(x.hi)}`:x.hi===Infinity?`por encima de ${money(x.lo)}`:`de ${money(x.lo)} a ${money(x.hi)}`}</span></div>`).join("")}</div>
+        <p class="note" style="margin-top:6px">Tramos según la regla del modelo (potencial frente a tu valor de ${money(w)}). Hoy: <b>${esc(curStep.n)}</b>${s.total<50?"; con una puntuación inferior a 50 el modelo sugiere evitarla":curStep.n==="Comprar"&&s.total<65?"; para «Comprar» el modelo pide además una puntuación de 65":""}. Tu zona de compra: por debajo de ${money(cur.verdict.buyBelow)}.</p></div>
+    </div>
+  </section>`;
 }
 R.verdict=()=>{
   const vz=valuation(cur), s=scorecard(cur,vz), v=cur.verdict;
@@ -3466,6 +3519,7 @@ R.verdict=()=>{
         <div class="k">Margen de seguridad hoy</div><div class="v">${pct((1-cur.v.price/vz.w)*100)}</div><div></div>
       </div></section>
   </div>
+  ${retHtml(vz,s)}
   <section class="card conclusion"><h2>Conclusión</h2>${tx("verdict.summary",{rows:5})}</section>
   ${histHtml()}
   <div class="g3">
@@ -3477,12 +3531,16 @@ R.verdict=()=>{
   <p class="note">Herramienta de análisis, no una recomendación de inversión personalizada. ${esc(dataStamp())}</p>`;
 };
 function drawLevels(){
-  const el=$("levels"); if(!el) return; const vz=valuation(cur);
-  const pts=[{n:"Compra",v:cur.verdict.buyBelow,pos:"dn"},{n:"Cotización",v:cur.v.price,pos:"up",b:1},{n:"Valor",v:vz.w,pos:"dn"},{n:"Consenso",v:cur.v.cMean,pos:"up"}].filter(p=>fin(p.v));
-  if(!pts.length){el.innerHTML="";return;}
-  let mn=Math.min(...pts.map(p=>p.v)), mx=Math.max(...pts.map(p=>p.v)); const pad=(mx-mn)*.12||mx*.1; mn-=pad; mx+=pad;
-  const X=v=>(v-mn)/(mx-mn)*100;
-  el.innerHTML=`<div class="track"></div>`+pts.map(p=>`<div class="mk ${p.pos}" style="left:${X(p.v)}%">${p.pos==="up"?`<span>${p.n}</span><b>${nf(p.v,0)}</b><i></i>`:`<i></i><b>${nf(p.v,0)}</b><span>${p.n}</span>`}</div>`).join("");
+  const el=$("levels"); if(!el) return; const vz=valuation(cur), P=cur.v.price;
+  const pts=[{n:"Zona de compra",v:cur.verdict.buyBelow,c:"--good"},{n:"Valor del modelo",v:vz.w,c:"--tcx"},{n:"Consenso",v:cur.v.cMean,c:"--c4"}].filter(p=>fin(p.v));
+  if(!fin(P)){el.innerHTML="";return;}
+  const all=[P,...pts.map(p=>p.v)]; let mn=Math.min(...all), mx=Math.max(...all); const pad=(mx-mn)*.1||mx*.1; mn-=pad; mx+=pad;
+  const X=v=>(v-mn)/(mx-mn)*100, bb=cur.verdict.buyBelow;
+  pts.sort((a,b)=>a.v-b.v); let lastX=-99, row=0; pts.forEach(p=>{ const x=X(p.v); row=x-lastX<16?1-row:0; p.row=row; lastX=x; });
+  const up=v=>(v/P-1)*100, sg=v=>(v>=0?"+":"−")+nf(Math.abs(v),0)+"%";
+  el.innerHTML=`<div class="track">${fin(bb)?`<i class="buyz" style="width:${Math.max(0,Math.min(100,X(bb)))}%"></i>`:""}</div>
+    <div class="now ${X(P)<14?"l":X(P)>86?"r":""}" style="left:${X(P)}%"><b>Hoy ${money(P)}</b><i></i></div>`+
+    pts.map(p=>`<div class="mk r${p.row}" style="left:${X(p.v)}%;--mc:var(${p.c})"><i></i><b>${nf(p.v,0)}</b><span>${p.n}</span><em>${sg(up(p.v))}</em></div>`).join("");
 }
 
 /* ================= PESTAÑAS: GRÁFICOS ================= */
@@ -3915,6 +3973,7 @@ async function boot(){
     const [cos,tpl,idx]=await Promise.all([getJSON("companies.json"),getJSON("analysis/_plantilla.json").catch(()=>({})),getJSON("data/_indice.json").catch(()=>null)]);
     INDICE=idx;
     TEMPLATE=tpl||{};
+    getJSON("i18n/riesgos_es.json").then(j=>{ RIESGOS_ES=(j&&j.t)||{}; if(TAB==="risk"&&!WATCH&&!REPORT) renderTab(); }).catch(()=>{});
     const rows=await Promise.all(cos.companies.map(async co=>{ const t=co.ticker.toUpperCase();
       const [an,d,man,prop]=await Promise.all([getJSON(`analysis/${t}.json`).catch(()=>null),getJSON(`data/${t}.json`).catch(()=>null),getJSON(`manual/${t}.json`).catch(()=>null),getJSON(`propuestas/${t}.json`).catch(()=>null)]);
       const c=buildCompany(co,an,d,man); c._prop=prop&&Array.isArray(prop.cambios)&&prop.cambios.length?prop:null; return [t,c]; }));
