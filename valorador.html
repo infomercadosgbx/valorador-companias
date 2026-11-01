@@ -2909,11 +2909,14 @@ function invChart(){ const f=cur.fin, sc=finScale(), cat=CAT(), id=invView(), yr
       {label:"Capex / amortizaciones",data:pc(f.capex,f.da),borderColor:cat[2],backgroundColor:cat[2],hidden:false},
       {label:"100%",data:yrs.map(()=>100),borderColor:V("--muted"),borderDash:[4,4],borderWidth:1.5,pointRadius:0,pointHoverRadius:0}].filter(d=>d.data.some(fin));
     return {type:"line",data:{labels:yrs,datasets:ds},options:{plugins:{legend:legend(ds.length),tooltip:{filter:it=>it.dataset.label!=="100%",callbacks:{label:c=>`${c.dataset.label}: ${nf(c.parsed.y,0)}%`}}},scales:{x:axisX,y:axisY({suf:"%"})}}}; }
-  if(id==="id"){ const tot=f.rd.map((v,i)=>fin(v)?v+(fin(f.capex[i])?f.capex[i]:0):null);
-    const ds=[{type:"bar",label:rdIsTech()?"Tecnología e infraestructura":"Gasto en I+D",data:sc1(f.rd,sc.d),backgroundColor:alpha(cat[0],.75),yAxisID:"y"},
-      {type:"line",label:rdIsTech()?"Tecnología / ingresos":"I+D / ingresos",data:pc(f.rd,f.rev),borderColor:cat[1],backgroundColor:cat[1],yAxisID:"y1",order:-1},
-      {type:"line",label:"(I+D + capex) / ingresos",data:pc(tot,f.rev),borderColor:cat[2],backgroundColor:cat[2],borderDash:[5,4],yAxisID:"y1",order:-1}].filter(d=>d.data.some(fin));
-    return {type:"bar",data:{labels:yrs,datasets:ds},options:{plugins:{legend:(()=>{const l=legend(ds.length); l.labels={...(l.labels||{}),sort:(a,b)=>a.datasetIndex-b.datasetIndex}; return l;})(),tooltip:{callbacks:{label:c=>c.dataset.yAxisID==="y1"?`${c.dataset.label}: ${nf(c.parsed.y,1)}%`:`${c.dataset.label}: ${nf(c.parsed.y,sc.d>1?1:0)} ${sc.u}`}}},
+  if(id==="id"){ const i0=Math.max(0,f.rd.findIndex(v=>fin(v)&&v>0)), i1=f.rd.length-[...f.rd].reverse().findIndex(v=>fin(v)&&v>0), cut=a=>(a||[]).slice(i0,i1), yrs2=yrs.slice(i0,i1);
+    const rd=cut(f.rd), rv=cut(f.rev), cx=cut(f.capex), mx=Math.max(0,...rd.filter(fin));
+    const sc=mx>=20000?{d:1000,u:"mil M "+ccy()}:{d:1,u:"M "+ccy()};
+    const tot=rd.map((v,i)=>fin(v)?v+(fin(cx[i])?cx[i]:0):null);
+    const ds=[{type:"bar",label:rdIsTech()?"Tecnología e infraestructura":"Gasto en I+D",data:sc1(rd,sc.d),backgroundColor:alpha(cat[0],.75),yAxisID:"y"},
+      {type:"line",label:rdIsTech()?"Tecnología / ingresos":"I+D / ingresos",data:pc(rd,rv),borderColor:cat[1],backgroundColor:cat[1],yAxisID:"y1",order:-1},
+      {type:"line",label:rdIsTech()?"(Tecnología + capex) / ingresos":"(I+D + capex) / ingresos",data:pc(tot,rv),borderColor:cat[2],backgroundColor:cat[2],borderDash:[5,4],yAxisID:"y1",order:-1}].filter(d=>d.data.some(fin));
+    return {type:"bar",data:{labels:yrs2,datasets:ds},options:{plugins:{legend:(()=>{const l=legend(ds.length); l.labels={...(l.labels||{}),sort:(a,b)=>a.datasetIndex-b.datasetIndex}; return l;})(),tooltip:{callbacks:{label:c=>c.dataset.yAxisID==="y1"?`${c.dataset.label}: ${nf(c.parsed.y,1)}%`:`${c.dataset.label}: ${nf(c.parsed.y,sc.d>1?1:0)} ${sc.u}`}}},
       scales:{x:axisX,y:axisY(),y1:{...axisY({suf:"%"}),position:"right",grid:{drawOnChartArea:false}}}}}; }
   if(id==="sbc"){ const after=f.fcf.map((v,i)=>fin(v)&&fin(f.sbc[i])?v-f.sbc[i]:null);
     const dil=f.dilA.map((v,i)=>i>0&&fin(v)&&fin(f.dilA[i-1])&&f.dilA[i-1]>0?(v/f.dilA[i-1]-1)*100:null);
