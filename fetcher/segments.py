@@ -17,8 +17,8 @@ from datetime import date
 from .bonds import find_files, label_for, parse_instance, parse_labels, target_filings
 from .filings import archive_base
 
-VERSION = 4
-AXES = {"StatementBusinessSegmentsAxis": "segmento", "ProductOrServiceAxis": "producto"}
+VERSION = 5
+AXES = {"StatementBusinessSegmentsAxis": "segmento", "ProductOrServiceAxis": "producto", "StatementGeographicalAxis": "geografia"}
 OK_EXTRA = {"ConsolidationItemsAxis"}
 REV = ("RevenueFromContractWithCustomerExcludingAssessedTax", "Revenues",
        "RevenueFromContractWithCustomerIncludingAssessedTax", "SalesRevenueNet")
@@ -49,6 +49,29 @@ def extract(inst_xml: bytes, lab_xml: bytes | None):
     out = {}
     for f in facts:
         concept = f["c"]
+        if concept in ("ConcentrationRiskPercentage1", "ConcentrationRiskPercentage"):
+            c = ctx.get(f["ctx"])
+            v = _num(f["v"])
+            if not c or not c.get("start") or v is None:
+                continue
+            dims = dict(c["dims"])
+            typ, bench = dims.pop("ConcentrationRiskByTypeAxis", ""), dims.pop("ConcentrationRiskByBenchmarkAxis", "")
+            if "Customer" not in typ or not re.search(r"Revenue|Sales", bench):
+                continue
+            dims.pop("ConsolidationItemsAxis", None)
+            who = dims.pop("MajorCustomersAxis", None)
+            if not who and len(dims) == 1:
+                who = next(iter(dims.values()))
+            if not who:
+                continue
+            days = (_d(c["end"]) - _d(c["start"])).days
+            per = "T" if 80 <= days <= 100 else "A" if 350 <= days <= 380 else None
+            if per:
+                if v > 1:
+                    v = v / 100
+                row = out.setdefault(("_conc", who), {"nombre": label_for(who, labels), "valores": {}})
+                row["valores"][(per, c["start"], c["end"])] = v
+            continue
         if TECH.match(concept):
             c = ctx.get(f["ctx"])
             v = _num(f["v"])
@@ -142,6 +165,26 @@ def _assemble(series: dict, fye_month: int, max_q=12, max_a=5):
     return tri, anu
 
 
+def _conc_block(conc, fye_month):
+    """Clientes que superan el 10% de los ingresos (nota de concentración del 10-K/10-Q)."""
+    out = []
+    for member, m in conc.items():
+        pts = []
+        for (per, s0, e0), (v, src) in sorted(m["valores"].items(), key=lambda kv: kv[0][2]):
+            lab = _q_label(_d(e0), fye_month) if per == "T" else str(_d(e0).year if _d(e0).month >= 6 else _d(e0).year - 1)
+            pts.append({"periodo": lab, "tipo": "trimestre" if per == "T" else "año", "periodo_inicio": s0, "periodo_fin": e0,
+                        "porcentaje": round(v * 100, 1), "fuente": f"SEC EDGAR · {src.get('formulario', '')} (XBRL)",
+                        "url": src.get("url"), "fecha_presentacion": src.get("fecha_presentacion")})
+        if not pts:
+            continue
+        anual = [p for p in pts if p["tipo"] == "año"][-5:]
+        tri = [p for p in pts if p["tipo"] == "trimestre"][-8:]
+        last = max(pts, key=lambda p: (p["periodo_fin"], p["tipo"] == "año"))
+        out.append({"miembro": member, "nombre": m["nombre"], "ultimo": last, "anual": anual, "trimestral": tri})
+    out.sort(key=lambda x: (x["ultimo"]["periodo_fin"], x["ultimo"]["porcentaje"]), reverse=True)
+    return out
+
+
 def _tech_block(tech, fye_month):
     """Serie del gasto de tecnología (etiqueta propia) con su informe de origen."""
     if not tech:
@@ -173,7 +216,7 @@ def build(client, cik, subs, previous=None, fye_month=12):
     accns = [r["accessionNumber"] for r in fl]
     if previous and previous.get("informes_accn") == accns and previous.get("version") == VERSION:
         return previous
-    merged, used, tech = {}, [], {}
+    merged, used, tech, conc = {}, [], {}, {}
     for r in reversed(fl):  # lo más reciente sobrescribe
         base = archive_base(cik, r["accessionNumber"])
         idx = client.get_json(f"{base}/index.json")
@@ -190,6 +233,11 @@ def build(client, cik, subs, previous=None, fye_month=12):
             continue
         src = {"formulario": r["form"], "fecha_presentacion": r["filingDate"], "url": f"{base}/{r['accessionNumber']}-index.htm",
                "ns": inst_name.split("-")[0].split("_")[0]}
+        for k in [k for k in rows if k[0] == "_conc"]:
+            r0 = rows.pop(k)
+            m = conc.setdefault(k[1], {"nombre": r0["nombre"], "valores": {}})
+            for key, v in r0["valores"].items():
+                m["valores"][key] = (v, src)
         for concept, vals in rows.pop(("_tech", "_tech"), {}).items():
             for key, v in vals.items():
                 tech.setdefault(concept, {})[key] = (v, src)
@@ -201,7 +249,7 @@ def build(client, cik, subs, previous=None, fye_month=12):
             for kind in ("ingresos", "operativo"):
                 for concept, vals in row[kind].items():
                     m[kind].setdefault(concept, {}).update(vals)
-    out = {"segmento": [], "producto": []}
+    out = {"segmento": [], "producto": [], "geografia": []}
     for (axis, member), m in merged.items():
         rev = _series(m["ingresos"], REV)
         if not rev:
@@ -214,9 +262,10 @@ def build(client, cik, subs, previous=None, fye_month=12):
                                "trimestral": tri, "anual": anu,
                                "operativo_trimestral": opi_t, "operativo_anual": opi_a})
     out["gasto_tecnologia"] = _tech_block(tech, fye_month)
-    for k in ("segmento", "producto"):
+    out["clientes_concentracion"] = _conc_block(conc, fye_month)
+    for k in ("segmento", "producto", "geografia"):
         out[k].sort(key=lambda x: -((x["trimestral"] or x["anual"] or [{"valor": 0}])[-1]["valor"] or 0))
-    if not out["segmento"] and not out["producto"]:
+    if not out["segmento"] and not out["producto"] and not out["geografia"] and not out["clientes_concentracion"]:
         return {"version": VERSION, "informes_accn": accns, "segmento": [], "producto": [], "informes": used}
     return {"version": VERSION, "informes_accn": accns, **out, "informes": used,
             "fuente": "SEC EDGAR · XBRL completo (dimensiones de segmento y producto)"}

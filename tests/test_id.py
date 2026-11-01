@@ -101,3 +101,27 @@ def test_reexpresion_aparta_periodos_no_comparables():
     assert flows["ingresos"]["anual_no_comparable"][0]["periodo"] == "2022"
     assert flows["acciones_diluidas_media"]["anual"]   # las acciones no se tocan
     assert any(w["codigo"] == "reexpresion" for w in avisos)
+
+
+def test_clientes_concentracion_y_geografia():
+    from fetcher import segments as SEG
+    xml = b"""<?xml version="1.0"?>
+<xbrl xmlns="http://www.xbrl.org/2003/instance" xmlns:us-gaap="http://fasb.org/us-gaap/2024" xmlns:xbrldi="http://xbrl.org/2006/xbrldi" xmlns:pep="http://pepsico.com/2025">
+ <context id="c1"><entity><identifier scheme="x">1</identifier><segment>
+   <xbrldi:explicitMember dimension="us-gaap:ConcentrationRiskByBenchmarkAxis">us-gaap:RevenueFromContractWithCustomerMember</xbrldi:explicitMember>
+   <xbrldi:explicitMember dimension="us-gaap:ConcentrationRiskByTypeAxis">us-gaap:CustomerConcentrationRiskMember</xbrldi:explicitMember>
+   <xbrldi:explicitMember dimension="srt:MajorCustomersAxis">pep:WalmartMember</xbrldi:explicitMember></segment></entity>
+   <period><startDate>2025-01-01</startDate><endDate>2025-12-27</endDate></period></context>
+ <context id="g1"><entity><identifier scheme="x">1</identifier><segment>
+   <xbrldi:explicitMember dimension="srt:StatementGeographicalAxis">country:US</xbrldi:explicitMember></segment></entity>
+   <period><startDate>2025-01-01</startDate><endDate>2025-12-27</endDate></period></context>
+ <unit id="pure"><measure>xbrli:pure</measure></unit><unit id="usd"><measure>iso4217:USD</measure></unit>
+ <us-gaap:ConcentrationRiskPercentage1 contextRef="c1" unitRef="pure" decimals="2">0.14</us-gaap:ConcentrationRiskPercentage1>
+ <us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax contextRef="g1" unitRef="usd" decimals="-6">55000000000</us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax>
+</xbrl>"""
+    rows = SEG.extract(xml, None)
+    c = rows[("_conc", "pep:WalmartMember")]
+    assert list(c["valores"].values()) == [0.14]
+    assert ("StatementGeographicalAxis", "country:US") in rows
+    blk = SEG._conc_block({"pep:WalmartMember": {"nombre": c["nombre"], "valores": {k: (v, {"formulario": "10-K"}) for k, v in c["valores"].items()}}}, 12)
+    assert blk[0]["ultimo"]["porcentaje"] == 14.0 and "Walmart" in blk[0]["nombre"]
