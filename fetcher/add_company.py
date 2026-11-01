@@ -119,11 +119,12 @@ def seed_dcf(data: dict, tpl_v: dict):
         g5 = max(3.0, min(g1, g1 / 2 if g1 > 6 else g1))
         v["g"] = [_r(g1 + (g5 - g1) * i / 4, 1) for i in range(5)]
         hechos.append(f"crecimiento: CAGR de ingresos de 3 años ({cagr:.1f}%) que se modera hasta {g5:.1f}%")
-    op, da = ttm("beneficio_operativo"), ttm("amortizacion")
+    op, da, sb = ttm("beneficio_operativo"), ttm("amortizacion"), ttm("remuneracion_acciones")
     if op is not None:
-        e = (op + (da or 0)) / rev * 100
+        # El modelo resta el pago en acciones aparte: el EBITDA de partida lo excluye (como el «ajustado»)
+        e = (op + (da or 0) + (sb or 0)) / rev * 100
         v["m1"] = v["m5"] = _r(e)
-        hechos.append(f"margen EBITDA real de los últimos 12 meses ({e:.1f}%)")
+        hechos.append(f"margen EBITDA real de los últimos 12 meses sin pago en acciones ({e:.1f}%)")
     if da:
         v["da"] = v["da5"] = _r(da / rev * 100)
     sbc = ttm("remuneracion_acciones")
