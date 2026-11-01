@@ -1113,10 +1113,10 @@ const DLAB={"v.wacc":"WACC","v.tg":"Crecimiento perpetuo","v.exit":"Múltiplo de
 function draftLabel(p){ if(DLAB[p]) return DLAB[p]; if(typeof PLAB!=="undefined"&&PLAB[p]) return PLAB[p]; let m=/^v\.g\.(\d)$/.exec(p); if(m) return `Crecimiento año ${+m[1]+1}`;
   m=/^v\.scn\.(\d)\.(dg|dm|p)$/.exec(p); if(m){ const n=((cur.v.scn||[])[+m[1]]||{}).n||"Escenario"; return `${n}: ${{dg:"Δ crecimiento",dm:"Δ margen",p:"probabilidad"}[m[2]]}`; }
   return p.replace(/\./g," › "); }
-function draftDiff(c){
+function draftDiff(c,cap=40){
   let base; try{ base=exportAnalysis(buildCompany(c._co,c._base,c._data,c._manual,true)); }catch(e){ return null; }
   const now=exportAnalysis(c), out=[], empty=x=>x==null||x===""||(Array.isArray(x)&&!x.length);
-  const walk=(a,b,p)=>{ if(out.length>40) return;
+  const walk=(a,b,p)=>{ if(out.length>cap) return;
     if(Array.isArray(a)||Array.isArray(b)){ if(JSON.stringify(a||[])!==JSON.stringify(b||[])&&!(empty(a)&&empty(b))) out.push({p,a,b}); return; }
     if(a&&typeof a==="object"&&b&&typeof b==="object"&&Array.isArray(a)===Array.isArray(b)){ new Set([...Object.keys(a),...Object.keys(b)]).forEach(k=>walk(a[k],b[k],p?p+"."+k:k)); return; }
     if(empty(a)&&empty(b)) return; if(typeof a==="number"&&typeof b==="number"&&Math.abs(a-b)<1e-9) return; if(JSON.stringify(a)===JSON.stringify(b)) return;
@@ -1296,9 +1296,20 @@ async function ghSave(){
     if($("ghAsOf")&&$("ghAsOf").checked) cur.meta.asOf=hoyEs();
     const path=`analysis/${cur._t}.json`, url=`/repos/${R.o}/${R.r}/contents/${path}`;
     const g=await gh(url+"?ref=main"); if(!g.ok&&g.status!==404) throw new Error(ghErr(g.status,g.j));
-    const obj=exportAnalysis(cur), txt=JSON.stringify(obj,null,1)+"\n";
+    /* solo se suben los campos cambiados en esta pantalla, encima de la versión actual de GitHub:
+       así un borrador abierto con una versión antigua no pisa lo que otros (o el robot) hayan añadido después */
+    const dif=draftDiff(cur,1e9)||[];
+    let obj=exportAnalysis(cur);
+    if(g.ok&&g.j&&g.j.content){ try{
+      const raw=new TextDecoder().decode(Uint8Array.from(atob(g.j.content.replace(/\s/g,"")),ch=>ch.charCodeAt(0)));
+      const remote=JSON.parse(raw), now=exportAnalysis(cur);
+      dif.forEach(d=>{ const ks=d.p.split("."); let o=remote; for(let i=0;i<ks.length-1;i++){ if(o[ks[i]]==null||typeof o[ks[i]]!=="object") o[ks[i]]={}; o=o[ks[i]]; }
+        let v=now; for(const k of ks){ v=v==null?undefined:v[k]; } const last=ks.at(-1); if(v===undefined) delete o[last]; else o[last]=clone(v); });
+      if(cur.meta&&cur.meta.asOf){ remote.meta=remote.meta||{}; remote.meta.asOf=cur.meta.asOf; }
+      obj=remote;
+    }catch(e){ /* si no se puede leer la versión remota, se sube el análisis completo */ } }
+    const txt=JSON.stringify(obj,null,1)+"\n";
     const bytes=new TextEncoder().encode(txt); let bin=""; for(let i=0;i<bytes.length;i+=8192) bin+=String.fromCharCode.apply(null,bytes.subarray(i,i+8192)); const b64=btoa(bin);
-    const dif=draftDiff(cur)||[];
     const msg=`Análisis: ${cur._t} desde la web (${dif.length} ${dif.length===1?"cambio":"cambios"})`;
     const r=await gh(url,{method:"PUT",body:JSON.stringify({message:msg,content:b64,branch:"main",...(g.ok&&g.j&&g.j.sha?{sha:g.j.sha}:{})})});
     if(!r.ok) throw new Error(ghErr(r.status,r.j));
@@ -1414,7 +1425,7 @@ function renderHeader(){
   $("priceBox").innerHTML=`<span class="eyebrow">Cotización ${P?srcTag(P):""}</span>
     <div class="pxrow"><span class="px">${money(px)}</span>${fin(day)?`<span class="daychg ${day>=0?"up":"dn"}" title="Variación en la última sesión">${day>=0?"▲":"▼"} ${nf(Math.abs(day),1)}%</span>`:""}</div>
     ${fin(pos)?`<div class="r52" title="Rango de 52 semanas"><span class="lab">52 semanas</span><span class="v">${nf(lo,2)}</span><span class="bar"><i style="left:${pos.toFixed(1)}%"></i></span><span class="v">${nf(hi,2)}</span></div>
-      <span class="note">${pos<5?"En mínimos del año":pos>95?"En máximos del año":`${nf((px/hi-1)*100,0)}% desde el máximo · +${nf((px/lo-1)*100,0)}% desde el mínimo`}</span>`:""}
+      <span class="note">${pos<5?"En mínimos del año":pos>95?"En máximos del año":`+${nf((px/lo-1)*100,0)}% desde el mínimo · ${nf((px/hi-1)*100,0)}% desde el máximo`}</span>`:""}
     <span class="note">Capitalización <b>${big(mcap)}</b></span>`;
   const E=cur._data&&cur._data.resultados_previstos&&cur._data.resultados_previstos.proximos;
   const days=E&&E.fecha?Math.round((Date.parse(E.fecha+"T00:00:00Z")-Date.parse(new Date().toISOString().slice(0,10)+"T00:00:00Z"))/864e5):NaN;
