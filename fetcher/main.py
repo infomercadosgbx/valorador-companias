@@ -28,6 +28,20 @@ ROOT = Path(__file__).resolve().parent.parent
 VOLATILE = ("generado",)
 
 
+
+def _client_tickers(root, ticker):
+    """Tickers de clientes conocidos del análisis (business.clients.conocidos[].t)."""
+    try:
+        an = json.loads((root / "analysis" / f"{ticker.upper()}.json").read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return []
+    out = []
+    for x in ((an.get("business") or {}).get("clients") or {}).get("conocidos") or []:
+        t = str((x or {}).get("t") or "").strip().upper()
+        if t and t.replace(".", "").replace("-", "").isalnum() and len(t) <= 8 and t not in out:
+            out.append(t)
+    return out
+
 def load_companies(root=ROOT):
     return json.loads((root / "companies.json").read_text(encoding="utf-8"))["companies"]
 
@@ -162,6 +176,11 @@ def run(only=None, report=None, root=ROOT, client=None, provider=None, price_war
                 rec["perfil"] = perfil
             if logo_changed:
                 changed.append(f"logo {c['ticker']}")
+            for ct in _client_tickers(root, c["ticker"]):   # logos de los clientes cotizados (campo "t" del análisis)
+                if not any((root / "logos").glob(f"{ct}.*")):
+                    _, ch = logos.update(provider, {"ticker": ct}, root)
+                    if ch:
+                        changed.append(f"logo {ct}")
             if c["ticker"] in cik_issues:
                 rec["avisos"].insert(0, warn("aviso", "cik", cik_issues[c["ticker"]]))
             if write_if_changed(path, rec):

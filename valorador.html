@@ -714,7 +714,16 @@ body.report #ratioCard .seg{display:none}
 .vs{display:flex;flex-direction:column;gap:1px;padding:9px 12px;min-width:0} .vs+.vs{border-left:1px solid var(--line)} .vs>span{font-size:11px;color:var(--ink2);text-transform:uppercase;letter-spacing:.05em} .vs b{font-size:17px;font-variant-numeric:tabular-nums} .vs em{font-style:normal;font-size:12px;color:var(--ink2)}
 @media (max-width:760px){.vsnap{grid-template-columns:repeat(2,minmax(0,1fr))} .vs+.vs{border-left:0} .vs{border-top:1px solid var(--line)} .vs:nth-child(-n+2){border-top:0} .vs:nth-child(even){border-left:1px solid var(--line)} .vs:last-child:nth-child(odd){grid-column:span 2}}
 .cnota{font-size:14px;margin:0 0 8px}
-.ckpis{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;margin:4px 0 10px} .ckpi{border:1px solid var(--line);border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;gap:2px;position:relative} .ckpi b{font-size:18px;font-variant-numeric:tabular-nums}
+.cgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin:4px 0 8px}
+.ccard{border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:6px;position:relative;background:var(--surface);box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.cch{display:flex;gap:10px;align-items:center} .cct{display:flex;flex-direction:column;gap:3px;align-items:flex-start;min-width:0} .cct b{font-size:15px;line-height:1.2}
+.clogo{flex:0 0 38px;width:38px;height:38px;border-radius:10px;display:grid;place-items:center;font-weight:700;font-size:14px;color:#fff;background:hsl(var(--h) 45% 46%);letter-spacing:.02em}
+.clogo.img{background:#fff;border:1px solid var(--line);overflow:hidden} .clogo.img img{width:30px;height:30px;object-fit:contain}
+.ccf{font-size:17px;font-weight:700;color:var(--tcx);font-variant-numeric:tabular-nums;line-height:1.25}
+.ccd{margin:0;font-size:13.5px;color:var(--ink2);line-height:1.45}
+.ccs{margin-top:auto;display:flex;justify-content:space-between;gap:8px;font-size:12px;color:var(--ink3,var(--ink2));padding-top:6px;border-top:1px dashed var(--line)} .ccs a{color:inherit}
+.ckpi{border-top:3px solid var(--tcx)!important}
+.ckpis{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:4px 0 10px} .ckpi{border:1px solid var(--line);border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;gap:2px;position:relative} .ckpi b{font-size:18px;font-variant-numeric:tabular-nums}
 .crows{display:flex;flex-direction:column;gap:8px} .crow{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(60px,1fr) auto;gap:4px 10px;align-items:center} .chist{grid-column:1/-1} .cbar{height:8px;border-radius:4px;background:var(--surface2);overflow:hidden} .cbar i{display:block;height:100%;background:var(--tcx)}
 @media (max-width:640px){.crow{grid-template-columns:minmax(0,1fr) auto} .crow>div:first-child{grid-column:1/-1}}
 .cnone{font-weight:600;color:var(--goodText);margin:4px 0 0}
@@ -851,7 +860,7 @@ function deepMerge(t,x){Object.keys(x).forEach(k=>{if(x[k]&&typeof x[k]==="objec
 const clone=o=>JSON.parse(JSON.stringify(o));
 function fillMissing(t,src){Object.keys(src).forEach(k=>{ if(t[k]===undefined) t[k]=clone(src[k]); else if(src[k]&&typeof src[k]==="object"&&!Array.isArray(src[k])&&t[k]&&typeof t[k]==="object") fillMissing(t[k],src[k]); });}
 const TPL={
-  keyFacts:{k:"",v:""}, catalysts:{d:"",t:""}, segments:{n:"Nuevo segmento",v:0}, customerTypes:{n:"Nuevo cliente",d:""}, ckpis:{k:"Indicador",v:"",d:""}, cnamed:{n:"Cliente",sector:"",d:"",u:""},
+  keyFacts:{k:"",v:""}, catalysts:{d:"",t:""}, segments:{n:"Nuevo segmento",v:0}, customerTypes:{n:"Nuevo cliente",d:""}, ckpis:{k:"Indicador",v:"",d:""}, cnamed:{n:"Cliente",t:"",sector:"",cifra:"",d:"",u:"",f:""},
   quality:{n:"Nuevo criterio",s:3,note:""}, sources:{n:"Nueva fuente",s:2,note:""}, comps:{n:"Nuevo competidor",threat:3,note:""},
   drivers:{n:"Nuevo motor",impact:3,h:"",d:""}, people:{n:"Nombre",role:"Cargo",since:"",note:""}, scores:{n:"Nuevo criterio",s:3,note:""},
   items:{n:"Nueva partida",v:0}, docs:{cat:"Formularios SEC",t:"Nuevo documento",d:"",u:"https://"}, videos:{t:"Nuevo vídeo",u:"https://www.youtube.com/watch?v="}, news:{t:"Nueva fuente",src:"",u:"https://"}, risks:{n:"Nuevo riesgo",cat:"Operativo",p:3,i:3,note:""}
@@ -1772,6 +1781,12 @@ function geoRows(){
   rows.forEach(r=>{ r.share=base>0?r.v/base*100:NaN; }); rows.sort((a,b)=>b.v-a.v);
   return {rows,use,lab:rows[0]?rows[0].lab:"",overlap:base!==sum,fuente:(S.informes||[]).at(-1)};
 }
+function clientLogo(c){ const t=String(c.t||"").toUpperCase().replace(/[^A-Z0-9.\-]/g,"");
+  const ini=String(c.n||"?").replace(/[()]/g,"").split(/\s+/).filter(w=>/^[A-Za-zÀ-ÿ0-9]/.test(w)&&!/^(de|del|la|las|los|y|el)$/i.test(w)).slice(0,2).map(w=>w[0]).join("").toUpperCase()||"?";
+  let h=0; for(const ch of String(c.n||"")) h=(h*31+ch.charCodeAt(0))%360;
+  const mono=`<span class="clogo" style="--h:${h}">${esc(ini)}</span>`;
+  const known=t&&(t===String(cur.ticker).toUpperCase()?cur._data&&cur._data.perfil&&cur._data.perfil.logo:null);
+  return t?`<span class="clogo img"><img src="${esc(known||"logos/"+t+".png")}" alt="" loading="lazy" onerror="this.parentNode.outerHTML='${mono.replace(/"/g,"&quot;").replace(/'/g,"\\'")}'"></span>`:mono; }
 function clientsHtml(){
   const B=cur.business, CL=B.clients||{}, S=cur._data&&cur._data.segmentos, conc=(S&&S.clientes_concentracion)||[], G=geoRows();
   const read=S&&(S.informes||[]).length;
@@ -1788,15 +1803,19 @@ function clientsHtml(){
     :`<p class="note">La compañía no publica ingresos por región en sus datos XBRL.</p>`;
   const kp=arr("business.clients.kpis"), nm=arr("business.clients.conocidos");
   const kpiHtml=kp.length||EDIT?`<div class="ckpis">${kp.map((k,i)=>`<div class="ckpi">${del("business.clients.kpis",i)}<span class="eyebrow">${ln(`business.clients.kpis.${i}.k`,{ph:"Indicador"})}</span><b>${ln(`business.clients.kpis.${i}.v`,{ph:"Valor"})}</b><span class="note">${ln(`business.clients.kpis.${i}.d`,{ph:"Detalle o evolución"})}</span></div>`).join("")}</div>${add("business.clients.kpis","ckpis","Añadir indicador")}`:"";
-  const namedHtml=nm.length||EDIT?`<div class="cnamed">${nm.map((c,i)=>`<div class="cn">${del("business.clients.conocidos",i)}<div class="cnh"><b>${EDIT?ln(`business.clients.conocidos.${i}.n`,{ph:"Cliente"}):(okUrl(c.u)?`<a href="${esc(c.u)}" target="_blank" rel="noopener noreferrer">${esc(c.n)}</a>`:esc(c.n))}</b>${c.sector||EDIT?`<span class="cs">${ln(`business.clients.conocidos.${i}.sector`,{ph:"Sector"})}</span>`:""}</div>
-      <span class="note">${ln(`business.clients.conocidos.${i}.d`,{ph:"Qué compra o para qué lo usa"})}</span>${EDIT?ln(`business.clients.conocidos.${i}.u`,{ph:"Enlace a la fuente"}):""}</div>`).join("")}</div>${add("business.clients.conocidos","cnamed","Añadir cliente")}`:"";
+  const namedHtml=nm.length||EDIT?`<div class="cgrid">${nm.map((c,i)=>{ const dom=okUrl(c.u)?String(c.u).replace(/^https?:\/\/(www\.)?/,"").split("/")[0]:"";
+      return `<article class="ccard">${del("business.clients.conocidos",i)}
+      <div class="cch">${clientLogo(c)}<div class="cct"><b>${ln(`business.clients.conocidos.${i}.n`,{ph:"Cliente"})}</b>${c.sector||EDIT?`<span class="cs">${ln(`business.clients.conocidos.${i}.sector`,{ph:"Sector"})}</span>`:""}</div></div>
+      ${c.cifra||EDIT?`<div class="ccf">${ln(`business.clients.conocidos.${i}.cifra`,{ph:"Cifra clave (importe, MW, % de ingresos…)"})}</div>`:""}
+      <p class="ccd">${ln(`business.clients.conocidos.${i}.d`,{ph:"Qué compra o para qué lo usa"})}</p>
+      ${EDIT?`<div class="note">Ticker (para el logo): ${ln(`business.clients.conocidos.${i}.t`,{ph:"p. ej. META"})} · Fecha: ${ln(`business.clients.conocidos.${i}.f`,{ph:"p. ej. sep-26"})}<br>Enlace: ${ln(`business.clients.conocidos.${i}.u`,{ph:"Enlace a la fuente"})}</div>`
+        :(dom||c.f)?`<div class="ccs">${dom?`<a href="${esc(c.u)}" target="_blank" rel="noopener noreferrer">${esc(c.fu||dom)} ↗</a>`:""}${c.f?`<span>${esc(c.f)}</span>`:""}</div>`:""}
+      </article>`; }).join("")}</div>${add("business.clients.conocidos","cnamed","Añadir cliente")}`:"";
   return `<section class="card" id="clientsCard"><h2>Clientes</h2><p class="sub">Quién paga a la compañía, cuánto depende de cada uno y dónde están. Lo automático sale de la SEC cada noche; el resto, de tu análisis con sus fuentes.</p>
    ${EDIT||(CL.nota||"").trim()?tx("business.clients.nota",{rows:2,cls:"cnota",ph:"Resumen de la cartera de clientes"}):""}
    ${kpiHtml}
-   <div class="g2" style="gap:16px">
-    <div><h3>Concentración <span class="note" style="font-weight:400">· SEC</span></h3>${concHtml}</div>
-    <div><h3>Clientes conocidos</h3>${namedHtml||`<p class="note">Sin clientes concretos todavía.</p>`}</div>
-   </div>
+   <h3>Clientes destacados</h3>${namedHtml||`<p class="note">Sin clientes concretos todavía.</p>`}
+   <h3>Concentración <span class="note" style="font-weight:400">· SEC</span></h3>${concHtml}
    <h3>Por región <span class="note" style="font-weight:400">· SEC</span></h3>${geoHtml}
    <h3>Tipos de cliente</h3>
    <div class="cards">${arr("business.customerTypes").map((c,i)=>`<div class="mini">${del("business.customerTypes",i)}<div class="t">${ln(`business.customerTypes.${i}.n`,{ph:"Tipo de cliente"})}</div>${EDIT?tx(`business.customerTypes.${i}.d`,{rows:3}):`<div class="s">${esc(c.d)}</div>`}</div>`).join("")}</div>

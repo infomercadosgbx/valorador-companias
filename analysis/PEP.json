@@ -1,600 +1,619 @@
 {
- "_nota": "Supuestos y textos propios. Se editan a mano (o desde «Editar» en la web) y se versionan en git. El Action nunca los toca.",
- "esquema": 1,
- "meta": {
-  "fav": false,
-  "sector": "Bebidas y snacks (consumo básico)",
-  "hq": "Purchase, Nueva York",
-  "founded": "1965",
-  "employees": "~319.000",
-  "asOf": "1-nov-2026"
- },
- "overview": {
-  "thesis": "Un líder mundial de snacks y bebidas con marcas de primer nivel, atascado en Norteamérica: crece al 3% orgánico, recorta su guía de BPA por la inflación de costes y cotiza a mínimos de varios años. A ~137 $ paga un 4,3% de dividendo y descuenta poco crecimiento; la recuperación depende de la reestructuración en EE. UU.",
-  "summary": "Dueña de Lay's, Doritos, Cheetos, Quaker, Pepsi, Gatorade, Mountain Dew, poppi y Siete. Vende snacks (algo más de la mitad del beneficio) y bebidas en más de 200 países, con distribución directa a tienda en EE. UU. y embotelladores franquiciados en el resto del mundo.\nNorteamérica (dos tercios de las ventas) lleva casi tres años con volúmenes planos o negativos; el negocio internacional crece al 8% orgánico y ya aporta el 45% del beneficio. Tras la entrada de Elliott (2025) recorta referencias, baja precios y revisa su cadena de suministro y su modelo de embotellado en EE. UU.",
-  "keyFacts": [
-   {
-    "k": "Ingresos 3T26",
-    "v": "25.274 M$ (+5,6%; orgánico +3,1%)"
-   },
-   {
-    "k": "BPA core 3T26",
-    "v": "2,34 $ (+2%); BPA publicado 2,23 $"
-   },
-   {
-    "k": "Internacional 3T26",
-    "v": "Orgánico +8%; 45% del beneficio del año"
-   },
-   {
-    "k": "Guía 2026",
-    "v": "Orgánico ~3%; BPA core a divisa constante +1–2% (antes +4–6%)"
-   },
-   {
-    "k": "Retribución 2026",
-    "v": "8.900 M$: 7.900 en dividendos y 1.000 en recompras"
-   },
-   {
-    "k": "Dividendo",
-    "v": "5,92 $/acción al año (1,48 trimestral), 54 años seguidos subiendo"
-   },
-   {
-    "k": "Caja / deuda (sep-26)",
-    "v": "11.163 / 51.881 M$"
-   }
-  ],
-  "catalysts": [
-   {
-    "d": "Finales 2026",
-    "t": "Conclusiones de la revisión de la cadena de suministro y del embotellado en Norteamérica («One North America», posible refranchising)."
-   },
-   {
-    "d": "4T26",
-    "t": "Expiran las coberturas de materias primas: la dirección espera más presión de márgenes en Norteamérica."
-   },
-   {
-    "d": "Feb-27",
-    "t": "Resultados del 4T26 y primera guía para 2027 (ahorros estructurales y margen)."
-   },
-   {
-    "d": "2026–2028",
-    "t": "Objetivo de al menos +100 pb de margen operativo core en tres años, comprometido tras el acuerdo con Elliott."
-   }
-  ]
- },
- "business": {
-  "model": "Fabrica y vende marcas de consumo de alta rotación. En snacks controla toda la cadena: compra materia prima (patata, maíz, aceite), fabrica y lleva el producto hasta la tienda con su propia red de distribución directa (DSD), lo que le da espacio en el lineal y márgenes altos.\nEn bebidas, en EE. UU. embotella y distribuye gran parte de su volumen; fuera vende concentrado a embotelladores franquiciados (negocio de alto margen y poco capital). Complementa con marcas compradas (poppi, Siete, Rockstar, SodaStream) y alianzas (Celsius, Alani Nu).",
-  "customers": "Distribuidores y supermercados (Walmart es su mayor cliente, en torno al 14% de las ventas), tiendas de conveniencia, restauración y máquinas de vending, y embotelladores franquiciados fuera de EE. UU. El consumidor final compra por impulso y precio: es sensible a las subidas.",
-  "segNote": "Ingresos del 3T26 por división, en M$ (SEC).",
-  "segments": [
-   {
-    "n": "Bebidas Norteamérica",
-    "v": 7706
-   },
-   {
-    "n": "Alimentos Norteamérica",
-    "v": 6504
-   },
-   {
-    "n": "Europa, Oriente Medio y África",
-    "v": 5413
-   },
-   {
-    "n": "Alimentos Latinoamérica",
-    "v": 3021
-   },
-   {
-    "n": "Franquicia internacional de bebidas",
-    "v": 1401
-   },
-   {
-    "n": "Alimentos Asia-Pacífico",
-    "v": 1229
-   }
-  ],
-  "customerTypes": [
-   {
-    "n": "Grandes superficies",
-    "d": "Walmart y cadenas de supermercados: volumen alto, negociación dura de precios y promociones."
-   },
-   {
-    "n": "Conveniencia y gasolineras",
-    "d": "Canal de impulso y bebida fría; donde más pesan Gatorade, energéticas y snacks individuales."
-   },
-   {
-    "n": "Restauración y fuera del hogar",
-    "d": "Contratos de fuente con cadenas de comida rápida y recintos; crecimiento en Alani Nu y bebidas funcionales."
-   },
-   {
-    "n": "Embotelladores franquiciados",
-    "d": "Fuera de EE. UU. compran concentrado (franquicia internacional: 1.401 M$ en 3T26 con margen del 40%)."
-   }
-  ],
-  "quality": [
-   {
-    "n": "Márgenes",
-    "s": 3,
-    "note": "Margen operativo core ~17%; Norteamérica bajo presión (PFNA −280 pb en 3T26)"
-   },
-   {
-    "n": "Retorno sobre capital",
-    "s": 4,
-    "note": "ROIC de doble dígito sostenido gracias a las marcas"
-   },
-   {
-    "n": "Conversión en caja",
-    "s": 3,
-    "note": "FCF de ~10.500 M$ en 12 meses; dividendo cubierto, pero con poco margen"
-   },
-   {
-    "n": "Recurrencia de ingresos",
-    "s": 5,
-    "note": "Compra diaria, marcas presentes en todos los lineales"
-   },
-   {
-    "n": "Diversificación",
-    "s": 4,
-    "note": "Snacks y bebidas, 200 países; internacional ya es el 41% de las ventas"
-   },
-   {
-    "n": "Balance",
-    "s": 3,
-    "note": "Deuda neta de ~40.700 M$, unas 2,2 veces el EBITDA"
-   }
-  ],
-  "phase": 3,
-  "phaseNote": "Negocio maduro: crece cerca del PIB nominal, reparte la mayor parte de la caja y se valora por su rentabilidad y estabilidad. El reto es volver a crecer en volumen en Norteamérica.",
-  "clients": {
-   "nota": "Vende a supermercados, grandes superficies, conveniencia y restauración, y a embotelladores franquiciados fuera de EE. UU. Walmart (con Sam's Club) es el único cliente que supera el 10% de las ventas.",
-   "kpis": [
-    {
-     "k": "Walmart",
-     "v": "~14%",
-     "d": "de las ventas de 2025, según el 10-K"
-    },
-    {
-     "k": "EE. UU.",
-     "v": "~69%",
-     "d": "de las ventas de 2025"
+  "_nota": "Supuestos y textos propios. Se editan a mano (o desde «Editar» en la web) y se versionan en git. El Action nunca los toca.",
+  "esquema": 1,
+  "meta": {
+    "fav": false,
+    "sector": "Bebidas y snacks (consumo básico)",
+    "hq": "Purchase, Nueva York",
+    "founded": "1965",
+    "employees": "~319.000",
+    "asOf": "1-nov-2026"
+  },
+  "overview": {
+    "thesis": "Un líder mundial de snacks y bebidas con marcas de primer nivel, atascado en Norteamérica: crece al 3% orgánico, recorta su guía de BPA por la inflación de costes y cotiza a mínimos de varios años. A ~137 $ paga un 4,3% de dividendo y descuenta poco crecimiento; la recuperación depende de la reestructuración en EE. UU.",
+    "summary": "Dueña de Lay's, Doritos, Cheetos, Quaker, Pepsi, Gatorade, Mountain Dew, poppi y Siete. Vende snacks (algo más de la mitad del beneficio) y bebidas en más de 200 países, con distribución directa a tienda en EE. UU. y embotelladores franquiciados en el resto del mundo.\nNorteamérica (dos tercios de las ventas) lleva casi tres años con volúmenes planos o negativos; el negocio internacional crece al 8% orgánico y ya aporta el 45% del beneficio. Tras la entrada de Elliott (2025) recorta referencias, baja precios y revisa su cadena de suministro y su modelo de embotellado en EE. UU.",
+    "keyFacts": [
+      {
+        "k": "Ingresos 3T26",
+        "v": "25.274 M$ (+5,6%; orgánico +3,1%)"
+      },
+      {
+        "k": "BPA core 3T26",
+        "v": "2,34 $ (+2%); BPA publicado 2,23 $"
+      },
+      {
+        "k": "Internacional 3T26",
+        "v": "Orgánico +8%; 45% del beneficio del año"
+      },
+      {
+        "k": "Guía 2026",
+        "v": "Orgánico ~3%; BPA core a divisa constante +1–2% (antes +4–6%)"
+      },
+      {
+        "k": "Retribución 2026",
+        "v": "8.900 M$: 7.900 en dividendos y 1.000 en recompras"
+      },
+      {
+        "k": "Dividendo",
+        "v": "5,92 $/acción al año (1,48 trimestral), 54 años seguidos subiendo"
+      },
+      {
+        "k": "Caja / deuda (sep-26)",
+        "v": "11.163 / 51.881 M$"
+      }
+    ],
+    "catalysts": [
+      {
+        "d": "Finales 2026",
+        "t": "Conclusiones de la revisión de la cadena de suministro y del embotellado en Norteamérica («One North America», posible refranchising)."
+      },
+      {
+        "d": "4T26",
+        "t": "Expiran las coberturas de materias primas: la dirección espera más presión de márgenes en Norteamérica."
+      },
+      {
+        "d": "Feb-27",
+        "t": "Resultados del 4T26 y primera guía para 2027 (ahorros estructurales y margen)."
+      },
+      {
+        "d": "2026–2028",
+        "t": "Objetivo de al menos +100 pb de margen operativo core en tres años, comprometido tras el acuerdo con Elliott."
+      }
+    ]
+  },
+  "business": {
+    "model": "Fabrica y vende marcas de consumo de alta rotación. En snacks controla toda la cadena: compra materia prima (patata, maíz, aceite), fabrica y lleva el producto hasta la tienda con su propia red de distribución directa (DSD), lo que le da espacio en el lineal y márgenes altos.\nEn bebidas, en EE. UU. embotella y distribuye gran parte de su volumen; fuera vende concentrado a embotelladores franquiciados (negocio de alto margen y poco capital). Complementa con marcas compradas (poppi, Siete, Rockstar, SodaStream) y alianzas (Celsius, Alani Nu).",
+    "customers": "Distribuidores y supermercados (Walmart es su mayor cliente, en torno al 14% de las ventas), tiendas de conveniencia, restauración y máquinas de vending, y embotelladores franquiciados fuera de EE. UU. El consumidor final compra por impulso y precio: es sensible a las subidas.",
+    "segNote": "Ingresos del 3T26 por división, en M$ (SEC).",
+    "segments": [
+      {
+        "n": "Bebidas Norteamérica",
+        "v": 7706
+      },
+      {
+        "n": "Alimentos Norteamérica",
+        "v": 6504
+      },
+      {
+        "n": "Europa, Oriente Medio y África",
+        "v": 5413
+      },
+      {
+        "n": "Alimentos Latinoamérica",
+        "v": 3021
+      },
+      {
+        "n": "Franquicia internacional de bebidas",
+        "v": 1401
+      },
+      {
+        "n": "Alimentos Asia-Pacífico",
+        "v": 1229
+      }
+    ],
+    "customerTypes": [
+      {
+        "n": "Grandes superficies",
+        "d": "Walmart y cadenas de supermercados: volumen alto, negociación dura de precios y promociones."
+      },
+      {
+        "n": "Conveniencia y gasolineras",
+        "d": "Canal de impulso y bebida fría; donde más pesan Gatorade, energéticas y snacks individuales."
+      },
+      {
+        "n": "Restauración y fuera del hogar",
+        "d": "Contratos de fuente con cadenas de comida rápida y recintos; crecimiento en Alani Nu y bebidas funcionales."
+      },
+      {
+        "n": "Embotelladores franquiciados",
+        "d": "Fuera de EE. UU. compran concentrado (franquicia internacional: 1.401 M$ en 3T26 con margen del 40%)."
+      }
+    ],
+    "quality": [
+      {
+        "n": "Márgenes",
+        "s": 3,
+        "note": "Margen operativo core ~17%; Norteamérica bajo presión (PFNA −280 pb en 3T26)"
+      },
+      {
+        "n": "Retorno sobre capital",
+        "s": 4,
+        "note": "ROIC de doble dígito sostenido gracias a las marcas"
+      },
+      {
+        "n": "Conversión en caja",
+        "s": 3,
+        "note": "FCF de ~10.500 M$ en 12 meses; dividendo cubierto, pero con poco margen"
+      },
+      {
+        "n": "Recurrencia de ingresos",
+        "s": 5,
+        "note": "Compra diaria, marcas presentes en todos los lineales"
+      },
+      {
+        "n": "Diversificación",
+        "s": 4,
+        "note": "Snacks y bebidas, 200 países; internacional ya es el 41% de las ventas"
+      },
+      {
+        "n": "Balance",
+        "s": 3,
+        "note": "Deuda neta de ~40.700 M$, unas 2,2 veces el EBITDA"
+      }
+    ],
+    "phase": 3,
+    "phaseNote": "Negocio maduro: crece cerca del PIB nominal, reparte la mayor parte de la caja y se valora por su rentabilidad y estabilidad. El reto es volver a crecer en volumen en Norteamérica.",
+    "clients": {
+      "nota": "Vende a supermercados, grandes superficies, conveniencia y restauración, y a embotelladores franquiciados fuera de EE. UU. Walmart (con Sam's Club) es el único cliente que supera el 10% de las ventas.",
+      "kpis": [
+        {
+          "k": "Walmart",
+          "v": "~14%",
+          "d": "de las ventas de 2025, según el 10-K"
+        },
+        {
+          "k": "EE. UU.",
+          "v": "~69%",
+          "d": "de las ventas de 2025"
+        }
+      ],
+      "conocidos": [
+        {
+          "n": "Walmart (y Sam's Club)",
+          "t": "WMT",
+          "sector": "Distribución",
+          "cifra": "~14% de las ventas",
+          "d": "Su mayor cliente y el único que supera el 10%: vende snacks y bebidas en todas sus divisiones.",
+          "u": "https://www.sec.gov/Archives/edgar/data/77476/000007747626000007/pep-20251227.htm",
+          "fu": "10-K 2025 (SEC)",
+          "f": "feb-26"
+        },
+        {
+          "n": "Costco",
+          "t": "COST",
+          "sector": "Distribución",
+          "cifra": "Gran superficie",
+          "d": "Formatos grandes de snacks y bebidas; parte de la concentración en grandes distribuidores de EE. UU."
+        },
+        {
+          "n": "Kroger",
+          "t": "KR",
+          "sector": "Supermercados",
+          "cifra": "Supermercados de EE. UU.",
+          "d": "Canal de alimentación tradicional, junto a cadenas regionales y tiendas de conveniencia."
+        },
+        {
+          "n": "Embotelladores franquiciados",
+          "sector": "Bebidas",
+          "cifra": "1.401 M$ en el 3T26",
+          "d": "Compran concentrado fuera de EE. UU. (segmento de franquicia internacional de bebidas)."
+        }
+      ]
     }
-   ],
-   "conocidos": [
-    {
-     "n": "Walmart (y Sam's Club)",
-     "sector": "Distribución",
-     "d": "Su mayor cliente; vende snacks y bebidas en todas sus divisiones.",
-     "u": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000077476&type=10-K"
+  },
+  "moat": {
+    "width": "Amplio",
+    "trend": "Estable con presión",
+    "note": "Las marcas y la distribución directa a tienda siguen siendo una barrera difícil de copiar, sobre todo en snacks salados, donde Frito-Lay domina. La presión viene de dentro: subidas de precio que el consumidor ya no acepta, marcas blancas, cambios de hábito (salud, fármacos GLP-1) y pérdida de cuota en refrescos frente a Coca-Cola.",
+    "sources": [
+      {
+        "n": "Efecto red",
+        "s": 1,
+        "note": "No aplica: el valor del producto no depende de cuántos lo usan"
+      },
+      {
+        "n": "Costes de cambio",
+        "s": 1,
+        "note": "El consumidor cambia de marca sin coste"
+      },
+      {
+        "n": "Activos intangibles",
+        "s": 5,
+        "note": "23 marcas con más de 1.000 M$ de ventas al año"
+      },
+      {
+        "n": "Ventaja de costes",
+        "s": 4,
+        "note": "Escala en compras, fábricas y publicidad; productividad continua"
+      },
+      {
+        "n": "Escala eficiente",
+        "s": 4,
+        "note": "Red de distribución directa a tienda en EE. UU. que nadie replica en snacks"
+      }
+    ],
+    "comps": [
+      {
+        "n": "Coca-Cola",
+        "threat": 4,
+        "note": "Gana cuota en refrescos; modelo de concentrado más rentable"
+      },
+      {
+        "n": "Marcas blancas",
+        "threat": 3,
+        "note": "Ganan peso cuando el precio sube demasiado"
+      },
+      {
+        "n": "Keurig Dr Pepper",
+        "threat": 3,
+        "note": "Compite en refrescos, energéticas y café"
+      },
+      {
+        "n": "Mondelez y snacks de nicho",
+        "threat": 2,
+        "note": "Snacks dulces y marcas «saludables» que crecen más"
+      },
+      {
+        "n": "Monster y Red Bull",
+        "threat": 2,
+        "note": "Dominan energéticas; PepsiCo depende de su alianza con Celsius"
+      }
+    ]
+  },
+  "growth": {
+    "score": 2.5,
+    "scoreNote": "Crecimiento orgánico del ~3% en 2026, el mejor trimestre (+3,1%) desde finales de 2023. Internacional tira (+8%); Norteamérica sigue ligeramente en negativo en orgánico.",
+    "tam": "Snacks salados y bebidas sin alcohol en todo el mundo: mercados enormes que crecen al ritmo del PIB nominal (3–5%), más rápido en emergentes y en categorías funcionales (proteína, energía, hidratación, sin azúcar).",
+    "guidance": "2026: crecimiento orgánico ~3%, ingresos +6% con divisa y compras, BPA core a divisa constante +1–2% (rebajado desde +4–6% por la inflación de costes), conversión de caja ≥80%, capex <5% de las ventas y 8.900 M$ de retribución. Guía 2027 en febrero.",
+    "drivers": [
+      {
+        "n": "Mercados internacionales",
+        "impact": 4,
+        "h": "Continuo",
+        "d": "22 trimestres seguidos creciendo a un dígito medio o más; +8% orgánico en 3T26."
+      },
+      {
+        "n": "Bebidas funcionales y energía",
+        "impact": 3,
+        "h": "2026–2028",
+        "d": "Gatorade, Propel (>1.000 M$), poppi, Celsius y Alani Nu."
+      },
+      {
+        "n": "Snacks «permisibles» y porciones",
+        "impact": 3,
+        "h": "2026–2027",
+        "d": "Multipacks de control de porciones (>3.500 M$) y opciones más sanas (~3.000 M$), Siete y SunChips."
+      },
+      {
+        "n": "Recuperación de Norteamérica",
+        "impact": 3,
+        "h": "2027",
+        "d": "Volumen de snacks ya crece; menos referencias, precios más asequibles y «One North America»."
+      },
+      {
+        "n": "Productividad y margen",
+        "impact": 2,
+        "h": "2026–2028",
+        "d": "Objetivo de +100 pb de margen core en tres años con automatización y recortes de estructura."
+      }
+    ]
+  },
+  "mgmt": {
+    "call": {
+      "periodEnd": "2026-09-05",
+      "q": "3T 2026",
+      "date": "8-oct-2026",
+      "doc": "Comentarios de la dirección del 3T26 (PDF)",
+      "url": "https://investors.pepsico.com/docs/pepsico-5v9wci20/media/Files/investors/q3-2026-prepared-management-remarks.pdf",
+      "nota": "Resumen de los comentarios preparados y de la llamada con analistas del 8-oct-2026.",
+      "dir": [
+        "Mejor crecimiento orgánico desde el 4T23 (+3,1%); volumen de snacks en Norteamérica ya crece a un dígito bajo.",
+        "Internacional +8% orgánico y +16% en beneficio operativo core; el 45% del beneficio del año.",
+        "Más inversión en marcas (Pepsi, Mountain Dew, poppi) y alianza global de medios con Publicis."
+      ],
+      "ret": [
+        "«No estamos compitiendo bien en refrescos» (Laguarta).",
+        "Inflación de materias primas y peor mezcla: margen core −35 pb; Alimentos Norteamérica −280 pb.",
+        "El 3T se benefició de 178 M$ de devolución de aranceles que no se repetirá."
+      ],
+      "guia": [
+        "Orgánico 2026 ~3%; BPA core a divisa constante +1–2% (antes +4–6%).",
+        "Margen de Norteamérica bajo presión en el 4T; mejora secuencial en 2027.",
+        "Detalle de 2027 con los resultados de febrero."
+      ],
+      "cap": [
+        "Retribución de 8.900 M$ en 2026: 7.900 en dividendos y 1.000 en recompras.",
+        "Capex por debajo del 5% de las ventas y conversión de caja ≥80%.",
+        "Prefiere compras pequeñas (como Siete o poppi); abierta a más refranchising por regiones."
+      ]
     },
-    {
-     "n": "Embotelladores franquiciados",
-     "sector": "Bebidas",
-     "d": "Compran concentrado fuera de EE. UU. (franquicia internacional: 1.401 M$ en el 3T26)."
+    "note": "Ramon Laguarta preside y dirige la compañía desde 2018–2019. Elliott Management entró en 2025 con unos 4.000 M$ y pactó en diciembre de 2025 recortes de referencias, precios más asequibles y una revisión del modelo de distribución en EE. UU., sin puestos en el consejo.",
+    "people": [
+      {
+        "n": "Ramon Laguarta",
+        "role": "Presidente y consejero delegado",
+        "since": "2018",
+        "note": "Antes, presidente de PepsiCo y responsable de Europa. Defiende el modelo integrado de snacks y bebidas."
+      },
+      {
+        "n": "Steve Schmitt",
+        "role": "Director financiero",
+        "since": "2025",
+        "note": "Llegó de Walmart, donde fue director financiero de Walmart U.S."
+      },
+      {
+        "n": "Elliott Management",
+        "role": "Accionista activista",
+        "since": "2025",
+        "note": "Participación de unos 4.000 M$; pide separar o refranquiciar el embotellado en EE. UU. y vender marcas de alimentación no estratégicas."
+      }
+    ],
+    "scores": [
+      {
+        "n": "Alineación con el accionista",
+        "s": 3,
+        "note": "Dividendo sagrado; remuneración ligada al BPA core"
+      },
+      {
+        "n": "Asignación de capital",
+        "s": 3,
+        "note": "Compras caras (poppi, Siete) y dividendo que absorbe casi toda la caja libre"
+      },
+      {
+        "n": "Credibilidad y ejecución",
+        "s": 2,
+        "note": "Varias rebajas de guía y pérdida de cuota en refrescos en EE. UU."
+      },
+      {
+        "n": "Gobierno corporativo",
+        "s": 3,
+        "note": "Presidente y CEO a la vez; ha cedido parte de la agenda a Elliott"
+      },
+      {
+        "n": "Transparencia",
+        "s": 4,
+        "note": "Guía anual detallada y comentarios de gestión publicados"
+      }
+    ],
+    "alloc": {
+      "label": "Uso de la caja previsto en 2026 (M$, aprox.)",
+      "items": [
+        {
+          "n": "Dividendos",
+          "v": 7900
+        },
+        {
+          "n": "Capex (<5% de ventas)",
+          "v": 4800
+        },
+        {
+          "n": "Recompras",
+          "v": 1000
+        }
+      ]
+    },
+    "vote": {
+      "label": "Accionariado (aprox., %)",
+      "items": []
     }
-   ]
-  }
- },
- "moat": {
-  "width": "Amplio",
-  "trend": "Estable con presión",
-  "note": "Las marcas y la distribución directa a tienda siguen siendo una barrera difícil de copiar, sobre todo en snacks salados, donde Frito-Lay domina. La presión viene de dentro: subidas de precio que el consumidor ya no acepta, marcas blancas, cambios de hábito (salud, fármacos GLP-1) y pérdida de cuota en refrescos frente a Coca-Cola.",
-  "sources": [
-   {
-    "n": "Efecto red",
-    "s": 1,
-    "note": "No aplica: el valor del producto no depende de cuántos lo usan"
-   },
-   {
-    "n": "Costes de cambio",
-    "s": 1,
-    "note": "El consumidor cambia de marca sin coste"
-   },
-   {
-    "n": "Activos intangibles",
-    "s": 5,
-    "note": "23 marcas con más de 1.000 M$ de ventas al año"
-   },
-   {
-    "n": "Ventaja de costes",
-    "s": 4,
-    "note": "Escala en compras, fábricas y publicidad; productividad continua"
-   },
-   {
-    "n": "Escala eficiente",
-    "s": 4,
-    "note": "Red de distribución directa a tienda en EE. UU. que nadie replica en snacks"
-   }
-  ],
-  "comps": [
-   {
-    "n": "Coca-Cola",
-    "threat": 4,
-    "note": "Gana cuota en refrescos; modelo de concentrado más rentable"
-   },
-   {
-    "n": "Marcas blancas",
-    "threat": 3,
-    "note": "Ganan peso cuando el precio sube demasiado"
-   },
-   {
-    "n": "Keurig Dr Pepper",
-    "threat": 3,
-    "note": "Compite en refrescos, energéticas y café"
-   },
-   {
-    "n": "Mondelez y snacks de nicho",
-    "threat": 2,
-    "note": "Snacks dulces y marcas «saludables» que crecen más"
-   },
-   {
-    "n": "Monster y Red Bull",
-    "threat": 2,
-    "note": "Dominan energéticas; PepsiCo depende de su alianza con Celsius"
-   }
-  ]
- },
- "growth": {
-  "score": 2.5,
-  "scoreNote": "Crecimiento orgánico del ~3% en 2026, el mejor trimestre (+3,1%) desde finales de 2023. Internacional tira (+8%); Norteamérica sigue ligeramente en negativo en orgánico.",
-  "tam": "Snacks salados y bebidas sin alcohol en todo el mundo: mercados enormes que crecen al ritmo del PIB nominal (3–5%), más rápido en emergentes y en categorías funcionales (proteína, energía, hidratación, sin azúcar).",
-  "guidance": "2026: crecimiento orgánico ~3%, ingresos +6% con divisa y compras, BPA core a divisa constante +1–2% (rebajado desde +4–6% por la inflación de costes), conversión de caja ≥80%, capex <5% de las ventas y 8.900 M$ de retribución. Guía 2027 en febrero.",
-  "drivers": [
-   {
-    "n": "Mercados internacionales",
-    "impact": 4,
-    "h": "Continuo",
-    "d": "22 trimestres seguidos creciendo a un dígito medio o más; +8% orgánico en 3T26."
-   },
-   {
-    "n": "Bebidas funcionales y energía",
-    "impact": 3,
-    "h": "2026–2028",
-    "d": "Gatorade, Propel (>1.000 M$), poppi, Celsius y Alani Nu."
-   },
-   {
-    "n": "Snacks «permisibles» y porciones",
-    "impact": 3,
-    "h": "2026–2027",
-    "d": "Multipacks de control de porciones (>3.500 M$) y opciones más sanas (~3.000 M$), Siete y SunChips."
-   },
-   {
-    "n": "Recuperación de Norteamérica",
-    "impact": 3,
-    "h": "2027",
-    "d": "Volumen de snacks ya crece; menos referencias, precios más asequibles y «One North America»."
-   },
-   {
-    "n": "Productividad y margen",
-    "impact": 2,
-    "h": "2026–2028",
-    "d": "Objetivo de +100 pb de margen core en tres años con automatización y recortes de estructura."
-   }
-  ]
- },
- "mgmt": {
-  "call": {
-   "periodEnd": "2026-09-05",
-   "q": "3T 2026",
-   "date": "8-oct-2026",
-   "doc": "Comentarios de la dirección del 3T26 (PDF)",
-   "url": "https://investors.pepsico.com/docs/pepsico-5v9wci20/media/Files/investors/q3-2026-prepared-management-remarks.pdf",
-   "nota": "Resumen de los comentarios preparados y de la llamada con analistas del 8-oct-2026.",
-   "dir": [
-    "Mejor crecimiento orgánico desde el 4T23 (+3,1%); volumen de snacks en Norteamérica ya crece a un dígito bajo.",
-    "Internacional +8% orgánico y +16% en beneficio operativo core; el 45% del beneficio del año.",
-    "Más inversión en marcas (Pepsi, Mountain Dew, poppi) y alianza global de medios con Publicis."
-   ],
-   "ret": [
-    "«No estamos compitiendo bien en refrescos» (Laguarta).",
-    "Inflación de materias primas y peor mezcla: margen core −35 pb; Alimentos Norteamérica −280 pb.",
-    "El 3T se benefició de 178 M$ de devolución de aranceles que no se repetirá."
-   ],
-   "guia": [
-    "Orgánico 2026 ~3%; BPA core a divisa constante +1–2% (antes +4–6%).",
-    "Margen de Norteamérica bajo presión en el 4T; mejora secuencial en 2027.",
-    "Detalle de 2027 con los resultados de febrero."
-   ],
-   "cap": [
-    "Retribución de 8.900 M$ en 2026: 7.900 en dividendos y 1.000 en recompras.",
-    "Capex por debajo del 5% de las ventas y conversión de caja ≥80%.",
-    "Prefiere compras pequeñas (como Siete o poppi); abierta a más refranchising por regiones."
-   ]
   },
-  "note": "Ramon Laguarta preside y dirige la compañía desde 2018–2019. Elliott Management entró en 2025 con unos 4.000 M$ y pactó en diciembre de 2025 recortes de referencias, precios más asequibles y una revisión del modelo de distribución en EE. UU., sin puestos en el consejo.",
-  "people": [
-   {
-    "n": "Ramon Laguarta",
-    "role": "Presidente y consejero delegado",
-    "since": "2018",
-    "note": "Antes, presidente de PepsiCo y responsable de Europa. Defiende el modelo integrado de snacks y bebidas."
-   },
-   {
-    "n": "Steve Schmitt",
-    "role": "Director financiero",
-    "since": "2025",
-    "note": "Llegó de Walmart, donde fue director financiero de Walmart U.S."
-   },
-   {
-    "n": "Elliott Management",
-    "role": "Accionista activista",
-    "since": "2025",
-    "note": "Participación de unos 4.000 M$; pide separar o refranquiciar el embotellado en EE. UU. y vender marcas de alimentación no estratégicas."
-   }
-  ],
-  "scores": [
-   {
-    "n": "Alineación con el accionista",
-    "s": 3,
-    "note": "Dividendo sagrado; remuneración ligada al BPA core"
-   },
-   {
-    "n": "Asignación de capital",
-    "s": 3,
-    "note": "Compras caras (poppi, Siete) y dividendo que absorbe casi toda la caja libre"
-   },
-   {
-    "n": "Credibilidad y ejecución",
-    "s": 2,
-    "note": "Varias rebajas de guía y pérdida de cuota en refrescos en EE. UU."
-   },
-   {
-    "n": "Gobierno corporativo",
-    "s": 3,
-    "note": "Presidente y CEO a la vez; ha cedido parte de la agenda a Elliott"
-   },
-   {
-    "n": "Transparencia",
-    "s": 4,
-    "note": "Guía anual detallada y comentarios de gestión publicados"
-   }
-  ],
-  "alloc": {
-   "label": "Uso de la caja previsto en 2026 (M$, aprox.)",
-   "items": [
+  "risks": [
     {
-     "n": "Dividendos",
-     "v": 7900
+      "n": "Inflación de costes y fin de coberturas",
+      "cat": "Financiero",
+      "p": 4,
+      "i": 3,
+      "note": "Guía de BPA rebajada a +1–2%; las coberturas expiran desde el 4T26"
     },
     {
-     "n": "Capex (<5% de ventas)",
-     "v": 4800
+      "n": "Volúmenes débiles en Norteamérica",
+      "cat": "Mercado",
+      "p": 3,
+      "i": 4,
+      "note": "Orgánico ligeramente negativo en PFNA y PBNA en 3T26"
     },
     {
-     "n": "Recompras",
-     "v": 1000
+      "n": "Hábitos de salud y fármacos GLP-1",
+      "cat": "Mercado",
+      "p": 3,
+      "i": 4,
+      "note": "Menos consumo de snacks y refrescos azucarados a largo plazo"
+    },
+    {
+      "n": "Pérdida de cuota en refrescos",
+      "cat": "Competencia",
+      "p": 3,
+      "i": 3,
+      "note": "La dirección admite que no compite bien frente a Coca-Cola"
+    },
+    {
+      "n": "Ejecución de la reestructuración",
+      "cat": "Operativo",
+      "p": 3,
+      "i": 3,
+      "note": "Recorte de referencias, «One North America» y posible refranchising"
+    },
+    {
+      "n": "Dividendo con poco margen",
+      "cat": "Financiero",
+      "p": 2,
+      "i": 3,
+      "note": "Dividendos y recompras (8.900 M$) consumen ~85% de la caja libre; deuda neta ~2,2x EBITDA"
+    },
+    {
+      "n": "Regulación de azúcar, colorantes y etiquetado",
+      "cat": "Regulatorio",
+      "p": 3,
+      "i": 2,
+      "note": "Impuestos al azúcar y presión en EE. UU. sobre colorantes artificiales"
+    },
+    {
+      "n": "Divisa y aranceles",
+      "cat": "Mercado",
+      "p": 3,
+      "i": 2,
+      "note": "41% de las ventas fuera de EE. UU.; aranceles sobre envases y materias primas"
     }
-   ]
-  },
-  "vote": {
-   "label": "Accionariado (aprox., %)",
-   "items": []
-  }
- },
- "risks": [
-  {
-   "n": "Inflación de costes y fin de coberturas",
-   "cat": "Financiero",
-   "p": 4,
-   "i": 3,
-   "note": "Guía de BPA rebajada a +1–2%; las coberturas expiran desde el 4T26"
-  },
-  {
-   "n": "Volúmenes débiles en Norteamérica",
-   "cat": "Mercado",
-   "p": 3,
-   "i": 4,
-   "note": "Orgánico ligeramente negativo en PFNA y PBNA en 3T26"
-  },
-  {
-   "n": "Hábitos de salud y fármacos GLP-1",
-   "cat": "Mercado",
-   "p": 3,
-   "i": 4,
-   "note": "Menos consumo de snacks y refrescos azucarados a largo plazo"
-  },
-  {
-   "n": "Pérdida de cuota en refrescos",
-   "cat": "Competencia",
-   "p": 3,
-   "i": 3,
-   "note": "La dirección admite que no compite bien frente a Coca-Cola"
-  },
-  {
-   "n": "Ejecución de la reestructuración",
-   "cat": "Operativo",
-   "p": 3,
-   "i": 3,
-   "note": "Recorte de referencias, «One North America» y posible refranchising"
-  },
-  {
-   "n": "Dividendo con poco margen",
-   "cat": "Financiero",
-   "p": 2,
-   "i": 3,
-   "note": "Dividendos y recompras (8.900 M$) consumen ~85% de la caja libre; deuda neta ~2,2x EBITDA"
-  },
-  {
-   "n": "Regulación de azúcar, colorantes y etiquetado",
-   "cat": "Regulatorio",
-   "p": 3,
-   "i": 2,
-   "note": "Impuestos al azúcar y presión en EE. UU. sobre colorantes artificiales"
-  },
-  {
-   "n": "Divisa y aranceles",
-   "cat": "Mercado",
-   "p": 3,
-   "i": 2,
-   "note": "41% de las ventas fuera de EE. UU.; aranceles sobre envases y materias primas"
-  }
- ],
- "v": {
-  "rev0": 99600,
-  "year0": 2026,
-  "g": [
-   4,
-   4,
-   4,
-   3.5,
-   3.5
   ],
-  "m1": 20,
-  "m5": 21.5,
-  "da": 3.7,
-  "da5": 3.7,
-  "sbc": 0.4,
-  "capex": 4.8,
-  "capex5": 4.8,
-  "nwc": 2,
-  "tax": 21,
-  "wacc": 7.5,
-  "tg": 2.5,
-  "exit": 13,
-  "method": "blend",
-  "eps": 8.6,
-  "pe": 18,
-  "evm": 13,
-  "scn": [
-   {
-    "n": "Bajista",
-    "dg": -2,
-    "dm": -2,
-    "p": 25
-   },
-   {
-    "n": "Base",
-    "dg": 0,
-    "dm": 0,
-    "p": 50
-   },
-   {
-    "n": "Alcista",
-    "dg": 1.5,
-    "dm": 1.5,
-    "p": 25
-   }
+  "v": {
+    "rev0": 99600,
+    "year0": 2026,
+    "g": [
+      4,
+      4,
+      4,
+      3.5,
+      3.5
+    ],
+    "m1": 20,
+    "m5": 21.5,
+    "da": 3.7,
+    "da5": 3.7,
+    "sbc": 0.4,
+    "capex": 4.8,
+    "capex5": 4.8,
+    "nwc": 2,
+    "tax": 21,
+    "wacc": 7.5,
+    "tg": 2.5,
+    "exit": 13,
+    "method": "blend",
+    "eps": 8.6,
+    "pe": 18,
+    "evm": 13,
+    "scn": [
+      {
+        "n": "Bajista",
+        "dg": -2,
+        "dm": -2,
+        "p": 25
+      },
+      {
+        "n": "Base",
+        "dg": 0,
+        "dm": 0,
+        "p": 50
+      },
+      {
+        "n": "Alcista",
+        "dg": 1.5,
+        "dm": 1.5,
+        "p": 25
+      }
+    ]
+  },
+  "verdict": {
+    "rating": "Acumular",
+    "conviction": 3,
+    "buyBelow": 130,
+    "horizon": "2–3 años",
+    "summary": "Negocio de calidad con marcas difíciles de replicar, en su peor momento en años: Norteamérica no crece, la inflación de costes obliga a recortar la guía y la acción está cerca de mínimos. A ~137 $ el precio descuenta prácticamente crecimiento cero, el escenario bajista del modelo (~136 $) coincide con la cotización y el valor ponderado ronda los 173 $. Para acumular poco a poco cobrando un 4,3% de dividendo, con más fuerza por debajo de 130 $; la tesis necesita ver en 2027 volumen positivo en EE. UU. y la mejora de margen prometida.",
+    "bull": [
+      "El precio descuenta crecimiento ~0%: el escenario bajista ya está en la cotización",
+      "Dividendo del 4,3%, 54 años seguidos subiendo y cubierto por la caja libre",
+      "Internacional crece al 8% y aporta el 45% del beneficio",
+      "Plan con Elliott: menos referencias, precios asequibles, +100 pb de margen en tres años y opciones de refranchising"
+    ],
+    "bear": [
+      "Guía de BPA 2026 rebajada a +1–2% y presión de márgenes también en el 4T",
+      "Pierde cuota en refrescos y Norteamérica sigue sin crecer en orgánico",
+      "Cambio de hábitos (salud, GLP-1) contra snacks y bebidas azucaradas",
+      "Deuda neta de ~40.700 M$ y retribución que consume casi toda la caja libre"
+    ],
+    "watch": [
+      "Guía 2027 y margen de Norteamérica (feb-27)",
+      "Volumen orgánico de PFNA y PBNA trimestre a trimestre",
+      "Conclusiones de «One North America» y del refranchising (finales de 2026)",
+      "Crecimiento internacional por encima del 6%"
+    ]
+  },
+  "notes": "Cifras de 2026 en la guía de la compañía (8-oct-2026). Año fiscal de 52/53 semanas: los tres primeros trimestres son de 12 semanas y el cuarto de 16 o 17, por eso el 4T es siempre el mayor. El BPA «core» excluye costes de reestructuración, deterioros y efectos de coberturas a valor de mercado.",
+  "sources": {
+    "web": "https://www.pepsico.com",
+    "ir": "https://www.pepsico.com/investors",
+    "docs": [
+      {
+        "cat": "Resultados trimestrales",
+        "t": "Nota de prensa de resultados 3T26 (8-K, Exhibit 99.1)",
+        "d": "08-oct-2026",
+        "u": "https://www.sec.gov/Archives/edgar/data/77476/000007747626000050/q320268-kxexhibit991.htm"
+      },
+      {
+        "cat": "Presentaciones",
+        "t": "Comentarios preparados de la dirección 3T26 (PDF)",
+        "d": "08-oct-2026",
+        "u": "https://investors.pepsico.com/docs/pepsico-5v9wci20/media/Files/investors/q3-2026-prepared-management-remarks.pdf"
+      },
+      {
+        "cat": "Formularios SEC",
+        "t": "10-Q tercer trimestre 2026",
+        "d": "08-oct-2026",
+        "u": "https://www.sec.gov/Archives/edgar/data/77476/000007747626000048/pep-20260905.htm"
+      },
+      {
+        "cat": "Transcripciones",
+        "t": "Llamada de resultados 3T26 (The Motley Fool)",
+        "d": "08-oct-2026",
+        "u": "https://www.fool.com/earnings/call-transcripts/2026/10/08/pepsico-pep-q3-2026-earnings-call-transcript/"
+      },
+      {
+        "cat": "Otros",
+        "t": "Dividendo trimestral de 1,48 $ (54.º año de subidas)",
+        "d": "2026",
+        "u": "https://www.pepsico.com/newsroom/press-releases/2026/pepsico-declares-quarterly-dividend-0726"
+      }
+    ],
+    "news": [
+      {
+        "t": "PepsiCo revisa su cadena de suministro y baja precios tras hablar con Elliott",
+        "src": "ESM Magazine",
+        "u": "https://www.esmmagazine.com/a-brands/pepsico-to-review-supply-chain-lower-prices-amid-talks-with-elliott-management-302176"
+      },
+      {
+        "t": "Goldman baja el objetivo a 165 $ pero mantiene compra",
+        "src": "Stocktwits",
+        "u": "https://stocktwits.com/news-articles/markets/equity/pep-stock-looks-to-snap-6-week-losing-streak-goldman-sachs-trims-price-target-but-sees-decade-of-growth-for-pepsi-co/cZD6J0KRBV7"
+      },
+      {
+        "t": "Resultados 3T26: supera en ventas y recorta la guía de BPA",
+        "src": "BasisPilot",
+        "u": "https://basispilot.com/insights/us-stocks/pepsico-q3-2026-results-core-eps-guidance-inflation-pricing"
+      },
+      {
+        "t": "Recortes de objetivos tras el 2T26 y consenso de ~156 $",
+        "src": "TIKR",
+        "u": "https://www.tikr.com/blog/pepsico-beat-on-revenue-then-watched-analysts-cut-their-targets-near-52-week-lows-is-the-selloff-overdone"
+      }
+    ]
+  },
+  "social": {
+    "pulse": [
+      {
+        "p": "Reddit",
+        "s": null,
+        "note": ""
+      },
+      {
+        "p": "X",
+        "s": null,
+        "note": ""
+      },
+      {
+        "p": "Threads",
+        "s": null,
+        "note": ""
+      },
+      {
+        "p": "YouTube",
+        "s": null,
+        "note": ""
+      }
+    ],
+    "videos": []
+  },
+  "fin_manual": {
+    "nota": "Series que la SEC no publica. Etiquetas de trimestre como en la SEC (p. ej. 3T26).",
+    "q": {
+      "labels": [],
+      "series": []
+    }
+  },
+  "peers": [
+    "KO",
+    "KDP",
+    "MDLZ",
+    "MNST",
+    "CELH",
+    "GIS"
   ]
- },
- "verdict": {
-  "rating": "Acumular",
-  "conviction": 3,
-  "buyBelow": 130,
-  "horizon": "2–3 años",
-  "summary": "Negocio de calidad con marcas difíciles de replicar, en su peor momento en años: Norteamérica no crece, la inflación de costes obliga a recortar la guía y la acción está cerca de mínimos. A ~137 $ el precio descuenta prácticamente crecimiento cero, el escenario bajista del modelo (~136 $) coincide con la cotización y el valor ponderado ronda los 173 $. Para acumular poco a poco cobrando un 4,3% de dividendo, con más fuerza por debajo de 130 $; la tesis necesita ver en 2027 volumen positivo en EE. UU. y la mejora de margen prometida.",
-  "bull": [
-   "El precio descuenta crecimiento ~0%: el escenario bajista ya está en la cotización",
-   "Dividendo del 4,3%, 54 años seguidos subiendo y cubierto por la caja libre",
-   "Internacional crece al 8% y aporta el 45% del beneficio",
-   "Plan con Elliott: menos referencias, precios asequibles, +100 pb de margen en tres años y opciones de refranchising"
-  ],
-  "bear": [
-   "Guía de BPA 2026 rebajada a +1–2% y presión de márgenes también en el 4T",
-   "Pierde cuota en refrescos y Norteamérica sigue sin crecer en orgánico",
-   "Cambio de hábitos (salud, GLP-1) contra snacks y bebidas azucaradas",
-   "Deuda neta de ~40.700 M$ y retribución que consume casi toda la caja libre"
-  ],
-  "watch": [
-   "Guía 2027 y margen de Norteamérica (feb-27)",
-   "Volumen orgánico de PFNA y PBNA trimestre a trimestre",
-   "Conclusiones de «One North America» y del refranchising (finales de 2026)",
-   "Crecimiento internacional por encima del 6%"
-  ]
- },
- "notes": "Cifras de 2026 en la guía de la compañía (8-oct-2026). Año fiscal de 52/53 semanas: los tres primeros trimestres son de 12 semanas y el cuarto de 16 o 17, por eso el 4T es siempre el mayor. El BPA «core» excluye costes de reestructuración, deterioros y efectos de coberturas a valor de mercado.",
- "sources": {
-  "web": "https://www.pepsico.com",
-  "ir": "https://www.pepsico.com/investors",
-  "docs": [
-   {
-    "cat": "Resultados trimestrales",
-    "t": "Nota de prensa de resultados 3T26 (8-K, Exhibit 99.1)",
-    "d": "08-oct-2026",
-    "u": "https://www.sec.gov/Archives/edgar/data/77476/000007747626000050/q320268-kxexhibit991.htm"
-   },
-   {
-    "cat": "Presentaciones",
-    "t": "Comentarios preparados de la dirección 3T26 (PDF)",
-    "d": "08-oct-2026",
-    "u": "https://investors.pepsico.com/docs/pepsico-5v9wci20/media/Files/investors/q3-2026-prepared-management-remarks.pdf"
-   },
-   {
-    "cat": "Formularios SEC",
-    "t": "10-Q tercer trimestre 2026",
-    "d": "08-oct-2026",
-    "u": "https://www.sec.gov/Archives/edgar/data/77476/000007747626000048/pep-20260905.htm"
-   },
-   {
-    "cat": "Transcripciones",
-    "t": "Llamada de resultados 3T26 (The Motley Fool)",
-    "d": "08-oct-2026",
-    "u": "https://www.fool.com/earnings/call-transcripts/2026/10/08/pepsico-pep-q3-2026-earnings-call-transcript/"
-   },
-   {
-    "cat": "Otros",
-    "t": "Dividendo trimestral de 1,48 $ (54.º año de subidas)",
-    "d": "2026",
-    "u": "https://www.pepsico.com/newsroom/press-releases/2026/pepsico-declares-quarterly-dividend-0726"
-   }
-  ],
-  "news": [
-   {
-    "t": "PepsiCo revisa su cadena de suministro y baja precios tras hablar con Elliott",
-    "src": "ESM Magazine",
-    "u": "https://www.esmmagazine.com/a-brands/pepsico-to-review-supply-chain-lower-prices-amid-talks-with-elliott-management-302176"
-   },
-   {
-    "t": "Goldman baja el objetivo a 165 $ pero mantiene compra",
-    "src": "Stocktwits",
-    "u": "https://stocktwits.com/news-articles/markets/equity/pep-stock-looks-to-snap-6-week-losing-streak-goldman-sachs-trims-price-target-but-sees-decade-of-growth-for-pepsi-co/cZD6J0KRBV7"
-   },
-   {
-    "t": "Resultados 3T26: supera en ventas y recorta la guía de BPA",
-    "src": "BasisPilot",
-    "u": "https://basispilot.com/insights/us-stocks/pepsico-q3-2026-results-core-eps-guidance-inflation-pricing"
-   },
-   {
-    "t": "Recortes de objetivos tras el 2T26 y consenso de ~156 $",
-    "src": "TIKR",
-    "u": "https://www.tikr.com/blog/pepsico-beat-on-revenue-then-watched-analysts-cut-their-targets-near-52-week-lows-is-the-selloff-overdone"
-   }
-  ]
- },
- "social": {
-  "pulse": [
-   {
-    "p": "Reddit",
-    "s": null,
-    "note": ""
-   },
-   {
-    "p": "X",
-    "s": null,
-    "note": ""
-   },
-   {
-    "p": "Threads",
-    "s": null,
-    "note": ""
-   },
-   {
-    "p": "YouTube",
-    "s": null,
-    "note": ""
-   }
-  ],
-  "videos": []
- },
- "fin_manual": {
-  "nota": "Series que la SEC no publica. Etiquetas de trimestre como en la SEC (p. ej. 3T26).",
-  "q": {
-   "labels": [],
-   "series": []
-  }
- },
- "peers": [
-  "KO",
-  "KDP",
-  "MDLZ",
-  "MNST",
-  "CELH",
-  "GIS"
- ]
 }

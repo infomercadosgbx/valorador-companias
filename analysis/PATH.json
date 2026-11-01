@@ -1,613 +1,630 @@
 {
- "_nota": "Supuestos y textos propios. Se editan a mano (o desde «Editar» en la web) y se versionan en git. El Action nunca los toca.",
- "esquema": 1,
- "meta": {
-  "fav": false,
-  "sector": "Software de automatización e IA",
-  "hq": "Nueva York",
-  "founded": "2005 (Bucarest)",
-  "employees": "~3.800",
-  "asOf": "1-nov-2026"
- },
- "overview": {
-  "thesis": "El líder de la automatización con robots de software intenta convertirse en el «director de orquesta» de los agentes de IA. Rentable, sin deuda y con recompras, cotiza a ~14 $ (−87% desde máximos) y unas 3 veces las ventas: barata si la IA agéntica amplía su mercado; trampa si los agentes de OpenAI, Microsoft o Salesforce la sustituyen.",
-  "summary": "Vende una plataforma para automatizar tareas de oficina: «robots» de software (RPA) que copian lo que hace una persona en las aplicaciones, y desde 2025 agentes de IA y Maestro, que coordina agentes, robots y personas en un mismo proceso. Cobra por suscripción (ARR de 1.938 M$, +12%).\nTras años de pérdidas, gana dinero en GAAP desde hace cuatro trimestres y genera ~425 M$ de caja libre al año. El crecimiento se ha frenado al 10–15% y el mercado duda de que la IA generativa no convierta la RPA en una función más de los grandes modelos.",
-  "keyFacts": [
-   {
-    "k": "Ingresos 2T FY27 (jul-26)",
-    "v": "410 M$ (+13%; +16% sin divisa)"
-   },
-   {
-    "k": "ARR",
-    "v": "1.938 M$ (+12%); más de 2.000 M$ previstos para enero"
-   },
-   {
-    "k": "IA",
-    "v": "ARR de IA de más de 250 M$; IA en 18 de los 20 mayores contratos"
-   },
-   {
-    "k": "Retención neta",
-    "v": "109% (bruta 97%); 387 clientes de más de 1 M$ (+21%)"
-   },
-   {
-    "k": "Guía FY27",
-    "v": "Ingresos 1.789–1.794 M$, margen operativo ajustado ~25%, FCF ~425 M$"
-   },
-   {
-    "k": "Balance",
-    "v": "1.405 M$ de caja e inversiones, sin deuda"
-   },
-   {
-    "k": "Recompras",
-    "v": "1.100 M$ desde 2022; más de 400 M$ pendientes"
-   }
-  ],
-  "catalysts": [
-   {
-    "d": "1-dic-26",
-    "t": "Resultados del 3T FY27: guía de 440–445 M$ de ingresos y ARR de 1.992–1.997 M$."
-   },
-   {
-    "d": "Ene-27",
-    "t": "Cierre del ejercicio: superar los 2.000 M$ de ARR (guía 2.065–2.070 M$)."
-   },
-   {
-    "d": "2027",
-    "t": "Precio por transacción o por resultado en los agentes: prueba de si la IA se puede cobrar."
-   },
-   {
-    "d": "En curso",
-    "t": "Nuevo director financiero (Hitesh Ramani) y pago en acciones hacia el 8–10% de las ventas."
-   }
-  ]
- },
- "business": {
-  "model": "Software empresarial por suscripción. El cliente paga licencias de robots y de la plataforma (orquestador, test, minería de procesos, Maestro y agentes) y amplía su uso con los años. Unos 10.350 clientes, con los grandes concentrando la mayor parte del ARR.\nLa estrategia es pasar de vender «robots» a vender la capa que coordina agentes de IA de cualquier proveedor con reglas, auditoría y personas: lo que las empresas reguladas necesitan para usar IA en procesos críticos.",
-  "customers": "Grandes empresas y administraciones: bancos, aseguradoras, sanidad, distribución, gobierno de EE. UU. y Japón. Los clientes de más de 100.000 $ de ARR (2.666) tienen una retención neta del 114%.",
-  "segNote": "Ingresos del 2T FY27 por tipo, en M$ (SEC).",
-  "segments": [
-   {
-    "n": "Suscripción y servicios",
-    "v": 266
-   },
-   {
-    "n": "Licencias",
-    "v": 124
-   },
-   {
-    "n": "Servicios profesionales",
-    "v": 20
-   }
-  ],
-  "customerTypes": [
-   {
-    "n": "Grandes empresas",
-    "d": "387 clientes de más de 1 M$ de ARR (+21%); compran la plataforma completa."
-   },
-   {
-    "n": "Sector público",
-    "d": "Gobierno federal de EE. UU. y administraciones; ciclos largos."
-   },
-   {
-    "n": "Mediana empresa",
-    "d": "Donde se concentran las bajas; más sensible al precio y a sustitutos de IA."
-   },
-   {
-    "n": "Socios",
-    "d": "Consultoras y nubes (Microsoft, Google, AWS) que venden e implantan."
-   }
-  ],
-  "quality": [
-   {
-    "n": "Márgenes",
-    "s": 4,
-    "note": "Margen bruto del 82%; margen operativo ajustado del 22–25% (GAAP ~8%)"
-   },
-   {
-    "n": "Retorno sobre capital",
-    "s": 3,
-    "note": "Rentable en GAAP desde hace 4 trimestres; ROIC aún bajo"
-   },
-   {
-    "n": "Conversión en caja",
-    "s": 4,
-    "note": "FCF de ~425 M$ al año, casi sin capex"
-   },
-   {
-    "n": "Recurrencia de ingresos",
-    "s": 4,
-    "note": "ARR de 1.938 M$ y retención bruta del 97%"
-   },
-   {
-    "n": "Diversificación",
-    "s": 3,
-    "note": "Muchos sectores y países, pero un solo producto base (automatización)"
-   },
-   {
-    "n": "Balance",
-    "s": 5,
-    "note": "1.405 M$ de caja y sin deuda"
-   }
-  ],
-  "phase": 2,
-  "phaseNote": "Crecimiento maduro: pasó de crecer al 50% a hacerlo al 10–15% y ahora prioriza la rentabilidad y las recompras. El futuro depende de que la IA agéntica reacelere el crecimiento.",
-  "clients": {
-   "nota": "Unas 10.350 grandes y medianas empresas y administraciones, sobre todo banca, seguros, sanidad y sector público. Los grandes clientes crecen y concentran el ARR; las bajas se dan entre los más pequeños. Ningún cliente supera el 10%.",
-   "kpis": [
-    {
-     "k": "Clientes",
-     "v": "~10.350",
-     "d": "jul-26"
-    },
-    {
-     "k": "Más de 1 M$ de ARR",
-     "v": "387",
-     "d": "+21% en un año"
-    },
-    {
-     "k": "Más de 100.000 $ de ARR",
-     "v": "2.666",
-     "d": "+10%; retención neta del 114%"
-    },
-    {
-     "k": "Retención neta",
-     "v": "109%",
-     "d": "bruta del 97%"
+  "_nota": "Supuestos y textos propios. Se editan a mano (o desde «Editar» en la web) y se versionan en git. El Action nunca los toca.",
+  "esquema": 1,
+  "meta": {
+    "fav": false,
+    "sector": "Software de automatización e IA",
+    "hq": "Nueva York",
+    "founded": "2005 (Bucarest)",
+    "employees": "~3.800",
+    "asOf": "1-nov-2026"
+  },
+  "overview": {
+    "thesis": "El líder de la automatización con robots de software intenta convertirse en el «director de orquesta» de los agentes de IA. Rentable, sin deuda y con recompras, cotiza a ~14 $ (−87% desde máximos) y unas 3 veces las ventas: barata si la IA agéntica amplía su mercado; trampa si los agentes de OpenAI, Microsoft o Salesforce la sustituyen.",
+    "summary": "Vende una plataforma para automatizar tareas de oficina: «robots» de software (RPA) que copian lo que hace una persona en las aplicaciones, y desde 2025 agentes de IA y Maestro, que coordina agentes, robots y personas en un mismo proceso. Cobra por suscripción (ARR de 1.938 M$, +12%).\nTras años de pérdidas, gana dinero en GAAP desde hace cuatro trimestres y genera ~425 M$ de caja libre al año. El crecimiento se ha frenado al 10–15% y el mercado duda de que la IA generativa no convierta la RPA en una función más de los grandes modelos.",
+    "keyFacts": [
+      {
+        "k": "Ingresos 2T FY27 (jul-26)",
+        "v": "410 M$ (+13%; +16% sin divisa)"
+      },
+      {
+        "k": "ARR",
+        "v": "1.938 M$ (+12%); más de 2.000 M$ previstos para enero"
+      },
+      {
+        "k": "IA",
+        "v": "ARR de IA de más de 250 M$; IA en 18 de los 20 mayores contratos"
+      },
+      {
+        "k": "Retención neta",
+        "v": "109% (bruta 97%); 387 clientes de más de 1 M$ (+21%)"
+      },
+      {
+        "k": "Guía FY27",
+        "v": "Ingresos 1.789–1.794 M$, margen operativo ajustado ~25%, FCF ~425 M$"
+      },
+      {
+        "k": "Balance",
+        "v": "1.405 M$ de caja e inversiones, sin deuda"
+      },
+      {
+        "k": "Recompras",
+        "v": "1.100 M$ desde 2022; más de 400 M$ pendientes"
+      }
+    ],
+    "catalysts": [
+      {
+        "d": "1-dic-26",
+        "t": "Resultados del 3T FY27: guía de 440–445 M$ de ingresos y ARR de 1.992–1.997 M$."
+      },
+      {
+        "d": "Ene-27",
+        "t": "Cierre del ejercicio: superar los 2.000 M$ de ARR (guía 2.065–2.070 M$)."
+      },
+      {
+        "d": "2027",
+        "t": "Precio por transacción o por resultado en los agentes: prueba de si la IA se puede cobrar."
+      },
+      {
+        "d": "En curso",
+        "t": "Nuevo director financiero (Hitesh Ramani) y pago en acciones hacia el 8–10% de las ventas."
+      }
+    ]
+  },
+  "business": {
+    "model": "Software empresarial por suscripción. El cliente paga licencias de robots y de la plataforma (orquestador, test, minería de procesos, Maestro y agentes) y amplía su uso con los años. Unos 10.350 clientes, con los grandes concentrando la mayor parte del ARR.\nLa estrategia es pasar de vender «robots» a vender la capa que coordina agentes de IA de cualquier proveedor con reglas, auditoría y personas: lo que las empresas reguladas necesitan para usar IA en procesos críticos.",
+    "customers": "Grandes empresas y administraciones: bancos, aseguradoras, sanidad, distribución, gobierno de EE. UU. y Japón. Los clientes de más de 100.000 $ de ARR (2.666) tienen una retención neta del 114%.",
+    "segNote": "Ingresos del 2T FY27 por tipo, en M$ (SEC).",
+    "segments": [
+      {
+        "n": "Suscripción y servicios",
+        "v": 266
+      },
+      {
+        "n": "Licencias",
+        "v": 124
+      },
+      {
+        "n": "Servicios profesionales",
+        "v": 20
+      }
+    ],
+    "customerTypes": [
+      {
+        "n": "Grandes empresas",
+        "d": "387 clientes de más de 1 M$ de ARR (+21%); compran la plataforma completa."
+      },
+      {
+        "n": "Sector público",
+        "d": "Gobierno federal de EE. UU. y administraciones; ciclos largos."
+      },
+      {
+        "n": "Mediana empresa",
+        "d": "Donde se concentran las bajas; más sensible al precio y a sustitutos de IA."
+      },
+      {
+        "n": "Socios",
+        "d": "Consultoras y nubes (Microsoft, Google, AWS) que venden e implantan."
+      }
+    ],
+    "quality": [
+      {
+        "n": "Márgenes",
+        "s": 4,
+        "note": "Margen bruto del 82%; margen operativo ajustado del 22–25% (GAAP ~8%)"
+      },
+      {
+        "n": "Retorno sobre capital",
+        "s": 3,
+        "note": "Rentable en GAAP desde hace 4 trimestres; ROIC aún bajo"
+      },
+      {
+        "n": "Conversión en caja",
+        "s": 4,
+        "note": "FCF de ~425 M$ al año, casi sin capex"
+      },
+      {
+        "n": "Recurrencia de ingresos",
+        "s": 4,
+        "note": "ARR de 1.938 M$ y retención bruta del 97%"
+      },
+      {
+        "n": "Diversificación",
+        "s": 3,
+        "note": "Muchos sectores y países, pero un solo producto base (automatización)"
+      },
+      {
+        "n": "Balance",
+        "s": 5,
+        "note": "1.405 M$ de caja y sin deuda"
+      }
+    ],
+    "phase": 2,
+    "phaseNote": "Crecimiento maduro: pasó de crecer al 50% a hacerlo al 10–15% y ahora prioriza la rentabilidad y las recompras. El futuro depende de que la IA agéntica reacelere el crecimiento.",
+    "clients": {
+      "nota": "Unas 10.350 grandes y medianas empresas y administraciones, sobre todo banca, seguros, sanidad y sector público. Los grandes clientes crecen y concentran el ARR; las bajas se dan entre los más pequeños. Ningún cliente supera el 10%.",
+      "kpis": [
+        {
+          "k": "Clientes",
+          "v": "~10.350",
+          "d": "jul-26"
+        },
+        {
+          "k": "Más de 1 M$ de ARR",
+          "v": "387",
+          "d": "+21% en un año"
+        },
+        {
+          "k": "Más de 100.000 $ de ARR",
+          "v": "2.666",
+          "d": "+10%; retención neta del 114%"
+        },
+        {
+          "k": "Retención neta",
+          "v": "109%",
+          "d": "bruta del 97%"
+        }
+      ],
+      "conocidos": [
+        {
+          "n": "Departamento de Defensa de EE. UU.",
+          "sector": "Sector público",
+          "cifra": "Amplía la relación (2T FY27)",
+          "d": "Auditoría y conciliación con Autopilot, procesamiento de documentos y pruebas automatizadas.",
+          "u": "https://www.marketbeat.com/instant-alerts/transcript-uipath-q2-earnings-call-highlights-2026-09-03/",
+          "f": "sep-26"
+        },
+        {
+          "n": "Fiserv",
+          "t": "FI",
+          "sector": "Pagos",
+          "cifra": "IA a escala",
+          "d": "Usa UiPath para escalar la IA de forma segura en sus procesos.",
+          "u": "https://www-reverse-proxy.uipathcom.workers.dev/resources/automation-case-studies/fiserv-builds-safe-scalable-ai"
+        },
+        {
+          "n": "TD Bank",
+          "t": "TD",
+          "sector": "Banca",
+          "cifra": "Toda la organización",
+          "d": "Automatización a escala en el banco.",
+          "u": "https://production-uipath-preview.azurewebsites.net/resources/automation-case-studies/td-bank-accelerates-enterprise-transformation-with-automation"
+        },
+        {
+          "n": "WEX",
+          "t": "WEX",
+          "sector": "Pagos",
+          "cifra": "Operaciones",
+          "d": "Simplifica operaciones con automatización.",
+          "u": "https://www-reverse-proxy.uipathcom.workers.dev/resources/automation-case-studies/wex-is-streamlining-operations-with-automation"
+        },
+        {
+          "n": "PZU",
+          "sector": "Seguros",
+          "cifra": "Siniestros",
+          "d": "Siniestros más rápidos y mejor atención al cliente.",
+          "u": "https://www.casestudies.com/company/uipath/case-study/pzu-improves-customer-experience-with-rpa"
+        },
+        {
+          "n": "Fabricante del Fortune Global 500",
+          "sector": "Industria",
+          "cifra": "~700.000 facturas/año",
+          "d": "Eligió la solución de facturas del área financiera: 96% de precisión y la mitad de tiempo de gestión en la prueba.",
+          "u": "https://www.marketbeat.com/instant-alerts/transcript-uipath-q2-earnings-call-highlights-2026-09-03/",
+          "f": "sep-26"
+        }
+      ]
     }
-   ],
-   "conocidos": [
-    {
-     "n": "Fiserv",
-     "sector": "Pagos",
-     "d": "Usa UiPath para escalar la IA de forma segura en sus procesos.",
-     "u": "https://www-reverse-proxy.uipathcom.workers.dev/resources/automation-case-studies/fiserv-builds-safe-scalable-ai"
+  },
+  "moat": {
+    "width": "Estrecho",
+    "trend": "En riesgo",
+    "note": "Su ventaja es la base instalada: miles de procesos críticos ya automatizados en grandes empresas, integraciones con sistemas antiguos y la confianza de áreas reguladas. Pero la IA generativa baja el coste de automatizar sin robots y los grandes (Microsoft, Salesforce, ServiceNow, OpenAI, Anthropic) ofrecen agentes propios: el foso puede estrecharse rápido si la orquestación se convierte en una función gratuita.",
+    "sources": [
+      {
+        "n": "Efecto red",
+        "s": 2,
+        "note": "Comunidad de desarrolladores y socios, pero no es un mercado de dos lados"
+      },
+      {
+        "n": "Costes de cambio",
+        "s": 4,
+        "note": "Procesos críticos montados sobre la plataforma: cambiar es caro y arriesgado"
+      },
+      {
+        "n": "Activos intangibles",
+        "s": 3,
+        "note": "Marca líder en RPA y en los cuadrantes de Gartner"
+      },
+      {
+        "n": "Ventaja de costes",
+        "s": 2,
+        "note": "La IA abarata a los nuevos competidores"
+      },
+      {
+        "n": "Escala eficiente",
+        "s": 2,
+        "note": "Mercado grande y abierto"
+      }
+    ],
+    "comps": [
+      {
+        "n": "Microsoft (Power Automate, Copilot)",
+        "threat": 5,
+        "note": "Incluido en licencias que las empresas ya pagan"
+      },
+      {
+        "n": "ServiceNow y Salesforce",
+        "threat": 4,
+        "note": "Agentes de IA dentro de sus propias plataformas"
+      },
+      {
+        "n": "OpenAI y Anthropic",
+        "threat": 4,
+        "note": "Agentes que usan el ordenador como una persona"
+      },
+      {
+        "n": "Automation Anywhere y SS&C Blue Prism",
+        "threat": 2,
+        "note": "Competidores clásicos de RPA, más pequeños"
+      },
+      {
+        "n": "Celonis y minería de procesos",
+        "threat": 2,
+        "note": "Compiten por la capa de procesos"
+      }
+    ]
+  },
+  "growth": {
+    "score": 2.5,
+    "scoreNote": "Ingresos +13% y ARR +12% en el 2T FY27; la nueva ARR sube (37 M$ frente a 31 M$) y la IA ya pesa en los grandes contratos, pero aún no reacelera el total.",
+    "tam": "Automatización de procesos y orquestación de agentes de IA en grandes empresas: decenas de miles de millones de dólares si los agentes se generalizan; hoy UiPath factura ~1.800 M$.",
+    "guidance": "FY27 (a enero de 2027): ingresos de 1.789–1.794 M$, ARR de 2.065–2.070 M$, margen bruto ajustado ~84%, beneficio operativo ajustado ~445 M$ y FCF ~425 M$. A largo plazo: margen operativo de más del 30% y pago en acciones del 8–10% de las ventas.",
+    "drivers": [
+      {
+        "n": "Agentes de IA y Maestro",
+        "impact": 4,
+        "h": "2026–2028",
+        "d": "ARR de IA de más de 250 M$; IA en 18 de los 20 mayores contratos."
+      },
+      {
+        "n": "Grandes clientes",
+        "impact": 3,
+        "h": "Continuo",
+        "d": "Clientes de más de 1 M$ +21%; retención del 120% en los que usan RPA y orquestación."
+      },
+      {
+        "n": "Nuevos precios",
+        "impact": 3,
+        "h": "2027",
+        "d": "Precio por transacción y, en prueba, por resultado: puede subir el ingreso por cliente."
+      },
+      {
+        "n": "Test y soluciones verticales",
+        "impact": 2,
+        "h": "2026–2027",
+        "d": "Dark Testing Factory y soluciones para sanidad, banca y energía."
+      },
+      {
+        "n": "Recompras",
+        "impact": 2,
+        "h": "Continuo",
+        "d": "Reducen las acciones y compensan parte del pago en acciones."
+      }
+    ]
+  },
+  "mgmt": {
+    "call": {
+      "periodEnd": "2026-07-31",
+      "q": "2T FY2027",
+      "date": "3-sep-2026",
+      "doc": "Nota de resultados (8-K, Exhibit 99.1)",
+      "url": "https://ir.uipath.com/financials/sec-filings/content/0001734722-26-000047/path-2026731xex991.htm",
+      "nota": "Resumen de la nota de resultados, la llamada del 3-sep-2026 y el día del inversor del 23-sep-2026.",
+      "dir": [
+        "La IA estuvo en 18 de los 20 mayores contratos y los contratos con IA son mayores.",
+        "Maestro ganó a un banco como única plataforma de orquestación.",
+        "Retención neta del 109% (106% a principios de año) y nueva ARR de 37 M$ (31 M$ un año antes)."
+      ],
+      "ret": [
+        "Bajas concentradas en los clientes más pequeños.",
+        "Rechazo de algunos clientes al precio de la IA (DA Davidson, tras el día del inversor).",
+        "Divisa: ~8 M$ de impacto en los ingresos del trimestre."
+      ],
+      "guia": [
+        "3T FY27: ingresos de 440–445 M$ y ARR de 1.992–1.997 M$; beneficio operativo ajustado ~100 M$.",
+        "FY27: ingresos de 1.789–1.794 M$, ARR de 2.065–2.070 M$ y FCF ~425 M$.",
+        "Largo plazo: margen operativo de más del 30% y pago en acciones del 8–10% de las ventas."
+      ],
+      "cap": [
+        "Recompró 2,4 M de acciones a 9,63 $ de media en el trimestre.",
+        "1.405 M$ de caja y sin deuda.",
+        "Más de 400 M$ pendientes del programa de recompras."
+      ]
     },
-    {
-     "n": "TD Bank",
-     "sector": "Banca",
-     "d": "Automatización en toda la organización.",
-     "u": "https://production-uipath-preview.azurewebsites.net/resources/automation-case-studies/td-bank-accelerates-enterprise-transformation-with-automation"
+    "note": "Daniel Dines fundó UiPath en Bucarest en 2005 y volvió a dirigirla en solitario en 2024 tras la salida de Rob Enslin. Controla la mayoría de los votos gracias a sus acciones de clase B. Ashim Gupta deja la dirección financiera para centrarse en operaciones y entra Hitesh Ramani.",
+    "people": [
+      {
+        "n": "Daniel Dines",
+        "role": "Fundador y consejero delegado",
+        "since": "2005 (CEO único desde 2024)",
+        "note": "Accionista de control por voto; impulsa la apuesta por los agentes de IA."
+      },
+      {
+        "n": "Ashim Gupta",
+        "role": "Director de operaciones",
+        "since": "2019 (antes, director financiero)",
+        "note": "Pasa a dedicarse solo a operaciones."
+      },
+      {
+        "n": "Hitesh Ramani",
+        "role": "Director financiero entrante",
+        "since": "2026",
+        "note": "Sustituye a Gupta en finanzas."
+      }
+    ],
+    "scores": [
+      {
+        "n": "Alineación con el accionista",
+        "s": 3,
+        "note": "Fundador con gran participación, pero ventas continuas de directivos"
+      },
+      {
+        "n": "Asignación de capital",
+        "s": 4,
+        "note": "Recompras a precios bajos (9,63 $) y sin deuda"
+      },
+      {
+        "n": "Credibilidad y ejecución",
+        "s": 3,
+        "note": "Cumple guías recientes tras los tropiezos de 2024"
+      },
+      {
+        "n": "Gobierno corporativo",
+        "s": 2,
+        "note": "Doble clase de acciones: el fundador controla los votos"
+      },
+      {
+        "n": "Transparencia",
+        "s": 4,
+        "note": "Publica ARR, retención y objetivos a largo plazo"
+      }
+    ],
+    "alloc": {
+      "label": "Uso de la caja previsto en FY27 (M$, aprox.)",
+      "items": [
+        {
+          "n": "Recompras",
+          "v": 400
+        },
+        {
+          "n": "Capex",
+          "v": 15
+        },
+        {
+          "n": "Adquisiciones",
+          "v": 0
+        }
+      ]
     },
-    {
-     "n": "WEX",
-     "sector": "Pagos",
-     "d": "Simplifica operaciones con automatización.",
-     "u": "https://www-reverse-proxy.uipathcom.workers.dev/resources/automation-case-studies/wex-is-streamlining-operations-with-automation"
-    },
-    {
-     "n": "PZU",
-     "sector": "Seguros",
-     "d": "Siniestros más rápidos y mejor atención al cliente.",
-     "u": "https://www.casestudies.com/company/uipath/case-study/pzu-improves-customer-experience-with-rpa"
-    },
-    {
-     "n": "Encova Insurance",
-     "sector": "Seguros",
-     "d": "Automatización más rápida y precisa.",
-     "u": "https://www.casestudies.com/company/uipath/case-study/encova-insurance-customer-focused-innovation-at-its-best"
+    "vote": {
+      "label": "Derechos de voto (aprox., %)",
+      "items": [
+        {
+          "n": "Daniel Dines (clase B)",
+          "v": 85
+        },
+        {
+          "n": "Resto de accionistas",
+          "v": 15
+        }
+      ]
     }
-   ]
-  }
- },
- "moat": {
-  "width": "Estrecho",
-  "trend": "En riesgo",
-  "note": "Su ventaja es la base instalada: miles de procesos críticos ya automatizados en grandes empresas, integraciones con sistemas antiguos y la confianza de áreas reguladas. Pero la IA generativa baja el coste de automatizar sin robots y los grandes (Microsoft, Salesforce, ServiceNow, OpenAI, Anthropic) ofrecen agentes propios: el foso puede estrecharse rápido si la orquestación se convierte en una función gratuita.",
-  "sources": [
-   {
-    "n": "Efecto red",
-    "s": 2,
-    "note": "Comunidad de desarrolladores y socios, pero no es un mercado de dos lados"
-   },
-   {
-    "n": "Costes de cambio",
-    "s": 4,
-    "note": "Procesos críticos montados sobre la plataforma: cambiar es caro y arriesgado"
-   },
-   {
-    "n": "Activos intangibles",
-    "s": 3,
-    "note": "Marca líder en RPA y en los cuadrantes de Gartner"
-   },
-   {
-    "n": "Ventaja de costes",
-    "s": 2,
-    "note": "La IA abarata a los nuevos competidores"
-   },
-   {
-    "n": "Escala eficiente",
-    "s": 2,
-    "note": "Mercado grande y abierto"
-   }
-  ],
-  "comps": [
-   {
-    "n": "Microsoft (Power Automate, Copilot)",
-    "threat": 5,
-    "note": "Incluido en licencias que las empresas ya pagan"
-   },
-   {
-    "n": "ServiceNow y Salesforce",
-    "threat": 4,
-    "note": "Agentes de IA dentro de sus propias plataformas"
-   },
-   {
-    "n": "OpenAI y Anthropic",
-    "threat": 4,
-    "note": "Agentes que usan el ordenador como una persona"
-   },
-   {
-    "n": "Automation Anywhere y SS&C Blue Prism",
-    "threat": 2,
-    "note": "Competidores clásicos de RPA, más pequeños"
-   },
-   {
-    "n": "Celonis y minería de procesos",
-    "threat": 2,
-    "note": "Compiten por la capa de procesos"
-   }
-  ]
- },
- "growth": {
-  "score": 2.5,
-  "scoreNote": "Ingresos +13% y ARR +12% en el 2T FY27; la nueva ARR sube (37 M$ frente a 31 M$) y la IA ya pesa en los grandes contratos, pero aún no reacelera el total.",
-  "tam": "Automatización de procesos y orquestación de agentes de IA en grandes empresas: decenas de miles de millones de dólares si los agentes se generalizan; hoy UiPath factura ~1.800 M$.",
-  "guidance": "FY27 (a enero de 2027): ingresos de 1.789–1.794 M$, ARR de 2.065–2.070 M$, margen bruto ajustado ~84%, beneficio operativo ajustado ~445 M$ y FCF ~425 M$. A largo plazo: margen operativo de más del 30% y pago en acciones del 8–10% de las ventas.",
-  "drivers": [
-   {
-    "n": "Agentes de IA y Maestro",
-    "impact": 4,
-    "h": "2026–2028",
-    "d": "ARR de IA de más de 250 M$; IA en 18 de los 20 mayores contratos."
-   },
-   {
-    "n": "Grandes clientes",
-    "impact": 3,
-    "h": "Continuo",
-    "d": "Clientes de más de 1 M$ +21%; retención del 120% en los que usan RPA y orquestación."
-   },
-   {
-    "n": "Nuevos precios",
-    "impact": 3,
-    "h": "2027",
-    "d": "Precio por transacción y, en prueba, por resultado: puede subir el ingreso por cliente."
-   },
-   {
-    "n": "Test y soluciones verticales",
-    "impact": 2,
-    "h": "2026–2027",
-    "d": "Dark Testing Factory y soluciones para sanidad, banca y energía."
-   },
-   {
-    "n": "Recompras",
-    "impact": 2,
-    "h": "Continuo",
-    "d": "Reducen las acciones y compensan parte del pago en acciones."
-   }
-  ]
- },
- "mgmt": {
-  "call": {
-   "periodEnd": "2026-07-31",
-   "q": "2T FY2027",
-   "date": "3-sep-2026",
-   "doc": "Nota de resultados (8-K, Exhibit 99.1)",
-   "url": "https://ir.uipath.com/financials/sec-filings/content/0001734722-26-000047/path-2026731xex991.htm",
-   "nota": "Resumen de la nota de resultados, la llamada del 3-sep-2026 y el día del inversor del 23-sep-2026.",
-   "dir": [
-    "La IA estuvo en 18 de los 20 mayores contratos y los contratos con IA son mayores.",
-    "Maestro ganó a un banco como única plataforma de orquestación.",
-    "Retención neta del 109% (106% a principios de año) y nueva ARR de 37 M$ (31 M$ un año antes)."
-   ],
-   "ret": [
-    "Bajas concentradas en los clientes más pequeños.",
-    "Rechazo de algunos clientes al precio de la IA (DA Davidson, tras el día del inversor).",
-    "Divisa: ~8 M$ de impacto en los ingresos del trimestre."
-   ],
-   "guia": [
-    "3T FY27: ingresos de 440–445 M$ y ARR de 1.992–1.997 M$; beneficio operativo ajustado ~100 M$.",
-    "FY27: ingresos de 1.789–1.794 M$, ARR de 2.065–2.070 M$ y FCF ~425 M$.",
-    "Largo plazo: margen operativo de más del 30% y pago en acciones del 8–10% de las ventas."
-   ],
-   "cap": [
-    "Recompró 2,4 M de acciones a 9,63 $ de media en el trimestre.",
-    "1.405 M$ de caja y sin deuda.",
-    "Más de 400 M$ pendientes del programa de recompras."
-   ]
   },
-  "note": "Daniel Dines fundó UiPath en Bucarest en 2005 y volvió a dirigirla en solitario en 2024 tras la salida de Rob Enslin. Controla la mayoría de los votos gracias a sus acciones de clase B. Ashim Gupta deja la dirección financiera para centrarse en operaciones y entra Hitesh Ramani.",
-  "people": [
-   {
-    "n": "Daniel Dines",
-    "role": "Fundador y consejero delegado",
-    "since": "2005 (CEO único desde 2024)",
-    "note": "Accionista de control por voto; impulsa la apuesta por los agentes de IA."
-   },
-   {
-    "n": "Ashim Gupta",
-    "role": "Director de operaciones",
-    "since": "2019 (antes, director financiero)",
-    "note": "Pasa a dedicarse solo a operaciones."
-   },
-   {
-    "n": "Hitesh Ramani",
-    "role": "Director financiero entrante",
-    "since": "2026",
-    "note": "Sustituye a Gupta en finanzas."
-   }
-  ],
-  "scores": [
-   {
-    "n": "Alineación con el accionista",
-    "s": 3,
-    "note": "Fundador con gran participación, pero ventas continuas de directivos"
-   },
-   {
-    "n": "Asignación de capital",
-    "s": 4,
-    "note": "Recompras a precios bajos (9,63 $) y sin deuda"
-   },
-   {
-    "n": "Credibilidad y ejecución",
-    "s": 3,
-    "note": "Cumple guías recientes tras los tropiezos de 2024"
-   },
-   {
-    "n": "Gobierno corporativo",
-    "s": 2,
-    "note": "Doble clase de acciones: el fundador controla los votos"
-   },
-   {
-    "n": "Transparencia",
-    "s": 4,
-    "note": "Publica ARR, retención y objetivos a largo plazo"
-   }
-  ],
-  "alloc": {
-   "label": "Uso de la caja previsto en FY27 (M$, aprox.)",
-   "items": [
+  "risks": [
     {
-     "n": "Recompras",
-     "v": 400
+      "n": "Sustitución por agentes de IA",
+      "cat": "Competencia",
+      "p": 4,
+      "i": 5,
+      "note": "Microsoft, Salesforce, ServiceNow y los grandes modelos ofrecen agentes propios"
     },
     {
-     "n": "Capex",
-     "v": 15
+      "n": "Crecimiento estancado",
+      "cat": "Mercado",
+      "p": 3,
+      "i": 4,
+      "note": "ARR +12%; la IA aún no reacelera el total"
     },
     {
-     "n": "Adquisiciones",
-     "v": 0
+      "n": "Precio de la IA",
+      "cat": "Operativo",
+      "p": 3,
+      "i": 3,
+      "note": "Clientes y socios se resisten al nuevo modelo de precios"
+    },
+    {
+      "n": "Pago en acciones",
+      "cat": "Financiero",
+      "p": 3,
+      "i": 3,
+      "note": "~13% de las ventas; dilución que las recompras deben compensar"
+    },
+    {
+      "n": "Gobierno corporativo",
+      "cat": "Gobierno",
+      "p": 2,
+      "i": 3,
+      "note": "Doble clase de acciones y ventas de directivos"
+    },
+    {
+      "n": "Divisa",
+      "cat": "Mercado",
+      "p": 3,
+      "i": 2,
+      "note": "Gran parte de los ingresos en euros, yenes y otras monedas"
+    },
+    {
+      "n": "Ciclo de gasto en software",
+      "cat": "Mercado",
+      "p": 2,
+      "i": 3,
+      "note": "Presupuestos de TI más ajustados frenan ampliaciones"
     }
-   ]
+  ],
+  "v": {
+    "rev0": 1790,
+    "year0": 2027,
+    "g": [
+      11,
+      11,
+      10,
+      9,
+      8
+    ],
+    "m1": 27,
+    "m5": 32,
+    "da": 1.2,
+    "da5": 1.2,
+    "sbc": 11,
+    "capex": 0.8,
+    "capex5": 0.8,
+    "nwc": 0,
+    "tax": 15,
+    "wacc": 10,
+    "tg": 3,
+    "exit": 14,
+    "method": "blend",
+    "eps": 0.85,
+    "pe": 18,
+    "evm": 14,
+    "scn": [
+      {
+        "n": "Bajista",
+        "dg": -7,
+        "dm": -5,
+        "p": 30
+      },
+      {
+        "n": "Base",
+        "dg": 0,
+        "dm": 0,
+        "p": 45
+      },
+      {
+        "n": "Alcista",
+        "dg": 5,
+        "dm": 3,
+        "p": 25
+      }
+    ]
   },
-  "vote": {
-   "label": "Derechos de voto (aprox., %)",
-   "items": [
-    {
-     "n": "Daniel Dines (clase B)",
-     "v": 85
+  "verdict": {
+    "rating": "Mantener",
+    "conviction": 2.5,
+    "buyBelow": 11,
+    "horizon": "2–3 años",
+    "summary": "UiPath es hoy un negocio rentable, sin deuda y con recompras, que cotiza a unas 3 veces las ventas y a un ~5–6% de rentabilidad por caja libre. El problema no es el presente sino el futuro: si los agentes de IA de los grandes la vuelven prescindible, el ARR se estancará; si consigue ser la capa neutral que coordina agentes en empresas reguladas, el crecimiento puede volver al 15–20%. El modelo da ~16,5 $ (+20%) con un escenario bajista de ~11 $ y el consenso está en ~15,7 $. Por el riesgo de sustitución, mantener; comprar con margen por debajo de ~11 $ o cuando la IA reacelere la nueva ARR.",
+    "bull": [
+      "Rentable, sin deuda y con 1.405 M$ de caja: la caja es ~20% de la capitalización",
+      "FCF de ~425 M$ al año: ~6% de rentabilidad por caja libre",
+      "ARR de IA de más de 250 M$ y retención del 120% en los clientes que usan la plataforma completa",
+      "Recompras a precios bajos"
+    ],
+    "bear": [
+      "Microsoft, Salesforce, ServiceNow y los grandes modelos compiten con agentes propios",
+      "Crecimiento del ARR estancado en el 11–12%",
+      "Pago en acciones del ~13% de las ventas",
+      "Fundador con el control de los votos y ventas de directivos"
+    ],
+    "watch": [
+      "Nueva ARR en el 3T FY27 (1-dic): por encima de 50 M$ sería reaceleración",
+      "ARR de IA y adopción de Maestro",
+      "Retención neta por encima del 110%",
+      "Pago en acciones bajando hacia el 10% de las ventas"
+    ]
+  },
+  "notes": "Ejercicio fiscal que termina el 31 de enero: «FY27» va de febrero de 2026 a enero de 2027 (en la web, el ejercicio se etiqueta por su año de inicio en la SEC: 2026 = FY26). El modelo parte de unos ingresos de FY27 de ~1.790 M$ (guía) y un EBITDA sin pago en acciones del 27%, que sube hacia el objetivo de más del 30%; el pago en acciones se resta aparte (11% de las ventas).",
+  "sources": {
+    "web": "https://www.uipath.com",
+    "ir": "https://ir.uipath.com",
+    "docs": [
+      {
+        "cat": "Resultados trimestrales",
+        "t": "Nota de prensa de resultados 2T FY27 (8-K, Exhibit 99.1)",
+        "d": "03-sep-2026",
+        "u": "https://ir.uipath.com/financials/sec-filings/content/0001734722-26-000047/path-2026731xex991.htm"
+      },
+      {
+        "cat": "Presentaciones",
+        "t": "Día del inversor 2026 (resumen)",
+        "d": "23-sep-2026",
+        "u": "https://quartr.com/events/uipath-inc-path-investor-day-2026_332pANBc"
+      },
+      {
+        "cat": "Transcripciones",
+        "t": "Llamada de resultados 2T FY27 (TradingKey)",
+        "d": "03-sep-2026",
+        "u": "https://www.tradingkey.com/news/transcripts/262150879-tradingkey"
+      }
+    ],
+    "news": [
+      {
+        "t": "DA Davidson rebaja a infraponderar (objetivo 10 $) por el precio de la IA",
+        "src": "CoinCentral",
+        "u": "https://coincentral.com/is-uipath-path-stock-a-sell-after-this-downgrade"
+      },
+      {
+        "t": "UiPath apunta a 2.000 M$ de ARR con la orquestación de agentes",
+        "src": "MarketBeat",
+        "u": "https://www.marketbeat.com/instant-alerts/event-uipath-targets-2b-arr-with-ai-orchestration-push-at-investor-day-2026-09-23/"
+      },
+      {
+        "t": "Resultados 2T FY27: ingresos +13%",
+        "src": "Nasdaq",
+        "u": "https://www.nasdaq.com/press-release/uipath-reports-second-quarter-fiscal-2027-financial-results-2026-09-03"
+      },
+      {
+        "t": "Cae un 87% desde máximos por la competencia de la IA",
+        "src": "Techleap",
+        "u": "https://finder.techleap.nl/news/feed/uipath-shares-down-87-as-agentic-ai-boom-reshapes-automation-market"
+      }
+    ]
+  },
+  "social": {
+    "pulse": [
+      {
+        "p": "Reddit",
+        "s": null,
+        "note": ""
+      },
+      {
+        "p": "X",
+        "s": null,
+        "note": ""
+      },
+      {
+        "p": "Threads",
+        "s": null,
+        "note": ""
+      },
+      {
+        "p": "YouTube",
+        "s": null,
+        "note": ""
+      }
+    ],
+    "videos": []
+  },
+  "fin_manual": {
+    "nota": "Series que la SEC no publica (por segmento). Las etiquetas de trimestre deben coincidir con las de la SEC (p. ej. 3T26).",
+    "q": {
+      "labels": [
+        "T1",
+        "T2",
+        "T3",
+        "T4"
+      ],
+      "series": []
     },
-    {
-     "n": "Resto de accionistas",
-     "v": 15
-    }
-   ]
-  }
- },
- "risks": [
-  {
-   "n": "Sustitución por agentes de IA",
-   "cat": "Competencia",
-   "p": 4,
-   "i": 5,
-   "note": "Microsoft, Salesforce, ServiceNow y los grandes modelos ofrecen agentes propios"
+    "nota_antigua": ""
   },
-  {
-   "n": "Crecimiento estancado",
-   "cat": "Mercado",
-   "p": 3,
-   "i": 4,
-   "note": "ARR +12%; la IA aún no reacelera el total"
-  },
-  {
-   "n": "Precio de la IA",
-   "cat": "Operativo",
-   "p": 3,
-   "i": 3,
-   "note": "Clientes y socios se resisten al nuevo modelo de precios"
-  },
-  {
-   "n": "Pago en acciones",
-   "cat": "Financiero",
-   "p": 3,
-   "i": 3,
-   "note": "~13% de las ventas; dilución que las recompras deben compensar"
-  },
-  {
-   "n": "Gobierno corporativo",
-   "cat": "Gobierno",
-   "p": 2,
-   "i": 3,
-   "note": "Doble clase de acciones y ventas de directivos"
-  },
-  {
-   "n": "Divisa",
-   "cat": "Mercado",
-   "p": 3,
-   "i": 2,
-   "note": "Gran parte de los ingresos en euros, yenes y otras monedas"
-  },
-  {
-   "n": "Ciclo de gasto en software",
-   "cat": "Mercado",
-   "p": 2,
-   "i": 3,
-   "note": "Presupuestos de TI más ajustados frenan ampliaciones"
-  }
- ],
- "v": {
-  "rev0": 1790,
-  "year0": 2027,
-  "g": [
-   11,
-   11,
-   10,
-   9,
-   8
-  ],
-  "m1": 27,
-  "m5": 32,
-  "da": 1.2,
-  "da5": 1.2,
-  "sbc": 11,
-  "capex": 0.8,
-  "capex5": 0.8,
-  "nwc": 0,
-  "tax": 15,
-  "wacc": 10,
-  "tg": 3,
-  "exit": 14,
-  "method": "blend",
-  "eps": 0.85,
-  "pe": 18,
-  "evm": 14,
-  "scn": [
-   {
-    "n": "Bajista",
-    "dg": -7,
-    "dm": -5,
-    "p": 30
-   },
-   {
-    "n": "Base",
-    "dg": 0,
-    "dm": 0,
-    "p": 45
-   },
-   {
-    "n": "Alcista",
-    "dg": 5,
-    "dm": 3,
-    "p": 25
-   }
+  "peers": [
+    "NOW",
+    "CRM",
+    "MSFT",
+    "PEGA",
+    "APPN",
+    "GTLB"
   ]
- },
- "verdict": {
-  "rating": "Mantener",
-  "conviction": 2.5,
-  "buyBelow": 11,
-  "horizon": "2–3 años",
-  "summary": "UiPath es hoy un negocio rentable, sin deuda y con recompras, que cotiza a unas 3 veces las ventas y a un ~5–6% de rentabilidad por caja libre. El problema no es el presente sino el futuro: si los agentes de IA de los grandes la vuelven prescindible, el ARR se estancará; si consigue ser la capa neutral que coordina agentes en empresas reguladas, el crecimiento puede volver al 15–20%. El modelo da ~16,5 $ (+20%) con un escenario bajista de ~11 $ y el consenso está en ~15,7 $. Por el riesgo de sustitución, mantener; comprar con margen por debajo de ~11 $ o cuando la IA reacelere la nueva ARR.",
-  "bull": [
-   "Rentable, sin deuda y con 1.405 M$ de caja: la caja es ~20% de la capitalización",
-   "FCF de ~425 M$ al año: ~6% de rentabilidad por caja libre",
-   "ARR de IA de más de 250 M$ y retención del 120% en los clientes que usan la plataforma completa",
-   "Recompras a precios bajos"
-  ],
-  "bear": [
-   "Microsoft, Salesforce, ServiceNow y los grandes modelos compiten con agentes propios",
-   "Crecimiento del ARR estancado en el 11–12%",
-   "Pago en acciones del ~13% de las ventas",
-   "Fundador con el control de los votos y ventas de directivos"
-  ],
-  "watch": [
-   "Nueva ARR en el 3T FY27 (1-dic): por encima de 50 M$ sería reaceleración",
-   "ARR de IA y adopción de Maestro",
-   "Retención neta por encima del 110%",
-   "Pago en acciones bajando hacia el 10% de las ventas"
-  ]
- },
- "notes": "Ejercicio fiscal que termina el 31 de enero: «FY27» va de febrero de 2026 a enero de 2027 (en la web, el ejercicio se etiqueta por su año de inicio en la SEC: 2026 = FY26). El modelo parte de unos ingresos de FY27 de ~1.790 M$ (guía) y un EBITDA sin pago en acciones del 27%, que sube hacia el objetivo de más del 30%; el pago en acciones se resta aparte (11% de las ventas).",
- "sources": {
-  "web": "https://www.uipath.com",
-  "ir": "https://ir.uipath.com",
-  "docs": [
-   {
-    "cat": "Resultados trimestrales",
-    "t": "Nota de prensa de resultados 2T FY27 (8-K, Exhibit 99.1)",
-    "d": "03-sep-2026",
-    "u": "https://ir.uipath.com/financials/sec-filings/content/0001734722-26-000047/path-2026731xex991.htm"
-   },
-   {
-    "cat": "Presentaciones",
-    "t": "Día del inversor 2026 (resumen)",
-    "d": "23-sep-2026",
-    "u": "https://quartr.com/events/uipath-inc-path-investor-day-2026_332pANBc"
-   },
-   {
-    "cat": "Transcripciones",
-    "t": "Llamada de resultados 2T FY27 (TradingKey)",
-    "d": "03-sep-2026",
-    "u": "https://www.tradingkey.com/news/transcripts/262150879-tradingkey"
-   }
-  ],
-  "news": [
-   {
-    "t": "DA Davidson rebaja a infraponderar (objetivo 10 $) por el precio de la IA",
-    "src": "CoinCentral",
-    "u": "https://coincentral.com/is-uipath-path-stock-a-sell-after-this-downgrade"
-   },
-   {
-    "t": "UiPath apunta a 2.000 M$ de ARR con la orquestación de agentes",
-    "src": "MarketBeat",
-    "u": "https://www.marketbeat.com/instant-alerts/event-uipath-targets-2b-arr-with-ai-orchestration-push-at-investor-day-2026-09-23/"
-   },
-   {
-    "t": "Resultados 2T FY27: ingresos +13%",
-    "src": "Nasdaq",
-    "u": "https://www.nasdaq.com/press-release/uipath-reports-second-quarter-fiscal-2027-financial-results-2026-09-03"
-   },
-   {
-    "t": "Cae un 87% desde máximos por la competencia de la IA",
-    "src": "Techleap",
-    "u": "https://finder.techleap.nl/news/feed/uipath-shares-down-87-as-agentic-ai-boom-reshapes-automation-market"
-   }
-  ]
- },
- "social": {
-  "pulse": [
-   {
-    "p": "Reddit",
-    "s": null,
-    "note": ""
-   },
-   {
-    "p": "X",
-    "s": null,
-    "note": ""
-   },
-   {
-    "p": "Threads",
-    "s": null,
-    "note": ""
-   },
-   {
-    "p": "YouTube",
-    "s": null,
-    "note": ""
-   }
-  ],
-  "videos": []
- },
- "fin_manual": {
-  "nota": "Series que la SEC no publica (por segmento). Las etiquetas de trimestre deben coincidir con las de la SEC (p. ej. 3T26).",
-  "q": {
-   "labels": [
-    "T1",
-    "T2",
-    "T3",
-    "T4"
-   ],
-   "series": []
-  },
-  "nota_antigua": ""
- },
- "peers": [
-  "NOW",
-  "CRM",
-  "MSFT",
-  "PEGA",
-  "APPN",
-  "GTLB"
- ]
 }
