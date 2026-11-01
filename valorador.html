@@ -489,7 +489,7 @@ h3{font-weight:600;font-size:13.5px}
 .r52 .bar{position:relative;height:6px;margin:0 7px;border-radius:3px;background:linear-gradient(90deg,color-mix(in srgb,var(--crit) 35%,var(--surface2)),var(--surface2) 50%,color-mix(in srgb,var(--good) 35%,var(--surface2)))}
 .r52 .bar i{position:absolute;top:50%;width:12px;height:12px;border-radius:50%;background:var(--ink);border:2px solid var(--surface);transform:translate(-50%,-50%);box-shadow:0 0 0 1px var(--ink)}
 .hstrip{flex-basis:100%;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:6px 16px;border-top:1px solid var(--line);padding-top:10px;margin-top:2px;font-size:13.5px}
-.hs-k{color:var(--ink2)} .soon{font-size:12px;font-weight:700;padding:1px 7px;border-radius:99px;background:var(--surface2);color:var(--ink)} .soon.hot{background:color-mix(in srgb,var(--warn) 25%,transparent)}
+.hs-k{color:var(--ink2)} .hs-est{margin:3px 0 0 22px;font-size:13px;color:var(--ink2)} .hs-est b{color:var(--ink)} .soon{font-size:12px;font-weight:700;padding:1px 7px;border-radius:99px;background:var(--surface2);color:var(--ink)} .soon.hot{background:color-mix(in srgb,var(--warn) 25%,transparent)}
 @media (max-width:640px){.pxrow{justify-content:flex-start} .r52{grid-template-columns:auto auto minmax(80px,1fr) auto} .hs-r{width:100%}}
 
 /* pestañas: sin arcoíris, subrayado con el color de la compañía */
@@ -1298,7 +1298,7 @@ function renderHeader(){
   const E=cur._data&&cur._data.resultados_previstos&&cur._data.resultados_previstos.proximos;
   const days=E&&E.fecha?Math.round((Date.parse(E.fecha+"T00:00:00Z")-Date.parse(new Date().toISOString().slice(0,10)+"T00:00:00Z"))/864e5):NaN;
   const dow=E&&E.fecha?["dom","lun","mar","mié","jue","vie","sáb"][new Date(E.fecha+"T12:00:00Z").getUTCDay()]:"";
-  const nx=E&&E.fecha?`<span class="hs-k">Próximos resultados</span> <b>${dow} ${esc(fecha(E.fecha))}</b>${E.hora?` · ${esc(E.hora)}`:""}${fin(days)&&days>=0?` <span class="soon${days<=7?" hot":""}">${days===0?"hoy":days===1?"mañana":`en ${days} días`}</span>`:""}${fin(E.bpa_estimado)?` · BPA esperado <b>${nf(E.bpa_estimado,2)} $</b>`:""}${fin(E.ingresos_estimados)?` · ingresos esperados <b>${big(E.ingresos_estimados/M6)}</b>`:""} <span class="note">· Finnhub</span>`
+  const nx=E&&E.fecha?`<span class="hs-k">Próximos resultados</span> <b>${dow} ${esc(fecha(E.fecha))}</b>${E.hora?` · ${esc(E.hora)}`:""}${fin(days)&&days>=0?` <span class="soon${days<=7?" hot":""}">${days===0?"hoy":days===1?"mañana":`en ${days} días`}</span>`:""}${fin(E.bpa_estimado)||fin(E.ingresos_estimados)?`<div class="hs-est">${[fin(E.bpa_estimado)?`BPA esperado <b>${nf(E.bpa_estimado,2)} $</b>`:"",fin(E.ingresos_estimados)?`ingresos esperados <b>${big(E.ingresos_estimados/M6)}</b>`:""].filter(Boolean).join(" · ")} <span class="note">· consenso de analistas, Finnhub</span></div>`:""}`
     :cur.meta.nextEarnings?`<span class="hs-k">Próximos resultados</span> <b>${esc(cur.meta.nextEarnings)}</b> <span class="note">· según tu análisis</span>`:`<span class="note">Sin fecha de próximos resultados</span>`;
   $("hdrStrip").innerHTML=`<div class="hs-l">🗓 ${nx}</div><div class="hs-r note">${ref?`Cifras SEC hasta ${esc(fecha(ref))}`:"Sin datos de la SEC"}${cur._data&&cur._data.generado?` · datos actualizados ${esc(ago(cur._data.generado))}`:""}</div>`;
   applyBrand(cur); { const b=brandOf(cur), el=$("hdrMono"); el.className="mono"+(b.logo?" logo":""); el.style.background=b.logo?"":b.color; el.style.color=b.logo?"":b.ink; el.innerHTML=monoInner(b); }
