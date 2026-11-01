@@ -620,6 +620,13 @@ body.watch .tabs,body.watch .cohead,body.watch #staleBox,body.watch #draftBar,bo
 .thl{list-style:none;margin:6px 0 0;padding:0;display:flex;flex-direction:column;gap:6px;font-size:13px;line-height:1.4}
 .thl li{position:relative;padding-left:16px} .thl li::before{position:absolute;left:0;top:0;font-weight:700}
 .thl.up li::before{content:"+";color:var(--goodText)} .thl.dn li::before{content:"−";color:var(--critText)}
+
+/* tarjetas de una misma fila con la misma altura (en el ordenador) */
+.g2,.g3{align-items:stretch}
+.g2>.card,.g3>.card{height:100%}
+.g2>.card>.cv:last-child,.g3>.card>.cv:last-child{margin-top:auto}
+.card .gaugebox{margin:auto 0}
+body.report .g2,body.report .g3{align-items:start}
 </style>
 </head>
 <body>
