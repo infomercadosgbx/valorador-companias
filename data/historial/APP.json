@@ -71,6 +71,66 @@
      }
     ]
    }
+  },
+  {
+   "fecha_commit": "2026-11-01",
+   "commit": "649c228df9",
+   "analisis_a": "1-nov-2026",
+   "recomendacion": "Comprar",
+   "conviccion": 3.5,
+   "comprar_por_debajo": 300,
+   "horizonte": "12–18 meses",
+   "resumen": "Negocio de calidad excepcional (márgenes del 80%, balance limpio, foso de datos) a un precio que ya descuenta un frenazo muy fuerte: a ~230 $ cotiza a ~17x beneficios y con una rentabilidad por FCF de casi el 6%. Desde el último análisis ha caído un 12% sin noticias nuevas del negocio: pesan el fallo judicial a favor de Unity, las rebajas de Wells Fargo y BofA y la demanda colectiva. La tesis no c",
+   "supuestos": {
+    "shares": 335,
+    "cash": 3053,
+    "debt": 3515,
+    "rev0": 8100,
+    "year0": 2026,
+    "g": [
+     22,
+     18,
+     15,
+     12,
+     10
+    ],
+    "m1": 82,
+    "m5": 80,
+    "da": 1.5,
+    "da5": 1.5,
+    "sbc": 4,
+    "capex": 0.3,
+    "capex5": 0.3,
+    "nwc": 10,
+    "tax": 16,
+    "wacc": 11,
+    "tg": 3,
+    "exit": 14,
+    "method": "blend",
+    "eps": 18.55,
+    "pe": 20,
+    "evm": 14,
+    "scn": [
+     {
+      "n": "Bajista",
+      "dg": -12,
+      "dm": -5,
+      "p": 25
+     },
+     {
+      "n": "Base",
+      "dg": 0,
+      "dm": 0,
+      "p": 50
+     },
+     {
+      "n": "Alcista",
+      "dg": 8,
+      "dm": 1,
+      "p": 25
+     }
+    ]
+   }
   }
  ],
  "fuente": "Historial de git de analysis/APP.json"
