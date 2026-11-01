@@ -1,266 +1,429 @@
 {
- "_nota": "Supuestos y textos propios. Creado automáticamente en el alta: el punto de partida del DCF sale de las cifras reales de la SEC; revísalo y completa tesis, negocio, MOAT, directiva y riesgos.",
+ "_nota": "Supuestos y textos propios. Se editan a mano (o desde «Editar» en la web) y se versionan en git. El Action nunca los toca.",
  "esquema": 1,
  "meta": {
-  "sector": "Energía",
-  "hq": "Houston, TX",
-  "founded": "",
-  "employees": "",
-  "asOf": "",
   "fav": false,
-  "autogenerado": "2026-11-01"
+  "sector": "Petróleo y gas integrado",
+  "hq": "Houston, Texas",
+  "founded": "1879",
+  "employees": "~40.000",
+  "asOf": "1-nov-2026"
  },
  "overview": {
-  "thesis": "",
-  "summary": "",
+  "thesis": "Una de las dos grandes petroleras de EE. UU., con Hess ya integrada y en máximos históricos gracias al petróleo de guerra (Brent ~113 $). Genera caja récord, pero a ~235 $ el precio ya descuenta un crudo alto durante años: buena empresa, precio exigente si el petróleo se normaliza.",
+  "summary": "Produce petróleo y gas en todo el mundo (Permian, Golfo de México, Guyana, Kazajistán, Australia, Mediterráneo oriental, Venezuela) y lo refina y vende en sus refinerías, gasolineras y química. Unos 4 millones de barriles equivalentes al día tras comprar Hess (julio de 2025), que le dio el 30% del bloque Stabroek en Guyana.\nDesde febrero de 2026 la guerra con Irán y los ataques en el estrecho de Ormuz han subido el Brent de ~72 $ a más de 110 $. Chevron reduce deuda y mantiene recompras de 2.500–3.000 M$ por trimestre; su apuesta propia es crecer en Venezuela, Guyana y gas sin pagar caro por compras.",
   "keyFacts": [
    {
-    "k": "Ingresos último año",
-    "v": ""
+    "k": "Beneficio ajustado 3T26",
+    "v": "10.400 M$ (5,28 $/acción; esperado 4,93 $)"
    },
    {
-    "k": "Margen",
-    "v": ""
+    "k": "Flujo de caja libre ajustado 3T26",
+    "v": "14.200 M$"
    },
    {
-    "k": "Caja / deuda",
-    "v": ""
+    "k": "Producción",
+    "v": "~4,0 M bep/día; gas récord >9.000 M pies³/día"
+   },
+   {
+    "k": "Retribución",
+    "v": "Dividendo 1,78 $/trimestre (39 años subiendo) + recompras de 2.500–3.000 M$/trimestre"
+   },
+   {
+    "k": "Balance",
+    "v": "Deuda neta / caja operativa 0,4x; deuda −3.000 M$ en el 3T26"
+   },
+   {
+    "k": "Brent",
+    "v": "~113 $ (30-oct-26) frente a ~72 $ antes de la guerra"
+   },
+   {
+    "k": "Venezuela",
+    "v": "~300.000 barriles/día; objetivo 600.000 en 2031 a <20 $/barril"
    }
   ],
   "catalysts": [
    {
-    "d": "",
-    "t": ""
+    "d": "Dic-26",
+    "t": "Plan de inversión 2027 tras el consejo de diciembre."
+   },
+   {
+    "d": "4T26",
+    "t": "Cierre del acuerdo con Hess Midstream en Bakken: tarifas −50%, sale deuda de 3.700 M$ y pérdida contable de 3.000–4.000 M$ (sin caja)."
+   },
+   {
+    "d": "28-ene-27",
+    "t": "Resultados del 4T26: ritmo de recompras y guía de producción 2027."
+   },
+   {
+    "d": "En curso",
+    "t": "Negociación de la prórroga de la concesión de Tengiz (Kazajistán), que vence en 2033."
+   },
+   {
+    "d": "En curso",
+    "t": "Guerra con Irán y estrecho de Ormuz: un alto el fuego bajaría el crudo con rapidez."
+   },
+   {
+    "d": "2028",
+    "t": "Project Kilby: 2,67 GW de electricidad para centros de datos en Texas con contrato con Microsoft."
    }
   ]
  },
  "business": {
-  "model": "",
-  "customers": "",
-  "segNote": "",
+  "model": "Integrada: gana dinero sobre todo extrayendo petróleo y gas (upstream), cuyo beneficio sube y baja con el precio del crudo. El refino y la química (downstream) aportan menos y suelen ir al revés: ganan más cuando el crudo es barato y los márgenes de refino son altos.\nSu ventaja está en activos de bajo coste (Permian, Tengiz, Guyana) y en un balance muy sólido, que le permite mantener dividendo y recompras en los años malos.",
+  "customers": "Vende crudo y gas en mercados mundiales a precio de mercado; gas natural licuado a clientes asiáticos con contratos a largo plazo; combustibles a mayoristas, aerolíneas y unas 8.000 gasolineras con marca Chevron y Texaco.",
+  "segNote": "Peso aproximado en el beneficio (estimación propia, 2026): la SEC no desglosa ingresos por segmento de forma útil para Chevron.",
   "segments": [
    {
-    "n": "Segmento 1",
-    "v": 60
+    "n": "Upstream (producción)",
+    "v": 80
    },
    {
-    "n": "Segmento 2",
-    "v": 40
+    "n": "Downstream (refino, química y venta)",
+    "v": 20
    }
   ],
   "customerTypes": [
    {
-    "n": "Cliente tipo",
-    "d": ""
+    "n": "Mercados de crudo",
+    "d": "Brent y WTI fijan el precio de la mayor parte de su producción: es tomador de precios."
+   },
+   {
+    "n": "Gas y GNL",
+    "d": "Australia (Gorgon, Wheatstone) y Mediterráneo oriental (Israel, Egipto) con contratos largos."
+   },
+   {
+    "n": "Combustibles",
+    "d": "Refinerías en EE. UU. y Asia; gasolineras Chevron y Texaco, aviación y lubricantes."
+   },
+   {
+    "n": "Química",
+    "d": "Chevron Phillips Chemical (50%) y aditivos: ciclo de sobrecapacidad mundial."
    }
   ],
   "quality": [
    {
     "n": "Márgenes",
     "s": 3,
-    "note": ""
+    "note": "Dependen del crudo: margen operativo ~11% en 2025 y mucho más alto con el Brent por encima de 100 $"
    },
    {
     "n": "Retorno sobre capital",
     "s": 3,
-    "note": ""
+    "note": "ROCE de ~10% a mitad de ciclo, por encima del 15% con crudo alto"
    },
    {
     "n": "Conversión en caja",
-    "s": 3,
-    "note": ""
+    "s": 4,
+    "note": "FCF ajustado de 14.200 M$ en el 3T26; inversión orgánica de ~3.900 M$ por trimestre"
    },
    {
     "n": "Recurrencia de ingresos",
-    "s": 3,
-    "note": ""
+    "s": 2,
+    "note": "Volúmenes estables, pero el precio cambia cada día"
    },
    {
     "n": "Diversificación",
-    "s": 3,
-    "note": ""
+    "s": 4,
+    "note": "Activos en los cinco continentes y negocio integrado"
    },
    {
     "n": "Balance",
-    "s": 3,
-    "note": ""
+    "s": 5,
+    "note": "Deuda neta muy baja (0,4x la caja operativa) y rating AA"
    }
   ],
-  "phase": 2,
-  "phaseNote": ""
+  "phase": 3,
+  "phaseNote": "Negocio maduro y cíclico: crece poco en volumen (3–5% al año con Hess y Venezuela) y devuelve la mayor parte de la caja. El valor depende sobre todo del precio del crudo a medio plazo."
  },
  "moat": {
   "width": "Estrecho",
   "trend": "Estable",
-  "note": "",
+  "note": "No controla el precio, pero tiene una de las carteras de menor coste del sector: el Permian rinde por encima de 1 M de barriles/día a coste decreciente, Guyana produce con beneficio por debajo de 35 $ y Venezuela por debajo de 20 $. La escala y el balance le permiten invertir en el fondo del ciclo y comprar cuando otros venden.",
   "sources": [
    {
     "n": "Efecto red",
-    "s": 2,
-    "note": ""
+    "s": 1,
+    "note": "No aplica en materias primas"
    },
    {
     "n": "Costes de cambio",
-    "s": 2,
-    "note": ""
+    "s": 1,
+    "note": "Sus clientes compran a precio de mercado"
    },
    {
     "n": "Activos intangibles",
-    "s": 2,
-    "note": ""
+    "s": 3,
+    "note": "Concesiones y reservas difíciles de replicar (Tengiz, Stabroek, Venezuela)"
    },
    {
     "n": "Ventaja de costes",
-    "s": 2,
-    "note": ""
+    "s": 4,
+    "note": "Activos de bajo coste y recortes estructurales de 2.000–3.000 M$"
    },
    {
     "n": "Escala eficiente",
-    "s": 2,
-    "note": ""
+    "s": 4,
+    "note": "Pocas compañías pueden ejecutar megaproyectos de GNL o aguas profundas"
    }
   ],
   "comps": [
    {
-    "n": "Competidor",
+    "n": "ExxonMobil",
     "threat": 3,
-    "note": ""
+    "note": "Mayor escala, también en Guyana (operador de Stabroek)"
+   },
+   {
+    "n": "OPEP+ y Aramco",
+    "threat": 4,
+    "note": "Deciden la oferta mundial y, con ella, el precio"
+   },
+   {
+    "n": "Productores del Permian",
+    "threat": 2,
+    "note": "ConocoPhillips, Diamondback, Occidental: compiten por activos"
+   },
+   {
+    "n": "Majors europeas",
+    "threat": 2,
+    "note": "Shell, TotalEnergies y BP cotizan más baratas"
+   },
+   {
+    "n": "Transición energética",
+    "threat": 3,
+    "note": "Vehículo eléctrico y renovables limitan la demanda a largo plazo"
    }
   ]
  },
  "growth": {
-  "score": 3,
-  "scoreNote": "",
-  "tam": "",
-  "guidance": "",
+  "score": 2.5,
+  "scoreNote": "Producción +20% en 2026 por Hess, después +3–5% al año con Guyana, Venezuela y gas; el Permian se gestiona como meseta. El beneficio depende del crudo: el consenso espera ~17 $/acción en 2026 y ~14 $ en 2027.",
+  "tam": "Demanda mundial de petróleo de ~105 M de barriles/día y de gas en crecimiento por el GNL y los centros de datos. El mercado no crece mucho; se gana por coste y por reservas.",
+  "guidance": "2026: inversión en la parte baja del rango, recompras de 2.500–3.000 M$ por trimestre, dividendo de 1,78 $ por trimestre. Venezuela a ~300.000 barriles/día a fin de año y 600.000 en 2031. Plan de inversión de 2027 en diciembre.",
   "drivers": [
    {
-    "n": "Motor de crecimiento",
+    "n": "Hess y Guyana",
+    "impact": 4,
+    "h": "2026–2030",
+    "d": "30% de Stabroek; nuevas plataformas cada año y 1.500 M$ de sinergias."
+   },
+   {
+    "n": "Venezuela",
     "impact": 3,
-    "h": "",
-    "d": ""
+    "h": "2026–2031",
+    "d": "Doblar a 600.000 barriles/día con recuperación primaria y autofinanciada."
+   },
+   {
+    "n": "Gas y GNL",
+    "impact": 3,
+    "h": "Continuo",
+    "d": "Récord de gas (>9.000 M pies³/día) en Australia y Mediterráneo oriental."
+   },
+   {
+    "n": "Tengiz (Kazajistán)",
+    "impact": 3,
+    "h": "2025–2033",
+    "d": "Proyecto de expansión terminado; capacidad de más de 1 M de barriles/día. Pendiente la prórroga."
+   },
+   {
+    "n": "Electricidad para centros de datos",
+    "impact": 2,
+    "h": "2028+",
+    "d": "Project Kilby (2,67 GW) con Microsoft como cliente."
    }
   ]
  },
  "mgmt": {
   "call": {
-   "q": "",
-   "date": "",
-   "periodEnd": "",
-   "doc": "",
-   "url": "",
-   "nota": "",
-   "dir": [],
-   "ret": [],
-   "guia": [],
-   "cap": []
+   "periodEnd": "2026-09-30",
+   "q": "3T 2026",
+   "date": "30-oct-2026",
+   "doc": "Nota de resultados (8-K, Exhibit 99.1)",
+   "url": "https://www.sec.gov/Archives/edgar/data/0000093410/000009341026000196/a09302026ex9918-k.htm",
+   "nota": "Resumen de la nota de resultados y de la llamada con analistas del 30-oct-2026.",
+   "dir": [
+    "Beneficio ajustado de 10.400 M$ (5,28 $/acción) y FCF ajustado de 14.200 M$; batió las previsiones.",
+    "Récords de gas, de producción en aguas profundas del Golfo de México y de refino en EE. UU.",
+    "Venezuela: ~300.000 barriles/día y plan para doblar a 600.000 en 2031 a menos de 20 $/barril."
+   ],
+   "ret": [
+    "Gran volatilidad: 64 $ de diferencia en el precio del crudo dentro del trimestre.",
+    "Riesgo político en Venezuela y negociación abierta de la concesión de Tengiz.",
+    "Posible sobrecapacidad en química."
+   ],
+   "guia": [
+    "Recompras de 2.500–3.000 M$ por trimestre, sin cambios en el marco de retribución.",
+    "Inversión de 2026 en la parte baja del rango; plan de 2027 en diciembre.",
+    "Pérdida contable de 3.000–4.000 M$ en el 4T26 por el acuerdo de Bakken (sin efecto en caja)."
+   ],
+   "cap": [
+    "Dividendo de 1,78 $ por trimestre; recompras de 2.500–3.000 M$.",
+    "Deuda reducida en más de 3.000 M$ y caja +4.000 M$ en el trimestre.",
+    "Wirth descarta comprar a precios de crudo altos."
+   ]
   },
-  "note": "",
+  "note": "Mike Wirth dirige Chevron desde 2018 y ha priorizado la disciplina de capital: rechaza comprar en máximos del ciclo y mantiene el dividendo como prioridad. La compra de Hess (cerrada en julio de 2025 tras ganar el arbitraje con ExxonMobil sobre Guyana) es su gran apuesta.",
   "people": [
    {
-    "n": "CEO",
-    "role": "Consejero delegado",
-    "since": "",
-    "note": ""
+    "n": "Mike Wirth",
+    "role": "Presidente y consejero delegado",
+    "since": "2018",
+    "note": "Ingeniero químico, toda su carrera en Chevron; defensor de la disciplina de capital."
+   },
+   {
+    "n": "Eimear Bonner",
+    "role": "Directora financiera",
+    "since": "2024",
+    "note": "Antes, directora de tecnología de Chevron."
+   },
+   {
+    "n": "John B. Hess",
+    "role": "Consejero (tras la compra de Hess)",
+    "since": "2025",
+    "note": "Ha vendido acciones de forma continuada en 2026."
    }
   ],
   "scores": [
    {
     "n": "Alineación con el accionista",
-    "s": 3,
-    "note": ""
+    "s": 4,
+    "note": "39 años subiendo el dividendo y recompras constantes"
    },
    {
     "n": "Asignación de capital",
-    "s": 3,
-    "note": ""
+    "s": 4,
+    "note": "No persigue compras en máximos; deuda baja y proyectos de bajo coste"
    },
    {
     "n": "Credibilidad y ejecución",
     "s": 3,
-    "note": ""
+    "note": "Hess tardó por el arbitraje; retrasos y sobrecostes pasados en Tengiz"
    },
    {
     "n": "Gobierno corporativo",
-    "s": 3,
-    "note": ""
+    "s": 4,
+    "note": "Consejo independiente, presidente y CEO a la vez"
    },
    {
     "n": "Transparencia",
-    "s": 3,
-    "note": ""
+    "s": 4,
+    "note": "Guía de inversión y sensibilidades al crudo publicadas"
    }
   ],
   "alloc": {
-   "label": "Uso de la caja (M)",
+   "label": "Uso de la caja previsto en 2026 (M$, aprox.)",
    "items": [
     {
-     "n": "Capex",
-     "v": 0
-    },
-    {
-     "n": "Recompras",
-     "v": 0
+     "n": "Capex orgánico",
+     "v": 18000
     },
     {
      "n": "Dividendos",
-     "v": 0
+     "v": 14000
+    },
+    {
+     "n": "Recompras",
+     "v": 11000
+    },
+    {
+     "n": "Reducción de deuda",
+     "v": 5000
     }
    ]
   },
   "vote": {
-   "label": "Poder de voto (%)",
-   "items": [
-    {
-     "n": "Fundadores y directivos",
-     "v": null
-    },
-    {
-     "n": "Resto de accionistas",
-     "v": null
-    }
-   ]
+   "label": "Accionariado (aprox., %)",
+   "items": []
   }
  },
  "risks": [
   {
-   "n": "Riesgo principal",
-   "cat": "Operativo",
+   "n": "Caída del crudo tras la guerra",
+   "cat": "Mercado",
+   "p": 4,
+   "i": 5,
+   "note": "Un acuerdo con Irán devolvería el Brent a 70–90 $; el consenso ya espera BPA de ~14 $ en 2027"
+  },
+  {
+   "n": "Concesión de Tengiz",
+   "cat": "Regulatorio",
+   "p": 3,
+   "i": 4,
+   "note": "Vence en 2033; negociación abierta con Kazajistán"
+  },
+  {
+   "n": "Riesgo político en Venezuela",
+   "cat": "Regulatorio",
    "p": 3,
    "i": 3,
-   "note": ""
+   "note": "Expropiado en 2007; hoy opera bajo licencia de EE. UU."
+  },
+  {
+   "n": "Márgenes de refino y química",
+   "cat": "Mercado",
+   "p": 3,
+   "i": 2,
+   "note": "Sobrecapacidad química mundial"
+  },
+  {
+   "n": "Litigios climáticos",
+   "cat": "Legal",
+   "p": 2,
+   "i": 3,
+   "note": "Demandas de estados y ciudades; el Supremo revisa si las leyes federales las impiden"
+  },
+  {
+   "n": "Ejecución de proyectos",
+   "cat": "Operativo",
+   "p": 2,
+   "i": 3,
+   "note": "Guyana, aguas profundas y Kilby: retrasos y sobrecostes"
+  },
+  {
+   "n": "Transición energética",
+   "cat": "Mercado",
+   "p": 2,
+   "i": 4,
+   "note": "Demanda de petróleo cerca de su techo a largo plazo"
+  },
+  {
+   "n": "Ventas de directivos",
+   "cat": "Gobierno",
+   "p": 2,
+   "i": 1,
+   "note": "John Hess ha vendido ~230 M$ en seis meses"
   }
  ],
  "v": {
-  "rev0": 208711,
+  "rev0": 245000,
   "year0": 2026,
   "g": [
-   -5.0,
-   -3.0,
-   -1.0,
-   1.0,
-   3.0
+   -10,
+   -4,
+   2,
+   3,
+   3
   ],
-  "m1": 25,
-  "m5": 27,
-  "da": 11.3,
-  "da5": 11.3,
-  "sbc": 1,
-  "capex": 8.8,
-  "capex5": 8.6,
-  "nwc": 5,
-  "tax": 25.0,
-  "wacc": 9,
-  "tg": 3,
-  "exit": 12,
+  "m1": 26,
+  "m5": 25,
+  "da": 10,
+  "da5": 10,
+  "sbc": 0.3,
+  "capex": 8.5,
+  "capex5": 8.5,
+  "nwc": 3,
+  "tax": 30,
+  "wacc": 8,
+  "tg": 2.5,
+  "exit": 8,
   "method": "blend",
-  "eps": 10.42,
-  "pe": 20,
-  "evm": 12,
+  "eps": 15,
+  "pe": 14,
+  "evm": 8,
   "scn": [
    {
     "n": "Bajista",
-    "dg": -5,
+    "dg": -6,
     "dm": -3,
     "p": 25
    },
@@ -272,28 +435,83 @@
    },
    {
     "n": "Alcista",
-    "dg": 4,
+    "dg": 5,
     "dm": 2,
     "p": 25
    }
   ]
  },
  "verdict": {
-  "rating": "",
-  "conviction": null,
-  "buyBelow": null,
-  "horizon": "",
-  "summary": "",
-  "bull": [],
-  "bear": [],
-  "watch": []
+  "rating": "Mantener",
+  "conviction": 3,
+  "buyBelow": 195,
+  "horizon": "2–3 años",
+  "summary": "Chevron es una petrolera de primera: balance de los mejores del sector, activos de bajo coste, Hess integrada y 39 años subiendo el dividendo. Pero el precio (~235 $, máximo histórico) refleja un Brent por encima de 100 $ por la guerra con Irán. El modelo supone que el crudo vuelve a 80–90 $ en 2027–2028 y da un valor de ~205 $, un 12% por debajo de la cotización; el consenso de analistas está en ~232 $. Mantener si ya se tiene; comprar con margen por debajo de ~195 $ o si se espera un crudo alto durante más tiempo.",
+  "bull": [
+   "Caja récord: 14.200 M$ de FCF ajustado en un trimestre con el Brent por encima de 100 $",
+   "Balance muy sólido y dividendo del 3% con 39 años de subidas",
+   "Crecimiento propio en Guyana, Venezuela y gas a costes muy bajos",
+   "Disciplina: no compra en máximos del ciclo"
+  ],
+  "bear": [
+   "El precio descuenta crudo alto mucho tiempo: si llega la paz, el beneficio puede caer un 20–30%",
+   "Recompras en la parte baja del rango pese a la caja récord",
+   "Concesión de Tengiz y Venezuela: riesgo político",
+   "Cotiza más cara que las majors europeas"
+  ],
+  "watch": [
+   "Brent y negociaciones con Irán (estrecho de Ormuz)",
+   "Ritmo de recompras en el 4T26 y plan de 2027 (diciembre)",
+   "Prórroga de la concesión de Tengiz",
+   "Producción de Venezuela y Guyana"
+  ]
  },
- "notes": "",
+ "notes": "Chevron no publica beneficio operativo: el valorador lo aproxima como beneficio antes de impuestos + intereses (EBIT). Las cifras de la SEC llegan hasta el 2T26 hasta que se presente el 10-Q del 3T26; los datos del 3T26 de este análisis salen de la nota de resultados del 30-oct-2026. El modelo arranca de unos ingresos de 2026 de ~245.000 M$ (crudo alto) y supone una normalización en 2027–2028.",
  "sources": {
-  "web": "https://www.chevron.com/",
-  "ir": "",
-  "docs": [],
-  "news": []
+  "web": "https://www.chevron.com",
+  "ir": "https://www.chevron.com/investors",
+  "docs": [
+   {
+    "cat": "Resultados trimestrales",
+    "t": "Nota de prensa de resultados 3T26 (8-K, Exhibit 99.1)",
+    "d": "30-oct-2026",
+    "u": "https://www.sec.gov/Archives/edgar/data/0000093410/000009341026000196/a09302026ex9918-k.htm"
+   },
+   {
+    "cat": "Presentaciones",
+    "t": "Presentación de resultados 3T26 (PDF)",
+    "d": "30-oct-2026",
+    "u": "https://chevroncorp.gcs-web.com/static-files/01bc23b1-43e8-4c09-9e47-6e24614391ce"
+   },
+   {
+    "cat": "Transcripciones",
+    "t": "Llamada de resultados 3T26 (The Motley Fool)",
+    "d": "30-oct-2026",
+    "u": "https://www.fool.com/earnings/call-transcripts/2026/10/30/chevron-cvx-q3-2026-earnings-call-transcript/"
+   }
+  ],
+  "news": [
+   {
+    "t": "Resultados 3T26: Venezuela, Bakken y récord de gas",
+    "src": "MarketBeat",
+    "u": "https://www.marketbeat.com/instant-alerts/transcript-chevron-q3-earnings-call-highlights-2026-10-30/"
+   },
+   {
+    "t": "Máximos históricos antes de resultados y debate sobre recompras",
+    "src": "TradingKey",
+    "u": "https://www.tradingkey.com/analysis/stocks/us-stocks/262259750-chevron-stock-forecast-q3-earnings-preview-buybacks-233-breakout-october-30-2026-tradingkey"
+   },
+   {
+    "t": "Brent a 113 $ al cierre de octubre por Ormuz",
+    "src": "FinanceFeeds",
+    "u": "https://financefeeds.com/brent-crude-oil-price-113-saturday-week-ahead-after-october-13-6-percent-gain-hormuz-mines-midterms-jobs-report-bull-120-bear-106/"
+   },
+   {
+    "t": "Por qué importan las recompras de Chevron",
+    "src": "TIKR",
+    "u": "https://www.tikr.com/fr/blog/chevron-stock-is-up-nearly-36-in-2026-heres-why-its-buyback-guidance-matters-on-october-30"
+   }
+  ]
  },
  "social": {
   "pulse": [
@@ -333,5 +551,12 @@
   },
   "nota_antigua": ""
  },
- "peers": []
+ "peers": [
+  "XOM",
+  "COP",
+  "OXY",
+  "EOG",
+  "DVN",
+  "PSX"
+ ]
 }

@@ -1303,7 +1303,7 @@ const KCOL=[[/^(ingresos|ventas|revenue)\b|ingresos esperados|^total$/i,"--k-rev
   [/caja operativa/i,"--k-ocf"],[/flujo de caja libre|^fcf|margen de fcf|fcf generado|fcf después/i,"--k-fcf"],[/^capex/i,"--k-capex"],
   [/^deuda neta|^deuda\b/i,"--k-debt"],[/^caja\b|caja e inversiones/i,"--k-cash"],[/pago en acciones/i,"--k-sbc"],[/^recompras/i,"--k-buy"],[/^dividendos/i,"--k-div"],
   [/^(gasto en )?i\+d|^tecnología/i,"--k-rd"]];
-function kcol(label){ const l=String(label||"").trim(); for(const [re,t] of KCOL){ if(re.test(l)){ const c=V(t); return c||null; } } return null; }
+function kcol(label){ const l=String(label||"").trim(); if(/ \/ /.test(l)) return null; for(const [re,t] of KCOL){ if(re.test(l)){ const c=V(t); return c||null; } } return null; }
 const semanticPlugin={id:"semantic",beforeUpdate(ch){ if(ch.options.plugins&&ch.options.plugins.semantic===false) return;
   (ch.data.datasets||[]).forEach(ds=>{ if(ds._keep||Array.isArray(ds.backgroundColor)) return; const c=kcol(ds.label); if(!c) return;
     const t=ds.type||ch.config.type; const soft=typeof ds.backgroundColor==="string"&&/rgba\(.*,0?\.\d+\)$/.test(ds.backgroundColor);
