@@ -213,11 +213,15 @@ def _restatement_cut(cf, flows, avisos):
     for t in C.FLOW_CONCEPTS["ingresos"]["tags"]:
         for f in X.raw_facts(cf, t, "USD"):
             if f.get("start") and f.get("form") in ("10-K", "10-Q", "10-K/A", "10-Q/A"):
-                groups.setdefault((f["start"], f["end"]), []).append(f["val"])
+                groups.setdefault((f["start"], f["end"]), []).append(f)
     a_starts, q_starts = [], []
-    for (s, e), vals in groups.items():
-        vals = [v for v in vals if v and v > 0]
-        if len(vals) < 2 or max(vals) / min(vals) < RESTATE_RATIO:
+    for (s, e), fs in groups.items():
+        fs = sorted([f for f in fs if f["val"] and f["val"] > 0], key=lambda f: f["filed"])
+        if len(fs) < 2:
+            continue
+        old_v, new_v = fs[0]["val"], fs[-1]["val"]
+        # discontinuadas: el informe nuevo da MENOS ingresos para el mismo periodo
+        if old_v / new_v < RESTATE_RATIO:
             continue
         days = (X.d(e) - X.d(s)).days
         if 350 <= days <= 380:
@@ -227,6 +231,11 @@ def _restatement_cut(cf, flows, avisos):
     if not a_starts and not q_starts:
         return None
     a0, q0 = (min(a_starts) if a_starts else None), (min(q_starts) if q_starts else None)
+    # Solo si se confirma con la serie: el primer año reexpresado cae más de un 25% frente al anterior
+    an = (flows.get("ingresos") or {}).get("anual") or []
+    i0 = next((i for i, p in enumerate(an) if a0 and p["periodo_fin"] >= a0), None)
+    if not i0 or not an[i0 - 1]["valor"] or an[i0]["valor"] / an[i0 - 1]["valor"] - 1 > -V.DROP_THRESHOLD:
+        return None
     corte = {}
     for key, fl in flows.items():
         if key in NOT_RESTATED:
