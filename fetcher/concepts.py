@@ -164,6 +164,9 @@ INSTANT_CONCEPTS = {
             {"required": ["LongTermDebt"], "optional": []},
             {"required": ["LongTermDebtAndCapitalLeaseObligations"],
              "optional": [["LongTermDebtAndCapitalLeaseObligationsCurrent", "DebtCurrent", "ShortTermBorrowings"]]},
+            # Chevron (10-Q): deuda a largo con vencimientos corrientes incluidos + deuda a corto
+            {"required": ["LongTermDebtAndCapitalLeaseObligationsIncludingCurrentMaturities"],
+             "optional": [["ShortTermBorrowings", "CommercialPaper"]]},
             {"required": ["ConvertibleNotesPayable"],
              "optional": [["ConvertibleNotesPayableCurrent"]]},
             {"required": ["SeniorLongTermNotes"], "optional": []},

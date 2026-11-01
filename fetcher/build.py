@@ -32,6 +32,35 @@ def base_record(company):
     }
 
 
+def _op_from_pbt(R, ref_end):
+    """Compañías que no publican beneficio operativo (Chevron): se aproxima como
+    beneficio antes de impuestos + gastos por intereses (EBIT), periodo a periodo."""
+    op, pbt, it = R["beneficio_operativo"], R["beneficio_antes_impuestos"], R["gastos_intereses"]
+    last = max((p["periodo_fin"] for p in op["anual"] + op["trimestral"]), default=None)
+    if last and not X.is_stale(X.d(last), ref_end):
+        return []
+    if not (pbt["anual"] or pbt["trimestral"]):
+        return []
+    def build(b):
+        ib = {p["periodo_fin"]: p for p in it[b]}
+        out = []
+        for p in pbt[b]:
+            i = ib.get(p["periodo_fin"])
+            q = dict(p, valor=p["valor"] + (i["valor"] if i else 0),
+                     etiqueta=p["etiqueta"] + (f" + {i['etiqueta']}" if i else ""),
+                     derivado="Beneficio antes de impuestos + gastos por intereses (la compañía no publica beneficio operativo)")
+            out.append(q)
+        return out
+    op["anual"], op["trimestral"] = build("anual"), build("trimestral")
+    t, ti = pbt.get("ttm"), it.get("ttm")
+    op["ttm"] = dict(t, valor=t["valor"] + (ti["valor"] if ti and ti.get("periodo_fin") == t.get("periodo_fin") else 0),
+                     derivado="Beneficio antes de impuestos + gastos por intereses, últimos 12 meses") if t else None
+    op["etiquetas_usadas"] = sorted(set(pbt.get("etiquetas_usadas", []) + it.get("etiquetas_usadas", [])))
+    op["aproximado"] = True
+    return [X.warn("info", "operativo_aproximado",
+        "Beneficio operativo: la compañía no lo publica; se usa beneficio antes de impuestos + gastos por intereses (EBIT).")]
+
+
 def _da_from_components(R, ref_end):
     """Si la etiqueta combinada de amortizaciones falta o está obsoleta, D&A =
     depreciación + amortización de intangibles, periodo a periodo."""
@@ -149,6 +178,7 @@ def build_from_sec(company, cf, subs):
         avisos += w
 
     avisos += _da_from_components(rec["resultados"], ref_end)
+    avisos += _op_from_pbt(rec["resultados"], ref_end)
 
     rec["balance"] = {}
     year_ends = [X.d(p["periodo_fin"]) for p in rec["resultados"]["ingresos"]["anual"]][-7:]
