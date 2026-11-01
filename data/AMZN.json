@@ -32,7 +32,51 @@
   "url_documento": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000038/amzn-20261029.htm",
   "url_indice": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000038/0001018724-26-000038-index.htm",
   "fuente": "SEC EDGAR · 8-K",
-  "url_ex99_1": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000038/amzn-20260930xex991.htm"
+  "url_ex99_1": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000038/amzn-20260930xex991.htm",
+  "anexos": [
+   {
+    "tipo": "EX-99.1",
+    "descripcion": "",
+    "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000038/amzn-20260930xex991.htm"
+   },
+   {
+    "tipo": "EX-99.2",
+    "descripcion": "",
+    "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000038/amzn-20260930xex992.htm"
+   }
+  ],
+  "nota_resultados": {
+   "version": 1,
+   "guia": {
+    "titulo": "Financial Guidance",
+    "texto": [
+     "The following forward-looking statements reflect Amazon.com’s expectations as of October 29, 2026, and are subject to substantial uncertainty. Our results are inherently unpredictable and may be materially affected by many factors, such as fluctuations in foreign exchange rates and energy prices, changes in global economic and geopolitical conditions, tariff and trade policies, resource and supply volatility, including for memory chips, and customer demand and spending (including the impact of r",
+     "Fourth Quarter 2026 Guidance",
+     "• Net sales are expected to be between $240.0 billion and $247.0 billion, or to grow between 12% and 16% compared with fourth quarter 2025. This guidance anticipates an unfavorable impact of approximately 60 basis points from foreign exchange rates. Advertising revenue grew 12% year-over-year excluding changes in foreign exchange rates in the third quarter 2026 impacted by timing anomalies primarily related to Prime Day (and a couple other timing factors). We expect year-over-year advertising re",
+     "• Operating income is expected to be between $28.5 billion and $33.5 billion, compared with $25.0 billion in fourth quarter 2025."
+    ]
+   },
+   "destacados": {
+    "titulo": "Some other highlights since the company’s last earnings announcement include that Amazon:",
+    "texto": [
+     "• Signed new AWS agreements with Meta, NVIDIA, OpenAI, Salesforce, Oracle, Qualcomm, Verizon, ADP, Stripe, Accenture Edge, Novo, Fanatics, Zoom, Raymond James, Prometheus AI, AppFolio, Instructure, Cognition, Sigma, Lila Sciences, The Biological Computing Co., NATO, Columbia University Irving Medical Center, and more.",
+     "• Drove continued rapid growth for Amazon Bedrock, AWS’s inference service, with Fortune 500 companies spending nearly 7x more year-over-year and total Bedrock token volume growing nearly 17x year-over-year.",
+     "• Expanded Bedrock’s leading selection of frontier and open weight models, adding OpenAI’s GPT-6 Astra, GPT-6 Sol, GPT-6 Luna, and GPT-6.1 Sol; Anthropic’s Claude Fable 5.1, Opus 5.5, Sonnet 5.5, and Haiku 5.5; Moonshot AI’s Kimi K3; SpaceXAI’s Grok 4.7; Z.ai’s GLM 5.3; and two purpose-built cybersecurity models from OpenAI.",
+     "• Launched built-in web search for OpenAI models on Bedrock so customers can ground responses in current information—while keeping data secure and answers accurate for time-sensitive questions without building and maintaining their own web-retrieval pipelines.",
+     "• Launched public preview of Bedrock Managed Agents, which is a managed service powered by OpenAI that makes it faster for enterprises to build and deploy production-ready AI agents.",
+     "• Added to AWS’s leadership position in open source agent-building:",
+     "• Released Strands harness, a fully assembled, state-of-the-art agent harness that developers can get working with a single line of code and build custom agents that can run locally, on Bedrock AgentCore, or on a provider of their choice. Strands harness lowers the cost of agent tasks by 32% through greater token efficiency than other harnesses when using the same frontier models, while achieving equal or better accuracy."
+    ]
+   },
+   "cita": {
+    "cita": "Our AWS investment in functionality and infrastructure is working, with over 39% year-over-year revenue growth in Q3 ($184 billion revenue run rate) and projected revenue growth rates of over 40% both in 2027 and in 2028,",
+    "quien": "Andy Jassy, President and CEO, Amazon"
+   },
+   "accn": "0001018724-26-000038",
+   "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000038/amzn-20260930xex991.htm",
+   "idioma": "en",
+   "fuente": "SEC EDGAR · 8-K, Exhibit 99.1 (lectura automática)"
+  }
  },
  "soportada": true,
  "referencia_fecha_datos": "2026-09-30",
@@ -14618,6 +14662,20 @@
  },
  "noticias": [
   {
+   "titular": "A big sell-off collides with more Big Tech earnings and a midterm election: What to watch this week",
+   "medio": "Yahoo",
+   "url": "https://finnhub.io/api/news?id=e3fc075388fa22e93319eb80a0d4b4b723e182fb6039f97cdb968f7f8473f8d6",
+   "fecha": "2026-11-01",
+   "resumen": "Coming into this week, all eyes will be on potential sparks to re-light the fire under the tech sector. Fire, to be clear, in a bad way."
+  },
+  {
+   "titular": "Anthropic Is “Reduplicating AWS” as It Rents Its Own Data Centers. Amazon Reports Thursday",
+   "medio": "Yahoo",
+   "url": "https://finnhub.io/api/news?id=e79526698cfab6dac797af68e13a3195a8ba1cf0a6e5dc82a9be25b47b043edb",
+   "fecha": "2026-11-01",
+   "resumen": "Key TakeawaysAnthropic’s S-1, made public Oct. 26, says it now leases its own data centers and the AI chips inside them, alongside renting computing power from Amazon and Alphabet’s Google."
+  },
+  {
    "titular": "ETB: 8.5% Yield With Widest Discount In 15 Years",
    "medio": "SeekingAlpha",
    "url": "https://finnhub.io/api/news?id=1c04d1deb1d90fc69caa8dd53434137c779aa07bded49b7f7a07beb380b0ca6f",
@@ -14686,20 +14744,6 @@
    "url": "https://finnhub.io/api/news?id=0695abd2b2ec37bdf0c58d4d7d877fc43b97bfe3959d09aa8d382765634cee0b",
    "fecha": "2026-10-31",
    "resumen": "Amazon.com just dropped Q3 2026 numbers that show a bruising hit to profit even as the business kept pulling in more sales. Net income landed at US$20.7b on revenue of US$201.9b, and earnings per share stepped down sharply from the unusually strong prior quarter. The stock told a"
-  },
-  {
-   "titular": "Big Tech Now Spends More on AI Than It Brings In From Operations",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=c6e47ebc6bebb2d17c09d4b18228696094cb10d7df2a8aad3f9777867d7d5161",
-   "fecha": "2026-10-31",
-   "resumen": "The five biggest names in tech are now writing checks their operations alone cannot cover, and the gap between what they spend on AI and what they earn is widening fast enough to force choices that will hit shareholders directly."
-  },
-  {
-   "titular": "The Nasdaq 100 Briefly Fell Into a Correction as the AI Trade Cracks",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=ea29a0da0b3b89abc6b4f549a483d5fc1b3efe4007514bc9541ab6f3215222db",
-   "fecha": "2026-10-31",
-   "resumen": "Chip stocks cratered, the Nasdaq-100 crossed a line it has not crossed all year, and one portfolio manager says the AI trade just entered a dangerous new phase that separates believers from skeptics."
   }
  ],
  "historico_precio": {
@@ -19990,7 +20034,7 @@
   "fecha": "2026-10-30",
   "ajuste": "splits"
  },
- "generado": "2026-11-01T12:07:40+00:00",
+ "generado": "2026-11-01T12:30:46+00:00",
  "peers": {
   "fuente_lista": "manual",
   "fuente_cifras": "SEC EDGAR (companyfacts, UDM) · precio Finnhub",
