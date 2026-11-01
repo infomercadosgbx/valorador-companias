@@ -426,6 +426,14 @@ table.mini2 td{padding:3px 6px;font-size:12px;border-bottom:1px solid var(--grid
 .menuwrap{position:relative} .menu{position:fixed;z-index:60;min-width:220px;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,.18);padding:6px;display:flex;flex-direction:column;gap:2px}
 .menu button{all:unset;cursor:pointer;padding:9px 12px;border-radius:7px;font-size:13.5px;color:var(--ink)} .menu button:hover,.menu button:focus-visible{background:var(--surface2)}
 #btnMore.on{background:var(--tcx);color:#fff;border-color:var(--tcx)}
+#main span.up:not(.pill),#main b.up{color:var(--goodText)} #main span.dn:not(.pill),#main b.dn{color:var(--critText)}
+.homenav{display:flex;gap:4px;border-bottom:1px solid var(--line);margin:-4px 0 14px} .homenav button{all:unset;cursor:pointer;padding:9px 14px;font-weight:600;font-size:14px;color:var(--ink2);border-bottom:2px solid transparent;margin-bottom:-1px} .homenav button[aria-selected=true]{color:var(--ink);border-bottom-color:var(--tcx)}
+#btnHome{display:inline-flex;align-items:center;gap:6px}
+.carform{display:grid;grid-template-columns:2fr 1fr 1fr 1fr auto;gap:10px;align-items:end} .carform label{display:flex;flex-direction:column;gap:4px;font-size:12px;color:var(--ink2)} .carform select,.carform input{font:inherit;font-size:14px;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink)}
+.carbtns{display:flex;flex-wrap:wrap;gap:8px} .carbtns button,.btnlike{font:inherit;font-size:13.5px;padding:8px 14px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink);cursor:pointer} .carbtns .primary{background:var(--tcx);border-color:var(--tcx);color:#fff;font-weight:600}
+@media (max-width:760px){.carform{grid-template-columns:1fr 1fr} .carform label:first-child{grid-column:1/-1} .carform .carbtns{grid-column:1/-1}}
+.wbar{display:block;height:4px;border-radius:2px;background:var(--surface2);margin-top:4px;overflow:hidden} .wbar i{display:block;height:100%;background:var(--tcx)}
+.cact{white-space:nowrap} .cact .add{padding:2px 7px;margin-left:2px}
 .moreb{border:0;background:none;padding:0 2px;font:inherit;font-size:inherit;color:var(--tcx);cursor:pointer;text-decoration:underline;text-underline-offset:2px}
 .kpi .src,.official .src{opacity:.6;border-bottom:0;transition:opacity .15s} .kpi:hover .src,.official .kpi:hover .src,.src:focus{opacity:1;border-bottom:1px dotted var(--line)}
 body.report .moreb{display:none} body.report .more{display:inline!important}
@@ -612,7 +620,7 @@ body.report .asgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
 
 /* ================= Seguimiento ================= */
 body.watch .tabs,body.watch .cohead,body.watch #staleBox,body.watch #draftBar,body.watch #warnBox{display:none!important}
-#btnWatch[aria-pressed=true]{background:#fff;color:var(--bar);border-color:#fff}
+#btnHome[aria-pressed=true]{background:#fff;color:var(--bar);border-color:#fff}
 .wtable td,.wtable th{vertical-align:middle;padding:8px 7px} .wtable th{white-space:normal;line-height:1.25;min-width:64px}
 .wtable tbody tr{cursor:pointer} .wtable tbody tr:hover td{background:color-mix(in srgb,var(--tcx) 6%,transparent)}
 .wtable th[data-wsort]{cursor:pointer;user-select:none} .wtable th[data-wsort]:hover{color:var(--ink)}
@@ -709,7 +717,12 @@ body.report .seg{display:none}
     <button type="button" class="switch" id="btnSwitch" aria-haspopup="listbox" aria-expanded="false" aria-controls="picker"></button>
     <div class="favs" id="favPills" role="group" aria-label="Compañías favoritas"></div>
     <div class="toolbar">
-      <button type="button" id="btnWatch" aria-pressed="false">Seguimiento</button>
+      <button type="button" id="btnHome" aria-haspopup="menu" aria-expanded="false" aria-pressed="false" title="Inicio: seguimiento y cartera"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h5v-6h4v6h5V9.5"/></svg> <span class="ml">Inicio</span></button>
+      <div class="menu" id="homeMenu" role="menu" hidden>
+        <button type="button" role="menuitem" data-home="lista">📋 Lista de seguimiento</button>
+        <button type="button" role="menuitem" data-home="cartera">💼 Cartera</button>
+        <button type="button" role="menuitem" data-home="salir" id="homeBack" hidden>← Volver a la compañía</button>
+      </div>
       <div class="menuwrap"><button type="button" id="btnMore" aria-haspopup="menu" aria-expanded="false" title="Más acciones">⋯ <span class="ml">Más</span></button>
         <div class="menu" id="moreMenu" role="menu" hidden>
           <button type="button" role="menuitem" id="btnEdit" aria-pressed="false">✎ Editar</button>
@@ -1418,7 +1431,72 @@ function renderTabs(){
 function head(){const t=TABS.find(x=>x.id===TAB);
   return `<div class="editbar">Modo edición: cambia textos, puntuaciones y supuestos. Se guarda como borrador en este navegador; descárgalo para publicarlo en analysis/. Las cifras de la SEC no se editan.</div>
   <div class="tabhead"><span class="bar"></span><div><div class="eyebrow tc">${esc(cur.meta.name)} · ${t.label}</div><h2>${t.title}</h2><p>${t.desc}</p></div></div>`;}
-let REPORT=false, WATCH=false, WSORT=lsGet("valorador.wsort")||"pot", WASC=lsGet("valorador.wasc")==="1";
+let REPORT=false, WATCH=false, WVIEW="lista", WSORT=lsGet("valorador.wsort")||"pot", WASC=lsGet("valorador.wasc")==="1";
+/* ================= CARTERA: posiciones guardadas solo en este navegador ================= */
+const CKEY="valorador.cartera";
+function carLoad(){ try{ const j=JSON.parse(lsGet(CKEY)||"{}"); return {posiciones:Array.isArray(j.posiciones)?j.posiciones:[],efectivo:+j.efectivo||0}; }catch(e){ return {posiciones:[],efectivo:0}; } }
+function carSave(c){ lsSet(CKEY,JSON.stringify(c)); }
+let CEDIT=null;
+function carRows(){
+  const C=carLoad(), W=Object.fromEntries(watchRows().map(r=>[r.k,r]));
+  const rows=C.posiciones.map((p,i)=>{ const w=W[p.t]||null, px=w?w.price:NaN, n=+p.acciones||0, pm=+p.precio||0, val=fin(px)?px*n:NaN, cost=pm*n;
+    return {i,t:p.t,w,name:w?w.name:p.t,n,pm,px,val,cost,pl:fin(val)?val-cost:NaN,plp:fin(val)&&cost>0?(val/cost-1)*100:NaN,day:w?w.day:NaN,
+      dayAbs:w&&fin(w.day)&&fin(val)?val-val/(1+w.day/100):NaN,fv:w?w.fv:NaN,fvVal:w&&fin(w.fv)?w.fv*n:NaN,pot:w?w.pot:NaN,rating:w?w.rating:"",bb:w?w.bb:NaN,fecha:p.fecha||""}; });
+  const tot=rows.reduce((a,r)=>a+(fin(r.val)?r.val:0),0);
+  rows.forEach(r=>{ r.peso=tot>0&&fin(r.val)?r.val/tot*100:NaN; });
+  return {C,rows,tot};
+}
+function homeNav(){ return `<div class="homenav" role="tablist"><button type="button" role="tab" data-home="lista" aria-selected="${WVIEW==="lista"}">📋 Lista de seguimiento</button><button type="button" role="tab" data-home="cartera" aria-selected="${WVIEW==="cartera"}">💼 Cartera</button></div>`; }
+function carteraHtml(){
+  const {C,rows,tot}=carRows(), cost=rows.reduce((a,r)=>a+r.cost,0), pl=tot-cost, plp=cost>0?(tot/cost-1)*100:NaN;
+  const dayAbs=rows.reduce((a,r)=>a+(fin(r.dayAbs)?r.dayAbs:0),0), dayP=tot-dayAbs>0?dayAbs/(tot-dayAbs)*100:NaN;
+  const fvTot=rows.reduce((a,r)=>a+(fin(r.fvVal)?r.fvVal:0),0), valWithFv=rows.reduce((a,r)=>a+(fin(r.fvVal)&&fin(r.val)?r.val:0),0), potT=valWithFv>0?(fvTot/valWithFv-1)*100:NaN;
+  const usd=v=>fin(v)?nf(v,0)+" $":"–", sg=(v,d=1,suf="%")=>!fin(v)?"–":`<span class="${v>=0?"up":"dn"}">${v>=0?"+":"−"}${nf(Math.abs(v),d)}${suf}</span>`;
+  const opts=Object.entries(store.companies).map(([k,c])=>`<option value="${esc(k)}">${esc(c.meta.name)} (${esc(k)})</option>`).join("");
+  const ed=CEDIT!=null?C.posiciones[CEDIT]:null;
+  const form=`<form class="carform" id="carForm" autocomplete="off">
+     <label>Compañía<select name="t" required>${opts.replace(ed?`value="${esc(ed.t)}"`:"\u0000",ed?`value="${esc(ed.t)}" selected`:"")}</select></label>
+     <label>Acciones<input name="n" type="number" step="any" min="0" required value="${ed?esc(ed.acciones):""}" placeholder="100"></label>
+     <label>Precio medio ($)<input name="pm" type="number" step="any" min="0" required value="${ed?esc(ed.precio):""}" placeholder="250,00"></label>
+     <label>Fecha de compra<input name="f" type="date" value="${ed?esc(ed.fecha||""):""}"></label>
+     <div class="carbtns"><button type="submit" class="primary">${ed?"Guardar cambios":"Añadir posición"}</button>${ed?`<button type="button" data-cancel>Cancelar</button>`:""}</div></form>`;
+  return `<div class="tabhead"><div><div class="eyebrow">Inicio</div><h2>Cartera</h2><p>Tus posiciones con el precio de cada noche y el valor de tu modelo. Se guarda solo en este navegador.</p></div></div>${homeNav()}
+  ${rows.length?`<div class="kpis">
+    ${kpi("Valor de la cartera",usd(tot),`<span class="note">coste ${usd(cost)} · ${rows.length} posiciones</span>`,true)}
+    ${kpi("Ganancia / pérdida",`<span class="${pl>=0?"up":"dn"}">${pl>=0?"+":"−"}${nf(Math.abs(pl),0)} $</span>`,sg(plp))}
+    ${kpi("Última sesión",fin(dayAbs)?`<span class="${dayAbs>=0?"up":"dn"}">${dayAbs>=0?"+":"−"}${nf(Math.abs(dayAbs),0)} $</span>`:"–",sg(dayP))}
+    ${kpi("Potencial según tu modelo",fin(potT)?sg(potT):"–",`<span class="note">valor razonable ponderado ${usd(fvTot)}</span>`)}
+  </div>
+  <section class="card"><div class="scroll"><table class="wtable ctable"><thead><tr><th style="text-align:left">Compañía</th><th>Acciones</th><th>Precio medio</th><th>Precio</th><th>Valor</th><th>Peso</th><th>Ganancia</th><th>Hoy</th><th>Valor razonable</th><th>Potencial</th><th style="text-align:left">Recomendación</th><th></th></tr></thead><tbody>
+    ${rows.sort((a,b)=>(b.val||0)-(a.val||0)).map(r=>`<tr>
+      <td><div class="wco" data-wopen="${esc(r.t)}" style="cursor:pointer">${r.w?monoHtml(r.w.c,"sm"):""}<div><b>${esc(r.name)}</b> <small>${esc(r.t)}</small>${r.fecha?`<span class="wsub">desde ${esc(fecha(r.fecha))}</span>`:""}</div></div></td>
+      <td>${nf(r.n,r.n%1?2:0)}</td><td>${money(r.pm)}</td><td>${money(r.px)}</td><td><b>${usd(r.val)}</b></td>
+      <td>${fin(r.peso)?pct(r.peso,1):"–"}<span class="wbar"><i style="width:${fin(r.peso)?Math.min(100,r.peso):0}%"></i></span></td>
+      <td>${fin(r.pl)?`<span class="${r.pl>=0?"up":"dn"}">${r.pl>=0?"+":"−"}${nf(Math.abs(r.pl),0)} $</span>`:"–"}<span class="wsub">${sg(r.plp)}</span></td>
+      <td>${sg(r.day)}</td><td>${money(r.fv)}</td><td>${fin(r.pot)?sg(r.pot,1):"–"}${fin(r.bb)&&fin(r.px)&&r.px<=r.bb?`<span class="wsub">en zona de compra</span>`:""}</td>
+      <td style="text-align:left">${r.rating?ratingPill(r.rating):"–"}</td>
+      <td class="cact"><button type="button" class="add" data-cedit="${r.i}" title="Editar">✎</button><button type="button" class="add" data-cdel="${r.i}" title="Eliminar">✕</button></td></tr>`).join("")}
+    <tr class="em"><td style="text-align:left">Total</td><td></td><td></td><td></td><td><b>${usd(tot)}</b></td><td>100%</td><td>${pl>=0?"+":"−"}${nf(Math.abs(pl),0)} $<span class="wsub">${sg(plp)}</span></td><td>${sg(dayP)}</td><td>${usd(fvTot)}</td><td>${sg(potT)}</td><td></td><td></td></tr>
+  </tbody></table></div>
+  <p class="note">Precio: cierre de Finnhub de cada noche. Valor razonable: el ponderado de tu DCF de cada compañía. «Potencial» de la cartera: valor razonable de las posiciones frente a su valor de mercado. Pulsa una compañía para abrir su análisis.</p></section>
+  <div class="g2">
+    <section class="card"><h2>Reparto de la cartera</h2><div class="cv h260"><canvas id="ch_c_mix" role="img" aria-label="Peso de cada posición"></canvas></div></section>
+    <section class="card"><h2>Ganancia y potencial por posición</h2><p class="sub">% sobre tu precio medio y % hasta tu valor razonable.</p><div class="cv h260"><canvas id="ch_c_pl" role="img" aria-label="Ganancia y potencial por posición"></canvas></div></section>
+  </div>`:`<section class="card"><p class="empty">Aún no hay posiciones. Añade la primera abajo: solo puedes elegir compañías que sigue el valorador.</p></section>`}
+  <section class="card" id="carEdit"><h2>${ed?"Editar posición":"Añadir posición"}</h2>${form}</section>
+  <section class="card"><h2>Copia y otros dispositivos</h2><p class="sub">El repositorio de GitHub es público, así que tu cartera no se sube: vive solo en este navegador. Para llevarla a otro dispositivo, exporta el archivo e impórtalo allí.</p>
+    <div class="carbtns"><button type="button" data-cexp>⬇ Exportar cartera</button><label class="btnlike">⬆ Importar cartera<input type="file" accept="application/json,.json" id="carImp" hidden></label>${rows.length?`<button type="button" data-cclear>Vaciar cartera</button>`:""}</div></section>`;
+}
+function drawCartera(){
+  const {rows}=carRows(); if(!rows.length) return;
+  const rs=rows.filter(r=>fin(r.val)&&r.val>0).sort((a,b)=>b.val-a.val);
+  mk("ch_c_mix",{type:"doughnut",data:{labels:rs.map(r=>r.name),datasets:[{data:rs.map(r=>Math.round(r.val)),backgroundColor:rs.map(r=>r.w?brandOf(r.w.c).color:V("--muted")),borderColor:V("--surface"),borderWidth:2}]},
+    options:{cutout:"62%",plugins:{semantic:false,legend:{position:"right",labels:{generateLabels:ch=>{const t=ch.data.datasets[0].data.reduce((a,b)=>a+b,0); return ch.data.labels.map((l,i)=>({text:`${l} · ${nf(ch.data.datasets[0].data[i]/t*100,1)}%`,fillStyle:ch.data.datasets[0].backgroundColor[i],strokeStyle:"transparent",pointStyle:"circle",index:i}));}}},tooltip:{callbacks:{label:c=>`${c.label}: ${nf(c.parsed,0)} $`}}}}});
+  const rp=rows.slice().sort((a,b)=>(b.plp||0)-(a.plp||0));
+  mk("ch_c_pl",{type:"bar",data:{labels:rp.map(r=>r.name),datasets:[{label:"Ganancia sobre tu precio medio",data:rp.map(r=>fin(r.plp)?+r.plp.toFixed(1):null),backgroundColor:rp.map(r=>fin(r.plp)&&r.plp>=0?V("--good"):V("--crit")),_keep:true},
+      {label:"Potencial hasta tu valor razonable",data:rp.map(r=>fin(r.pot)?+r.pot.toFixed(1):null),backgroundColor:alpha(V("--tcx"),.55),_keep:true}]},
+    options:{indexAxis:"y",plugins:{legend:legend(2),tooltip:{callbacks:{label:c=>`${c.dataset.label}: ${c.parsed.x>=0?"+":""}${nf(c.parsed.x,1)}%`}}},scales:{x:{...axisY({suf:"%",zero:true})},y:{grid:{display:false},border:{display:false}}}}});
+}
 function watchRows(){
   return Object.entries(store.companies).map(([k,c])=>{
     const vz=valuation(c), sc=scorecard(c,vz), v=c.v, d=c._data||{}, P=d.precio||{}, st=staleInfo(c);
@@ -1439,7 +1517,7 @@ function watchHtml(){
   const below=rows.filter(r=>fin(r.toBuy)&&r.toBuy<=0), soon=rows.filter(r=>fin(r.eDays)&&r.eDays>=0&&r.eDays<=14), rev=rows.filter(r=>r.stale||r.isNew);
   const th=(k,l,left)=>`<th data-wsort="${k}" class="${WSORT===k?"on"+(WASC?" asc":""):""}"${left?' style="text-align:left"':""}>${l}</th>`;
   const sg=v=>!fin(v)?"–":`<span style="color:${v>=0?"var(--goodText)":"var(--critText)"}">${v>=0?"+":"−"}${nf(Math.abs(v),1)}%</span>`;
-  return `<div class="tabhead"><div><div class="eyebrow">Todas las compañías</div><h2>Seguimiento</h2><p>Precio, valor de tu modelo, puntuación y lo que toca vigilar. Pulsa una columna para ordenar y una fila para abrir la compañía.</p></div></div>
+  return `<div class="tabhead"><div><div class="eyebrow">Inicio</div><h2>Lista de seguimiento</h2><p>Precio, valor de tu modelo, puntuación y lo que toca vigilar. Pulsa una columna para ordenar y una fila para abrir la compañía.</p></div></div>${homeNav()}
   <div class="kpis">
     ${kpi("Compañías",String(rows.length),`<span class="note">${rows.filter(r=>r.fav).length} favoritas</span>`)}
     ${kpi("Por debajo de tu precio de compra",String(below.length),`<span class="note">${below.map(r=>esc(r.name)).join(", ")||"ninguna"}</span>`)}
@@ -1467,14 +1545,17 @@ function watchHtml(){
   <section class="card"><h2>Potencial según tu modelo</h2><p class="sub">Valor razonable frente a la cotización actual.</p><div class="cv h260"><canvas id="ch_w_pot" role="img" aria-label="Potencial por compañía"></canvas></div></section>`;
 }
 function renderWatch(){
-  killCharts(); document.body.classList.add("watch"); $("btnWatch").setAttribute("aria-pressed","true");
-  const m=$("main"); m.style.setProperty("--tc","var(--tcx)"); m.innerHTML=watchHtml();
+  killCharts(); document.body.classList.add("watch"); $("btnHome").setAttribute("aria-pressed","true");
+  const m=$("main"); m.style.setProperty("--tc","var(--tcx)");
+  $("btnHome").querySelector(".ml").textContent=WVIEW==="cartera"?"Cartera":"Seguimiento";
+  if(WVIEW==="cartera"){ m.innerHTML=carteraHtml(); requestAnimationFrame(()=>{ setDefaults(); drawCartera(); }); return; }
+  m.innerHTML=watchHtml();
   requestAnimationFrame(()=>{ setDefaults(); const rows=watchRows().filter(r=>fin(r.pot)).sort((a,b)=>b.pot-a.pot);
     mk("ch_w_pot",{type:"bar",data:{labels:rows.map(r=>r.name),datasets:[{data:rows.map(r=>+r.pot.toFixed(1)),backgroundColor:rows.map(r=>r.pot>=0?V("--good"):V("--crit"))}]},
       options:{indexAxis:"y",plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>`${c.parsed.x>=0?"+":""}${nf(c.parsed.x,1)}%`}}},scales:{x:{...axisY({suf:"%",zero:true})},y:{grid:{display:false},border:{display:false}}}}}); });
 }
-function exitWatch(){ WATCH=false; document.body.classList.remove("watch"); $("btnWatch").setAttribute("aria-pressed","false"); renderTabs();
-  if(location.hash==="#seguimiento"){ try{history.replaceState(null,"","#"+TAB);}catch(e){} } }
+function exitWatch(){ WATCH=false; document.body.classList.remove("watch"); $("btnHome").setAttribute("aria-pressed","false"); $("btnHome").querySelector(".ml").textContent="Inicio"; renderTabs();
+  if(location.hash==="#seguimiento"||location.hash==="#cartera"){ try{history.replaceState(null,"","#"+TAB);}catch(e){} } }
 function reportCover(){
   const vz=valuation(cur), s=scorecard(cur,vz), b=brandOf(cur), v=cur.v, P=cur._data&&cur._data.precio, ref=cur._data&&cur._data.referencia_fecha_datos;
   const hoy=new Date().toISOString().slice(0,10);
@@ -3435,7 +3516,13 @@ document.addEventListener("click",e=>{
   const mc=e.target.closest("[data-mchart]"); if(mc){MCHART=mc.dataset.mchart; lsSet("valorador.mchart",MCHART); renderValOut(); return;}
   const sn=e.target.closest("[data-sens]"); if(sn){SENSMODE=sn.dataset.sens; lsSet("valorador.sens",SENSMODE); renderValOut(); return;}
   const px=e.target.closest("[data-peerx]"); if(px){PEERX=px.dataset.peerx; lsSet("valorador.peerx",PEERX); renderValOut(); return;}
-  if(e.target.closest("#btnWatch")){ if(WATCH){ exitWatch(); renderTab(); try{history.replaceState(null,"","#"+TAB);}catch(_){} } else { WATCH=true; renderWatch(); try{history.replaceState(null,"","#seguimiento");}catch(_){} } return; }
+  const hm=e.target.closest("[data-home]"); if(hm){ const v=hm.dataset.home; if(v==="salir"){ exitWatch(); renderTab(); try{history.replaceState(null,"","#"+TAB);}catch(_){} return; }
+    WVIEW=v; WATCH=true; CEDIT=null; renderWatch(); try{history.replaceState(null,"",v==="cartera"?"#cartera":"#seguimiento");}catch(_){} window.scrollTo(0,0); return; }
+  const ce=e.target.closest("[data-cedit]"); if(ce){ CEDIT=+ce.dataset.cedit; renderWatch(); setTimeout(()=>{ const f=$("carEdit"); if(f) f.scrollIntoView({behavior:"smooth",block:"center"}); },50); return; }
+  const cd=e.target.closest("[data-cdel]"); if(cd){ const C=carLoad(), p=C.posiciones[+cd.dataset.cdel]; if(p&&confirmLite(`¿Eliminar la posición en ${p.t}?`)){ C.posiciones.splice(+cd.dataset.cdel,1); carSave(C); CEDIT=null; renderWatch(); } return; }
+  if(e.target.closest("[data-cancel]")){ CEDIT=null; renderWatch(); return; }
+  if(e.target.closest("[data-cexp]")){ const blob=new Blob([JSON.stringify(Object.assign({esquema:1,exportada:new Date().toISOString()},carLoad()),null,1)],{type:"application/json"}); const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download="cartera-valorador.json"; a.click(); setTimeout(()=>URL.revokeObjectURL(a.href),1000); return; }
+  if(e.target.closest("[data-cclear]")){ if(confirmLite("¿Vaciar toda la cartera de este navegador?")){ carSave({posiciones:[],efectivo:0}); CEDIT=null; renderWatch(); } return; }
   const wo=e.target.closest("[data-wopen]"); if(wo){ exitWatch(); selectCo(wo.dataset.wopen); goTab("overview"); window.scrollTo(0,0); return; }
   const wsh=e.target.closest("[data-wsort]"); if(wsh){ const k=wsh.dataset.wsort; if(WSORT===k) WASC=!WASC; else { WSORT=k; WASC=["name","eDays","toBuy","age"].includes(k); } lsSet("valorador.wsort",WSORT); lsSet("valorador.wasc",WASC?"1":"0"); renderWatch(); return; }
   if(e.target.closest("#btnReport")){ if(WATCH) exitWatch(); REPORT=true; renderReport(); return; }
@@ -3485,8 +3572,17 @@ const THEMES=[["auto","automático"],["light","claro"],["dark","oscuro"]];
 function applyTheme(t){ if(t==="light"||t==="dark") document.documentElement.setAttribute("data-theme",t); else document.documentElement.removeAttribute("data-theme"); const b=$("btnTheme"); if(b) b.textContent="◐ Tema: "+(THEMES.find(x=>x[0]===t)||THEMES[0])[1]; }
 applyTheme(lsGet("valorador.tema")||"auto");
 $("btnTheme").addEventListener("click",()=>{ const cur0=lsGet("valorador.tema")||"auto", i=THEMES.findIndex(x=>x[0]===cur0), nx=THEMES[(i+1)%3][0]; lsSet("valorador.tema",nx); applyTheme(nx); });
-document.body.appendChild($("moreMenu"));
-$("btnMore").addEventListener("click",ev=>{ ev.stopPropagation(); const m=$("moreMenu"); m.hidden=!m.hidden;
+document.body.appendChild($("moreMenu")); document.body.appendChild($("homeMenu"));
+function confirmLite(msg){ try{ return window.confirm(msg); }catch(e){ return true; } }
+$("btnHome").addEventListener("click",ev=>{ ev.stopPropagation(); const m=$("homeMenu"); $("moreMenu").hidden=true; m.hidden=!m.hidden; $("btnHome").setAttribute("aria-expanded",!m.hidden); $("homeBack").hidden=!WATCH;
+  if(!m.hidden){ const r=$("btnHome").getBoundingClientRect(), w=m.offsetWidth||230; m.style.top=(r.bottom+6)+"px"; m.style.left=Math.max(8,Math.min(r.left,window.innerWidth-w-8))+"px"; } });
+document.addEventListener("click",ev=>{ const m=$("homeMenu"); if(m&&!m.hidden&&(!ev.target.closest("#btnHome,#homeMenu")||ev.target.closest(".menu button"))){ m.hidden=true; $("btnHome").setAttribute("aria-expanded","false"); } });
+document.addEventListener("submit",ev=>{ if(ev.target.id!=="carForm") return; ev.preventDefault(); const f=new FormData(ev.target), C=carLoad();
+  const p={t:String(f.get("t")),acciones:+String(f.get("n")).replace(",","."),precio:+String(f.get("pm")).replace(",","."),fecha:String(f.get("f")||"")};
+  if(!p.t||!(p.acciones>0)||!(p.precio>0)) return; if(CEDIT!=null) C.posiciones[CEDIT]=p; else C.posiciones.push(p); carSave(C); CEDIT=null; renderWatch(); });
+document.addEventListener("change",ev=>{ if(ev.target.id!=="carImp"||!ev.target.files[0]) return; const rd=new FileReader(); rd.onload=()=>{ try{ const j=JSON.parse(rd.result); if(!Array.isArray(j.posiciones)) throw 0;
+  carSave({posiciones:j.posiciones.filter(p=>p&&p.t&&+p.acciones>0&&+p.precio>0),efectivo:+j.efectivo||0}); renderWatch(); }catch(e){ alert("El archivo no es una cartera exportada desde el valorador."); } }; rd.readAsText(ev.target.files[0]); });
+$("btnMore").addEventListener("click",ev=>{ ev.stopPropagation(); $("homeMenu").hidden=true; const m=$("moreMenu"); m.hidden=!m.hidden;
   if(!m.hidden){ const r=$("btnMore").getBoundingClientRect(); const w=m.offsetWidth||230; m.style.top=(r.bottom+6)+"px"; m.style.left=Math.max(8,Math.min(r.right-w,window.innerWidth-w-8))+"px"; } $("btnMore").setAttribute("aria-expanded",!m.hidden); });
 document.addEventListener("click",ev=>{ const m=$("moreMenu"); if(m&&!m.hidden&&(!ev.target.closest(".menuwrap,#moreMenu")||ev.target.closest(".menu button"))){ m.hidden=true; $("btnMore").setAttribute("aria-expanded","false"); } });
 document.addEventListener("keydown",ev=>{ if(ev.key==="Escape"){ const m=$("moreMenu"); if(m&&!m.hidden){ m.hidden=true; $("btnMore").setAttribute("aria-expanded","false"); $("btnMore").focus(); } } });
@@ -3497,7 +3593,7 @@ $("btnCopy").addEventListener("click",()=>{const t=JSON.stringify(exportAnalysis
 $("btnImport").addEventListener("click",()=>{try{const n=importOld($("jsonBox").value); renderHeader(); renderTab(); toast(n?`${n} ${n===1?"compañía importada":"compañías importadas"} como borrador`:"Ninguna compañía coincide por ticker");}
   catch(e){toast("El texto no es un JSON exportado desde el valorador antiguo");}});
 document.addEventListener("toggle",e=>{ const d=e.target; if(d&&d.id==="warnDet") lsSet("valorador.avisosabiertos",d.open?"1":"0"); if(d&&d.id==="keyAs") lsSet("valorador.supclave",d.open?"1":"0"); if(d&&d.id==="srcKeys") lsSet("valorador.srckeys",d.open?"1":"0"); if(d&&d.id==="srcWarn") lsSet("valorador.srcwarn",d.open?"1":"0"); if(d&&d.id==="socialBox") lsSet("valorador.social",d.open?"1":"0"); if(d&&d.id==="glossary"){ lsSet("valorador.glosario",d.open?"1":"0"); const n=d.querySelector(".glsum .note"); if(n) n.textContent=n.textContent.replace(/pulsa para (plegar|desplegar)/,d.open?"pulsa para plegar":"pulsa para desplegar"); } },true);
-window.addEventListener("hashchange",()=>{const h=location.hash.slice(1); if(h==="seguimiento"){ if(!WATCH){ WATCH=true; renderWatch(); } return; } if(WATCH) exitWatch(); if(h&&h!==TAB) goTab(h,false);});
+window.addEventListener("hashchange",()=>{const h=location.hash.slice(1); if(h==="seguimiento"||h==="cartera"){ const v=h==="cartera"?"cartera":"lista"; if(!WATCH||WVIEW!==v){ WVIEW=v; WATCH=true; renderWatch(); } return; } if(WATCH) exitWatch(); if(h&&h!==TAB) goTab(h,false);});
 try{const mq=matchMedia("(prefers-color-scheme: dark)"); mq.addEventListener("change",()=>rebuildCharts());}catch(e){}
 new MutationObserver(()=>{rebuildCharts(); if(TAB==="valuation") drawFootball();}).observe(document.documentElement,{attributes:true,attributeFilter:["data-theme"]});
 
@@ -3615,7 +3711,7 @@ async function boot(){
   const saved=lsGet("valorador.actual");
   store.current=store.companies[saved]?saved:(keys.find(k=>store.companies[k].meta.fav)||keys[0]);
   cur=store.companies[store.current];
-  renderHeader(); renderTabs(); if((location.hash||"").slice(1)==="seguimiento"){ WATCH=true; renderWatch(); } else goTab((location.hash||"").slice(1)||"overview",false);
+  renderHeader(); renderTabs(); if(["seguimiento","cartera"].includes((location.hash||"").slice(1))){ WVIEW=location.hash==="#cartera"?"cartera":"lista"; WATCH=true; renderWatch(); } else goTab((location.hash||"").slice(1)||"overview",false);
 }
 boot();
 </script>
