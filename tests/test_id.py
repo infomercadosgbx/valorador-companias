@@ -76,3 +76,10 @@ def test_nota_resultados_guia_destacados_y_cita():
 <tr><td>3</td><td>Investor presentation</td><td><a href="/Archives/x/deck.pdf">deck.pdf</a></td><td>EX-99.2</td></tr></table>"""
     ex = F.list_exhibits(idx)
     assert [e["tipo"] for e in ex] == ["EX-99.1", "EX-99.2"] and ex[1]["descripcion"] == "Investor presentation"
+
+
+def test_cita_con_dicho_antes():
+    from fetcher import pressrelease as PR
+    html = "<p>Sundar Pichai, CEO of Alphabet and Google, said:</p><p>“We delivered a strong quarter with growth across Search, YouTube and Cloud, and AI is driving it all.”</p>"
+    c = PR.extract(html)["cita"]
+    assert c["cita"].startswith("We delivered") and c["quien"].startswith("Sundar Pichai")

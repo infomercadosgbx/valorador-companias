@@ -13,7 +13,7 @@ import re
 
 from .riskfactors import to_blocks
 
-VERSION = 2
+VERSION = 3
 HEAD_OUT = re.compile(r"\b(outlook|guidance)\b", re.I)
 HEAD_HI = re.compile(r"\b(highlights)\b", re.I)
 QUOTE = re.compile(r"[“\"]([^”\"]{60,700})(?:[”\"]|$)")
@@ -54,11 +54,16 @@ def _section(blocks, head_re, max_chars=1400, max_items=8):
 
 
 def _quote(blocks):
-    for t, _ in blocks[:80]:
+    prev = ""
+    for t, _ in blocks[:120]:
         m = QUOTE.search(t)
-        if m and SAID.search(t):
-            who = re.search(r"(?:said|says|commented|stated|added)\s+([^,.]{3,80}(?:,[^.]{0,80})?)", t)
-            return {"cita": m.group(1).strip(), "quien": (who.group(1).strip() if who else None)}
+        if m and (SAID.search(t) or SAID.search(prev[-60:])):
+            src = t if SAID.search(t) else prev
+            who = re.search(r"(?:said|says|commented|stated|added)\s+([^,.“\"]{3,80}(?:,[^.“\"]{0,80})?)", src)
+            if not who:
+                who = re.search(r"([A-Z][\w.\- ]{3,60}(?:,[^:“\"]{0,80})?),?\s+(?:said|says|commented|stated|added)", src)
+            return {"cita": m.group(1).strip().rstrip(","), "quien": (who.group(1).strip() if who else None)}
+        prev = t
     return None
 
 
