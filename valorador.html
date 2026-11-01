@@ -667,6 +667,7 @@ tr.grp td{background:var(--surface2);font-size:11px;font-weight:700;text-transfo
 .qgrid{gap:12px} .qcard{border:1px solid var(--line);border-radius:10px;padding:12px;display:flex;flex-direction:column;gap:4px;min-width:0;background:var(--surface)}
 .qhead{display:flex;justify-content:space-between;align-items:flex-start;gap:8px} .qhead h3{margin:0;font-size:14px} .qval{display:flex;flex-direction:column;align-items:flex-end;gap:3px} .qval b{font-size:20px;font-variant-numeric:tabular-nums}
 .qrow{display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:6px;align-items:baseline;font-size:12.5px;padding:3px 0;border-bottom:1px solid color-mix(in srgb,var(--line) 50%,transparent)} .qrow .note{text-align:right;font-variant-numeric:tabular-nums}
+.qrow.q2{grid-template-columns:44px minmax(0,1fr);row-gap:1px} .qrow.q2 .qok{grid-row:span 2;align-self:start;margin-top:1px} .qrow.q2 .note{text-align:left;font-size:12px}
 .qok{font-weight:700;font-size:11px;text-align:center;border-radius:5px;padding:1px 0} .qok.ok{color:var(--goodText);background:color-mix(in srgb,var(--good) 15%,transparent)} .qok.ko{color:var(--critText);background:color-mix(in srgb,var(--crit) 12%,transparent)} .qok.nd{color:var(--ink2);background:var(--surface2)}
 .pr{display:flex;flex-direction:column;gap:8px;border-top:1px solid var(--line);padding-top:10px} .prhead{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 12px} .prhead h3{margin:0}
 .prcols{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px} .thl.plain li::before{content:"·";color:var(--ink2)}
@@ -2179,7 +2180,7 @@ function qualityHtml(){
   const pi=piotroski(Q), az=altman(Q), bm=beneish(Q);
   const pill=(z,t)=>`<span class="pill ${z==="up"?"up":z==="down"?"down":"mid"}">${t}</span>`;
   const head=(t,inf,val,z,zt)=>`<div class="qhead"><h3>${t}${info(inf)}</h3><div class="qval"><b>${val}</b>${z?pill(z,zt):""}</div></div>`;
-  const piRows=["Rentabilidad","Solidez","Eficiencia"].map(g=>`<div class="eyebrow" style="margin-top:6px">${g}</div>`+pi.L.filter(x=>x.g===g).map(x=>`<div class="qrow"><span class="qok ${x.ok===null?"nd":x.ok?"ok":"ko"}">${x.ok===null?"–":x.ok?"✓":"✗"}</span><span>${esc(x.n)}</span><span class="note">${x.txt}</span></div>`).join("")).join("");
+  const piRows=["Rentabilidad","Solidez","Eficiencia"].map(g=>`<div class="eyebrow" style="margin-top:6px">${g}</div>`+pi.L.filter(x=>x.g===g).map(x=>`<div class="qrow q2"><span class="qok ${x.ok===null?"nd":x.ok?"ok":"ko"}">${x.ok===null?"–":x.ok?"✓":"✗"}</span><span>${esc(x.n)}</span><span class="note">${x.txt}</span></div>`).join("")).join("");
   const VN={x1:"Capital circulante / activo",x2:"Beneficios retenidos / activo",x3:"Beneficio operativo / activo",x4:"Capitalización / pasivo total",x5:"Ventas / activo"};
   const BN={DSRI:"Cobros pendientes / ventas",GMI:"Deterioro del margen bruto",AQI:"Calidad del activo",SGI:"Crecimiento de las ventas",DEPI:"Ritmo de amortización",SGAI:"Gastos generales / ventas",LVGI:"Apalancamiento",TATA:"Devengos (beneficio − caja) / activo"};
   const yrs=`${Q.p} → ${Q.t}`;
