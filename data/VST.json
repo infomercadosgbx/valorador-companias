@@ -85,6 +85,45 @@
    "unidad": "USD",
    "anual": [
     {
+     "valor": 9797000000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281921000004/0001692819-21-000004-index.htm",
+     "fecha_presentacion": "2021-02-26",
+     "etiqueta": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+     "periodo_fin": "2018-12-31",
+     "formulario": "10-K",
+     "accn": "0001692819-21-000004",
+     "periodo_inicio": "2018-01-01",
+     "periodo": "2018",
+     "dias": 364
+    },
+    {
+     "valor": 11547000000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281922000005/0001692819-22-000005-index.htm",
+     "fecha_presentacion": "2022-02-25",
+     "etiqueta": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+     "periodo_fin": "2019-12-31",
+     "formulario": "10-K",
+     "accn": "0001692819-22-000005",
+     "periodo_inicio": "2019-01-01",
+     "periodo": "2019",
+     "dias": 364
+    },
+    {
+     "valor": 10850000000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281923000005/0001692819-23-000005-index.htm",
+     "fecha_presentacion": "2023-03-01",
+     "etiqueta": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+     "periodo_fin": "2020-12-31",
+     "formulario": "10-K",
+     "accn": "0001692819-23-000005",
+     "periodo_inicio": "2020-01-01",
+     "periodo": "2020",
+     "dias": 365
+    },
+    {
      "valor": 17700000000,
      "fuente": "SEC EDGAR · 10-K",
      "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281924000012/0001692819-24-000012-index.htm",
@@ -457,47 +496,6 @@
    },
    "etiquetas_usadas": [
     "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax"
-   ],
-   "anual_no_comparable": [
-    {
-     "valor": 9797000000,
-     "fuente": "SEC EDGAR · 10-K",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281921000004/0001692819-21-000004-index.htm",
-     "fecha_presentacion": "2021-02-26",
-     "etiqueta": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
-     "periodo_fin": "2018-12-31",
-     "formulario": "10-K",
-     "accn": "0001692819-21-000004",
-     "periodo_inicio": "2018-01-01",
-     "periodo": "2018",
-     "dias": 364
-    },
-    {
-     "valor": 11547000000,
-     "fuente": "SEC EDGAR · 10-K",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281922000005/0001692819-22-000005-index.htm",
-     "fecha_presentacion": "2022-02-25",
-     "etiqueta": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
-     "periodo_fin": "2019-12-31",
-     "formulario": "10-K",
-     "accn": "0001692819-22-000005",
-     "periodo_inicio": "2019-01-01",
-     "periodo": "2019",
-     "dias": 364
-    },
-    {
-     "valor": 10850000000,
-     "fuente": "SEC EDGAR · 10-K",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281923000005/0001692819-23-000005-index.htm",
-     "fecha_presentacion": "2023-03-01",
-     "etiqueta": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
-     "periodo_fin": "2020-12-31",
-     "formulario": "10-K",
-     "accn": "0001692819-23-000005",
-     "periodo_inicio": "2020-01-01",
-     "periodo": "2020",
-     "dias": 365
-    }
    ]
   },
   "beneficio_bruto": {
@@ -512,6 +510,45 @@
    "nombre": "Beneficio operativo",
    "unidad": "USD",
    "anual": [
+    {
+     "valor": 491000000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281921000004/0001692819-21-000004-index.htm",
+     "fecha_presentacion": "2021-02-26",
+     "etiqueta": "us-gaap:OperatingIncomeLoss",
+     "periodo_fin": "2018-12-31",
+     "formulario": "10-K",
+     "accn": "0001692819-21-000004",
+     "periodo_inicio": "2018-01-01",
+     "periodo": "2018",
+     "dias": 364
+    },
+    {
+     "valor": 1993000000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281922000005/0001692819-22-000005-index.htm",
+     "fecha_presentacion": "2022-02-25",
+     "etiqueta": "us-gaap:OperatingIncomeLoss",
+     "periodo_fin": "2019-12-31",
+     "formulario": "10-K",
+     "accn": "0001692819-22-000005",
+     "periodo_inicio": "2019-01-01",
+     "periodo": "2019",
+     "dias": 364
+    },
+    {
+     "valor": 1519000000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281923000005/0001692819-23-000005-index.htm",
+     "fecha_presentacion": "2023-03-01",
+     "etiqueta": "us-gaap:OperatingIncomeLoss",
+     "periodo_fin": "2020-12-31",
+     "formulario": "10-K",
+     "accn": "0001692819-23-000005",
+     "periodo_inicio": "2020-01-01",
+     "periodo": "2020",
+     "dias": 365
+    },
     {
      "valor": -1515000000,
      "fuente": "SEC EDGAR · 10-K",
@@ -885,14 +922,18 @@
    },
    "etiquetas_usadas": [
     "us-gaap:OperatingIncomeLoss"
-   ],
-   "anual_no_comparable": [
+   ]
+  },
+  "beneficio_neto": {
+   "nombre": "Beneficio neto",
+   "unidad": "USD",
+   "anual": [
     {
-     "valor": 491000000,
+     "valor": -54000000,
      "fuente": "SEC EDGAR · 10-K",
      "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281921000004/0001692819-21-000004-index.htm",
      "fecha_presentacion": "2021-02-26",
-     "etiqueta": "us-gaap:OperatingIncomeLoss",
+     "etiqueta": "us-gaap:NetIncomeLoss",
      "periodo_fin": "2018-12-31",
      "formulario": "10-K",
      "accn": "0001692819-21-000004",
@@ -901,11 +942,11 @@
      "dias": 364
     },
     {
-     "valor": 1993000000,
+     "valor": 928000000,
      "fuente": "SEC EDGAR · 10-K",
      "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281922000005/0001692819-22-000005-index.htm",
      "fecha_presentacion": "2022-02-25",
-     "etiqueta": "us-gaap:OperatingIncomeLoss",
+     "etiqueta": "us-gaap:NetIncomeLoss",
      "periodo_fin": "2019-12-31",
      "formulario": "10-K",
      "accn": "0001692819-22-000005",
@@ -914,24 +955,18 @@
      "dias": 364
     },
     {
-     "valor": 1519000000,
+     "valor": 636000000,
      "fuente": "SEC EDGAR · 10-K",
      "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281923000005/0001692819-23-000005-index.htm",
      "fecha_presentacion": "2023-03-01",
-     "etiqueta": "us-gaap:OperatingIncomeLoss",
+     "etiqueta": "us-gaap:NetIncomeLoss",
      "periodo_fin": "2020-12-31",
      "formulario": "10-K",
      "accn": "0001692819-23-000005",
      "periodo_inicio": "2020-01-01",
      "periodo": "2020",
      "dias": 365
-    }
-   ]
-  },
-  "beneficio_neto": {
-   "nombre": "Beneficio neto",
-   "unidad": "USD",
-   "anual": [
+    },
     {
      "valor": -1274000000,
      "fuente": "SEC EDGAR · 10-K",
@@ -1305,47 +1340,6 @@
    },
    "etiquetas_usadas": [
     "us-gaap:NetIncomeLoss"
-   ],
-   "anual_no_comparable": [
-    {
-     "valor": -54000000,
-     "fuente": "SEC EDGAR · 10-K",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281921000004/0001692819-21-000004-index.htm",
-     "fecha_presentacion": "2021-02-26",
-     "etiqueta": "us-gaap:NetIncomeLoss",
-     "periodo_fin": "2018-12-31",
-     "formulario": "10-K",
-     "accn": "0001692819-21-000004",
-     "periodo_inicio": "2018-01-01",
-     "periodo": "2018",
-     "dias": 364
-    },
-    {
-     "valor": 928000000,
-     "fuente": "SEC EDGAR · 10-K",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281922000005/0001692819-22-000005-index.htm",
-     "fecha_presentacion": "2022-02-25",
-     "etiqueta": "us-gaap:NetIncomeLoss",
-     "periodo_fin": "2019-12-31",
-     "formulario": "10-K",
-     "accn": "0001692819-22-000005",
-     "periodo_inicio": "2019-01-01",
-     "periodo": "2019",
-     "dias": 364
-    },
-    {
-     "valor": 636000000,
-     "fuente": "SEC EDGAR · 10-K",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281923000005/0001692819-23-000005-index.htm",
-     "fecha_presentacion": "2023-03-01",
-     "etiqueta": "us-gaap:NetIncomeLoss",
-     "periodo_fin": "2020-12-31",
-     "formulario": "10-K",
-     "accn": "0001692819-23-000005",
-     "periodo_inicio": "2020-01-01",
-     "periodo": "2020",
-     "dias": 365
-    }
    ]
   },
   "bpa_diluido": {
@@ -2161,6 +2155,45 @@
    "unidad": "USD",
    "anual": [
     {
+     "valor": 1471000000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281921000004/0001692819-21-000004-index.htm",
+     "fecha_presentacion": "2021-02-26",
+     "etiqueta": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+     "periodo_fin": "2018-12-31",
+     "formulario": "10-K",
+     "accn": "0001692819-21-000004",
+     "periodo_inicio": "2018-01-01",
+     "periodo": "2018",
+     "dias": 364
+    },
+    {
+     "valor": 2736000000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281922000005/0001692819-22-000005-index.htm",
+     "fecha_presentacion": "2022-02-25",
+     "etiqueta": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+     "periodo_fin": "2019-12-31",
+     "formulario": "10-K",
+     "accn": "0001692819-22-000005",
+     "periodo_inicio": "2019-01-01",
+     "periodo": "2019",
+     "dias": 364
+    },
+    {
+     "valor": 3337000000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281923000005/0001692819-23-000005-index.htm",
+     "fecha_presentacion": "2023-03-01",
+     "etiqueta": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+     "periodo_fin": "2020-12-31",
+     "formulario": "10-K",
+     "accn": "0001692819-23-000005",
+     "periodo_inicio": "2020-01-01",
+     "periodo": "2020",
+     "dias": 365
+    },
+    {
      "valor": -206000000,
      "fuente": "SEC EDGAR · 10-K",
      "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281924000012/0001692819-24-000012-index.htm",
@@ -2546,14 +2579,18 @@
    },
    "etiquetas_usadas": [
     "us-gaap:NetCashProvidedByUsedInOperatingActivities"
-   ],
-   "anual_no_comparable": [
+   ]
+  },
+  "capex": {
+   "nombre": "Capex",
+   "unidad": "USD",
+   "anual": [
     {
-     "valor": 1471000000,
+     "valor": 530000000,
      "fuente": "SEC EDGAR · 10-K",
      "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281921000004/0001692819-21-000004-index.htm",
      "fecha_presentacion": "2021-02-26",
-     "etiqueta": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+     "etiqueta": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
      "periodo_fin": "2018-12-31",
      "formulario": "10-K",
      "accn": "0001692819-21-000004",
@@ -2562,11 +2599,11 @@
      "dias": 364
     },
     {
-     "valor": 2736000000,
+     "valor": 713000000,
      "fuente": "SEC EDGAR · 10-K",
      "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281922000005/0001692819-22-000005-index.htm",
      "fecha_presentacion": "2022-02-25",
-     "etiqueta": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+     "etiqueta": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
      "periodo_fin": "2019-12-31",
      "formulario": "10-K",
      "accn": "0001692819-22-000005",
@@ -2575,24 +2612,18 @@
      "dias": 364
     },
     {
-     "valor": 3337000000,
+     "valor": 1259000000,
      "fuente": "SEC EDGAR · 10-K",
      "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281923000005/0001692819-23-000005-index.htm",
      "fecha_presentacion": "2023-03-01",
-     "etiqueta": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+     "etiqueta": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
      "periodo_fin": "2020-12-31",
      "formulario": "10-K",
      "accn": "0001692819-23-000005",
      "periodo_inicio": "2020-01-01",
      "periodo": "2020",
      "dias": 365
-    }
-   ]
-  },
-  "capex": {
-   "nombre": "Capex",
-   "unidad": "USD",
-   "anual": [
+    },
     {
      "valor": 1033000000,
      "fuente": "SEC EDGAR · 10-K",
@@ -2979,14 +3010,18 @@
    },
    "etiquetas_usadas": [
     "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment"
-   ],
-   "anual_no_comparable": [
+   ]
+  },
+  "amortizacion": {
+   "nombre": "Amortizaciones (D&A)",
+   "unidad": "USD",
+   "anual": [
     {
-     "valor": 530000000,
+     "valor": 1394000000,
      "fuente": "SEC EDGAR · 10-K",
      "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281921000004/0001692819-21-000004-index.htm",
      "fecha_presentacion": "2021-02-26",
-     "etiqueta": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+     "etiqueta": "us-gaap:DepreciationDepletionAndAmortization",
      "periodo_fin": "2018-12-31",
      "formulario": "10-K",
      "accn": "0001692819-21-000004",
@@ -2995,11 +3030,11 @@
      "dias": 364
     },
     {
-     "valor": 713000000,
+     "valor": 1640000000,
      "fuente": "SEC EDGAR · 10-K",
      "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281922000005/0001692819-22-000005-index.htm",
      "fecha_presentacion": "2022-02-25",
-     "etiqueta": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+     "etiqueta": "us-gaap:DepreciationDepletionAndAmortization",
      "periodo_fin": "2019-12-31",
      "formulario": "10-K",
      "accn": "0001692819-22-000005",
@@ -3008,24 +3043,18 @@
      "dias": 364
     },
     {
-     "valor": 1259000000,
+     "valor": 1737000000,
      "fuente": "SEC EDGAR · 10-K",
      "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281923000005/0001692819-23-000005-index.htm",
      "fecha_presentacion": "2023-03-01",
-     "etiqueta": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+     "etiqueta": "us-gaap:DepreciationDepletionAndAmortization",
      "periodo_fin": "2020-12-31",
      "formulario": "10-K",
      "accn": "0001692819-23-000005",
      "periodo_inicio": "2020-01-01",
      "periodo": "2020",
      "dias": 365
-    }
-   ]
-  },
-  "amortizacion": {
-   "nombre": "Amortizaciones (D&A)",
-   "unidad": "USD",
-   "anual": [
+    },
     {
      "valor": 1753000000,
      "fuente": "SEC EDGAR · 10-K",
@@ -3399,14 +3428,18 @@
    },
    "etiquetas_usadas": [
     "us-gaap:DepreciationDepletionAndAmortization"
-   ],
-   "anual_no_comparable": [
+   ]
+  },
+  "remuneracion_acciones": {
+   "nombre": "Remuneración en acciones (SBC)",
+   "unidad": "USD",
+   "anual": [
     {
-     "valor": 1394000000,
+     "valor": 73000000,
      "fuente": "SEC EDGAR · 10-K",
      "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281921000004/0001692819-21-000004-index.htm",
      "fecha_presentacion": "2021-02-26",
-     "etiqueta": "us-gaap:DepreciationDepletionAndAmortization",
+     "etiqueta": "us-gaap:ShareBasedCompensation",
      "periodo_fin": "2018-12-31",
      "formulario": "10-K",
      "accn": "0001692819-21-000004",
@@ -3415,11 +3448,11 @@
      "dias": 364
     },
     {
-     "valor": 1640000000,
+     "valor": 47000000,
      "fuente": "SEC EDGAR · 10-K",
      "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281922000005/0001692819-22-000005-index.htm",
      "fecha_presentacion": "2022-02-25",
-     "etiqueta": "us-gaap:DepreciationDepletionAndAmortization",
+     "etiqueta": "us-gaap:ShareBasedCompensation",
      "periodo_fin": "2019-12-31",
      "formulario": "10-K",
      "accn": "0001692819-22-000005",
@@ -3428,24 +3461,18 @@
      "dias": 364
     },
     {
-     "valor": 1737000000,
+     "valor": 65000000,
      "fuente": "SEC EDGAR · 10-K",
      "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281923000005/0001692819-23-000005-index.htm",
      "fecha_presentacion": "2023-03-01",
-     "etiqueta": "us-gaap:DepreciationDepletionAndAmortization",
+     "etiqueta": "us-gaap:ShareBasedCompensation",
      "periodo_fin": "2020-12-31",
      "formulario": "10-K",
      "accn": "0001692819-23-000005",
      "periodo_inicio": "2020-01-01",
      "periodo": "2020",
      "dias": 365
-    }
-   ]
-  },
-  "remuneracion_acciones": {
-   "nombre": "Remuneración en acciones (SBC)",
-   "unidad": "USD",
-   "anual": [
+    },
     {
      "valor": 47000000,
      "fuente": "SEC EDGAR · 10-K",
@@ -3832,14 +3859,31 @@
    },
    "etiquetas_usadas": [
     "us-gaap:ShareBasedCompensation"
-   ],
-   "anual_no_comparable": [
+   ]
+  },
+  "depreciacion": {
+   "nombre": "Depreciación",
+   "unidad": "USD",
+   "anual": [
     {
-     "valor": 73000000,
+     "valor": 236000000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281920000005/0001692819-20-000005-index.htm",
+     "fecha_presentacion": "2020-02-28",
+     "etiqueta": "us-gaap:Depreciation",
+     "periodo_fin": "2017-12-31",
+     "formulario": "10-K",
+     "accn": "0001692819-20-000005",
+     "periodo_inicio": "2017-01-01",
+     "periodo": "2017",
+     "dias": 364
+    },
+    {
+     "valor": 1024000000,
      "fuente": "SEC EDGAR · 10-K",
      "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281921000004/0001692819-21-000004-index.htm",
      "fecha_presentacion": "2021-02-26",
-     "etiqueta": "us-gaap:ShareBasedCompensation",
+     "etiqueta": "us-gaap:Depreciation",
      "periodo_fin": "2018-12-31",
      "formulario": "10-K",
      "accn": "0001692819-21-000004",
@@ -3848,11 +3892,11 @@
      "dias": 364
     },
     {
-     "valor": 47000000,
+     "valor": 1300000000,
      "fuente": "SEC EDGAR · 10-K",
      "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281922000005/0001692819-22-000005-index.htm",
      "fecha_presentacion": "2022-02-25",
-     "etiqueta": "us-gaap:ShareBasedCompensation",
+     "etiqueta": "us-gaap:Depreciation",
      "periodo_fin": "2019-12-31",
      "formulario": "10-K",
      "accn": "0001692819-22-000005",
@@ -3861,24 +3905,18 @@
      "dias": 364
     },
     {
-     "valor": 65000000,
+     "valor": 1377000000,
      "fuente": "SEC EDGAR · 10-K",
      "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281923000005/0001692819-23-000005-index.htm",
      "fecha_presentacion": "2023-03-01",
-     "etiqueta": "us-gaap:ShareBasedCompensation",
+     "etiqueta": "us-gaap:Depreciation",
      "periodo_fin": "2020-12-31",
      "formulario": "10-K",
      "accn": "0001692819-23-000005",
      "periodo_inicio": "2020-01-01",
      "periodo": "2020",
      "dias": 365
-    }
-   ]
-  },
-  "depreciacion": {
-   "nombre": "Depreciación",
-   "unidad": "USD",
-   "anual": [
+    },
     {
      "valor": 1478000000,
      "fuente": "SEC EDGAR · 10-K",
@@ -4240,60 +4278,6 @@
    },
    "etiquetas_usadas": [
     "us-gaap:Depreciation"
-   ],
-   "anual_no_comparable": [
-    {
-     "valor": 236000000,
-     "fuente": "SEC EDGAR · 10-K",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281920000005/0001692819-20-000005-index.htm",
-     "fecha_presentacion": "2020-02-28",
-     "etiqueta": "us-gaap:Depreciation",
-     "periodo_fin": "2017-12-31",
-     "formulario": "10-K",
-     "accn": "0001692819-20-000005",
-     "periodo_inicio": "2017-01-01",
-     "periodo": "2017",
-     "dias": 364
-    },
-    {
-     "valor": 1024000000,
-     "fuente": "SEC EDGAR · 10-K",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281921000004/0001692819-21-000004-index.htm",
-     "fecha_presentacion": "2021-02-26",
-     "etiqueta": "us-gaap:Depreciation",
-     "periodo_fin": "2018-12-31",
-     "formulario": "10-K",
-     "accn": "0001692819-21-000004",
-     "periodo_inicio": "2018-01-01",
-     "periodo": "2018",
-     "dias": 364
-    },
-    {
-     "valor": 1300000000,
-     "fuente": "SEC EDGAR · 10-K",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281922000005/0001692819-22-000005-index.htm",
-     "fecha_presentacion": "2022-02-25",
-     "etiqueta": "us-gaap:Depreciation",
-     "periodo_fin": "2019-12-31",
-     "formulario": "10-K",
-     "accn": "0001692819-22-000005",
-     "periodo_inicio": "2019-01-01",
-     "periodo": "2019",
-     "dias": 364
-    },
-    {
-     "valor": 1377000000,
-     "fuente": "SEC EDGAR · 10-K",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281923000005/0001692819-23-000005-index.htm",
-     "fecha_presentacion": "2023-03-01",
-     "etiqueta": "us-gaap:Depreciation",
-     "periodo_fin": "2020-12-31",
-     "formulario": "10-K",
-     "accn": "0001692819-23-000005",
-     "periodo_inicio": "2020-01-01",
-     "periodo": "2020",
-     "dias": 365
-    }
    ]
   },
   "amort_intangibles": {
@@ -4301,6 +4285,18 @@
    "unidad": "USD",
    "anual": [],
    "trimestral": [
+    {
+     "valor": 145000000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281918000022/0001692819-18-000022-index.htm",
+     "fecha_presentacion": "2018-05-04",
+     "etiqueta": "us-gaap:AmortizationOfIntangibleAssets",
+     "periodo_fin": "2017-03-31",
+     "formulario": "10-Q",
+     "accn": "0001692819-18-000022",
+     "periodo_inicio": "2017-01-01",
+     "periodo": "1T17"
+    },
     {
      "valor": 97000000,
      "fuente": "SEC EDGAR · 10-Q",
@@ -4317,26 +4313,51 @@
    "ttm": null,
    "etiquetas_usadas": [
     "us-gaap:AmortizationOfIntangibleAssets"
-   ],
-   "trimestral_no_comparable": [
-    {
-     "valor": 145000000,
-     "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281918000022/0001692819-18-000022-index.htm",
-     "fecha_presentacion": "2018-05-04",
-     "etiqueta": "us-gaap:AmortizationOfIntangibleAssets",
-     "periodo_fin": "2017-03-31",
-     "formulario": "10-Q",
-     "accn": "0001692819-18-000022",
-     "periodo_inicio": "2017-01-01",
-     "periodo": "1T17"
-    }
    ]
   },
   "impuestos": {
    "nombre": "Impuesto sobre beneficios",
    "unidad": "USD",
    "anual": [
+    {
+     "valor": -45000000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281921000004/0001692819-21-000004-index.htm",
+     "fecha_presentacion": "2021-02-26",
+     "etiqueta": "us-gaap:IncomeTaxExpenseBenefit",
+     "periodo_fin": "2018-12-31",
+     "formulario": "10-K",
+     "accn": "0001692819-21-000004",
+     "periodo_inicio": "2018-01-01",
+     "periodo": "2018",
+     "dias": 364
+    },
+    {
+     "valor": 290000000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281922000005/0001692819-22-000005-index.htm",
+     "fecha_presentacion": "2022-02-25",
+     "etiqueta": "us-gaap:IncomeTaxExpenseBenefit",
+     "periodo_fin": "2019-12-31",
+     "formulario": "10-K",
+     "accn": "0001692819-22-000005",
+     "periodo_inicio": "2019-01-01",
+     "periodo": "2019",
+     "dias": 364
+    },
+    {
+     "valor": 266000000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281923000005/0001692819-23-000005-index.htm",
+     "fecha_presentacion": "2023-03-01",
+     "etiqueta": "us-gaap:IncomeTaxExpenseBenefit",
+     "periodo_fin": "2020-12-31",
+     "formulario": "10-K",
+     "accn": "0001692819-23-000005",
+     "periodo_inicio": "2020-01-01",
+     "periodo": "2020",
+     "dias": 365
+    },
     {
      "valor": -458000000,
      "fuente": "SEC EDGAR · 10-K",
@@ -4710,14 +4731,18 @@
    },
    "etiquetas_usadas": [
     "us-gaap:IncomeTaxExpenseBenefit"
-   ],
-   "anual_no_comparable": [
+   ]
+  },
+  "beneficio_antes_impuestos": {
+   "nombre": "Beneficio antes de impuestos",
+   "unidad": "USD",
+   "anual": [
     {
-     "valor": -45000000,
+     "valor": -101000000,
      "fuente": "SEC EDGAR · 10-K",
      "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281921000004/0001692819-21-000004-index.htm",
      "fecha_presentacion": "2021-02-26",
-     "etiqueta": "us-gaap:IncomeTaxExpenseBenefit",
+     "etiqueta": "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
      "periodo_fin": "2018-12-31",
      "formulario": "10-K",
      "accn": "0001692819-21-000004",
@@ -4726,11 +4751,11 @@
      "dias": 364
     },
     {
-     "valor": 290000000,
+     "valor": 1216000000,
      "fuente": "SEC EDGAR · 10-K",
      "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281922000005/0001692819-22-000005-index.htm",
      "fecha_presentacion": "2022-02-25",
-     "etiqueta": "us-gaap:IncomeTaxExpenseBenefit",
+     "etiqueta": "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
      "periodo_fin": "2019-12-31",
      "formulario": "10-K",
      "accn": "0001692819-22-000005",
@@ -4739,24 +4764,18 @@
      "dias": 364
     },
     {
-     "valor": 266000000,
+     "valor": 890000000,
      "fuente": "SEC EDGAR · 10-K",
      "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281923000005/0001692819-23-000005-index.htm",
      "fecha_presentacion": "2023-03-01",
-     "etiqueta": "us-gaap:IncomeTaxExpenseBenefit",
+     "etiqueta": "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
      "periodo_fin": "2020-12-31",
      "formulario": "10-K",
      "accn": "0001692819-23-000005",
      "periodo_inicio": "2020-01-01",
      "periodo": "2020",
      "dias": 365
-    }
-   ]
-  },
-  "beneficio_antes_impuestos": {
-   "nombre": "Beneficio antes de impuestos",
-   "unidad": "USD",
-   "anual": [
+    },
     {
      "valor": -1722000000,
      "fuente": "SEC EDGAR · 10-K",
@@ -5130,47 +5149,6 @@
    },
    "etiquetas_usadas": [
     "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest"
-   ],
-   "anual_no_comparable": [
-    {
-     "valor": -101000000,
-     "fuente": "SEC EDGAR · 10-K",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281921000004/0001692819-21-000004-index.htm",
-     "fecha_presentacion": "2021-02-26",
-     "etiqueta": "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
-     "periodo_fin": "2018-12-31",
-     "formulario": "10-K",
-     "accn": "0001692819-21-000004",
-     "periodo_inicio": "2018-01-01",
-     "periodo": "2018",
-     "dias": 364
-    },
-    {
-     "valor": 1216000000,
-     "fuente": "SEC EDGAR · 10-K",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281922000005/0001692819-22-000005-index.htm",
-     "fecha_presentacion": "2022-02-25",
-     "etiqueta": "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
-     "periodo_fin": "2019-12-31",
-     "formulario": "10-K",
-     "accn": "0001692819-22-000005",
-     "periodo_inicio": "2019-01-01",
-     "periodo": "2019",
-     "dias": 364
-    },
-    {
-     "valor": 890000000,
-     "fuente": "SEC EDGAR · 10-K",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281923000005/0001692819-23-000005-index.htm",
-     "fecha_presentacion": "2023-03-01",
-     "etiqueta": "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
-     "periodo_fin": "2020-12-31",
-     "formulario": "10-K",
-     "accn": "0001692819-23-000005",
-     "periodo_inicio": "2020-01-01",
-     "periodo": "2020",
-     "dias": 365
-    }
    ]
   },
   "otros_no_operativos": {
@@ -5264,6 +5242,45 @@
    "nombre": "Gastos por intereses",
    "unidad": "USD",
    "anual": [
+    {
+     "valor": 572000000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281921000004/0001692819-21-000004-index.htm",
+     "fecha_presentacion": "2021-02-26",
+     "etiqueta": "us-gaap:InterestExpense",
+     "periodo_fin": "2018-12-31",
+     "formulario": "10-K",
+     "accn": "0001692819-21-000004",
+     "periodo_inicio": "2018-01-01",
+     "periodo": "2018",
+     "dias": 364
+    },
+    {
+     "valor": 797000000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281922000005/0001692819-22-000005-index.htm",
+     "fecha_presentacion": "2022-02-25",
+     "etiqueta": "us-gaap:InterestExpense",
+     "periodo_fin": "2019-12-31",
+     "formulario": "10-K",
+     "accn": "0001692819-22-000005",
+     "periodo_inicio": "2019-01-01",
+     "periodo": "2019",
+     "dias": 364
+    },
+    {
+     "valor": 630000000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281923000005/0001692819-23-000005-index.htm",
+     "fecha_presentacion": "2023-03-01",
+     "etiqueta": "us-gaap:InterestExpense",
+     "periodo_fin": "2020-12-31",
+     "formulario": "10-K",
+     "accn": "0001692819-23-000005",
+     "periodo_inicio": "2020-01-01",
+     "periodo": "2020",
+     "dias": 365
+    },
     {
      "valor": 384000000,
      "fuente": "SEC EDGAR · 10-K",
@@ -5638,14 +5655,18 @@
    "etiquetas_usadas": [
     "us-gaap:InterestExpense",
     "us-gaap:InterestExpenseNonoperating"
-   ],
-   "anual_no_comparable": [
+   ]
+  },
+  "dividendos": {
+   "nombre": "Dividendos pagados",
+   "unidad": "USD",
+   "anual": [
     {
-     "valor": 572000000,
+     "valor": 0,
      "fuente": "SEC EDGAR · 10-K",
      "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281921000004/0001692819-21-000004-index.htm",
      "fecha_presentacion": "2021-02-26",
-     "etiqueta": "us-gaap:InterestExpense",
+     "etiqueta": "us-gaap:PaymentsOfDividendsCommonStock",
      "periodo_fin": "2018-12-31",
      "formulario": "10-K",
      "accn": "0001692819-21-000004",
@@ -5654,11 +5675,11 @@
      "dias": 364
     },
     {
-     "valor": 797000000,
+     "valor": 243000000,
      "fuente": "SEC EDGAR · 10-K",
      "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281922000005/0001692819-22-000005-index.htm",
      "fecha_presentacion": "2022-02-25",
-     "etiqueta": "us-gaap:InterestExpense",
+     "etiqueta": "us-gaap:PaymentsOfDividendsCommonStock",
      "periodo_fin": "2019-12-31",
      "formulario": "10-K",
      "accn": "0001692819-22-000005",
@@ -5667,24 +5688,18 @@
      "dias": 364
     },
     {
-     "valor": 630000000,
+     "valor": 266000000,
      "fuente": "SEC EDGAR · 10-K",
      "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281923000005/0001692819-23-000005-index.htm",
      "fecha_presentacion": "2023-03-01",
-     "etiqueta": "us-gaap:InterestExpense",
+     "etiqueta": "us-gaap:PaymentsOfDividendsCommonStock",
      "periodo_fin": "2020-12-31",
      "formulario": "10-K",
      "accn": "0001692819-23-000005",
      "periodo_inicio": "2020-01-01",
      "periodo": "2020",
      "dias": 365
-    }
-   ]
-  },
-  "dividendos": {
-   "nombre": "Dividendos pagados",
-   "unidad": "USD",
-   "anual": [
+    },
     {
      "valor": 290000000,
      "fuente": "SEC EDGAR · 10-K",
@@ -6070,47 +6085,6 @@
    },
    "etiquetas_usadas": [
     "us-gaap:PaymentsOfDividendsCommonStock"
-   ],
-   "anual_no_comparable": [
-    {
-     "valor": 0,
-     "fuente": "SEC EDGAR · 10-K",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281921000004/0001692819-21-000004-index.htm",
-     "fecha_presentacion": "2021-02-26",
-     "etiqueta": "us-gaap:PaymentsOfDividendsCommonStock",
-     "periodo_fin": "2018-12-31",
-     "formulario": "10-K",
-     "accn": "0001692819-21-000004",
-     "periodo_inicio": "2018-01-01",
-     "periodo": "2018",
-     "dias": 364
-    },
-    {
-     "valor": 243000000,
-     "fuente": "SEC EDGAR · 10-K",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281922000005/0001692819-22-000005-index.htm",
-     "fecha_presentacion": "2022-02-25",
-     "etiqueta": "us-gaap:PaymentsOfDividendsCommonStock",
-     "periodo_fin": "2019-12-31",
-     "formulario": "10-K",
-     "accn": "0001692819-22-000005",
-     "periodo_inicio": "2019-01-01",
-     "periodo": "2019",
-     "dias": 364
-    },
-    {
-     "valor": 266000000,
-     "fuente": "SEC EDGAR · 10-K",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281923000005/0001692819-23-000005-index.htm",
-     "fecha_presentacion": "2023-03-01",
-     "etiqueta": "us-gaap:PaymentsOfDividendsCommonStock",
-     "periodo_fin": "2020-12-31",
-     "formulario": "10-K",
-     "accn": "0001692819-23-000005",
-     "periodo_inicio": "2020-01-01",
-     "periodo": "2020",
-     "dias": 365
-    }
    ]
   },
   "investigacion_desarrollo": {
@@ -6125,6 +6099,45 @@
    "nombre": "Gastos comerciales y de administración (SG&A)",
    "unidad": "USD",
    "anual": [
+    {
+     "valor": 926000000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281921000004/0001692819-21-000004-index.htm",
+     "fecha_presentacion": "2021-02-26",
+     "etiqueta": "us-gaap:SellingGeneralAndAdministrativeExpense",
+     "periodo_fin": "2018-12-31",
+     "formulario": "10-K",
+     "accn": "0001692819-21-000004",
+     "periodo_inicio": "2018-01-01",
+     "periodo": "2018",
+     "dias": 364
+    },
+    {
+     "valor": 904000000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281922000005/0001692819-22-000005-index.htm",
+     "fecha_presentacion": "2022-02-25",
+     "etiqueta": "us-gaap:SellingGeneralAndAdministrativeExpense",
+     "periodo_fin": "2019-12-31",
+     "formulario": "10-K",
+     "accn": "0001692819-22-000005",
+     "periodo_inicio": "2019-01-01",
+     "periodo": "2019",
+     "dias": 364
+    },
+    {
+     "valor": 1035000000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281923000005/0001692819-23-000005-index.htm",
+     "fecha_presentacion": "2023-03-01",
+     "etiqueta": "us-gaap:SellingGeneralAndAdministrativeExpense",
+     "periodo_fin": "2020-12-31",
+     "formulario": "10-K",
+     "accn": "0001692819-23-000005",
+     "periodo_inicio": "2020-01-01",
+     "periodo": "2020",
+     "dias": 365
+    },
     {
      "valor": 1040000000,
      "fuente": "SEC EDGAR · 10-K",
@@ -6498,47 +6511,6 @@
    },
    "etiquetas_usadas": [
     "us-gaap:SellingGeneralAndAdministrativeExpense"
-   ],
-   "anual_no_comparable": [
-    {
-     "valor": 926000000,
-     "fuente": "SEC EDGAR · 10-K",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281921000004/0001692819-21-000004-index.htm",
-     "fecha_presentacion": "2021-02-26",
-     "etiqueta": "us-gaap:SellingGeneralAndAdministrativeExpense",
-     "periodo_fin": "2018-12-31",
-     "formulario": "10-K",
-     "accn": "0001692819-21-000004",
-     "periodo_inicio": "2018-01-01",
-     "periodo": "2018",
-     "dias": 364
-    },
-    {
-     "valor": 904000000,
-     "fuente": "SEC EDGAR · 10-K",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281922000005/0001692819-22-000005-index.htm",
-     "fecha_presentacion": "2022-02-25",
-     "etiqueta": "us-gaap:SellingGeneralAndAdministrativeExpense",
-     "periodo_fin": "2019-12-31",
-     "formulario": "10-K",
-     "accn": "0001692819-22-000005",
-     "periodo_inicio": "2019-01-01",
-     "periodo": "2019",
-     "dias": 364
-    },
-    {
-     "valor": 1035000000,
-     "fuente": "SEC EDGAR · 10-K",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281923000005/0001692819-23-000005-index.htm",
-     "fecha_presentacion": "2023-03-01",
-     "etiqueta": "us-gaap:SellingGeneralAndAdministrativeExpense",
-     "periodo_fin": "2020-12-31",
-     "formulario": "10-K",
-     "accn": "0001692819-23-000005",
-     "periodo_inicio": "2020-01-01",
-     "periodo": "2020",
-     "dias": 365
-    }
    ]
   },
   "ventas_marketing": {
@@ -6561,6 +6533,45 @@
    "nombre": "Recompras de acciones",
    "unidad": "USD",
    "anual": [
+    {
+     "valor": 763000000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281921000004/0001692819-21-000004-index.htm",
+     "fecha_presentacion": "2021-02-26",
+     "etiqueta": "us-gaap:PaymentsForRepurchaseOfCommonStock",
+     "periodo_fin": "2018-12-31",
+     "formulario": "10-K",
+     "accn": "0001692819-21-000004",
+     "periodo_inicio": "2018-01-01",
+     "periodo": "2018",
+     "dias": 364
+    },
+    {
+     "valor": 656000000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281922000005/0001692819-22-000005-index.htm",
+     "fecha_presentacion": "2022-02-25",
+     "etiqueta": "us-gaap:PaymentsForRepurchaseOfCommonStock",
+     "periodo_fin": "2019-12-31",
+     "formulario": "10-K",
+     "accn": "0001692819-22-000005",
+     "periodo_inicio": "2019-01-01",
+     "periodo": "2019",
+     "dias": 364
+    },
+    {
+     "valor": 0,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281923000005/0001692819-23-000005-index.htm",
+     "fecha_presentacion": "2023-03-01",
+     "etiqueta": "us-gaap:PaymentsForRepurchaseOfCommonStock",
+     "periodo_fin": "2020-12-31",
+     "formulario": "10-K",
+     "accn": "0001692819-23-000005",
+     "periodo_inicio": "2020-01-01",
+     "periodo": "2020",
+     "dias": 365
+    },
     {
      "valor": 471000000,
      "fuente": "SEC EDGAR · 10-K",
@@ -6947,47 +6958,6 @@
    },
    "etiquetas_usadas": [
     "us-gaap:PaymentsForRepurchaseOfCommonStock"
-   ],
-   "anual_no_comparable": [
-    {
-     "valor": 763000000,
-     "fuente": "SEC EDGAR · 10-K",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281921000004/0001692819-21-000004-index.htm",
-     "fecha_presentacion": "2021-02-26",
-     "etiqueta": "us-gaap:PaymentsForRepurchaseOfCommonStock",
-     "periodo_fin": "2018-12-31",
-     "formulario": "10-K",
-     "accn": "0001692819-21-000004",
-     "periodo_inicio": "2018-01-01",
-     "periodo": "2018",
-     "dias": 364
-    },
-    {
-     "valor": 656000000,
-     "fuente": "SEC EDGAR · 10-K",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281922000005/0001692819-22-000005-index.htm",
-     "fecha_presentacion": "2022-02-25",
-     "etiqueta": "us-gaap:PaymentsForRepurchaseOfCommonStock",
-     "periodo_fin": "2019-12-31",
-     "formulario": "10-K",
-     "accn": "0001692819-22-000005",
-     "periodo_inicio": "2019-01-01",
-     "periodo": "2019",
-     "dias": 364
-    },
-    {
-     "valor": 0,
-     "fuente": "SEC EDGAR · 10-K",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281923000005/0001692819-23-000005-index.htm",
-     "fecha_presentacion": "2023-03-01",
-     "etiqueta": "us-gaap:PaymentsForRepurchaseOfCommonStock",
-     "periodo_fin": "2020-12-31",
-     "formulario": "10-K",
-     "accn": "0001692819-23-000005",
-     "periodo_inicio": "2020-01-01",
-     "periodo": "2020",
-     "dias": 365
-    }
    ]
   }
  },
@@ -8735,11 +8705,6 @@
   "accn": "0001692819-26-000019",
   "clases": 1
  },
- "reexpresion": {
-  "anual_desde": "2021",
-  "trimestral_desde": "2T20",
-  "motivo": "Reexpresión de cuentas (operaciones discontinuadas): los periodos anteriores no son comparables."
- },
  "avisos": [
   {
    "nivel": "info",
@@ -8802,11 +8767,6 @@
    "mensaje": "Existencias: se descarta «InventoryNet» (último dato 2025-09-30, ingresos hasta 2026-06-30).",
    "concepto": "existencias",
    "etiqueta": "InventoryNet"
-  },
-  {
-   "nivel": "info",
-   "codigo": "reexpresion",
-   "mensaje": "Cuentas reexpresadas: serie anual comparable desde 2021 y trimestral desde 2T20. Los periodos anteriores incluyen negocios que ya no forman parte de la compañía y se guardan aparte («no comparable»)."
   },
   {
    "nivel": "aviso",
@@ -17492,7 +17452,7 @@
   "fecha": "2026-10-30",
   "ajuste": "splits"
  },
- "generado": "2026-11-01T13:21:26+00:00",
+ "generado": "2026-11-01T13:24:45+00:00",
  "peers": {
   "fuente_lista": "manual",
   "fuente_cifras": "SEC EDGAR (companyfacts, UDM) · precio Finnhub",
