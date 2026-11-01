@@ -648,6 +648,7 @@ body.report .g2,body.report .g3{align-items:start}
 .asc{background:var(--surface2);border:1px solid var(--line);border-radius:8px;padding:9px 11px;display:flex;flex-direction:column;gap:3px;align-items:flex-start;min-width:0}
 .asc b{font-size:15px;font-variant-numeric:tabular-nums}
 .assum{padding:2px 0 10px} #valIn:has(#keyAs[open]) .assum{display:none}
+.wl .wsub li{display:list-item;font-size:12px;color:var(--ink2);margin:1px 0;overflow-wrap:anywhere} .wn{color:var(--ink2);font-size:12px}
 .wl li.wrow{display:grid;grid-template-columns:62px minmax(0,1fr) auto;align-items:start}
 @media (max-width:640px){.wl li.wrow{grid-template-columns:62px minmax(0,1fr)} .wl li.wrow .wok{grid-column:2;justify-self:start}}
 </style>
@@ -956,7 +957,7 @@ const wSeen=w=>lsGet(wKey(cur._t,w))==="1";
 function warnGroups(ws){ const g={}; ws.forEach(w=>{ (g[w.codigo||w.mensaje]=g[w.codigo||w.mensaje]||[]).push(w); }); return Object.values(g); }
 function warnRow(group,canDismiss){ const w=group[0], exp=WEXP[w.codigo]||"";
   const msgs=group.length>1?`<ul class="wsub">${group.map(x=>`<li>${esc(x.mensaje)}</li>`).join("")}</ul>`:`<span>${esc(w.mensaje)}</span>`;
-  return `<li class="wrow"><span class="lvl ${esc(w.nivel)}">${w.nivel==="aviso"?"Aviso":w.nivel==="error"?"Error":"Nota"}</span><div class="wtxt">${group.length>1?`<b>${group.length} partidas</b>`:""}${msgs}${exp?`<span class="wexp">${esc(exp)}</span>`:""}</div>
+  return `<li class="wrow"><span class="lvl ${esc(w.nivel)}">${w.nivel==="aviso"?"Aviso":w.nivel==="error"?"Error":"Nota"}</span><div class="wtxt">${group.length>1?`<span>${exp?esc(exp):"Varias partidas"} <span class="wn">(${group.length})</span></span>${msgs}`:`${msgs}${exp?`<span class="wexp">${esc(exp)}</span>`:""}`}</div>
     ${canDismiss?`<button type="button" class="wok" data-wok="${group.map(x=>esc(wKey(cur._t,x))).join("|")}">Marcar como revisado</button>`:""}</li>`; }
 function warnList(ws){ return `<ul class="wl">${warnGroups(ws).map(g=>warnRow(g,false)).join("")}</ul>`; }
 function renderWarnings(){
