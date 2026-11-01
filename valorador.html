@@ -634,6 +634,22 @@ body.report .g2,body.report .g3{align-items:start}
 .prc{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px} @media (max-width:640px){.prc{grid-template-columns:minmax(0,1fr)}}
 .prv{font-size:12.5px;line-height:1.45;padding:6px 8px;border-radius:6px;overflow-wrap:break-word} .prv.old{background:var(--surface2);color:var(--ink2)} .prv.new{background:color-mix(in srgb,var(--good) 9%,var(--surface))}
 .pl{margin:2px 0 0;padding-left:16px} .pl li{margin:2px 0}
+
+.wrow{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:4px 10px;align-items:start;padding:6px 0;border-bottom:1px solid color-mix(in srgb,var(--line) 60%,transparent)}
+.wrow:last-child{border-bottom:0} .wtxt{display:flex;flex-direction:column;gap:2px;min-width:0}
+.wexp{font-size:12px;color:var(--ink2)} .wsub{margin:2px 0 0;padding-left:16px;font-size:12.5px}
+.wok{font-size:12px;padding:3px 9px;white-space:nowrap} .wsec{margin-top:8px} .wsec>summary{cursor:pointer;font-size:12.5px;color:var(--ink2);font-weight:600}
+@media (max-width:640px){.wrow{grid-template-columns:auto minmax(0,1fr)} .wrow .wok{grid-column:2;justify-self:start}}
+/* gráficos que llenan su tarjeta y quedan centrados */
+.g2>.card>.cv:last-child,.g3>.card>.cv:last-child{margin-top:0;flex:1 0 auto}
+
+.assum{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;padding:0 14px 12px}
+@media (max-width:760px){.assum{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.asc{background:var(--surface2);border:1px solid var(--line);border-radius:8px;padding:9px 11px;display:flex;flex-direction:column;gap:3px;align-items:flex-start;min-width:0}
+.asc b{font-size:15px;font-variant-numeric:tabular-nums}
+.assum{padding:2px 0 10px} #valIn:has(#keyAs[open]) .assum{display:none}
+.wl li.wrow{display:grid;grid-template-columns:62px minmax(0,1fr) auto;align-items:start}
+@media (max-width:640px){.wl li.wrow{grid-template-columns:62px minmax(0,1fr)} .wl li.wrow .wok{grid-column:2;justify-self:start}}
 </style>
 </head>
 <body>
@@ -914,13 +930,46 @@ function contradictions(c){
   return out;
 }
 function allWarnings(c){ return [...contradictions(c),...((c._data&&c._data.avisos)||[]).filter(w=>!(w.codigo==="sin_precio"&&!fin(c.v.price)))]; }
-function warnList(ws){ return `<ul class="wl">${ws.map(w=>`<li><span class="lvl ${esc(w.nivel)}">${w.nivel==="aviso"?"Aviso":w.nivel==="error"?"Error":"Info"}</span><span>${esc(w.mensaje)}</span></li>`).join("")}</ul>`; }
+/* avisos en lenguaje claro: qué significa y si afecta a las cifras */
+const WEXP={
+  deuda_asumida_cero:"La compañía no declara deuda financiera en sus informes: se toma 0. Si de verdad no tiene deuda (Reddit), es correcto y puedes marcarlo como revisado.",
+  contradiccion:"Tu modelo usa una cifra distinta de la última de la SEC. Revísala en Valoración → «Ajustar acciones, caja o deuda» o pulsa «Usar dato SEC».",
+  salto_raro:"Un trimestre cambia mucho frente al anterior. Puede ser estacionalidad, una compra o una reclasificación: compruébalo en el informe.",
+  posible_discontinuada:"Los ingresos caen más de un 25% en un año: suele deberse a la venta de un negocio (operaciones discontinuadas). Compara años con cuidado.",
+  trimestres_no_suman:"Los cuatro trimestres no suman el año completo. Suele ser una reexpresión; el dato anual manda.",
+  "4t_descartado":"El cuarto trimestre calculado (año − 3 trimestres) no encaja con los vecinos y se ha descartado para no mostrar una cifra falsa.",
+  concepto_no_encontrado:"La SEC no publica esta partida para la compañía: el gráfico o ratio que la usa queda vacío.",
+  amortizacion_incompleta:"Faltan amortizaciones en algunos periodos: el EBITDA de esos periodos no se calcula.",
+  informe_sin_xbrl:"El último informe aún no tiene datos estructurados en la SEC. Se completará en próximas actualizaciones.",
+  cik:"El identificador de la SEC de companies.json no coincide con el oficial. Corrígelo en companies.json.",
+  sin_precio:"No hay cotización: el DCF no puede compararse con el precio. Revisa la clave de Finnhub.",
+  no_soportada:"La compañía presenta 20-F (extranjera, normalmente IFRS): todavía no está soportada.",
+  etiqueta_obsoleta:"La compañía cambió la etiqueta contable de estas partidas; la antigua solo se usa para años anteriores. No afecta a las cifras recientes.",
+  split:"Hubo un split: las acciones y el BPA antiguos se ajustan para comparar bien.",
+  acciones_diluidas:"La SEC no publica las acciones en circulación totales: se usan las diluidas medias del último trimestre.",
+  componente_no_etiquetado:"Una parte de una partida (por ejemplo, la deuda a corto) no aparece en el informe y cuenta como 0.",
+  anio_52_53_semanas:"Ejercicio de 52/53 semanas: los trimestres pueden durar distinto y se etiquetan por su fecha de cierre.",
+  amortizacion_por_componentes:"Las amortizaciones se calculan sumando depreciación y amortización de intangibles.",
+  capex_asumido:"La compañía dejó de publicar el capex por ser muy pequeño: se toma 0 para el flujo de caja libre."};
+const wKey=(t,w)=>"valorador.avisorev."+t+"."+(w.codigo||"")+"."+String(w.mensaje||"").replace(/\d[\d.,]*/g,"#").slice(0,80);
+const wSeen=w=>lsGet(wKey(cur._t,w))==="1";
+function warnGroups(ws){ const g={}; ws.forEach(w=>{ (g[w.codigo||w.mensaje]=g[w.codigo||w.mensaje]||[]).push(w); }); return Object.values(g); }
+function warnRow(group,canDismiss){ const w=group[0], exp=WEXP[w.codigo]||"";
+  const msgs=group.length>1?`<ul class="wsub">${group.map(x=>`<li>${esc(x.mensaje)}</li>`).join("")}</ul>`:`<span>${esc(w.mensaje)}</span>`;
+  return `<li class="wrow"><span class="lvl ${esc(w.nivel)}">${w.nivel==="aviso"?"Aviso":w.nivel==="error"?"Error":"Nota"}</span><div class="wtxt">${group.length>1?`<b>${group.length} partidas</b>`:""}${msgs}${exp?`<span class="wexp">${esc(exp)}</span>`:""}</div>
+    ${canDismiss?`<button type="button" class="wok" data-wok="${group.map(x=>esc(wKey(cur._t,x))).join("|")}">Marcar como revisado</button>`:""}</li>`; }
+function warnList(ws){ return `<ul class="wl">${warnGroups(ws).map(g=>warnRow(g,false)).join("")}</ul>`; }
 function renderWarnings(){
-  const box=$("warnBox"); if(!box) return; const ws=allWarnings(cur), imp=ws.filter(w=>w.nivel!=="info"), inf=ws.length-imp.length;
+  const box=$("warnBox"); if(!box) return; const ws=allWarnings(cur);
+  const imp=ws.filter(w=>w.nivel!=="info"&&!wSeen(w)), rev=ws.filter(w=>w.nivel!=="info"&&wSeen(w)), inf=ws.filter(w=>w.nivel==="info");
   if(!ws.length){box.hidden=true; box.innerHTML=""; return;}
   box.hidden=false; box.className="avisos"+(imp.some(w=>w.nivel==="error")?" bad":imp.length?"":" quiet");
-  box.innerHTML=`<details${imp.length&&imp.some(w=>w.codigo==="contradiccion"||w.nivel==="error")?" open":""}><summary>${imp.length?`⚠ ${imp.length} ${imp.length===1?"aviso":"avisos"} sobre los datos`:"Datos sin avisos"}${inf?` · ${inf} ${inf===1?"nota informativa":"notas informativas"}`:""}</summary>
-    ${warnList([...imp,...ws.filter(w=>w.nivel==="info")])}<p class="note" style="margin:8px 0 0">Los avisos los genera el Action al validar los datos de la SEC, y la web al comparar tu modelo con esos datos. Ninguna cifra se corrige en silencio.</p></details>`;
+  const open=lsGet("valorador.avisosabiertos")==="1"||imp.some(w=>w.codigo==="contradiccion"||w.nivel==="error");
+  box.innerHTML=`<details id="warnDet"${open?" open":""}><summary>${imp.length?`⚠ ${imp.length} ${imp.length===1?"aviso pendiente":"avisos pendientes"} sobre los datos`:"✓ Datos sin avisos pendientes"}${rev.length?` · ${rev.length} revisado${rev.length>1?"s":""}`:""}${inf.length?` · ${inf.length} ${inf.length===1?"nota técnica":"notas técnicas"}`:""}</summary>
+    ${imp.length?`<ul class="wl">${warnGroups(imp).map(g=>warnRow(g,true)).join("")}</ul>`:`<p class="note" style="margin:6px 0">Nada que revisar: las cifras de la SEC se han leído sin problemas.</p>`}
+    ${rev.length?`<details class="wsec"><summary>Avisos ya revisados (${rev.length})</summary><ul class="wl">${warnGroups(rev).map(g=>warnRow(g,false)).join("")}</ul><button type="button" class="wok" data-wreset="1">Volver a mostrarlos</button></details>`:""}
+    ${inf.length?`<details class="wsec"><summary>Notas técnicas (${inf.length}): cómo se han leído los datos, no requieren acción</summary><ul class="wl">${warnGroups(inf).map(g=>warnRow(g,false)).join("")}</ul></details>`:""}
+    <p class="note" style="margin:8px 0 0">Los avisos los genera el robot al validar los datos de la SEC y la web al comparar tu modelo con esos datos. Ninguna cifra se corrige en silencio. «Revisado» se recuerda en este navegador.</p></details>`;
 }
 const DLAB={"v.wacc":"WACC","v.tg":"Crecimiento perpetuo","v.exit":"Múltiplo de salida","v.method":"Método del valor terminal","v.m1":"Margen EBITDA año 1","v.m5":"Margen EBITDA año 5",
   "v.da":"Amortizaciones año 1","v.da5":"Amortizaciones año 5","v.sbc":"Pago en acciones","v.capex":"Capex año 1","v.capex5":"Capex año 5","v.nwc":"Circulante","v.tax":"Tipo impositivo",
@@ -1283,7 +1332,7 @@ function watchRows(){
     const vz=valuation(c), sc=scorecard(c,vz), v=c.v, d=c._data||{}, P=d.precio||{}, st=staleInfo(c);
     const E=d.resultados_previstos&&d.resultados_previstos.proximos, eDays=E?Math.round((Date.parse(E.fecha)-Date.now())/864e5):NaN;
     const bb=+c.verdict.buyBelow, toBuy=fin(bb)&&bb>0&&fin(v.price)?(v.price/bb-1)*100:NaN;
-    const ws=(allWarnings(c)||[]).filter(w=>w.nivel!=="info").length;
+    const ws=(allWarnings(c)||[]).filter(w=>w.nivel!=="info"&&lsGet(wKey(c._t,w))!=="1").length;
     const day=fin(P.valor)&&fin(P.cierre_anterior)&&P.cierre_anterior>0?(P.valor/P.cierre_anterior-1)*100:NaN;
     let per=NaN, gr=NaN; try{ const prev=cur; cur=c; const m=mctx(); per=MET.per.calc(m).res; const pe=d.peers&&d.peers.propia; gr=pe?pe.crecimiento:NaN; cur=prev; }catch(e){}
     const days=st?st.days:NaN;
@@ -2388,8 +2437,10 @@ R.valuation=()=>{
   <div class="valout" id="valOut"></div>
   <div id="valBottom"></div>
   <section class="card" id="valIn" style="--tc:var(--c4)"><h2>Supuestos del modelo: qué supones y qué implica</h2>
-    <p class="sub">El DCF solo es tan bueno como sus supuestos. Estos cuatro explican casi todo el valor: cada uno trae su referencia real y el efecto de cambiarlo. Todo se recalcula al momento.</p>
-    <div class="asgrid">
+    <p class="sub">El DCF solo es tan bueno como sus supuestos. Despliega cada grupo para ver la referencia real y el efecto de cambiarlos. Todo se recalcula al momento.</p>
+    <div class="assum" id="asSum"></div>
+    <details class="box" id="keyAs"${lsGet("valorador.supclave")==="1"?" open":""}><summary><span>Supuestos clave <span class="note" style="font-weight:400">· crecimiento, margen, WACC y valor terminal</span></span></summary>
+    <div class="asgrid" style="padding:0 14px 14px">
       ${card("g","Crecimiento de los ingresos","crec_modelo","Cuánto crecerán las ventas cada uno de los próximos 5 años. Es el motor del modelo: más ventas, más flujo de caja.",
         `<div class="g5" style="grid-column:auto">${[0,1,2,3,4].map(i=>`<div><span>${v.year0+i+1}</span><input type="number" step="0.5" data-k="num" data-p="v.g.${i}" value="${v.g[i]}" aria-label="Crecimiento ${v.year0+i+1}"></div>`).join("")}</div>`)}
       ${card("m","Margen EBITDA","margen_modelo","Qué parte de cada dólar vendido queda como beneficio de explotación (antes de amortizaciones). El modelo pasa del margen del año 1 al del año 5 de forma lineal.",
@@ -2400,6 +2451,7 @@ R.valuation=()=>{
         `<div class="seg" role="group" aria-label="Método de valor terminal" style="margin-bottom:6px">${[["gordon","Crec. perpetuo"],["exit","Múltiplo"],["blend","Media"]].map(([k,l])=>`<button type="button" data-m="${k}" aria-pressed="${v.method===k}">${l}</button>`).join("")}</div>
          <div class="as2">${v.method!=="exit"?sub(`Crecimiento perpetuo (%)`,N("tg",0.25,"Crecimiento perpetuo")):""}${v.method!=="gordon"?sub(`Múltiplo de salida (x EBITDA)`,N("exit",0.5,"Múltiplo de salida")):""}</div>`)}
     </div>
+    </details>
     <details class="box" style="margin-top:14px" id="detAs"><summary><span>Supuestos detallados <span class="note" style="font-weight:400">· punto de partida, del EBITDA a la caja, escenarios y múltiplos objetivo</span></span></summary>
       ${dgroup("Punto de partida","De qué ventas arranca la proyección. Si el año base se queda antiguo, todo el modelo arrastra el desfase.",
         drow("rev","Ingresos del año base","La cifra sobre la que se aplica el crecimiento del año 1.",`${sub("Ingresos (M)",N("rev0",1,"Ingresos año base"))}${sub("Año base",N("year0",1,"Año base"))}`))}
@@ -2517,6 +2569,12 @@ function updateEffects(){
     set("ver_t",tv>85?V3(`${nf(tv,0)}% del valor`,"down"):tv>70?V3(`${nf(tv,0)}% del valor`,"mid"):V3(`${nf(tv,0)}% del valor`,"up"));
     const t=[]; if(s.method!=="exit") t.push(`medio punto más de crecimiento perpetuo → ${pc(s.wacc>s.tg+0.5?dcf(s,{tg:s.tg+0.5}).ps:NaN)}`); if(s.method!=="gordon") t.push(`un múltiplo 1x mayor → ${pc(dcf(s,{exit:s.exit+1}).ps)}`);
     set("eff_t",`${t.join("; ")}. El valor terminal supone el <b>${nf(tv,0)}%</b> de los ${val} por acción: ${tv>85?"casi todo el valor depende de lo que pase después del año 5, así que cualquier error aquí pesa mucho.":tv>70?"es lo habitual en empresas de crecimiento.":"buena parte del valor viene de los próximos 5 años, lo que lo hace más fiable."}`); }
+  /* resumen de los supuestos clave (visible con el grupo plegado) */
+  { const el=$("asSum"); if(el){ const vh=id=>($("ver_"+id)||{}).innerHTML||"", avg=s.g.reduce((a,x)=>a+x,0)/5;
+    const tv=s.method==="gordon"?`${pct(s.tg,1)} perpetuo`:s.method==="exit"?`${nf(s.exit,1)}x EBITDA`:`${pct(s.tg,1)} / ${nf(s.exit,1)}x`;
+    el.innerHTML=[["Crecimiento",`${pct(avg,1)} de media`,`${pct(s.g[0],0)} → ${pct(s.g[4],0)}`,"g"],["Margen EBITDA",`${pct(s.m1,1)} → ${pct(s.m5,1)}`,`años ${s.year0+1}–${s.year0+5}`,"m"],
+      ["WACC",pct(s.wacc,2),"tasa de descuento","w"],["Valor terminal",tv,`${nf(vz.base.tvShare*100,0)}% del valor`,"t"]]
+      .map(([l,v,n,id])=>`<div class="asc"><span class="eyebrow">${l}</span><b>${v}</b><span class="note">${n}</span>${vh(id)}</div>`).join(""); } }
   /* ---- supuestos detallados ---- */
   if(!$("ref_rev")) return;
   const f=cur.fin, L=f.years.length-1, R=(cur._data&&cur._data.resultados)||{}, M6=1e6;
@@ -2937,6 +2995,8 @@ document.addEventListener("click",e=>{
   if(e.target.closest("#btnPrint")){ window.print(); return; }
   if(e.target.closest("#btnReportExit")){ exitReport(); return; }
   if(e.target.closest("#btnAddCo")){ closePicker(); addCoModal(); return; }
+  const wk=e.target.closest("[data-wok]"); if(wk){ wk.dataset.wok.split("|").forEach(k=>lsSet(k,"1")); renderWarnings(); return; }
+  const wr=e.target.closest("[data-wreset]"); if(wr){ allWarnings(cur).forEach(w=>lsSet(wKey(cur._t,w),null)); renderWarnings(); return; }
   const sgm=e.target.closest("[data-segmode]"); if(sgm){SEGMODE=sgm.dataset.segmode; lsSet("valorador.segmode",SEGMODE); renderTab(); return;}
   const fm=e.target.closest("[data-fmode]"); if(fm){FINMODE=fm.dataset.fmode; lsSet("valorador.finmode",FINMODE); renderTab(); return;}
   if(e.target.closest("#btnDl")){downloadAnalysis(cur);return;}
@@ -2974,7 +3034,7 @@ $("btnCopy").addEventListener("click",()=>{const t=JSON.stringify(exportAnalysis
   if(navigator.clipboard&&navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(()=>toast("JSON copiado"),()=>toast("No se pudo copiar")); else toast("Este navegador no permite copiar");});
 $("btnImport").addEventListener("click",()=>{try{const n=importOld($("jsonBox").value); renderHeader(); renderTab(); toast(n?`${n} ${n===1?"compañía importada":"compañías importadas"} como borrador`:"Ninguna compañía coincide por ticker");}
   catch(e){toast("El texto no es un JSON exportado desde el valorador antiguo");}});
-document.addEventListener("toggle",e=>{ const d=e.target; if(d&&d.id==="socialBox") lsSet("valorador.social",d.open?"1":"0"); if(d&&d.id==="glossary"){ lsSet("valorador.glosario",d.open?"1":"0"); const n=d.querySelector(".glsum .note"); if(n) n.textContent=n.textContent.replace(/pulsa para (plegar|desplegar)/,d.open?"pulsa para plegar":"pulsa para desplegar"); } },true);
+document.addEventListener("toggle",e=>{ const d=e.target; if(d&&d.id==="warnDet") lsSet("valorador.avisosabiertos",d.open?"1":"0"); if(d&&d.id==="keyAs") lsSet("valorador.supclave",d.open?"1":"0"); if(d&&d.id==="socialBox") lsSet("valorador.social",d.open?"1":"0"); if(d&&d.id==="glossary"){ lsSet("valorador.glosario",d.open?"1":"0"); const n=d.querySelector(".glsum .note"); if(n) n.textContent=n.textContent.replace(/pulsa para (plegar|desplegar)/,d.open?"pulsa para plegar":"pulsa para desplegar"); } },true);
 window.addEventListener("hashchange",()=>{const h=location.hash.slice(1); if(h==="seguimiento"){ if(!WATCH){ WATCH=true; renderWatch(); } return; } if(WATCH) exitWatch(); if(h&&h!==TAB) goTab(h,false);});
 try{const mq=matchMedia("(prefers-color-scheme: dark)"); mq.addEventListener("change",()=>rebuildCharts());}catch(e){}
 new MutationObserver(()=>{rebuildCharts(); if(TAB==="valuation") drawFootball();}).observe(document.documentElement,{attributes:true,attributeFilter:["data-theme"]});
