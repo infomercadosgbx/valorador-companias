@@ -10,6 +10,7 @@ from . import bonds as BONDS
 from . import insiders as INS
 from . import riskfactors as RISK
 from . import segments as SEG
+from . import pressrelease as PR
 from . import validate as V
 
 ESQUEMA = 1
@@ -249,6 +250,10 @@ def build_company(client, company, price_provider, price_warning=None, previous=
     rec = build_from_sec(company, cf, subs)
     if rec.get("ultimo_8k_resultados"):
         F.attach_exhibit(client, rec["ultimo_8k_resultados"])
+        try:
+            PR.attach(client, rec["ultimo_8k_resultados"], (previous or {}).get("ultimo_8k_resultados"))
+        except Exception as e:  # noqa: BLE001  extra
+            rec["avisos"].append(X.warn("info", "nota_no_disponible", f"No se pudo leer la nota de resultados: {type(e).__name__}"))
     client = Memo(client)
     rec["bonos"] = None
     if rec.get("soportada") and subs:

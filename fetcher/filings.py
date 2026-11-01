@@ -79,8 +79,22 @@ def find_exhibit(index_html: str, wanted=("EX-99.1", "EX-99", "EX-99.01")) -> st
     return None
 
 
+def list_exhibits(index_html: str):
+    """Todos los anexos EX-99.x del filing con su descripción (nota, presentación, carta…)."""
+    out = []
+    for m in _ROW.finditer(index_html or ""):
+        cells = [re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", c)).strip() for c in _CELL.findall(m.group(1))]
+        href = _HREF.search(m.group(1))
+        typ = next((c for c in cells if re.fullmatch(r"EX-99(\.\d+)?", c.upper())), None)
+        if href and typ:
+            u = href.group(1).replace("/ix?doc=", "")
+            desc = cells[1] if len(cells) > 1 and cells[1] and cells[1].upper() != typ.upper() else ""
+            out.append({"tipo": typ.upper(), "descripcion": desc, "url": u if u.startswith("http") else "https://www.sec.gov" + u})
+    return out
+
+
 def attach_exhibit(client, rec):
-    """Añade url_ex99_1 al registro del 8-K (una petición a www.sec.gov)."""
+    """Añade url_ex99_1 y la lista de anexos EX-99 al registro del 8-K (una petición a www.sec.gov)."""
     if not rec:
         return rec
     try:
@@ -88,4 +102,5 @@ def attach_exhibit(client, rec):
     except Exception:  # el enlace es un extra: si falla, no rompe la extracción
         html = None
     rec["url_ex99_1"] = find_exhibit(html)
+    rec["anexos"] = list_exhibits(html)
     return rec

@@ -656,6 +656,9 @@ tr.grp td{background:var(--surface2);font-size:11px;font-weight:700;text-transfo
 .qhead{display:flex;justify-content:space-between;align-items:flex-start;gap:8px} .qhead h3{margin:0;font-size:14px} .qval{display:flex;flex-direction:column;align-items:flex-end;gap:3px} .qval b{font-size:20px;font-variant-numeric:tabular-nums}
 .qrow{display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:6px;align-items:baseline;font-size:12.5px;padding:3px 0;border-bottom:1px solid color-mix(in srgb,var(--line) 50%,transparent)} .qrow .note{text-align:right;font-variant-numeric:tabular-nums}
 .qok{font-weight:700;font-size:11px;text-align:center;border-radius:5px;padding:1px 0} .qok.ok{color:var(--goodText);background:color-mix(in srgb,var(--good) 15%,transparent)} .qok.ko{color:var(--critText);background:color-mix(in srgb,var(--crit) 12%,transparent)} .qok.nd{color:var(--ink2);background:var(--surface2)}
+.pr{display:flex;flex-direction:column;gap:8px;border-top:1px solid var(--line);padding-top:10px} .prhead{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 12px} .prhead h3{margin:0}
+.prcols{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px} .thl.plain li::before{content:"·";color:var(--ink2)}
+.pr-auto{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;padding:0 14px 12px;font-size:13px} .pquote{grid-column:1/-1;font-style:italic;color:var(--ink);border-left:3px solid var(--tc,var(--tcx));padding:4px 0 4px 10px}
 .invhead{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px} .invhead h2{margin:0;flex:1 1 auto;white-space:nowrap} .invhead .seg{flex:0 0 auto}
 .seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--surface2)} .seg button{flex:0 0 auto;white-space:nowrap;border:0;background:transparent;padding:5px 11px;font-size:12.5px;font-weight:600;color:var(--ink2);cursor:pointer;border-radius:0}
 .seg button+button{border-left:1px solid var(--line)} .seg button[aria-selected="true"]{background:var(--tc,var(--tcx));color:#fff}
@@ -2184,6 +2187,20 @@ function qtrData(){
   return {lab,ya,pq,pqya,T:at(lab),Y:at(ya),P:at(pq),PY:at(pqya),src:last,k8:d.ultimo_8k_resultados,ui:d.ultimo_informe,sp,next:(d.resultados_previstos||{}).proximos,
     pt:{rev:pt("ingresos",lab),op:pt("beneficio_operativo",lab),ni:pt("beneficio_neto",lab),fcf:pt("caja_operativa",lab)}};
 }
+function qtrCompanyHtml(q,k8){
+  const call=(cur.mgmt&&cur.mgmt.call)||{}, end=q.src.periodo_fin;
+  const match=call.periodEnd&&Math.abs(new Date(call.periodEnd)-new Date(end))<25*864e5;
+  const N=k8&&k8.nota_resultados, ul=(a,cls)=>`<ul class="thl ${cls||""}">${a.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`;
+  const auto=N?`${N.guia?`<div><div class="eyebrow">${esc(N.guia.titulo)}</div>${ul(N.guia.texto.slice(0,6),"plain")}</div>`:""}
+      ${N.destacados?`<div><div class="eyebrow">${esc(N.destacados.titulo)}</div>${ul(N.destacados.texto.slice(0,6),"plain")}</div>`:""}
+      ${N.cita?`<div class="pquote">«${esc(N.cita.cita)}»${N.cita.quien?`<span class="note"> — ${esc(N.cita.quien)}</span>`:""}</div>`:""}`:"";
+  const autoBox=N?`<details class="box"${match?"":" open"}><summary><span>Texto original de la nota <span class="note" style="font-weight:400">· inglés · lectura automática del Exhibit 99.1</span></span></summary><div class="pr-auto" lang="en">${auto}</div></details>`:"";
+  if(match){ const cols=[["guia","Guía",""],["dir","Hacia dónde va","up"],["ret","Retos","dn"],["cap","Capital",""]].filter(([k])=>(call[k]||[]).length);
+    return `<div class="pr"><div class="prhead"><h3>Lo que cuenta la compañía</h3><span class="note">Tu resumen de la presentación del ${esc(call.date||"")} · <a href="#management">ver en Directiva →</a></span></div>
+      <div class="prcols">${cols.map(([k,t,c])=>`<div><div class="eyebrow">${t}</div>${ul(call[k].slice(0,4),c)}</div>`).join("")}</div>${autoBox}</div>`; }
+  if(N) return `<div class="pr"><div class="prhead"><h3>Lo que cuenta la compañía</h3><span class="note">Tu análisis aún no recoge esta presentación${call.q?` (el resumen de Directiva es del ${esc(call.q)})`:""}: de momento, el texto original de la nota.</span></div>${autoBox}</div>`;
+  return "";
+}
 function qtrHtml(){
   const q=qtrData(); if(!q) return "";
   const {T,Y,P,PY}=q, g=(a,b)=>fin(a)&&fin(b)&&b>0?(a/b-1)*100:NaN, mg=(a,b)=>fin(a)&&fin(b)&&b>0?a/b*100:NaN;
@@ -2223,7 +2240,8 @@ function qtrHtml(){
     <div><div class="eyebrow" style="color:var(--goodText)">Lo positivo</div>${good.length?`<ul class="thl up">${good.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`:`<p class="note">Nada destacable.</p>`}</div>
     <div><div class="eyebrow" style="color:var(--critText)">A vigilar</div>${watch.length?`<ul class="thl dn">${watch.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`:`<p class="note">Nada destacable en las cifras.</p>`}</div>
    </div>
-   <p class="note" style="margin:0">${[link(k8&&k8.url_ex99_1,"Nota de resultados (Exhibit 99.1)"),link(q.ui&&(q.ui.url_documento||q.ui.url_indice),(q.ui&&q.ui.formulario)||"Informe"),nx].filter(Boolean).join(" · ")}. La guía y los comentarios de la dirección no vienen en datos estructurados: revísalos en la nota de resultados o en la propuesta de actualización.</p>
+   ${qtrCompanyHtml(q,k8)}
+   <p class="note" style="margin:0">${[link(k8&&k8.url_ex99_1,"Nota de resultados (Exhibit 99.1)"),...((k8&&k8.anexos)||[]).filter(a=>a.tipo!=="EX-99.1"&&a.url).map(a=>link(a.url,`${a.descripcion||"Anexo"} (${a.tipo})`)),link(q.ui&&(q.ui.url_documento||q.ui.url_indice),(q.ui&&q.ui.formulario)||"Informe"),link(cur.sources&&cur.sources.ir,"Presentación y webcast (web de inversores)"),nx].filter(Boolean).join(" · ")}</p>
   </section>`;
 }
 function eqTax(f){ const L=f.years.length-1, t=f.ratios.taxEff&&f.ratios.taxEff[L]; return fin(t)&&t>0.05&&t<0.4?t:0.21; }
