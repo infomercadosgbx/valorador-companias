@@ -69,6 +69,14 @@ Para **quitar** una compañía, borra su línea de `companies.json` (los archivo
 - **Avisos por email.** Tras cada actualización nocturna, `fetcher/alerts.py` compara los datos nuevos con los del día anterior y, si hay algo, abre un Issue con la etiqueta `aviso` que GitHub te envía por correo: cotización que entra en tu zona de compra («comprar por debajo de» del Veredicto), 10-Q/10-K u 8-K de resultados nuevos, compras de directivos en mercado, movimientos de más del 8% en el día, resultados en los próximos 2 días y análisis de más de 90 días. Cada aviso se envía una sola vez (estado en `data/_avisos_estado.json`). Si no te llegan, revisa en GitHub *Settings → Notifications* que el email esté activado para *Issues* y que sigues el repositorio (*Watch*). Cierra los Issues cuando los leas.
 - **Guardar desde la web.** En «Mi análisis» → *Guardar directamente en GitHub*, pega una vez un token fine-grained con acceso solo a este repositorio y permiso *Contents: Read and write* (los pasos están en la propia web). Se guarda solo en ese navegador. Desde entonces la franja de cambios muestra «Guardar en GitHub», que hace el commit de `analysis/<TICKER>.json` (opcionalmente con «Análisis a» = hoy); la web publicada se actualiza en 1–2 minutos y la versión entra en el historial de veredictos. Si caduca o lo pierdes, se crea otro igual; «Olvidar el token» lo borra del navegador.
 
+## Revisión tras resultados (propuestas)
+
+Cuando una compañía presenta resultados, una tarea programada de Claude (cada mañana laborable) lee la nota de resultados y la llamada con analistas y deja una **propuesta** en `propuestas/<TICKER>.json`, siguiendo `propuestas/INSTRUCCIONES.md`. Nunca modifica `analysis/`.
+
+- La web muestra un aviso «Propuesta de actualización» en la compañía. «Revisar la propuesta» enseña cada cambio con lo que hay ahora, lo propuesto y por qué; marca los que quieras y «Aplicar los marcados como borrador». Revisa en la web, retoca con «Editar» y guarda con «Guardar en GitHub»: al guardar, la propuesta se borra sola. «Descartar la propuesta» la elimina sin aplicar nada.
+- Te llega también un aviso por email («Propuesta de actualización de …»).
+- `propuestas/_estado.json` guarda el último 8-K de resultados revisado por compañía, para no repetir propuestas.
+
 ## La web
 
 `valorador.html` carga `companies.json` y, para cada compañía, `data/<TICKER>.json` (cifras de la SEC y cotización), `analysis/<TICKER>.json` (tu criterio) y `manual/<TICKER>.json` (precios objetivo). No guarda nada en ningún servidor.

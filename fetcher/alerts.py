@@ -153,6 +153,13 @@ def run(root=ROOT, out=None, today=None, owner=None, site=None):
         prev = git_json(root, f"data/{t}.json")
         analysis = read(root / "analysis" / f"{t}.json")
         lines += company_alerts(c, data, prev, analysis, state, today)
+        prop = read(root / "propuestas" / f"{t}.json")
+        if prop and prop.get("cambios"):
+            k = f"{t}:propuesta:{prop.get('creada')}|{prop.get('informe_accn', '')}"
+            if not state.get(k):
+                lines.append(("📝", f"**Propuesta de actualización de {c['nombre']} ({t})**: {prop.get('motivo', '')} · "
+                                    f"{len(prop['cambios'])} cambios para revisar en la web."))
+                state[k] = today.isoformat()
     # limpia estados de más de 120 días
     for k in [k for k, v in state.items() if isinstance(v, str) and len(v) == 10 and (today - date.fromisoformat(v)).days > 120
               and ":zona_compra" not in k]:

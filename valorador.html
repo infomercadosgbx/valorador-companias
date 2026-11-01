@@ -627,6 +627,13 @@ body.watch .tabs,body.watch .cohead,body.watch #staleBox,body.watch #draftBar,bo
 .g2>.card>.cv:last-child,.g3>.card>.cv:last-child{margin-top:auto}
 .card .gaugebox{margin:auto 0}
 body.report .g2,body.report .g3{align-items:start}
+
+.prlist{display:flex;flex-direction:column;gap:10px;max-height:60vh;overflow:auto;padding-right:4px}
+.pr{display:grid;grid-template-columns:20px minmax(0,1fr);gap:10px;border:1px solid var(--line);border-radius:8px;padding:10px 12px;cursor:pointer;background:var(--surface)}
+.pr input{margin-top:3px} .prh{display:flex;flex-direction:column;gap:2px;margin-bottom:6px}
+.prc{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px} @media (max-width:640px){.prc{grid-template-columns:minmax(0,1fr)}}
+.prv{font-size:12.5px;line-height:1.45;padding:6px 8px;border-radius:6px;overflow-wrap:break-word} .prv.old{background:var(--surface2);color:var(--ink2)} .prv.new{background:color-mix(in srgb,var(--good) 9%,var(--surface))}
+.pl{margin:2px 0 0;padding-left:16px} .pl li{margin:2px 0}
 </style>
 </head>
 <body>
@@ -918,13 +925,14 @@ function renderWarnings(){
 const DLAB={"v.wacc":"WACC","v.tg":"Crecimiento perpetuo","v.exit":"Múltiplo de salida","v.method":"Método del valor terminal","v.m1":"Margen EBITDA año 1","v.m5":"Margen EBITDA año 5",
   "v.da":"Amortizaciones año 1","v.da5":"Amortizaciones año 5","v.sbc":"Pago en acciones","v.capex":"Capex año 1","v.capex5":"Capex año 5","v.nwc":"Circulante","v.tax":"Tipo impositivo",
   "v.rev0":"Ingresos año base","v.year0":"Año base","v.eps":"BPA próximos 12 meses","v.pe":"PER objetivo","v.evm":"EV/EBITDA objetivo","v.shares":"Acciones","v.cash":"Caja","v.debt":"Deuda"};
-function draftLabel(p){ if(DLAB[p]) return DLAB[p]; let m=/^v\.g\.(\d)$/.exec(p); if(m) return `Crecimiento año ${+m[1]+1}`;
+function draftLabel(p){ if(DLAB[p]) return DLAB[p]; if(typeof PLAB!=="undefined"&&PLAB[p]) return PLAB[p]; let m=/^v\.g\.(\d)$/.exec(p); if(m) return `Crecimiento año ${+m[1]+1}`;
   m=/^v\.scn\.(\d)\.(dg|dm|p)$/.exec(p); if(m){ const n=((cur.v.scn||[])[+m[1]]||{}).n||"Escenario"; return `${n}: ${{dg:"Δ crecimiento",dm:"Δ margen",p:"probabilidad"}[m[2]]}`; }
   return p.replace(/\./g," › "); }
 function draftDiff(c){
   let base; try{ base=exportAnalysis(buildCompany(c._co,c._base,c._data,c._manual,true)); }catch(e){ return null; }
   const now=exportAnalysis(c), out=[], empty=x=>x==null||x===""||(Array.isArray(x)&&!x.length);
   const walk=(a,b,p)=>{ if(out.length>40) return;
+    if(Array.isArray(a)||Array.isArray(b)){ if(JSON.stringify(a||[])!==JSON.stringify(b||[])&&!(empty(a)&&empty(b))) out.push({p,a,b}); return; }
     if(a&&typeof a==="object"&&b&&typeof b==="object"&&Array.isArray(a)===Array.isArray(b)){ new Set([...Object.keys(a),...Object.keys(b)]).forEach(k=>walk(a[k],b[k],p?p+"."+k:k)); return; }
     if(empty(a)&&empty(b)) return; if(typeof a==="number"&&typeof b==="number"&&Math.abs(a-b)<1e-9) return; if(JSON.stringify(a)===JSON.stringify(b)) return;
     out.push({p,a,b}); };
@@ -946,6 +954,9 @@ function staleInfo(c){
 }
 function renderStale(){
   const el=$("staleBox"); if(!el||!cur) return; const s=staleInfo(cur);
+  const PR=cur._prop; if(PR&&lsGet("valorador.propvista."+cur._t)!==PR.creada+"|"+(PR.informe_accn||"")){
+    el.innerHTML=`<span>📝 <b>Propuesta de actualización</b> de ${esc(cur.meta.name)}: ${esc(PR.motivo||"")} · ${PR.cambios.length} ${PR.cambios.length===1?"cambio":"cambios"} · preparada el ${esc(fecha(PR.creada))}.</span><span class="note">Revísala: tú eliges qué cambios aplicar. No se toca nada hasta que los guardes.</span><span><button type="button" class="btn-acc" id="btnProp">Revisar la propuesta</button></span>`;
+    el.hidden=false; return; }
   if(cur.meta&&cur.meta.autogenerado&&!cur.meta.asOf){ el.innerHTML=`<span>✨ <b>Compañía recién añadida</b> (${esc(fecha(cur.meta.autogenerado))}). Las cifras, segmentos y previsiones ya son automáticos, y el DCF arranca con los datos reales de los últimos 12 meses.</span><span class="note">Falta tu criterio: pulsa «Editar» para escribir la tesis, el negocio, el MOAT, la directiva, los riesgos y el veredicto, revisa los supuestos y rellena «Análisis a».</span>`; el.hidden=false; return; }
   if(!s||!s.stale||s.days<1){ el.hidden=true; el.innerHTML=""; return; }
   const parts=[]; if(fin(s.dp)) parts.push(`precio <b>${s.dp>=0?"+":"−"}${nf(Math.abs(s.dp),1)}%</b> (de ${nf(s.p0[1],2)} a ${nf(cur.v.price,2)})`);
@@ -953,11 +964,60 @@ function renderStale(){
   el.innerHTML=`<span>⏱ <b>Tu análisis es del ${esc(fecha(s.iso))}</b> (hace ${s.days} ${s.days===1?"día":"días"}). Desde entonces: ${parts.join(" · ")||"nada relevante"}.</span><span class="note">Revisa la tesis, los supuestos y el veredicto, y actualiza «Análisis a» en Resumen cuando lo hagas.</span>`;
   el.hidden=false;
 }
+/* ================= Propuestas tras resultados ================= */
+const PLAB={"overview.thesis":"Tesis en una línea","overview.summary":"Qué hace","overview.keyFacts":"Datos clave","overview.catalysts":"Próximos catalizadores",
+  "business.model":"Cómo gana dinero","business.customers":"Clientes","business.quality":"Calidad del negocio","business.customerTypes":"Tipos de cliente","business.phaseNote":"Fase de la compañía",
+  "moat.note":"Lectura del MOAT","moat.sources":"Fuentes de ventaja","moat.comps":"Competidores","moat.trend":"Tendencia del MOAT",
+  "growth.score":"Puntuación de crecimiento","growth.scoreNote":"Mi lectura del crecimiento","growth.guidance":"Guía de la empresa","growth.tam":"Tamaño del mercado","growth.drivers":"Motores de crecimiento",
+  "mgmt.call":"Última presentación de resultados","mgmt.note":"Control y gobierno","mgmt.people":"Quién dirige","mgmt.scores":"Evaluación de la directiva","mgmt.alloc":"Asignación de capital",
+  "risks":"Registro de riesgos","verdict.rating":"Recomendación","verdict.conviction":"Convicción","verdict.buyBelow":"Comprar por debajo de","verdict.horizon":"Horizonte",
+  "verdict.summary":"Conclusión","verdict.bull":"A favor","verdict.bear":"En contra","verdict.watch":"Qué vigilar","notes":"Notas","meta.asOf":"Análisis a","meta.nextEarnings":"Próximos resultados"};
+function propLabel(p){ return PLAB[p]||draftLabel(p); }
+function getPath(o,p){ return p.split(".").reduce((x,k)=>x==null?undefined:x[k],o); }
+function propShow(v){
+  if(v==null||v==="") return '<span class="note">vacío</span>';
+  if(typeof v==="number") return `<b>${nf(v,Number.isInteger(v)?0:2)}</b>`;
+  if(typeof v==="string") return esc(v);
+  if(Array.isArray(v)){ if(!v.length) return '<span class="note">vacío</span>';
+    return `<ul class="pl">${v.map(x=>`<li>${typeof x==="string"?esc(x):typeof x==="number"?nf(x,2):x&&typeof x==="object"?esc([x.k||x.n||x.d||"",x.v||x.t||x.note||x.d||"",x.s!=null?`(${x.s}/5)`:x.impact!=null?`(${x.impact}/5)`:"",x.p!=null&&x.i!=null?`P${x.p}·I${x.i}`:""].filter(Boolean).join(" — ")):""}</li>`).join("")}</ul>`; }
+  if(typeof v==="object"){ if(v.dir||v.ret||v.guia) return [["Hacia dónde va","dir"],["Retos","ret"],["Guía","guia"],["Capital","cap"]].filter(([,k])=>v[k]&&v[k].length).map(([l,k])=>`<div class="note" style="margin-top:4px">${l}</div><ul class="pl">${v[k].map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`).join("")+(v.q?`<div class="note">${esc(v.q)} · ${esc(v.date||"")}</div>`:"");
+    return esc(JSON.stringify(v)); }
+  return esc(String(v));
+}
+function propModal(){
+  const PR=cur._prop; if(!PR) return;
+  $("modal").innerHTML=`<div style="display:flex;justify-content:space-between;gap:12px;align-items:flex-start"><div><div class="eyebrow">${esc(cur.meta.name)} · propuesta del ${esc(fecha(PR.creada))}</div><h2 id="mTitle">${esc(PR.motivo||"Propuesta de actualización")}</h2></div><button type="button" class="x" data-close aria-label="Cerrar">×</button></div>
+    ${PR.resumen?`<div class="alert" style="background:var(--surface2);border-color:var(--line)">${esc(PR.resumen)}</div>`:""}
+    <p class="note" style="margin:0">Marca los cambios que quieras. Se aplican como borrador: los verás en la web, podrás retocarlos con «Editar» y después los guardas con «Guardar en GitHub».</p>
+    <div class="prlist">${PR.cambios.map((c,i)=>`<label class="pr"><input type="checkbox" data-pi="${i}" checked>
+      <div><div class="prh"><b>${esc(propLabel(c.campo))}</b>${c.porque?`<span class="note">${esc(c.porque)}</span>`:""}</div>
+      <div class="prc"><div><span class="eyebrow">Ahora</span><div class="prv old">${propShow(getPath(cur,c.campo))}</div></div><div><span class="eyebrow">Propuesta</span><div class="prv new">${propShow(c.valor)}</div></div></div></div></label>`).join("")}</div>
+    ${(PR.fuentes||[]).length?`<div class="note">Fuentes: ${PR.fuentes.map(f=>`<a href="${esc(f.u)}" target="_blank" rel="noopener">${esc(f.t)}</a>`).join(" · ")}</div>`:""}
+    <div class="toolbar"><button type="button" class="btn-acc" id="btnPropApply">Aplicar los marcados como borrador</button><button type="button" id="btnPropAll">Marcar / desmarcar todos</button><button type="button" id="btnPropDrop">Descartar la propuesta</button><span class="saved" id="propMsg"></span></div>`;
+  $("overlay").hidden=false;
+}
+function propApply(){
+  const PR=cur._prop; if(!PR) return; let n=0;
+  $("modal").querySelectorAll("[data-pi]").forEach(cb=>{ if(cb.checked){ const c=PR.cambios[+cb.dataset.pi]; setPath(cur,c.campo,clone(c.valor)); n++; } });
+  cur._propApplied=true; lsSet("valorador.propvista."+cur._t,PR.creada+"|"+(PR.informe_accn||"")); closeModal();
+  if(n){ save(); renderHeader(); renderTab(); toast(`${n} ${n===1?"cambio aplicado":"cambios aplicados"} como borrador. Revísalos y pulsa «Guardar en GitHub».`); } else renderDraft();
+}
+async function propDeleteRemote(t){
+  const R=ghRepo(); if(!R||!ghToken()) return false; const url=`/repos/${R.o}/${R.r}/contents/propuestas/${t}.json`;
+  const g=await gh(url+"?ref=main"); if(!g.ok) return g.status===404;
+  const r=await gh(url,{method:"DELETE",body:JSON.stringify({message:`Propuesta de ${t} revisada`,sha:g.j.sha,branch:"main"})}); return r.ok;
+}
+async function propDrop(){
+  const PR=cur._prop, t=cur._t; if(!PR) return;
+  lsSet("valorador.propvista."+t,PR.creada+"|"+(PR.informe_accn||""));
+  let ok=false; if(ghToken()){ try{ ok=await propDeleteRemote(t); }catch(e){} }
+  cur._prop=null; closeModal(); renderDraft(); toast(ok?"Propuesta descartada y borrada de GitHub":"Propuesta descartada en este navegador");
+}
 function renderDraft(){
   renderStale(); const el=$("draftBar"); if(!el||!cur) return;
   let dif=cur._draft?draftDiff(cur):[];
   if(cur._draft&&dif&&!dif.length){ lsSet(DRAFT(cur._t),null); cur._draft=false; }
-  const show=v=>typeof v==="object"&&v!==null?"(texto)":typeof v==="string"?(v.length>40?esc(v.slice(0,40))+"…":esc(v)||"vacío"):v==null?"vacío":esc(String(v));
+  const show=v=>Array.isArray(v)?`lista de ${v.length}`:typeof v==="object"&&v!==null?"(texto)":typeof v==="string"?(v.length>40?esc(v.slice(0,40))+"…":esc(v)||"vacío"):v==null?"vacío":esc(String(v));
   el.innerHTML=cur._draft?`<div class="dtext"><b>${dif?`${dif.length>40?"Más de 40":dif.length} ${dif.length===1?"cambio":"cambios"}`:"Cambios"} sin publicar</b> en tu análisis de ${esc(cur.meta.name)}${dif&&dif.length?` <details class="dwhich"><summary>ver cuáles</summary><ul class="draftlist">${dif.slice(0,40).map(d=>`<li>${esc(draftLabel(d.p))}: ${show(d.a)} → <b>${show(d.b)}</b></li>`).join("")}</ul></details>`:""}<br><span class="note">${ghToken()?"Solo están en este navegador hasta que pulses «Guardar en GitHub».":"Solo están en este navegador. Para guardarlos, descarga el archivo y súbelo a la carpeta analysis/ del repositorio, o conecta la web con GitHub una vez y guárdalos con un clic."}</span></div><div class="dbtns">${ghToken()?`<label class="note" style="display:flex;align-items:center;gap:5px"><input type="checkbox" id="ghAsOf" checked> «Análisis a» = hoy</label><button type="button" id="btnGhSave" class="btn-acc">Guardar en GitHub</button><button type="button" id="btnDl">Descargar ${esc(cur._t)}.json</button>`:`<button type="button" id="btnDl" class="btn-acc">Descargar ${esc(cur._t)}.json</button><button type="button" id="btnGhSetup">Guardar directamente en GitHub…</button>`}<button type="button" id="btnDiscard">Descartar</button></div>`:"";
   el.hidden=!cur._draft;
 }
@@ -1057,7 +1117,9 @@ async function ghSave(){
     const msg=`Análisis: ${cur._t} desde la web (${dif.length} ${dif.length===1?"cambio":"cambios"})`;
     const r=await gh(url,{method:"PUT",body:JSON.stringify({message:msg,content:b64,branch:"main",...(g.ok&&g.j&&g.j.sha?{sha:g.j.sha}:{})})});
     if(!r.ok) throw new Error(ghErr(r.status,r.j));
-    lsSet(DRAFT(cur._t),null); cur._base=clone(obj); cur._draft=false; renderHeader(); renderDraft();
+    lsSet(DRAFT(cur._t),null); cur._base=clone(obj); cur._draft=false;
+    if(cur._propApplied&&cur._prop){ try{ await propDeleteRemote(cur._t); }catch(e){} cur._prop=null; cur._propApplied=false; }
+    renderHeader(); renderDraft();
     toast("Guardado en GitHub. La web publicada se actualiza en 1–2 minutos.");
   }catch(e){ toast(e.message||String(e)); if(btn){ btn.disabled=false; btn.textContent="Guardar en GitHub"; } alertBox(e.message||String(e)); }
 }
@@ -2879,6 +2941,10 @@ document.addEventListener("click",e=>{
   const fm=e.target.closest("[data-fmode]"); if(fm){FINMODE=fm.dataset.fmode; lsSet("valorador.finmode",FINMODE); renderTab(); return;}
   if(e.target.closest("#btnDl")){downloadAnalysis(cur);return;}
   if(e.target.closest("#btnGhSave")){ ghSave(); return; }
+  if(e.target.closest("#btnProp")){ propModal(); return; }
+  if(e.target.closest("#btnPropApply")){ propApply(); return; }
+  if(e.target.closest("#btnPropAll")){ const cbs=[...$("modal").querySelectorAll("[data-pi]")]; const all=cbs.every(x=>x.checked); cbs.forEach(x=>x.checked=!all); return; }
+  if(e.target.closest("#btnPropDrop")){ propDrop(); return; }
   if(e.target.closest("#btnGhSetup")){ const pnl=$("dataPanel"); if(pnl){ pnl.hidden=false; $("btnData").setAttribute("aria-expanded","true"); renderGhBox(); pnl.scrollIntoView({behavior:"smooth",block:"start"}); setTimeout(()=>{const i=$("ghTok"); if(i) i.focus();},300);} return; }
   if(e.target.closest("#btnGhSaveTok")){ const v=($("ghTok").value||"").trim(); if(!/^(github_pat_|ghp_)/.test(v)){ $("ghMsg").textContent="El token debe empezar por github_pat_"; return; } lsSet("valorador.ghtoken",v); renderGhBox(); ghTest().then(()=>renderDraft()); return; }
   if(e.target.closest("#btnGhTest")){ ghTest(); return; }
@@ -3004,8 +3070,8 @@ async function boot(){
     INDICE=idx;
     TEMPLATE=tpl||{};
     const rows=await Promise.all(cos.companies.map(async co=>{ const t=co.ticker.toUpperCase();
-      const [an,d,man]=await Promise.all([getJSON(`analysis/${t}.json`).catch(()=>null),getJSON(`data/${t}.json`).catch(()=>null),getJSON(`manual/${t}.json`).catch(()=>null)]);
-      return [t,buildCompany(co,an,d,man)]; }));
+      const [an,d,man,prop]=await Promise.all([getJSON(`analysis/${t}.json`).catch(()=>null),getJSON(`data/${t}.json`).catch(()=>null),getJSON(`manual/${t}.json`).catch(()=>null),getJSON(`propuestas/${t}.json`).catch(()=>null)]);
+      const c=buildCompany(co,an,d,man); c._prop=prop&&Array.isArray(prop.cambios)&&prop.cambios.length?prop:null; return [t,c]; }));
     rows.forEach(([t,c])=>{store.companies[t]=c;});
   }catch(e){
     console.error(e);
