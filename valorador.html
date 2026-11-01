@@ -610,6 +610,16 @@ body.watch .tabs,body.watch .cohead,body.watch #staleBox,body.watch #draftBar,bo
 .kf b{font-size:17px;font-weight:700;letter-spacing:-.01em;font-variant-numeric:tabular-nums;line-height:1.2} .kf b.neg{color:var(--critText)}
 .kf .pill{font-size:11px;padding:1px 7px}
 .kfd{font-size:12px;color:var(--ink2);line-height:1.35}
+
+.thgrid{display:grid;grid-template-columns:minmax(0,1fr);gap:18px 28px}
+.thgrid.two{grid-template-columns:minmax(0,1.55fr) minmax(0,1fr)}
+@media (max-width:900px){.thgrid.two{grid-template-columns:minmax(0,1fr)}}
+.thmain{display:flex;flex-direction:column;gap:8px;min-width:0}
+.thside{display:flex;flex-direction:column;gap:12px;border-left:1px solid var(--line);padding-left:22px;min-width:0}
+@media (max-width:900px){.thside{border-left:0;border-top:1px solid var(--line);padding:14px 0 0}}
+.thl{list-style:none;margin:6px 0 0;padding:0;display:flex;flex-direction:column;gap:6px;font-size:13px;line-height:1.4}
+.thl li{position:relative;padding-left:16px} .thl li::before{position:absolute;left:0;top:0;font-weight:700}
+.thl.up li::before{content:"+";color:var(--goodText)} .thl.dn li::before{content:"−";color:var(--critText)}
 </style>
 </head>
 <body>
@@ -1321,11 +1331,18 @@ R.overview=()=>{
   const vz=valuation(cur), s=scorecard(cur,vz), mcap=cur.v.price*cur.v.shares;
   return `
   <section class="card" style="border-left:3px solid var(--brand)">
+   <div class="thgrid${!EDIT&&((cur.verdict.bull||[]).length||(cur.verdict.bear||[]).length)?" two":""}"><div class="thmain">
     <div class="eyebrow tc">Tesis en una línea</div>
     ${tx("overview.thesis",{cls:"thesis",rows:2,ph:"La idea principal en una frase"})}
     ${EDIT?`<div class="g3">${["sector:Sector","hq:Sede","founded:Fundación","employees:Empleados","asOf:Fecha del análisis","nextEarnings:Próximos resultados"].map(x=>{const [k,l]=x.split(":");return `<label class="note">${l}${ln("meta."+k,{ph:l})}</label>`;}).join("")}
       <p class="note">Nombre, ticker, color y monograma se cambian en companies.json.</p></div>`
     :`<div class="chips">${[["Sector","sector"],["Sede","hq"],["Fundación","founded"],["Empleados","employees"],["Análisis a","asOf"]].map(([l,k])=>`<div class="chip"><span>${l}</span>${esc(cur.meta[k]||"—")}</div>`).join("")}</div>`}
+   </div>
+   ${!EDIT&&((cur.verdict.bull||[]).length||(cur.verdict.bear||[]).length)?`<aside class="thside">
+      ${(cur.verdict.bull||[]).length?`<div><div class="eyebrow" style="color:var(--goodText)">A favor</div><ul class="thl up">${cur.verdict.bull.slice(0,3).map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`:""}
+      ${(cur.verdict.bear||[]).length?`<div><div class="eyebrow" style="color:var(--critText)">En contra</div><ul class="thl dn">${cur.verdict.bear.slice(0,3).map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`:""}
+      <a href="#verdict" class="note" style="color:var(--ink2)">Ver el veredicto completo →</a></aside>`:""}
+   </div>
   </section>
   <div class="kpis">
     ${kpi("Cotización",money(cur.v.price),`<span class="note">Capitalización ${big(mcap)}</span>${cur._data?(()=>{let m,p,y;try{m=mctx();p=MET.per.calc(m).res;y=MET.fcf_yield.calc(m).res;}catch(e){} let po; try{po=MET.per_operativo.calc(m).res;}catch(e){} return `<span class="note">PER ${fin(p)?nf(p,1)+"x":"–"}${info("per")}${fin(po)&&fin(p)&&Math.abs(po/p-1)>0.2?` (sin extraord. ${nf(po,1)}x)`:""} · rentab. FCF ${fin(y)?pct(y,1):"–"}${info("fcf_yield")}</span>`;})():""}`)}
