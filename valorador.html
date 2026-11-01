@@ -717,6 +717,12 @@ body.report #ratioCard .seg{display:none}
 @media (max-width:640px){.crow{grid-template-columns:minmax(0,1fr) auto} .crow>div:first-child{grid-column:1/-1}}
 .cnone{font-weight:600;color:var(--goodText);margin:4px 0 0}
 .cnamed{display:flex;flex-direction:column;gap:8px} .cn{border-left:3px solid var(--tcx);padding:2px 0 2px 10px;display:flex;flex-direction:column;gap:2px;position:relative} .cnh{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap} .cs{font-size:11px;padding:1px 7px;border-radius:99px;background:var(--surface2);color:var(--ink2)}
+.pco{display:flex;gap:8px;align-items:center} .plogo{background:var(--surface2);color:var(--ink2);font-size:10px;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+.rowitem .nm:has(.mono){display:flex;align-items:center;gap:8px} .rowitem .nm .mono{flex:0 0 auto}
+.pranks{margin-top:10px;display:flex;flex-direction:column;gap:6px} .pranks>div{display:flex;flex-wrap:wrap;gap:6px}
+.prank{font-size:12.5px;padding:4px 10px;border-radius:99px;border:1px solid var(--line);background:var(--surface)} .prank.good{background:color-mix(in srgb,var(--good) 16%,transparent);border-color:transparent} .prank.good2{background:color-mix(in srgb,var(--good) 8%,transparent)} .prank.bad{background:color-mix(in srgb,var(--crit) 11%,transparent);border-color:transparent}
+.pcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px;padding:0 14px 14px} .pcard{border:1px solid var(--line);border-radius:10px;padding:12px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.pch{display:flex;gap:10px;align-items:flex-start} .pcg{display:grid;grid-template-columns:1fr auto;gap:3px 10px;font-size:12.5px} .pcg span{color:var(--ink2)} .pcg b{text-align:right;font-variant-numeric:tabular-nums}
 .invhead{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px} .invhead h2{margin:0;flex:1 1 auto;white-space:nowrap} .invhead .seg{flex:0 0 auto}
 .seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--surface2)} .seg button{flex:0 0 auto;white-space:nowrap;border:0;background:transparent;padding:5px 11px;font-size:12.5px;font-weight:600;color:var(--ink2);cursor:pointer;border-radius:0}
 .seg button+button{border-left:1px solid var(--line)} .seg button[aria-selected="true"]{background:var(--tc,var(--tcx));color:#fff}
@@ -2021,13 +2027,18 @@ function peerData(){
   const median={}; PEERCOLS.forEach(([k])=>median[k]=med(k));
   return {P,own,ok,bad:(P.competidores||[]).filter(x=>!x.soportada||!fin(x.capitalizacion)),median};
 }
+function peerLogo(x,own){ if(own) return monoHtml(cur,"sm");
+  return x&&x.logo?`<span class="mono sm logo"><img src="${esc(x.logo)}" alt="" loading="lazy" onerror="this.parentNode.textContent='${esc((x.ticker||"?").slice(0,2))}'"></span>`:`<span class="mono sm plogo">${esc(((x&&x.ticker)||"?").slice(0,2))}</span>`; }
+function compLogo(name){ const P=cur._data&&cur._data.peers; if(!P||!name) return ""; const n=String(name).toLowerCase();
+  const hit=(P.competidores||[]).find(x=>{ const nm=String(x.nombre||"").toLowerCase().split(/[ ,.]/)[0]; return nm.length>2&&n.includes(nm)||n.split(/[ (]/).includes(String(x.ticker).toLowerCase()); });
+  return hit?peerLogo(hit)+" ":""; }
 function peersHtml(){
   const D=peerData(); if(!D) return EDIT?`<section class="card"><h2>Comparativa con competidores</h2>${peerEdit()}</section>`:"";
   const {P,own,ok,bad,median}=D;
   const fmt=(t,v)=>!fin(v)?"–":t==="big"?big(v/M6):t==="pct"?pct(v,1):(v<0?"neg.":nf(v,1)+"x");
   const tint=(k,dir,v)=>{ const m=median[k]; if(!fin(v)||!fin(m)||dir===0||m===0) return ""; let r=(v-m)/Math.abs(m)*dir; if(dir<0&&v<=0) return "";
     return r>0.15?`background:color-mix(in srgb,var(--good) 16%,transparent)`:r<-0.15?`background:color-mix(in srgb,var(--crit) 13%,transparent)`:""; };
-  const row=(x,cls,name)=>`<tr class="${cls||""}"><td style="white-space:normal;min-width:150px">${name||`<b>${esc(x.ticker)}</b> <span class="note">${esc(x.nombre||"")}</span>`}</td>${PEERCOLS.map(([k,,t,dir])=>`<td style="${(cls||"").includes("own")?tint(k,dir,x[k]):""}">${fmt(t,x[k])}</td>`).join("")}</tr>`;
+  const row=(x,cls,name)=>`<tr class="${cls||""}"><td style="white-space:normal;min-width:170px">${name||`<div class="pco">${peerLogo(x,(cls||"").includes("own"))}<div><b>${esc(x.ticker)}</b> <span class="note">${esc(x.nombre||"")}</span></div></div>`}</td>${PEERCOLS.map(([k,,t,dir])=>`<td style="${(cls||"").includes("own")?tint(k,dir,x[k]):""}">${fmt(t,x[k])}</td>`).join("")}</tr>`;
   const reads=[]; const cmp=(k,hi,lo,u)=>{ const v=own[k], m=median[k]; if(!fin(v)||!fin(m)||m===0) return; const r=(v/m-1)*100;
     if(Math.abs(r)<15) return; reads.push(`${r>0?hi:lo} que la mediana: ${fmt(u,v)} frente a ${fmt(u,m)}`); };
   cmp("crecimiento","Crece más","Crece menos","pct"); cmp("margen_operativo","Margen operativo más alto","Margen operativo más bajo","pct");
@@ -2049,7 +2060,25 @@ function peersHtml(){
       <div><span class="eyebrow">Lectura</span><ul class="bul" style="margin-top:6px">${reads.length?reads.map(r=>`<li>${r}.</li>`).join(""):"<li>En línea con la mediana de sus competidores en crecimiento, márgenes y múltiplos.</li>"}
         ${fin(prem)?`<li>Con el EV/EBITDA de la mediana, ${esc(cur.meta.name)} valdría <b>${money(((median.ev_ebitda*own.ebitda)-(own.deuda||0)+(own.caja||0))/own.acciones)}</b> por acción (${prem>=0?"hoy cotiza con prima":"hoy cotiza con descuento"} del ${nf(Math.abs(prem),0)}%).</li>`:""}</ul>
         <p class="note">Un múltiplo más alto se justifica si crece más o tiene mejores márgenes: en el gráfico, las compañías por encima de la nube son las más caras para su crecimiento.</p></div></div>`:""}
+    ${ok.length?peerRanks(own,ok)+peerCards(ok):""}
   </section>`;
+}
+function peerRanks(own,ok){
+  const all=[own,...ok], items=[["crecimiento","crecimiento",1,"pct"],["margen_operativo","margen operativo",1,"pct"],["margen_fcf","margen de FCF",1,"pct"],["rentabilidad_fcf","rentabilidad por FCF",1,"pct"],["ev_ebitda","EV/EBITDA (más barata)",-1,"x"],["deuda_neta_ebitda","deuda neta/EBITDA (menos deuda)",-1,"x"]];
+  const chips=items.map(([k,l,dir])=>{ const v=all.map(x=>x[k]).filter(x=>fin(x)&&!(k==="ev_ebitda"&&x<=0)); if(!fin(own[k])||v.length<3) return "";
+    const rank=v.filter(x=>dir>0?x>own[k]:x<own[k]).length+1, n=v.length, cls=rank===1?"good":rank<=Math.ceil(n/3)?"good2":rank>n-Math.ceil(n/3)?"bad":"mid";
+    return `<span class="prank ${cls}"><b>${rank}.º</b> de ${n} en ${l}</span>`; }).filter(Boolean).join("");
+  return chips?`<div class="pranks"><span class="eyebrow">Posición de ${esc(cur.meta.name)}</span><div>${chips}</div></div>`:"";
+}
+const IND_ES={"Technology": "Tecnología", "Media": "Medios e internet", "Retail": "Comercio minorista", "Utilities": "Eléctricas y servicios públicos", "Semiconductors": "Semiconductores", "Banking": "Banca", "Pharmaceuticals": "Farmacéuticas", "Biotechnology": "Biotecnología", "Insurance": "Seguros", "Real Estate": "Inmobiliario", "Energy": "Energía", "Oil & Gas": "Petróleo y gas", "Financial Services": "Servicios financieros", "Health Care": "Salud", "Life Sciences Tools & Services": "Equipos y servicios para ciencias de la vida", "Software": "Software", "Communications": "Comunicaciones", "Telecommunication": "Telecomunicaciones", "Automobiles": "Automoción", "Aerospace & Defense": "Aeroespacial y defensa", "Machinery": "Maquinaria", "Chemicals": "Química", "Beverages": "Bebidas", "Food Products": "Alimentación", "Hotels, Restaurants & Leisure": "Hoteles, restauración y ocio", "Road & Rail": "Transporte terrestre", "Airlines": "Aerolíneas", "Logistics & Transportation": "Logística y transporte", "Textiles, Apparel & Luxury Goods": "Moda y lujo", "Commercial Services & Supplies": "Servicios a empresas", "Professional Services": "Servicios profesionales", "Electrical Equipment": "Equipos eléctricos", "Building": "Construcción", "Construction": "Construcción", "Metals & Mining": "Metales y minería", "Consumer products": "Productos de consumo", "Tobacco": "Tabaco", "Trading Companies & Distributors": "Distribución", "Diversified Consumer Services": "Servicios al consumidor", "Industrial Conglomerates": "Conglomerados industriales"};
+const PAIS_ES={US:"EE. UU.",CN:"China",GB:"Reino Unido",DE:"Alemania",FR:"Francia",NL:"Países Bajos",IE:"Irlanda",JP:"Japón",CA:"Canadá",IL:"Israel",CH:"Suiza",TW:"Taiwán",KR:"Corea del Sur",IN:"India",BR:"Brasil",ES:"España",IT:"Italia",SG:"Singapur",AU:"Australia",SE:"Suecia",DK:"Dinamarca"};
+function peerCards(ok){
+  const x2=v=>fin(v)&&v>0?nf(v,1)+"x":"–";
+  return `<details class="box" style="margin-top:10px" id="peerCards"${lsGet("valorador.peercards")==="1"?" open":""}><summary><span>Ficha de cada competidor <span class="note" style="font-weight:400">· sector, país, tamaño, crecimiento, márgenes y su último informe</span></span></summary>
+   <div class="pcards">${ok.map(x=>`<div class="pcard"><div class="pch">${peerLogo(x)}<div><b>${esc(x.nombre||x.ticker)}</b> <span class="note">${esc(x.ticker)}</span><div class="note">${esc([IND_ES[x.industria]||x.industria,PAIS_ES[x.pais]||x.pais].filter(Boolean).join(" · "))}</div></div></div>
+      <div class="pcg"><span>Capitalización</span><b>${big(x.capitalizacion/M6)}</b><span>Ingresos UDM</span><b>${x.ingresos>0?big(x.ingresos/M6):"–"}</b><span>Crecimiento</span><b class="${(x.crecimiento||0)>=0?"up":"dn"}">${fin(x.crecimiento)?pct(x.crecimiento,1):"–"}</b>
+        <span>Margen operativo</span><b>${fin(x.margen_operativo)?pct(x.margen_operativo,1):"–"}</b><span>Margen FCF</span><b>${fin(x.margen_fcf)?pct(x.margen_fcf,1):"–"}</b><span>PER · EV/EBITDA</span><b>${x2(x.per)} · ${x2(x.ev_ebitda)}</b></div>
+      <div class="note">${[x.web?`<a href="${esc(x.web)}" target="_blank" rel="noopener noreferrer">Web</a>`:"",x.url?`<a href="${esc(x.url)}" target="_blank" rel="noopener noreferrer">${esc(x.informe||"Informe")} del ${esc(fecha(x.informe_fecha))}</a>`:""].filter(Boolean).join(" · ")}</div></div>`).join("")}</div></details>`;
 }
 function peerEdit(){ if(!EDIT) return "";
   return `<label class="note" style="display:block;margin:4px 0 8px">Mis competidores (un ticker por línea; vacío = lista automática de Finnhub). Se aplican en la siguiente actualización nocturna.
@@ -2751,10 +2780,11 @@ R.moat=()=>{
   <div class="g2">
     <section class="card"><h2>Amenaza de los competidores</h2><p class="sub">De 1 (baja) a 5 (alta).</p><div class="cv h240"><canvas id="ch_mt_comp" role="img" aria-label="Amenaza por competidor"></canvas></div></section>
     <section class="card"><h2>Competidores</h2>
-      <div class="rowlist">${m.comps.map((x,i)=>`<div class="rowitem"><span class="nm">${ln(`moat.comps.${i}.n`)}</span>${sc(`moat.comps.${i}.threat`)}<span class="rn">${EDIT?ln(`moat.comps.${i}.note`,{ph:"Por qué"}):esc(x.note)}</span>${del("moat.comps",i)}</div>`).join("")}</div>
+      <div class="rowlist">${m.comps.map((x,i)=>`<div class="rowitem"><span class="nm">${EDIT?"":compLogo(x.n)}${ln(`moat.comps.${i}.n`)}</span>${sc(`moat.comps.${i}.threat`)}<span class="rn">${EDIT?ln(`moat.comps.${i}.note`,{ph:"Por qué"}):esc(x.note)}</span>${del("moat.comps",i)}</div>`).join("")}</div>
       ${add("moat.comps","comps","Añadir competidor")}
     </section>
   </div>
+  ${peersHtml()}
   ${roicHtml()}
   <section class="card"><h2>Rentabilidad sostenida</h2><p class="sub">Un foso real se ve en márgenes altos que se mantienen o suben con los años. % sobre ingresos.</p>${marginTrendHtml()}<div class="cv h240"><canvas id="ch_mt_marg" role="img" aria-label="Márgenes históricos"></canvas></div></section>`;
 };
@@ -3205,7 +3235,7 @@ function updateEffects(){
     set("ver_evm",fin(evr)?(s.evm>evr*1.2?V3("Por encima del actual","down"):s.evm<evr*0.8?V3("Por debajo del actual","up"):V3("Cerca del actual","mid")):"");
     set("eff_evm",`Valor por EV/EBITDA: <b>${money(vEv)}</b> ${s.price>0&&fin(vEv)?upPill(vEv,s.price):""}. Cada 1x más → +${money(y1.ebitda/s.shares)} por acción.`); }
 }
-function renderValOut(){ if(!$("valOut")) return; killCharts(); if($("valTop")) $("valTop").innerHTML=valTopHtml()+peersHtml(); $("valOut").innerHTML=valOutHtml(); if($("valBottom")){ const vz=valuation(cur); $("valBottom").innerHTML=vz.ok&&cur.v.price>0?sensHtml(cur.v,vz):""; } drawFootball(); setDefaults(); C.valuation(); drawPriceCharts(); drawPeers(); updateEffects(); }
+function renderValOut(){ if(!$("valOut")) return; killCharts(); if($("valTop")) $("valTop").innerHTML=valTopHtml(); $("valOut").innerHTML=valOutHtml(); if($("valBottom")){ const vz=valuation(cur); $("valBottom").innerHTML=vz.ok&&cur.v.price>0?sensHtml(cur.v,vz):""; } drawFootball(); setDefaults(); C.valuation(); drawPriceCharts(); updateEffects(); }
 let valT; function scheduleVal(){clearTimeout(valT); valT=setTimeout(()=>{renderValOut(); renderHeader();},140);}
 
 /* ---------- Fuentes ---------- */
@@ -3506,7 +3536,7 @@ C.financial=()=>{
     const m=f.maturities; if(m&&m.tramos.length) mk("ch_fn_mat",{type:"bar",data:{labels:m.tramos.map(t=>t.tramo),datasets:[{label:"Vencimientos",data:m.tramos.map(t=>t.valor/M6/sc.d),backgroundColor:cat[7]}]},options:{plugins:{legend:{display:false},tooltip:tipU(sc.u)},scales:{x:axisX,y:axisY()}}}); }
   mk("ch_fn_bal",{type:"bar",data:{labels:f.bal.labels,datasets:[{label:"Caja",data:sc1(f.bal.cash,sc.d),backgroundColor:cat[0]},{label:"Deuda",data:sc1(f.bal.debt,sc.d),backgroundColor:cat[1]}]},options:{plugins:{legend:legend(2),tooltip:tipU(sc.u)},scales:{x:axisX,y:axisY()}}});
 };
-C.moat=()=>{ const m=cur.moat;
+C.moat=()=>{ const m=cur.moat; drawPeers();
   mk("ch_mt_radar",radarCfg(m.sources.map(x=>x.n),m.sources.map(x=>+x.s),V("--tcx")));
   mk("ch_mt_comp",hbarCfg(m.comps.map(x=>x.n),m.comps.map(x=>+x.threat),V("--tcx"),5,"/ 5"));
   { const f=cur.fin, r=f.ratios||{}, cat=CAT(), p=a=>(a||[]).map(v=>fin(v)?v*100:null);
@@ -3616,7 +3646,7 @@ document.addEventListener("click",e=>{
   const pr=e.target.closest("[data-prange]"); if(pr){PRANGE=pr.dataset.prange; lsSet("valorador.prange",PRANGE); renderValOut(); return;}
   const mc=e.target.closest("[data-mchart]"); if(mc){MCHART=mc.dataset.mchart; lsSet("valorador.mchart",MCHART); renderValOut(); return;}
   const sn=e.target.closest("[data-sens]"); if(sn){SENSMODE=sn.dataset.sens; lsSet("valorador.sens",SENSMODE); renderValOut(); return;}
-  const px=e.target.closest("[data-peerx]"); if(px){PEERX=px.dataset.peerx; lsSet("valorador.peerx",PEERX); renderValOut(); return;}
+  const px=e.target.closest("[data-peerx]"); if(px){PEERX=px.dataset.peerx; lsSet("valorador.peerx",PEERX); if(TAB==="valuation") renderValOut(); else renderTab(); return;}
   const hm=e.target.closest("[data-home]"); if(hm){ const v=hm.dataset.home; if(v==="salir"){ exitWatch(); renderTab(); try{history.replaceState(null,"","#"+TAB);}catch(_){} return; }
     WVIEW=v; WATCH=true; CEDIT=null; renderWatch(); try{history.replaceState(null,"","#"+(v==="lista"?"seguimiento":v));}catch(_){} window.scrollTo(0,0); return; }
   const ts=e.target.closest("[data-themeset]"); if(ts){ lsSet("valorador.tema",ts.dataset.themeset); applyTheme(ts.dataset.themeset); renderWatch(); return; }
@@ -3693,7 +3723,7 @@ $("btnCopy").addEventListener("click",()=>{const t=JSON.stringify(exportAnalysis
   if(navigator.clipboard&&navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(()=>toast("JSON copiado"),()=>toast("No se pudo copiar")); else toast("Este navegador no permite copiar");});
 $("btnImport").addEventListener("click",()=>{try{const n=importOld($("jsonBox").value); renderHeader(); renderTab(); toast(n?`${n} ${n===1?"compañía importada":"compañías importadas"} como borrador`:"Ninguna compañía coincide por ticker");}
   catch(e){toast("El texto no es un JSON exportado desde el valorador antiguo");}});
-document.addEventListener("toggle",e=>{ const d=e.target; if(d&&d.id==="warnDet") lsSet("valorador.avisosabiertos",d.open?"1":"0"); if(d&&d.id==="keyAs") lsSet("valorador.supclave",d.open?"1":"0"); if(d&&d.id==="srcKeys") lsSet("valorador.srckeys",d.open?"1":"0"); if(d&&d.id==="srcWarn") lsSet("valorador.srcwarn",d.open?"1":"0"); if(d&&d.id==="socialBox") lsSet("valorador.social",d.open?"1":"0"); if(d&&d.id==="glossary"){ lsSet("valorador.glosario",d.open?"1":"0"); const n=d.querySelector(".glsum .note"); if(n) n.textContent=n.textContent.replace(/pulsa para (plegar|desplegar)/,d.open?"pulsa para plegar":"pulsa para desplegar"); } },true);
+document.addEventListener("toggle",e=>{ const d=e.target; if(d&&d.id==="peerCards") lsSet("valorador.peercards",d.open?"1":"0"); if(d&&d.id==="warnDet") lsSet("valorador.avisosabiertos",d.open?"1":"0"); if(d&&d.id==="keyAs") lsSet("valorador.supclave",d.open?"1":"0"); if(d&&d.id==="srcKeys") lsSet("valorador.srckeys",d.open?"1":"0"); if(d&&d.id==="srcWarn") lsSet("valorador.srcwarn",d.open?"1":"0"); if(d&&d.id==="socialBox") lsSet("valorador.social",d.open?"1":"0"); if(d&&d.id==="glossary"){ lsSet("valorador.glosario",d.open?"1":"0"); const n=d.querySelector(".glsum .note"); if(n) n.textContent=n.textContent.replace(/pulsa para (plegar|desplegar)/,d.open?"pulsa para plegar":"pulsa para desplegar"); } },true);
 window.addEventListener("hashchange",()=>{const h=location.hash.slice(1); const HV={seguimiento:"lista",cartera:"cartera",inicio:"inicio",favoritas:"favoritas",ajustes:"ajustes"}; if(HV[h]){ const v=HV[h]; if(!WATCH||WVIEW!==v){ WVIEW=v; WATCH=true; renderWatch(); } return; } if(WATCH) exitWatch(); if(h&&h!==TAB) goTab(h,false);});
 try{const mq=matchMedia("(prefers-color-scheme: dark)"); mq.addEventListener("change",()=>rebuildCharts());}catch(e){}
 new MutationObserver(()=>{rebuildCharts(); if(TAB==="valuation") drawFootball();}).observe(document.documentElement,{attributes:true,attributeFilter:["data-theme"]});
