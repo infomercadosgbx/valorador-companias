@@ -3155,6 +3155,62 @@ C.financial=()=>{
   { const q=f.qrev; if(q){const big1=Math.max(...q.values.filter(fin))>=20000, d=big1?1000:1;
     mk("ch_fn_q",{type:"bar",data:{labels:q.labels,datasets:[{label:"Ingresos",data:q.values.map(v=>fin(v)?v/d:null),backgroundColor:q.labels.map(l=>/gu[ií]a|e$/i.test(l)?alpha(V("--tcx"),.45):V("--tcx"))}]},options:{plugins:{legend:{display:false},tooltip:tipU(big1?"mil M "+ccy():"M "+ccy())},scales:{x:axisX,y:axisY()}}});}
     mk("ch_fn_conv",invChart()); }
+  { const lab=f.years, nd=f.debtA.map((d,i)=>fin(d)&&fin(f.cashA[i])?(d-f.cashA[i])/sc.d:null);
+    mk("ch_fn_debt",{type:"bar",data:{labels:lab,datasets:[{label:"Deuda",data:sc1(f.debtA,sc.d),backgroundColor:cat[1]},{label:"Caja",data:sc1(f.cashA,sc.d),backgroundColor:cat[0]},{type:"line",label:"Deuda neta",data:nd,borderColor:V("--ink"),backgroundColor:V("--ink"),borderDash:[5,4],pointRadius:3}]},
+      options:{plugins:{legend:legend(3),tooltip:tipU(sc.u)},scales:{x:axisX,y:axisY({zero:false})}}});
+    { const st=bondState(), mix=bondMix(st);
+      if(mix.length) mk("ch_fn_mix",{type:"doughnut",data:{labels:mix.map(x=>x[0]),datasets:[{data:mix.map(x=>x[1]/sc.d),backgroundColor:mix.map(x=>V(TIPO_COL[x[0]]||"--muted")),borderColor:V("--surface"),borderWidth:2}]},
+        options:{cutout:"58%",plugins:{legend:{position:"right",labels:{color:V("--ink2")}},tooltip:{callbacks:{label:c=>`${c.label}: ${nf(c.parsed,1)} ${sc.u}`}}}}});
+      if(st.calOk){ const by={}; st.det.forEach(e=>{const y=e.vencimiento.slice(0,4); by[y]=(by[y]||0)+e.en_libros/M6;}); const ys=Object.keys(by).sort();
+        mk("ch_fn_bmat",{type:"bar",data:{labels:ys,datasets:[{label:"Vence",data:ys.map(y=>by[y]/sc.d),backgroundColor:cat[7]}]},options:{plugins:{legend:{display:false},tooltip:tipU(sc.u)},scales:{x:axisX,y:axisY()}}}); } }
+    const m=f.maturities; if(m&&m.tramos.length) mk("ch_fn_mat",{type:"bar",data:{labels:m.tramos.map(t=>t.tramo),datasets:[{label:"Vencimientos",data:m.tramos.map(t=>t.valor/M6/sc.d),backgroundColor:cat[7]}]},options:{plugins:{legend:{display:false},tooltip:tipU(sc.u)},scales:{x:axisX,y:axisY()}}}); }
+  mk("ch_fn_bal",{type:"bar",data:{labels:f.bal.labels,datasets:[{label:"Caja",data:sc1(f.bal.cash,sc.d),backgroundColor:cat[0]},{label:"Deuda",data:sc1(f.bal.debt,sc.d),backgroundColor:cat[1]}]},options:{plugins:{legend:legend(2),tooltip:tipU(sc.u)},scales:{x:axisX,y:axisY()}}});
+};
+C.moat=()=>{ const m=cur.moat;
+  mk("ch_mt_radar",radarCfg(m.sources.map(x=>x.n),m.sources.map(x=>+x.s),V("--tcx")));
+  mk("ch_mt_comp",hbarCfg(m.comps.map(x=>x.n),m.comps.map(x=>+x.threat),V("--tcx"),5,"/ 5"));
+  { const f=cur.fin, r=f.ratios||{}, cat=CAT(), p=a=>(a||[]).map(v=>fin(v)?v*100:null);
+    const ds=[{label:"ROIC",data:p(r.roic),borderColor:cat[0],backgroundColor:cat[0]},{label:"ROCE",data:p(r.roce),borderColor:cat[2],backgroundColor:cat[2]},{label:"ROE",data:p(r.roe),borderColor:cat[6],backgroundColor:cat[6]},
+      {label:"WACC (tu modelo)",data:f.years.map(()=>cur.v.wacc),borderColor:V("--ink"),borderDash:[6,4],borderWidth:1.5,pointRadius:0,pointHoverRadius:0}].filter(d=>d.data.some(fin));
+    if(ds.length>1) mk("ch_mt_roic",{type:"line",data:{labels:f.years,datasets:ds},options:{plugins:{legend:legend(ds.length),tooltip:tipU("%")},scales:{x:axisX,y:axisY({suf:"%",zero:false})}}}); }
+  const ms=marginSets(); mk("ch_mt_marg",{type:"line",data:{labels:cur.fin.years,datasets:ms},options:{plugins:{legend:legend(ms.length),tooltip:tipU("%")},scales:{x:axisX,y:axisY({suf:"%",zero:false})}}});
+};
+function qChart(id){const q=cur.fin.q, cat=CAT(); const ds=q.series.map((s,i)=>({label:s.n,data:s.values.map(v=>fin(v)?v:null),borderColor:cat[i%8],backgroundColor:cat[i%8],tension:.25}));
+  mk(id,{type:"line",data:{labels:q.labels,datasets:ds},options:{plugins:{legend:legend(ds.length),tooltip:tipU("%",0)},scales:{x:axisX,y:axisY({suf:"%"})}}});}
+C.growth=()=>{
+  { const E=cur._data&&cur._data.resultados_previstos, S=E?(E.sorpresas||[]).filter(x=>fin(x.bpa_real)&&fin(x.bpa_estimado)):[];
+    if(S.length) mk("ch_gr_surp",{type:"bar",data:{labels:S.map(x=>`${x.trimestre}T${String(x.anio%100).padStart(2,"0")}`),datasets:[{label:"Sorpresa",data:S.map(x=>fin(x.sorpresa_pct)?x.sorpresa_pct:(x.bpa_real/x.bpa_estimado-1)*100),backgroundColor:S.map(x=>x.bpa_real>=x.bpa_estimado?V("--good"):V("--crit"))}]},
+      options:{plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>{const x=S[c.dataIndex]; return `Real ${nf(x.bpa_real,2)} frente a ${nf(x.bpa_estimado,2)} previsto (${c.parsed.y>=0?"+":""}${nf(c.parsed.y,1)}%)`;}}}},scales:{x:axisX,y:axisY({suf:"%",zero:true})}}}); }
+  qChart("ch_gr_q");
+  const f=cur.fin, sc=finScale(), vz=valuation(cur), cat=CAT();
+  if(vz.ok){ const py=vz.base.yrs.map(y=>String(y.year)+"p"); const labels=[...f.years,...py], n=f.years.length;
+    const hist=[...sc1(f.rev,sc.d),...py.map(()=>null)];
+    const proj=[...f.years.map((_,i)=>i===n-1?cur.v.rev0/sc.d:null),...vz.base.yrs.map(y=>y.rev/sc.d)];
+    mk("ch_gr_proj",{type:"line",data:{labels,datasets:[{label:"Histórico",data:hist,borderColor:cat[0],backgroundColor:cat[0]},{label:"Proyección (caso base)",data:proj,borderColor:cat[1],backgroundColor:cat[1],borderDash:[6,4]}]},
+      options:{plugins:{legend:legend(2),tooltip:tipU(sc.u)},scales:{x:axisX,y:axisY()}}});}
+  { const yoy=f.rev.map((v,i)=>i&&fin(v)&&fin(f.rev[i-1])?(v/f.rev[i-1]-1)*100:null);
+    mk("ch_gr_yoy",{type:"bar",data:{labels:f.years,datasets:[{label:"Crecimiento",data:yoy,backgroundColor:yoy.map(v=>v!=null&&v<0?V("--c8"):V("--tcx"))}]},options:{plugins:{legend:{display:false},tooltip:tipU("%")},scales:{x:axisX,y:axisY({suf:"%",zero:true})}}});
+    if(vz.ok){ const s=cur.v, cols=[cat[1],cat[0],cat[2]];
+      const sets=s.scn.map((c,i)=>({label:c.n,data:[s.rev0/sc.d,...project(s,{dg:c.dg,dm:c.dm}).map(y=>y.rev/sc.d)],borderColor:cols[i]||cat[i%8],backgroundColor:cols[i]||cat[i%8],borderDash:c.n==="Base"?[]:[5,4]}));
+      mk("ch_gr_scn",{type:"line",data:{labels:[String(s.year0),...[1,2,3,4,5].map(k=>String(s.year0+k)+"p")],datasets:sets},options:{plugins:{legend:legend(sets.length),tooltip:tipU(sc.u)},scales:{x:axisX,y:axisY({zero:false})}}}); } }
+  const d=cur.growth.drivers; mk("ch_gr_drv",hbarCfg(d.map(x=>x.n),d.map(x=>+x.impact),V("--tcx"),5,"/ 5"));
+};
+C.management=()=>{ const m=cur.mgmt;
+  mk("ch_mg_sc",hbarCfg(m.scores.map(x=>x.n),m.scores.map(x=>+x.s),V("--tcx"),5,"/ 5"));
+  const it=m.alloc.items; mk("ch_mg_alloc",hbarCfg(it.map(x=>x.n),it.map(x=>+x.v||0),V("--tcx"),undefined,"M "+ccy()));
+  const vt=(m.vote&&m.vote.items||[]).filter(x=>fin(+x.v)&&+x.v>0), cat=CAT();
+  mk("ch_mg_vote",{type:"doughnut",data:{labels:vt.map(x=>x.n),datasets:[{data:vt.map(x=>+x.v),backgroundColor:[V("--tcx"),V("--grid"),cat[0],cat[2]],borderColor:V("--surface"),borderWidth:2}]},
+    options:{cutout:"62%",plugins:{legend:{position:"bottom"},tooltip:{callbacks:{label:c=>`${c.label}: ${nf(c.parsed,1)}%`}}}}});
+  const sh=cur.fin.shares; if(sh) mk("ch_mg_sh",{type:"line",data:{labels:sh.labels,datasets:[{label:"Acciones (M)",data:sh.values.map(v=>fin(v)?v:null),borderColor:V("--tcx"),backgroundColor:alpha(V("--tcx"),.15),fill:true,tension:.2}]},
+    options:{plugins:{legend:{display:false},tooltip:tipU("M",1)},scales:{x:axisX,y:axisY({zero:false})}}});
+};
+C.risk=()=>{ const by={}; cur.risks.forEach(r=>{const k=r.cat||"Sin categoría"; by[k]=(by[k]||0)+(+r.p)*(+r.i);});
+  const e=Object.entries(by).sort((a,b)=>b[1]-a[1]); mk("ch_rk_cat",hbarCfg(e.map(x=>x[0]),e.map(x=>x[1]),V("--c8"),undefined,"puntos"));
+  const cnt=SEV.map(x=>cur.risks.filter(r=>sevOf((+r.p)*(+r.i))===x).length);
+  mk("ch_rk_sev",{type:"bar",data:{labels:SEV.map(x=>x.n),datasets:[{label:"Riesgos",data:cnt,backgroundColor:SEV.map(x=>V(x.c))}]},options:{plugins:{legend:{display:false}},scales:{x:axisX,y:axisY({})}}});};
+C.sources=()=>{ const S=cur.social; if(S&&S.pulse.some(x=>fin(x.s))){ const L=["Muy bajista","Bajista","Neutral","Alcista","Muy alcista"];
+  mk("ch_src_pulse",{type:"bar",data:{labels:S.pulse.map(x=>x.p),datasets:[{label:"Sentimiento",data:S.pulse.map(x=>fin(x.s)?(x.s===0?0.08:x.s):null),backgroundColor:S.pulse.map(x=>x.s>0?V("--c1"):x.s<0?V("--c8"):V("--muted"))}]},
+   options:{indexAxis:"y",plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>L[Math.round(c.parsed.x)+2]}}},scales:{x:{min:-2,max:2,grid:{color:V("--grid")},border:{display:false},ticks:{stepSize:1,callback:v=>L[v+2]}},y:{grid:{display:false},border:{display:false},ticks:{color:V("--ink2")}}}}}); }
   const cnt=DOCCATS.map(([c])=>cur.sources.docs.filter(d=>(DOCCATS.some(x=>x[0]===d.cat)?d.cat:"Otros")===c).length);
   const keep=DOCCATS.map((x,i)=>({n:x[0],c:V(x[1]),v:cnt[i]})).filter(x=>x.v>0);
   mk("ch_src_cnt",{type:"bar",data:{labels:keep.map(x=>x.n),datasets:[{label:"Documentos",data:keep.map(x=>x.v),backgroundColor:keep.map(x=>x.c)}]},options:{indexAxis:"y",plugins:{legend:{display:false}},scales:{x:{...axisY({}),ticks:{stepSize:1}},y:{grid:{display:false},border:{display:false},ticks:{color:V("--ink2")}}}}});};
