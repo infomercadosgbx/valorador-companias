@@ -132,7 +132,7 @@ def run(only=None, report=None, root=ROOT, client=None, provider=None, price_war
                     prev_items.setdefault(it["ticker"], it)
             except (json.JSONDecodeError, AttributeError, KeyError, TypeError):
                 pass
-        peer_cache = PEERS.PeerCache(client, provider, PEERS.table_by_ticker(client), prev_items)
+        peer_cache = PEERS.PeerCache(client, provider, PEERS.table_by_ticker(client), prev_items, root=root)
     except Exception as e:  # noqa: BLE001  la comparativa es secundaria
         print(f"Comparativa con competidores no disponible: {e}", file=sys.stderr)
     for c in companies:

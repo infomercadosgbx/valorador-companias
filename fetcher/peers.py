@@ -16,7 +16,7 @@ from .sec_client import cik_10
 
 MAX_PEERS = 6
 REFRESH_DAYS = 7
-VERSION = 2
+VERSION = 3
 
 
 def _v(p):
@@ -100,8 +100,8 @@ def peer_list(ticker, manual, provider, table_by_ticker):
 class PeerCache:
     """Fundamentales de competidores reutilizables entre compañías y noches."""
 
-    def __init__(self, client, provider, table_by_ticker, previous_items=None, today=None):
-        self.client, self.provider, self.table = client, provider, table_by_ticker
+    def __init__(self, client, provider, table_by_ticker, previous_items=None, today=None, root=None):
+        self.client, self.provider, self.table, self.root = client, provider, table_by_ticker, root
         self.today = today or date.today()
         self.mem = {}
         self.prev = dict(previous_items or {})
@@ -127,6 +127,14 @@ class PeerCache:
         cik, title = self.table.get(t) or self.table.get(t.replace(".", "-")) or (None, t)
         title = clean_name(title)
         item = {"ticker": t, "nombre": title, "cik": cik, "calculado": self.today.isoformat(), "soportada": True, "version": VERSION}
+        if self.root is not None:   # logo y perfil (Finnhub), para la comparativa
+            try:
+                from . import logos
+                perfil, _ = logos.update(self.provider, {"ticker": t}, self.root)
+                if perfil:
+                    item.update({k: perfil[k] for k in ("logo", "industria", "web", "pais") if perfil.get(k)})
+            except Exception:  # noqa: BLE001
+                pass
         try:
             cf = self.client.companyfacts(cik)
             subs = self.client.submissions(cik)
