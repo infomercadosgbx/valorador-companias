@@ -111,7 +111,7 @@ def check_ciks(client, companies):
     return out
 
 
-def run(only=None, report=None, root=ROOT, client=None, provider=None, price_warning=None, history=None):
+def run(only=None, report=None, root=ROOT, client=None, provider=None, price_warning=None, history=None, market=False):
     companies = load_companies(root)
     if only:
         wanted = {t.upper() for t in only}
@@ -205,6 +205,21 @@ def run(only=None, report=None, root=ROOT, client=None, provider=None, price_war
         except Exception as e:  # noqa: BLE001  la referencia es secundaria
             print(f"Índice de referencia no disponible: {e}", file=sys.stderr)
 
+    if market:   # referencia del WACC: bono a 10 años (oficial)
+        try:
+            from . import market as MK
+            b = MK.treasury_10y()
+            if b:
+                old = {}
+                try:
+                    old = json.loads((root / "data" / "_mercado.json").read_text(encoding="utf-8"))
+                except (OSError, json.JSONDecodeError):
+                    pass
+                if write_if_changed(root / "data" / "_mercado.json", dict(old, bono_10a=b)):
+                    changed.append("_mercado.json")
+        except Exception as e:  # noqa: BLE001  secundario
+            print(f"Bono a 10 años no disponible: {e}", file=sys.stderr)
+
     if only:   # se conserva lo ya publicado del resto y se respeta el orden de companies.json
         old = {}
         try:
@@ -236,7 +251,7 @@ def main(argv=None):
     ap.add_argument("--report", help="ruta del informe de errores (Markdown)")
     a = ap.parse_args(argv)
     try:
-        failures = run(only=a.only, report=a.report)
+        failures = run(only=a.only, report=a.report, market=True)
     except SecError as e:
         print(f"✗ {e}", file=sys.stderr)
         print(f"::error title=SEC::{e}")

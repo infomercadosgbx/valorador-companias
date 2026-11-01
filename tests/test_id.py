@@ -45,3 +45,9 @@ def test_id_tecnologia_desde_xbrl_completo():
     blk = SEG._tech_block({"TechnologyAndInfrastructureExpense": {k: (v, src) for k, v in vals.items()}}, 12)
     assert [p["periodo"] for p in blk["anual"]] == ["2023", "2024"]
     assert blk["anual"][-1]["etiqueta"] == "amzn:TechnologyAndInfrastructureExpense"
+
+
+def test_bono_10a_csv_del_tesoro():
+    from fetcher import market as MK
+    txt = '﻿Date,"1 Mo","2 Mo","10 Yr","30 Yr"\n10/30/2026,4.01,4.00,4.12,4.60\n10/29/2026,4.02,4.01,4.08,4.58\n'
+    assert MK.parse_csv(txt) == ("2026-10-30", 4.12)

@@ -122,6 +122,20 @@ FLOW_CONCEPTS = {
                  "*:TechnologyAndInfrastructureExpense", "*:TechnologyAndContentExpense",
                  "*:TechnologyAndDevelopmentExpense", "*:ResearchAndDevelopmentExpense"],
     },
+    # Gastos comerciales y de administración (Beneish M). Algunas compañías los
+    # dan juntos (SG&A) y otras por separado (ventas y marketing + generales).
+    "gastos_generales": {
+        "nombre": "Gastos comerciales y de administración (SG&A)", "unit": "USD", "combine": True, "opcional": True,
+        "tags": ["SellingGeneralAndAdministrativeExpense"],
+    },
+    "ventas_marketing": {
+        "nombre": "Ventas y marketing", "unit": "USD", "combine": True, "opcional": True,
+        "tags": ["SellingAndMarketingExpense", "MarketingAndAdvertisingExpense"],
+    },
+    "gastos_admin": {
+        "nombre": "Gastos generales y de administración", "unit": "USD", "combine": True, "opcional": True,
+        "tags": ["GeneralAndAdministrativeExpense"],
+    },
     "recompras": {
         "nombre": "Recompras de acciones", "unit": "USD", "combine": True,
         "tags": ["PaymentsForRepurchaseOfCommonStock"],
@@ -178,6 +192,25 @@ INSTANT_CONCEPTS = {
     "existencias": {
         "nombre": "Existencias", "opcional": True,
         "strategies": [{"required": ["InventoryNet"], "optional": []}],
+    },
+    # Para las puntuaciones de calidad (Piotroski, Altman Z, Beneish M)
+    "pasivo_total": {
+        "nombre": "Pasivo total", "opcional": True,
+        "strategies": [{"required": ["Liabilities"], "optional": []}],
+    },
+    "beneficios_retenidos": {
+        "nombre": "Beneficios retenidos", "opcional": True,
+        "strategies": [{"required": ["RetainedEarningsAccumulatedDeficit"], "optional": []}],
+    },
+    "cuentas_cobrar": {
+        "nombre": "Cuentas a cobrar", "opcional": True,
+        "strategies": [{"required": ["AccountsReceivableNetCurrent"], "optional": []},
+                       {"required": ["ReceivablesNetCurrent"], "optional": []}],
+    },
+    "inmovilizado": {
+        "nombre": "Inmovilizado material neto", "opcional": True,
+        "strategies": [{"required": ["PropertyPlantAndEquipmentNet"], "optional": []},
+                       {"required": ["PropertyPlantAndEquipmentAndFinanceLeaseRightOfUseAssetAfterAccumulatedDepreciationAndAmortization"], "optional": []}],
     },
 }
 
