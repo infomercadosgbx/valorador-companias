@@ -641,7 +641,10 @@ body.report .g2,body.report .g3{align-items:start}
 .wok{font-size:12px;padding:3px 9px;white-space:nowrap} .wsec{margin-top:8px} .wsec>summary{cursor:pointer;font-size:12.5px;color:var(--ink2);font-weight:600}
 @media (max-width:640px){.wrow{grid-template-columns:auto minmax(0,1fr)} .wrow .wok{grid-column:2;justify-self:start}}
 /* gráficos que llenan su tarjeta y quedan centrados */
-.g2>.card>.cv:last-child,.g3>.card>.cv:last-child{margin-top:0;flex:1 0 auto}
+.g2>.card>.cv:last-child,.g3>.card>.cv:last-child{margin-top:auto;margin-bottom:auto}
+.cv.radar{height:370px;max-width:500px;margin-left:auto!important;margin-right:auto!important}
+body.report .cv.radar{height:250px}
+@media (max-width:640px){.cv.radar{height:290px}}
 
 .assum{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;padding:0 14px 12px}
 @media (max-width:760px){.assum{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -1480,7 +1483,7 @@ R.overview=()=>{
       ${add("overview.keyFacts","keyFacts","Añadir dato")}
     </section>
     <section class="card"><h2>Puntuación por área</h2><p class="sub">De 0 a 5. Sale de las pestañas Negocio, MOAT, Crecimiento, Directiva, Riesgos y Valoración.</p>
-      <div class="cv h300"><canvas id="ch_ov_radar" role="img" aria-label="Radar de puntuación por área"></canvas></div></section>
+      <div class="cv radar"><canvas id="ch_ov_radar" role="img" aria-label="Radar de puntuación por área"></canvas></div></section>
   </div>
   <div class="g2">
     <section class="card"><h2>Ingresos y ${esc(lc(cur.fin.profitLabel))}</h2><p class="sub">${finScale().u}</p>
@@ -2210,7 +2213,7 @@ R.moat=()=>{
     ${kpi("Fuente más fuerte",esc((m.sources.slice().sort((a,b)=>b.s-a.s)[0]||{}).n||"—"))}
   </div>
   <div class="g2">
-    <section class="card"><h2>Fuentes de ventaja</h2><p class="sub">Las cinco fuentes clásicas de foso, de 0 a 5.</p><div class="cv h300"><canvas id="ch_mt_radar" role="img" aria-label="Radar de fuentes de ventaja"></canvas></div></section>
+    <section class="card"><h2>Fuentes de ventaja</h2><p class="sub">Las cinco fuentes clásicas de foso, de 0 a 5.</p><div class="cv radar"><canvas id="ch_mt_radar" role="img" aria-label="Radar de fuentes de ventaja"></canvas></div></section>
     <section class="card"><h2>Detalle</h2>
       <div class="rowlist">${m.sources.map((x,i)=>`<div class="rowitem"><span class="nm">${ln(`moat.sources.${i}.n`)}</span>${sc(`moat.sources.${i}.s`)}<span class="rn">${EDIT?ln(`moat.sources.${i}.note`,{ph:"Evidencia"}):esc(x.note)}</span>${del("moat.sources",i)}</div>`).join("")}</div>
       ${add("moat.sources","sources","Añadir fuente")}
