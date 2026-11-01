@@ -711,6 +711,12 @@ body.report #ratioCard .seg{display:none}
 .vsnap{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:4px 0 10px}
 .vs{display:flex;flex-direction:column;gap:1px;padding:9px 12px;min-width:0} .vs+.vs{border-left:1px solid var(--line)} .vs>span{font-size:11px;color:var(--ink2);text-transform:uppercase;letter-spacing:.05em} .vs b{font-size:17px;font-variant-numeric:tabular-nums} .vs em{font-style:normal;font-size:12px;color:var(--ink2)}
 @media (max-width:760px){.vsnap{grid-template-columns:repeat(2,minmax(0,1fr))} .vs+.vs{border-left:0} .vs{border-top:1px solid var(--line)} .vs:nth-child(-n+2){border-top:0} .vs:nth-child(even){border-left:1px solid var(--line)} .vs:last-child:nth-child(odd){grid-column:span 2}}
+.cnota{font-size:14px;margin:0 0 8px}
+.ckpis{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;margin:4px 0 10px} .ckpi{border:1px solid var(--line);border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;gap:2px;position:relative} .ckpi b{font-size:18px;font-variant-numeric:tabular-nums}
+.crows{display:flex;flex-direction:column;gap:8px} .crow{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(60px,1fr) auto;gap:4px 10px;align-items:center} .chist{grid-column:1/-1} .cbar{height:8px;border-radius:4px;background:var(--surface2);overflow:hidden} .cbar i{display:block;height:100%;background:var(--tcx)}
+@media (max-width:640px){.crow{grid-template-columns:minmax(0,1fr) auto} .crow>div:first-child{grid-column:1/-1}}
+.cnone{font-weight:600;color:var(--goodText);margin:4px 0 0}
+.cnamed{display:flex;flex-direction:column;gap:8px} .cn{border-left:3px solid var(--tcx);padding:2px 0 2px 10px;display:flex;flex-direction:column;gap:2px;position:relative} .cnh{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap} .cs{font-size:11px;padding:1px 7px;border-radius:99px;background:var(--surface2);color:var(--ink2)}
 .invhead{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px} .invhead h2{margin:0;flex:1 1 auto;white-space:nowrap} .invhead .seg{flex:0 0 auto}
 .seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--surface2)} .seg button{flex:0 0 auto;white-space:nowrap;border:0;background:transparent;padding:5px 11px;font-size:12.5px;font-weight:600;color:var(--ink2);cursor:pointer;border-radius:0}
 .seg button+button{border-left:1px solid var(--line)} .seg button[aria-selected="true"]{background:var(--tc,var(--tcx));color:#fff}
@@ -837,7 +843,7 @@ function deepMerge(t,x){Object.keys(x).forEach(k=>{if(x[k]&&typeof x[k]==="objec
 const clone=o=>JSON.parse(JSON.stringify(o));
 function fillMissing(t,src){Object.keys(src).forEach(k=>{ if(t[k]===undefined) t[k]=clone(src[k]); else if(src[k]&&typeof src[k]==="object"&&!Array.isArray(src[k])&&t[k]&&typeof t[k]==="object") fillMissing(t[k],src[k]); });}
 const TPL={
-  keyFacts:{k:"",v:""}, catalysts:{d:"",t:""}, segments:{n:"Nuevo segmento",v:0}, customerTypes:{n:"Nuevo cliente",d:""},
+  keyFacts:{k:"",v:""}, catalysts:{d:"",t:""}, segments:{n:"Nuevo segmento",v:0}, customerTypes:{n:"Nuevo cliente",d:""}, ckpis:{k:"Indicador",v:"",d:""}, cnamed:{n:"Cliente",sector:"",d:"",u:""},
   quality:{n:"Nuevo criterio",s:3,note:""}, sources:{n:"Nueva fuente",s:2,note:""}, comps:{n:"Nuevo competidor",threat:3,note:""},
   drivers:{n:"Nuevo motor",impact:3,h:"",d:""}, people:{n:"Nombre",role:"Cargo",since:"",note:""}, scores:{n:"Nuevo criterio",s:3,note:""},
   items:{n:"Nueva partida",v:0}, docs:{cat:"Formularios SEC",t:"Nuevo documento",d:"",u:"https://"}, videos:{t:"Nuevo vídeo",u:"https://www.youtube.com/watch?v="}, news:{t:"Nueva fuente",src:"",u:"https://"}, risks:{n:"Nuevo riesgo",cat:"Operativo",p:3,i:3,note:""}
@@ -1746,6 +1752,54 @@ function phaseSvg(i){
     <path d="M6,118 C40,116 110,104 150,80 S225,38 250,34 S320,12 350,16 S425,32 450,50 S485,74 496,84" fill="none" stroke="var(--muted)" stroke-width="2.5" stroke-linecap="round"/>
     ${fin(i)?`<circle cx="${xs[i]}" cy="${ys[i]}" r="9" fill="var(--tc)" stroke="var(--surface)" stroke-width="3"/>`:""}</svg>`;}
 
+/* ================= CLIENTES: concentración y geografía (SEC) + tu análisis ================= */
+const GEO_ES={"UNITED STATES":"EE. UU.","Non-US":"Fuera de EE. UU.","Asia Pacific":"Asia-Pacífico","Americas Excluding United States":"América (sin EE. UU.)","Americas":"América","GERMANY":"Alemania","UNITED KINGDOM":"Reino Unido","JAPAN":"Japón","MEXICO":"México","CANADA":"Canadá","CHINA":"China","RUSSIAN FEDERATION":"Rusia","All Other Countries":"Resto de países","AllOtherGeographiesMember":"Resto del mundo","SINGAPORE":"Singapur","TAIWAN":"Taiwán","China (including Hong Kong)":"China (con Hong Kong)","EMEA":"Europa, Oriente Medio y África","FRANCE":"Francia","INDIA":"India","KOREA, REPUBLIC OF":"Corea del Sur","Other Countries":"Otros países","International":"Internacional","Europe":"Europa","BRAZIL":"Brasil","SOUTH AFRICA":"Sudáfrica","NETHERLANDS":"Países Bajos","SWITZERLAND":"Suiza","AUSTRALIA":"Australia","ISRAEL":"Israel","ITALY":"Italia","SPAIN":"España","IRELAND":"Irlanda","KAZAKHSTAN":"Kazajistán","Latin America":"Latinoamérica","North America":"Norteamérica","Rest of World":"Resto del mundo","Other":"Otros"};
+const geoName=n=>GEO_ES[n]||GEO_ES[String(n).toUpperCase()]||n;
+const custName=n=>/^Major Customer One$|^Customer A$/i.test(n)?"Mayor cliente (sin nombre en el informe)":/^Major Customer Two$|^Customer B$/i.test(n)?"Segundo cliente (sin nombre)":n==="Wal-Mart"?"Walmart":n;
+function geoRows(){
+  const S=cur._data&&cur._data.segmentos, G=((S&&S.geografia)||[]).filter(x=>!x.ajuste); if(!G.length) return null;
+  const use=G.some(x=>(x.anual||[]).length)?"anual":"trimestral";
+  const ends=G.map(x=>(x[use]||[]).at(-1)).filter(Boolean).map(p=>p.periodo_fin).sort(), lastEnd=ends.at(-1); if(!lastEnd) return null;
+  const R=(cur._data.resultados||{}).ingresos||{}, totP=(R[use]||[]).find(p=>Math.abs(new Date(p.periodo_fin)-new Date(lastEnd))<20*864e5), tot=totP?totP.valor:NaN;
+  let rows=G.map(x=>{ const L=(x[use]||[]).find(p=>p.periodo_fin===lastEnd); if(!L) return null;
+    const ya=(x[use]||[]).find(p=>{ const d=(new Date(lastEnd)-new Date(p.periodo_fin))/864e5; return d>340&&d<390; });
+    return {n:geoName(x.nombre),v:L.valor,lab:L.periodo,yoy:ya&&ya.valor>0?(L.valor/ya.valor-1)*100:NaN}; }).filter(Boolean);
+  if(rows.some(r=>r.n==="Fuera de EE. UU.")&&rows.filter(r=>!["EE. UU.","Fuera de EE. UU."].includes(r.n)).length) rows.forEach(r=>{ if(r.n==="Fuera de EE. UU.") r.n="Resto del mundo"; });
+  const sum=rows.reduce((a,r)=>a+r.v,0), base=fin(tot)&&sum>tot*1.05?tot:sum;   /* si hay subtotales solapados, % sobre los ingresos totales */
+  rows.forEach(r=>{ r.share=base>0?r.v/base*100:NaN; }); rows.sort((a,b)=>b.v-a.v);
+  return {rows,use,lab:rows[0]?rows[0].lab:"",overlap:base!==sum,fuente:(S.informes||[]).at(-1)};
+}
+function clientsHtml(){
+  const B=cur.business, CL=B.clients||{}, S=cur._data&&cur._data.segmentos, conc=(S&&S.clientes_concentracion)||[], G=geoRows();
+  const read=S&&(S.informes||[]).length;
+  const concHtml=conc.length?`<div class="crows">${conc.map(c=>{ const h=(c.anual.length?c.anual:c.trimestral).slice(-4);
+      return `<div class="crow"><div><b>${esc(custName(c.nombre))}</b><span class="note"> · ${esc(c.ultimo.tipo==="año"?"ejercicio "+c.ultimo.periodo:c.ultimo.periodo)}</span></div><div class="cbar"><i style="width:${Math.min(100,c.ultimo.porcentaje*2)}%"></i></div><b class="num">${pct(c.ultimo.porcentaje,1)}</b>
+        ${h.length>1?`<div class="chist note">${h.map(p=>`${esc(p.periodo)}: ${pct(p.porcentaje,1)}`).join(" · ")}</div>`:""}</div>`; }).join("")}</div>
+      <p class="note" style="margin:4px 0 0">Clientes que superan el 10% de los ingresos, según la nota de concentración de los informes. ${conc[0].ultimo.url?`<a href="${esc(conc[0].ultimo.url)}" target="_blank" rel="noopener">Ver el informe</a>.`:""} Muchas compañías los anonimizan («Cliente A»).</p>`
+    :read?`<p class="cnone">✓ Ningún cliente supera el 10% de los ingresos</p><p class="note" style="margin:2px 0 0">Las compañías de EE. UU. tienen que declarar en sus informes a los clientes que pasan de ese umbral; en los últimos informes XBRL no aparece ninguno.</p>`
+    :`<p class="note">Sin datos de concentración todavía (se leen de los informes XBRL cada noche).</p>`;
+  const geoHtml=G&&G.rows.length?`<div class="g2" style="gap:12px;align-items:center"><div class="cv" style="height:${Math.max(140,G.rows.length*34+30)}px"><canvas id="ch_bz_geo" role="img" aria-label="Ingresos por región"></canvas></div>
+     <div class="scroll"><table><thead><tr><th style="text-align:left">${esc(G.use==="anual"?"Ejercicio "+G.lab:G.lab)}</th><th>Ingresos (M)</th><th>% ${G.overlap?"de los ingresos":"del total"}</th><th>Interanual</th></tr></thead><tbody>
+     ${G.rows.map(r=>`<tr><td style="text-align:left;white-space:normal">${esc(r.n)}</td><td>${nf(r.v/M6)}</td><td>${pct(r.share,0)}</td><td>${fin(r.yoy)?`<span class="${r.yoy>=0?"up":"dn"}">${r.yoy>=0?"+":"−"}${nf(Math.abs(r.yoy),1)}%</span>`:"–"}</td></tr>`).join("")}</tbody></table></div></div>
+     <p class="note" style="margin:4px 0 0">Automático, del XBRL de los informes${G.fuente?` (${esc(G.fuente.formulario)} del ${esc(fecha(G.fuente.fecha_presentacion))})`:""}. Las regiones son las que publica la compañía${G.overlap?"; algunas se solapan (subtotales), por eso el % es sobre los ingresos totales":""}.</p>`
+    :`<p class="note">La compañía no publica ingresos por región en sus datos XBRL.</p>`;
+  const kp=arr("business.clients.kpis"), nm=arr("business.clients.conocidos");
+  const kpiHtml=kp.length||EDIT?`<div class="ckpis">${kp.map((k,i)=>`<div class="ckpi">${del("business.clients.kpis",i)}<span class="eyebrow">${ln(`business.clients.kpis.${i}.k`,{ph:"Indicador"})}</span><b>${ln(`business.clients.kpis.${i}.v`,{ph:"Valor"})}</b><span class="note">${ln(`business.clients.kpis.${i}.d`,{ph:"Detalle o evolución"})}</span></div>`).join("")}</div>${add("business.clients.kpis","ckpis","Añadir indicador")}`:"";
+  const namedHtml=nm.length||EDIT?`<div class="cnamed">${nm.map((c,i)=>`<div class="cn">${del("business.clients.conocidos",i)}<div class="cnh"><b>${EDIT?ln(`business.clients.conocidos.${i}.n`,{ph:"Cliente"}):(okUrl(c.u)?`<a href="${esc(c.u)}" target="_blank" rel="noopener noreferrer">${esc(c.n)}</a>`:esc(c.n))}</b>${c.sector||EDIT?`<span class="cs">${ln(`business.clients.conocidos.${i}.sector`,{ph:"Sector"})}</span>`:""}</div>
+      <span class="note">${ln(`business.clients.conocidos.${i}.d`,{ph:"Qué compra o para qué lo usa"})}</span>${EDIT?ln(`business.clients.conocidos.${i}.u`,{ph:"Enlace a la fuente"}):""}</div>`).join("")}</div>${add("business.clients.conocidos","cnamed","Añadir cliente")}`:"";
+  return `<section class="card" id="clientsCard"><h2>Clientes</h2><p class="sub">Quién paga a la compañía, cuánto depende de cada uno y dónde están. Lo automático sale de la SEC cada noche; el resto, de tu análisis con sus fuentes.</p>
+   ${EDIT||(CL.nota||"").trim()?tx("business.clients.nota",{rows:2,cls:"cnota",ph:"Resumen de la cartera de clientes"}):""}
+   ${kpiHtml}
+   <div class="g2" style="gap:16px">
+    <div><h3>Concentración <span class="note" style="font-weight:400">· SEC</span></h3>${concHtml}</div>
+    <div><h3>Clientes conocidos</h3>${namedHtml||`<p class="note">Sin clientes concretos todavía.</p>`}</div>
+   </div>
+   <h3>Por región <span class="note" style="font-weight:400">· SEC</span></h3>${geoHtml}
+   <h3>Tipos de cliente</h3>
+   <div class="cards">${arr("business.customerTypes").map((c,i)=>`<div class="mini">${del("business.customerTypes",i)}<div class="t">${ln(`business.customerTypes.${i}.n`,{ph:"Tipo de cliente"})}</div>${EDIT?tx(`business.customerTypes.${i}.d`,{rows:3}):`<div class="s">${esc(c.d)}</div>`}</div>`).join("")}</div>
+    ${add("business.customerTypes","customerTypes","Añadir tipo de cliente")}
+  </section>`;
+}
 R.business=()=>{
   const q=cur.business.quality, qa=avg(q.map(x=>+x.s));
   return `
@@ -1757,10 +1811,7 @@ R.business=()=>{
     </section>
   </div>
   ${segHtml()}
-  <section class="card"><h2>Tipos de cliente</h2>
-    <div class="cards">${arr("business.customerTypes").map((c,i)=>`<div class="mini">${del("business.customerTypes",i)}<div class="t">${ln(`business.customerTypes.${i}.n`,{ph:"Tipo de cliente"})}</div>${EDIT?tx(`business.customerTypes.${i}.d`,{rows:3}):`<div class="s">${esc(c.d)}</div>`}</div>`).join("")}</div>
-    ${add("business.customerTypes","customerTypes","Añadir tipo de cliente")}
-  </section>
+  ${clientsHtml()}
   <div class="g2">
     <section class="card"><h2>Calidad del negocio</h2><p class="sub">Puntuación de 0 a 5 por criterio. Media: <b class="num">${nf(qa,1)}</b></p>
       <div class="cv h240"><canvas id="ch_bz_q" role="img" aria-label="Puntuación de calidad por criterio"></canvas></div>
@@ -3386,6 +3437,7 @@ C.overview=()=>{
     options:{plugins:{legend:legend(2),tooltip:tipU(sc.u)},scales:{x:axisX,y:axisY()}}});
 };
 C.business=()=>{
+  { const G=geoRows(); if(G&&G.rows.length&&$("ch_bz_geo")) mk("ch_bz_geo",hbarCfg(G.rows.map(r=>r.n),G.rows.map(r=>+(r.share||0).toFixed(1)),V("--tcx"),Math.min(100,Math.ceil(Math.max(...G.rows.map(r=>r.share||0))/10)*10),"%")); }
   mk("ch_bz_mix",mixCfg()); { const c=segQCfg(); if(c) mk("ch_bz_segq",c); }
   const q=cur.business.quality; mk("ch_bz_q",hbarCfg(q.map(x=>x.n),q.map(x=>+x.s),V("--tcx"),5,"/ 5"));
 };

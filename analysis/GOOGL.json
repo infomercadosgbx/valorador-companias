@@ -142,7 +142,41 @@
    }
   ],
   "phase": 2,
-  "phaseNote": "Un negocio maduro (Búsqueda) financia una segunda fase de crecimiento (Cloud e IA). Crecer al 25% con 500.000 M$ de ingresos es inusual."
+  "phaseNote": "Un negocio maduro (Búsqueda) financia una segunda fase de crecimiento (Cloud e IA). Crecer al 25% con 500.000 M$ de ingresos es inusual.",
+  "clients": {
+   "nota": "Millones de anunciantes de todos los tamaños (publicidad ~75% de los ingresos), usuarios de pago de YouTube, Google One y Workspace, y empresas en Google Cloud. En la nube aparecen ya clientes enormes de IA. Ningún cliente supera el 10%.",
+   "kpis": [
+    {
+     "k": "Publicidad",
+     "v": "~75% de los ingresos",
+     "d": "Búsqueda, YouTube y red de socios"
+    },
+    {
+     "k": "Anthropic en Google Cloud",
+     "v": "~200.000 M$",
+     "d": "compromiso de capacidad de TPU a 5 años"
+    }
+   ],
+   "conocidos": [
+    {
+     "n": "Anthropic",
+     "sector": "IA",
+     "d": "Compromiso de ~200.000 M$ en capacidad de TPU de Google Cloud durante cinco años.",
+     "u": "https://rallies.ai/news/google-secures-200b-anthropic-ai-deal-warns-eu-data-rules-could-trigger-10-fines"
+    },
+    {
+     "n": "Apple",
+     "sector": "Tecnología",
+     "d": "Paga por ser el buscador por defecto en Safari y negocia alojar Siri en Google Cloud.",
+     "u": "https://www.datacenterdynamics.com/en/news/apple-in-discussions-to-host-siri-on-google-cloud-report/"
+    },
+    {
+     "n": "Anunciantes de búsqueda",
+     "sector": "Todos",
+     "d": "Desde pymes locales hasta grandes marcas, distribuidores y aplicaciones."
+    }
+   ]
+  }
  },
  "moat": {
   "width": "Amplio",
