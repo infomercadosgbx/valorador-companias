@@ -672,6 +672,15 @@ tr.grp td{background:var(--surface2);font-size:11px;font-weight:700;text-transfo
 .pr{display:flex;flex-direction:column;gap:8px;border-top:1px solid var(--line);padding-top:10px} .prhead{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 12px} .prhead h3{margin:0}
 .prcols{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px} .thl.plain li::before{content:"·";color:var(--ink2)}
 .pr-auto{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;padding:0 14px 12px;font-size:13px} .pquote{grid-column:1/-1;font-style:italic;color:var(--ink);border-left:3px solid var(--tc,var(--tcx));padding:4px 0 4px 10px}
+.rtable td.rname{white-space:normal;min-width:170px;text-align:left} .rtable .rlast{font-weight:700;background:color-mix(in srgb,var(--tcx) 6%,transparent)}
+.rtable tr.rgrp td{text-align:left!important;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink);padding-top:14px;border-bottom:2px solid var(--k)}
+.rtrend{text-align:left!important;white-space:nowrap} .spark{vertical-align:middle;margin-right:8px}
+.rtr{font-size:12px;font-weight:600;white-space:nowrap} .rtr.good{color:var(--goodText)} .rtr.bad{color:var(--critText)} .rtr.flat{color:var(--ink2)}
+.rchips{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 6px} .rchips .dot{width:9px;height:9px;border-radius:50%;background:var(--k);display:inline-block;align-self:center}
+.rchips .copill[aria-pressed=true]{background:color-mix(in srgb,var(--k) 14%,var(--surface));color:var(--ink);border-color:var(--k)}
+.rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px} .rcell{border:1px solid var(--line);border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.rch{display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-size:13px} .rch b{font-size:17px;font-variant-numeric:tabular-nums}
+body.report #ratioCard .seg{display:none}
 .invhead{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px} .invhead h2{margin:0;flex:1 1 auto;white-space:nowrap} .invhead .seg{flex:0 0 auto}
 .seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--surface2)} .seg button{flex:0 0 auto;white-space:nowrap;border:0;background:transparent;padding:5px 11px;font-size:12.5px;font-weight:600;color:var(--ink2);cursor:pointer;border-radius:0}
 .seg button+button{border-left:1px solid var(--line)} .seg button[aria-selected="true"]{background:var(--tc,var(--tcx));color:#fff}
@@ -1585,6 +1594,51 @@ R.business=()=>{
 };
 
 let FINMODE=lsGet("valorador.finmode")||"cifras";
+/* ================= RATIOS: tabla con tendencia y gráficos por categoría ================= */
+function ratioGroups(){
+  const f=cur.fin, r=f.ratios||{}, x=(v,d=1)=>fin(v)?nf(v,d)+"x":"–", pc=v=>fin(v)?pct(v*100):"–", cc=v=>fin(v)?nf(v,2)+" "+ccy():"–";
+  /* [nombre, serie, formato, id ⓘ, unidad del gráfico, mejor: 1 sube es bueno, -1 baja es bueno, 0 neutro] */
+  return [["Rentabilidad","--c1",[["ROE",r.roe,pc,"roe","%",1],["ROA",r.roa,pc,"roa","%",1],["ROIC",r.roic,pc,"roic","%",1],["ROCE",r.roce,pc,"roce","%",1],["CROIC",r.croic,pc,"croic","%",1]]],
+    ["Solvencia y liquidez","--c8",[["Deuda / capital",r.debtCap,pc,"deuda_capital","%",-1],["Deuda neta / EBITDA",r.ndEbitda,v=>x(v),"nd_ebitda","x",-1],["Cobertura de intereses",r.cover,v=>x(v),"cobertura","x",1],["Liquidez corriente",r.current,v=>x(v,2),"liquidez","x",1],["Prueba ácida",r.quick,v=>x(v,2),"prueba_acida","x",1]]],
+    ["Calidad del beneficio","--c6",[["Tipo impositivo efectivo",r.taxEff,pc,"tipo_efectivo","%",0],["Beneficio neto / operativo",r.niOp,pc,"bn_operativo","%",0],["Caja operativa / beneficio neto",r.ocfNi,v=>x(v,2),"caja_bn","x",1]]],
+    ["Por acción","--c4",[["BPA diluido",r.eps,cc,"bpa","$",1],["Valor contable por acción",r.bvps,cc,"vc_accion","$",1]]]]
+    .map(([g,c,rows])=>[g,c,rows.filter(([,a])=>(a||[]).some(fin))]).filter(([,,rows])=>rows.length);
+}
+const RVIEW=()=>lsGet("valorador.ratios.vista")==="graf"?"graf":"tabla";
+function sparkSvg(a,col){ const v=a.map(x=>fin(x)?x:null), pts=v.map((y,i)=>[i,y]).filter(p=>p[1]!==null); if(pts.length<2) return "";
+  const lo=Math.min(...pts.map(p=>p[1])), hi=Math.max(...pts.map(p=>p[1])), W=90, H=24, n=v.length-1||1, sx=i=>2+i/n*(W-4), sy=y=>hi===lo?H/2:H-3-(y-lo)/(hi-lo)*(H-6);
+  const d=pts.map((p,k)=>`${k?"L":"M"}${sx(p[0]).toFixed(1)},${sy(p[1]).toFixed(1)}`).join(""), l=pts.at(-1);
+  return `<svg class="spark" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" aria-hidden="true"><path d="${d}" fill="none" stroke="${col}" stroke-width="1.6" stroke-linejoin="round"/><circle cx="${sx(l[0]).toFixed(1)}" cy="${sy(l[1]).toFixed(1)}" r="2.4" fill="${col}"/></svg>`; }
+function trendTag(a,better,unit){ const v=a.filter(fin); if(v.length<2) return ""; const L=v.at(-1), P=v.at(-2), d=unit==="%"?(L-P)*100:L-P;
+  if(Math.abs(d)<(unit==="%"?0.5:0.05)) return `<span class="rtr flat">= estable</span>`;
+  const up=d>0, good=better===0?null:(up===(better>0));
+  const txt=unit==="%"?`${up?"+":"−"}${nf(Math.abs(d),1)} pp`:`${up?"+":"−"}${nf(Math.abs(d),unit==="$"?2:1)}${unit==="x"?"x":" "+ccy()}`;
+  return `<span class="rtr ${good===null?"flat":good?"good":"bad"}">${up?"▲":"▼"} ${txt}</span>`; }
+function ratioCardHtml(){
+  const f=cur.fin, RG=ratioGroups(), view=RVIEW(), cat=lsGet("valorador.ratios.cat")||RG[0][0], catOk=RG.some(g=>g[0]===cat)?cat:RG[0][0];
+  const seg=`<div class="seg" role="tablist" aria-label="Vista de los ratios">${[["tabla","Tabla"],["graf","Gráficos"]].map(([k,l])=>`<button type="button" role="tab" data-rview="${k}" aria-selected="${view===k}">${l}</button>`).join("")}</div>`;
+  const head=`<div class="invhead"><h2>Ratios</h2>${seg}</div><p class="sub">Calculados con las cifras de la SEC. Pulsa <span class="ib" style="pointer-events:none">i</span> para ver cada cálculo. La flecha compara el último dato con el anterior, en verde si mejora y en rojo si empeora. Los múltiplos de precio están en Valoración; la rentabilidad frente al WACC, en Ventaja competitiva; y el semáforo de deuda, en Riesgos.</p>`;
+  if(view==="tabla"){
+    const ys=f.years, L=ys.length-1;
+    const body=RG.map(([g,c,rows])=>`<tr class="rgrp" style="--k:var(${c})"><td colspan="${ys.length+2}">${esc(g)}</td></tr>`+
+      rows.map(([l,a,fm,id,u,b])=>`<tr><td class="rname">${esc(l)}${info(id)}</td>${ys.map((_,i)=>`<td class="${i===L?"rlast":""}">${fm(a[i])}</td>`).join("")}<td class="rtrend">${sparkSvg(a,V(c))}${trendTag(a,b,u)}</td></tr>`).join("")).join("");
+    return `<section class="card" id="ratioCard">${head}<div class="scroll"><table class="rtable"><thead><tr><th></th>${ys.map((y,i)=>`<th class="${i===L?"rlast":""}">${esc(y)}</th>`).join("")}<th style="text-align:left">Tendencia</th></tr></thead><tbody>${body}</tbody></table></div></section>`;
+  }
+  const chips=`<div class="rchips">${RG.map(([g,c])=>`<button type="button" class="copill" data-rcat="${esc(g)}" aria-pressed="${g===catOk}" style="--k:var(${c})"><i class="dot"></i>${esc(g)}</button>`).join("")}</div>`;
+  const G=RG.find(g=>g[0]===catOk), rows=G[2];
+  return `<section class="card" id="ratioCard">${head}${chips}
+    <div class="rgrid">${rows.map(([l,a,fm,id,u,b],k)=>{ const v=a.filter(fin); return `<div class="rcell"><div class="rch"><span>${esc(l)}${info(id)}</span><b>${fm(v.at(-1))}</b></div>${trendTag(a,b,u)||`<span class="rtr flat">&nbsp;</span>`}<div class="cv" style="height:150px"><canvas id="ch_rt_${k}" role="img" aria-label="${esc(l)}"></canvas></div></div>`; }).join("")}</div></section>`;
+}
+function drawRatioCharts(){
+  if(RVIEW()!=="graf"||!$("ratioCard")) return;
+  const f=cur.fin, RG=ratioGroups(), cat=lsGet("valorador.ratios.cat"), G=RG.find(g=>g[0]===cat)||RG[0], col=V(G[1]);
+  G[2].forEach(([l,a,fm,id,u],k)=>{ const el=$("ch_rt_"+k); if(!el) return; const old=window.Chart&&Chart.getChart(el); if(old){ old.destroy(); charts=charts.filter(x=>x!==old); }
+    const data=a.map(v=>fin(v)?(u==="%"?v*100:v):null), ref=u==="x"&&/liquidez|prueba/.test(id)?1:u==="%"&&id==="bn_operativo"?100:id==="caja_bn"?1:null;
+    const ds=[{label:l,data,borderColor:col,backgroundColor:alpha(col,.12),fill:true,tension:.25,pointRadius:3,pointHoverRadius:5,spanGaps:true}];
+    if(ref!==null) ds.push({label:"Referencia",data:f.years.map(()=>ref),borderColor:V("--muted"),borderDash:[4,4],borderWidth:1,pointRadius:0,pointHoverRadius:0,fill:false});
+    mk("ch_rt_"+k,{type:"line",data:{labels:f.years,datasets:ds},options:{plugins:{legend:{display:false},tooltip:{filter:it=>it.datasetIndex===0,callbacks:{label:c=>fm(a[c.dataIndex])}}},
+      scales:{x:{...axisX,ticks:{...(axisX.ticks||{}),maxRotation:0,autoSkip:true,font:{size:10}}},y:{...axisY({suf:u==="%"?"%":u==="x"?"x":"",zero:false}),ticks:{maxTicksLimit:4,callback:v=>u==="%"?nf(v,0)+"%":u==="x"?nf(v,1)+"x":nf(v,1)}}}}}); });
+}
 R.financial=()=>{
   const f=cur.fin, n=f.years.length, L=n-1, sc=finScale(), r=f.ratios||{};
   const last=f.rev[L], prev=f.rev[L-1], netDebt=(f.bal.debt.at(-1)??NaN)-(f.bal.cash.at(-1)??NaN);
@@ -1599,14 +1653,7 @@ R.financial=()=>{
   const RINFO={ebitda:"ebitda",fcf:"fcf"};
   const tbl=head+"<tbody>"+rowsDef.filter(([k])=>(f[k]||[]).some(fin)).map(([k,l])=>`<tr class="${k==="rev"?"em":""}"><td${l.startsWith("  ")?' style="padding-left:22px;color:var(--ink2)"':""}>${esc(l.trim())}${RINFO[k]?info(RINFO[k]):""}</td>${f.years.map((_,i)=>`<td>${cell(k,i)}</td>`).join("")}</tr>`).join("")+"</tbody>";
   const seg=`<div class="seg tbl" role="group" aria-label="Formato de la tabla" style="width:max-content;max-width:100%">${[["cifras","Cifras"],["margen","% de ingresos"],["crec","Crecimiento"]].map(([k,l])=>`<button type="button" data-fmode="${k}" aria-pressed="${FINMODE===k}">${l}</button>`).join("")}</div>`;
-  /* ratios */
   const x=(v,d=1)=>fin(v)?nf(v,d)+"x":"–", pc=v=>fin(v)?pct(v*100):"–";
-  const RG=[["Rentabilidad",[["ROE",r.roe,pc,"roe"],["ROA",r.roa,pc,"roa"],["ROIC",r.roic,pc,"roic"],["ROCE",r.roce,pc,"roce"],["CROIC",r.croic,pc,"croic"]]],
-    ["Solvencia y liquidez",[["Deuda / capital",r.debtCap,pc,"deuda_capital"],["Deuda neta / EBITDA",r.ndEbitda,v=>x(v),"nd_ebitda"],["Cobertura de intereses",r.cover,v=>x(v),"cobertura"],["Liquidez corriente",r.current,v=>x(v,2),"liquidez"],["Prueba ácida",r.quick,v=>x(v,2),"prueba_acida"]]],
-    ["Calidad del beneficio",[["Tipo impositivo efectivo",r.taxEff,pc,"tipo_efectivo"],["Beneficio neto / operativo",r.niOp,pc,"bn_operativo"],["Caja operativa / beneficio neto",r.ocfNi,v=>x(v,2),"caja_bn"]]],
-    ["Por acción",[["BPA diluido",r.eps,v=>fin(v)?nf(v,2)+" "+ccy():"–","bpa"],["Valor contable por acción",r.bvps,v=>fin(v)?nf(v,2)+" "+ccy():"–","vc_accion"]]]];
-  const rtbl=`<thead><tr><th></th>${f.years.map(y=>`<th>${esc(y)}</th>`).join("")}</tr></thead><tbody>`+RG.map(([g,rows])=>`<tr><td colspan="${n+1}" class="eyebrow" style="padding-top:12px">${g}</td></tr>`+
-    rows.filter(([,a])=>(a||[]).some(fin)).map(([l,a,fm,id])=>`<tr><td style="white-space:normal;min-width:170px">${esc(l)}${info(id)}</td>${f.years.map((_,i)=>`<td>${fm(a[i])}</td>`).join("")}</tr>`).join("")).join("")+"</tbody>";
   const S=cur.sec, debt=S.debt.m, cash=S.cash.m;
   /* deuda */
   const mat=f.maturities, dTot=debt, nd=fin(debt)&&fin(cash)?debt-cash:NaN;
@@ -1648,9 +1695,7 @@ R.financial=()=>{
       <div><h3 style="margin-top:0">Ingresos trimestrales</h3><p class="sub">${esc(f.qrev&&Math.max(...(f.qrev.values||[]).filter(fin))>=20000?"mil M "+ccy():"M "+ccy())}</p><div class="cv h240"><canvas id="ch_fn_q" role="img" aria-label="Ingresos por trimestre"></canvas></div></div>
     </div>
   </section>
-  <section class="card"><h2>Ratios</h2><p class="sub">Calculados con las cifras de la SEC. Pulsa <span class="ib" style="pointer-events:none">i</span> para ver cada cálculo. Los múltiplos de precio están en Valoración; la rentabilidad frente al WACC, en MOAT; y el semáforo de deuda, en Riesgos.</p>
-    <div class="scroll"><table>${rtbl}</table></div>
-  </section>`;
+  ${ratioCardHtml()}`;
 };
 const dv2=(a,b)=>fin(a)&&fin(b)&&b!==0?a/b:NaN;
 /* ================= VALORACIÓN: precio, múltiplos históricos y sensibilidad ================= */
@@ -3171,6 +3216,7 @@ function invChart(){ const f=cur.fin, sc=finScale(), cat=CAT(), id=invView(), yr
     {type:"line",label:"Pago en acciones",data:sc1(neg(f.sbc),sc.d),borderColor:V("--muted"),backgroundColor:V("--muted"),borderDash:[4,4],borderWidth:1.5}].filter(d=>d.data.some(v=>fin(v)&&v!==0));
   return {type:"bar",data:{labels:yrs,datasets:ds},options:{plugins:{legend:legend(ds.length),tooltip:{callbacks:{label:c=>`${c.dataset.label}: ${nf(Math.abs(c.parsed.y),sc.d>1?1:0)} ${sc.u}`}}},scales:{x:{...axisX,stacked:true},y:{...axisY(),stacked:true}}}}; }
 C.financial=()=>{
+  drawRatioCharts();
   const f=cur.fin, sc=finScale(), cat=CAT();
   mk("ch_fn_rev",{type:"bar",data:{labels:f.years,datasets:[{label:"Ingresos",data:sc1(f.rev,sc.d),backgroundColor:cat[0]},{label:f.profitLabel,data:sc1(f.profit,sc.d),backgroundColor:cat[1]}]},options:{plugins:{legend:legend(2),tooltip:tipU(sc.u)},scales:{x:axisX,y:axisY()}}});
   const mds=marginSets();
@@ -3309,6 +3355,9 @@ document.addEventListener("click",e=>{
   if(e.target.closest("#btnPrint")){ window.print(); return; }
   if(e.target.closest("#btnReportExit")){ exitReport(); return; }
   if(e.target.closest("#btnAddCo")){ closePicker(); addCoModal(); return; }
+  const rv=e.target.closest("[data-rview]"), rc=e.target.closest("[data-rcat]");
+  if(rv||rc){ if(rv) lsSet("valorador.ratios.vista",rv.dataset.rview); if(rc) lsSet("valorador.ratios.cat",rc.dataset.rcat);
+    const card=$("ratioCard"); if(card){ card.querySelectorAll("canvas").forEach(c=>{ const o=window.Chart&&Chart.getChart(c); if(o){ o.destroy(); charts=charts.filter(x=>x!==o); } }); card.outerHTML=ratioCardHtml(); drawRatioCharts(); } return; }
   const iv=e.target.closest("[data-inv]"); if(iv){ lsSet("valorador.inv."+cur._t,iv.dataset.inv); document.querySelectorAll("#invCard [data-inv]").forEach(b=>b.setAttribute("aria-selected",b===iv)); const v=INV_VIEWS.find(x=>x.id===iv.dataset.inv); document.getElementById("invSub").textContent=invSub(v.id); document.getElementById("invFoot").innerHTML=invFoot(v.id); { const old=window.Chart&&Chart.getChart($("ch_fn_conv")); if(old){ old.destroy(); charts=charts.filter(x=>x!==old); } } mk("ch_fn_conv",invChart()); return; }
   const wk=e.target.closest("[data-wok]"); if(wk){ wk.dataset.wok.split("|").forEach(k=>lsSet(k,"1")); renderWarnings(); return; }
   const wr=e.target.closest("[data-wreset]"); if(wr){ allWarnings(cur).forEach(w=>lsSet(wKey(cur._t,w),null)); renderWarnings(); return; }
