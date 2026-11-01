@@ -112,6 +112,16 @@ FLOW_CONCEPTS = {
         "nombre": "Dividendos pagados", "unit": "USD", "combine": True, "opcional": True,
         "tags": ["PaymentsOfDividends", "PaymentsOfDividendsCommonStock"],
     },
+    # I+D. Amazon no publica I+D: su «Technology and infrastructure» (antes
+    # «Technology and content») es lo más parecido y se etiqueta con su propia taxonomía.
+    "investigacion_desarrollo": {
+        "nombre": "Investigación y desarrollo (I+D)", "unit": "USD", "combine": True, "opcional": True,
+        "tags": ["ResearchAndDevelopmentExpense",
+                 "ResearchAndDevelopmentExpenseExcludingAcquiredInProcessCost",
+                 "ResearchAndDevelopmentExpenseSoftwareExcludingAcquiredInProcessCost",
+                 "*:TechnologyAndInfrastructureExpense", "*:TechnologyAndContentExpense",
+                 "*:TechnologyAndDevelopmentExpense", "*:ResearchAndDevelopmentExpense"],
+    },
     "recompras": {
         "nombre": "Recompras de acciones", "unit": "USD", "combine": True,
         "tags": ["PaymentsForRepurchaseOfCommonStock"],

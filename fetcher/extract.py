@@ -63,6 +63,16 @@ def quarter_label(end: date, fye_mmdd: str) -> str:
 
 
 def raw_facts(cf, tag, unit, taxonomy=C.GAAP):
+    """«Nombre» = us-gaap; «ns:Nombre» = otra taxonomía; «*:Nombre» = la primera
+    taxonomía que lo tenga (extensiones propias, p. ej. amzn:)."""
+    if ":" in tag:
+        ns, tag = tag.split(":", 1)
+        if ns == "*":
+            for tx, facts in ((cf or {}).get("facts") or {}).items():
+                if tx not in (C.GAAP, C.DEI) and tag in facts:
+                    return (facts[tag].get("units") or {}).get(unit, [])
+            return []
+        taxonomy = ns
     try:
         return cf["facts"][taxonomy][tag]["units"][unit]
     except (KeyError, TypeError):
@@ -162,6 +172,9 @@ def choose_tags(cf, spec, ref_end, concept_key):
     cands = []
     for i, tag in enumerate(spec["tags"]):
         facts = raw_facts(cf, tag, spec["unit"])
+        if facts and tag.startswith("*:"):
+            tx = next((t for t, fs in cf["facts"].items() if t not in (C.GAAP, C.DEI) and tag[2:] in fs), "ext")
+            tag = f"{tx}:{tag[2:]}"
         if facts:
             cands.append((last_end(facts), i, tag, facts))
     cands.sort(key=lambda c: (-c[0].toordinal(), c[1]))

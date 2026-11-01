@@ -864,7 +864,7 @@ function buildFin(c){
     eps:epsA, bvps:eqA.map((e,i)=>dv(e,dilA[i])), taxUsed:tax,
     taxEff:val(pts.tax).map((t,i)=>{const b=val(pts.pbt)[i]; return fin(t)&&fin(b)&&b>0?t/b:null;}),
     ocfNi:ocf.map((o,i)=>fin(ni[i])&&ni[i]>0?dv(o,ni[i]):null), niOp:ni.map((x,i)=>fin(op[i])&&op[i]>0?dv(x,op[i]):null)};
-  return {years:labels,rev,profit:op,ni,fcf,capex,ocf,gross,ebitda,da,sbc:val(pts.sbc),buyb:val(ser("recompras")),divs:val(ser("dividendos")),int:val(pts.int),nonop:val(pts.nonop),gains:val(pts.gains),taxv:val(pts.tax),pbt:val(pts.pbt),sharesFromEps,debtA,cashA,eqA,asA,caA,clA,invA,dilA,ic,hasInv,ratios,
+  return {years:labels,rev,profit:op,ni,fcf,capex,ocf,gross,ebitda,da,sbc:val(pts.sbc),buyb:val(ser("recompras")),rd:val(ser("investigacion_desarrollo")),rdTag:((R.investigacion_desarrollo&&R.investigacion_desarrollo.etiquetas_usadas)||[]).join(" ")+" "+(((R.investigacion_desarrollo&&R.investigacion_desarrollo.ttm)||{}).etiqueta||""),divs:val(ser("dividendos")),int:val(pts.int),nonop:val(pts.nonop),gains:val(pts.gains),taxv:val(pts.tax),pbt:val(pts.pbt),sharesFromEps,debtA,cashA,eqA,asA,caA,clA,invA,dilA,ic,hasInv,ratios,
     bsPts:{debt:bsPts("deuda"),cash:bsPts("caja"),eq:bsPts("patrimonio_neto"),assets:bsPts("activo_total"),ca:bsPts("activo_corriente"),cl:bsPts("pasivo_corriente")},
     maturities:(d.vencimientos_deuda)||null,debtAssumed:!!(B.deuda&&B.deuda.asumido),addTTM,splits,capexAssumed,
     profitLabel:"Beneficio operativo",pts,
@@ -1587,8 +1587,8 @@ R.financial=()=>{
     <section class="card"><h2>Ingresos y ${esc(lc(f.profitLabel))}</h2><p class="sub">${sc.u}</p><div class="cv h260"><canvas id="ch_fn_rev" role="img" aria-label="Ingresos y beneficio por año"></canvas></div></section>
     <section class="card"><h2>Evolución de los márgenes</h2><p class="sub">% sobre ingresos.</p><div class="cv h260"><canvas id="ch_fn_mg" role="img" aria-label="Márgenes por año"></canvas></div><div class="chipline">Cómo se calculan: <span>Bruto${info("margen_bruto")}</span><span>EBITDA${info("margen_ebitda")}</span><span>Operativo${info("margen_operativo")}</span><span>Neto${info("margen_neto")}</span><span>FCF${info("margen_fcf")}</span></div></section>
     <section class="card"><h2>Beneficio, caja e inversión</h2><p class="sub">${sc.u}</p><div class="cv h260"><canvas id="ch_fn_cash" role="img" aria-label="Beneficio neto, flujo de caja libre y capex"></canvas></div></section>
-    <section class="card" id="invCard"><div class="invhead"><h2>Análisis de la inversión</h2><div class="seg" role="tablist" aria-label="Vista">${INV_VIEWS.map(v=>`<button type="button" role="tab" data-inv="${v.id}" aria-selected="${v.id===invView()}">${v.b}</button>`).join("")}</div></div>
-      <p class="sub" id="invSub">${esc(INV_VIEWS.find(v=>v.id===invView()).sub)}</p><div class="cv h260"><canvas id="ch_fn_conv" role="img" aria-label="Análisis de la inversión"></canvas></div><div class="chipline" id="invFoot">${invFoot(invView())}</div></section>
+    <section class="card" id="invCard"><div class="invhead"><h2>Análisis de la inversión</h2><div class="seg" role="tablist" aria-label="Vista">${invViews().map(v=>`<button type="button" role="tab" data-inv="${v.id}" aria-selected="${v.id===invView()}">${v.b}</button>`).join("")}</div></div>
+      <p class="sub" id="invSub">${esc(invSub(invView()))}</p><div class="cv h260"><canvas id="ch_fn_conv" role="img" aria-label="Análisis de la inversión"></canvas></div><div class="chipline" id="invFoot">${invFoot(invView())}</div></section>
   </div>
   <section class="card"><h2>Tabla de datos</h2>
     <div style="display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between"><p class="sub" style="margin:0">Fuente: SEC EDGAR. Cada año enlaza a su 10-K; las etiquetas XBRL y el origen de cada cifra están en la pestaña Fuentes.</p>${seg}</div>
@@ -2889,11 +2889,17 @@ C.business=()=>{
 const INV_VIEWS=[
  {id:"capex",b:"Capex",sub:"Capex sobre ingresos, sobre caja operativa y frente a las amortizaciones, en %. Por encima del 100% de la caja operativa invierte más de lo que genera; por encima del 100% de las amortizaciones invierte para crecer, no solo para mantener."},
  {id:"sbc",b:"Acciones",sub:"La inversión «oculta» de las compañías de software: el pago en acciones a empleados. Barras: FCF antes y después de restarlo. Líneas: pago en acciones sobre ingresos y variación anual de las acciones diluidas (%)."},
+ {id:"id",b:"I+D",sub:"Lo que invierte en producto e ingeniería, que en las compañías de software y tecnología pesa más que el capex. Barras: gasto en I+D. Líneas: I+D sobre ingresos y reinversión total (I+D + capex) sobre ingresos, en %."},
  {id:"uso",b:"Destino de la caja",sub:"Qué hace la compañía con la caja que genera: FCF frente a recompras y dividendos, y el pago en acciones que las recompras tienen que compensar."}];
-function invAuto(){ const f=cur.fin, L=f.years.length-1, r=f.rev[L], cx=f.capex[L], sb=f.sbc[L];
-  if(fin(r)&&r>0&&fin(cx)&&cx/r>0.08) return "capex"; if(fin(r)&&r>0&&fin(sb)&&sb/r>0.08) return "sbc"; return "uso"; }
-function invView(){ const m=lsGet("valorador.inv."+cur._t), a=cur.vistaInversion; return INV_VIEWS.some(v=>v.id===m)?m:INV_VIEWS.some(v=>v.id===a)?a:invAuto(); }
+const hasRD=()=>!!(cur.fin.rd||[]).some(v=>fin(v)&&v>0);
+const invViews=()=>INV_VIEWS.filter(v=>v.id!=="id"||hasRD());
+const rdIsTech=()=>/Technology/.test(cur.fin.rdTag||"");
+function invAuto(){ const f=cur.fin, L=f.years.length-1, r=f.rev[L], cx=f.capex[L], sb=f.sbc[L], rd=(f.rd||[])[L];
+  if(fin(r)&&r>0&&fin(cx)&&cx/r>0.08) return "capex"; if(hasRD()&&fin(r)&&r>0&&fin(rd)&&rd/r>0.15) return "id"; if(fin(r)&&r>0&&fin(sb)&&sb/r>0.08) return "sbc"; return "uso"; }
+function invView(){ const m=lsGet("valorador.inv."+cur._t), a=cur.vistaInversion, ok=id=>invViews().some(v=>v.id===id); return ok(m)?m:ok(a)?a:invAuto(); }
+function invSub(id){ const v=INV_VIEWS.find(x=>x.id===id); return v.sub+(id==="id"&&rdIsTech()?" La compañía no publica I+D como tal: se usa su partida «Tecnología e infraestructura» (incluye también servidores y centros de datos), por eso sale alta.":""); }
 function invFoot(id){ return id==="capex"?`Cómo se calculan: <span>Capex / ingresos${info("capex_ingresos")}</span><span>Capex / caja operativa${info("capex_ocf")}</span><span>Capex / amortizaciones</span>`
+  :id==="id"?`Cómo se calculan: <span>I+D / ingresos</span><span>(I+D + capex) / ingresos</span><span>Fuente: ${rdIsTech()?"«Technology and infrastructure» (etiqueta propia de la compañía)":"ResearchAndDevelopmentExpense"} · SEC</span>`
   :id==="sbc"?`Cómo se calculan: <span>Pago en acciones / ingresos${info("sbc_ingresos")}</span><span>Variación de acciones${info("dilucion")}</span><span>FCF − pago en acciones</span>`
   :`Cómo se calculan: <span>FCF${info("fcf")}</span><span>Rentabilidad para el accionista${info("rentab_accionista")}</span><span>Recompras y dividendos: estado de flujos de caja (SEC)</span>`; }
 function invChart(){ const f=cur.fin, sc=finScale(), cat=CAT(), id=invView(), yrs=f.years;
@@ -2902,6 +2908,12 @@ function invChart(){ const f=cur.fin, sc=finScale(), cat=CAT(), id=invView(), yr
       {label:"Capex / amortizaciones",data:pc(f.capex,f.da),borderColor:cat[2],backgroundColor:cat[2],hidden:false},
       {label:"100%",data:yrs.map(()=>100),borderColor:V("--muted"),borderDash:[4,4],borderWidth:1.5,pointRadius:0,pointHoverRadius:0}].filter(d=>d.data.some(fin));
     return {type:"line",data:{labels:yrs,datasets:ds},options:{plugins:{legend:legend(ds.length),tooltip:{filter:it=>it.dataset.label!=="100%",callbacks:{label:c=>`${c.dataset.label}: ${nf(c.parsed.y,0)}%`}}},scales:{x:axisX,y:axisY({suf:"%"})}}}; }
+  if(id==="id"){ const tot=f.rd.map((v,i)=>fin(v)?v+(fin(f.capex[i])?f.capex[i]:0):null);
+    const ds=[{type:"bar",label:rdIsTech()?"Tecnología e infraestructura":"Gasto en I+D",data:sc1(f.rd,sc.d),backgroundColor:alpha(cat[0],.75),yAxisID:"y"},
+      {type:"line",label:rdIsTech()?"Tecnología / ingresos":"I+D / ingresos",data:pc(f.rd,f.rev),borderColor:cat[1],backgroundColor:cat[1],yAxisID:"y1",order:-1},
+      {type:"line",label:"(I+D + capex) / ingresos",data:pc(tot,f.rev),borderColor:cat[2],backgroundColor:cat[2],borderDash:[5,4],yAxisID:"y1",order:-1}].filter(d=>d.data.some(fin));
+    return {type:"bar",data:{labels:yrs,datasets:ds},options:{plugins:{legend:(()=>{const l=legend(ds.length); l.labels={...(l.labels||{}),sort:(a,b)=>a.datasetIndex-b.datasetIndex}; return l;})(),tooltip:{callbacks:{label:c=>c.dataset.yAxisID==="y1"?`${c.dataset.label}: ${nf(c.parsed.y,1)}%`:`${c.dataset.label}: ${nf(c.parsed.y,sc.d>1?1:0)} ${sc.u}`}}},
+      scales:{x:axisX,y:axisY(),y1:{...axisY({suf:"%"}),position:"right",grid:{drawOnChartArea:false}}}}}; }
   if(id==="sbc"){ const after=f.fcf.map((v,i)=>fin(v)&&fin(f.sbc[i])?v-f.sbc[i]:null);
     const dil=f.dilA.map((v,i)=>i>0&&fin(v)&&fin(f.dilA[i-1])&&f.dilA[i-1]>0?(v/f.dilA[i-1]-1)*100:null);
     const ds=[{type:"bar",label:"FCF",data:sc1(f.fcf,sc.d),backgroundColor:alpha(cat[0],.45),yAxisID:"y"},{type:"bar",label:"FCF después del pago en acciones",data:sc1(after,sc.d),backgroundColor:cat[0],yAxisID:"y"},
@@ -2974,7 +2986,7 @@ document.addEventListener("click",e=>{
   if(e.target.closest("#btnPrint")){ window.print(); return; }
   if(e.target.closest("#btnReportExit")){ exitReport(); return; }
   if(e.target.closest("#btnAddCo")){ closePicker(); addCoModal(); return; }
-  const iv=e.target.closest("[data-inv]"); if(iv){ lsSet("valorador.inv."+cur._t,iv.dataset.inv); document.querySelectorAll("#invCard [data-inv]").forEach(b=>b.setAttribute("aria-selected",b===iv)); const v=INV_VIEWS.find(x=>x.id===iv.dataset.inv); document.getElementById("invSub").textContent=v.sub; document.getElementById("invFoot").innerHTML=invFoot(v.id); { const old=window.Chart&&Chart.getChart($("ch_fn_conv")); if(old){ old.destroy(); charts=charts.filter(x=>x!==old); } } mk("ch_fn_conv",invChart()); return; }
+  const iv=e.target.closest("[data-inv]"); if(iv){ lsSet("valorador.inv."+cur._t,iv.dataset.inv); document.querySelectorAll("#invCard [data-inv]").forEach(b=>b.setAttribute("aria-selected",b===iv)); const v=INV_VIEWS.find(x=>x.id===iv.dataset.inv); document.getElementById("invSub").textContent=invSub(v.id); document.getElementById("invFoot").innerHTML=invFoot(v.id); { const old=window.Chart&&Chart.getChart($("ch_fn_conv")); if(old){ old.destroy(); charts=charts.filter(x=>x!==old); } } mk("ch_fn_conv",invChart()); return; }
   const wk=e.target.closest("[data-wok]"); if(wk){ wk.dataset.wok.split("|").forEach(k=>lsSet(k,"1")); renderWarnings(); return; }
   const wr=e.target.closest("[data-wreset]"); if(wr){ allWarnings(cur).forEach(w=>lsSet(wKey(cur._t,w),null)); renderWarnings(); return; }
   const sgm=e.target.closest("[data-segmode]"); if(sgm){SEGMODE=sgm.dataset.segmode; lsSet("valorador.segmode",SEGMODE); renderTab(); return;}
