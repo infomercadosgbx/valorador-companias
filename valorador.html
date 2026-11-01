@@ -648,6 +648,7 @@ body.report .g2,body.report .g3{align-items:start}
 .asc{background:var(--surface2);border:1px solid var(--line);border-radius:8px;padding:9px 11px;display:flex;flex-direction:column;gap:3px;align-items:flex-start;min-width:0}
 .asc b{font-size:15px;font-variant-numeric:tabular-nums}
 .assum{padding:2px 0 10px} #valIn:has(#keyAs[open]) .assum{display:none}
+tr.grp td{background:var(--surface2);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--ink2);text-align:left!important;padding-top:7px;padding-bottom:5px}
 .wl .wsub li{display:list-item;font-size:12px;color:var(--ink2);margin:1px 0;overflow-wrap:anywhere} .wn{color:var(--ink2);font-size:12px}
 .wl li.wrow{display:grid;grid-template-columns:62px minmax(0,1fr) auto;align-items:start}
 @media (max-width:640px){.wl li.wrow{grid-template-columns:62px minmax(0,1fr)} .wl li.wrow .wok{grid-column:2;justify-self:start}}
@@ -3035,7 +3036,7 @@ $("btnCopy").addEventListener("click",()=>{const t=JSON.stringify(exportAnalysis
   if(navigator.clipboard&&navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(()=>toast("JSON copiado"),()=>toast("No se pudo copiar")); else toast("Este navegador no permite copiar");});
 $("btnImport").addEventListener("click",()=>{try{const n=importOld($("jsonBox").value); renderHeader(); renderTab(); toast(n?`${n} ${n===1?"compañía importada":"compañías importadas"} como borrador`:"Ninguna compañía coincide por ticker");}
   catch(e){toast("El texto no es un JSON exportado desde el valorador antiguo");}});
-document.addEventListener("toggle",e=>{ const d=e.target; if(d&&d.id==="warnDet") lsSet("valorador.avisosabiertos",d.open?"1":"0"); if(d&&d.id==="keyAs") lsSet("valorador.supclave",d.open?"1":"0"); if(d&&d.id==="socialBox") lsSet("valorador.social",d.open?"1":"0"); if(d&&d.id==="glossary"){ lsSet("valorador.glosario",d.open?"1":"0"); const n=d.querySelector(".glsum .note"); if(n) n.textContent=n.textContent.replace(/pulsa para (plegar|desplegar)/,d.open?"pulsa para plegar":"pulsa para desplegar"); } },true);
+document.addEventListener("toggle",e=>{ const d=e.target; if(d&&d.id==="warnDet") lsSet("valorador.avisosabiertos",d.open?"1":"0"); if(d&&d.id==="keyAs") lsSet("valorador.supclave",d.open?"1":"0"); if(d&&d.id==="srcKeys") lsSet("valorador.srckeys",d.open?"1":"0"); if(d&&d.id==="srcWarn") lsSet("valorador.srcwarn",d.open?"1":"0"); if(d&&d.id==="socialBox") lsSet("valorador.social",d.open?"1":"0"); if(d&&d.id==="glossary"){ lsSet("valorador.glosario",d.open?"1":"0"); const n=d.querySelector(".glsum .note"); if(n) n.textContent=n.textContent.replace(/pulsa para (plegar|desplegar)/,d.open?"pulsa para plegar":"pulsa para desplegar"); } },true);
 window.addEventListener("hashchange",()=>{const h=location.hash.slice(1); if(h==="seguimiento"){ if(!WATCH){ WATCH=true; renderWatch(); } return; } if(WATCH) exitWatch(); if(h&&h!==TAB) goTab(h,false);});
 try{const mq=matchMedia("(prefers-color-scheme: dark)"); mq.addEventListener("change",()=>rebuildCharts());}catch(e){}
 new MutationObserver(()=>{rebuildCharts(); if(TAB==="valuation") drawFootball();}).observe(document.documentElement,{attributes:true,attributeFilter:["data-theme"]});
@@ -3107,17 +3108,28 @@ function officialHtml(){
   const ex=k8&&k8.url_ex99_1?`<div class="doc" style="--k:var(--c1)"><i></i><a class="ext" href="${esc(k8.url_ex99_1)}" target="_blank" rel="noopener noreferrer">Nota de resultados (Exhibit 99.1)</a><span class="dt">${esc(fecha(k8.fecha_presentacion))}</span><span class="m">8-K · Item 2.02</span></div>`:"";
   const rec=ca?[["Compra fuerte",ca.compra_fuerte,"--c3"],["Compra",ca.compra,"--c6"],["Mantener",ca.mantener,"--c4"],["Venta",ca.venta,"--c2"],["Venta fuerte",ca.venta_fuerte,"--c8"]]:[];
   const tot=rec.reduce((a,r)=>a+(r[1]||0),0), S=cur.sec;
-  const rows=[["Ingresos (último trimestre)",S.revQ.p],["Ingresos UDM",S.revTTM.p],["Beneficio neto UDM",S.niTTM.p],["Caja operativa UDM",S.ocfTTM.p],["Capex UDM",S.capexTTM.p],["Caja e inversiones a corto",S.cash.p],["Deuda financiera",S.debt.p],["Acciones",S.shares.p]];
+  const groupsK=[["Cuenta de resultados",[["Ingresos (último trimestre)",S.revQ.p],["Ingresos UDM",S.revTTM.p],["Beneficio neto UDM",S.niTTM.p]]],
+    ["Flujo de caja",[["Caja operativa UDM",S.ocfTTM.p],["Capex UDM",S.capexTTM.p]]],
+    ["Balance y acciones",[["Caja e inversiones a corto",S.cash.p],["Deuda financiera",S.debt.p],["Acciones",S.shares.p]]]];
+  const nK=groupsK.reduce((a,g)=>a+g[1].length,0);
+  const kRow=([n,p])=>`<tr><td>${n}</td><td>${p&&fin(p.valor)?nf(p.valor/M6,n==="Acciones"?1:0):"–"}</td><td style="text-align:left">${p?esc(p.periodo_inicio?fecha(p.periodo_inicio)+" → "+fecha(p.periodo_fin):p.periodo_fin?"a "+fecha(p.periodo_fin):""):""}</td><td style="text-align:left;white-space:normal;font-size:11.5px;min-width:200px">${esc((p&&p.etiqueta)||"")}${p&&p.derivado?`<div class="note">${esc(p.derivado)}</div>`:""}</td><td style="text-align:left">${srcTag(p)}</td></tr>`;
   const ws=allWarnings(cur);
   return `<div>
    <section class="card" style="--tc:var(--c2)"><h2>Últimos documentos oficiales</h2><p class="sub">De EDGAR (submissions de la SEC), revisados cada noche. El consenso de analistas está en la pestaña Valoración.</p>
      ${ui||k8?`<div class="doclist">${doc(ui,"Último informe periódico ("+(ui?ui.formulario:"")+")")}${doc(k8,"8-K de resultados")}${ex}</div>`:`<p class="empty">Sin documentos.</p>`}</section>
   </div>
-  <section class="card"><h2>Cifras clave y su origen</h2><p class="sub">Cada cifra sale de un hecho XBRL concreto. Haz clic en la fuente para abrir el filing.</p>
-   <div class="scroll"><table><thead><tr><th>Concepto</th><th>Valor (M)</th><th style="text-align:left">Periodo</th><th style="text-align:left">Etiqueta XBRL</th><th style="text-align:left">Fuente</th></tr></thead><tbody>
-   ${rows.map(([n,p])=>`<tr><td>${n}</td><td>${p&&fin(p.valor)?nf(p.valor/M6,n==="Acciones"?1:0):"–"}</td><td style="text-align:left">${p?esc(p.periodo_inicio?fecha(p.periodo_inicio)+" → "+fecha(p.periodo_fin):p.periodo_fin?"a "+fecha(p.periodo_fin):""):""}</td><td style="text-align:left;white-space:normal;font-size:11.5px;min-width:200px">${esc((p&&p.etiqueta)||"")}${p&&p.derivado?`<div class="note">${esc(p.derivado)}</div>`:""}</td><td style="text-align:left">${srcTag(p)}</td></tr>`).join("")}
-   </tbody></table></div></section>
-  <section class="card"><h2>Avisos de calidad de datos</h2>${ws.length?warnList(ws):`<p class="empty">Sin avisos.</p>`}</section>`;
+  <section class="card"><h2>Cifras clave y calidad del dato</h2><p class="sub">De dónde sale cada cifra y qué ha detectado el robot al leerla. Despliega cada grupo para ver el detalle.</p>
+   <details class="box" id="srcKeys"${lsGet("valorador.srckeys")==="1"?" open":""}><summary><span>Cifras clave y su origen <span class="note" style="font-weight:400">· ${nK} cifras: resultados, caja y balance · cada una enlaza a su filing</span></span></summary>
+   <div style="padding:0 14px 12px"><div class="scroll"><table><thead><tr><th>Concepto</th><th>Valor (M)</th><th style="text-align:left">Periodo</th><th style="text-align:left">Etiqueta XBRL</th><th style="text-align:left">Fuente</th></tr></thead><tbody>
+   ${groupsK.map(([g,list])=>`<tr class="grp"><td colspan="5">${esc(g)}</td></tr>${list.map(kRow).join("")}`).join("")}
+   </tbody></table></div></div></details>
+   ${(()=>{ const av=ws.filter(w=>w.nivel!=="info"), nt=ws.filter(w=>w.nivel==="info");
+     const sum=[av.length?`${av.length} aviso${av.length>1?"s":""}`:"sin avisos",nt.length?`${nt.length} nota${nt.length>1?"s":""} técnica${nt.length>1?"s":""}`:""].filter(Boolean).join(" · ");
+     return `<details class="box" id="srcWarn"${lsGet("valorador.srcwarn")==="1"?" open":""}><summary><span>Avisos de calidad de datos <span class="note" style="font-weight:400">· ${sum}</span></span></summary>
+     <div style="padding:0 14px 12px">${!ws.length?`<p class="empty">Sin avisos.</p>`:
+       `${av.length?`<div class="eyebrow" style="margin:4px 0 2px">Avisos · revisa si afectan a tu análisis</div>${warnList(av)}`:""}
+        ${nt.length?`<div class="eyebrow" style="margin:10px 0 2px">Notas técnicas · cómo se han leído los datos, no requieren acción</div>${warnList(nt)}`:""}`}</div></details>`; })()}
+  </section>`;
 }
 function cellTitle(k,i){const map={rev:"rev",profit:"profit",ni:"ni",capex:"capex",ocf:"ocf",fcf:"ocf",gross:"gross",ebitda:"profit",sbc:"sbc",int:"int"}; const p=cur.fin.pts[map[k]]&&cur.fin.pts[map[k]][i];
   return p?[p.etiqueta,`Presentado ${fecha(p.fecha_presentacion)} (${p.formulario||""})`,p.derivado||"",k==="fcf"?"FCF = caja operativa − capex":k==="ebitda"?"EBITDA = beneficio operativo + amortizaciones":k==="gross"&&!(cur.fin.pts.gross[i])?"Bruto = ingresos − coste de ventas":""].filter(Boolean).join("\n"):"";}
