@@ -13,11 +13,13 @@ import re
 
 from .riskfactors import to_blocks
 
-VERSION = 1
+VERSION = 2
 HEAD_OUT = re.compile(r"\b(outlook|guidance)\b", re.I)
 HEAD_HI = re.compile(r"\b(highlights)\b", re.I)
-QUOTE = re.compile(r"[“\"]([^”\"]{60,700})[”\"]")
+QUOTE = re.compile(r"[“\"]([^”\"]{60,700})(?:[”\"]|$)")
 SAID = re.compile(r"\b(said|says|commented|stated|added)\b", re.I)
+BOILER = re.compile(r"forward-looking|not a guarantee|uncertaint|undertakes no|risk factors|subject to substantial", re.I)
+TABLEISH = re.compile(r"^\(?in (millions|thousands)|^(three|six|nine|quarter|year)s? (months )?ended|^\$? ?\(?[\d.,%$ ()-]+\)?$", re.I)
 NOISE = re.compile(r"forward-looking|non-gaap|reconciliation|safe harbor|conference call|webcast|about [A-Z]", re.I)
 
 
@@ -32,19 +34,22 @@ def _section(blocks, head_re, max_chars=1400, max_items=8):
         out, n = [], 0
         for t2, st2 in blocks[i + 1:]:
             if (st2 or t2.isupper()) and len(t2) < 90 and not t2.endswith(":"):
-                break
+                if any(len(x) >= 30 for x in out):
+                    break
+                out.append(t2)   # subtítulo justo después del título («Fourth Quarter 2026 Guidance»)
+                continue
             if QUOTE.search(t2) and SAID.search(t2):
                 break
             if NOISE.search(t2) and out:
                 break
-            if len(t2) < 3:
+            if (len(t2) < 30 and not t2.endswith(":")) or TABLEISH.search(t2) or (len(t2) > 200 and BOILER.search(t2)):
                 continue
             out.append(t2[:500])
             n += len(t2)
             if n >= max_chars or len(out) >= max_items:
                 break
-        if out:
-            return {"titulo": t, "texto": out}
+        if any(len(x) >= 30 for x in out):
+            return {"titulo": re.sub(r"[\s:]*\d?$", "", t).strip(), "texto": out}
     return None
 
 

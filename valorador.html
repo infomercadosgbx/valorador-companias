@@ -2241,7 +2241,7 @@ function qtrHtml(){
     <div><div class="eyebrow" style="color:var(--critText)">A vigilar</div>${watch.length?`<ul class="thl dn">${watch.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`:`<p class="note">Nada destacable en las cifras.</p>`}</div>
    </div>
    ${qtrCompanyHtml(q,k8)}
-   <p class="note" style="margin:0">${[link(k8&&k8.url_ex99_1,"Nota de resultados (Exhibit 99.1)"),...((k8&&k8.anexos)||[]).filter(a=>a.tipo!=="EX-99.1"&&a.url).map(a=>link(a.url,`${a.descripcion||"Anexo"} (${a.tipo})`)),link(q.ui&&(q.ui.url_documento||q.ui.url_indice),(q.ui&&q.ui.formulario)||"Informe"),link(cur.sources&&cur.sources.ir,"Presentación y webcast (web de inversores)"),nx].filter(Boolean).join(" · ")}</p>
+   <p class="note" style="margin:0">${[link(k8&&k8.url_ex99_1,"Nota de resultados (Exhibit 99.1)"),...((k8&&k8.anexos)||[]).filter(a=>a.tipo!=="EX-99.1"&&a.url).map(a=>link(a.url,a.descripcion&&!/^EX-/i.test(a.descripcion)?`${a.descripcion.charAt(0)+a.descripcion.slice(1).toLowerCase()} (${a.tipo})`:`Anexo ${a.tipo.replace("EX-","")} del 8-K`)),link(q.ui&&(q.ui.url_documento||q.ui.url_indice),(q.ui&&q.ui.formulario)||"Informe"),link(cur.sources&&cur.sources.ir,"Presentación y webcast (web de inversores)"),nx].filter(Boolean).join(" · ")}</p>
   </section>`;
 }
 function eqTax(f){ const L=f.years.length-1, t=f.ratios.taxEff&&f.ratios.taxEff[L]; return fin(t)&&t>0.05&&t<0.4?t:0.21; }
