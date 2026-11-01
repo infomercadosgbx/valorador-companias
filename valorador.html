@@ -489,7 +489,7 @@ h3{font-weight:600;font-size:13.5px}
 .r52 .bar{position:relative;height:6px;margin:0 7px;border-radius:3px;background:linear-gradient(90deg,color-mix(in srgb,var(--crit) 35%,var(--surface2)),var(--surface2) 50%,color-mix(in srgb,var(--good) 35%,var(--surface2)))}
 .r52 .bar i{position:absolute;top:50%;width:12px;height:12px;border-radius:50%;background:var(--ink);border:2px solid var(--surface);transform:translate(-50%,-50%);box-shadow:0 0 0 1px var(--ink)}
 .hstrip{flex-basis:100%;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:6px 16px;border-top:1px solid var(--line);padding-top:10px;margin-top:2px;font-size:13.5px}
-.hs-k{color:var(--ink2)} .hs-est{margin:3px 0 0 22px;font-size:13px;color:var(--ink2)} .hs-est b{color:var(--ink)} .soon{font-size:12px;font-weight:700;padding:1px 7px;border-radius:99px;background:var(--surface2);color:var(--ink)} .soon.hot{background:color-mix(in srgb,var(--warn) 25%,transparent)}
+.hs-k{color:var(--ink2)} .surp{display:flex;gap:4px;margin-top:3px} .surp i{font-style:normal;font-size:11px;font-weight:700;padding:1px 6px;border-radius:5px} .surp i.up{color:var(--goodText);background:color-mix(in srgb,var(--good) 14%,transparent)} .surp i.dn{color:var(--critText);background:color-mix(in srgb,var(--crit) 12%,transparent)} .hs-est{margin:3px 0 0 22px;font-size:13px;color:var(--ink2)} .hs-est b{color:var(--ink)} .soon{font-size:12px;font-weight:700;padding:1px 7px;border-radius:99px;background:var(--surface2);color:var(--ink)} .soon.hot{background:color-mix(in srgb,var(--warn) 25%,transparent)}
 @media (max-width:640px){.pxrow{justify-content:flex-start} .r52{grid-template-columns:auto auto minmax(80px,1fr) auto} .hs-r{width:100%}}
 
 /* pestañas: sin arcoíris, subrayado con el color de la compañía */
@@ -1298,7 +1298,7 @@ function renderHeader(){
   const E=cur._data&&cur._data.resultados_previstos&&cur._data.resultados_previstos.proximos;
   const days=E&&E.fecha?Math.round((Date.parse(E.fecha+"T00:00:00Z")-Date.parse(new Date().toISOString().slice(0,10)+"T00:00:00Z"))/864e5):NaN;
   const dow=E&&E.fecha?["dom","lun","mar","mié","jue","vie","sáb"][new Date(E.fecha+"T12:00:00Z").getUTCDay()]:"";
-  const nx=E&&E.fecha?`<span class="hs-k">Próximos resultados</span> <b>${dow} ${esc(fecha(E.fecha))}</b>${E.hora?` · ${esc(E.hora)}`:""}${fin(days)&&days>=0?` <span class="soon${days<=7?" hot":""}">${days===0?"hoy":days===1?"mañana":`en ${days} días`}</span>`:""}${fin(E.bpa_estimado)||fin(E.ingresos_estimados)?`<div class="hs-est">${[fin(E.bpa_estimado)?`BPA esperado <b>${nf(E.bpa_estimado,2)} $</b>`:"",fin(E.ingresos_estimados)?`ingresos esperados <b>${big(E.ingresos_estimados/M6)}</b>`:""].filter(Boolean).join(" · ")} <span class="note">· consenso de analistas, Finnhub</span></div>`:""}`
+  const nx=E&&E.fecha?`<span class="hs-k">Próximos resultados</span> <b>${dow} ${esc(fecha(E.fecha))}</b>${E.hora?` · ${esc(E.hora)}`:""}${fin(days)&&days>=0?` <span class="soon${days<=7?" hot":""}">${days===0?"hoy":days===1?"mañana":`en ${days} días`}</span>`:""}`
     :cur.meta.nextEarnings?`<span class="hs-k">Próximos resultados</span> <b>${esc(cur.meta.nextEarnings)}</b> <span class="note">· según tu análisis</span>`:`<span class="note">Sin fecha de próximos resultados</span>`;
   $("hdrStrip").innerHTML=`<div class="hs-l">🗓 ${nx}</div><div class="hs-r note">${ref?`Cifras SEC hasta ${esc(fecha(ref))}`:"Sin datos de la SEC"}${cur._data&&cur._data.generado?` · datos actualizados ${esc(ago(cur._data.generado))}`:""}</div>`;
   applyBrand(cur); { const b=brandOf(cur), el=$("hdrMono"); el.className="mono"+(b.logo?" logo":""); el.style.background=b.logo?"":b.color; el.style.color=b.logo?"":b.ink; el.innerHTML=monoInner(b); }
@@ -1521,6 +1521,7 @@ R.overview=()=>{
   </div>
   ${eqHtml()}
   ${officialCard()}
+  ${nextHtml()}
   ${qtrHtml()}
   <div class="g2">
     <section class="card"><h2>Qué hace</h2>${tx("overview.summary",{rows:6})}
@@ -2257,6 +2258,37 @@ function qtrData(){
   return {lab,ya,pq,pqya,T:at(lab),Y:at(ya),P:at(pq),PY:at(pqya),src:last,k8:d.ultimo_8k_resultados,ui:d.ultimo_informe,sp,next:(d.resultados_previstos||{}).proximos,
     pt:{rev:pt("ingresos",lab),op:pt("beneficio_operativo",lab),ni:pt("beneficio_neto",lab),fcf:pt("caja_operativa",lab)}};
 }
+/* ---------- próximos resultados: fecha, consenso, guía y historial de sorpresas ---------- */
+function nextHtml(){
+  const d=cur._data, RP=d&&d.resultados_previstos, E=RP&&RP.proximos; if(!E||!E.fecha) return "";
+  const today=Date.parse(new Date().toISOString().slice(0,10)+"T00:00:00Z"), days=Math.round((Date.parse(E.fecha+"T00:00:00Z")-today)/864e5);
+  if(days<0) return "";
+  const dow=["domingo","lunes","martes","miércoles","jueves","viernes","sábado"][new Date(E.fecha+"T12:00:00Z").getUTCDay()];
+  const R=d.resultados||{}, Q=k=>(R[k]&&R[k].trimestral)||[];
+  const lab=fin(E.trimestre)&&fin(E.anio)?`${E.trimestre}T${String(E.anio).slice(2)}`:"", ya=fin(E.trimestre)&&fin(E.anio)?`${E.trimestre}T${String(E.anio-1).slice(2)}`:"";
+  const last=Q("ingresos").at(-1), revYA=(Q("ingresos").find(p=>p.periodo===ya)||{}).valor, revLQ=last&&last.valor, epsYA=(Q("bpa_diluido").find(p=>p.periodo===ya)||{}).valor;
+  const g=(a,b)=>fin(a)&&fin(b)&&b>0?(a/b-1)*100:NaN, gR=g(E.ingresos_estimados,revYA), gQ=g(E.ingresos_estimados,revLQ), gE=g(E.bpa_estimado,epsYA);
+  const chg=(x,t)=>fin(x)?`<span class="${x>=0?"up":"dn"}">${x>=0?"+":"−"}${nf(Math.abs(x),1)}%</span> <span class="note">${t}</span>`:"";
+  const it=(l,v,c)=>`<div class="kpi"><span class="eyebrow">${l}</span><b>${v}</b>${c?`<span class="chg">${c}</span>`:""}</div>`;
+  /* guía de la compañía: tu resumen (Directiva) o la nota de resultados */
+  const call=(cur.mgmt&&cur.mgmt.call)||{}, N=d.ultimo_8k_resultados&&d.ultimo_8k_resultados.nota_resultados;
+  const guia=(call.guia||[]).length?{t:call.guia.slice(0,3),src:`tu resumen de la presentación del ${call.q||call.date||""}`,en:false}:N&&N.guia?{t:N.guia.texto.slice(0,4),src:"nota de resultados (texto original)",en:true}:null;
+  /* historial de sorpresas */
+  const S=(RP.sorpresas||[]).filter(x=>fin(x.bpa_real)&&fin(x.bpa_estimado)).slice(-4);
+  const beats=S.filter(x=>x.bpa_real>=x.bpa_estimado).length;
+  const watch=((cur.verdict&&cur.verdict.watch)||[]).slice(0,4);
+  return `<section class="card" style="--tc:var(--c4)"><div class="invhead"><h2>Próximos resultados${lab?` · ${esc(lab)}`:""}</h2><span class="soon${days<=7?" hot":""}" style="font-size:13px">${days===0?"hoy":days===1?"mañana":`en ${days} días`}</span></div>
+   <p class="sub" style="margin-bottom:2px"><b style="color:var(--ink)">${dow} ${esc(fecha(E.fecha))}</b>${E.hora?` · ${esc(E.hora)}`:""}. Lo que espera el mercado (consenso de analistas de Finnhub) frente a lo que ha hecho la compañía.</p>
+   <div class="official" style="grid-template-columns:repeat(${S.length?3:2},minmax(0,1fr))">
+    ${it("Ingresos esperados",fin(E.ingresos_estimados)?big(E.ingresos_estimados/M6):"–",[chg(gR,`vs ${ya}`),chg(gQ,`vs ${last?last.periodo:"trim. anterior"}`)].filter(Boolean).join(" · "))}
+    ${it("BPA esperado",fin(E.bpa_estimado)?`${nf(E.bpa_estimado,2)} $`:"–",chg(gE,`vs ${ya}${fin(epsYA)?` (${nf(epsYA,2)} $)`:""}`))}
+    ${S.length?it("Historial de sorpresas",`${beats} de ${S.length}`,`<span class="note">trimestres en que superó el BPA esperado</span><span class="surp">${S.map(x=>{const v=(x.bpa_real/x.bpa_estimado-1)*100; return `<i class="${v>=0?"up":"dn"}" title="${esc(fecha(x.periodo))}: real ${nf(x.bpa_real,2)} $ / esperado ${nf(x.bpa_estimado,2)} $">${v>=0?"+":"−"}${nf(Math.abs(v),0)}%</i>`;}).join("")}</span>`):""}
+   </div>
+   <div class="g2" style="gap:12px;margin-top:4px">
+    <div><div class="eyebrow">Guía de la compañía</div>${guia?`<ul class="thl plain"${guia.en?' lang="en"':""}>${guia.t.map(x=>`<li>${esc(x)}</li>`).join("")}</ul><p class="note" style="margin:2px 0 0">Fuente: ${esc(guia.src)}.</p>`:`<p class="note">Sin guía registrada.</p>`}</div>
+    <div><div class="eyebrow">Qué vigilar</div>${watch.length?`<ul class="thl plain">${watch.map(x=>`<li>${esc(x)}</li>`).join("")}</ul><p class="note" style="margin:2px 0 0">De tu veredicto.</p>`:`<p class="note">Añade puntos en Veredicto → «Qué vigilar».</p>`}</div>
+   </div></section>`;
+}
 function qtrCompanyHtml(q,k8){
   const call=(cur.mgmt&&cur.mgmt.call)||{}, end=q.src.periodo_fin;
   const match=call.periodEnd&&Math.abs(new Date(call.periodEnd)-new Date(end))<25*864e5;
@@ -2311,7 +2343,7 @@ function qtrHtml(){
     <div><div class="eyebrow" style="color:var(--critText)">A vigilar</div>${watch.length?`<ul class="thl dn">${watch.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`:`<p class="note">Nada destacable en las cifras.</p>`}</div>
    </div>
    ${qtrCompanyHtml(q,k8)}
-   <p class="note" style="margin:0">${[link(k8&&k8.url_ex99_1,"Nota de resultados (Exhibit 99.1)"),...((k8&&k8.anexos)||[]).filter(a=>a.tipo!=="EX-99.1"&&a.url).map(a=>link(a.url,a.descripcion&&!/^EX-/i.test(a.descripcion)?`${a.descripcion.charAt(0)+a.descripcion.slice(1).toLowerCase()} (${a.tipo})`:`Anexo ${a.tipo.replace("EX-","")} del 8-K`)),link(q.ui&&(q.ui.url_documento||q.ui.url_indice),(q.ui&&q.ui.formulario)||"Informe"),link(cur.sources&&cur.sources.ir,"Presentación y webcast (web de inversores)"),nx].filter(Boolean).join(" · ")}</p>
+   <p class="note" style="margin:0">${[link(k8&&k8.url_ex99_1,"Nota de resultados (Exhibit 99.1)"),...((k8&&k8.anexos)||[]).filter(a=>a.tipo!=="EX-99.1"&&a.url).map(a=>link(a.url,a.descripcion&&!/^EX-/i.test(a.descripcion)?`${a.descripcion.charAt(0)+a.descripcion.slice(1).toLowerCase()} (${a.tipo})`:`Anexo ${a.tipo.replace("EX-","")} del 8-K`)),link(q.ui&&(q.ui.url_documento||q.ui.url_indice),(q.ui&&q.ui.formulario)||"Informe"),link(cur.sources&&cur.sources.ir,"Presentación y webcast (web de inversores)")].filter(Boolean).join(" · ")}</p>
   </section>`;
 }
 function eqTax(f){ const L=f.years.length-1, t=f.ratios.taxEff&&f.ratios.taxEff[L]; return fin(t)&&t>0.05&&t<0.4?t:0.21; }
