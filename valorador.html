@@ -405,6 +405,12 @@ table.mult td,table.mult th{padding:9px 12px} table.mult td:first-child{white-sp
 .plist{display:flex;flex-direction:column} .prow{display:grid;grid-template-columns:80px 120px 1fr;gap:10px;align-items:start;padding:10px 0;border-bottom:1px solid var(--line)} .prow:last-child{border-bottom:0}
 .prow b{font-size:13.5px} .prow .pill{justify-self:start} .prow p{margin:0;font-size:13px;line-height:1.45;color:var(--ink)}
 @media (max-width:520px){.prow{grid-template-columns:80px 1fr}.prow p{grid-column:1/-1}}
+.nlist{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.nitem{border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:6px;background:var(--surface)}
+.nmeta{display:flex;justify-content:space-between;gap:8px;font-size:11.5px;color:var(--ink2)} .nsrc{font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--tcx)}
+.ntitle{font-weight:600;font-size:14px;line-height:1.35;color:var(--ink)} .nitem p{margin:0;font-size:12.5px;line-height:1.45;color:var(--ink2)}
+#newsCard .seg button[disabled]{opacity:.45}
+@media (max-width:520px){#newsCard .invhead{flex-direction:column;align-items:stretch}#newsCard .invhead h2{white-space:normal}#newsCard .seg{overflow-x:auto;max-width:100%;width:100%}#newsCard .seg button{flex:1 1 auto;white-space:nowrap;font-size:12px;padding-left:6px;padding-right:6px}#newsCard .seg .note{display:none}.tiles{grid-template-columns:repeat(2,minmax(0,1fr))!important}.tiles .tile .s{display:none}}
 .pxgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-areas:"ret rng" "tgt beh";gap:14px;margin-top:14px}
 @media (max-width:760px){.pxgrid{grid-template-columns:minmax(0,1fr);grid-template-areas:"ret" "rng" "tgt" "beh"}}
 .pxp{border:1px solid var(--line);border-radius:12px;padding:12px 16px 14px;background:var(--surface);display:flex;flex-direction:column;min-width:0}
@@ -3368,13 +3374,14 @@ R.sources=()=>{
   const docs=S.docs.map((d,i)=>({...d,i}));
   const groups=DOCCATS.map(([c,k])=>({c,k,items:docs.filter(d=>(DOCCATS.some(x=>x[0]===d.cat)?d.cat:"Otros")===c)})).filter(g=>g.items.length);
   const counts=DOCCATS.map(([c])=>docs.filter(d=>d.cat===c).length);
+  const OH=officialHtml(); let OHi=OH.indexOf('<section class="card"><h2>Cifras clave'); if(OHi<0) OHi=OH.length;
   return `
   <section class="card"><h2>Accesos directos</h2><p class="sub">Los enlaces de la SEC abren el archivo EDGAR filtrado por tipo de documento, siempre con lo último publicado.</p>
     ${EDIT?`<div class="g3"><label class="note">Web corporativa ${ln("sources.web",{ph:"https://"})}</label><label class="note">Web de inversores ${ln("sources.ir",{ph:"https://"})}</label></div>`:""}
     <div class="tiles">${tiles.map(tileHtml).join("")}</div>
   </section>
-  ${officialHtml()}
   ${newsHtml()}
+  ${OH.slice(0,OHi)}
   <div class="g2">
     <section class="card"><h2>Documentos de la compañía</h2><p class="sub">Resultados, formularios, informes anuales y presentaciones usados en este análisis.</p>
       ${EDIT?`<div class="scroll"><table><thead><tr><th style="text-align:left">Tipo</th><th style="text-align:left">Título</th><th>Fecha</th><th style="text-align:left">Enlace</th><th></th></tr></thead><tbody>
@@ -3383,21 +3390,35 @@ R.sources=()=>{
       :`<p class="empty">Todavía no hay documentos. Pulsa «Editar» para añadir enlaces.</p>`}
     </section>
     <section class="card"><h2>Documentos por tipo</h2><p class="sub">Cuántos documentos hay guardados de cada clase.</p><div class="cv h240"><canvas id="ch_src_cnt" role="img" aria-label="Documentos por tipo"></canvas></div>
-      <h3>Noticias y análisis consultados</h3>
-      ${EDIT?`<div class="scroll"><table><tbody>${S.news.map((n,i)=>`<tr><td>${ln(`sources.news.${i}.t`)}</td><td>${ln(`sources.news.${i}.src`,{ph:"Medio"})}</td><td>${ln(`sources.news.${i}.u`)}</td><td>${del("sources.news",i)}</td></tr>`).join("")}</tbody></table></div>${add("sources.news","news","Añadir fuente")}`
-      :S.news.length?`<div class="doclist">${S.news.map(n=>`<div class="doc" style="--k:var(--muted)"><i></i>${okUrl(n.u)?`<a class="ext" href="${esc(n.u)}" target="_blank" rel="noopener noreferrer">${esc(n.t)}</a>`:esc(n.t)}<span class="dt">${esc(n.src||host(n.u))}</span></div>`).join("")}</div>`:`<p class="empty">Sin fuentes guardadas.</p>`}
     </section>
   </div>
-  <details class="box" id="socialBox"${lsGet("valorador.social")==="1"?" open":""}><summary>Redes sociales, vídeos y mi lectura del sentimiento</summary><div style="padding:0 14px 14px;display:flex;flex-direction:column;gap:16px">${socialHtml()}</div></details>
+  ${socialHtml("pulse")}
+  <details class="box" id="socialBox"${lsGet("valorador.social")==="1"?" open":""}><summary>Redes sociales y vídeos <span class="note" style="font-weight:400">· búsquedas en directo y vídeos destacados</span></summary><div style="padding:0 14px 14px;display:flex;flex-direction:column;gap:16px">${socialHtml()}</div></details>
+  ${OH.slice(OHi)}
   ${glossaryHtml()}`;
 };
 
-function newsHtml(){
-  const N=cur._data&&cur._data.noticias; if(!N||!N.length) return "";
-  return `<section class="card"><h2>Noticias recientes</h2><p class="sub">Últimos 10 días, de medios financieros <span class="rsrc off">Finnhub</span>. Titulares en el idioma original.</p>
-    <div class="doclist">${N.map(n=>`<div class="doc" style="--k:var(--tcx)"><i></i><a class="ext" href="${esc(n.url)}" target="_blank" rel="noopener noreferrer">${esc(n.titular)}</a><span class="dt">${esc(fecha(n.fecha))}</span><span class="m">${esc(n.medio||"")}${n.resumen?" · "+esc(n.resumen.slice(0,180))+(n.resumen.length>180?"…":""):""}</span></div>`).join("")}</div></section>`;
+let NEWSTAB=lsGet("valorador.newstab")||"1";
+function analyzedSources(){
+  const out=[], seen=new Set(), push=(t,u,src,f,ctx)=>{ if(!okUrl(u)||seen.has(u)) return; seen.add(u); out.push({t,u,src:src||host(u),f:f||"",ctx}); };
+  (cur.sources.news||[]).forEach(n=>push(n.t,n.u,n.src,"","Noticias y análisis"));
+  ((cur.business.clients||{}).conocidos||[]).forEach(c=>push(`${c.n}: ${c.cifra||c.d||""}`,c.u,c.fu,c.f,"Clientes"));
+  (cur.growth.drivers||[]).forEach(d=>push(`${d.n}: ${d.k||""}`,d.u,"",d.f,"Motores de crecimiento"));
+  return out;
 }
-function socialHtml(){
+function newsHtml(){
+  const N=(cur._data&&cur._data.noticias)||[], A=analyzedSources();
+  if(!N.length&&!A.length) return "";
+  const tabs=[["1","Últimas noticias",N.slice(0,5).length],["2","Más noticias",N.slice(5).length],["3","Fuentes analizadas",A.length]];
+  const T=tabs.some(t=>t[0]===NEWSTAB&&t[2])?NEWSTAB:(tabs.find(t=>t[2])||tabs[0])[0];
+  const item=n=>`<article class="nitem"><div class="nmeta"><span class="nsrc">${esc(n.medio||"")}</span><span>${esc(fecha(n.fecha))}</span></div><a class="ext ntitle" href="${esc(n.url)}" target="_blank" rel="noopener noreferrer">${esc(n.titular)}</a>${n.resumen?`<p>${esc(n.resumen.slice(0,220))}${n.resumen.length>220?"…":""}</p>`:""}</article>`;
+  const aitem=n=>`<article class="nitem"><div class="nmeta"><span class="nsrc">${esc(n.src)}</span><span>${esc(n.ctx)}${n.f?" · "+esc(n.f):""}</span></div><a class="ext ntitle" href="${esc(n.u)}" target="_blank" rel="noopener noreferrer">${esc(n.t)}</a></article>`;
+  const body=T==="1"?N.slice(0,5).map(item).join(""):T==="2"?N.slice(5).map(item).join(""):A.map(aitem).join("");
+  const sub=T==="3"?"Artículos, transcripciones y notas que se han usado para escribir este análisis (clientes, motores de crecimiento y noticias).":`Últimos 10 días, de medios financieros <span class="rsrc off">Finnhub</span>. Titulares en el idioma original; se actualizan cada noche.`;
+  return `<section class="card" id="newsCard"><div class="invhead"><h2>Noticias</h2><div class="seg" role="tablist">${tabs.map(([k,l,c])=>`<button type="button" data-newstab="${k}" aria-pressed="${k===T}" ${c?"":"disabled"}>${l} <span class="note">${c}</span></button>`).join("")}</div></div>
+    <p class="sub">${sub}</p><div class="nlist">${body||`<p class="empty">Sin elementos.</p>`}</div></section>`;
+}
+function socialHtml(part){
   const name=cur.meta.name||"", sym=((cur.meta.ticker||"").split(":").pop()||"").trim().toUpperCase(), e=encodeURIComponent;
   const q=sym?`${name} ${sym}`:name;
   const subs=[["stocks","r/stocks"],["investing","r/investing"],["wallstreetbets","r/wallstreetbets"],["ValueInvesting","r/ValueInvesting"],["SpainFIRE","r/SpainFIRE"]];
@@ -3408,10 +3429,6 @@ function socialHtml(){
     {n:"X",k:"--ink2",d:"Comentarios en directo de analistas, traders y periodistas.",links:[
       ...(sym?[[`$${sym} en directo`,`https://x.com/search?q=${e("$"+sym)}&f=live`,"cashtag"],[`$${sym} destacados`,`https://x.com/search?q=${e("$"+sym)}&f=top`,"top"],[`$${sym} en español`,`https://x.com/search?q=${e("$"+sym+" lang:es")}&f=live`,"es"]]:[]),
       [name,`https://x.com/search?q=${e(name)}&f=live`,"nombre"]]},
-    {n:"Threads",k:"--c7",d:"La red de Meta; menos inversores, más opinión general y noticias.",links:[
-      [name,`https://www.threads.com/search?q=${e(name)}`,"nombre"],
-      ...(sym?[[`$${sym}`,`https://www.threads.com/search?q=${e("$"+sym)}`,"cashtag"]]:[]),
-      [`${name} acciones`,`https://www.threads.com/search?q=${e(name+" acciones")}`,"es"]]},
     {n:"YouTube",k:"--c8",d:"Análisis en vídeo, llamadas de resultados y entrevistas.",links:[
       ["Análisis más recientes",`https://www.youtube.com/results?search_query=${e(name+" stock analysis")}&sp=CAI%253D`,"fecha"],
       ["Análisis en español",`https://www.youtube.com/results?search_query=${e(name+" acciones análisis")}&sp=CAI%253D`,"es"],
@@ -3419,22 +3436,24 @@ function socialHtml(){
       ["Entrevistas a directivos",`https://www.youtube.com/results?search_query=${e(name+" CEO interview")}&sp=CAI%253D`,"fecha"]]}];
   const S=cur.social||{pulse:[],videos:[]};
   const OPTS=[["","Sin valorar"],["2","Muy alcista"],["1","Alcista"],["0","Neutral / dividido"],["-1","Bajista"],["-2","Muy bajista"]];
-  const anyPulse=S.pulse.some(x=>fin(x.s));
-  return `
-  <section class="card"><h2>Qué se dice en internet</h2><p class="sub">Cada enlace abre la búsqueda en directo en la red social, así siempre ves lo último que se publica sobre ${esc(name)}.</p>
-    <div class="social">${P.map(pl=>`<div class="sp" style="--k:var(${pl.k})"><div class="hd"><span class="badge">${pl.n.toUpperCase()}</span><b>${pl.n}</b></div><span class="s">${pl.d}</span>
-      ${pl.links.map(([l,u,t])=>`<a class="lk" href="${esc(u)}" target="_blank" rel="noopener noreferrer"><span class="ext">${esc(l)}</span><small>${t}</small></a>`).join("")}</div>`).join("")}</div>
-  </section>
+  S.pulse=(S.pulse||[]).filter(x=>x.p!=="Threads"); const anyPulse=S.pulse.some(x=>fin(x.s));
+  if(part==="pulse") return `
     <section class="card" style="--tc:var(--c1)" id="pulseCard"><h2>Lectura del sentimiento en redes</h2><p class="sub">${S.pulseFuente?esc(S.pulseFuente)+" ":""}Tono general de cada red sobre ${esc(name)}. ${EDIT?"Cámbialo con tu propia lectura.":"Pulsa «Editar» para ajustarlo con tu propia lectura."}</p>
       <div class="pulsegrid"><div>${EDIT?`<div class="pulse">${S.pulse.map((x,i)=>`<b>${esc(x.p)}</b><select data-p="social.pulse.${i}.s" data-k="num" aria-label="Sentimiento en ${esc(x.p)}">${OPTS.map(([v,l])=>`<option value="${v}" ${(v===""?!fin(x.s):+v===x.s)?"selected":""}>${l}</option>`).join("")}</select><input type="text" data-p="social.pulse.${i}.note" value="${esc(x.note||"")}" placeholder="Qué se comenta" aria-label="Nota sobre ${esc(x.p)}">`).join("")}</div>`:`<div class="plist">${S.pulse.map(x=>{ const o=OPTS.find(([v])=>v!==""&&+v===x.s); const cls=!fin(x.s)?"neutral":x.s>0?"up":x.s<0?"down":"mid";
         return `<div class="prow"><b>${esc(x.p)}</b><span class="pill ${cls}">${o?esc(o[1]):"Sin valorar"}</span><p>${esc(x.note||"")}</p></div>`; }).join("")}</div>`}</div>
       <div>${anyPulse?`<div class="cv h240"><canvas id="ch_src_pulse" role="img" aria-label="Sentimiento por red social"></canvas></div><p class="note" style="text-align:center">De −2 (muy bajista) a +2 (muy alcista)</p>`:`<p class="empty">Cuando valores al menos una red, aquí aparece el gráfico comparativo.</p>`}</div></div>
     </section>
+`;
+  return `
+  <section class="card"><h2>Qué se dice en internet</h2><p class="sub">Cada enlace abre la búsqueda en directo en la red social, así siempre ves lo último que se publica sobre ${esc(name)}.</p>
+    <div class="social">${P.map(pl=>`<div class="sp" style="--k:var(${pl.k})"><div class="hd"><span class="badge">${pl.n.toUpperCase()}</span><b>${pl.n}</b></div><span class="s">${pl.d}</span>
+      ${pl.links.map(([l,u,t])=>`<a class="lk" href="${esc(u)}" target="_blank" rel="noopener noreferrer"><span class="ext">${esc(l)}</span><small>${t}</small></a>`).join("")}</div>`).join("")}</div>
+  </section>
     <section class="card" style="--tc:var(--c8)"><h2>Vídeos destacados en YouTube</h2><p class="sub">Selección de análisis recientes. Para lo último, usa «Análisis más recientes».</p>
       ${EDIT?`<div class="scroll"><table><tbody>${S.videos.map((v,i)=>`<tr><td>${ln(`social.videos.${i}.t`)}</td><td>${ln(`social.videos.${i}.u`)}</td><td>${del("social.videos",i)}</td></tr>`).join("")}</tbody></table></div>${add("social.videos","videos","Añadir vídeo")}`
       :S.videos.length?`<div class="doclist">${S.videos.map(v=>`<div class="doc" style="--k:var(--c8)"><i></i>${okUrl(v.u)?`<a class="ext" href="${esc(v.u)}" target="_blank" rel="noopener noreferrer">${esc(v.t)}</a>`:esc(v.t)}<span class="dt">YouTube</span></div>`).join("")}</div>`:`<p class="empty">Sin vídeos guardados. Pulsa «Editar» para añadir.</p>`}
     </section>
-  </div>`;
+`;
 }
 
 /* ---------- Veredicto ---------- */
@@ -3787,6 +3806,7 @@ document.addEventListener("click",e=>{
   const mi=e.target.closest("[data-metric]"); if(mi){e.preventDefault(); metricModal(mi.dataset.metric); return;}
   if(e.target.closest("[data-close]")||e.target.id==="overlay"){closeModal(); return;}
   const tb=e.target.closest(".tab"); if(tb){goTab(tb.dataset.tab);return;}
+  const nt=e.target.closest("[data-newstab]"); if(nt){ NEWSTAB=nt.dataset.newstab; lsSet("valorador.newstab",NEWSTAB); const c=$("newsCard"); if(c) c.outerHTML=newsHtml(); return; }
   const pr=e.target.closest("[data-prange]"); if(pr){PRANGE=pr.dataset.prange; lsSet("valorador.prange",PRANGE); renderValOut(); return;}
   const mc=e.target.closest("[data-mchart]"); if(mc){MCHART=mc.dataset.mchart; lsSet("valorador.mchart",MCHART); renderValOut(); return;}
   const sn=e.target.closest("[data-sens]"); if(sn){SENSMODE=sn.dataset.sens; lsSet("valorador.sens",SENSMODE); renderValOut(); return;}
