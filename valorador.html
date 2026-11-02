@@ -405,11 +405,25 @@ table.mult td,table.mult th{padding:9px 12px} table.mult td:first-child{white-sp
 .plist{display:flex;flex-direction:column} .prow{display:grid;grid-template-columns:80px 120px 1fr;gap:10px;align-items:start;padding:10px 0;border-bottom:1px solid var(--line)} .prow:last-child{border-bottom:0}
 .prow b{font-size:13.5px} .prow .pill{justify-self:start} .prow p{margin:0;font-size:13px;line-height:1.45;color:var(--ink)}
 @media (max-width:520px){.prow{grid-template-columns:80px 1fr}.prow p{grid-column:1/-1}}
-.nlist{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
-.nitem{border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:6px;background:var(--surface)}
-.nmeta{display:flex;justify-content:space-between;gap:8px;font-size:11.5px;color:var(--ink2)} .nsrc{font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--tcx)}
-.ntitle{font-weight:600;font-size:14px;line-height:1.35;color:var(--ink)} .nitem p{margin:0;font-size:12.5px;line-height:1.45;color:var(--ink2)}
-#newsCard .seg button[disabled]{opacity:.45}
+.srcsum{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden}
+.ssum{display:flex;flex-direction:column;gap:3px;padding:12px 16px;border-left:1px solid var(--line)} .ssum:first-child{border-left:0}
+.ssum span{font-size:10.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--ink2)} .ssum b{font-size:17px;font-weight:700;color:var(--ink)} .ssum small{font-size:11.5px;color:var(--ink2)}
+@media (max-width:1000px){.srcsum{grid-template-columns:repeat(3,minmax(0,1fr))}.ssum{border-top:1px solid var(--line)}.ssum:nth-child(-n+3){border-top:0}.ssum:nth-child(3n+1){border-left:0}}
+@media (max-width:520px){.srcsum{grid-template-columns:repeat(2,minmax(0,1fr))}.ssum:nth-child(3n+1){border-left:1px solid var(--line)}.ssum:nth-child(odd){border-left:0}.ssum:nth-child(-n+3){border-top:1px solid var(--line)}.ssum:nth-child(-n+2){border-top:0}}
+.inbox{margin-top:14px;box-shadow:none!important} .inboxbody{padding:0 14px 14px;display:flex;flex-direction:column;gap:18px}
+.subsec{display:flex;flex-direction:column;gap:8px;padding-top:12px;border-top:1px solid var(--line)} .subsec:first-child{border-top:0} .subsec>h2{font-size:15px;font-weight:700;margin:0}
+.nlist2{list-style:none;margin:4px 0 0;padding:0;border-top:1px solid var(--line)}
+.nrow{display:grid;grid-template-columns:72px 120px minmax(0,1fr);gap:14px;padding:11px 6px;border-bottom:1px solid var(--line);align-items:baseline}
+.nrow:hover{background:var(--surface2)} .nrow time{font-size:12px;color:var(--ink2);font-variant-numeric:tabular-nums;white-space:nowrap}
+.nrow .nsrc{font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--ink2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.nrow .nbody a{font-weight:600;font-size:14px;line-height:1.35;color:var(--ink);text-decoration:none} .nrow .nbody a:hover{text-decoration:underline}
+.nrow .nbody p{margin:2px 0 0;font-size:12.5px;color:var(--ink2);line-height:1.4;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
+@media (max-width:620px){.nrow{grid-template-columns:auto 1fr;gap:4px 10px}.nrow .nsrc{text-align:right}.nrow .nbody{grid-column:1/-1}.nrow .nbody p{-webkit-line-clamp:2}}
+.npager{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:10px;flex-wrap:wrap} .npager div{display:flex;gap:4px}
+.npager button{min-width:32px;height:30px;border:1px solid var(--line);background:var(--surface);border-radius:8px;font:inherit;font-size:13px;color:var(--ink);cursor:pointer;padding:0 8px}
+.npager button[aria-pressed="true"]{background:var(--ink);color:var(--surface);border-color:var(--ink);font-weight:700} .npager button:disabled{opacity:.35;cursor:default}
+.presschips{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:14px;padding-top:12px;border-top:1px solid var(--line)} .presschips .eyebrow{margin-right:4px}
+.presschips a{font-size:12px;padding:4px 10px;border:1px solid var(--line);border-radius:99px;color:var(--ink);text-decoration:none;background:var(--surface)} .presschips a:hover{border-color:var(--ink2);background:var(--surface2)}
 @media (max-width:520px){#newsCard .invhead{flex-direction:column;align-items:stretch}#newsCard .invhead h2{white-space:normal}#newsCard .seg{overflow-x:auto;max-width:100%;width:100%}#newsCard .seg button{flex:1 1 auto;white-space:nowrap;font-size:12px;padding-left:6px;padding-right:6px}#newsCard .seg .note{display:none}.tiles{grid-template-columns:repeat(2,minmax(0,1fr))!important}.tiles .tile .s{display:none}}
 .pxgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-areas:"ret rng" "tgt beh";gap:14px;margin-top:14px}
 @media (max-width:760px){.pxgrid{grid-template-columns:minmax(0,1fr);grid-template-areas:"ret" "rng" "tgt" "beh"}}
@@ -3357,6 +3371,20 @@ const DOCCATS=[["Resultados trimestrales","--c1"],["Formularios SEC","--c2"],["I
 const catColor=c=>(DOCCATS.find(x=>x[0]===c)||DOCCATS[6])[1];
 const host=u=>{try{return new URL(u).hostname.replace(/^www\./,"");}catch(e){return "";}};
 const okUrl=u=>/^https?:\/\/[^\s]+\.[^\s]+/i.test(u||"");
+function srcSummary(){
+  const d=cur._data||{}, ui=d.ultimo_informe, k8=d.ultimo_8k_resultados, N=d.noticias||[], A=analyzedSources(), P=((cur.social||{}).pulse||[]).filter(x=>fin(x.s)&&x.p!=="Threads");
+  const avg=P.length?P.reduce((a,x)=>a+x.s,0)/P.length:NaN, lab=v=>v>=1.5?"Muy alcista":v>=0.5?"Alcista":v>-0.5?"Neutral":v>-1.5?"Bajista":"Muy bajista";
+  const ws=allWarnings(cur).filter(w=>w.nivel!=="info").length;
+  const cell=(k,v,n)=>`<div class="ssum"><span>${k}</span><b>${v}</b><small>${n}</small></div>`;
+  return `<section class="srcsum">
+    ${cell("Último informe SEC",ui?esc(ui.formulario||""):"–",ui?`presentado el ${esc(fecha(ui.fecha_presentacion))}`:"sin datos")}
+    ${cell("Últimos resultados",k8?esc(fecha(k8.fecha_presentacion)):"–",k8?"8-K con la nota de resultados":"sin 8-K de resultados")}
+    ${cell("Noticias recientes",String(Math.min(20,N.length)),"últimas tres semanas")}
+    ${cell("Fuentes analizadas",String(A.length),"artículos, transcripciones y documentos")}
+    ${cell("Sentimiento en redes",fin(avg)?lab(avg):"–",P.length?`media de ${P.length} redes`:"sin valorar")}
+    ${cell("Calidad del dato",ws?`${ws} ${ws===1?"aviso":"avisos"}`:"Sin avisos",ws?"revisa el detalle al final":"el robot no ha detectado problemas")}
+  </section>`;
+}
 R.sources=()=>{
   const S=cur.sources, cik=(S.cik||"").replace(/\D/g,"");
   const ed=t=>`https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=${cik}&type=${encodeURIComponent(t)}&dateb=&owner=include&count=40`;
@@ -3376,6 +3404,7 @@ R.sources=()=>{
   const counts=DOCCATS.map(([c])=>docs.filter(d=>d.cat===c).length);
   const OH=officialHtml(); let OHi=OH.indexOf('<section class="card"><h2>Cifras clave'); if(OHi<0) OHi=OH.length;
   return `
+  ${srcSummary()}
   <section class="card"><h2>Accesos directos</h2><p class="sub">Los enlaces de la SEC abren el archivo EDGAR filtrado por tipo de documento, siempre con lo último publicado.</p>
     ${EDIT?`<div class="g3"><label class="note">Web corporativa ${ln("sources.web",{ph:"https://"})}</label><label class="note">Web de inversores ${ln("sources.ir",{ph:"https://"})}</label></div>`:""}
     <div class="tiles">${tiles.map(tileHtml).join("")}</div>
@@ -3392,31 +3421,43 @@ R.sources=()=>{
     <section class="card"><h2>Documentos por tipo</h2><p class="sub">Cuántos documentos hay guardados de cada clase.</p><div class="cv h240"><canvas id="ch_src_cnt" role="img" aria-label="Documentos por tipo"></canvas></div>
     </section>
   </div>
-  ${socialHtml("pulse")}
-  <details class="box" id="socialBox"${lsGet("valorador.social")==="1"?" open":""}><summary>Redes sociales y vídeos <span class="note" style="font-weight:400">· búsquedas en directo y vídeos destacados</span></summary><div style="padding:0 14px 14px;display:flex;flex-direction:column;gap:16px">${socialHtml()}</div></details>
+  ${(()=>{ const pu=socialHtml("pulse"), i=pu.lastIndexOf("</section>"), inner=socialHtml().replace(/<section class="card"/g,'<div class="subsec"').replace(/<\/section>/g,"</div>");
+    return pu.slice(0,i)+`<details class="box inbox" id="socialBox"${lsGet("valorador.social")==="1"?" open":""}><summary><span>Redes sociales y vídeos <span class="note" style="font-weight:400">· búsquedas en directo en Reddit, X y YouTube, y vídeos destacados</span></span></summary><div class="inboxbody">${inner}</div></details>`+pu.slice(i); })()}
   ${OH.slice(OHi)}
   ${glossaryHtml()}`;
 };
 
-let NEWSTAB=lsGet("valorador.newstab")||"1";
+let NEWSTAB=lsGet("valorador.newstab")||"n", NEWSPAGE=0;
+const NEWS_PER=5;
 function analyzedSources(){
   const out=[], seen=new Set(), push=(t,u,src,f,ctx)=>{ if(!okUrl(u)||seen.has(u)) return; seen.add(u); out.push({t,u,src:src||host(u),f:f||"",ctx}); };
-  (cur.sources.news||[]).forEach(n=>push(n.t,n.u,n.src,"","Noticias y análisis"));
+  (cur.sources.news||[]).forEach(n=>push(n.t,n.u,n.src,n.f,"Noticias y análisis"));
+  (cur.sources.docs||[]).forEach(d=>push(d.t,d.u,host(d.u),d.d,d.cat||"Documentos"));
   ((cur.business.clients||{}).conocidos||[]).forEach(c=>push(`${c.n}: ${c.cifra||c.d||""}`,c.u,c.fu,c.f,"Clientes"));
   (cur.growth.drivers||[]).forEach(d=>push(`${d.n}: ${d.k||""}`,d.u,"",d.f,"Motores de crecimiento"));
   return out;
 }
+function pressLinks(){
+  const name=cur.meta.name||"", t=((cur.meta.ticker||cur._t||"").split(":").pop()||"").trim().toUpperCase(), e=encodeURIComponent;
+  const g=(site,q)=>`https://www.google.com/search?tbm=nws&q=${e(`site:${site} ${q||name}`)}`;
+  return [["Investing",`https://www.investing.com/search/?q=${e(name)}`],["Reuters",`https://www.reuters.com/site-search/?query=${e(name)}`],["CNBC",`https://www.cnbc.com/search/?query=${e(name)}`],
+    ["Financial Times",`https://www.ft.com/search?q=${e(name)}`],["Bloomberg",`https://www.bloomberg.com/search?query=${e(name)}`],["MarketWatch",`https://www.marketwatch.com/investing/stock/${e(t.toLowerCase())}`],
+    ["Yahoo Finance",`https://finance.yahoo.com/quote/${e(t)}/news`],["Nasdaq",`https://www.nasdaq.com/market-activity/stocks/${e(t.toLowerCase())}/news-headlines`],["Morningstar",g("morningstar.es")],
+    ["Business Wire",g("businesswire.com")],["PR Newswire",g("prnewswire.com")],["Transcripciones (Motley Fool)",g("fool.com",name+" earnings call transcript")],["Expansión",g("expansion.com")],["Cinco Días",g("cincodias.elpais.com")]];
+}
 function newsHtml(){
-  const N=(cur._data&&cur._data.noticias)||[], A=analyzedSources();
-  if(!N.length&&!A.length) return "";
-  const tabs=[["1","Últimas noticias",N.slice(0,5).length],["2","Más noticias",N.slice(5).length],["3","Fuentes analizadas",A.length]];
-  const T=tabs.some(t=>t[0]===NEWSTAB&&t[2])?NEWSTAB:(tabs.find(t=>t[2])||tabs[0])[0];
-  const item=n=>`<article class="nitem"><div class="nmeta"><span class="nsrc">${esc(n.medio||"")}</span><span>${esc(fecha(n.fecha))}</span></div><a class="ext ntitle" href="${esc(n.url)}" target="_blank" rel="noopener noreferrer">${esc(n.titular)}</a>${n.resumen?`<p>${esc(n.resumen.slice(0,220))}${n.resumen.length>220?"…":""}</p>`:""}</article>`;
-  const aitem=n=>`<article class="nitem"><div class="nmeta"><span class="nsrc">${esc(n.src)}</span><span>${esc(n.ctx)}${n.f?" · "+esc(n.f):""}</span></div><a class="ext ntitle" href="${esc(n.u)}" target="_blank" rel="noopener noreferrer">${esc(n.t)}</a></article>`;
-  const body=T==="1"?N.slice(0,5).map(item).join(""):T==="2"?N.slice(5).map(item).join(""):A.map(aitem).join("");
-  const sub=T==="3"?"Artículos, transcripciones y notas que se han usado para escribir este análisis (clientes, motores de crecimiento y noticias).":`Últimos 10 días, de medios financieros <span class="rsrc off">Finnhub</span>. Titulares en el idioma original; se actualizan cada noche.`;
-  return `<section class="card" id="newsCard"><div class="invhead"><h2>Noticias</h2><div class="seg" role="tablist">${tabs.map(([k,l,c])=>`<button type="button" data-newstab="${k}" aria-pressed="${k===T}" ${c?"":"disabled"}>${l} <span class="note">${c}</span></button>`).join("")}</div></div>
-    <p class="sub">${sub}</p><div class="nlist">${body||`<p class="empty">Sin elementos.</p>`}</div></section>`;
+  const N=((cur._data&&cur._data.noticias)||[]).slice(0,20), A=analyzedSources();
+  const T=NEWSTAB==="a"&&A.length?"a":N.length?"n":"a", L=T==="n"?N:A, pages=Math.max(1,Math.ceil(L.length/NEWS_PER));
+  NEWSPAGE=Math.min(Math.max(0,NEWSPAGE),pages-1); const rows=L.slice(NEWSPAGE*NEWS_PER,NEWSPAGE*NEWS_PER+NEWS_PER);
+  const nrow=n=>`<li class="nrow"><time>${esc(fecha(n.fecha))}</time><span class="nsrc">${esc(n.medio||"")}</span><div class="nbody"><a class="ext" href="${esc(n.url)}" target="_blank" rel="noopener noreferrer">${esc(n.titular)}</a>${n.resumen?`<p>${esc(n.resumen)}</p>`:""}</div></li>`;
+  const arow=n=>`<li class="nrow"><time>${esc(n.f||"")}</time><span class="nsrc">${esc(n.src)}</span><div class="nbody"><a class="ext" href="${esc(n.u)}" target="_blank" rel="noopener noreferrer">${esc(n.t)}</a><p>${esc(n.ctx)}</p></div></li>`;
+  const pager=pages>1?`<div class="npager"><span class="note">${NEWSPAGE*NEWS_PER+1}–${Math.min(L.length,(NEWSPAGE+1)*NEWS_PER)} de ${L.length}</span><div>
+      <button type="button" data-npage="${NEWSPAGE-1}" ${NEWSPAGE?"":"disabled"} aria-label="Anteriores">‹</button>${Array.from({length:pages},(_,i)=>`<button type="button" data-npage="${i}" aria-pressed="${i===NEWSPAGE}">${i+1}</button>`).join("")}<button type="button" data-npage="${NEWSPAGE+1}" ${NEWSPAGE<pages-1?"":"disabled"} aria-label="Siguientes">›</button></div></div>`:"";
+  return `<section class="card" id="newsCard"><div class="invhead"><h2>Noticias y prensa</h2><div class="seg tbl" role="group" style="width:max-content;max-width:100%">${[["n",`Noticias recientes`,N.length],["a",`Fuentes analizadas`,A.length]].map(([k,l,c])=>`<button type="button" data-newstab="${k}" aria-pressed="${T===k}">${l} <span class="note">${c}</span></button>`).join("")}</div></div>
+    <p class="sub">${T==="n"?`Últimas tres semanas, de medios financieros vía <span class="rsrc off">Finnhub</span>, de la más reciente a la más antigua. Titulares en el idioma original; se actualizan cada noche.`:"Artículos, transcripciones, documentos y notas usados para escribir este análisis, con el apartado donde se usaron."}</p>
+    ${rows.length?`<ol class="nlist2">${rows.map(T==="n"?nrow:arow).join("")}</ol>`:`<p class="empty">Sin elementos todavía.</p>`}${pager}
+    <div class="presschips"><span class="eyebrow">Buscar ${esc(cur.meta.name||"")} en</span>${pressLinks().map(([l,u])=>`<a href="${esc(u)}" target="_blank" rel="noopener noreferrer">${esc(l)}</a>`).join("")}</div>
+  </section>`;
 }
 function socialHtml(part){
   const name=cur.meta.name||"", sym=((cur.meta.ticker||"").split(":").pop()||"").trim().toUpperCase(), e=encodeURIComponent;
@@ -3438,7 +3479,7 @@ function socialHtml(part){
   const OPTS=[["","Sin valorar"],["2","Muy alcista"],["1","Alcista"],["0","Neutral / dividido"],["-1","Bajista"],["-2","Muy bajista"]];
   S.pulse=(S.pulse||[]).filter(x=>x.p!=="Threads"); const anyPulse=S.pulse.some(x=>fin(x.s));
   if(part==="pulse") return `
-    <section class="card" style="--tc:var(--c1)" id="pulseCard"><h2>Lectura del sentimiento en redes</h2><p class="sub">${S.pulseFuente?esc(S.pulseFuente)+" ":""}Tono general de cada red sobre ${esc(name)}. ${EDIT?"Cámbialo con tu propia lectura.":"Pulsa «Editar» para ajustarlo con tu propia lectura."}</p>
+    <section class="card" style="--tc:var(--c1)" id="pulseCard"><h2>Redes sociales y sentimiento</h2><p class="sub">${S.pulseFuente?esc(S.pulseFuente)+" ":""}Tono general de cada red sobre ${esc(name)}. ${EDIT?"Cámbialo con tu propia lectura.":"Pulsa «Editar» para ajustarlo con tu propia lectura."}</p>
       <div class="pulsegrid"><div>${EDIT?`<div class="pulse">${S.pulse.map((x,i)=>`<b>${esc(x.p)}</b><select data-p="social.pulse.${i}.s" data-k="num" aria-label="Sentimiento en ${esc(x.p)}">${OPTS.map(([v,l])=>`<option value="${v}" ${(v===""?!fin(x.s):+v===x.s)?"selected":""}>${l}</option>`).join("")}</select><input type="text" data-p="social.pulse.${i}.note" value="${esc(x.note||"")}" placeholder="Qué se comenta" aria-label="Nota sobre ${esc(x.p)}">`).join("")}</div>`:`<div class="plist">${S.pulse.map(x=>{ const o=OPTS.find(([v])=>v!==""&&+v===x.s); const cls=!fin(x.s)?"neutral":x.s>0?"up":x.s<0?"down":"mid";
         return `<div class="prow"><b>${esc(x.p)}</b><span class="pill ${cls}">${o?esc(o[1]):"Sin valorar"}</span><p>${esc(x.note||"")}</p></div>`; }).join("")}</div>`}</div>
       <div>${anyPulse?`<div class="cv h240"><canvas id="ch_src_pulse" role="img" aria-label="Sentimiento por red social"></canvas></div><p class="note" style="text-align:center">De −2 (muy bajista) a +2 (muy alcista)</p>`:`<p class="empty">Cuando valores al menos una red, aquí aparece el gráfico comparativo.</p>`}</div></div>
@@ -3806,7 +3847,8 @@ document.addEventListener("click",e=>{
   const mi=e.target.closest("[data-metric]"); if(mi){e.preventDefault(); metricModal(mi.dataset.metric); return;}
   if(e.target.closest("[data-close]")||e.target.id==="overlay"){closeModal(); return;}
   const tb=e.target.closest(".tab"); if(tb){goTab(tb.dataset.tab);return;}
-  const nt=e.target.closest("[data-newstab]"); if(nt){ NEWSTAB=nt.dataset.newstab; lsSet("valorador.newstab",NEWSTAB); const c=$("newsCard"); if(c) c.outerHTML=newsHtml(); return; }
+  const nt=e.target.closest("[data-newstab]"); if(nt){ NEWSTAB=nt.dataset.newstab; NEWSPAGE=0; lsSet("valorador.newstab",NEWSTAB); const c=$("newsCard"); if(c) c.outerHTML=newsHtml(); return; }
+  const np=e.target.closest("[data-npage]"); if(np&&!np.disabled){ NEWSPAGE=+np.dataset.npage; const c=$("newsCard"); if(c){ c.outerHTML=newsHtml(); const n=$("newsCard"); if(n&&n.getBoundingClientRect().top<0) n.scrollIntoView({block:"start"}); } return; }
   const pr=e.target.closest("[data-prange]"); if(pr){PRANGE=pr.dataset.prange; lsSet("valorador.prange",PRANGE); renderValOut(); return;}
   const mc=e.target.closest("[data-mchart]"); if(mc){MCHART=mc.dataset.mchart; lsSet("valorador.mchart",MCHART); renderValOut(); return;}
   const sn=e.target.closest("[data-sens]"); if(sn){SENSMODE=sn.dataset.sens; lsSet("valorador.sens",SENSMODE); renderValOut(); return;}

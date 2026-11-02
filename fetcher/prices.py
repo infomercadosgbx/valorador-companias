@@ -129,7 +129,7 @@ class FinnhubProvider(PriceProvider):
         rows = self._get("/stock/peers", symbol=ticker) or []
         return [r for r in rows if isinstance(r, str)]
 
-    def news(self, ticker, today=None, days=10, limit=12):
+    def news(self, ticker, today=None, days=21, limit=20):
         from datetime import date, timedelta
         today = today or date.today()
         rows = self._get("/company-news", symbol=ticker, **{"from": (today - timedelta(days=days)).isoformat(),
