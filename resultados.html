@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Informe de resultados</title>
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="logo.svg">
+<meta name="theme-color" content="#0B1424">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap">
+<style>
+/* Informe de resultados: hojas A4 (210 × 297 mm) que se ven igual en pantalla, al imprimir y en el PDF del Action.
+   La hoja es siempre clara (es un documento); el fondo de la pantalla sigue el tema del sistema. */
+:root{
+  --bg:#E8ECF1; --paper:#FFFFFF; --ink:#121A22; --ink2:#46525E; --muted:#76828E; --line:#DFE4EA; --soft:#F4F6F9;
+  --night:#0B1424; --night2:#16233A; --beat:#0B7A3B; --beatbg:#E3F4EA; --miss:#B42C2C; --missbg:#FBE6E6; --even:#6B7280;
+  --brand:#2a78d6; --onbrand:#fff; --brandsoft:rgba(42,120,214,.12);
+  --f-display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --f-body:"Public Sans","Segoe UI",system-ui,sans-serif;
+  --f-num:"JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0D1115}}
+:root[data-theme="dark"]{--bg:#0D1115}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:12px;line-height:1.45;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+h1,h2,h3{font-family:var(--f-display);margin:0;letter-spacing:-.01em;text-wrap:balance}
+.num{font-family:var(--f-num);font-variant-numeric:tabular-nums}
+a{color:inherit}
+
+/* ---------- barra de pantalla (no se imprime) ---------- */
+.bar{position:sticky;top:0;z-index:5;background:var(--night);color:#fff;display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;padding:10px 16px}
+.bar .brand{display:flex;align-items:center;gap:8px;font-family:var(--f-display);font-weight:700;font-size:15px;color:#fff;text-decoration:none}
+.bar .brand img{width:22px;height:22px}
+.bar select,.bar button,.bar a.btn{font:600 13px var(--f-body);background:#fff;color:var(--night);border:1px solid #fff;border-radius:6px;padding:6px 10px;cursor:pointer;text-decoration:none}
+.bar .ghost{background:transparent!important;color:#fff!important;border-color:#3A4A63!important}
+.bar .sp{flex:1}
+.bar .msg{font-size:12px;color:#C9D3E0;flex-basis:100%}
+.bar .msg:empty{display:none}
+.bar .msg b{color:#fff}
+:focus-visible{outline:2px solid #4DB6BA;outline-offset:2px}
+
+/* ---------- hojas ---------- */
+.sheets{display:flex;flex-direction:column;align-items:center;gap:18px;padding:18px 0 28px}
+.sheet{width:210mm;min-height:297mm;background:var(--paper);box-shadow:0 1px 2px rgba(0,0,0,.08),0 8px 30px rgba(11,20,36,.12);position:relative;display:flex;flex-direction:column}
+.sheet.p1{height:297mm;overflow:hidden}
+.sheet.flow{height:297mm;overflow:hidden}
+.pad{padding:0 12mm}
+
+/* cabecera nocturna con el color de la compañía */
+.mast{background:var(--night);color:#fff;padding:9mm 12mm 7mm;position:relative;overflow:hidden}
+.mast::after{content:"";position:absolute;right:-28mm;top:-30mm;width:95mm;height:95mm;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--brand) 0,transparent 68%);opacity:.55}
+.mast::before{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--brand)}
+.mast .row{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;position:relative;z-index:1}
+.kicker{font:700 9.5px var(--f-body);letter-spacing:.16em;text-transform:uppercase;color:#9FB0C8}
+.mast h1{font-size:30px;font-weight:800;line-height:1.02;margin-top:4px}
+.mast h1 em{font-style:normal;color:#9FB0C8;font-weight:500}
+.mast .co{font:500 18px var(--f-display);margin-top:5px;color:#E7EDF5}
+.mast .co b{font-family:var(--f-num);font-weight:700;font-size:15px;color:#fff;background:rgba(255,255,255,.1);padding:1px 6px;border-radius:4px;margin-left:4px}
+.mast .when{font-size:11px;color:#C9D3E0;margin-top:6px}
+.badge{width:62px;height:62px;border-radius:14px;background:#fff;display:grid;place-items:center;flex:none;box-shadow:0 6px 18px rgba(0,0,0,.3);overflow:hidden}
+.badge img{width:46px;height:46px;object-fit:contain}
+.badge span{font:800 22px var(--f-display);color:var(--brand)}
+.state{display:inline-flex;gap:6px;align-items:center;font:700 9.5px var(--f-body);letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:999px;margin-top:8px}
+.state.def{background:rgba(255,255,255,.12);color:#D7F5E3}
+.state.prov{background:#F59E0B;color:#1F1300}
+.state i{width:6px;height:6px;border-radius:50%;background:currentColor}
+
+/* tabla principal */
+.sec{margin-top:6mm}
+.sech{display:flex;align-items:baseline;justify-content:space-between;gap:10px;border-bottom:1.5px solid var(--ink);padding-bottom:3px;margin-bottom:4px}
+.sech h2{font-size:14.5px;font-weight:700}
+.sech .src{font-size:9.5px;color:var(--muted);text-align:right}
+table.rt{width:100%;border-collapse:collapse}
+.rt th{font:700 8.5px var(--f-body);letter-spacing:.07em;text-transform:uppercase;color:var(--muted);text-align:right;padding:5px 6px 4px;border-bottom:1px solid var(--line)}
+.rt th:first-child{text-align:left}
+.rt td{padding:6px 6px;border-bottom:1px solid var(--line);text-align:right;vertical-align:middle}
+.rt td:first-child{text-align:left}
+.rt tr.main td:first-child{font:700 13px var(--f-display)}
+.rt tr.seg td:first-child{padding-left:16px;color:var(--ink2);font-weight:500}
+.rt tr.seg td:first-child::before{content:"↳ ";color:var(--muted)}
+.rt td.v{font:700 13px var(--f-num)}
+.rt tr.seg td.v{font-weight:600;font-size:12px}
+.rt td.e{font:400 12px var(--f-num);color:var(--ink2)}
+.rt td.d{font:600 12px var(--f-num)}
+.rt .sub{display:block;font:400 8.5px var(--f-body);color:var(--muted);margin-top:1px;white-space:normal}
+.rt td:first-child .sub{max-width:72mm}
+.chip{display:inline-block;min-width:54px;text-align:center;font:800 10.5px var(--f-display);letter-spacing:.04em;text-transform:uppercase;padding:3px 8px;border-radius:5px}
+.chip.Beat{background:var(--beatbg);color:var(--beat)}
+.chip.Miss{background:var(--missbg);color:var(--miss)}
+.chip.line{background:var(--soft);color:var(--even)}
+.chip.na{color:var(--muted);font-weight:500;text-transform:none;letter-spacing:0;font-size:10px;background:none}
+.up{color:var(--beat)} .dn{color:var(--miss)}
+.rt tr.gh td{background:var(--soft);font:700 8.5px var(--f-body);letter-spacing:.09em;text-transform:uppercase;color:var(--ink2);padding:5px 6px}
+.pend{font-size:10px;color:var(--muted);font-style:italic}
+
+/* cotización */
+.mkt{display:grid;grid-template-columns:minmax(0,1fr) 44mm;gap:6mm;align-items:stretch}
+.chart svg,.sheet svg{display:block;width:100%;height:auto}
+.sheet svg text{font-family:var(--f-body)}
+.sheet svg text[font-family]{font-family:var(--f-num)}
+.keys{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:3mm;margin-top:5mm}
+.key{background:var(--soft);border-radius:8px;padding:3mm 3.5mm;border-top:3px solid var(--brand)}
+.key .k{font:700 8px var(--f-body);letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.key .v{font:800 19px var(--f-num);margin-top:1mm;letter-spacing:-.01em}
+.key .s{font-size:9.5px;color:var(--ink2);margin-top:.5mm;line-height:1.3}
+.sech .src{max-width:58%}
+.stats{display:flex;flex-direction:column;gap:2.5mm;justify-content:center}
+.stat{border-left:2px solid var(--brand);padding:1px 0 1px 8px}
+.stat .k{font:700 8px var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.stat .v{font:700 15px var(--f-num)}
+.stat .s{font-size:9px;color:var(--muted)}
+
+/* cita */
+.quote{position:relative;margin-top:5mm;padding:4mm 6mm 4mm 14mm;border:1px solid var(--line);border-radius:10px;background:linear-gradient(90deg,var(--brandsoft),transparent 70%)}
+.quote::before{content:"“";position:absolute;left:4mm;top:-2mm;font:800 54px var(--f-display);color:var(--brand);line-height:1}
+.quote p{margin:0;font:500 12.5px/1.45 var(--f-display);color:var(--ink)}
+.quote .who{margin-top:4px;font-size:10px;color:var(--muted)}
+
+/* banda de reacción */
+.react{margin-top:auto;background:var(--brand);color:var(--onbrand);display:flex;align-items:center;justify-content:space-between;gap:12px;padding:6mm 12mm}
+.react .t{font:800 18px var(--f-display);letter-spacing:.02em;text-transform:uppercase}
+.react .t small{display:block;font:500 10px var(--f-body);letter-spacing:0;text-transform:none;opacity:.85;margin-top:2px}
+.react .v{font:800 34px var(--f-num);letter-spacing:-.02em;background:var(--paper);color:var(--ink);padding:1mm 4mm;border-radius:8px}
+.react .v.dn{color:var(--miss)} .react .v.up{color:var(--beat)}
+
+/* página 2 */
+.mast.slim{padding:6mm 12mm 5mm}
+.mast.slim h1{font-size:20px}
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7mm}
+.hbars{display:flex;flex-direction:column;gap:2.2mm;margin-top:2mm}
+.hb{display:grid;grid-template-columns:34mm minmax(0,1fr) 14mm;gap:6px;align-items:center}
+.hb .n{font-size:10.5px;font-weight:600;line-height:1.15}
+.hb .n small{display:block;font:400 8.5px var(--f-num);color:var(--muted)}
+.hb .track{height:11px;background:var(--soft);border-radius:3px;position:relative;overflow:hidden}
+.hb .fill{position:absolute;top:0;bottom:0;left:0;border-radius:3px;background:var(--brand)}
+.hb .fill.neg{background:var(--miss)}
+.hb .p{font:700 11px var(--f-num);text-align:right}
+.hb.star .n{color:var(--brand)}
+.minit{width:100%;border-collapse:collapse;margin-top:2mm}
+.minit th{font:700 8px var(--f-body);letter-spacing:.07em;text-transform:uppercase;color:var(--muted);text-align:right;padding:3px 4px;border-bottom:1px solid var(--line)}
+.minit th:first-child,.minit td:first-child{text-align:left}
+.minit td{font:500 10.5px var(--f-num);text-align:right;padding:4px;border-bottom:1px solid var(--line)}
+.minit td:first-child{font:600 10.5px var(--f-body)}
+.lead{font-size:11px;color:var(--ink2);margin:2mm 0 0}
+.lead b{color:var(--ink)}
+.cols4{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4mm 7mm;margin-top:2mm}
+.cols4 h3{font:700 9px var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:1.5mm;display:flex;align-items:center;gap:6px}
+.cols4 h3 i{width:8px;height:8px;border-radius:2px;background:var(--ink2)}
+.cols4 h3.up i{background:var(--beat)} .cols4 h3.dn i{background:var(--miss)} .cols4 h3.br i{background:var(--brand)}
+.cols4>div{break-inside:avoid}
+.sec{break-inside:avoid}
+.cols4 ul{margin:0;padding-left:14px} .cols4 li{margin:0 0 1.6mm;font-size:11px}
+.tag{display:inline-block;font:700 8px var(--f-body);letter-spacing:.08em;text-transform:uppercase;padding:2px 6px;border-radius:4px;background:var(--soft);color:var(--ink2)}
+.tag.prop{background:#FEF3C7;color:#78350F}
+.gtext{font-size:10px;color:var(--ink2);margin:2mm 0 0;padding-left:14px}
+.gtext li{margin-bottom:1mm}
+.foot{margin-top:auto;padding:5mm 12mm 6mm;border-top:1px solid var(--line);font-size:8.5px;color:var(--muted);display:flex;flex-direction:column;gap:1.5mm}
+.foot a{color:var(--ink2)}
+.foot ol{margin:0;padding-left:14px;columns:2;column-gap:8mm}
+.foot li{break-inside:avoid;margin-bottom:.8mm}
+.empty{font-size:10.5px;color:var(--muted);font-style:italic;padding:3mm;border:1px dashed var(--line);border-radius:8px;margin-top:2mm}
+.warns{margin:3mm 0 0;padding:2.5mm 4mm;background:#FFF7E6;border:1px solid #F5D49A;border-radius:8px;font-size:10px;color:#6B4600}
+.warns ul{margin:0;padding-left:14px}
+
+/* ---------- panel de estimaciones (solo pantalla) ---------- */
+.panel{width:min(210mm,calc(100% - 24px));background:var(--paper);border-radius:12px;padding:18px 20px;box-shadow:0 1px 2px rgba(0,0,0,.08)}
+.panel h2{font-size:18px;font-weight:700}
+.panel p{margin:4px 0 10px;color:var(--ink2);font-size:13px}
+.form{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px 14px}
+.form label{display:flex;flex-direction:column;gap:3px;font:600 11px var(--f-body);color:var(--ink2)}
+.form input,.form select{font:500 13px var(--f-num);padding:7px 8px;border:1px solid var(--line);border-radius:6px;background:#fff;color:var(--ink)}
+.form input[type=text]{font-family:var(--f-body)}
+.form .hint{font:400 10.5px var(--f-body);color:var(--muted)}
+.actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:12px}
+.actions button{font:600 13px var(--f-body);background:var(--night);color:#fff;border:0;border-radius:6px;padding:8px 14px;cursor:pointer}
+.actions button.alt{background:#fff;color:var(--night);border:1px solid var(--line)}
+.actions .out{font-size:12.5px;color:var(--ink2)}
+.ref{font-size:12.5px;background:var(--soft);border-radius:8px;padding:8px 10px;margin-bottom:12px}
+.loading{color:var(--muted);font-size:14px;padding:60px 20px;text-align:center}
+
+@page{size:A4;margin:0}
+@media print{
+  body{background:#fff}
+  .bar,.panel,.noprint{display:none!important}
+  .sheets{padding:0;gap:0;display:block}
+  .sheet{box-shadow:none;break-after:page;margin:0;zoom:1!important}
+  .sheet:last-child{break-after:auto}
+}
+@media screen and (max-width:840px){ .bar .brand span{display:none} }
+</style>
+</head>
+<body>
+<div class="bar" id="bar">
+  <a class="brand" href="valorador.html" id="back"><img src="logo.svg" alt=""><span>Valorador</span></a>
+  <select id="selT" aria-label="Compañía"></select>
+  <select id="selP" aria-label="Trimestre"></select>
+  <span class="sp"></span>
+  <a class="btn" id="btnPdf" href="#" hidden download>Descargar PDF</a>
+  <button type="button" class="ghost" id="btnPrint">Imprimir</button>
+  <button type="button" id="btnRun" title="Lanza la actualización de esta compañía en GitHub (SEC, precio e informe)">⟳ Actualizar resultados</button>
+  <div class="msg" id="msg" role="status" aria-live="polite"></div>
+</div>
+<div class="sheets" id="sheets"><div class="loading">Cargando el informe…</div></div>
+
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+const Q=new URLSearchParams(location.search);
+const PDF=Q.get("pdf")==="1";
+if(PDF) document.body.classList.add("pdfmode");
+const esc=s=>String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const fin=x=>typeof x==="number"&&isFinite(x);
+const nf=(x,d=0)=>fin(x)?x.toLocaleString("es-ES",{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:"always"}):"–";
+const MES=["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"];
+const DIA=["domingo","lunes","martes","miércoles","jueves","viernes","sábado"];
+const fecha=s=>{ if(!s) return ""; const d=new Date(s+"T12:00:00Z"); return `${d.getUTCDate()}-${MES[d.getUTCMonth()]}-${d.getUTCFullYear()}`; };
+const fechaLarga=s=>{ const d=new Date(s+"T12:00:00Z"); return `${DIA[d.getUTCDay()]} ${fecha(s)}`; };
+/* importes: M$ con punto de miles, o miles de M$ para cifras grandes en titulares */
+const M$=v=>fin(v)?`${nf(v/1e6,Math.abs(v)<1e8?1:0)} M$`:"–";
+const usd=v=>fin(v)?`${nf(v,2)} $`:"–";
+const pct=(x,d=1,sign=true)=>fin(x)?`${sign&&x>0?"+":x<0?"−":""}${nf(Math.abs(x),d)}%`:"–";
+const big=v=>fin(v)?(Math.abs(v)>=1e12?`${nf(v/1e12,2)} B$`:Math.abs(v)>=1e9?`${nf(v/1e9,1)} mil M$`:M$(v)):"–";
+function lsGet(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } }
+function lsSet(k,v){ try{ localStorage.setItem(k,v); }catch(e){} }
+async function getJSON(u){ const r=await fetch(u,{cache:"no-cache"}); if(!r.ok) throw new Error(u+" → "+r.status); return r.json(); }
+function repoUrl(){ const h=location.hostname, m=/^([^.]+)\.github\.io$/.exec(h); const seg=location.pathname.split("/").filter(Boolean)[0];
+  return m&&seg?`https://github.com/${m[1]}/${seg}`:"https://github.com/infomercadosgbx/valorador-companias"; }
+function ghRepo(){ const m=/github\.com\/([^/]+)\/([^/]+)/.exec(repoUrl()); return m?{o:m[1],r:m[2]}:null; }
+const ghToken=()=>lsGet("valorador.ghtoken")||"";
+async function gh(path,opt={}){ const r=await fetch("https://api.github.com"+path,{...opt,headers:{"Accept":"application/vnd.github+json","Authorization":"Bearer "+ghToken(),"X-GitHub-Api-Version":"2022-11-28",...(opt.headers||{})}});
+  let j=null; try{ j=await r.json(); }catch(e){} return {ok:r.ok,status:r.status,j}; }
+
+/* contraste del color de marca para el texto encima */
+function onColor(hex){ const m=/^#?([0-9a-f]{6})$/i.exec(hex||""); if(!m) return "#fff"; const n=parseInt(m[1],16);
+  const L=[n>>16&255,n>>8&255,n&255].map(c=>{c/=255; return c<=.03928?c/12.92:((c+.055)/1.055)**2.4;}); const l=.2126*L[0]+.7152*L[1]+.0722*L[2];
+  return l>.42?"#121A22":"#fff"; }
+function hexA(hex,a){ const m=/^#?([0-9a-f]{6})$/i.exec(hex||""); if(!m) return `rgba(42,120,214,${a})`; const n=parseInt(m[1],16); return `rgba(${n>>16&255},${n>>8&255},${n&255},${a})`; }
+
+let COS=[], CO=null, IDX=null, REP=null;
+
+/* ================= gráficos SVG ================= */
+function priceSVG(serie,mark,color){
+  if(!serie||serie.length<2) return `<div class="empty">Sin histórico de cotizaciones (falta el secret TWELVEDATA_API_KEY o aún no hay datos).</div>`;
+  const W=560,H=176,L=8,R=46,T=10,B=22; const xs=serie.map(p=>Date.parse(p[0])), ys=serie.map(p=>p[1]);
+  const x0=xs[0],x1=xs.at(-1); let y0=Math.min(...ys), y1=Math.max(...ys); const padY=(y1-y0)*.08||1; y0-=padY; y1+=padY;
+  const X=t=>L+(t-x0)/(x1-x0||1)*(W-L-R), Y=v=>T+(1-(v-y0)/(y1-y0))*(H-T-B);
+  const d=serie.map((p,i)=>`${i?"L":"M"}${X(xs[i]).toFixed(1)},${Y(ys[i]).toFixed(1)}`).join("");
+  const area=`${d}L${X(x1).toFixed(1)},${H-B}L${X(x0).toFixed(1)},${H-B}Z`;
+  const step=(y1-y0)/4, ticks=[0,1,2,3,4].map(i=>y0+step*i);
+  const months=[]; const s=new Date(x0); s.setUTCDate(1); s.setUTCMonth(s.getUTCMonth()+1);
+  for(let t=new Date(s); t.getTime()<=x1; t.setUTCMonth(t.getUTCMonth()+2)) months.push(t.getTime());
+  const mk=mark?Date.parse(mark+"T00:00:00Z"):null;
+  const first=ys[0], last=ys.at(-1), ch=(last/first-1)*100;
+  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Cotización de los últimos 12 meses">
+   <defs><linearGradient id="ga" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${color}" stop-opacity=".28"/><stop offset="1" stop-color="${color}" stop-opacity="0"/></linearGradient></defs>
+   ${ticks.map(v=>`<line x1="${L}" x2="${W-R}" y1="${Y(v).toFixed(1)}" y2="${Y(v).toFixed(1)}" stroke="#E9ECF0"/><text x="${W-R+6}" y="${(Y(v)+3).toFixed(1)}" font-size="9" fill="#76828E" font-family="JetBrains Mono, monospace">${nf(v,0)}</text>`).join("")}
+   ${months.map(t=>`<text x="${X(t).toFixed(1)}" y="${H-6}" font-size="9" fill="#76828E" text-anchor="middle">${MES[new Date(t).getUTCMonth()]} ${String(new Date(t).getUTCFullYear()).slice(2)}</text>`).join("")}
+   <path d="${area}" fill="url(#ga)"/><path d="${d}" fill="none" stroke="${color}" stroke-width="2" stroke-linejoin="round"/>
+   ${mk&&mk>=x0&&mk<=x1?`<line x1="${X(mk).toFixed(1)}" x2="${X(mk).toFixed(1)}" y1="${T}" y2="${H-B}" stroke="#121A22" stroke-dasharray="3 3"/><text x="${(X(mk)-4).toFixed(1)}" y="${H-B-5}" font-size="8.5" fill="#121A22" text-anchor="end" font-weight="700">Resultados</text>`:""}
+   <circle cx="${X(x0).toFixed(1)}" cy="${Y(first).toFixed(1)}" r="3.5" fill="#fff" stroke="${color}" stroke-width="2"/>
+   <text x="${(X(x0)+6).toFixed(1)}" y="${(Y(first)+(Y(first)>H/2?-7:14)).toFixed(1)}" font-size="10.5" font-weight="700" font-family="JetBrains Mono, monospace" fill="#121A22">${nf(first,0)} $</text>
+   <circle cx="${X(x1).toFixed(1)}" cy="${Y(last).toFixed(1)}" r="4" fill="${color}"/>
+   <text x="${(X(x1)-6).toFixed(1)}" y="${(Y(last)+(Y(last)>H/2?-8:15)).toFixed(1)}" font-size="11" font-weight="700" font-family="JetBrains Mono, monospace" text-anchor="end" fill="#121A22">${nf(last,0)} $ <tspan fill="${ch>=0?"#0B7A3B":"#B42C2C"}">(${pct(ch,0)})</tspan></text>
+  </svg>`;
+}
+function barsSVG(pts,{val,label,fmt,color,hiIdx=[],h=150,aria,w=560}){
+  if(!pts.length) return "";
+  const n=pts.length, rot=n>14, W=w,H=h,T=16,B=rot?34:22,L=4,R=4, gw=(W-L-R)/n, bw=Math.min(28,gw*.68);
+  const vs=pts.map(val), mx=Math.max(...vs.map(v=>Math.max(v,0)),0)*1.08||1, mn=Math.min(0,...vs)*1.08;
+  const Y=v=>T+(1-(v-mn)/(mx-mn))*(H-T-B);
+  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(aria||"")}">
+    <line x1="${L}" x2="${W-R}" y1="${Y(0).toFixed(1)}" y2="${Y(0).toFixed(1)}" stroke="#C9D1DA"/>
+    ${pts.map((p,i)=>{ const v=vs[i], x=L+gw*i+(gw-bw)/2, y=Math.min(Y(v),Y(0)), hh=Math.abs(Y(v)-Y(0)); const hi=hiIdx.includes(i);
+      return `<rect x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${bw.toFixed(1)}" height="${Math.max(hh,.5).toFixed(1)}" rx="2" fill="${hi?color:hexA(color,.38)}"/>
+      <text x="${(x+bw/2).toFixed(1)}" y="${(v>=0?y-3:y+hh+9).toFixed(1)}" font-size="${n>16?7.5:8.5}" font-weight="${hi?700:500}" text-anchor="middle" font-family="JetBrains Mono, monospace" fill="#121A22">${fmt(v)}</text>
+      <text x="${(x+bw/2+(rot?3:0)).toFixed(1)}" y="${(H-B+12).toFixed(1)}" font-size="8" text-anchor="${rot?"end":"middle"}" fill="#76828E"${rot?` transform="rotate(-40 ${(x+bw/2+3).toFixed(1)} ${(H-B+12).toFixed(1)})"`:""}>${esc(label(p))}</text>`; }).join("")}
+  </svg>`;
+}
+
+/* ================= hojas ================= */
+function chip(r){ return r?`<span class="chip ${r==="En línea"?"line":r}">${r}</span>`:`<span class="chip na">sin estimación</span>`; }
+function valOf(row){ const r=row.reportado; if(!r) return null; return r.valor; }
+function fmtRow(row,v){ return row.concepto==="bpa_diluido"?usd(v):M$(v); }
+function srcShort(c){ if(!c) return ""; return c.fuente||""; }
+
+function page1(R){
+  const rows=R.tabla, Gi=(R.guia&&R.guia.items)||[];
+  const tr=row=>{ const v=valOf(row), e=row.estimado&&row.estimado.valor, cmp=row.comparable;
+    const sub=row.reportado&&row.reportado.provisional?"provisional · nota de resultados":row.pendiente?"":row.reportado&&row.reportado.derivado?row.reportado.derivado:"";
+    return `<tr class="${row.tipo==="segmento"?"seg":"main"}">
+      <td>${esc(row.tipo==="segmento"?nice(row.nombre):row.nombre)}${row.nota?`<span class="sub">${esc(row.nota)}</span>`:sub?`<span class="sub">${esc(sub)}</span>`:""}</td>
+      <td class="v">${v!=null?fmtRow(row,v):`<span class="pend">${row.pendiente?"llega con el 10-Q":"pendiente"}</span>`}${cmp?`<span class="sub">ajustado ${usd(cmp.valor)}</span>`:""}</td>
+      <td class="e">${fin(e)?fmtRow(row,e):"–"}${row.estimado?`<span class="sub">${esc(row.estimado.manual?"manual":"Finnhub")}</span>`:""}</td>
+      <td class="d ${fin(row.dif_pct)?(row.dif_pct>=0?"up":"dn"):""}">${fin(row.dif_pct)?pct(row.dif_pct,1):"–"}</td>
+      <td>${chip(row.resultado)}</td>
+      <td class="d ${fin(row.interanual_pct)?(row.interanual_pct>=0?"up":"dn"):""}">${pct(row.interanual_pct,1)}</td></tr>`; };
+  const gl={ingresos:"Ventas",beneficio_operativo:"Beneficio operativo (EBIT)",bpa:"BPA",ebitda:"EBITDA ajustado"};
+  const gtr=g=>{ const isB=g.concepto==="bpa", f=v=>isB?usd(v):M$(v);
+    return `<tr class="main"><td>${esc(gl[g.concepto]||g.concepto)}<span class="sub">${g.min!==g.max?`horquilla ${f(g.min)} – ${f(g.max)}`:"aproximadamente"}</span></td>
+      <td class="v">${f(g.medio)}</td><td class="e">${g.estimado?f(g.estimado.valor):"–"}${g.estimado?`<span class="sub">${esc(g.estimado.manual?"manual":"Finnhub")}</span>`:""}</td>
+      <td class="d ${fin(g.dif_pct)?(g.dif_pct>=0?"up":"dn"):""}">${fin(g.dif_pct)?pct(g.dif_pct,1):"–"}</td><td>${chip(g.resultado)}</td><td></td></tr>`; };
+  const nextQ=nextLabel(R.periodo);
+  const C=R.cotizacion||{}, X=R.reaccion||{};
+  const reac=fin(X.variacion_pct)?pct(X.variacion_pct,1):"pendiente";
+  const estSrc=[...new Set(rows.concat(Gi).map(r=>r.estimado&&r.estimado.fuente).filter(Boolean))];
+  return `<section class="sheet p1">
+   <header class="mast"><div class="row"><div>
+     <div class="kicker">Informe de resultados · ${esc(R.periodo)}</div>
+     <h1>Resultados <em>frente a</em> estimaciones</h1>
+     <div class="co">${esc(R.nombre)} <b>${esc(R.ticker)}</b></div>
+     <div class="when">Presentados el ${esc(fechaLarga(R.fecha_resultados))}${X.hora?` · ${esc(X.hora)}${X.hora_supuesta?" (supuesto)":""}`:""} · trimestre cerrado el ${esc(fecha(R.periodo_fin))}</div>
+     <span class="state ${R.estado==="definitivo"?"def":"prov"}"><i></i>${R.estado==="definitivo"?"Cifras definitivas · "+esc((R.fuente_cifras||"").replace("SEC EDGAR · ","")):"Provisional · cifras de la nota de resultados, a la espera del 10-Q"}</span>
+   </div><div class="badge">${R.logo?`<img src="${esc(R.logo)}" alt="">`:`<span>${esc(R.monograma||R.ticker.slice(0,2))}</span>`}</div></div></header>
+   <div class="pad">
+    <div class="sec"><div class="sech"><h2>${esc(R.periodo)} · reportado frente a lo esperado</h2><span class="src">Reportado: SEC EDGAR · Estimaciones: ${esc(estSrc.length?[...new Set(estSrc.map(s=>/^manual/.test(s)?"manual":"Finnhub"))].join(" y "):"ninguna guardada")}</span></div>
+     <table class="rt"><thead><tr><th>${esc(R.periodo)}</th><th>Reportado</th><th>Estimación</th><th>Diferencia</th><th>Resultado</th><th>Interanual</th></tr></thead>
+      <tbody>${rows.map(tr).join("")}
+      ${Gi.length?`<tr class="gh"><td colspan="6">Guía para ${esc(guiaPeriodo(R,nextQ))} · punto medio de la horquilla</td></tr>${Gi.map(gtr).join("")}`:""}</tbody></table>
+     ${R.avisos&&R.avisos.length?`<div class="warns"><ul>${R.avisos.map(a=>`<li>${esc(a)}</li>`).join("")}</ul></div>`:""}
+    </div>
+    ${keysHtml(R)}
+    <div class="sec"><div class="sech"><h2>La acción en los últimos 12 meses</h2><span class="src">${esc(C.fuente||"")}${C.fecha_precio?` · hasta el ${esc(fecha(C.fecha_precio))}`:""}</span></div>
+     <div class="mkt"><div class="chart">${priceSVG(C.serie,R.fecha_resultados,REP._brand)}</div>
+      <div class="stats">
+       <div class="stat"><div class="k">Capitalización</div><div class="v">${big(C.capitalizacion)}</div><div class="s">a ${C.precio?nf(C.precio,2)+" $":"–"} por acción</div></div>
+       <div class="stat"><div class="k">Mínimo 12 meses</div><div class="v">${fin(C.minimo_12m)?nf(C.minimo_12m,0)+" $":"–"}</div></div>
+       <div class="stat"><div class="k">Máximo 12 meses</div><div class="v">${fin(C.maximo_12m)?nf(C.maximo_12m,0)+" $":"–"}</div></div>
+       <div class="stat"><div class="k">Variación 12 meses</div><div class="v ${fin(C.variacion_12m_pct)?(C.variacion_12m_pct>=0?"up":"dn"):""}">${pct(C.variacion_12m_pct,0)}</div></div>
+      </div></div>
+    </div>
+    ${R.cita?`<div class="quote" lang="en"><p>${esc(R.cita.cita)}</p><div class="who" lang="es">${esc(R.cita.quien||"Dirección de la compañía")} · nota de resultados (texto original)</div></div>`:""}
+   </div>
+   <div class="react"><div class="t">Reacción de la acción tras los resultados<small>${X.fecha_antes?`Cierre del ${esc(fecha(X.fecha_antes))} (${nf(X.cierre_antes,2)} $) frente al ${X.fecha_despues?esc(fecha(X.fecha_despues))+` (${nf(X.cierre_despues,2)} $)`:"siguiente cierre"}${X.provisional&&X.fecha_despues?" · provisional, cotización de Finnhub":""}`:"Sin cotizaciones para calcularla"}</small></div>
+     <div class="v ${fin(X.variacion_pct)?(X.variacion_pct>=0?"up":"dn"):""}">${reac}</div></div>
+  </section>`;
+}
+function keysHtml(R){
+  const row=c=>R.tabla.find(r=>r.concepto===c)||{}, rev=row("ingresos"), op=row("beneficio_operativo");
+  const M=((R.margenes||{}).trimestral)||[], cur=M.find(m=>m.periodo===R.periodo), ya=M.find(m=>m.periodo===yaLabel(R.periodo));
+  const S=R.estrella, ls=S&&S.serie&&S.serie.at(-1), g=(R.guia&&R.guia.items||[]).find(x=>x.concepto==="ingresos");
+  const k=[];
+  if(fin(rev.interanual_pct)) k.push(["Ventas",pct(rev.interanual_pct,1),`interanual · ${M$((rev.reportado||{}).valor)}`]);
+  if(cur) k.push(["Margen EBIT",`${nf(cur.margen_pct,1)}%`,ya?`frente al ${nf(ya.margen_pct,1)}% del ${ya.periodo} (${pct(cur.margen_pct-ya.margen_pct,1).replace("%"," pp")})`:"del trimestre"]);
+  if(ls&&fin(ls.interanual_pct)) k.push([nice(S.nombre),pct(ls.interanual_pct,0),`run-rate ${big(ls.run_rate)}${fin(ls.margen_operativo_pct)?` · margen ${nf(ls.margen_operativo_pct,1)}%`:""}`]);
+  if(g) k.push([`Guía ventas`,fin(g.dif_pct)?pct(g.dif_pct,1):M$(g.medio),fin(g.dif_pct)?`${M$(g.medio)} frente a ${M$(g.estimado.valor)} esperados`:`punto medio de ${M$(g.min)} – ${M$(g.max)}`]);
+  else { const e=row("bpa_diluido"); if(fin(e.interanual_pct)) k.push(["BPA diluido",pct(e.interanual_pct,1),`interanual · ${usd((e.reportado||{}).valor)}`]); }
+  if(!k.length) return "";
+  return `<div class="keys">${k.slice(0,4).map(([a,b,c])=>`<div class="key"><div class="k">${esc(a)}</div><div class="v ${/^−/.test(b)?"dn":/^\+/.test(b)?"up":""}">${esc(b)}</div><div class="s">${esc(c)}</div></div>`).join("")}</div>`;
+}
+function nextLabel(l){ const m=/^(\d)T(\d{2})$/.exec(l||""); if(!m) return ""; let q=+m[1]+1, y=+m[2]; if(q>4){q=1;y++;} return `${q}T${String(y%100).padStart(2,"0")}`; }
+function guiaPeriodo(R,nq){ const t=((R.guia&&R.guia.titulo)||"")+" "+((R.guia&&R.guia.texto)||[]).join(" ");
+  if(/full[- ]year|fiscal year|for 20\d\d|20\d\d (adjusted|guidance|outlook)|annual/i.test(t)&&!/quarter/i.test(t)) return "el ejercicio";
+  return nq||"el próximo trimestre"; }
+
+function page2(R){
+  const D=R.desglose||{}, S=R.estrella, M=(R.margenes||{}).trimestral||[], Lc=R.lectura;
+  const prods=(D.producto&&D.producto.length?D.producto:D.segmento)||[];
+  const mxg=Math.max(5,...prods.map(p=>Math.abs(p.interanual_pct||0)));
+  const sName=S?S.nombre:"";
+  const hb=p=>`<div class="hb${p.nombre===sName?" star":""}"><div class="n">${esc(nice(p.nombre))}<small>${M$(p.valor)}${fin(p.peso_pct)?` · ${nf(p.peso_pct,0)}% del total`:""}</small></div>
+     <div class="track"><div class="fill${(p.interanual_pct||0)<0?" neg":""}" style="width:${fin(p.interanual_pct)?Math.max(1.5,Math.abs(p.interanual_pct)/mxg*100):0}%"></div></div><div class="p ${fin(p.interanual_pct)?(p.interanual_pct>=0?"up":"dn"):""}">${pct(p.interanual_pct,0)}</div></div>`;
+  const segs=(D.segmento||[]).filter(s=>(fin(s.margen_operativo_pct)||fin(s.interanual_pct))&&(s.peso_pct==null||s.peso_pct>=1));
+  const ser=S&&S.serie||[], lastS=ser.at(-1);
+  const curIdx=M.length-1, yaIdx=M.findIndex(m=>m.periodo===yaLabel(R.periodo));
+  const lect=()=>{ if(!Lc) return `<div class="empty">Aún no hay lectura de este trimestre. Se rellena sola cuando actualizas tu resumen de la presentación (Directiva → «Lo que cuenta la compañía») o cuando llega la propuesta de revisión tras resultados.</div>`;
+    const cols=[["dir","Hacia dónde va","up"],["ret","Retos","dn"],["guia","Guía","br"],["cap","Capital",""]].filter(([k])=>(Lc[k]||[]).length);
+    return `<p class="lead"><span class="tag ${Lc.estado==="propuesta"?"prop":""}">${Lc.estado==="propuesta"?"Propuesta pendiente de revisar":"Tu resumen"}</span> ${esc(Lc.fuente||"")}${Lc.date?` · ${esc(Lc.date)}`:""}</p>
+      <div class="cols4">${cols.map(([k,t,c])=>`<div><h3 class="${c}"><i></i>${t}</h3><ul>${Lc[k].slice(0,4).map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`).join("")}</div>`; };
+  const fuentes=[];
+  const add=(t,u)=>{ if(u&&!fuentes.some(f=>f.u===u)) fuentes.push({t,u}); };
+  add(`Nota de resultados ${R.periodo} (8-K, Exhibit 99.1), ${fecha(R.fecha_resultados)}`,R.informe&&R.informe.url_nota);
+  add("Índice del 8-K en SEC EDGAR",R.informe&&R.informe.url_8k);
+  if(R.informe&&R.informe.periodico) add(`${R.informe.periodico.formulario} del ${fecha(R.informe.periodico.fecha_presentacion)} (cifras XBRL)`,R.informe.periodico.url_indice);
+  R.tabla.forEach(r=>{ if(r.reportado&&r.reportado.url) add(`${r.nombre}: ${r.reportado.fuente}`,r.reportado.url); });
+  if(Lc&&Lc.url) add(Lc.doc||"Documento de la presentación",Lc.url);
+  return `<section class="sheet flow">
+   <header class="mast slim"><div class="row"><div><div class="kicker">${esc(R.nombre)} · ${esc(R.ticker)} · ${esc(R.periodo)}</div><h1>El trimestre por dentro</h1></div></div></header>
+   <div class="pad">
+    <div class="g2">
+     <div class="sec"><div class="sech"><h2>Crecimiento por negocio</h2><span class="src">interanual · ${esc(R.periodo)}</span></div>
+      ${prods.length?`<div class="hbars">${prods.slice(0,9).map(hb).join("")}</div>`:`<div class="empty">${R.estado==="provisional"?"El desglose por negocio llega con el 10-Q.":"La compañía no publica desglose por negocio en XBRL."}</div>`}
+      ${segs.length&&D.producto&&D.producto.length?`<table class="minit"><thead><tr><th>Segmento</th><th>Ingresos</th><th>Interanual</th><th>Margen op.</th></tr></thead><tbody>${segs.map(s=>`<tr><td>${esc(nice(s.nombre))}</td><td>${M$(s.valor)}</td><td class="${(s.interanual_pct||0)>=0?"up":"dn"}">${pct(s.interanual_pct,0)}</td><td>${fin(s.margen_operativo_pct)?nf(s.margen_operativo_pct,1)+"%":"–"}${fin(s.margen_operativo_ya_pct)?` <span style="color:#76828E">(${nf(s.margen_operativo_ya_pct,1)}%)</span>`:""}</td></tr>`).join("")}</tbody></table><p class="lead" style="font-size:9px">Entre paréntesis, el margen operativo del mismo trimestre del año anterior.</p>`:""}
+     </div>
+     <div class="sec"><div class="sech"><h2>Margen operativo (EBIT)</h2><span class="src">trimestral · SEC EDGAR</span></div>
+      ${M.length?barsSVG(M,{val:m=>m.margen_pct,label:m=>m.periodo,fmt:v=>nf(v,1),color:REP._brand,hiIdx:[curIdx,yaIdx].filter(i=>i>=0),h:175,w:300,aria:"Margen operativo trimestral"})+
+        `<p class="lead">${esc(R.periodo)}: <b>${nf(M[curIdx].margen_pct,1)}%</b>${yaIdx>=0?` frente al ${nf(M[yaIdx].margen_pct,1)}% del ${esc(M[yaIdx].periodo)} (${pct(M[curIdx].margen_pct-M[yaIdx].margen_pct,1).replace("%"," pp")})`:""}.</p>`:`<div class="empty">Sin datos de margen.</div>`}
+     </div>
+    </div>
+    ${S&&ser.length>=2?`<div class="sec"><div class="sech"><h2>${esc(nice(S.nombre))}: ingresos anualizados (run-rate)</h2><span class="src">ingresos del trimestre × 4 · miles de M$ · SEC EDGAR (XBRL por segmentos)${S.elegido==="automático"?" · segmento que más crece":""}</span></div>
+      ${barsSVG(ser,{val:p=>p.run_rate/1e9,label:p=>p.periodo,fmt:v=>nf(v,v>=100?0:1),color:REP._brand,hiIdx:[ser.length-1],h:235,aria:"Run-rate trimestral del segmento"})}
+      <p class="lead">${esc(R.periodo)}: <b>${big(lastS.run_rate)}</b> anualizados${fin(lastS.interanual_pct)?`, crecimiento interanual del <b>${pct(lastS.interanual_pct,0).replace("+","")}</b>`:""}${fin(lastS.margen_operativo_pct)?` y margen operativo del <b>${nf(lastS.margen_operativo_pct,1)}%</b>`:""}${ser.length>=5&&fin(ser[0].run_rate)?`. Hace ${ser.length-1} trimestres era ${big(ser[0].run_rate)} (${pct((lastS.run_rate/ser[0].run_rate-1)*100,0)}).`:"."}</p></div>`:""}
+   </div>
+   <footer class="foot"><div>${esc(R.nombre)} · ${esc(R.periodo)} · página 2 de 3 · Segmentos y márgenes: SEC EDGAR (XBRL). ${R.estado==="provisional"?"El desglose por segmentos llega con el 10-Q.":""}</div></footer>
+  </section>
+  <section class="sheet flow">
+   <header class="mast slim"><div class="row"><div><div class="kicker">${esc(R.nombre)} · ${esc(R.ticker)} · ${esc(R.periodo)}</div><h1>Lectura del trimestre y guía</h1></div></div></header>
+   <div class="pad">
+    <div class="sec"><div class="sech"><h2>Qué cuenta la directiva</h2><span class="src">${Lc&&Lc.estado==="propuesta"?"pendiente de tu revisión":"tu resumen de la presentación"}</span></div>${lect()}</div>
+    ${destac(R).length>=2?`<div class="sec"><div class="sech"><h2>Lo destacado según la compañía</h2><span class="src">texto original de la nota</span></div><ul class="gtext" lang="en">${destac(R).slice(0,5).map(t=>`<li>${esc(t)}</li>`).join("")}</ul></div>`:""}
+    ${R.guia&&R.guia.texto&&R.guia.texto.length?`<div class="sec"><div class="sech"><h2>Guía de la compañía</h2><span class="src">texto original de la nota</span></div><ul class="gtext" lang="en">${R.guia.texto.slice(0,5).map(t=>`<li>${esc(String(t).replace(/^[•·\-–\s]+/,""))}</li>`).join("")}</ul></div>`:""}
+   </div>
+   <footer class="foot">
+    <div><b>Fuentes</b> · Cifras financieras: SEC EDGAR (XBRL; el día de resultados, la nota del 8-K). Estimaciones: Finnhub (consenso) y las introducidas a mano. Cotización: ${esc((R.cotizacion||{}).fuente||"Twelve Data")} y Finnhub. Generado por el Valorador${R._gen?` el ${esc(fecha(R._gen))}`:""}.</div>
+    <ol>${fuentes.slice(0,10).map(f=>`<li><a href="${esc(f.u)}">${esc(f.t)}</a></li>`).join("")}</ol>
+   </footer>
+  </section>`;
+}
+function destac(R){ const T=(R.destacados&&R.destacados.texto)||[];
+  return T.map(t=>String(t).replace(/^[•·\-–\s]+/,"").trim()).filter(t=>t.length>=40&&!/following table|\$\s?[\d,.]+\s+\$|\d\s?%\s+\d|in millions|year over year \d/i.test(t)); }
+function yaLabel(l){ const m=/^(\d)T(\d{2})$/.exec(l||""); return m?`${m[1]}T${String(+m[2]-1).padStart(2,"0")}`:""; }
+function nice(n){ return String(n||"").replace(/\s*\(Segment\)|\s+Segment$|\s+Member$/i,"").replace(/Amazon Web Services/,"AWS"); }
+
+/* ================= panel de estimaciones ================= */
+async function panelHtml(){
+  let d=null; try{ d=await getJSON(`data/${CO.ticker}.json`); }catch(e){}
+  let man={}; try{ man=await getJSON(`manual/${CO.ticker}.json`); }catch(e){}
+  const E=d&&d.resultados_previstos&&d.resultados_previstos.proximos;
+  const latest=IDX&&IDX.informes&&IDX.informes[0];
+  const per=nextLabel(latest?latest.periodo:"")||"";
+  const blk=man.estimaciones_resultados, items=Array.isArray(blk)?blk:blk?[blk]:[];
+  const cur=items.find(x=>String(x.periodo||"").toUpperCase()===per)||{};
+  const segNames=[...new Set(((REP&&REP.desglose&&((REP.desglose.producto||[]).concat(REP.desglose.segmento||[])))||[]).map(s=>s.nombre))];
+  const segVals=cur.segmentos_M||{};
+  const clave=(items.find(x=>x.segmento_clave)||{}).segmento_clave||"";
+  const inp=(id,lab,val,hint,type="number",step="any")=>`<label>${lab}<input id="${id}" type="${type}" step="${step}" value="${val==null?"":esc(val)}">${hint?`<span class="hint">${hint}</span>`:""}</label>`;
+  return `<section class="panel noprint" aria-labelledby="ph"><h2 id="ph">Estimaciones para el próximo informe</h2>
+   <p>Finnhub da gratis el consenso de ingresos y BPA, y se guarda solo los 30 días previos a los resultados. Aquí añades lo que no da gratis (beneficio operativo, segmentos y la guía esperada), por ejemplo desde Investing. Cifras en millones de dólares; el BPA en dólares por acción.</p>
+   ${E&&E.fecha?`<div class="ref">Próximos resultados: <b>${esc(fechaLarga(E.fecha))}</b>${E.hora?` · ${esc(E.hora)}`:""} · consenso de Finnhub hoy: ingresos <b>${M$(E.ingresos_estimados)}</b>, BPA <b>${usd(E.bpa_estimado)}</b>.</div>`:""}
+   <div class="form">
+    ${inp("f_per","Trimestre",cur.periodo||per,"Como lo escribe la web, p. ej. "+(per||"4T26"),"text")}
+    ${inp("f_src","Fuente",cur.fuente||"Investing","","text")}
+    ${inp("f_rev","Ingresos (M$)",cur.ingresos_M,"Vacío = consenso de Finnhub")}
+    ${inp("f_eps","BPA ($)",cur.bpa,"Vacío = consenso de Finnhub")}
+    ${inp("f_op","Beneficio operativo (M$)",cur.beneficio_operativo_M)}
+    ${inp("f_grev","Guía esperada: ventas (M$)",cur.guia_ingresos_M,"Del trimestre siguiente")}
+    ${inp("f_gop","Guía esperada: EBIT (M$)",cur.guia_beneficio_operativo_M)}
+    ${segNames.map((n,i)=>inp("f_seg"+i,`${esc(nice(n))} (M$)`,segVals[n],"",)).join("")}
+    <label>Segmento del run-rate<select id="f_clave"><option value="">Automático (el que más crece)</option>${segNames.map(n=>`<option${n===clave?" selected":""}>${esc(n)}</option>`).join("")}</select></label>
+   </div>
+   <div class="actions"><button type="button" id="btnEst">${ghToken()?"Guardar en GitHub":"Copiar JSON"}</button>${ghToken()?"":`<a class="out" href="${repoUrl()}/edit/main/manual/${CO.ticker}.json" target="_blank" rel="noopener">Abrir manual/${CO.ticker}.json en GitHub</a>`}<span class="out" id="estMsg" role="status"></span></div>
+   <script type="application/json" id="segNames">${JSON.stringify(segNames).replace(/</g,"\\u003c")}<\/script>
+  </section>`;
+}
+function readForm(){
+  const num=id=>{ const v=$(id)&&$(id).value.trim().replace(",","."); return v===""?null:Number(v); };
+  const names=JSON.parse(($("segNames")||{}).textContent||"[]"); const seg={};
+  names.forEach((n,i)=>{ const v=num("f_seg"+i); if(v!=null&&isFinite(v)) seg[n]=v; });
+  const d=new Date();
+  return {periodo:$("f_per").value.trim().toUpperCase(),fuente:$("f_src").value.trim(),fecha:`${d.getDate()}-${MES[d.getMonth()]}-${d.getFullYear()}`,
+    ingresos_M:num("f_rev"),bpa:num("f_eps"),beneficio_operativo_M:num("f_op"),segmentos_M:seg,
+    guia_ingresos_M:num("f_grev"),guia_beneficio_operativo_M:num("f_gop"),segmento_clave:$("f_clave").value};
+}
+async function saveEst(){
+  const it=readForm(), out=$("estMsg");
+  if(!/^\dT\d{2}$/.test(it.periodo)){ out.textContent="El trimestre debe tener la forma 4T26."; return; }
+  if(!ghToken()){ try{ await navigator.clipboard.writeText(JSON.stringify({estimaciones_resultados:[it]},null,1)); out.textContent="Copiado. Pégalo en manual/"+CO.ticker+".json (dentro del objeto principal)."; }catch(e){ out.textContent=JSON.stringify(it); } return; }
+  const R=ghRepo(), path=`manual/${CO.ticker}.json`, url=`/repos/${R.o}/${R.r}/contents/${path}`;
+  out.textContent="Guardando…";
+  const g=await gh(url+"?ref=main"); let obj={}, sha;
+  if(g.ok&&g.j&&g.j.content){ sha=g.j.sha; try{ obj=JSON.parse(new TextDecoder().decode(Uint8Array.from(atob(g.j.content.replace(/\s/g,"")),c=>c.charCodeAt(0)))); }catch(e){} }
+  else if(g.status!==404){ out.textContent=errTxt(g.status,g.j); return; }
+  const prev=obj.estimaciones_resultados, list=(Array.isArray(prev)?prev:prev?[prev]:[]).filter(x=>String(x.periodo||"").toUpperCase()!==it.periodo);
+  list.push(it); obj.estimaciones_resultados=list.slice(-8);
+  const body=new TextEncoder().encode(JSON.stringify(obj,null,1)+"\n"); let bin=""; body.forEach(b=>bin+=String.fromCharCode(b));
+  const p=await gh(url,{method:"PUT",body:JSON.stringify({message:`Estimaciones ${CO.ticker} ${it.periodo} desde la web`,content:btoa(bin),sha,branch:"main"})});
+  out.textContent=p.ok?"Guardado en GitHub. El informe las usará cuando la compañía presente resultados.":errTxt(p.status,p.j);
+}
+function errTxt(st,j){ return st===401?"GitHub no acepta el token (caducado o mal copiado).":st===403?"El token no tiene el permiso necesario en este repositorio.":st===404?"El token no tiene acceso a este repositorio.":st===409?"Hay un cambio más reciente: recarga y vuelve a guardar.":"Error de GitHub ("+st+"): "+((j&&j.message)||""); }
+
+/* ================= botón «Actualizar resultados» ================= */
+async function runUpdate(){
+  const msg=$("msg"), R=ghRepo(), wf=`${repoUrl()}/actions/workflows/actualizar-datos.yml`;
+  if(!ghToken()){ msg.innerHTML=`Para lanzarlo desde aquí, guarda tu token en <a href="valorador.html">el valorador</a> (Más → Mi análisis y guardado) con el permiso <b>Actions: Read and write</b> además de Contents. Mientras tanto: abre <a href="${wf}" target="_blank" rel="noopener">el workflow «Actualizar datos»</a> → <b>Run workflow</b> y escribe <b>${esc(CO.ticker)}</b> en «Tickers».`; return; }
+  $("btnRun").disabled=true; msg.textContent=`Lanzando la actualización de ${CO.ticker}…`;
+  const since=new Date(Date.now()-60e3).toISOString();
+  const r=await gh(`/repos/${R.o}/${R.r}/actions/workflows/actualizar-datos.yml/dispatches`,{method:"POST",body:JSON.stringify({ref:"main",inputs:{tickers:CO.ticker}})});
+  if(!(r.ok||r.status===204)){ $("btnRun").disabled=false;
+    msg.innerHTML=r.status===403?`El token no puede lanzar workflows. En GitHub → Settings → Developer settings → <a href="https://github.com/settings/personal-access-tokens" target="_blank" rel="noopener">tu token «Valorador»</a> → Edit → Permissions: añade <b>Actions: Read and write</b> y guarda. O lánzalo a mano desde <a href="${wf}" target="_blank" rel="noopener">el workflow</a>.`:esc(errTxt(r.status,r.j)); return; }
+  msg.innerHTML=`<b>En marcha.</b> Descarga la SEC, el precio y rehace el informe y su PDF: tarda 3–5 minutos.`;
+  let tries=0; const poll=async()=>{ tries++;
+    const q=await gh(`/repos/${R.o}/${R.r}/actions/workflows/actualizar-datos.yml/runs?event=workflow_dispatch&per_page=1&created=>${since.slice(0,19)}Z`);
+    const run=q.ok&&q.j&&q.j.workflow_runs&&q.j.workflow_runs[0];
+    if(run&&run.status==="completed"){ $("btnRun").disabled=false;
+      msg.innerHTML=run.conclusion==="success"?`<b>Listo.</b> La web se publica en un minuto: <a href="#" onclick="location.reload();return false">recarga la página</a>.`:`La actualización terminó con error. <a href="${run.html_url}" target="_blank" rel="noopener">Ver el detalle</a>.`; return; }
+    if(run) msg.innerHTML=`<b>En marcha</b> (${run.status==="queued"?"en cola":"descargando y generando"}) · <a href="${run.html_url}" target="_blank" rel="noopener">ver en GitHub</a>`;
+    if(tries<45) setTimeout(poll,20000); else $("btnRun").disabled=false; };
+  setTimeout(poll,8000);
+}
+
+/* ================= carga ================= */
+function fitZoom(){ if(PDF) return; const w=document.documentElement.clientWidth-16, s=Math.min(1,w/794);
+  document.querySelectorAll(".sheet").forEach(el=>el.style.zoom=s<1?String(s):""); }
+async function load(){
+  try{ COS=(await getJSON("companies.json")).companies; }catch(e){ $("sheets").innerHTML=`<div class="loading">No se pudo cargar companies.json.</div>`; return; }
+  let t=(Q.get("t")||lsGet("valorador.resultados.t")||"").toUpperCase();
+  if(!COS.some(c=>c.ticker===t)) t=COS[0].ticker;
+  CO=COS.find(c=>c.ticker===t);
+  $("selT").innerHTML=COS.map(c=>`<option value="${esc(c.ticker)}"${c.ticker===t?" selected":""}>${esc(c.nombre)} (${esc(c.ticker)})</option>`).join("");
+  $("back").href=`valorador.html#overview`; lsSet("valorador.resultados.t",t);
+  try{ IDX=await getJSON(`data/resultados/${t}/index.json`); }catch(e){ IDX=null; }
+  const list=(IDX&&IDX.informes)||[];
+  if(!list.length){ $("selP").hidden=true; $("sheets").innerHTML=`<div class="loading">Todavía no hay informe de resultados de ${esc(CO.nombre)}. Se genera en la próxima actualización (o pulsa «Actualizar resultados»).</div>`; window.__listo=true; return; }
+  let p=(Q.get("p")||"").toUpperCase(); if(!list.some(x=>x.periodo===p)) p=list[0].periodo;
+  $("selP").hidden=false; $("selP").innerHTML=list.map(x=>`<option value="${esc(x.periodo)}"${x.periodo===p?" selected":""}>${esc(x.periodo)} · ${esc(fecha(x.fecha_resultados))}${x.estado==="provisional"?" · provisional":""}</option>`).join("");
+  const it=list.find(x=>x.periodo===p);
+  REP=await getJSON(`data/resultados/${t}/${it.json}`);
+  REP._brand=/^#[0-9a-f]{6}$/i.test(REP.color||"")?REP.color:"#2a78d6";
+  REP._gen=new Date().toISOString().slice(0,10);
+  const root=document.documentElement.style; root.setProperty("--brand",REP._brand); root.setProperty("--onbrand",onColor(REP._brand)); root.setProperty("--brandsoft",hexA(REP._brand,.10));
+  document.title=`Resultados ${REP.periodo} · ${REP.nombre} (${REP.ticker})`;
+  const pdf=$("btnPdf"); if(it.pdf){ pdf.hidden=false; pdf.href=`data/resultados/${t}/${it.pdf}`; pdf.setAttribute("download",`Resultados ${REP.ticker} ${REP.periodo}.pdf`); } else pdf.hidden=true;
+  $("sheets").innerHTML=page1(REP)+page2(REP)+(PDF?"":await panelHtml());
+  fitZoom();
+  try{ await document.fonts.ready; }catch(e){}
+  window.__listo=true;
+}
+$("selT").addEventListener("change",e=>{ const u=new URL(location.href); u.searchParams.set("t",e.target.value); u.searchParams.delete("p"); location.href=u.toString(); });
+$("selP").addEventListener("change",e=>{ const u=new URL(location.href); u.searchParams.set("p",e.target.value); location.href=u.toString(); });
+$("btnPrint").addEventListener("click",()=>window.print());
+$("btnRun").addEventListener("click",runUpdate);
+document.addEventListener("click",e=>{ if(e.target.closest("#btnEst")) saveEst(); });
+window.addEventListener("resize",fitZoom);
+window.addEventListener("beforeprint",()=>document.querySelectorAll(".sheet").forEach(el=>el.style.zoom=""));
+window.addEventListener("afterprint",fitZoom);
+load().catch(e=>{ console.error(e); $("sheets").innerHTML=`<div class="loading">No se pudo cargar el informe: ${esc(e.message)}</div>`; window.__listo=true; });
+</script>
+</body>
+</html>

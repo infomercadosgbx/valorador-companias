@@ -833,6 +833,7 @@ body.report .seg{display:none}
         <div class="menu" id="moreMenu" role="menu" hidden>
           <button type="button" role="menuitem" id="btnEdit" aria-pressed="false">✎ Editar</button>
           <button type="button" role="menuitem" id="btnReport">⎙ Informe PDF</button>
+          <button type="button" role="menuitem" id="btnResults">▤ Informe de resultados</button>
           <button type="button" role="menuitem" id="btnData" aria-expanded="false">⚙ Mi análisis y guardado</button>
         </div></div>
     </div>
@@ -1321,7 +1322,7 @@ function ghBoxHtml(){ const R=ghRepo(); const t=ghToken();
   :`<p class="note" style="margin:0">Una sola vez: crea un token en GitHub con permiso solo sobre este repositorio y pégalo aquí. Se guarda únicamente en este navegador (no en la web ni en el repositorio).</p>
     <ol class="note" style="margin:4px 0;padding-left:18px"><li>Abre <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">GitHub → nuevo token (fine-grained)</a>. Nombre: «Valorador». Caducidad: la que prefieras (hasta 1 año).</li>
       <li><b>Repository access</b> → <i>Only select repositories</i> → <b>${esc(R?R.r:"valorador-companias")}</b>.</li>
-      <li><b>Permissions</b> → <b>Contents</b>: <i>Read and write</i>. Nada más. Pulsa <b>Generate token</b> y copia el código (empieza por github_pat_).</li></ol>
+      <li><b>Permissions</b> → <b>Contents</b>: <i>Read and write</i> y <b>Actions</b>: <i>Read and write</i> (esta última, para el botón «Actualizar resultados» del informe de resultados). Pulsa <b>Generate token</b> y copia el código (empieza por github_pat_).</li></ol>
     <div class="toolbar"><input type="password" id="ghTok" placeholder="github_pat_…" autocomplete="off" style="flex:1;min-width:220px"><button type="button" id="btnGhSaveTok" class="btn-acc">Conectar</button><span class="saved" id="ghMsg"></span></div>`; }
 function renderGhBox(){ const el=$("ghBox"); if(el) el.innerHTML=ghBoxHtml(); }
 async function ghTest(){ const R=ghRepo(), msg=$("ghMsg"); if(!R){ if(msg) msg.textContent="No se reconoce el repositorio."; return false; }
@@ -2707,7 +2708,7 @@ function qtrHtml(){
   const link=(u,t)=>u?`<a class="ext" href="${esc(u)}" target="_blank" rel="noopener noreferrer">${t}</a>`:"";
   const k8=q.k8&&q.k8.fecha_presentacion&&Math.abs(new Date(q.k8.fecha_presentacion)-new Date(q.src.periodo_fin))<75*864e5?q.k8:null;
   const nx=q.next&&q.next.fecha?`Próximos resultados: <b>${esc(fecha(q.next.fecha))}</b>${q.next.hora?" ("+esc(q.next.hora)+")":""}${fin(q.next.bpa_estimado)?` · BPA esperado ${nf(q.next.bpa_estimado,2)} $`:""}${fin(q.next.ingresos_estimados)?` · ingresos esperados ${big(q.next.ingresos_estimados/M6)}`:""}`:"";
-  return `<section class="card" style="--tc:var(--c1)"><h2>Resultados del ${esc(q.lab)} en un vistazo</h2>
+  return `<section class="card" style="--tc:var(--c1)"><div class="invhead"><h2>Resultados del ${esc(q.lab)} en un vistazo</h2><a class="note" href="resultados.html?t=${encodeURIComponent(cur._t)}" title="Informe de 2 páginas: reportado frente a estimaciones, guía, reacción en bolsa, segmentos y lectura del trimestre">Informe de resultados (PDF) →</a></div>
    <p class="sub">Frente al mismo trimestre del año anterior. SEC${q.sp?" y Finnhub":""}${k8?` · presentados el ${esc(fecha(k8.fecha_presentacion))}`:""}.</p>
    <div class="official" style="grid-template-columns:repeat(${4+!!q.sp+fin(rdm)===5?5:4+!!q.sp+fin(rdm)===6?3:4},minmax(0,1fr))">
     ${it("Ingresos",big(T.rev/M6),[yoy(gr),fin(grP)?`<span class="note">${q.pq}: ${pct(grP,0)}</span>`:""].filter(Boolean).join(" · "),q.pt.rev)}
@@ -3866,6 +3867,7 @@ document.addEventListener("click",e=>{
   if(e.target.closest("[data-cclear]")){ if(confirmLite("¿Vaciar toda la cartera de este navegador?")){ carSave({posiciones:[],efectivo:0}); CEDIT=null; renderWatch(); } return; }
   const wo=e.target.closest("[data-wopen]"); if(wo){ exitWatch(); selectCo(wo.dataset.wopen); goTab("overview"); window.scrollTo(0,0); return; }
   const wsh=e.target.closest("[data-wsort]"); if(wsh){ const k=wsh.dataset.wsort; if(WSORT===k) WASC=!WASC; else { WSORT=k; WASC=["name","eDays","toBuy","age"].includes(k); } lsSet("valorador.wsort",WSORT); lsSet("valorador.wasc",WASC?"1":"0"); renderWatch(); return; }
+  if(e.target.closest("#btnResults")){ location.href="resultados.html?t="+encodeURIComponent(cur._t); return; }
   if(e.target.closest("#btnReport")){ if(WATCH) exitWatch(); REPORT=true; renderReport(); return; }
   if(e.target.closest("#btnPrint")){ window.print(); return; }
   if(e.target.closest("#btnReportExit")){ exitReport(); return; }

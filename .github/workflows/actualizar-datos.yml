@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
     inputs:
       tickers:
-        description: "Tickers a actualizar separados por espacios (vacío = todos)"
+        description: "Tickers a actualizar separados por espacios (vacío = todos). Úsalo el día de resultados con el ticker de la compañía."
         required: false
         default: ""
 
@@ -50,12 +50,26 @@ jobs:
           if [[ ! "$TICKERS" =~ ^[A-Za-z0-9.\ -]*$ ]]; then echo "Tickers no válidos: $TICKERS"; exit 1; fi
           python -m fetcher.main --report "$RUNNER_TEMP/informe.md" ${TICKERS:+--only $TICKERS}
 
+      - name: PDF de los informes de resultados
+        continue-on-error: true
+        run: |
+          set +e
+          python scripts/pdf_resultados.py --pendientes
+          rc=$?
+          set -e
+          if [ "$rc" = "0" ]; then exit 0; fi
+          pip install --quiet "playwright==1.64.1"
+          command -v google-chrome >/dev/null || python -m playwright install --with-deps chromium > /dev/null
+          python scripts/pdf_resultados.py
+
       - name: Preparar avisos (zona de compra, resultados, compras de directivos…)
         id: avisos
         continue-on-error: true
         run: python -m fetcher.alerts --out "$RUNNER_TEMP/avisos.md"
 
       - name: Commit si algo cambió
+        env:
+          TICKERS: ${{ inputs.tickers }}
         run: |
           git config user.name "valorador-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -64,7 +78,8 @@ jobs:
             echo "Sin cambios en los datos."
             exit 0
           fi
-          git commit -m "datos: actualización $(date -u +%Y-%m-%d)"
+          if [ -n "$TICKERS" ]; then msg="datos: $TICKERS $(date -u +%Y-%m-%d)"; else msg="datos: actualización $(date -u +%Y-%m-%d)"; fi
+          git commit -m "$msg"
           git pull --rebase --quiet
           git push
 
