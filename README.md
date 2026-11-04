@@ -77,6 +77,42 @@ Cuando una compañía presenta resultados, una tarea programada de Claude (cada 
 - Te llega también un aviso por email («Propuesta de actualización de …»).
 - `propuestas/_estado.json` guarda el último 8-K de resultados revisado por compañía, para no repetir propuestas.
 
+## Informe de resultados (PDF por presentación)
+
+Cada vez que una compañía presenta resultados se genera un informe de 3 páginas A4 en `resultados.html` y su PDF en `data/resultados/<TICKER>/<periodo>.pdf`:
+
+1. **Resultados frente a estimaciones.** Ingresos, segmento clave, beneficio operativo, beneficio neto y BPA: reportado, estimado, diferencia, *Beat/Miss* e interanual. Debajo, la guía para el siguiente periodo frente a lo esperado, cuatro claves del trimestre, la cotización de 12 meses (capitalización, mínimo, máximo), la cita de la dirección y la reacción en bolsa.
+2. **El trimestre por dentro.** Crecimiento interanual por línea de negocio, márgenes por segmento, margen operativo de los últimos 12 trimestres e ingresos anualizados (*run-rate*) del segmento que más crece.
+3. **Lectura del trimestre y guía.** Tu resumen de la presentación (Directiva → `mgmt.call`) o, si aún no lo has revisado, la propuesta pendiente; lo destacado y la guía en el texto original de la nota; fuentes con enlace.
+
+**El día de resultados**, en la web: *Más → Informe de resultados* (o el enlace «Informe de resultados (PDF)» del resumen del último trimestre) → **⟳ Actualizar resultados**. Lanza el Action solo para esa compañía (SEC, precio, informe y PDF) y avisa cuando termina (3–5 minutos). El token guardado en el navegador necesita, además de *Contents*, el permiso **Actions: Read and write**. Sin token, el botón explica cómo lanzarlo a mano: *Actions → Actualizar datos → Run workflow* con el ticker en «Tickers». Si no pulsas nada, la actualización nocturna lo genera igualmente.
+
+De dónde sale cada cifra:
+
+| Bloque | Fuente |
+|---|---|
+| Cifras del trimestre | XBRL del 10-Q/10-K. El día de resultados aún no hay 10-Q: se leen las tablas de la nota (8-K, Exhibit 99.1) y el informe sale marcado **provisional**. Cuando llega el 10-Q (Amazon al día siguiente; Broadcom, 1–2 semanas después), la actualización nocturna lo sustituye por las cifras definitivas y rehace el PDF. |
+| Segmentos y *run-rate* | XBRL con dimensiones. La primera vez se leen unos 14 informes (≈4 años) y se guardan en `data/resultados/<T>/_segmentos.json`; después se añade cada trimestre nuevo. |
+| Estimaciones de ingresos y BPA | Finnhub (gratis). Como Finnhub solo enseña el próximo trimestre, cada noche de los 30 días previos se guarda una foto del consenso en `data/estimaciones/<T>/<fecha>.json` (con sus revisiones). |
+| Estimaciones de EBIT, segmentos y guía | No hay fuente gratuita: se escriben a mano en `manual/<T>.json` → `estimaciones_resultados` (desde la propia página del informe, panel «Estimaciones para el próximo informe», con *Guardar en GitHub*). Lo manual manda sobre Finnhub. |
+| BPA ajustado | Si el consenso de Finnhub está en BPA ajustado (non-GAAP) y difiere del contable, el *Beat/Miss* se calcula en la base del consenso y la tabla muestra los dos. |
+| Guía | Horquillas leídas del texto de la nota; se compara su punto medio con tu estimación o, para las ventas, con el consenso del trimestre siguiente guardado la primera vez que se genera el informe. |
+| Reacción en bolsa | Cierre del día de resultados frente al siguiente (si presentan tras el cierre) o del día anterior frente al de resultados (antes de la apertura), con el histórico de Twelve Data. Hasta que existe ese cierre, se usa la cotización de Finnhub y se marca provisional. |
+
+Formato de `estimaciones_resultados` (cifras en millones de dólares; BPA en $/acción; lo que no tengas, `null`):
+
+```json
+"estimaciones_resultados": [
+  {"periodo": "4T26", "fuente": "Investing", "fecha": "1-feb-2027",
+   "ingresos_M": null, "bpa": null, "beneficio_operativo_M": 33100,
+   "segmentos_M": {"Amazon Web Services Segment": 49800},
+   "guia_ingresos_M": 262000, "guia_beneficio_operativo_M": null,
+   "segmento_clave": ""}
+]
+```
+
+El PDF solo se regenera si el informe cambia (huella en `data/resultados/<T>/index.json`), así que no se acumulan PDF repetidos.
+
 ## La web
 
 `valorador.html` carga `companies.json` y, para cada compañía, `data/<TICKER>.json` (cifras de la SEC y cotización), `analysis/<TICKER>.json` (tu criterio) y `manual/<TICKER>.json` (precios objetivo). No guarda nada en ningún servidor.
@@ -110,7 +146,10 @@ Cuando una compañía presenta resultados, una tarea programada de Claude (cada 
 | `data/index.json` | Resumen de todas las compañías para la web | Solo el Action |
 | `analysis/<TICKER>.json` | Tus supuestos y textos: DCF, scorecard, veredicto, directiva, MOAT, riesgos, última presentación de resultados (`mgmt.call`) y series por segmento que la SEC no publica (`fin_manual`) | Tú, versionado en git |
 | `analysis/_plantilla.json` | Análisis en blanco para compañías nuevas | — |
-| `manual/<TICKER>.json` | Consenso de precios objetivo introducido a mano (la web lo marca «manual») | Tú |
+| `manual/<TICKER>.json` | Consenso de precios objetivo y estimaciones de resultados introducidos a mano (la web lo marca «manual») | Tú |
+| `data/resultados/<TICKER>/` | Informe de resultados de cada presentación (JSON y PDF) e histórico de segmentos | Solo el Action |
+| `data/estimaciones/<TICKER>/` | Foto del consenso de Finnhub antes de cada presentación | Solo el Action |
+| `resultados.html` | El informe de resultados (pantalla, impresión y PDF) | — |
 | `fetcher/` | Código Python (solo biblioteca estándar) | — |
 | `tests/` | Tests sintéticos de cada regla y tests de aceptación con fixtures reales | — |
 | `valorador.html` | La web | — |

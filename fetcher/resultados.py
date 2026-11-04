@@ -362,7 +362,12 @@ def star_series(H, member, upto_end, n=20):
         out.append({"periodo": v["periodo"], "periodo_fin": k, "valor": v["valor"], "run_rate": v["valor"] * 4,
                     "interanual_pct": _pct(v["valor"], ya["valor"] if ya else None),
                     "margen_operativo_pct": round(op["valor"] / v["valor"] * 100, 1) if op and v["valor"] else None})
-    return out[-n:]
+    out = out[-n:]
+    # solo el tramo continuo final: un trimestre que falta no puede verse como un salto en el gráfico
+    for i in range(len(out) - 1, 0, -1):
+        if (_d(out[i]["periodo_fin"]) - _d(out[i - 1]["periodo_fin"])).days > 100:
+            return out[i:]
+    return out
 
 
 # ---------------------------------------------------------------- guía
@@ -567,7 +572,7 @@ def build(root: Path, company: dict, rec: dict, analysis=None, manual=None, clie
             pg = prev_guia.get("ingresos") or {}
             if pg.get("estimado") and not pg["estimado"].get("manual"):
                 e = pg["estimado"]   # congelado la primera vez
-            elif E.get("ingresos_estimados") and _d(E.get("fecha")) and _d(E["fecha"]) > F:
+            elif E.get("ingresos_estimados") and _d(E.get("fecha")) and _d(E["fecha"]) > F and (date.today() - F).days <= 7:
                 e = {"valor": E["ingresos_estimados"], "fuente": f"Finnhub · consenso del trimestre siguiente ({date.today().isoformat()})",
                      "url": "https://finnhub.io/docs/api/earnings-calendar"}
         if e is None and g["concepto"] in prev_guia and (prev_guia[g["concepto"]].get("estimado") or {}).get("valor"):

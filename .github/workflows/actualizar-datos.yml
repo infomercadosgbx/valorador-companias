@@ -58,7 +58,7 @@ jobs:
           rc=$?
           set -e
           if [ "$rc" = "0" ]; then exit 0; fi
-          pip install --quiet "playwright==1.48.2"
+          pip install --quiet "playwright==1.58.0"
           python -m playwright install --with-deps chromium > /dev/null
           python scripts/pdf_resultados.py
 
