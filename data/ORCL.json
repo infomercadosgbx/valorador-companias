@@ -8725,18 +8725,111 @@
   "deuda": {
    "nombre": "Deuda financiera",
    "unidad": "USD",
-   "asumido": true,
-   "historico": [],
    "ultimo": {
-    "valor": 0,
-    "fuente": "Asumido (sin deuda etiquetada en XBRL)",
-    "url": null,
-    "fecha_presentacion": null,
-    "etiqueta": null,
+    "valor": 125337000000,
+    "fuente": "SEC EDGAR · 10-Q (derivado)",
+    "url": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526389274/0001193125-26-389274-index.htm",
+    "fecha_presentacion": "2026-09-11",
+    "etiqueta": "us-gaap:LongTermNotesAndLoans + us-gaap:NotesPayableCurrent",
     "periodo_fin": "2026-08-31",
-    "asumido": true
+    "formulario": "10-Q",
+    "accn": "0001193125-26-389274",
+    "derivado": "Suma: LongTermNotesAndLoans + NotesPayableCurrent"
    },
+   "historico": [
+    {
+     "valor": 92568000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526277521/0001193125-26-277521-index.htm",
+     "fecha_presentacion": "2026-06-22",
+     "etiqueta": "us-gaap:LongTermNotesAndLoans + us-gaap:NotesPayableCurrent",
+     "periodo_fin": "2025-05-31",
+     "formulario": "10-K",
+     "accn": "0001193125-26-277521",
+     "derivado": "Suma: LongTermNotesAndLoans + NotesPayableCurrent"
+    },
+    {
+     "valor": 91315000000,
+     "fuente": "SEC EDGAR · 10-Q (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1341439/000119312525200095/0001193125-25-200095-index.htm",
+     "fecha_presentacion": "2025-09-10",
+     "etiqueta": "us-gaap:LongTermNotesAndLoans + us-gaap:NotesPayableCurrent",
+     "periodo_fin": "2025-08-31",
+     "formulario": "10-Q",
+     "accn": "0001193125-25-200095",
+     "derivado": "Suma: LongTermNotesAndLoans + NotesPayableCurrent"
+    },
+    {
+     "valor": 108075000000,
+     "fuente": "SEC EDGAR · 10-Q (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1341439/000119312525315925/0001193125-25-315925-index.htm",
+     "fecha_presentacion": "2025-12-11",
+     "etiqueta": "us-gaap:LongTermNotesAndLoans + us-gaap:NotesPayableCurrent",
+     "periodo_fin": "2025-11-30",
+     "formulario": "10-Q",
+     "accn": "0001193125-25-315925",
+     "derivado": "Suma: LongTermNotesAndLoans + NotesPayableCurrent"
+    },
+    {
+     "valor": 134605000000,
+     "fuente": "SEC EDGAR · 10-Q (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526101045/0001193125-26-101045-index.htm",
+     "fecha_presentacion": "2026-03-11",
+     "etiqueta": "us-gaap:LongTermNotesAndLoans + us-gaap:NotesPayableCurrent",
+     "periodo_fin": "2026-02-28",
+     "formulario": "10-Q",
+     "accn": "0001193125-26-101045",
+     "derivado": "Suma: LongTermNotesAndLoans + NotesPayableCurrent"
+    },
+    {
+     "valor": 129541000000,
+     "fuente": "SEC EDGAR · 10-Q (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526389274/0001193125-26-389274-index.htm",
+     "fecha_presentacion": "2026-09-11",
+     "etiqueta": "us-gaap:LongTermNotesAndLoans + us-gaap:NotesPayableCurrent",
+     "periodo_fin": "2026-05-31",
+     "formulario": "10-Q",
+     "accn": "0001193125-26-389274",
+     "derivado": "Suma: LongTermNotesAndLoans + NotesPayableCurrent"
+    },
+    {
+     "valor": 125337000000,
+     "fuente": "SEC EDGAR · 10-Q (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526389274/0001193125-26-389274-index.htm",
+     "fecha_presentacion": "2026-09-11",
+     "etiqueta": "us-gaap:LongTermNotesAndLoans + us-gaap:NotesPayableCurrent",
+     "periodo_fin": "2026-08-31",
+     "formulario": "10-Q",
+     "accn": "0001193125-26-389274",
+     "derivado": "Suma: LongTermNotesAndLoans + NotesPayableCurrent"
+    }
+   ],
+   "asumido": false,
    "anual": [
+    {
+     "valor": 71597000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1341439/000156459021033616/0001564590-21-033616-index.htm",
+     "fecha_presentacion": "2021-06-21",
+     "etiqueta": "us-gaap:LongTermNotesAndLoans + us-gaap:NotesPayableCurrent",
+     "periodo_fin": "2020-05-31",
+     "formulario": "10-K",
+     "accn": "0001564590-21-033616",
+     "derivado": "Suma: LongTermNotesAndLoans + NotesPayableCurrent",
+     "periodo": "2020"
+    },
+    {
+     "valor": 84245000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1341439/000156459022023675/0001564590-22-023675-index.htm",
+     "fecha_presentacion": "2022-06-21",
+     "etiqueta": "us-gaap:LongTermNotesAndLoans + us-gaap:NotesPayableCurrent",
+     "periodo_fin": "2021-05-31",
+     "formulario": "10-K",
+     "accn": "0001564590-22-023675",
+     "derivado": "Suma: LongTermNotesAndLoans + NotesPayableCurrent",
+     "periodo": "2021"
+    },
     {
      "valor": 0,
      "fuente": "SEC EDGAR · 10-K",
@@ -8747,6 +8840,54 @@
      "formulario": "10-K",
      "accn": "0001564590-22-023675",
      "periodo": "2022"
+    },
+    {
+     "valor": 90481000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1341439/000095017024075605/0000950170-24-075605-index.htm",
+     "fecha_presentacion": "2024-06-20",
+     "etiqueta": "us-gaap:LongTermNotesAndLoans + us-gaap:NotesPayableCurrent",
+     "periodo_fin": "2023-05-31",
+     "formulario": "10-K",
+     "accn": "0000950170-24-075605",
+     "derivado": "Suma: LongTermNotesAndLoans + NotesPayableCurrent",
+     "periodo": "2023"
+    },
+    {
+     "valor": 86869000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1341439/000095017025087926/0000950170-25-087926-index.htm",
+     "fecha_presentacion": "2025-06-18",
+     "etiqueta": "us-gaap:LongTermNotesAndLoans + us-gaap:NotesPayableCurrent",
+     "periodo_fin": "2024-05-31",
+     "formulario": "10-K",
+     "accn": "0000950170-25-087926",
+     "derivado": "Suma: LongTermNotesAndLoans + NotesPayableCurrent",
+     "periodo": "2024"
+    },
+    {
+     "valor": 92568000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526277521/0001193125-26-277521-index.htm",
+     "fecha_presentacion": "2026-06-22",
+     "etiqueta": "us-gaap:LongTermNotesAndLoans + us-gaap:NotesPayableCurrent",
+     "periodo_fin": "2025-05-31",
+     "formulario": "10-K",
+     "accn": "0001193125-26-277521",
+     "derivado": "Suma: LongTermNotesAndLoans + NotesPayableCurrent",
+     "periodo": "2025"
+    },
+    {
+     "valor": 129541000000,
+     "fuente": "SEC EDGAR · 10-Q (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526389274/0001193125-26-389274-index.htm",
+     "fecha_presentacion": "2026-09-11",
+     "etiqueta": "us-gaap:LongTermNotesAndLoans + us-gaap:NotesPayableCurrent",
+     "periodo_fin": "2026-05-31",
+     "formulario": "10-Q",
+     "accn": "0001193125-26-389274",
+     "derivado": "Suma: LongTermNotesAndLoans + NotesPayableCurrent",
+     "periodo": "2026"
     }
    ]
   },
@@ -10084,12 +10225,6 @@
    "mensaje": "Deuda financiera: se descarta «LongTermDebt» (último dato 2022-05-31, ingresos hasta 2026-08-31).",
    "concepto": "deuda",
    "etiqueta": "LongTermDebt"
-  },
-  {
-   "nivel": "aviso",
-   "codigo": "deuda_asumida_cero",
-   "mensaje": "Deuda financiera: no hay ninguna etiqueta vigente; se asume 0.",
-   "concepto": "deuda"
   },
   {
    "nivel": "info",
@@ -12825,7 +12960,7 @@
    "compradores": [
     "RUSCKOWSKI STEPHEN H"
    ],
-   "desde": "2026-05-04"
+   "desde": "2026-05-05"
   },
   "operaciones": [
    {
@@ -15147,12 +15282,12 @@
  },
  "precio": {
   "minimo_52s": 114.5,
-  "maximo_52s": 265.81,
-  "beta": 1.8240782,
-  "valor": 126.19,
-  "cierre_anterior": 119.22,
+  "maximo_52s": 265.62,
+  "beta": 1.817667,
+  "valor": 125.46,
+  "cierre_anterior": 126.19,
   "moneda": "USD",
-  "fecha": "2026-11-03",
+  "fecha": "2026-11-04",
   "fuente": "Finnhub (API oficial, plan gratuito)",
   "url": "https://finnhub.io/"
  },
@@ -15248,152 +15383,148 @@
  },
  "noticias": [
   {
-   "titular": "AMD Changes the Mood With Big Earnings Beat",
+   "titular": "Accenture vs. Oracle: Which Technology Stock Is a Better Buy in 2027?",
    "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=518c20ee3cbb23dac66a42c4f9fcf6833dc7dd72916467d70326d6c699c50780",
-   "fecha": "2026-11-03",
-   "resumen": "The chip maker reports better-than-expected earnings for the third quarter and issues strong guidance for the rest of the year."
+   "url": "https://finnhub.io/api/news?id=991838f56d22724f22ec3171d6cee323262ffaf7159c14dfec2c33098725f52d",
+   "fecha": "2026-11-04",
+   "resumen": "Oracle's cloud revenue has grown to about half of its sales, while Accenture's consulting franchise serves roughly three-quarters of the Fortune Global 500, but the two balance sheets point in opposite directions."
   },
   {
-   "titular": "Cerebras Sinks 11% in a Week to a New 52-Week Low. UBS Still Sees 159% Upside",
+   "titular": "CoreWeave and Oracle Face a New Threat From Texas",
    "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=efbf2f52937401284277369788dc9bc201fa01b9273dc1f0622e82a0196b2ae4",
-   "fecha": "2026-11-03",
-   "resumen": "Key TakeawaysCerebras stock fell 11% in the past week to a new 52-week low, 75% below its May high. Oracle will offer Cerebras’ inference on its cloud, but a short seller and Oracle’s $20 billion raise outweighed the deal."
+   "url": "https://finnhub.io/api/news?id=a40a2e96e1a47ef688006758c939383e76bf747b70942ce910c56ecae418f2a6",
+   "fecha": "2026-11-04",
+   "resumen": "Gina Hinojosa has called for a pause on new data-center projects pending safeguards."
   },
   {
-   "titular": "CoreWeave Soars 5%, Oracle Up 4% as Oracle’s $20 Billion Raise Is “Exactly What They Previewed”",
+   "titular": "Oracle's $7 Billion AI Deal Collapses After US Intervention",
    "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=0f5426a099fa36e47b623392c24ce51526c8fb11fd3dbac3ae4fe4448c8bc5e1",
-   "fecha": "2026-11-03",
-   "resumen": "Key TakeawaysCoreWeave rose 5% and Oracle 4% after Oracle priced a $20 billion sale of stock and bonds. Oracle’s deal shows lenders still fund AI builders, which matters most to CoreWeave, a far costlier borrower."
+   "url": "https://finnhub.io/api/news?id=5ac1361b49a5bf2158c9e80674d380997b8bff45d2894020f47f37f5ffc135ac",
+   "fecha": "2026-11-04",
+   "resumen": "Oracle reportedly canceled an AI chip leasing agreement worth about $7 billion."
   },
   {
-   "titular": "Microsoft and Oracle Can't Cool AI Data Centers Without This Growth Stock. Here's Why It Could Soar.",
+   "titular": "Intel Just Delivered Its Strongest Data Center Growth in 15 Years. Its Comeback Is Gaining Momentum",
    "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=c9b91987bf2a9f4ac7862c43ee1e8d1d98405a950895a2793b2287b30e6ddeb9",
-   "fecha": "2026-11-03",
-   "resumen": "Vertiv Holdings' accelerating growth suggests that it is making the most of the aggressive spending on AI data center infrastructure."
+   "url": "https://finnhub.io/api/news?id=97810b36ba4e48b494e4d6f774c5c12bf2a39cca74fc453093ce2e26a30c7083",
+   "fecha": "2026-11-04",
+   "resumen": "Intel's data center business just posted its best growth in over a decade, yet shares cratered in premarket trading on a combination of soft guidance and a factory incident. Here is why the selloff may be creating an opportunity most investors are missing."
   },
   {
-   "titular": "Oracle gains 4% as Wedbush flags AI funding concerns",
+   "titular": "Oracle Stocks Decline 2.1% as $20 Billion Financing Reaches Its Closing Date",
    "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=ce24d5fc14ebe769929c5effb636f82b65f77a37c8c3ab82d8eac4dc47622933",
-   "fecha": "2026-11-03",
-   "resumen": "Oracle Corp (NYSE:ORCL, XETRA:ORC) shares rose 4% to $124.21, with Wedbush examining how the company’s $20 billion financing plan fits into the broader challenge of funding AI expansion. The company launched a $10 billion, six-tranche investment-grade bond sale alongside a concur"
+   "url": "https://finnhub.io/api/news?id=d8088b0d84f9e7f8f6a79a3a1f71f8f431a6dabacf2753770dfae39e799f6913",
+   "fecha": "2026-11-04",
+   "resumen": "The financing combines new equity with debt carrying coupons as high as 8.65%."
   },
   {
-   "titular": "Quantinuum Q3 Preview: Should You Buy the Dip Ahead of Earnings?",
+   "titular": "Why Is Oracle (ORCL) Reworking Its AI Plans After A $7 Billion Deal Ended?",
    "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=3692157aaef92fcb3e5b8a7d3d299fad2e42ccc5288fdb635d20409affdfc48e",
-   "fecha": "2026-11-03",
-   "resumen": "Quantinuum's Oracle partnership, $100 million government award and Helios advances offer growth potential, but can they offset rising quantum stock pressures?"
+   "url": "https://finnhub.io/api/news?id=d2007411c5c9f0fc9fad49d2103200c9c88b48c7e2d87c099533af699f49fdec",
+   "fecha": "2026-11-04",
+   "resumen": "Oracle (NYSE:ORCL) reportedly cancelled a planned US$7b AI chip leasing agreement with Tencent after increased U.S. government pressure. The shelved arrangement involved providing Nvidia processors to Tencent through Oracle's cloud infrastructure for Chinese AI workloads. Deloitt"
   },
   {
-   "titular": "A Democratic Sweep of Midterms Could Turn Software Stocks Into a Defensive Play",
+   "titular": "Oracle Continues to Crash Lower and Lower But Two Bullish Desks Agree That Its Price WIll More Than Triple",
    "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=9c1394f15b6553ca4fae9da0cdb52676ba73d2a1b3125de337bb6b9624548f14",
-   "fecha": "2026-11-03",
-   "resumen": "A Democratic sweep in the midterms could spell bad news for the AI trade."
+   "url": "https://finnhub.io/api/news?id=cd9a6e902c22a810131648ecb651bd841db1df5e3e7d894ec4ba20db80a61801",
+   "fecha": "2026-11-04",
+   "resumen": "Oracle has shed half its value in a year while racking up billions in negative free cash flow, yet two Wall Street desks just slapped $400 price targets on a stock trading at $126. Something has to give."
   },
   {
-   "titular": "Oracle (ORCL): A Top 10 Cheap AI Stock Trading at Just 11x Forward Earnings",
+   "titular": "Forget the 12-Month Squeeze: Microsoft Is Primed for an Explosive AI Payoff",
    "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=8afed5f6868e57486c72ed50806018a9a201bf53ffb2be4f337572549440f10d",
-   "fecha": "2026-11-03",
-   "resumen": "We just published the list of the 10 Best and Cheap Stocks to Buy Heading into 2027 and Oracle (NYSE:ORCL) ranks 6th on this list. Wall Street’s AI trade took a hard hit on October 30. Reuters reported that a selloff in tech shares pushed MSCI’s global index down 1.5%, after resu"
+   "url": "https://finnhub.io/api/news?id=a849547cb2dffaa1ba402598f495aa793be49374ad808b4b4692aeaa477e5115",
+   "fecha": "2026-11-04",
+   "resumen": "Microsoft's stock barely moved over the past year while its earnings surged, and that widening gap tells a story most investors are misreading entirely."
   },
   {
-   "titular": "Hyperscalers Face “$1.5 Trillion Gap” Between AI Spending and Cash",
+   "titular": "What Did CrowdStrike Do That MongoDB Did Not?",
    "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=1b02f7b66634e67020975c5ce867a4ed966a96ff3504549193278691e2ba3543",
-   "fecha": "2026-11-03",
-   "resumen": "Key TakeawaysHyperscaler free cash flow turned negative in the third quarter for the first time, and Microsoft is the only one of Microsoft, Alphabet, Amazon, Meta Platforms and Oracle with positive free cash flow. Prof G Markets co-host Ed Elson expects the five companies to spe"
+   "url": "https://finnhub.io/api/news?id=f8b7193dc897f711c44824672ec15b93a33f3f9c3e1c0d79b431223e8833d841",
+   "fecha": "2026-11-04",
+   "resumen": "For questions about this article or underlying research, email help@trefis.com."
   },
   {
-   "titular": "Oracle's $20 Billion Raise Exposes the Cost of Its AI Expansion",
+   "titular": "Virtual Machines - Global Strategic Business Report 2026: Secure Share of a Market Accelerating at 16.8% CAGR to $36.9 Billion by 2032, Led by AWS, Microsoft, Google Cloud, VMware, and Oracle",
    "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=1235672b1e0a51ba077ab3206fb9317d797d2ef61a5c17582b8034ba8d6d54a7",
-   "fecha": "2026-11-03",
-   "resumen": "The company also sold $10 billion of senior notes with coupons ranging from 7% to 8.65%."
+   "url": "https://finnhub.io/api/news?id=71b1dd4b015128a08890189e642f6116e0bdab00d1584788ee72b7523d96fc01",
+   "fecha": "2026-11-04",
+   "resumen": "Dublin, Nov. 04, 2026 (GLOBE NEWSWIRE) -- \"Virtual Machines - Global Strategic Business Report 2026\" has been added to ResearchAndMarkets.com's offering. The global virtual machines market was valued at US$12.5 billion in 2025 and is projected to reach US$36.9 billion by 2032, ex"
   },
   {
-   "titular": "Oracle Stocks Gain 4.31% With $20 Billion Financing Package in Focus",
+   "titular": "Credo and Oracle Advance Optical Transceiver Telemetry Standardization with OCP Community",
    "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=5904905712cce2d3ae320107ea81b037264f4c51e52c525e68f05881f2f69c44",
-   "fecha": "2026-11-03",
-   "resumen": "New borrowing carries coupons of 7%--8.65%, adding a measurable cash cost to expansion."
+   "url": "https://finnhub.io/api/news?id=693aae5199174b47ea7e7a9735079a4b5f8c93743ecf753457b4eb97f62f4a78",
+   "fecha": "2026-11-04",
+   "resumen": "SAN JOSE, Calif., November 04, 2026--Credo and Oracle advance optical transceiver telemetry standardization with OCP Community."
   },
   {
-   "titular": "Intel Has Lost More Than Half Its Value Since Its Peak",
+   "titular": "Rimini Street Awarded CANUT Third-Party Maintenance Framework Agreement",
    "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=3ddc62ad7b285b6b00986b604eb1bbe11451f50f0a637d6f0d5d0bac5c5002de",
-   "fecha": "2026-11-03",
-   "resumen": "Intel shed nearly $440 billion in market value in a matter of months, yet Wall Street's average price target still implies 68% upside. Find out why the market and analysts are telling completely different stories about where this stock goes next."
+   "url": "https://finnhub.io/api/news?id=95ffa6fcc1be0bbf353dcb808f091ee6c821690c83be520c5978d7281e9a61bb",
+   "fecha": "2026-11-04",
+   "resumen": "LAS VEGAS, November 04, 2026--Rimini Street, Inc. (Nasdaq: RMNI), the Software Support and Agentic AI ERP Company™ and the leading third-party support provider for Oracle, SAP and VMware software, today announced that it had been selected as the awardee of the third-party support"
   },
   {
-   "titular": "Oracle Rallies 6% as $20 Billion Stock and Bond Sale Clears Funding Overhang; CoreWeave Climbs 7%, Microsoft Gains 2%",
+   "titular": "What Will Decide Microsoft Stock Over The Next Six Months?",
    "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=dcebfb06d47c734f3b5996c8d5cbbd6c3578e90848f21a62681ce29cb325385c",
-   "fecha": "2026-11-03",
-   "resumen": "Oracle's $20 billion stock and bond sale spooked investors one day and rallied them the next, but bulls and bears are now fighting over whether the funding clears the path forward or just piles on the pressure."
+   "url": "https://finnhub.io/api/news?id=3d13945f4727099c6b95fd583db4534b6443e254947088a9f7ca79174f31eac9",
+   "fecha": "2026-11-04",
+   "resumen": "For questions about this article or underlying research, email help@trefis.com."
   },
   {
-   "titular": "Big Tech Just Tried to Borrow More Than $35 Billion in a Single Day",
+   "titular": "60% of S&P 500 Stocks Are in a Bear Market, With the Index Near a Record",
    "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=3cb62252c86bde3267a6365027c97bfbb4a99c853979f59f2b5fa96dda516a4c",
-   "fecha": "2026-11-03",
-   "resumen": "Three of the biggest AI spenders converged on the bond market the same day, and the terms lenders offered revealed a stark divide in how much Wall Street trusts each company to survive its own ambitions."
+   "url": "https://finnhub.io/api/news?id=2bb5cddbf108b54a6212197cd9c96e93656c64551fc15a9b4d3b36bc1cb748c3",
+   "fecha": "2026-11-04",
+   "resumen": "Goldman Sachs called it a hidden bear market, but the S&P 500 sits near a record high. Understanding what that contradiction reveals about where real danger is lurking inside the index changes how you read every market update."
   },
   {
-   "titular": "What If The Crash Of The U.S. Hyperscalers Actually Makes Sense? Here Is My Take",
-   "medio": "SeekingAlpha",
-   "url": "https://finnhub.io/api/news?id=643904a496a9c958e95fdbf54999fa72cbb55dea74d5efb9f776977772859dc2",
-   "fecha": "2026-11-03",
-   "resumen": "U.S. hyperscalers like Alphabet, Meta, and Amazon are shifting from cash-generative giants to high-risk, capital-intensive AI investors. Click to read more."
+   "titular": "Chubu Electric Power Grid Launches 10 Millionth Smart Meter with Oracle",
+   "medio": "Yahoo",
+   "url": "https://finnhub.io/api/news?id=de2dbe0ea73554af3dae14e5a87374a37df1c112a70416c0b6f2a7f2bddc3876",
+   "fecha": "2026-11-04",
+   "resumen": "Chubu Electric Power Grid Co., Inc. has deployed 10 million smart meters, marking a critical milestone in its Advanced Metering Infrastructure (AMI) initiative with Oracle. Following an upgrade to the latest version of Oracle Utilities Meter Data Management (MDM), the utility is "
   },
   {
-   "titular": "Oracle Rebounds 5% as $20 Billion Raise Prices: Baird Says It’s “Exactly What They Previewed”",
+   "titular": "The Market Loves the Democrat Sweep. It’s More Complicated for AI Stocks.",
    "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=5a1f4e3980f7abff023b6238b95ef68d743d567366ba52a80caaae43d5ec0b71",
-   "fecha": "2026-11-03",
-   "resumen": "Key TakeawaysOracle shares rose 5% after pricing the $20 billion stock and bond sale its own cap allowed through fiscal 2030. About 86 million new shares and $10 billion of 7%-8."
+   "url": "https://finnhub.io/api/news?id=8d70a069558e29c3e987c9ca10b0616d6eaf9cf001704094b75f5c261bb960ed",
+   "fecha": "2026-11-04",
+   "resumen": "All the news you need before the market opens."
   },
   {
-   "titular": "LicenseFortress Raises Client Satisfaction Score to 88.6% as Client Base and Licensing Complexity Grow",
+   "titular": "Oracle Stock Slips After $7 Billion Tencent Deal Is Canceled",
    "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=472cec4f2d3a370a9763055ffbe7b8da2a536536ecb6edf6d91123e4bc481385",
-   "fecha": "2026-11-03",
-   "resumen": "LOS ANGELES, November 03, 2026--LicenseFortress, an independent software asset management and licensing advisory firm, today announced a Net Promoter Score® (NPS) of 88.6% in its October 2026 client survey, independently conducted by ClearlyRated. The score increased 5.3 points f"
+   "url": "https://finnhub.io/api/news?id=7ac26ca06d29fea86b2208661ee4f1ea42b905b4516e8c8f88000ca1a3678dbf",
+   "fecha": "2026-11-04",
+   "resumen": "The cancellation lands a day after Nvidia reportedly capped partners' Chinese cloud sales below half"
   },
   {
-   "titular": "Oracle Makes Massive $20 Billion AI Funding Move",
+   "titular": "Why Every IBM Investor Is Looking At This One Number",
    "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=7d815d8cdb413de3b527f8d20d662d242aed4d5320a82940b383cdd177fb9f72",
-   "fecha": "2026-11-03",
-   "resumen": "The financing highlights how capital-intensive Oracle's cloud ambitions have become."
+   "url": "https://finnhub.io/api/news?id=d6a8191aad8f5d7cfca16d0d5c4b30ea53b939a4d2305916567d7f44a03d4001",
+   "fecha": "2026-11-04",
+   "resumen": "For questions about this article or underlying research, email help@trefis.com."
   },
   {
-   "titular": "PLTR Stock Gets Price Target Hikes After ‘Another Top-Line Blowout,’ But Jefferies Sees Better AI Bets In MSFT, ORCL, SNOW Shares",
+   "titular": "Is There A Risk Hiding In Salesforce Stock's Record Quarter?",
    "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=21c85abba2efff306f073366ab03914de596a012899ee2b6f57eb6c09c0619cb",
-   "fecha": "2026-11-03",
-   "resumen": "Jefferies said the debate around Palantir has shifted from whether customers want the company’s software to whether it can sustain accelerating growth against tougher comparisons."
+   "url": "https://finnhub.io/api/news?id=3c091b148a8e46c9acb8ba6661617f89d561864175cbc2c325dcb77b88835ff4",
+   "fecha": "2026-11-04",
+   "resumen": "For questions about this article or underlying research, email help@trefis.com."
   },
   {
-   "titular": "Why Wall Street Is Split on Tech Stocks Right Now",
+   "titular": "Oracle Cancels $7 Billion Tencent AI Chip Leasing Agreement Amid US Regulatory Pressure",
    "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=b697b5b8ab90793d9b9309f1a89b348e1608af7128f75e2732089efb8e70cb6c",
-   "fecha": "2026-11-03",
-   "resumen": "Stocks are sputtering as the tech trade loses steam. Rebounding from here, however, will be tricky."
+   "url": "https://finnhub.io/api/news?id=fc303d6913c8c983444b58fd157822bb54948a082a1a1572b4afb235fd559e59",
+   "fecha": "2026-11-04",
+   "resumen": "Oracle (NYSE:ORCL) has cancelled a $7 billion agreement to lease advanced artificial intelligence chips to Chinese technology group Tencent (HKEX:0700), following concerns raised by US officials over China’s access to American semiconductor technology, according to a Financial Ti"
   }
  ],
  "historico_precio": {
   "serie": [
-   [
-    "2021-08-03",
-    89.74
-   ],
    [
     "2021-08-04",
     90.05
@@ -20669,18 +20800,22 @@
    [
     "2026-11-03",
     126.19
+   ],
+   [
+    "2026-11-04",
+    125.43
    ]
   ],
   "fuente": "Twelve Data (API oficial, plan gratuito)",
   "url": "https://twelvedata.com/",
-  "fecha": "2026-11-03",
+  "fecha": "2026-11-04",
   "ajuste": "splits"
  },
- "generado": "2026-11-03T23:49:49+00:00",
+ "generado": "2026-11-04T18:42:31+00:00",
  "peers": {
   "fuente_lista": "Finnhub (misma industria)",
   "fuente_cifras": "SEC EDGAR (companyfacts, UDM) · precio Finnhub",
-  "actualizado": "2026-11-03",
+  "actualizado": "2026-11-04",
   "propia": {
    "ingresos": 71776000000,
    "crecimiento": 21.62,
@@ -20692,20 +20827,20 @@
    "ebitda": 33938000000,
    "fcf": -28720000000,
    "caja": 37077000000,
-   "deuda": 0,
+   "deuda": 125337000000,
    "acciones": 3023736000,
    "periodo_fin": "2026-08-31",
    "informe": "10-Q",
    "informe_fecha": "2026-09-11",
    "url": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526389274/0001193125-26-389274-index.htm",
-   "precio": 126.19,
-   "capitalizacion": 381565245840.0,
-   "ev": 344488245840.0,
-   "per": 20.17,
-   "precio_ventas": 5.32,
-   "ev_ebitda": 10.15,
-   "rentabilidad_fcf": -7.53,
-   "deuda_neta_ebitda": -1.09,
+   "precio": 125.46,
+   "capitalizacion": 379357918560.0,
+   "ev": 467617918560.0,
+   "per": 20.05,
+   "precio_ventas": 5.29,
+   "ev_ebitda": 13.78,
+   "rentabilidad_fcf": -7.57,
+   "deuda_neta_ebitda": 2.6,
    "ticker": "ORCL",
    "nombre": "Oracle",
    "propia": true
@@ -20738,13 +20873,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-28",
     "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526436133/0001193125-26-436133-index.htm",
-    "precio": 520.99,
-    "capitalizacion": 3868973099646.48,
-    "ev": 3839945099646.48,
-    "per": 27.13,
-    "precio_ventas": 11.17,
-    "ev_ebitda": 18.67,
-    "rentabilidad_fcf": 1.55,
+    "precio": 555.16,
+    "capitalizacion": 4122726167488.32,
+    "ev": 4093698167488.32,
+    "per": 28.9,
+    "precio_ventas": 11.9,
+    "ev_ebitda": 19.9,
+    "rentabilidad_fcf": 1.45,
     "deuda_neta_ebitda": -0.14
    },
    {
@@ -20774,12 +20909,12 @@
     "informe": "10-K",
     "informe_fecha": "2026-09-10",
     "url": "https://www.sec.gov/Archives/edgar/data/1327567/000132756726000023/0001327567-26-000023-index.htm",
-    "precio": 350.2,
-    "capitalizacion": 286463600000.0,
-    "ev": 283392600000.0,
-    "per": 933.11,
-    "precio_ventas": 24.95,
-    "ev_ebitda": 182.83,
+    "precio": 350.07,
+    "capitalizacion": 286357260000.0,
+    "ev": 283286260000.0,
+    "per": 932.76,
+    "precio_ventas": 24.94,
+    "ev_ebitda": 182.77,
     "rentabilidad_fcf": 1.44,
     "deuda_neta_ebitda": -1.98
    },
@@ -20810,13 +20945,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-08-27",
     "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000031/0001535527-26-000031-index.htm",
-    "precio": 244.68,
-    "capitalizacion": 250536377140.56,
-    "ev": 246268746140.56,
-    "per": 5568.09,
-    "precio_ventas": 46.43,
+    "precio": 242.89,
+    "capitalizacion": 248703533773.37997,
+    "ev": 244435902773.37997,
+    "per": 5527.36,
+    "precio_ventas": 46.09,
     "ev_ebitda": null,
-    "rentabilidad_fcf": 0.64,
+    "rentabilidad_fcf": 0.65,
     "deuda_neta_ebitda": null
    },
    {
@@ -20846,13 +20981,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-28",
     "url": "https://www.sec.gov/Archives/edgar/data/1373715/000137371526000096/0001373715-26-000096-index.htm",
-    "precio": 109.16,
-    "capitalizacion": 113308080000.0,
-    "ev": 114139080000.0,
-    "per": 78.41,
-    "precio_ventas": 7.34,
-    "ev_ebitda": 41.35,
-    "rentabilidad_fcf": 4.19,
+    "precio": 108.4,
+    "capitalizacion": 112519200000.0,
+    "ev": 113350200000.0,
+    "per": 77.87,
+    "precio_ventas": 7.29,
+    "ev_ebitda": 41.07,
+    "rentabilidad_fcf": 4.22,
     "deuda_neta_ebitda": 0.3
    },
    {
@@ -20882,13 +21017,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-30",
     "url": "https://www.sec.gov/Archives/edgar/data/1262039/000126203926000027/0001262039-26-000027-index.htm",
-    "precio": 128.11,
-    "capitalizacion": 94123664919.51001,
-    "ev": 90870164919.51001,
-    "per": 41.24,
-    "precio_ventas": 11.94,
-    "ev_ebitda": 32.93,
-    "rentabilidad_fcf": 3.65,
+    "precio": 128.33,
+    "capitalizacion": 94285301062.53001,
+    "ev": 91031801062.53001,
+    "per": 41.31,
+    "precio_ventas": 11.96,
+    "ev_ebitda": 32.99,
+    "rentabilidad_fcf": 3.64,
     "deuda_neta_ebitda": -1.18
    },
    {
@@ -20918,13 +21053,13 @@
     "informe": "10-K",
     "informe_fecha": "2026-09-03",
     "url": "https://www.sec.gov/Archives/edgar/data/1713683/000171368326000157/0001713683-26-000157-index.htm",
-    "precio": 225.09,
-    "capitalizacion": 36701981972.82,
-    "ev": 35773627972.82,
+    "precio": 223.95,
+    "capitalizacion": 36516099617.1,
+    "ev": 35587745617.1,
     "per": null,
-    "precio_ventas": 10.95,
+    "precio_ventas": 10.89,
     "ev_ebitda": null,
-    "rentabilidad_fcf": 2.32,
+    "rentabilidad_fcf": 2.33,
     "deuda_neta_ebitda": null
    }
   ]
