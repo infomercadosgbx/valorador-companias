@@ -1,0 +1,1485 @@
+{
+ "_nota": "Informe de resultados generado por el Action (fetcher/resultados.py). No se edita a mano.",
+ "esquema": 1,
+ "ticker": "PATH",
+ "nombre": "UiPath",
+ "color": "#FA4616",
+ "monograma": "UI",
+ "logo": "logos/PATH.png",
+ "periodo": "2T27",
+ "periodo_fin": "2026-07-31",
+ "fecha_resultados": "2026-09-03",
+ "estado": "definitivo",
+ "fuente_cifras": "SEC EDGAR · 10-Q (XBRL)",
+ "informe": {
+  "accn_8k": "0001734722-26-000047",
+  "url_8k": "https://www.sec.gov/Archives/edgar/data/1734722/000173472226000047/0001734722-26-000047-index.htm",
+  "url_nota": "https://www.sec.gov/Archives/edgar/data/1734722/000173472226000047/path-2026731xex991.htm",
+  "anexos": [
+   {
+    "tipo": "EX-99.1",
+    "descripcion": "",
+    "url": "https://www.sec.gov/Archives/edgar/data/1734722/000173472226000047/path-2026731xex991.htm"
+   },
+   {
+    "tipo": "EX-99.2",
+    "descripcion": "",
+    "url": "https://www.sec.gov/Archives/edgar/data/1734722/000173472226000047/path-2026903xex992.htm"
+   }
+  ],
+  "periodico": {
+   "formulario": "10-Q",
+   "fecha_presentacion": "2026-09-08",
+   "url_indice": "https://www.sec.gov/Archives/edgar/data/1734722/000173472226000050/0001734722-26-000050-index.htm",
+   "url_documento": "https://www.sec.gov/Archives/edgar/data/1734722/000173472226000050/path-20260731.htm"
+  }
+ },
+ "tabla": [
+  {
+   "concepto": "ingresos",
+   "nombre": "Ingresos",
+   "tipo": "total",
+   "reportado": {
+    "valor": 410256000,
+    "fuente": "SEC EDGAR · 10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/1734722/000173472226000050/0001734722-26-000050-index.htm",
+    "fecha_presentacion": "2026-09-08",
+    "etiqueta": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+    "periodo": "2T27",
+    "periodo_inicio": "2026-05-01",
+    "periodo_fin": "2026-07-31",
+    "formulario": "10-Q"
+   },
+   "estimado": null,
+   "dif_pct": null,
+   "resultado": null,
+   "anio_anterior": 361728000,
+   "interanual_pct": 13.42
+  },
+  {
+   "concepto": "segmento",
+   "nombre": "Subscription Services",
+   "tipo": "segmento",
+   "reportado": {
+    "valor": 266067000.0,
+    "fuente": "SEC EDGAR · 10-Q (XBRL, segmentos)",
+    "url": "https://www.sec.gov/Archives/edgar/data/1734722/000173472226000050/0001734722-26-000050-index.htm",
+    "fecha_presentacion": "2026-09-08",
+    "periodo": "2T27",
+    "etiqueta": "path:SubscriptionServicesMember"
+   },
+   "estimado": null,
+   "dif_pct": null,
+   "resultado": null,
+   "anio_anterior": 238363000.0,
+   "interanual_pct": 11.62,
+   "pendiente": null
+  },
+  {
+   "concepto": "beneficio_operativo",
+   "nombre": "Beneficio operativo (EBIT)",
+   "tipo": "total",
+   "reportado": {
+    "valor": 31604000,
+    "fuente": "SEC EDGAR · 10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/1734722/000173472226000050/0001734722-26-000050-index.htm",
+    "fecha_presentacion": "2026-09-08",
+    "etiqueta": "us-gaap:OperatingIncomeLoss",
+    "periodo": "2T27",
+    "periodo_inicio": "2026-05-01",
+    "periodo_fin": "2026-07-31",
+    "formulario": "10-Q"
+   },
+   "estimado": null,
+   "dif_pct": null,
+   "resultado": null,
+   "anio_anterior": -20185000,
+   "interanual_pct": null
+  },
+  {
+   "concepto": "beneficio_neto",
+   "nombre": "Beneficio neto",
+   "tipo": "total",
+   "reportado": {
+    "valor": 36089000,
+    "fuente": "SEC EDGAR · 10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/1734722/000173472226000050/0001734722-26-000050-index.htm",
+    "fecha_presentacion": "2026-09-08",
+    "etiqueta": "us-gaap:NetIncomeLoss",
+    "periodo": "2T27",
+    "periodo_inicio": "2026-05-01",
+    "periodo_fin": "2026-07-31",
+    "formulario": "10-Q"
+   },
+   "estimado": null,
+   "dif_pct": null,
+   "resultado": null,
+   "anio_anterior": 1584000,
+   "interanual_pct": 2178.35
+  },
+  {
+   "concepto": "bpa_diluido",
+   "nombre": "BPA diluido",
+   "tipo": "total",
+   "reportado": {
+    "valor": 0.07,
+    "fuente": "SEC EDGAR · 10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/1734722/000173472226000050/0001734722-26-000050-index.htm",
+    "fecha_presentacion": "2026-09-08",
+    "etiqueta": "us-gaap:EarningsPerShareDiluted",
+    "periodo": "2T27",
+    "periodo_inicio": "2026-05-01",
+    "periodo_fin": "2026-07-31",
+    "formulario": "10-Q"
+   },
+   "estimado": null,
+   "dif_pct": null,
+   "resultado": null,
+   "anio_anterior": 0,
+   "interanual_pct": null
+  }
+ ],
+ "guia": {
+  "items": [
+   {
+    "concepto": "ingresos",
+    "min": 440000000.0,
+    "max": 445000000.0,
+    "medio": 442500000.0,
+    "texto": "• Revenue in the range of $440 million to $445 million",
+    "estimado": null,
+    "dif_pct": null,
+    "resultado": null
+   }
+  ],
+  "texto": [
+   "For th e third quarter fiscal 2027, UiPath expects:",
+   "• Revenue in the range of $440 million to $445 million",
+   "• ARR in the range of $1.992 billion to $1.997 billion as of October 31, 2026"
+  ],
+  "titulo": "Financial Outlook",
+  "fuente": "SEC EDGAR · 8-K, Exhibit 99.1 (texto original)",
+  "url": "https://www.sec.gov/Archives/edgar/data/1734722/000173472226000047/path-2026731xex991.htm"
+ },
+ "reaccion": {
+  "hora": "tras el cierre",
+  "hora_supuesta": true,
+  "fecha_antes": "2026-09-03",
+  "cierre_antes": 18.22,
+  "fuente": "Twelve Data (API oficial, plan gratuito)",
+  "fecha_despues": "2026-09-04",
+  "cierre_despues": 15.19,
+  "variacion_pct": -16.63,
+  "provisional": false
+ },
+ "cotizacion": {
+  "serie": [
+   [
+    "2025-09-04",
+    10.85
+   ],
+   [
+    "2025-09-05",
+    11.49
+   ],
+   [
+    "2025-09-08",
+    11.8
+   ],
+   [
+    "2025-09-09",
+    11.9
+   ],
+   [
+    "2025-09-10",
+    11.61
+   ],
+   [
+    "2025-09-11",
+    11.69
+   ],
+   [
+    "2025-09-12",
+    11.4
+   ],
+   [
+    "2025-09-15",
+    11.59
+   ],
+   [
+    "2025-09-16",
+    11.57
+   ],
+   [
+    "2025-09-17",
+    11.82
+   ],
+   [
+    "2025-09-18",
+    12.15
+   ],
+   [
+    "2025-09-19",
+    11.87
+   ],
+   [
+    "2025-09-22",
+    13.14
+   ],
+   [
+    "2025-09-23",
+    12.53
+   ],
+   [
+    "2025-09-24",
+    12.32
+   ],
+   [
+    "2025-09-25",
+    12.14
+   ],
+   [
+    "2025-09-26",
+    12.21
+   ],
+   [
+    "2025-09-29",
+    12.56
+   ],
+   [
+    "2025-09-30",
+    13.38
+   ],
+   [
+    "2025-10-01",
+    12.99
+   ],
+   [
+    "2025-10-02",
+    12.75
+   ],
+   [
+    "2025-10-03",
+    12.9
+   ],
+   [
+    "2025-10-06",
+    14.52
+   ],
+   [
+    "2025-10-07",
+    14.82
+   ],
+   [
+    "2025-10-08",
+    15.58
+   ],
+   [
+    "2025-10-09",
+    18.51
+   ],
+   [
+    "2025-10-10",
+    17.05
+   ],
+   [
+    "2025-10-13",
+    17.14
+   ],
+   [
+    "2025-10-14",
+    16.48
+   ],
+   [
+    "2025-10-15",
+    16.69
+   ],
+   [
+    "2025-10-16",
+    15.93
+   ],
+   [
+    "2025-10-17",
+    15.44
+   ],
+   [
+    "2025-10-20",
+    15.93
+   ],
+   [
+    "2025-10-21",
+    16.28
+   ],
+   [
+    "2025-10-22",
+    15.03
+   ],
+   [
+    "2025-10-23",
+    15.44
+   ],
+   [
+    "2025-10-24",
+    16.48
+   ],
+   [
+    "2025-10-27",
+    17.39
+   ],
+   [
+    "2025-10-28",
+    16.16
+   ],
+   [
+    "2025-10-29",
+    16.21
+   ],
+   [
+    "2025-10-30",
+    15.87
+   ],
+   [
+    "2025-10-31",
+    15.86
+   ],
+   [
+    "2025-11-03",
+    15.87
+   ],
+   [
+    "2025-11-04",
+    14.27
+   ],
+   [
+    "2025-11-05",
+    14.55
+   ],
+   [
+    "2025-11-06",
+    14.14
+   ],
+   [
+    "2025-11-07",
+    14.3
+   ],
+   [
+    "2025-11-10",
+    14.2
+   ],
+   [
+    "2025-11-11",
+    14.37
+   ],
+   [
+    "2025-11-12",
+    14.25
+   ],
+   [
+    "2025-11-13",
+    14.09
+   ],
+   [
+    "2025-11-14",
+    14.03
+   ],
+   [
+    "2025-11-17",
+    13.52
+   ],
+   [
+    "2025-11-18",
+    13.74
+   ],
+   [
+    "2025-11-19",
+    13.48
+   ],
+   [
+    "2025-11-20",
+    12.73
+   ],
+   [
+    "2025-11-21",
+    13.01
+   ],
+   [
+    "2025-11-24",
+    13.31
+   ],
+   [
+    "2025-11-25",
+    13.61
+   ],
+   [
+    "2025-11-26",
+    13.59
+   ],
+   [
+    "2025-11-28",
+    13.86
+   ],
+   [
+    "2025-12-01",
+    14.12
+   ],
+   [
+    "2025-12-02",
+    14.3
+   ],
+   [
+    "2025-12-03",
+    14.86
+   ],
+   [
+    "2025-12-04",
+    18.48
+   ],
+   [
+    "2025-12-05",
+    18.67
+   ],
+   [
+    "2025-12-08",
+    19.29
+   ],
+   [
+    "2025-12-09",
+    18.98
+   ],
+   [
+    "2025-12-10",
+    18.69
+   ],
+   [
+    "2025-12-11",
+    18.03
+   ],
+   [
+    "2025-12-12",
+    17.42
+   ],
+   [
+    "2025-12-15",
+    16.16
+   ],
+   [
+    "2025-12-16",
+    16.09
+   ],
+   [
+    "2025-12-17",
+    15.96
+   ],
+   [
+    "2025-12-18",
+    15.94
+   ],
+   [
+    "2025-12-19",
+    16.12
+   ],
+   [
+    "2025-12-22",
+    16.7
+   ],
+   [
+    "2025-12-23",
+    15.96
+   ],
+   [
+    "2025-12-24",
+    17.16
+   ],
+   [
+    "2025-12-26",
+    16.84
+   ],
+   [
+    "2025-12-29",
+    16.85
+   ],
+   [
+    "2025-12-30",
+    16.67
+   ],
+   [
+    "2025-12-31",
+    16.39
+   ],
+   [
+    "2026-01-02",
+    15.88
+   ],
+   [
+    "2026-01-05",
+    16.03
+   ],
+   [
+    "2026-01-06",
+    17.33
+   ],
+   [
+    "2026-01-07",
+    17.84
+   ],
+   [
+    "2026-01-08",
+    16.88
+   ],
+   [
+    "2026-01-09",
+    16.32
+   ],
+   [
+    "2026-01-12",
+    17.24
+   ],
+   [
+    "2026-01-13",
+    15.97
+   ],
+   [
+    "2026-01-14",
+    15.37
+   ],
+   [
+    "2026-01-15",
+    14.79
+   ],
+   [
+    "2026-01-16",
+    14.34
+   ],
+   [
+    "2026-01-20",
+    14.37
+   ],
+   [
+    "2026-01-21",
+    14.2
+   ],
+   [
+    "2026-01-22",
+    15.15
+   ],
+   [
+    "2026-01-23",
+    14.8
+   ],
+   [
+    "2026-01-26",
+    14.91
+   ],
+   [
+    "2026-01-27",
+    14.36
+   ],
+   [
+    "2026-01-28",
+    14.11
+   ],
+   [
+    "2026-01-29",
+    13.25
+   ],
+   [
+    "2026-01-30",
+    12.59
+   ],
+   [
+    "2026-02-02",
+    12.54
+   ],
+   [
+    "2026-02-03",
+    12.15
+   ],
+   [
+    "2026-02-04",
+    12.33
+   ],
+   [
+    "2026-02-05",
+    12.08
+   ],
+   [
+    "2026-02-06",
+    12.89
+   ],
+   [
+    "2026-02-09",
+    13.0
+   ],
+   [
+    "2026-02-10",
+    12.95
+   ],
+   [
+    "2026-02-11",
+    11.69
+   ],
+   [
+    "2026-02-12",
+    11.18
+   ],
+   [
+    "2026-02-13",
+    11.32
+   ],
+   [
+    "2026-02-17",
+    10.94
+   ],
+   [
+    "2026-02-18",
+    11.1
+   ],
+   [
+    "2026-02-19",
+    11.21
+   ],
+   [
+    "2026-02-20",
+    10.8
+   ],
+   [
+    "2026-02-23",
+    10.17
+   ],
+   [
+    "2026-02-24",
+    10.1
+   ],
+   [
+    "2026-02-25",
+    9.94
+   ],
+   [
+    "2026-02-26",
+    10.71
+   ],
+   [
+    "2026-02-27",
+    10.73
+   ],
+   [
+    "2026-03-02",
+    10.7
+   ],
+   [
+    "2026-03-03",
+    11.04
+   ],
+   [
+    "2026-03-04",
+    11.07
+   ],
+   [
+    "2026-03-05",
+    11.55
+   ],
+   [
+    "2026-03-06",
+    11.86
+   ],
+   [
+    "2026-03-09",
+    11.97
+   ],
+   [
+    "2026-03-10",
+    11.59
+   ],
+   [
+    "2026-03-11",
+    12.38
+   ],
+   [
+    "2026-03-12",
+    11.37
+   ],
+   [
+    "2026-03-13",
+    11.58
+   ],
+   [
+    "2026-03-16",
+    11.57
+   ],
+   [
+    "2026-03-17",
+    11.98
+   ],
+   [
+    "2026-03-18",
+    12.45
+   ],
+   [
+    "2026-03-19",
+    12.24
+   ],
+   [
+    "2026-03-20",
+    12.06
+   ],
+   [
+    "2026-03-23",
+    12.13
+   ],
+   [
+    "2026-03-24",
+    11.07
+   ],
+   [
+    "2026-03-25",
+    10.93
+   ],
+   [
+    "2026-03-26",
+    11.04
+   ],
+   [
+    "2026-03-27",
+    10.69
+   ],
+   [
+    "2026-03-30",
+    10.87
+   ],
+   [
+    "2026-03-31",
+    11.1
+   ],
+   [
+    "2026-04-01",
+    11.02
+   ],
+   [
+    "2026-04-02",
+    11.24
+   ],
+   [
+    "2026-04-06",
+    11.15
+   ],
+   [
+    "2026-04-07",
+    10.95
+   ],
+   [
+    "2026-04-08",
+    10.39
+   ],
+   [
+    "2026-04-09",
+    9.94
+   ],
+   [
+    "2026-04-10",
+    9.38
+   ],
+   [
+    "2026-04-13",
+    10.12
+   ],
+   [
+    "2026-04-14",
+    10.02
+   ],
+   [
+    "2026-04-15",
+    10.61
+   ],
+   [
+    "2026-04-16",
+    10.61
+   ],
+   [
+    "2026-04-17",
+    10.41
+   ],
+   [
+    "2026-04-20",
+    10.56
+   ],
+   [
+    "2026-04-21",
+    10.78
+   ],
+   [
+    "2026-04-22",
+    10.89
+   ],
+   [
+    "2026-04-23",
+    10.09
+   ],
+   [
+    "2026-04-24",
+    10.37
+   ],
+   [
+    "2026-04-27",
+    10.46
+   ],
+   [
+    "2026-04-28",
+    10.56
+   ],
+   [
+    "2026-04-29",
+    10.38
+   ],
+   [
+    "2026-04-30",
+    10.3
+   ],
+   [
+    "2026-05-01",
+    10.67
+   ],
+   [
+    "2026-05-04",
+    10.83
+   ],
+   [
+    "2026-05-05",
+    10.7
+   ],
+   [
+    "2026-05-06",
+    10.5
+   ],
+   [
+    "2026-05-07",
+    10.93
+   ],
+   [
+    "2026-05-08",
+    10.79
+   ],
+   [
+    "2026-05-11",
+    10.66
+   ],
+   [
+    "2026-05-12",
+    10.01
+   ],
+   [
+    "2026-05-13",
+    9.47
+   ],
+   [
+    "2026-05-14",
+    9.67
+   ],
+   [
+    "2026-05-15",
+    10.27
+   ],
+   [
+    "2026-05-18",
+    10.64
+   ],
+   [
+    "2026-05-19",
+    10.55
+   ],
+   [
+    "2026-05-20",
+    10.77
+   ],
+   [
+    "2026-05-21",
+    10.57
+   ],
+   [
+    "2026-05-22",
+    10.93
+   ],
+   [
+    "2026-05-26",
+    11.09
+   ],
+   [
+    "2026-05-27",
+    11.16
+   ],
+   [
+    "2026-05-28",
+    11.58
+   ],
+   [
+    "2026-05-29",
+    11.72
+   ],
+   [
+    "2026-06-01",
+    13.1
+   ],
+   [
+    "2026-06-02",
+    12.18
+   ],
+   [
+    "2026-06-03",
+    11.67
+   ],
+   [
+    "2026-06-04",
+    11.67
+   ],
+   [
+    "2026-06-05",
+    11.24
+   ],
+   [
+    "2026-06-08",
+    11.17
+   ],
+   [
+    "2026-06-09",
+    10.75
+   ],
+   [
+    "2026-06-10",
+    10.75
+   ],
+   [
+    "2026-06-11",
+    10.65
+   ],
+   [
+    "2026-06-12",
+    10.55
+   ],
+   [
+    "2026-06-15",
+    10.79
+   ],
+   [
+    "2026-06-16",
+    10.52
+   ],
+   [
+    "2026-06-17",
+    10.23
+   ],
+   [
+    "2026-06-18",
+    10.27
+   ],
+   [
+    "2026-06-22",
+    10.16
+   ],
+   [
+    "2026-06-23",
+    10.16
+   ],
+   [
+    "2026-06-24",
+    10.31
+   ],
+   [
+    "2026-06-25",
+    9.93
+   ],
+   [
+    "2026-06-26",
+    10.53
+   ],
+   [
+    "2026-06-29",
+    10.68
+   ],
+   [
+    "2026-06-30",
+    10.87
+   ],
+   [
+    "2026-07-01",
+    11.55
+   ],
+   [
+    "2026-07-02",
+    11.71
+   ],
+   [
+    "2026-07-06",
+    11.83
+   ],
+   [
+    "2026-07-07",
+    11.65
+   ],
+   [
+    "2026-07-08",
+    11.42
+   ],
+   [
+    "2026-07-09",
+    11.8
+   ],
+   [
+    "2026-07-10",
+    11.68
+   ],
+   [
+    "2026-07-13",
+    11.85
+   ],
+   [
+    "2026-07-14",
+    11.94
+   ],
+   [
+    "2026-07-15",
+    11.95
+   ],
+   [
+    "2026-07-16",
+    12.03
+   ],
+   [
+    "2026-07-17",
+    12.15
+   ],
+   [
+    "2026-07-20",
+    12.16
+   ],
+   [
+    "2026-07-21",
+    12.04
+   ],
+   [
+    "2026-07-22",
+    10.7
+   ],
+   [
+    "2026-07-23",
+    10.2
+   ],
+   [
+    "2026-07-24",
+    10.84
+   ],
+   [
+    "2026-07-27",
+    11.62
+   ],
+   [
+    "2026-07-28",
+    12.19
+   ],
+   [
+    "2026-07-29",
+    12.59
+   ],
+   [
+    "2026-07-30",
+    12.37
+   ],
+   [
+    "2026-07-31",
+    12.76
+   ],
+   [
+    "2026-08-03",
+    13.05
+   ],
+   [
+    "2026-08-04",
+    14.1
+   ],
+   [
+    "2026-08-05",
+    13.82
+   ],
+   [
+    "2026-08-06",
+    14.0
+   ],
+   [
+    "2026-08-07",
+    15.05
+   ],
+   [
+    "2026-08-10",
+    15.59
+   ],
+   [
+    "2026-08-11",
+    15.72
+   ],
+   [
+    "2026-08-12",
+    15.26
+   ],
+   [
+    "2026-08-13",
+    16.68
+   ],
+   [
+    "2026-08-14",
+    16.01
+   ],
+   [
+    "2026-08-17",
+    15.99
+   ],
+   [
+    "2026-08-18",
+    15.58
+   ],
+   [
+    "2026-08-19",
+    15.78
+   ],
+   [
+    "2026-08-20",
+    15.92
+   ],
+   [
+    "2026-08-21",
+    16.39
+   ],
+   [
+    "2026-08-24",
+    16.57
+   ],
+   [
+    "2026-08-25",
+    16.66
+   ],
+   [
+    "2026-08-26",
+    16.76
+   ],
+   [
+    "2026-08-27",
+    18.33
+   ],
+   [
+    "2026-08-28",
+    18.15
+   ],
+   [
+    "2026-08-31",
+    18.67
+   ],
+   [
+    "2026-09-01",
+    18.14
+   ],
+   [
+    "2026-09-02",
+    17.99
+   ],
+   [
+    "2026-09-03",
+    18.22
+   ],
+   [
+    "2026-09-04",
+    15.19
+   ]
+  ],
+  "precio": 15.19,
+  "fecha_precio": "2026-09-04",
+  "capitalizacion": 7944567470.0,
+  "minimo_12m": 9.38,
+  "maximo_12m": 19.29,
+  "variacion_12m_pct": 40.0,
+  "fuente": "Twelve Data (API oficial, plan gratuito)"
+ },
+ "desglose": {
+  "producto": [
+   {
+    "nombre": "Subscription Services",
+    "miembro": "path:SubscriptionServicesMember",
+    "valor": 266067000.0,
+    "anio_anterior": 238363000.0,
+    "interanual_pct": 11.62,
+    "peso_pct": 64.9,
+    "margen_operativo_pct": null,
+    "margen_operativo_ya_pct": null
+   },
+   {
+    "nombre": "License",
+    "miembro": "us-gaap:LicenseMember",
+    "valor": 123843000.0,
+    "anio_anterior": 112161000.0,
+    "interanual_pct": 10.42,
+    "peso_pct": 30.2,
+    "margen_operativo_pct": null,
+    "margen_operativo_ya_pct": null
+   },
+   {
+    "nombre": "Professional Services and Other",
+    "miembro": "path:ProfessionalServicesAndOtherMember",
+    "valor": 20346000.0,
+    "anio_anterior": 11204000.0,
+    "interanual_pct": 81.6,
+    "peso_pct": 5.0,
+    "margen_operativo_pct": null,
+    "margen_operativo_ya_pct": null
+   }
+  ],
+  "segmento": []
+ },
+ "estrella": {
+  "nombre": "Subscription Services",
+  "miembro": "path:SubscriptionServicesMember",
+  "elegido": "automático",
+  "serie": [
+   {
+    "periodo": "1T23",
+    "periodo_fin": "2022-04-30",
+    "valor": 115494000.0,
+    "run_rate": 461976000.0,
+    "interanual_pct": null,
+    "margen_operativo_pct": null
+   },
+   {
+    "periodo": "2T23",
+    "periodo_fin": "2022-07-31",
+    "valor": 124656000.0,
+    "run_rate": 498624000.0,
+    "interanual_pct": null,
+    "margen_operativo_pct": null
+   },
+   {
+    "periodo": "3T23",
+    "periodo_fin": "2022-10-31",
+    "valor": 130159000.0,
+    "run_rate": 520636000.0,
+    "interanual_pct": null,
+    "margen_operativo_pct": null
+   },
+   {
+    "periodo": "4T23",
+    "periodo_fin": "2023-01-31",
+    "valor": 138514000.0,
+    "run_rate": 554056000.0,
+    "interanual_pct": null,
+    "margen_operativo_pct": null
+   },
+   {
+    "periodo": "1T24",
+    "periodo_fin": "2023-04-30",
+    "valor": 146352000.0,
+    "run_rate": 585408000.0,
+    "interanual_pct": 26.72,
+    "margen_operativo_pct": null
+   },
+   {
+    "periodo": "2T24",
+    "periodo_fin": "2023-07-31",
+    "valor": 159999000.0,
+    "run_rate": 639996000.0,
+    "interanual_pct": 28.35,
+    "margen_operativo_pct": null
+   },
+   {
+    "periodo": "3T24",
+    "periodo_fin": "2023-10-31",
+    "valor": 167529000.0,
+    "run_rate": 670116000.0,
+    "interanual_pct": 28.71,
+    "margen_operativo_pct": null
+   },
+   {
+    "periodo": "4T24",
+    "periodo_fin": "2024-01-31",
+    "valor": 176038000.0,
+    "run_rate": 704152000.0,
+    "interanual_pct": 27.09,
+    "margen_operativo_pct": null
+   },
+   {
+    "periodo": "1T25",
+    "periodo_fin": "2024-04-30",
+    "valor": 185131000.0,
+    "run_rate": 740524000.0,
+    "interanual_pct": 26.5,
+    "margen_operativo_pct": null
+   },
+   {
+    "periodo": "2T25",
+    "periodo_fin": "2024-07-31",
+    "valor": 194673000.0,
+    "run_rate": 778692000.0,
+    "interanual_pct": 21.67,
+    "margen_operativo_pct": null
+   },
+   {
+    "periodo": "3T25",
+    "periodo_fin": "2024-10-31",
+    "valor": 206922000.0,
+    "run_rate": 827688000.0,
+    "interanual_pct": 23.51,
+    "margen_operativo_pct": null
+   },
+   {
+    "periodo": "4T25",
+    "periodo_fin": "2025-01-31",
+    "valor": 215221000.0,
+    "run_rate": 860884000.0,
+    "interanual_pct": 22.26,
+    "margen_operativo_pct": null
+   },
+   {
+    "periodo": "1T26",
+    "periodo_fin": "2025-04-30",
+    "valor": 217303000.0,
+    "run_rate": 869212000.0,
+    "interanual_pct": 17.38,
+    "margen_operativo_pct": null
+   },
+   {
+    "periodo": "2T26",
+    "periodo_fin": "2025-07-31",
+    "valor": 238363000.0,
+    "run_rate": 953452000.0,
+    "interanual_pct": 22.44,
+    "margen_operativo_pct": null
+   },
+   {
+    "periodo": "3T26",
+    "periodo_fin": "2025-10-31",
+    "valor": 247573000.0,
+    "run_rate": 990292000.0,
+    "interanual_pct": 19.65,
+    "margen_operativo_pct": null
+   },
+   {
+    "periodo": "4T26",
+    "periodo_fin": "2026-01-31",
+    "valor": 251233000.0,
+    "run_rate": 1004932000.0,
+    "interanual_pct": 16.73,
+    "margen_operativo_pct": null
+   },
+   {
+    "periodo": "1T27",
+    "periodo_fin": "2026-04-30",
+    "valor": 252903000.0,
+    "run_rate": 1011612000.0,
+    "interanual_pct": 16.38,
+    "margen_operativo_pct": null
+   },
+   {
+    "periodo": "2T27",
+    "periodo_fin": "2026-07-31",
+    "valor": 266067000.0,
+    "run_rate": 1064268000.0,
+    "interanual_pct": 11.62,
+    "margen_operativo_pct": null
+   }
+  ]
+ },
+ "margenes": {
+  "trimestral": [
+   {
+    "periodo": "3T24",
+    "margen_pct": -17.13
+   },
+   {
+    "periodo": "4T24",
+    "margen_pct": 3.72
+   },
+   {
+    "periodo": "1T25",
+    "margen_pct": -14.76
+   },
+   {
+    "periodo": "2T25",
+    "margen_pct": -32.68
+   },
+   {
+    "periodo": "3T25",
+    "margen_pct": -12.23
+   },
+   {
+    "periodo": "4T25",
+    "margen_pct": 7.93
+   },
+   {
+    "periodo": "1T26",
+    "margen_pct": -4.6
+   },
+   {
+    "periodo": "2T26",
+    "margen_pct": -5.58
+   },
+   {
+    "periodo": "3T26",
+    "margen_pct": 3.18
+   },
+   {
+    "periodo": "4T26",
+    "margen_pct": 16.69
+   },
+   {
+    "periodo": "1T27",
+    "margen_pct": 6.69
+   },
+   {
+    "periodo": "2T27",
+    "margen_pct": 7.7
+   }
+  ]
+ },
+ "cita": {
+  "cita": "I am pleased with our second quarter results, demonstrating disciplined execution and the growing momentum across our platform",
+  "quien": "Daniel Dines, UiPath Founder and Chief Executive Officer"
+ },
+ "destacados": {
+  "titulo": "Second Quarter Fiscal 2027 Financial Highlights",
+  "texto": [
+   "• Revenue of $410 million increased 13 percent year-over-year.",
+   "• ARR of $1.938 billion as of July 31, 2026 increased 12 percent year-over-year.",
+   "• Dollar based net retention rate of 109 percent.",
+   "• GAAP gross margin was 80 percent."
+  ]
+ },
+ "lectura": {
+  "estado": "revisada",
+  "fuente": "Tu resumen de la presentación (Directiva)",
+  "q": "2T FY2027",
+  "date": "3-sep-2026",
+  "doc": "Nota de resultados (8-K, Exhibit 99.1)",
+  "url": "https://ir.uipath.com/financials/sec-filings/content/0001734722-26-000047/path-2026731xex991.htm",
+  "nota": "Resumen de la nota de resultados, la llamada del 3-sep-2026 y el día del inversor del 23-sep-2026.",
+  "dir": [
+   "La IA estuvo en 18 de los 20 mayores contratos y los contratos con IA son mayores.",
+   "Maestro ganó a un banco como única plataforma de orquestación.",
+   "Retención neta del 109% (106% a principios de año) y nueva ARR de 37 M$ (31 M$ un año antes)."
+  ],
+  "ret": [
+   "Bajas concentradas en los clientes más pequeños.",
+   "Rechazo de algunos clientes al precio de la IA (DA Davidson, tras el día del inversor).",
+   "Divisa: ~8 M$ de impacto en los ingresos del trimestre."
+  ],
+  "guia": [
+   "3T FY27: ingresos de 440–445 M$ y ARR de 1.992–1.997 M$; beneficio operativo ajustado ~100 M$.",
+   "FY27: ingresos de 1.789–1.794 M$, ARR de 2.065–2.070 M$ y FCF ~425 M$.",
+   "Largo plazo: margen operativo de más del 30% y pago en acciones del 8–10% de las ventas."
+  ],
+  "cap": [
+   "Recompró 2,4 M de acciones a 9,63 $ de media en el trimestre.",
+   "1.405 M$ de caja y sin deuda.",
+   "Más de 400 M$ pendientes del programa de recompras."
+  ]
+ },
+ "estimaciones": {
+  "foto": null,
+  "manual": false
+ },
+ "avisos": [],
+ "_calendario_finnhub": null,
+ "_cifras_nota": null
+}

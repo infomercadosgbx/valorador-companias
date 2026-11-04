@@ -1,0 +1,1595 @@
+{
+ "_nota": "Informe de resultados generado por el Action (fetcher/resultados.py). No se edita a mano.",
+ "esquema": 1,
+ "ticker": "VST",
+ "nombre": "Vistra",
+ "color": "#0077C8",
+ "monograma": "V",
+ "logo": "logos/VST.png",
+ "periodo": "2T26",
+ "periodo_fin": "2026-06-30",
+ "fecha_resultados": "2026-08-07",
+ "estado": "definitivo",
+ "fuente_cifras": "SEC EDGAR · 10-Q (XBRL)",
+ "informe": {
+  "accn_8k": "0001692819-26-000017",
+  "url_8k": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000017/0001692819-26-000017-index.htm",
+  "url_nota": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000017/vistra-20260630xearningsre.htm",
+  "anexos": [
+   {
+    "tipo": "EX-99.1",
+    "descripcion": "",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000017/vistra-20260630xearningsre.htm"
+   }
+  ],
+  "periodico": {
+   "formulario": "10-Q",
+   "fecha_presentacion": "2026-08-10",
+   "url_indice": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
+   "url_documento": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/vistra-20260630.htm"
+  }
+ },
+ "tabla": [
+  {
+   "concepto": "ingresos",
+   "nombre": "Ingresos",
+   "tipo": "total",
+   "reportado": {
+    "valor": 4401000000,
+    "fuente": "SEC EDGAR · 10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
+    "fecha_presentacion": "2026-08-10",
+    "etiqueta": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+    "periodo": "2T26",
+    "periodo_inicio": "2026-04-01",
+    "periodo_fin": "2026-06-30",
+    "formulario": "10-Q"
+   },
+   "estimado": null,
+   "dif_pct": null,
+   "resultado": null,
+   "anio_anterior": 3753000000,
+   "interanual_pct": 17.27
+  },
+  {
+   "concepto": "segmento",
+   "nombre": "East Segment",
+   "tipo": "segmento",
+   "reportado": {
+    "valor": 774000000.0,
+    "fuente": "SEC EDGAR · 10-Q (XBRL, segmentos)",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
+    "fecha_presentacion": "2026-08-10",
+    "periodo": "2T26",
+    "etiqueta": "vistra:EastSegmentMember"
+   },
+   "estimado": null,
+   "dif_pct": null,
+   "resultado": null,
+   "anio_anterior": 534000000.0,
+   "interanual_pct": 44.94,
+   "pendiente": null
+  },
+  {
+   "concepto": "beneficio_operativo",
+   "nombre": "Beneficio operativo (EBIT)",
+   "tipo": "total",
+   "reportado": {
+    "valor": 553000000,
+    "fuente": "SEC EDGAR · 10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
+    "fecha_presentacion": "2026-08-10",
+    "etiqueta": "us-gaap:OperatingIncomeLoss",
+    "periodo": "2T26",
+    "periodo_inicio": "2026-04-01",
+    "periodo_fin": "2026-06-30",
+    "formulario": "10-Q"
+   },
+   "estimado": null,
+   "dif_pct": null,
+   "resultado": null,
+   "anio_anterior": 515000000,
+   "interanual_pct": 7.38
+  },
+  {
+   "concepto": "beneficio_neto",
+   "nombre": "Beneficio neto",
+   "tipo": "total",
+   "reportado": {
+    "valor": 305000000,
+    "fuente": "SEC EDGAR · 10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
+    "fecha_presentacion": "2026-08-10",
+    "etiqueta": "us-gaap:NetIncomeLoss",
+    "periodo": "2T26",
+    "periodo_inicio": "2026-04-01",
+    "periodo_fin": "2026-06-30",
+    "formulario": "10-Q"
+   },
+   "estimado": null,
+   "dif_pct": null,
+   "resultado": null,
+   "anio_anterior": 327000000,
+   "interanual_pct": -6.73
+  },
+  {
+   "concepto": "bpa_diluido",
+   "nombre": "BPA diluido",
+   "tipo": "total",
+   "reportado": {
+    "valor": 0.76,
+    "fuente": "SEC EDGAR · 10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
+    "fecha_presentacion": "2026-08-10",
+    "etiqueta": "us-gaap:EarningsPerShareDiluted",
+    "periodo": "2T26",
+    "periodo_inicio": "2026-04-01",
+    "periodo_fin": "2026-06-30",
+    "formulario": "10-Q"
+   },
+   "estimado": {
+    "valor": 1.6938,
+    "fuente": "Finnhub · historial de sorpresas de BPA",
+    "url": "https://finnhub.io/docs/api/company-earnings"
+   },
+   "dif_pct": -55.13,
+   "resultado": "Miss",
+   "anio_anterior": 0.81,
+   "interanual_pct": -6.17
+  }
+ ],
+ "guia": {
+  "items": [
+   {
+    "concepto": "ebitda",
+    "min": 6800000000.0,
+    "max": 7600000000.0,
+    "medio": 7200000000.0,
+    "texto": "Ongoing Operations Adjusted EBITDA $6,800 - $7,600",
+    "estimado": null,
+    "dif_pct": null,
+    "resultado": null
+   }
+  ],
+  "texto": [
+   "Ongoing Operations Adjusted EBITDA $6,800 - $7,600",
+   "Ongoing Operations Adjusted FCFbG $3,925 - $4,725",
+   "As of Aug. 3, 2026, Vistra had hedged approximately 100% of its expected generation volumes for 2026, approximately 94% for 2027, and approximately 72% for 2028. The company's comprehensive hedging program provides support for the reaffirmed 2026 guidance ranges and the previously announced Ongoing Operations Adjusted EBITDA midpoint opportunity 2 range of $7.4 billion to $7.8 billion for 2027. 3 The ranges exclude any potential benefits from the pending acquisition of Cogentrix and the signed p",
+   "As of Aug. 3, 2026:",
+   "• Vistra executed ~$6.5 billion in share repurchases since November 2021.",
+   "• Vistra had ~336 million shares outstanding, representing a ~30% reduction of the amount of the shares outstanding on Nov. 2, 2021.",
+   "• ~$1.2 billion of the share repurchase authorization remained available, which we expect to complete no later than year-end 2027.",
+   "As of June 30, 2026, Vistra had total available liquidity of approximately $6,295 million, including cash and cash equivalents of $435 million, $4,408 million of availability under its corporate revolving credit facility, and $1,452 million of availability under its commodity-linked revolving credit facility. Available capacity under the commodity-linked revolving credit facility reflects the borrowing base of $1,452 million and excludes $298 million of commitments under the facility that were n"
+  ],
+  "titulo": "Guidance",
+  "fuente": "SEC EDGAR · 8-K, Exhibit 99.1 (texto original)",
+  "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000017/vistra-20260630xearningsre.htm"
+ },
+ "reaccion": {
+  "hora": "tras el cierre",
+  "hora_supuesta": true,
+  "fecha_antes": "2026-08-07",
+  "cierre_antes": 140.59,
+  "fuente": "Twelve Data (API oficial, plan gratuito)",
+  "fecha_despues": "2026-08-10",
+  "cierre_despues": 142.87,
+  "variacion_pct": 1.62,
+  "provisional": false
+ },
+ "cotizacion": {
+  "serie": [
+   [
+    "2025-08-11",
+    200.08
+   ],
+   [
+    "2025-08-12",
+    209.56
+   ],
+   [
+    "2025-08-13",
+    205.28
+   ],
+   [
+    "2025-08-14",
+    202.35
+   ],
+   [
+    "2025-08-15",
+    197.33
+   ],
+   [
+    "2025-08-18",
+    198.96
+   ],
+   [
+    "2025-08-19",
+    193.52
+   ],
+   [
+    "2025-08-20",
+    192.91
+   ],
+   [
+    "2025-08-21",
+    190.28
+   ],
+   [
+    "2025-08-22",
+    190.46
+   ],
+   [
+    "2025-08-25",
+    190.08
+   ],
+   [
+    "2025-08-26",
+    195.12
+   ],
+   [
+    "2025-08-27",
+    194.6
+   ],
+   [
+    "2025-08-28",
+    196.7
+   ],
+   [
+    "2025-08-29",
+    189.11
+   ],
+   [
+    "2025-09-02",
+    185.81
+   ],
+   [
+    "2025-09-03",
+    188.12
+   ],
+   [
+    "2025-09-04",
+    189.73
+   ],
+   [
+    "2025-09-05",
+    188.0
+   ],
+   [
+    "2025-09-08",
+    188.01
+   ],
+   [
+    "2025-09-09",
+    193.78
+   ],
+   [
+    "2025-09-10",
+    209.21
+   ],
+   [
+    "2025-09-11",
+    204.05
+   ],
+   [
+    "2025-09-12",
+    209.7
+   ],
+   [
+    "2025-09-15",
+    213.52
+   ],
+   [
+    "2025-09-16",
+    209.43
+   ],
+   [
+    "2025-09-17",
+    208.31
+   ],
+   [
+    "2025-09-18",
+    210.16
+   ],
+   [
+    "2025-09-19",
+    211.28
+   ],
+   [
+    "2025-09-22",
+    217.92
+   ],
+   [
+    "2025-09-23",
+    204.24
+   ],
+   [
+    "2025-09-24",
+    202.06
+   ],
+   [
+    "2025-09-25",
+    201.62
+   ],
+   [
+    "2025-09-26",
+    207.22
+   ],
+   [
+    "2025-09-29",
+    197.94
+   ],
+   [
+    "2025-09-30",
+    195.92
+   ],
+   [
+    "2025-10-01",
+    201.51
+   ],
+   [
+    "2025-10-02",
+    202.65
+   ],
+   [
+    "2025-10-03",
+    201.99
+   ],
+   [
+    "2025-10-06",
+    200.41
+   ],
+   [
+    "2025-10-07",
+    199.62
+   ],
+   [
+    "2025-10-08",
+    206.55
+   ],
+   [
+    "2025-10-09",
+    210.0
+   ],
+   [
+    "2025-10-10",
+    196.86
+   ],
+   [
+    "2025-10-13",
+    209.55
+   ],
+   [
+    "2025-10-14",
+    205.51
+   ],
+   [
+    "2025-10-15",
+    210.85
+   ],
+   [
+    "2025-10-16",
+    210.4
+   ],
+   [
+    "2025-10-17",
+    201.35
+   ],
+   [
+    "2025-10-20",
+    194.24
+   ],
+   [
+    "2025-10-21",
+    186.52
+   ],
+   [
+    "2025-10-22",
+    185.83
+   ],
+   [
+    "2025-10-23",
+    191.37
+   ],
+   [
+    "2025-10-24",
+    201.47
+   ],
+   [
+    "2025-10-27",
+    199.3
+   ],
+   [
+    "2025-10-28",
+    190.59
+   ],
+   [
+    "2025-10-29",
+    199.37
+   ],
+   [
+    "2025-10-30",
+    189.71
+   ],
+   [
+    "2025-10-31",
+    188.3
+   ],
+   [
+    "2025-11-03",
+    193.04
+   ],
+   [
+    "2025-11-04",
+    185.74
+   ],
+   [
+    "2025-11-05",
+    189.39
+   ],
+   [
+    "2025-11-06",
+    184.62
+   ],
+   [
+    "2025-11-07",
+    191.0
+   ],
+   [
+    "2025-11-10",
+    188.28
+   ],
+   [
+    "2025-11-11",
+    179.16
+   ],
+   [
+    "2025-11-12",
+    178.27
+   ],
+   [
+    "2025-11-13",
+    171.56
+   ],
+   [
+    "2025-11-14",
+    174.69
+   ],
+   [
+    "2025-11-17",
+    175.0
+   ],
+   [
+    "2025-11-18",
+    174.42
+   ],
+   [
+    "2025-11-19",
+    179.14
+   ],
+   [
+    "2025-11-20",
+    173.79
+   ],
+   [
+    "2025-11-21",
+    168.59
+   ],
+   [
+    "2025-11-24",
+    175.14
+   ],
+   [
+    "2025-11-25",
+    170.84
+   ],
+   [
+    "2025-11-26",
+    176.8
+   ],
+   [
+    "2025-11-28",
+    178.86
+   ],
+   [
+    "2025-12-01",
+    173.64
+   ],
+   [
+    "2025-12-02",
+    172.55
+   ],
+   [
+    "2025-12-03",
+    171.65
+   ],
+   [
+    "2025-12-04",
+    176.07
+   ],
+   [
+    "2025-12-05",
+    167.17
+   ],
+   [
+    "2025-12-08",
+    166.12
+   ],
+   [
+    "2025-12-09",
+    164.81
+   ],
+   [
+    "2025-12-10",
+    165.17
+   ],
+   [
+    "2025-12-11",
+    174.6
+   ],
+   [
+    "2025-12-12",
+    170.1
+   ],
+   [
+    "2025-12-15",
+    168.25
+   ],
+   [
+    "2025-12-16",
+    173.45
+   ],
+   [
+    "2025-12-17",
+    159.97
+   ],
+   [
+    "2025-12-18",
+    166.17
+   ],
+   [
+    "2025-12-19",
+    163.03
+   ],
+   [
+    "2025-12-22",
+    161.57
+   ],
+   [
+    "2025-12-23",
+    161.67
+   ],
+   [
+    "2025-12-24",
+    161.96
+   ],
+   [
+    "2025-12-26",
+    161.67
+   ],
+   [
+    "2025-12-29",
+    161.84
+   ],
+   [
+    "2025-12-30",
+    162.62
+   ],
+   [
+    "2025-12-31",
+    161.33
+   ],
+   [
+    "2026-01-02",
+    165.23
+   ],
+   [
+    "2026-01-05",
+    162.93
+   ],
+   [
+    "2026-01-06",
+    169.53
+   ],
+   [
+    "2026-01-07",
+    154.6
+   ],
+   [
+    "2026-01-08",
+    150.6
+   ],
+   [
+    "2026-01-09",
+    166.37
+   ],
+   [
+    "2026-01-12",
+    172.58
+   ],
+   [
+    "2026-01-13",
+    171.42
+   ],
+   [
+    "2026-01-14",
+    168.97
+   ],
+   [
+    "2026-01-15",
+    180.18
+   ],
+   [
+    "2026-01-16",
+    166.6
+   ],
+   [
+    "2026-01-20",
+    156.81
+   ],
+   [
+    "2026-01-21",
+    160.02
+   ],
+   [
+    "2026-01-22",
+    160.36
+   ],
+   [
+    "2026-01-23",
+    160.12
+   ],
+   [
+    "2026-01-26",
+    158.81
+   ],
+   [
+    "2026-01-27",
+    164.26
+   ],
+   [
+    "2026-01-28",
+    165.64
+   ],
+   [
+    "2026-01-29",
+    162.58
+   ],
+   [
+    "2026-01-30",
+    158.35
+   ],
+   [
+    "2026-02-02",
+    154.26
+   ],
+   [
+    "2026-02-03",
+    153.0
+   ],
+   [
+    "2026-02-04",
+    142.52
+   ],
+   [
+    "2026-02-05",
+    143.07
+   ],
+   [
+    "2026-02-06",
+    149.65
+   ],
+   [
+    "2026-02-09",
+    152.97
+   ],
+   [
+    "2026-02-10",
+    159.6
+   ],
+   [
+    "2026-02-11",
+    160.15
+   ],
+   [
+    "2026-02-12",
+    163.1
+   ],
+   [
+    "2026-02-13",
+    171.49
+   ],
+   [
+    "2026-02-17",
+    173.68
+   ],
+   [
+    "2026-02-18",
+    170.57
+   ],
+   [
+    "2026-02-19",
+    172.5
+   ],
+   [
+    "2026-02-20",
+    171.4
+   ],
+   [
+    "2026-02-23",
+    167.8
+   ],
+   [
+    "2026-02-24",
+    171.62
+   ],
+   [
+    "2026-02-25",
+    175.36
+   ],
+   [
+    "2026-02-26",
+    176.82
+   ],
+   [
+    "2026-02-27",
+    173.89
+   ],
+   [
+    "2026-03-02",
+    165.99
+   ],
+   [
+    "2026-03-03",
+    161.7
+   ],
+   [
+    "2026-03-04",
+    163.36
+   ],
+   [
+    "2026-03-05",
+    167.4
+   ],
+   [
+    "2026-03-06",
+    158.65
+   ],
+   [
+    "2026-03-09",
+    163.62
+   ],
+   [
+    "2026-03-10",
+    164.4
+   ],
+   [
+    "2026-03-11",
+    159.16
+   ],
+   [
+    "2026-03-12",
+    159.58
+   ],
+   [
+    "2026-03-13",
+    158.95
+   ],
+   [
+    "2026-03-16",
+    161.99
+   ],
+   [
+    "2026-03-17",
+    164.33
+   ],
+   [
+    "2026-03-18",
+    170.12
+   ],
+   [
+    "2026-03-19",
+    167.37
+   ],
+   [
+    "2026-03-20",
+    146.02
+   ],
+   [
+    "2026-03-23",
+    151.29
+   ],
+   [
+    "2026-03-24",
+    152.72
+   ],
+   [
+    "2026-03-25",
+    151.51
+   ],
+   [
+    "2026-03-26",
+    152.3
+   ],
+   [
+    "2026-03-27",
+    155.48
+   ],
+   [
+    "2026-03-30",
+    147.54
+   ],
+   [
+    "2026-03-31",
+    150.33
+   ],
+   [
+    "2026-04-01",
+    153.96
+   ],
+   [
+    "2026-04-02",
+    151.18
+   ],
+   [
+    "2026-04-06",
+    151.59
+   ],
+   [
+    "2026-04-07",
+    153.68
+   ],
+   [
+    "2026-04-08",
+    155.89
+   ],
+   [
+    "2026-04-09",
+    152.75
+   ],
+   [
+    "2026-04-10",
+    154.73
+   ],
+   [
+    "2026-04-13",
+    158.2
+   ],
+   [
+    "2026-04-14",
+    163.97
+   ],
+   [
+    "2026-04-15",
+    162.94
+   ],
+   [
+    "2026-04-16",
+    165.53
+   ],
+   [
+    "2026-04-17",
+    163.46
+   ],
+   [
+    "2026-04-20",
+    159.6
+   ],
+   [
+    "2026-04-21",
+    154.91
+   ],
+   [
+    "2026-04-22",
+    155.79
+   ],
+   [
+    "2026-04-23",
+    156.85
+   ],
+   [
+    "2026-04-24",
+    164.35
+   ],
+   [
+    "2026-04-27",
+    166.58
+   ],
+   [
+    "2026-04-28",
+    161.12
+   ],
+   [
+    "2026-04-29",
+    153.79
+   ],
+   [
+    "2026-04-30",
+    157.84
+   ],
+   [
+    "2026-05-01",
+    155.28
+   ],
+   [
+    "2026-05-04",
+    160.85
+   ],
+   [
+    "2026-05-05",
+    160.38
+   ],
+   [
+    "2026-05-06",
+    158.29
+   ],
+   [
+    "2026-05-07",
+    153.95
+   ],
+   [
+    "2026-05-08",
+    147.72
+   ],
+   [
+    "2026-05-11",
+    152.05
+   ],
+   [
+    "2026-05-12",
+    146.87
+   ],
+   [
+    "2026-05-13",
+    142.61
+   ],
+   [
+    "2026-05-14",
+    141.9
+   ],
+   [
+    "2026-05-15",
+    139.68
+   ],
+   [
+    "2026-05-18",
+    136.75
+   ],
+   [
+    "2026-05-19",
+    134.71
+   ],
+   [
+    "2026-05-20",
+    144.0
+   ],
+   [
+    "2026-05-21",
+    149.08
+   ],
+   [
+    "2026-05-22",
+    156.27
+   ],
+   [
+    "2026-05-26",
+    164.56
+   ],
+   [
+    "2026-05-27",
+    160.15
+   ],
+   [
+    "2026-05-28",
+    160.28
+   ],
+   [
+    "2026-05-29",
+    160.23
+   ],
+   [
+    "2026-06-01",
+    154.76
+   ],
+   [
+    "2026-06-02",
+    157.97
+   ],
+   [
+    "2026-06-03",
+    153.8
+   ],
+   [
+    "2026-06-04",
+    153.7
+   ],
+   [
+    "2026-06-05",
+    148.76
+   ],
+   [
+    "2026-06-08",
+    146.9
+   ],
+   [
+    "2026-06-09",
+    146.22
+   ],
+   [
+    "2026-06-10",
+    138.54
+   ],
+   [
+    "2026-06-11",
+    146.38
+   ],
+   [
+    "2026-06-12",
+    148.02
+   ],
+   [
+    "2026-06-15",
+    153.52
+   ],
+   [
+    "2026-06-16",
+    158.61
+   ],
+   [
+    "2026-06-17",
+    158.83
+   ],
+   [
+    "2026-06-18",
+    163.75
+   ],
+   [
+    "2026-06-22",
+    167.26
+   ],
+   [
+    "2026-06-23",
+    162.39
+   ],
+   [
+    "2026-06-24",
+    162.87
+   ],
+   [
+    "2026-06-25",
+    167.77
+   ],
+   [
+    "2026-06-26",
+    163.49
+   ],
+   [
+    "2026-06-29",
+    162.38
+   ],
+   [
+    "2026-06-30",
+    158.63
+   ],
+   [
+    "2026-07-01",
+    153.16
+   ],
+   [
+    "2026-07-02",
+    151.05
+   ],
+   [
+    "2026-07-06",
+    157.22
+   ],
+   [
+    "2026-07-07",
+    155.73
+   ],
+   [
+    "2026-07-08",
+    154.82
+   ],
+   [
+    "2026-07-09",
+    157.98
+   ],
+   [
+    "2026-07-10",
+    158.86
+   ],
+   [
+    "2026-07-13",
+    158.12
+   ],
+   [
+    "2026-07-14",
+    158.43
+   ],
+   [
+    "2026-07-15",
+    160.23
+   ],
+   [
+    "2026-07-16",
+    152.56
+   ],
+   [
+    "2026-07-17",
+    155.44
+   ],
+   [
+    "2026-07-20",
+    157.99
+   ],
+   [
+    "2026-07-21",
+    162.33
+   ],
+   [
+    "2026-07-22",
+    166.74
+   ],
+   [
+    "2026-07-23",
+    168.98
+   ],
+   [
+    "2026-07-24",
+    163.38
+   ],
+   [
+    "2026-07-27",
+    157.08
+   ],
+   [
+    "2026-07-28",
+    148.64
+   ],
+   [
+    "2026-07-29",
+    142.81
+   ],
+   [
+    "2026-07-30",
+    148.62
+   ],
+   [
+    "2026-07-31",
+    148.19
+   ],
+   [
+    "2026-08-03",
+    155.94
+   ],
+   [
+    "2026-08-04",
+    143.23
+   ],
+   [
+    "2026-08-05",
+    140.58
+   ],
+   [
+    "2026-08-06",
+    141.38
+   ],
+   [
+    "2026-08-07",
+    140.59
+   ],
+   [
+    "2026-08-10",
+    142.87
+   ]
+  ],
+  "precio": 142.87,
+  "fecha_precio": "2026-08-10",
+  "capitalizacion": 47952200309.65,
+  "minimo_12m": 134.71,
+  "maximo_12m": 217.92,
+  "variacion_12m_pct": -28.59,
+  "fuente": "Twelve Data (API oficial, plan gratuito)"
+ },
+ "desglose": {
+  "producto": [
+   {
+    "nombre": "Retail Energy Charge In ERCOT",
+    "miembro": "vistra:RetailEnergyChargeInERCOTMember",
+    "valor": 2253000000.0,
+    "anio_anterior": 2206000000.0,
+    "interanual_pct": 2.13,
+    "peso_pct": 51.2,
+    "margen_operativo_pct": null,
+    "margen_operativo_ya_pct": null
+   },
+   {
+    "nombre": "Retail Energy Charge In Northeast/Midwest",
+    "miembro": "vistra:RetailEnergyChargeInNortheastMidwestMember",
+    "valor": 1091000000.0,
+    "anio_anterior": 793000000.0,
+    "interanual_pct": 37.58,
+    "peso_pct": 24.8,
+    "margen_operativo_pct": null,
+    "margen_operativo_ya_pct": null
+   },
+   {
+    "nombre": "Wholesale Generation Revenue From ERCOT",
+    "miembro": "vistra:WholesaleGenerationRevenueFromERCOTMember",
+    "valor": 620000000.0,
+    "anio_anterior": 474000000.0,
+    "interanual_pct": 30.8,
+    "peso_pct": 14.1,
+    "margen_operativo_pct": null,
+    "margen_operativo_ya_pct": null
+   },
+   {
+    "nombre": "Revenue From Other Wholesale Contracts",
+    "miembro": "vistra:RevenueFromOtherWholesaleContractsMember",
+    "valor": 303000000.0,
+    "anio_anterior": 250000000.0,
+    "interanual_pct": 21.2,
+    "peso_pct": 6.9,
+    "margen_operativo_pct": null,
+    "margen_operativo_ya_pct": null
+   },
+   {
+    "nombre": "Capacity Revenue",
+    "miembro": "vistra:CapacityRevenueMember",
+    "valor": 134000000.0,
+    "anio_anterior": 30000000.0,
+    "interanual_pct": 346.67,
+    "peso_pct": 3.0,
+    "margen_operativo_pct": null,
+    "margen_operativo_ya_pct": null
+   },
+   {
+    "nombre": "Business Interruption Insurance Proceeds",
+    "miembro": "vistra:BusinessInterruptionInsuranceProceedsMember",
+    "valor": 22000000.0,
+    "anio_anterior": 21000000.0,
+    "interanual_pct": 4.76,
+    "peso_pct": 0.5,
+    "margen_operativo_pct": null,
+    "margen_operativo_ya_pct": null
+   },
+   {
+    "nombre": "Transferable Production Tax Credit Revenues",
+    "miembro": "vistra:TransferableProductionTaxCreditRevenuesMember",
+    "valor": 3000000.0,
+    "anio_anterior": 4000000.0,
+    "interanual_pct": -25.0,
+    "peso_pct": 0.1,
+    "margen_operativo_pct": null,
+    "margen_operativo_ya_pct": null
+   },
+   {
+    "nombre": "Intangible Amortization And Other Revenues",
+    "miembro": "vistra:IntangibleAmortizationAndOtherRevenuesMember",
+    "valor": -1000000.0,
+    "anio_anterior": -5000000.0,
+    "interanual_pct": null,
+    "peso_pct": -0.0,
+    "margen_operativo_pct": null,
+    "margen_operativo_ya_pct": null
+   },
+   {
+    "nombre": "Total Other Revenues",
+    "miembro": "vistra:TotalOtherRevenuesMember",
+    "valor": -384000000.0,
+    "anio_anterior": 497000000.0,
+    "interanual_pct": -177.26,
+    "peso_pct": -8.7,
+    "margen_operativo_pct": null,
+    "margen_operativo_ya_pct": null
+   }
+  ],
+  "segmento": [
+   {
+    "nombre": "Retail Segment",
+    "miembro": "vistra:RetailSegmentMember",
+    "valor": 3344000000.0,
+    "anio_anterior": 2999000000.0,
+    "interanual_pct": 11.5,
+    "peso_pct": 76.0,
+    "margen_operativo_pct": null,
+    "margen_operativo_ya_pct": null
+   },
+   {
+    "nombre": "East Segment",
+    "miembro": "vistra:EastSegmentMember",
+    "valor": 774000000.0,
+    "anio_anterior": 534000000.0,
+    "interanual_pct": 44.94,
+    "peso_pct": 17.6,
+    "margen_operativo_pct": null,
+    "margen_operativo_ya_pct": null
+   },
+   {
+    "nombre": "Texas Segment",
+    "miembro": "vistra:TexasSegmentMember",
+    "valor": 203000000.0,
+    "anio_anterior": 150000000.0,
+    "interanual_pct": 35.33,
+    "peso_pct": 4.6,
+    "margen_operativo_pct": null,
+    "margen_operativo_ya_pct": null
+   },
+   {
+    "nombre": "West Segment",
+    "miembro": "vistra:WestSegmentMember",
+    "valor": 79000000.0,
+    "anio_anterior": 68000000.0,
+    "interanual_pct": 16.18,
+    "peso_pct": 1.8,
+    "margen_operativo_pct": null,
+    "margen_operativo_ya_pct": null
+   },
+   {
+    "nombre": "Asset Closure Segment",
+    "miembro": "vistra:AssetClosureSegmentMember",
+    "valor": 0.0,
+    "anio_anterior": 1000000.0,
+    "interanual_pct": -100.0,
+    "peso_pct": 0.0,
+    "margen_operativo_pct": null,
+    "margen_operativo_ya_pct": null
+   }
+  ]
+ },
+ "estrella": {
+  "nombre": "East Segment",
+  "miembro": "vistra:EastSegmentMember",
+  "elegido": "automático",
+  "serie": [
+   {
+    "periodo": "1T22",
+    "periodo_fin": "2022-03-31",
+    "valor": 639000000.0,
+    "run_rate": 2556000000.0,
+    "interanual_pct": null,
+    "margen_operativo_pct": -19.7
+   },
+   {
+    "periodo": "2T22",
+    "periodo_fin": "2022-06-30",
+    "valor": 368000000.0,
+    "run_rate": 1472000000.0,
+    "interanual_pct": null,
+    "margen_operativo_pct": -179.6
+   },
+   {
+    "periodo": "3T22",
+    "periodo_fin": "2022-09-30",
+    "valor": 671000000.0,
+    "run_rate": 2684000000.0,
+    "interanual_pct": null,
+    "margen_operativo_pct": -17.9
+   },
+   {
+    "periodo": "4T22",
+    "periodo_fin": "2022-12-31",
+    "valor": 1641000000.0,
+    "run_rate": 6564000000.0,
+    "interanual_pct": null,
+    "margen_operativo_pct": 2.4
+   },
+   {
+    "periodo": "1T23",
+    "periodo_fin": "2023-03-31",
+    "valor": 559000000.0,
+    "run_rate": 2236000000.0,
+    "interanual_pct": -12.52,
+    "margen_operativo_pct": 133.1
+   },
+   {
+    "periodo": "2T23",
+    "periodo_fin": "2023-06-30",
+    "valor": 381000000.0,
+    "run_rate": 1524000000.0,
+    "interanual_pct": 3.53,
+    "margen_operativo_pct": 72.2
+   },
+   {
+    "periodo": "3T23",
+    "periodo_fin": "2023-09-30",
+    "valor": 441000000.0,
+    "run_rate": 1764000000.0,
+    "interanual_pct": -34.28,
+    "margen_operativo_pct": 6.6
+   },
+   {
+    "periodo": "4T23",
+    "periodo_fin": "2023-12-31",
+    "valor": 812000000.0,
+    "run_rate": 3248000000.0,
+    "interanual_pct": -50.52,
+    "margen_operativo_pct": 13.5
+   },
+   {
+    "periodo": "1T24",
+    "periodo_fin": "2024-03-31",
+    "valor": 477000000.0,
+    "run_rate": 1908000000.0,
+    "interanual_pct": -14.67,
+    "margen_operativo_pct": -46.8
+   },
+   {
+    "periodo": "2T24",
+    "periodo_fin": "2024-06-30",
+    "valor": 268000000.0,
+    "run_rate": 1072000000.0,
+    "interanual_pct": -29.66,
+    "margen_operativo_pct": 137.3
+   },
+   {
+    "periodo": "3T24",
+    "periodo_fin": "2024-09-30",
+    "valor": 465000000.0,
+    "run_rate": 1860000000.0,
+    "interanual_pct": 5.44,
+    "margen_operativo_pct": 77.8
+   },
+   {
+    "periodo": "4T24",
+    "periodo_fin": "2024-12-31",
+    "valor": 613000000.0,
+    "run_rate": 2452000000.0,
+    "interanual_pct": -24.51,
+    "margen_operativo_pct": null
+   },
+   {
+    "periodo": "1T25",
+    "periodo_fin": "2025-03-31",
+    "valor": 920000000.0,
+    "run_rate": 3680000000.0,
+    "interanual_pct": 92.87,
+    "margen_operativo_pct": null
+   },
+   {
+    "periodo": "2T25",
+    "periodo_fin": "2025-06-30",
+    "valor": 534000000.0,
+    "run_rate": 2136000000.0,
+    "interanual_pct": 99.25,
+    "margen_operativo_pct": null
+   },
+   {
+    "periodo": "3T25",
+    "periodo_fin": "2025-09-30",
+    "valor": 723000000.0,
+    "run_rate": 2892000000.0,
+    "interanual_pct": 55.48,
+    "margen_operativo_pct": null
+   },
+   {
+    "periodo": "4T25",
+    "periodo_fin": "2025-12-31",
+    "valor": 1134000000.0,
+    "run_rate": 4536000000.0,
+    "interanual_pct": 84.99,
+    "margen_operativo_pct": null
+   },
+   {
+    "periodo": "1T26",
+    "periodo_fin": "2026-03-31",
+    "valor": 1435000000.0,
+    "run_rate": 5740000000.0,
+    "interanual_pct": 55.98,
+    "margen_operativo_pct": null
+   },
+   {
+    "periodo": "2T26",
+    "periodo_fin": "2026-06-30",
+    "valor": 774000000.0,
+    "run_rate": 3096000000.0,
+    "interanual_pct": 44.94,
+    "margen_operativo_pct": null
+   }
+  ]
+ },
+ "margenes": {
+  "trimestral": [
+   {
+    "periodo": "3T23",
+    "margen_pct": 17.41
+   },
+   {
+    "periodo": "4T23",
+    "margen_pct": 3.64
+   },
+   {
+    "periodo": "1T24",
+    "margen_pct": 2.72
+   },
+   {
+    "periodo": "2T24",
+    "margen_pct": 22.45
+   },
+   {
+    "periodo": "3T24",
+    "margen_pct": 59.62
+   },
+   {
+    "periodo": "4T24",
+    "margen_pct": 16.36
+   },
+   {
+    "periodo": "1T25",
+    "margen_pct": -2.82
+   },
+   {
+    "periodo": "2T25",
+    "margen_pct": 13.72
+   },
+   {
+    "periodo": "3T25",
+    "margen_pct": 21.7
+   },
+   {
+    "periodo": "4T25",
+    "margen_pct": 9.86
+   },
+   {
+    "periodo": "1T26",
+    "margen_pct": 29.97
+   },
+   {
+    "periodo": "2T26",
+    "margen_pct": 12.57
+   }
+  ]
+ },
+ "cita": {
+  "cita": "The Vistra team delivered another strong quarter, building on our momentum from the start of the year and continuing to execute at a high level",
+  "quien": "Jim Burke, president and CEO of Vistra"
+ },
+ "destacados": {
+  "titulo": "Earnings Release Highlights",
+  "texto": [
+   "• GAAP second quarter 2026 Net Income of $305 million, including an unrealized loss from hedges expected to settle in future years of $472 million.",
+   "• Achieved more than 30% growth in Ongoing Operations Adjusted EBITDA 1 to $1,767 million for the quarter compared to second quarter 2025.",
+   "• Reaffirmed 2026 Ongoing Operations Adjusted EBITDA 1 and Ongoing Operations Adjusted FCFbG 1 guidance ranges of $6.8 billion to $7.6 billion and $3.925 billion to $4.725 billion, respectively. 3",
+   "• Announced Helix Digital Infrastructure alongside KKR, KIA, and NVIDIA with an initial commitment from Vistra of up to $1.0 billion.",
+   "• Received Federal Energy Regulatory Commission approval of the pending Cogentrix Energy acquisition.",
+   "• Earned second consecutive distinction as one of U.S. News & World Report ' s Best Companies to Work For.",
+   "IRVING, Texas — Aug. 7, 2026 — Vistra Corp. (NYSE: VST) today reported its second quarter 2026 financial results and other highlights."
+  ]
+ },
+ "lectura": {
+  "estado": "revisada",
+  "fuente": "Tu resumen de la presentación (Directiva)",
+  "q": "2T 2026",
+  "date": "7-ago-2026",
+  "doc": "Nota de resultados (8-K)",
+  "url": "https://www.sec.gov/Archives/edgar/data/0001692819/000169281926000017/vistra-20260630xearningsre.htm",
+  "nota": "Próxima presentación: 6-nov-2026.",
+  "dir": [
+   "Jim Burke destaca la disponibilidad comercial de la flota (97% o más) en las olas de calor de Texas y PJM.",
+   "Helix Digital Infrastructure, con NVIDIA, KKR y Kuwait Investment Authority: Vistra se compromete con hasta 1.000 M$ y será su proveedor preferente de energía.",
+   "Contratos de compra de energía a largo plazo con Meta, que contribuirán en parte al EBITDA de 2027.",
+   "Compra de Cogentrix pendiente de cierre (ya aprobada por la FERC). Construye dos unidades de gas en la cuenca Pérmica y proyectos solares."
+  ],
+  "ret": [
+   "El beneficio neto bajó a 305 M$ (327 M$ un año antes) por 488 M$ más de pérdidas no realizadas en derivados.",
+   "Cierre de activos: pérdida de 23 M$ de EBITDA ajustado. Gastos financieros de 312 M$ en el trimestre.",
+   "Riesgos citados: volatilidad de mercado y clima, integración de Cogentrix y rebajas de rating."
+  ],
+  "guia": [
+   "2026 (reiterada): EBITDA ajustado de 6.800–7.600 M$ y FCF antes de crecimiento de 3.925–4.725 M$, sin Cogentrix ni Meta.",
+   "2027 (oportunidad, no guía formal): 7.400–7.800 M$, según curvas de octubre de 2025.",
+   "Cobertura: ~100% de la generación de 2026, 94% de 2027 y 72% de 2028."
+  ],
+  "cap": [
+   "Ha recomprado unos 6.500 M$ desde noviembre de 2021 (acciones un 30% menos). Quedan unos 1.200 M$ autorizados, hasta fin de 2027.",
+   "Capex 2026: 1.536 M$. Liquidez de 6.295 M$. Sin objetivo explícito de deuda."
+  ]
+ },
+ "estimaciones": {
+  "foto": null,
+  "manual": false
+ },
+ "avisos": [],
+ "_calendario_finnhub": null,
+ "_cifras_nota": null
+}

@@ -1,0 +1,1448 @@
+{
+ "_nota": "Informe de resultados generado por el Action (fetcher/resultados.py). No se edita a mano.",
+ "esquema": 1,
+ "ticker": "ORCL",
+ "nombre": "Oracle",
+ "color": "#C74634",
+ "monograma": "OR",
+ "logo": "logos/ORCL.png",
+ "periodo": "1T27",
+ "periodo_fin": "2026-08-31",
+ "fecha_resultados": "2026-09-10",
+ "estado": "definitivo",
+ "fuente_cifras": "SEC EDGAR · 10-Q (XBRL)",
+ "informe": {
+  "accn_8k": "0001193125-26-387905",
+  "url_8k": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526387905/0001193125-26-387905-index.htm",
+  "url_nota": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526387905/orcl-ex99_1.htm",
+  "anexos": [
+   {
+    "tipo": "EX-99.1",
+    "descripcion": "",
+    "url": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526387905/orcl-ex99_1.htm"
+   }
+  ],
+  "periodico": {
+   "formulario": "10-Q",
+   "fecha_presentacion": "2026-09-11",
+   "url_indice": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526389274/0001193125-26-389274-index.htm",
+   "url_documento": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526389274/orcl-20260831.htm"
+  }
+ },
+ "tabla": [
+  {
+   "concepto": "ingresos",
+   "nombre": "Ingresos",
+   "tipo": "total",
+   "reportado": {
+    "valor": 19345000000,
+    "fuente": "SEC EDGAR · 10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526389274/0001193125-26-389274-index.htm",
+    "fecha_presentacion": "2026-09-11",
+    "etiqueta": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+    "periodo": "1T27",
+    "periodo_inicio": "2026-06-01",
+    "periodo_fin": "2026-08-31",
+    "formulario": "10-Q"
+   },
+   "estimado": null,
+   "dif_pct": null,
+   "resultado": null,
+   "anio_anterior": 14926000000,
+   "interanual_pct": 29.61
+  },
+  {
+   "concepto": "segmento",
+   "nombre": "Cloud And Software Business",
+   "tipo": "segmento",
+   "reportado": {
+    "valor": 17157000000.0,
+    "fuente": "SEC EDGAR · 10-Q (XBRL, segmentos)",
+    "url": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526389274/0001193125-26-389274-index.htm",
+    "fecha_presentacion": "2026-09-11",
+    "periodo": "1T27",
+    "etiqueta": "orcl:CloudAndSoftwareBusinessMember"
+   },
+   "estimado": null,
+   "dif_pct": null,
+   "resultado": null,
+   "anio_anterior": 12907000000.0,
+   "interanual_pct": 32.93,
+   "pendiente": null
+  },
+  {
+   "concepto": "beneficio_operativo",
+   "nombre": "Beneficio operativo (EBIT)",
+   "tipo": "total",
+   "reportado": {
+    "valor": 6728000000,
+    "fuente": "SEC EDGAR · 10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526389274/0001193125-26-389274-index.htm",
+    "fecha_presentacion": "2026-09-11",
+    "etiqueta": "us-gaap:OperatingIncomeLoss",
+    "periodo": "1T27",
+    "periodo_inicio": "2026-06-01",
+    "periodo_fin": "2026-08-31",
+    "formulario": "10-Q"
+   },
+   "estimado": null,
+   "dif_pct": null,
+   "resultado": null,
+   "anio_anterior": 4277000000,
+   "interanual_pct": 57.31
+  },
+  {
+   "concepto": "beneficio_neto",
+   "nombre": "Beneficio neto",
+   "tipo": "total",
+   "reportado": {
+    "valor": 4760000000,
+    "fuente": "SEC EDGAR · 10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526389274/0001193125-26-389274-index.htm",
+    "fecha_presentacion": "2026-09-11",
+    "etiqueta": "us-gaap:NetIncomeLoss",
+    "periodo": "1T27",
+    "periodo_inicio": "2026-06-01",
+    "periodo_fin": "2026-08-31",
+    "formulario": "10-Q"
+   },
+   "estimado": null,
+   "dif_pct": null,
+   "resultado": null,
+   "anio_anterior": 2927000000,
+   "interanual_pct": 62.62
+  },
+  {
+   "concepto": "bpa_diluido",
+   "nombre": "BPA diluido",
+   "tipo": "total",
+   "reportado": {
+    "valor": 1.56,
+    "fuente": "SEC EDGAR · 10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526389274/0001193125-26-389274-index.htm",
+    "fecha_presentacion": "2026-09-11",
+    "etiqueta": "us-gaap:EarningsPerShareDiluted",
+    "periodo": "1T27",
+    "periodo_inicio": "2026-06-01",
+    "periodo_fin": "2026-08-31",
+    "formulario": "10-Q"
+   },
+   "estimado": null,
+   "dif_pct": null,
+   "resultado": null,
+   "anio_anterior": 1.01,
+   "interanual_pct": 54.46
+  }
+ ],
+ "guia": {
+  "items": [],
+  "texto": [
+   "Oracle is providing the following forward-looking guidance for Q2 FY 2027:",
+   "• Total revenues are expected to grow between 30% and 34% in constant currency and USD.",
+   "• Total Cloud revenue is expected to grow between 64% and 70% in constant currency and between 65% and 71% in USD."
+  ],
+  "titulo": "Guidance for Q2 FY 202",
+  "fuente": "SEC EDGAR · 8-K, Exhibit 99.1 (texto original)",
+  "url": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526387905/orcl-ex99_1.htm"
+ },
+ "reaccion": {
+  "hora": "tras el cierre",
+  "hora_supuesta": true,
+  "fecha_antes": "2026-09-10",
+  "cierre_antes": 152.94,
+  "fuente": "Twelve Data (API oficial, plan gratuito)",
+  "fecha_despues": "2026-09-11",
+  "cierre_despues": 150.28,
+  "variacion_pct": -1.74,
+  "provisional": false
+ },
+ "cotizacion": {
+  "serie": [
+   [
+    "2025-09-11",
+    307.86
+   ],
+   [
+    "2025-09-12",
+    292.18
+   ],
+   [
+    "2025-09-15",
+    302.14
+   ],
+   [
+    "2025-09-16",
+    306.65
+   ],
+   [
+    "2025-09-17",
+    301.41
+   ],
+   [
+    "2025-09-18",
+    296.62
+   ],
+   [
+    "2025-09-19",
+    308.66
+   ],
+   [
+    "2025-09-22",
+    328.15
+   ],
+   [
+    "2025-09-23",
+    313.83
+   ],
+   [
+    "2025-09-24",
+    308.46
+   ],
+   [
+    "2025-09-25",
+    291.33
+   ],
+   [
+    "2025-09-26",
+    283.46
+   ],
+   [
+    "2025-09-29",
+    282.76
+   ],
+   [
+    "2025-09-30",
+    281.24
+   ],
+   [
+    "2025-10-01",
+    289.01
+   ],
+   [
+    "2025-10-02",
+    288.78
+   ],
+   [
+    "2025-10-03",
+    286.14
+   ],
+   [
+    "2025-10-06",
+    291.59
+   ],
+   [
+    "2025-10-07",
+    284.24
+   ],
+   [
+    "2025-10-08",
+    288.63
+   ],
+   [
+    "2025-10-09",
+    296.96
+   ],
+   [
+    "2025-10-10",
+    292.96
+   ],
+   [
+    "2025-10-13",
+    308.01
+   ],
+   [
+    "2025-10-14",
+    299.0
+   ],
+   [
+    "2025-10-15",
+    303.62
+   ],
+   [
+    "2025-10-16",
+    313.0
+   ],
+   [
+    "2025-10-17",
+    291.31
+   ],
+   [
+    "2025-10-20",
+    277.18
+   ],
+   [
+    "2025-10-21",
+    275.15
+   ],
+   [
+    "2025-10-22",
+    272.66
+   ],
+   [
+    "2025-10-23",
+    280.07
+   ],
+   [
+    "2025-10-24",
+    283.33
+   ],
+   [
+    "2025-10-27",
+    281.4
+   ],
+   [
+    "2025-10-28",
+    280.83
+   ],
+   [
+    "2025-10-29",
+    275.3
+   ],
+   [
+    "2025-10-30",
+    256.89
+   ],
+   [
+    "2025-10-31",
+    262.61
+   ],
+   [
+    "2025-11-03",
+    257.85
+   ],
+   [
+    "2025-11-04",
+    248.17
+   ],
+   [
+    "2025-11-05",
+    250.31
+   ],
+   [
+    "2025-11-06",
+    243.8
+   ],
+   [
+    "2025-11-07",
+    239.26
+   ],
+   [
+    "2025-11-10",
+    240.83
+   ],
+   [
+    "2025-11-11",
+    236.15
+   ],
+   [
+    "2025-11-12",
+    226.99
+   ],
+   [
+    "2025-11-13",
+    217.57
+   ],
+   [
+    "2025-11-14",
+    222.85
+   ],
+   [
+    "2025-11-17",
+    219.86
+   ],
+   [
+    "2025-11-18",
+    220.49
+   ],
+   [
+    "2025-11-19",
+    225.53
+   ],
+   [
+    "2025-11-20",
+    210.69
+   ],
+   [
+    "2025-11-21",
+    198.76
+   ],
+   [
+    "2025-11-24",
+    200.28
+   ],
+   [
+    "2025-11-25",
+    197.03
+   ],
+   [
+    "2025-11-26",
+    204.96
+   ],
+   [
+    "2025-11-28",
+    201.95
+   ],
+   [
+    "2025-12-01",
+    200.94
+   ],
+   [
+    "2025-12-02",
+    201.1
+   ],
+   [
+    "2025-12-03",
+    207.73
+   ],
+   [
+    "2025-12-04",
+    214.33
+   ],
+   [
+    "2025-12-05",
+    217.58
+   ],
+   [
+    "2025-12-08",
+    220.54
+   ],
+   [
+    "2025-12-09",
+    221.53
+   ],
+   [
+    "2025-12-10",
+    223.01
+   ],
+   [
+    "2025-12-11",
+    198.85
+   ],
+   [
+    "2025-12-12",
+    189.97
+   ],
+   [
+    "2025-12-15",
+    184.92
+   ],
+   [
+    "2025-12-16",
+    188.65
+   ],
+   [
+    "2025-12-17",
+    178.46
+   ],
+   [
+    "2025-12-18",
+    180.03
+   ],
+   [
+    "2025-12-19",
+    191.97
+   ],
+   [
+    "2025-12-22",
+    198.38
+   ],
+   [
+    "2025-12-23",
+    195.34
+   ],
+   [
+    "2025-12-24",
+    197.49
+   ],
+   [
+    "2025-12-26",
+    197.99
+   ],
+   [
+    "2025-12-29",
+    195.38
+   ],
+   [
+    "2025-12-30",
+    197.21
+   ],
+   [
+    "2025-12-31",
+    194.91
+   ],
+   [
+    "2026-01-02",
+    195.71
+   ],
+   [
+    "2026-01-05",
+    192.59
+   ],
+   [
+    "2026-01-06",
+    193.75
+   ],
+   [
+    "2026-01-07",
+    192.84
+   ],
+   [
+    "2026-01-08",
+    189.65
+   ],
+   [
+    "2026-01-09",
+    198.52
+   ],
+   [
+    "2026-01-12",
+    204.68
+   ],
+   [
+    "2026-01-13",
+    202.29
+   ],
+   [
+    "2026-01-14",
+    193.61
+   ],
+   [
+    "2026-01-15",
+    189.85
+   ],
+   [
+    "2026-01-16",
+    191.09
+   ],
+   [
+    "2026-01-20",
+    179.92
+   ],
+   [
+    "2026-01-21",
+    173.88
+   ],
+   [
+    "2026-01-22",
+    178.18
+   ],
+   [
+    "2026-01-23",
+    177.16
+   ],
+   [
+    "2026-01-26",
+    182.44
+   ],
+   [
+    "2026-01-27",
+    174.9
+   ],
+   [
+    "2026-01-28",
+    172.8
+   ],
+   [
+    "2026-01-29",
+    169.01
+   ],
+   [
+    "2026-01-30",
+    164.58
+   ],
+   [
+    "2026-02-02",
+    160.06
+   ],
+   [
+    "2026-02-03",
+    154.67
+   ],
+   [
+    "2026-02-04",
+    146.67
+   ],
+   [
+    "2026-02-05",
+    136.48
+   ],
+   [
+    "2026-02-06",
+    142.82
+   ],
+   [
+    "2026-02-09",
+    156.59
+   ],
+   [
+    "2026-02-10",
+    159.89
+   ],
+   [
+    "2026-02-11",
+    157.16
+   ],
+   [
+    "2026-02-12",
+    156.48
+   ],
+   [
+    "2026-02-13",
+    160.14
+   ],
+   [
+    "2026-02-17",
+    153.97
+   ],
+   [
+    "2026-02-18",
+    156.17
+   ],
+   [
+    "2026-02-19",
+    156.54
+   ],
+   [
+    "2026-02-20",
+    148.08
+   ],
+   [
+    "2026-02-23",
+    141.31
+   ],
+   [
+    "2026-02-24",
+    146.14
+   ],
+   [
+    "2026-02-25",
+    147.89
+   ],
+   [
+    "2026-02-26",
+    150.31
+   ],
+   [
+    "2026-02-27",
+    145.4
+   ],
+   [
+    "2026-03-02",
+    149.25
+   ],
+   [
+    "2026-03-03",
+    149.01
+   ],
+   [
+    "2026-03-04",
+    152.37
+   ],
+   [
+    "2026-03-05",
+    154.79
+   ],
+   [
+    "2026-03-06",
+    152.96
+   ],
+   [
+    "2026-03-09",
+    151.56
+   ],
+   [
+    "2026-03-10",
+    149.4
+   ],
+   [
+    "2026-03-11",
+    163.12
+   ],
+   [
+    "2026-03-12",
+    159.16
+   ],
+   [
+    "2026-03-13",
+    155.11
+   ],
+   [
+    "2026-03-16",
+    155.97
+   ],
+   [
+    "2026-03-17",
+    154.69
+   ],
+   [
+    "2026-03-18",
+    152.9
+   ],
+   [
+    "2026-03-19",
+    155.52
+   ],
+   [
+    "2026-03-20",
+    149.68
+   ],
+   [
+    "2026-03-23",
+    154.34
+   ],
+   [
+    "2026-03-24",
+    147.09
+   ],
+   [
+    "2026-03-25",
+    146.02
+   ],
+   [
+    "2026-03-26",
+    142.81
+   ],
+   [
+    "2026-03-27",
+    139.66
+   ],
+   [
+    "2026-03-30",
+    138.8
+   ],
+   [
+    "2026-03-31",
+    147.11
+   ],
+   [
+    "2026-04-01",
+    145.23
+   ],
+   [
+    "2026-04-02",
+    146.38
+   ],
+   [
+    "2026-04-06",
+    145.54
+   ],
+   [
+    "2026-04-07",
+    143.17
+   ],
+   [
+    "2026-04-08",
+    143.66
+   ],
+   [
+    "2026-04-09",
+    137.86
+   ],
+   [
+    "2026-04-10",
+    138.09
+   ],
+   [
+    "2026-04-13",
+    155.62
+   ],
+   [
+    "2026-04-14",
+    163.0
+   ],
+   [
+    "2026-04-15",
+    169.81
+   ],
+   [
+    "2026-04-16",
+    178.34
+   ],
+   [
+    "2026-04-17",
+    175.06
+   ],
+   [
+    "2026-04-20",
+    177.58
+   ],
+   [
+    "2026-04-21",
+    181.17
+   ],
+   [
+    "2026-04-22",
+    187.5
+   ],
+   [
+    "2026-04-23",
+    176.28
+   ],
+   [
+    "2026-04-24",
+    173.28
+   ],
+   [
+    "2026-04-27",
+    172.96
+   ],
+   [
+    "2026-04-28",
+    165.96
+   ],
+   [
+    "2026-04-29",
+    163.83
+   ],
+   [
+    "2026-04-30",
+    161.39
+   ],
+   [
+    "2026-05-01",
+    171.83
+   ],
+   [
+    "2026-05-04",
+    180.29
+   ],
+   [
+    "2026-05-05",
+    185.35
+   ],
+   [
+    "2026-05-06",
+    194.03
+   ],
+   [
+    "2026-05-07",
+    194.59
+   ],
+   [
+    "2026-05-08",
+    195.95
+   ],
+   [
+    "2026-05-11",
+    193.84
+   ],
+   [
+    "2026-05-12",
+    186.83
+   ],
+   [
+    "2026-05-13",
+    189.76
+   ],
+   [
+    "2026-05-14",
+    195.61
+   ],
+   [
+    "2026-05-15",
+    192.95
+   ],
+   [
+    "2026-05-18",
+    186.61
+   ],
+   [
+    "2026-05-19",
+    181.46
+   ],
+   [
+    "2026-05-20",
+    188.16
+   ],
+   [
+    "2026-05-21",
+    189.77
+   ],
+   [
+    "2026-05-22",
+    192.08
+   ],
+   [
+    "2026-05-26",
+    193.06
+   ],
+   [
+    "2026-05-27",
+    190.96
+   ],
+   [
+    "2026-05-28",
+    203.7
+   ],
+   [
+    "2026-05-29",
+    225.78
+   ],
+   [
+    "2026-06-01",
+    248.15
+   ],
+   [
+    "2026-06-02",
+    244.58
+   ],
+   [
+    "2026-06-03",
+    230.33
+   ],
+   [
+    "2026-06-04",
+    236.34
+   ],
+   [
+    "2026-06-05",
+    213.68
+   ],
+   [
+    "2026-06-08",
+    211.82
+   ],
+   [
+    "2026-06-09",
+    205.81
+   ],
+   [
+    "2026-06-10",
+    201.26
+   ],
+   [
+    "2026-06-11",
+    184.1
+   ],
+   [
+    "2026-06-12",
+    184.13
+   ],
+   [
+    "2026-06-15",
+    192.64
+   ],
+   [
+    "2026-06-16",
+    188.33
+   ],
+   [
+    "2026-06-17",
+    183.53
+   ],
+   [
+    "2026-06-18",
+    184.29
+   ],
+   [
+    "2026-06-22",
+    175.07
+   ],
+   [
+    "2026-06-23",
+    165.16
+   ],
+   [
+    "2026-06-24",
+    157.53
+   ],
+   [
+    "2026-06-25",
+    152.46
+   ],
+   [
+    "2026-06-26",
+    148.53
+   ],
+   [
+    "2026-06-29",
+    147.76
+   ],
+   [
+    "2026-06-30",
+    146.55
+   ],
+   [
+    "2026-07-01",
+    142.5
+   ],
+   [
+    "2026-07-02",
+    140.27
+   ],
+   [
+    "2026-07-06",
+    143.76
+   ],
+   [
+    "2026-07-07",
+    141.6
+   ],
+   [
+    "2026-07-08",
+    140.49
+   ],
+   [
+    "2026-07-09",
+    144.22
+   ],
+   [
+    "2026-07-10",
+    140.64
+   ],
+   [
+    "2026-07-13",
+    131.54
+   ],
+   [
+    "2026-07-14",
+    127.94
+   ],
+   [
+    "2026-07-15",
+    132.49
+   ],
+   [
+    "2026-07-16",
+    124.21
+   ],
+   [
+    "2026-07-17",
+    126.41
+   ],
+   [
+    "2026-07-20",
+    121.38
+   ],
+   [
+    "2026-07-21",
+    127.05
+   ],
+   [
+    "2026-07-22",
+    125.84
+   ],
+   [
+    "2026-07-23",
+    120.04
+   ],
+   [
+    "2026-07-24",
+    114.99
+   ],
+   [
+    "2026-07-27",
+    119.9
+   ],
+   [
+    "2026-07-28",
+    119.96
+   ],
+   [
+    "2026-07-29",
+    117.74
+   ],
+   [
+    "2026-07-30",
+    127.56
+   ],
+   [
+    "2026-07-31",
+    129.87
+   ],
+   [
+    "2026-08-03",
+    141.85
+   ],
+   [
+    "2026-08-04",
+    145.74
+   ],
+   [
+    "2026-08-05",
+    144.39
+   ],
+   [
+    "2026-08-06",
+    143.47
+   ],
+   [
+    "2026-08-07",
+    147.02
+   ],
+   [
+    "2026-08-10",
+    151.05
+   ],
+   [
+    "2026-08-11",
+    145.48
+   ],
+   [
+    "2026-08-12",
+    153.28
+   ],
+   [
+    "2026-08-13",
+    156.22
+   ],
+   [
+    "2026-08-14",
+    150.52
+   ],
+   [
+    "2026-08-17",
+    146.65
+   ],
+   [
+    "2026-08-18",
+    142.79
+   ],
+   [
+    "2026-08-19",
+    143.81
+   ],
+   [
+    "2026-08-20",
+    142.07
+   ],
+   [
+    "2026-08-21",
+    146.47
+   ],
+   [
+    "2026-08-24",
+    142.45
+   ],
+   [
+    "2026-08-25",
+    144.76
+   ],
+   [
+    "2026-08-26",
+    148.87
+   ],
+   [
+    "2026-08-27",
+    151.94
+   ],
+   [
+    "2026-08-28",
+    150.85
+   ],
+   [
+    "2026-08-31",
+    149.12
+   ],
+   [
+    "2026-09-01",
+    141.32
+   ],
+   [
+    "2026-09-02",
+    145.75
+   ],
+   [
+    "2026-09-03",
+    154.04
+   ],
+   [
+    "2026-09-04",
+    158.78
+   ],
+   [
+    "2026-09-08",
+    162.52
+   ],
+   [
+    "2026-09-09",
+    161.63
+   ],
+   [
+    "2026-09-10",
+    152.94
+   ],
+   [
+    "2026-09-11",
+    150.28
+   ]
+  ],
+  "precio": 150.28,
+  "fecha_precio": "2026-09-11",
+  "capitalizacion": 454407046080.0,
+  "minimo_12m": 114.99,
+  "maximo_12m": 328.15,
+  "variacion_12m_pct": -51.19,
+  "fuente": "Twelve Data (API oficial, plan gratuito)"
+ },
+ "desglose": {
+  "producto": [
+   {
+    "nombre": "Cloud Revenues",
+    "miembro": "orcl:CloudRevenuesMember",
+    "valor": 11607000000.0,
+    "anio_anterior": 7186000000.0,
+    "interanual_pct": 61.52,
+    "peso_pct": 60.0,
+    "margen_operativo_pct": null,
+    "margen_operativo_ya_pct": null
+   },
+   {
+    "nombre": "Cloud Infrastructure",
+    "miembro": "orcl:CloudInfrastructureMember",
+    "valor": 7388000000.0,
+    "anio_anterior": 3347000000.0,
+    "interanual_pct": 120.73,
+    "peso_pct": 38.2,
+    "margen_operativo_pct": null,
+    "margen_operativo_ya_pct": null
+   },
+   {
+    "nombre": "Software Revenues",
+    "miembro": "orcl:SoftwareRevenuesMember",
+    "valor": 5550000000.0,
+    "anio_anterior": 5721000000.0,
+    "interanual_pct": -2.99,
+    "peso_pct": 28.7,
+    "margen_operativo_pct": null,
+    "margen_operativo_ya_pct": null
+   },
+   {
+    "nombre": "Software Support",
+    "miembro": "orcl:SoftwareSupportMember",
+    "valor": 4895000000.0,
+    "anio_anterior": 4955000000.0,
+    "interanual_pct": -1.21,
+    "peso_pct": 25.3,
+    "margen_operativo_pct": null,
+    "margen_operativo_ya_pct": null
+   },
+   {
+    "nombre": "Cloud Applications",
+    "miembro": "orcl:CloudApplicationsMember",
+    "valor": 4219000000.0,
+    "anio_anterior": 3839000000.0,
+    "interanual_pct": 9.9,
+    "peso_pct": 21.8,
+    "margen_operativo_pct": null,
+    "margen_operativo_ya_pct": null
+   },
+   {
+    "nombre": "Software License",
+    "miembro": "orcl:SoftwareLicenseMember",
+    "valor": 655000000.0,
+    "anio_anterior": 766000000.0,
+    "interanual_pct": -14.49,
+    "peso_pct": 3.4,
+    "margen_operativo_pct": null,
+    "margen_operativo_ya_pct": null
+   }
+  ],
+  "segmento": [
+   {
+    "nombre": "Cloud And Software Business",
+    "miembro": "orcl:CloudAndSoftwareBusinessMember",
+    "valor": 17157000000.0,
+    "anio_anterior": 12907000000.0,
+    "interanual_pct": 32.93,
+    "peso_pct": 88.7,
+    "margen_operativo_pct": 54.5,
+    "margen_operativo_ya_pct": 59.6
+   },
+   {
+    "nombre": "Services Business",
+    "miembro": "orcl:ServicesBusinessMember",
+    "valor": 1414000000.0,
+    "anio_anterior": 1349000000.0,
+    "interanual_pct": 4.82,
+    "peso_pct": 7.3,
+    "margen_operativo_pct": 31.5,
+    "margen_operativo_ya_pct": 24.6
+   },
+   {
+    "nombre": "Hardware Business",
+    "miembro": "orcl:HardwareBusinessMember",
+    "valor": 774000000.0,
+    "anio_anterior": 670000000.0,
+    "interanual_pct": 15.52,
+    "peso_pct": 4.0,
+    "margen_operativo_pct": 58.4,
+    "margen_operativo_ya_pct": 66.7
+   }
+  ]
+ },
+ "estrella": {
+  "nombre": "Cloud And Software Business",
+  "miembro": "orcl:CloudAndSoftwareBusinessMember",
+  "elegido": "automático",
+  "serie": [
+   {
+    "periodo": "1T25",
+    "periodo_fin": "2024-08-31",
+    "valor": 11389000000.0,
+    "run_rate": 45556000000.0,
+    "interanual_pct": null,
+    "margen_operativo_pct": 63.2
+   },
+   {
+    "periodo": "2T25",
+    "periodo_fin": "2024-11-30",
+    "valor": 12001000000.0,
+    "run_rate": 48004000000.0,
+    "interanual_pct": null,
+    "margen_operativo_pct": 63.0
+   },
+   {
+    "periodo": "3T25",
+    "periodo_fin": "2025-02-28",
+    "valor": 12136000000.0,
+    "run_rate": 48544000000.0,
+    "interanual_pct": null,
+    "margen_operativo_pct": 62.9
+   },
+   {
+    "periodo": "4T25",
+    "periodo_fin": "2025-05-31",
+    "valor": 13704000000.0,
+    "run_rate": 54816000000.0,
+    "interanual_pct": null,
+    "margen_operativo_pct": 62.4
+   },
+   {
+    "periodo": "1T26",
+    "periodo_fin": "2025-08-31",
+    "valor": 12907000000.0,
+    "run_rate": 51628000000.0,
+    "interanual_pct": 13.33,
+    "margen_operativo_pct": 59.6
+   },
+   {
+    "periodo": "2T26",
+    "periodo_fin": "2025-11-30",
+    "valor": 13854000000.0,
+    "run_rate": 55416000000.0,
+    "interanual_pct": 15.44,
+    "margen_operativo_pct": 59.0
+   },
+   {
+    "periodo": "3T26",
+    "periodo_fin": "2026-02-28",
+    "valor": 15033000000.0,
+    "run_rate": 60132000000.0,
+    "interanual_pct": 23.87,
+    "margen_operativo_pct": 57.9
+   },
+   {
+    "periodo": "4T26",
+    "periodo_fin": "2026-05-31",
+    "valor": 16736000000.0,
+    "run_rate": 66944000000.0,
+    "interanual_pct": 22.12,
+    "margen_operativo_pct": 59.1
+   },
+   {
+    "periodo": "1T27",
+    "periodo_fin": "2026-08-31",
+    "valor": 17157000000.0,
+    "run_rate": 68628000000.0,
+    "interanual_pct": 32.93,
+    "margen_operativo_pct": 54.5
+   }
+  ]
+ },
+ "margenes": {
+  "trimestral": [
+   {
+    "periodo": "2T24",
+    "margen_pct": 27.99
+   },
+   {
+    "periodo": "3T24",
+    "margen_pct": 28.24
+   },
+   {
+    "periodo": "4T24",
+    "margen_pct": 32.79
+   },
+   {
+    "periodo": "1T25",
+    "margen_pct": 29.99
+   },
+   {
+    "periodo": "2T25",
+    "margen_pct": 30.02
+   },
+   {
+    "periodo": "3T25",
+    "margen_pct": 30.84
+   },
+   {
+    "periodo": "4T25",
+    "margen_pct": 32.13
+   },
+   {
+    "periodo": "1T26",
+    "margen_pct": 28.65
+   },
+   {
+    "periodo": "2T26",
+    "margen_pct": 29.46
+   },
+   {
+    "periodo": "3T26",
+    "margen_pct": 31.79
+   },
+   {
+    "periodo": "4T26",
+    "margen_pct": 31.98
+   },
+   {
+    "periodo": "1T27",
+    "margen_pct": 34.78
+   }
+  ]
+ },
+ "cita": null,
+ "destacados": null,
+ "lectura": {
+  "estado": "revisada",
+  "fuente": "Tu resumen de la presentación (Directiva)",
+  "q": "1T FY2027",
+  "date": "10-sep-2026",
+  "doc": "Nota de resultados (8-K, Exhibit 99.1)",
+  "url": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526387905/orcl-ex99_1.htm",
+  "nota": "Resumen de la nota de resultados y de la llamada con analistas del 10-sep-2026 (co-CEO Clay Magouyrk y CFO Hilary Maxson), con los objetivos del día del inversor del 28-oct-2026.",
+  "dir": [
+   "La nube de infraestructura crece +121% (7.400 M$) y ya acelera frente al +93% del trimestre anterior.",
+   "Más de 30.000 M$ de nuevos contratos de IA en el trimestre, sobre todo con prepagos o hardware aportado por el cliente, que no exigen más capital de Oracle.",
+   "Base de datos dentro de otras nubes (Azure, AWS): ingresos +353% y clientes +180%.",
+   "Utilización de las GPU del 97,9%; las que se renuevan se vuelven a alquilar con una prima del 20%.",
+   "Aplicaciones: 2.300 agentes de IA en producción en clientes (+90%) y NetSuite Next ya disponible."
+  ],
+  "ret": [
+   "Caja libre negativa (−5.400 M$) y sin fecha concreta en la llamada para volver a positiva.",
+   "El margen bruto baja por la puesta en marcha de centros de datos y la mezcla hacia infraestructura.",
+   "Retrasos en Nuevo México (permiso de emisiones) y Wisconsin (conexión eléctrica), aunque no afectan al FY27.",
+   "Gastos por intereses de 1.428 M$ (+55%)."
+  ],
+  "guia": [
+   "FY27: ingresos ≥90.000 M$ (+34%) y BPA ajustado de 8,10 $.",
+   "2T FY27: ingresos +30–34%, nube +65–71%, BPA ajustado 1,85–1,93 $.",
+   "Capex FY27 de 90.000–95.000 M$, como máximo 70.000 M$ netos.",
+   "FY30: ingresos ≥225.000 M$, BPA ajustado ≥21 $ y margen operativo ajustado ≥40%."
+  ],
+  "cap": [
+   "Ampliación de capital de 20.000 M$ por venta en mercado (ATM) en el 1T.",
+   "En noviembre: 10.000 M$ en acciones (86,2 M a 116 $) y 10.000 M$ en bonos, con cupones de hasta el 8,65%.",
+   "Tope de 20.000 M$ más de financiación en mercado hasta FY30 (sin refinanciaciones).",
+   "Dividendo trimestral de 0,50 $; sin recompras relevantes desde el FY26."
+  ]
+ },
+ "estimaciones": {
+  "foto": null,
+  "manual": false
+ },
+ "avisos": [],
+ "_calendario_finnhub": null,
+ "_cifras_nota": null
+}

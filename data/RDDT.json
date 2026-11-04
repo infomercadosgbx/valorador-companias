@@ -5989,7 +5989,7 @@
    "n_ventas": 152,
    "ventas_con_plan": 88926537.46,
    "compradores": [],
-   "desde": "2026-05-04"
+   "desde": "2026-05-05"
   },
   "operaciones": [
    {
@@ -12165,11 +12165,11 @@
  "precio": {
   "minimo_52s": 89.28,
   "maximo_52s": 263.4999,
-  "beta": 2.299603,
-  "valor": 96.15,
-  "cierre_anterior": 90.97,
+  "beta": 2.2792525,
+  "valor": 101.89,
+  "cierre_anterior": 96.15,
   "moneda": "USD",
-  "fecha": "2026-11-03",
+  "fecha": "2026-11-04",
   "fuente": "Finnhub (API oficial, plan gratuito)",
   "url": "https://finnhub.io/"
  },
@@ -12223,6 +12223,7 @@
   "proximos": {
    "fecha": "2027-02-03",
    "hora": "tras el cierre",
+   "hora_codigo": "amc",
    "trimestre": 4,
    "anio": 2026,
    "bpa_estimado": 1.8966,
@@ -12265,11 +12266,67 @@
  },
  "noticias": [
   {
+   "titular": "Husband Sends Sister $40K A Year From Joint Account To Chase Her Dreams. 'I’d Have To Seriously Consider Our Marriage,' Wife Says",
+   "medio": "Yahoo",
+   "url": "https://finnhub.io/api/news?id=be5ea62c0b79749e7bb878c6c56f6618b7caae24bcfcba515b58070c0d2af2f5",
+   "fecha": "2026-11-04",
+   "resumen": "A 30-year-old wife wanted her husband to stop sending money from their joint account to support his younger sister’s dreams. He gave her roughly 30,000 British pounds ($39,847) the previous year, and kept sending money even after she repeatedly raised..."
+  },
+  {
+   "titular": "Reddit Begins To Test Search Ads",
+   "medio": "Yahoo",
+   "url": "https://finnhub.io/api/news?id=04fc28503eb65cf6cb3d5177ec1626b6d8101dca41aa3a87f4b64f5ac1214fcf",
+   "fecha": "2026-11-04",
+   "resumen": "Reddit is testing ad placements in search with a select group of advertisers. Ad delivery in search will depend on contextual relevance to a user's search query, and other factors."
+  },
+  {
+   "titular": "Reddit Stock Roars Back From AI Search Scare: Keep This On A Watchlist",
+   "medio": "SeekingAlpha",
+   "url": "https://finnhub.io/api/news?id=99bc818b5e45b5814771bca975c07d72f16f64234a94f1133bf8f3fda09f5746",
+   "fecha": "2026-11-04",
+   "resumen": "Reddit plunged amid AI search fears despite posting strong earnings. Poor momentum triggered a downgrade to Hold, but robust fundamentals make it a stock to watch."
+  },
+  {
+   "titular": "Social Buzz: Wallstreetbets Stocks Mostly Higher Premarket Wednesday; Super Micro Computer, AMD to Advance",
+   "medio": "Yahoo",
+   "url": "https://finnhub.io/api/news?id=f85c64af21c48183ee83bb2cb5a93d24d1f197ca2767899c4cee350ee4c5f949",
+   "fecha": "2026-11-04",
+   "resumen": "The most-talked-about stocks in the Reddit subforum Wallstreetbets were mostly higher hours before W"
+  },
+  {
+   "titular": "How Much Should This Fall Change Your View Of Reddit Stock?",
+   "medio": "Yahoo",
+   "url": "https://finnhub.io/api/news?id=0f7419eb6367f863bdb013d13c5a0b543a757396e17a427e2a35ef0868b21b49",
+   "fecha": "2026-11-04",
+   "resumen": "For questions about this article or underlying research, email help@trefis.com."
+  },
+  {
+   "titular": "Why Reddit Stock Is In Focus After Strong Q3 And A Google Traffic Warning",
+   "medio": "Yahoo",
+   "url": "https://finnhub.io/api/news?id=1146e0a7bbaa35e27140b27afef6af947900288c50fb67ae29321668ac4fcd65",
+   "fecha": "2026-11-03",
+   "resumen": "Reddit reported Q3 2026 revenue of US$894.96 million and net income of US$283.26 million, alongside a completed US$340.37 million share repurchase covering 1.15% of shares. The business paired stronger earnings with a warning about lower daily users and weaker Google search refer"
+  },
+  {
+   "titular": "Reddit pitches its 1,300 gaming-related communities to brands",
+   "medio": "Yahoo",
+   "url": "https://finnhub.io/api/news?id=4c3b05a67c4d4ded54d35b4efe859351fb2f841544d71327270a8106729c3d03",
+   "fecha": "2026-11-03",
+   "resumen": "The company said that in-app conversations “created and shaped by real players” can drive engagement and influence purchasing decisions."
+  },
+  {
    "titular": "What Did Reddit's Quarter Change For Its Stock?",
    "medio": "Yahoo",
    "url": "https://finnhub.io/api/news?id=b0dca06d77ca16d14dce2851fad4ccfe42d9ee236cb9a2234ecc97361f10e7fe",
    "fecha": "2026-11-03",
    "resumen": "For questions about this article or underlying research, email help@trefis.com."
+  },
+  {
+   "titular": "Reddit Is Fighting Back Against AI. What That Means for RDDT Stock.",
+   "medio": "Yahoo",
+   "url": "https://finnhub.io/api/news?id=66ae6034900d95c28ebbcc61dadfe6708f89cb99180cba3f1c7c5ddb2a698caa",
+   "fecha": "2026-11-03",
+   "resumen": "Reddit wants to put a login wall between AI bots and its content. Will that protect its business or backfire?"
   },
   {
    "titular": "Reddit tests ads in search results as traffic declines and growth concerns mount",
@@ -12347,62 +12404,6 @@
    "url": "https://finnhub.io/api/news?id=aba896868aa4037633cc6ba01258c4989bf44de4a46cbc38a30b548f34d75e4f",
    "fecha": "2026-11-02",
    "resumen": "Scott Melker discusses the growing list of major US companies, now about 50, filing objections to unaffiliated third-party tokens tracking their shares on a new tokenized stock venue backed by ICE (ICE). \"The Daily Wolf with Scott Melker\" airs every day at 12:00 p.m. Tune in for "
-  },
-  {
-   "titular": "These 2 Tech Stocks Both Fell 29% on Friday. Are They Buying Opportunities Now?",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=5a9ec691fbf22be018525c2dc2081dbb810edcfde5c670dfcfad153b133dea4d",
-   "fecha": "2026-11-02",
-   "resumen": "Two very different businesses with two very different problems, and one common thread."
-  },
-  {
-   "titular": "5 must-read analyst questions from Reddit’s Q3 earnings call",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=2aff0b1c2c3f031babd53b3a4b2569f85bb51f7cfbaee56ad50dfa32517fdeb8",
-   "fecha": "2026-11-02",
-   "resumen": "Reddit’s third quarter results prompted a significant negative market reaction, despite year-on-year revenue growth and margin expansion. Management attributed the quarter’s performance to robust advertising demand, with strong gains in both pricing and impressions, but also ackn"
-  },
-  {
-   "titular": "S&P 500 Unusual Volume Movers for Nov. 2, 2026",
-   "medio": "ChartMill",
-   "url": "https://finnhub.io/api/news?id=0bc5489a89774e637aa3927e21752ca8c8f965309e63f6c281d681232a7a0976",
-   "fecha": "2026-11-02",
-   "resumen": "Nov. 2, 2026 scan of S&P 500 unusual-volume stocks: Reddit, West Pharmaceutical, Regeneron, Estée Lauder and IDEXX traded above their 50-day average volume."
-  },
-  {
-   "titular": "Trump Media Rises 6% Ahead of Midterms With No Clear Catalyst; Rumble Slides 3%, Reddit Gains 3%",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=3186c40ca4e08f952fd4768b0920203ebfbffc5f16c1f8417f1fc1389fb3fdc3",
-   "fecha": "2026-11-02",
-   "resumen": "Trump Media is surging ahead of the midterm vote even as its fundamentals stay messy and a rival alternative-media platform heads the opposite direction. Whether election-driven momentum can outlast the ballot count is the question traders are now racing to answer."
-  },
-  {
-   "titular": "Worker Earning $70K Nearly Doubles Roth 401(k) Savings From 16% To 30% After Building $80K Emergency Fund. ‘Am I Nuts?’",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=01902e37527aece5312c8238342c3fdc3d087da294672ae820e1c2ce35facbc2",
-   "fecha": "2026-11-02",
-   "resumen": "A worker earning $70,000 nearly doubled their Roth 401(k) contribution from 16% to 30%. With roughly $80,000 set aside for emergencies, they wanted more of their money going toward retirement instead. \"Am i nuts for upping to 30%?\" they asked..."
-  },
-  {
-   "titular": "Reddit (RDDT) Stock Fair Value Moves Lower After Analysts Cut Targets On User Concerns",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=71e378e3f1156c1364beca920ec169a4d9563a5113526ffbd8f98427b7d23a8d",
-   "fecha": "2026-11-02",
-   "resumen": "The modelled fair value price target for Reddit has been cut from US$216.35 to US$167.85, a sizeable reset that puts a lower ceiling on what analysts see as reasonable upside for the stock. This shift lines up with recent Street commentary, where firms are reacting to softer user"
-  },
-  {
-   "titular": "RDDT vs. SPOT: Which Stock Is the Better Value Option?",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=c86981c592f5d134da99e64d48021c42e89ff83c9eb948b5480ad13052963e89",
-   "fecha": "2026-11-02",
-   "resumen": "RDDT vs. SPOT: Which Stock Is the Better Value Option?"
-  },
-  {
-   "titular": "Parents Demand Daughter Risk Her House Down Payment To Fund Brother’s $10K Property Flip. ‘Family Should Support Each Other No Matter What’",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=828ea8af77019d12677a9ec88c31be35af2afbcc4ab6a6bef5bc3299e07f6d1d",
-   "fecha": "2026-11-02",
-   "resumen": "A 25-year-old woman refused to lend her younger brother $10,000 to flip a property. He called her selfish, and their parents pressured her to reconsider. \"My parents have been blowing up my phone since, demanding I help him, because ‘family..."
   }
  ],
  "historico_precio": {
@@ -15034,18 +15035,22 @@
    [
     "2026-11-03",
     96.15
+   ],
+   [
+    "2026-11-04",
+    101.77
    ]
   ],
   "fuente": "Twelve Data (API oficial, plan gratuito)",
   "url": "https://twelvedata.com/",
-  "fecha": "2026-11-03",
+  "fecha": "2026-11-04",
   "ajuste": "splits"
  },
- "generado": "2026-11-03T23:47:43+00:00",
+ "generado": "2026-11-04T23:51:13+00:00",
  "peers": {
   "fuente_lista": "manual",
   "fuente_cifras": "SEC EDGAR (companyfacts, UDM) · precio Finnhub",
-  "actualizado": "2026-11-03",
+  "actualizado": "2026-11-04",
   "propia": {
    "ingresos": 3088880000,
    "crecimiento": 62.18,
@@ -15063,13 +15068,13 @@
    "informe": "10-Q",
    "informe_fecha": "2026-10-30",
    "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000116/0001713445-26-000116-index.htm",
-   "precio": 96.15,
-   "capitalizacion": 19408862556.75,
-   "ev": 16375430556.75,
-   "per": 19.57,
-   "precio_ventas": 6.28,
-   "ev_ebitda": 17.7,
-   "rentabilidad_fcf": 6.17,
+   "precio": 101.89,
+   "capitalizacion": 20567540363.05,
+   "ev": 17534108363.05,
+   "per": 20.74,
+   "precio_ventas": 6.66,
+   "ev_ebitda": 18.96,
+   "rentabilidad_fcf": 5.83,
    "deuda_neta_ebitda": -3.28,
    "ticker": "RDDT",
    "nombre": "Reddit",
@@ -15103,13 +15108,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-22",
     "url": "https://www.sec.gov/Archives/edgar/data/1326801/000162828026066773/0001628280-26-066773-index.htm",
-    "precio": 621.03,
-    "capitalizacion": 1597910190000.0,
-    "ev": 1599130190000.0,
-    "per": 21.23,
-    "precio_ventas": 6.61,
-    "ev_ebitda": 15.33,
-    "rentabilidad_fcf": 1.79,
+    "precio": 630,
+    "capitalizacion": 1620990000000,
+    "ev": 1622210000000,
+    "per": 21.54,
+    "precio_ventas": 6.71,
+    "ev_ebitda": 15.55,
+    "rentabilidad_fcf": 1.77,
     "deuda_neta_ebitda": 0.01
    },
    {
@@ -15139,13 +15144,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-29",
     "url": "https://www.sec.gov/Archives/edgar/data/1506293/000150629326000153/0001506293-26-000153-index.htm",
-    "precio": 20.36,
-    "capitalizacion": 11862794720.0,
-    "ev": 10392773720.0,
-    "per": 66.52,
-    "precio_ventas": 2.53,
-    "ev_ebitda": 45.07,
-    "rentabilidad_fcf": 10.64,
+    "precio": 21.22,
+    "capitalizacion": 12363875440.0,
+    "ev": 10893854440.0,
+    "per": 69.33,
+    "precio_ventas": 2.64,
+    "ev_ebitda": 47.24,
+    "rentabilidad_fcf": 10.21,
     "deuda_neta_ebitda": -6.37
    },
    {
@@ -15175,13 +15180,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-08-04",
     "url": "https://www.sec.gov/Archives/edgar/data/1564408/000156440826000052/0001564408-26-000052-index.htm",
-    "precio": 5.59,
-    "capitalizacion": 9298679910.0,
-    "ev": 10020369910.0,
+    "precio": 5.92,
+    "capitalizacion": 9847618080.0,
+    "ev": 10569308080.0,
     "per": null,
-    "precio_ventas": 1.46,
+    "precio_ventas": 1.55,
     "ev_ebitda": null,
-    "rentabilidad_fcf": 7.59,
+    "rentabilidad_fcf": 7.16,
     "deuda_neta_ebitda": null
    },
    {
@@ -15211,13 +15216,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-29",
     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/0001652044-26-000084-index.htm",
-    "precio": 280.03,
-    "capitalizacion": 3463411039999.9995,
-    "ev": 3324431039999.9995,
-    "per": 14.69,
-    "precio_ventas": 7.35,
-    "ev_ebitda": 17.97,
-    "rentabilidad_fcf": 0.57,
+    "precio": 288.93,
+    "capitalizacion": 3573486240000.0,
+    "ev": 3434506240000.0,
+    "per": 15.16,
+    "precio_ventas": 7.59,
+    "ev_ebitda": 18.57,
+    "rentabilidad_fcf": 0.55,
     "deuda_neta_ebitda": -0.75
    },
    {
@@ -15247,13 +15252,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-08-06",
     "url": "https://www.sec.gov/Archives/edgar/data/1671933/000167193326000086/0001671933-26-000086-index.htm",
-    "precio": 12.86,
-    "capitalizacion": 6043531280.0,
-    "ev": 4558198280.0,
-    "per": 14.85,
-    "precio_ventas": 2.02,
-    "ev_ebitda": 6.39,
-    "rentabilidad_fcf": 14.28,
+    "precio": 13.23,
+    "capitalizacion": 6217412040.0,
+    "ev": 4732079040.0,
+    "per": 15.28,
+    "precio_ventas": 2.08,
+    "ev_ebitda": 6.64,
+    "rentabilidad_fcf": 13.88,
     "deuda_neta_ebitda": -2.08
    }
   ]
