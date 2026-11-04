@@ -41,6 +41,10 @@ class PriceProvider:
     def peers(self, ticker: str) -> list | None:
         return None
 
+    def earnings_on(self, ticker: str, day) -> dict | None:
+        """Consenso y cifra real de una presentación concreta (para el informe de resultados)."""
+        return None
+
 
 class NoPriceProvider(PriceProvider):
     pass
@@ -116,6 +120,7 @@ class FinnhubProvider(PriceProvider):
             c = cal[0]
             out["proximos"] = {"fecha": c.get("date"), "hora": {"bmo": "antes de la apertura", "amc": "tras el cierre",
                                "dmh": "durante la sesión"}.get(c.get("hour"), c.get("hour") or None),
+                               "hora_codigo": c.get("hour") or None,
                                "trimestre": c.get("quarter"), "anio": c.get("year"),
                                "bpa_estimado": c.get("epsEstimate"), "ingresos_estimados": c.get("revenueEstimate")}
         rows = self._get("/stock/earnings", symbol=ticker) or []
@@ -124,6 +129,20 @@ class FinnhubProvider(PriceProvider):
                              "sorpresa_pct": r.get("surprisePercent")}
                             for r in sorted(rows, key=lambda r: r.get("period") or "")][-8:]
         return out if (out.get("proximos") or out["sorpresas"]) else None
+
+    def earnings_on(self, ticker, day):
+        """Calendario de resultados alrededor de «day» (date): BPA e ingresos esperados y reales.
+        El plan gratuito cubre el último mes; fuera de ese plazo devuelve None."""
+        from datetime import timedelta
+        cal = (self._get("/calendar/earnings", symbol=ticker, **{"from": (day - timedelta(days=4)).isoformat(),
+               "to": (day + timedelta(days=4)).isoformat()}) or {}).get("earningsCalendar") or []
+        cal = [c for c in cal if c.get("date")]
+        if not cal:
+            return None
+        c = min(cal, key=lambda c: abs((datetime.fromisoformat(c["date"]).date() - day).days))
+        return {"fecha": c.get("date"), "hora": c.get("hour"), "trimestre": c.get("quarter"), "anio": c.get("year"),
+                "bpa_estimado": c.get("epsEstimate"), "ingresos_estimados": c.get("revenueEstimate"),
+                "bpa_real": c.get("epsActual"), "ingresos_reales": c.get("revenueActual")}
 
     def peers(self, ticker):
         rows = self._get("/stock/peers", symbol=ticker) or []

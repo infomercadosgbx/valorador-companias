@@ -209,13 +209,8 @@ def _tech_block(tech, fye_month):
     return {"concepto": concept, "trimestral": [pt(x) for x in tri], "anual": [pt(x) for x in anu]}
 
 
-def build(client, cik, subs, previous=None, fye_month=12):
-    fl = target_filings(subs)
-    if not fl:
-        return None
-    accns = [r["accessionNumber"] for r in fl]
-    if previous and previous.get("informes_accn") == accns and previous.get("version") == VERSION:
-        return previous
+def _collect(client, cik, fl):
+    """Lee el XBRL completo de cada informe (del más antiguo al más reciente) y fusiona las series."""
     merged, used, tech, conc = {}, [], {}, {}
     for r in reversed(fl):  # lo más reciente sobrescribe
         base = archive_base(cik, r["accessionNumber"])
@@ -249,6 +244,17 @@ def build(client, cik, subs, previous=None, fye_month=12):
             for kind in ("ingresos", "operativo"):
                 for concept, vals in row[kind].items():
                     m[kind].setdefault(concept, {}).update(vals)
+    return merged, used, tech, conc
+
+
+def build(client, cik, subs, previous=None, fye_month=12):
+    fl = target_filings(subs)
+    if not fl:
+        return None
+    accns = [r["accessionNumber"] for r in fl]
+    if previous and previous.get("informes_accn") == accns and previous.get("version") == VERSION:
+        return previous
+    merged, used, tech, conc = _collect(client, cik, fl)
     out = {"segmento": [], "producto": [], "geografia": []}
     for (axis, member), m in merged.items():
         rev = _series(m["ingresos"], REV)
@@ -269,3 +275,30 @@ def build(client, cik, subs, previous=None, fye_month=12):
         return {"version": VERSION, "informes_accn": accns, "segmento": [], "producto": [], "informes": used}
     return {"version": VERSION, "informes_accn": accns, **out, "informes": used,
             "fuente": "SEC EDGAR · XBRL completo (dimensiones de segmento y producto)"}
+
+
+def history(client, cik, subs, fye_month=12, n_filings=14):
+    """Serie larga de ingresos y beneficio operativo por segmento y línea de producto
+    (para el run-rate del informe de resultados). Lee los últimos «n_filings»
+    10-Q/10-K; cada 10-Q trae además el mismo trimestre del año anterior, así que
+    14 informes dan unos 4 años. Se ejecuta una sola vez por compañía: después,
+    resultados.py va añadiendo los trimestres nuevos de data/<T>.json."""
+    from .filings import recent_rows
+    fl = [r for r in recent_rows(subs) if r["form"] in ("10-K", "10-Q")][:n_filings]
+    if not fl:
+        return None
+    merged, used, _, _ = _collect(client, cik, fl)
+    out = {"segmento": [], "producto": []}
+    for (axis, member), m in merged.items():
+        if m["tipo"] not in out:
+            continue
+        rev = _series(m["ingresos"], REV)
+        if not rev:
+            continue
+        tri, _ = _assemble(rev, fye_month, max_q=60, max_a=10)
+        opi, _ = _assemble(_series(m["operativo"], OPI), fye_month, max_q=60, max_a=10)
+        if tri:
+            out[m["tipo"]].append({"miembro": member, "nombre": m["nombre"], "ajuste": bool(ADJ.search(m["nombre"] + " " + member)),
+                                   "trimestral": tri, "operativo_trimestral": opi})
+    out["informes"] = len(used)
+    return out

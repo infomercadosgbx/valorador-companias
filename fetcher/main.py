@@ -18,7 +18,9 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from . import history as HIST
+from . import estimaciones as EST
 from . import logos, prices
+from . import resultados as RES
 from . import peers as PEERS
 from .build import NoSecData, build_company
 from .extract import warn
@@ -93,6 +95,7 @@ BLANK_MANUAL = {
     "_nota": "Consenso de analistas introducido a mano (no hay fuente gratuita fiable de precios objetivo). La web lo marca como «manual».",
     "precio_objetivo_medio": None, "precio_objetivo_bajo": None, "precio_objetivo_alto": None,
     "num_analistas": None, "fuente": "", "fecha": "",
+    "estimaciones_resultados": [],
 }
 
 
@@ -122,6 +125,37 @@ def check_ciks(client, companies):
         official = by_ticker.get(c["ticker"].upper())
         if official and official != cik_10(c["cik"]):
             out[c["ticker"]] = f"El CIK de companies.json ({c['cik']}) no coincide con el de la SEC ({official})."
+    return out
+
+
+def _json(path):
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return None
+
+
+def results_report(root, company, rec, client=None, provider=None):
+    """Foto del consenso antes de resultados e informe de la última presentación.
+    Es secundario: un fallo deja un aviso en el log y no detiene la actualización."""
+    t = company["ticker"].upper()
+    out = []
+    try:
+        if EST.snapshot(root, t, rec):
+            out.append(f"estimaciones {t}")
+        an = _json(root / "analysis" / f"{t}.json")
+        man = _json(root / "manual" / f"{t}.json")
+        rep, hist_changed = RES.build(root, company, rec, an, man, client=client, provider=provider)
+        if hist_changed:
+            out.append(f"segmentos {t}")
+        if rep:
+            if write_if_changed(root / "data" / "resultados" / t / f"{rep['periodo']}.json", rep):
+                out.append(f"resultados {t} {rep['periodo']}")
+            if RES.write_index(root, t):
+                out.append(f"índice resultados {t}")
+    except Exception as e:  # noqa: BLE001
+        print(f"Informe de resultados de {t} no disponible: {type(e).__name__}: {e}", file=sys.stderr)
+        traceback.print_exc()
     return out
 
 
@@ -185,6 +219,7 @@ def run(only=None, report=None, root=ROOT, client=None, provider=None, price_war
                 rec["avisos"].insert(0, warn("aviso", "cik", cik_issues[c["ticker"]]))
             if write_if_changed(path, rec):
                 changed.append(path.name)
+            changed += results_report(root, c, rec, client, provider)
             print(f"✓ {c['ticker']}: {len(rec.get('avisos', []))} avisos")
         except (NoSecData, SecError) as e:
             failures.append((c["ticker"], str(e)))
