@@ -402,9 +402,9 @@ table.mult td,table.mult th{padding:9px 12px} table.mult td:first-child{white-sp
 .lrows{display:flex;flex-direction:column} .lrows div{display:grid;grid-template-columns:12px 90px 1fr;gap:8px;align-items:center;padding:6px 0;border-bottom:1px solid var(--line);font-size:13px} .lrows div:last-child{border-bottom:0} .lrows i{width:10px;height:10px;border-radius:3px} .lrows div.on{font-weight:600} .lrows span{color:var(--ink2);font-variant-numeric:tabular-nums}
 .pulsegrid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:24px;align-items:center}
 @media (max-width:760px){.pulsegrid{grid-template-columns:minmax(0,1fr)}}
-.plist{display:flex;flex-direction:column} .prow{display:grid;grid-template-columns:80px 120px 1fr;gap:10px;align-items:start;padding:10px 0;border-bottom:1px solid var(--line)} .prow:last-child{border-bottom:0}
-.prow b{font-size:13.5px} .prow .pill{justify-self:start} .prow p{margin:0;font-size:13px;line-height:1.45;color:var(--ink)}
-@media (max-width:520px){.prow{grid-template-columns:80px 1fr}.prow p{grid-column:1/-1}}
+.spl{display:flex;flex-direction:column} .spr{display:grid;grid-template-columns:80px 120px 1fr;gap:10px;align-items:start;padding:10px 0;border-bottom:1px solid var(--line)} .spr:last-child{border-bottom:0}
+.spr b{font-size:13.5px} .spr .pill{justify-self:start} .spr p{margin:0;font-size:13px;line-height:1.45;color:var(--ink)}
+@media (max-width:520px){.spr{grid-template-columns:80px 1fr}.spr p{grid-column:1/-1}}
 .srcsum{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden}
 .ssum{display:flex;flex-direction:column;gap:3px;padding:12px 16px;border-left:1px solid var(--line)} .ssum:first-child{border-left:0}
 .ssum span{font-size:10.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--ink2)} .ssum b{font-size:17px;font-weight:700;color:var(--ink)} .ssum small{font-size:11.5px;color:var(--ink2)}
@@ -3480,8 +3480,8 @@ function socialHtml(part){
   S.pulse=(S.pulse||[]).filter(x=>x.p!=="Threads"); const anyPulse=S.pulse.some(x=>fin(x.s));
   if(part==="pulse") return `
     <section class="card" style="--tc:var(--c1)" id="pulseCard"><h2>Redes sociales y sentimiento</h2><p class="sub">${S.pulseFuente?esc(S.pulseFuente)+" ":""}Tono general de cada red sobre ${esc(name)}. ${EDIT?"Cámbialo con tu propia lectura.":"Pulsa «Editar» para ajustarlo con tu propia lectura."}</p>
-      <div class="pulsegrid"><div>${EDIT?`<div class="pulse">${S.pulse.map((x,i)=>`<b>${esc(x.p)}</b><select data-p="social.pulse.${i}.s" data-k="num" aria-label="Sentimiento en ${esc(x.p)}">${OPTS.map(([v,l])=>`<option value="${v}" ${(v===""?!fin(x.s):+v===x.s)?"selected":""}>${l}</option>`).join("")}</select><input type="text" data-p="social.pulse.${i}.note" value="${esc(x.note||"")}" placeholder="Qué se comenta" aria-label="Nota sobre ${esc(x.p)}">`).join("")}</div>`:`<div class="plist">${S.pulse.map(x=>{ const o=OPTS.find(([v])=>v!==""&&+v===x.s); const cls=!fin(x.s)?"neutral":x.s>0?"up":x.s<0?"down":"mid";
-        return `<div class="prow"><b>${esc(x.p)}</b><span class="pill ${cls}">${o?esc(o[1]):"Sin valorar"}</span><p>${esc(x.note||"")}</p></div>`; }).join("")}</div>`}</div>
+      <div class="pulsegrid"><div>${EDIT?`<div class="pulse">${S.pulse.map((x,i)=>`<b>${esc(x.p)}</b><select data-p="social.pulse.${i}.s" data-k="num" aria-label="Sentimiento en ${esc(x.p)}">${OPTS.map(([v,l])=>`<option value="${v}" ${(v===""?!fin(x.s):+v===x.s)?"selected":""}>${l}</option>`).join("")}</select><input type="text" data-p="social.pulse.${i}.note" value="${esc(x.note||"")}" placeholder="Qué se comenta" aria-label="Nota sobre ${esc(x.p)}">`).join("")}</div>`:`<div class="spl">${S.pulse.map(x=>{ const o=OPTS.find(([v])=>v!==""&&+v===x.s); const cls=!fin(x.s)?"neutral":x.s>0?"up":x.s<0?"down":"mid";
+        return `<div class="spr"><b>${esc(x.p)}</b><span class="pill ${cls}">${o?esc(o[1]):"Sin valorar"}</span><p>${esc(x.note||"")}</p></div>`; }).join("")}</div>`}</div>
       <div>${anyPulse?`<div class="cv h240"><canvas id="ch_src_pulse" role="img" aria-label="Sentimiento por red social"></canvas></div><p class="note" style="text-align:center">De −2 (muy bajista) a +2 (muy alcista)</p>`:`<p class="empty">Cuando valores al menos una red, aquí aparece el gráfico comparativo.</p>`}</div></div>
     </section>
 `;
