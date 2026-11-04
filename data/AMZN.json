@@ -11553,12 +11553,12 @@
   "fuente": "SEC EDGAR · formularios 4",
   "resumen": {
    "compras_mercado": 0,
-   "ventas_mercado": 402749232.05,
+   "ventas_mercado": 401737419.93,
    "n_compras": 0,
-   "n_ventas": 61,
-   "ventas_con_plan": 402749232.05,
+   "n_ventas": 60,
+   "ventas_con_plan": 401737419.93,
    "compradores": [],
-   "desde": "2026-05-04"
+   "desde": "2026-05-05"
   },
   "operaciones": [
    {
@@ -13128,22 +13128,6 @@
     "plan_10b5_1": false,
     "fecha_presentacion": "2026-05-05",
     "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000016/0001018724-26-000016-index.htm"
-   },
-   {
-    "fecha": "2026-04-30",
-    "codigo": "S",
-    "tipo": "Venta en mercado",
-    "acciones": 3706.0,
-    "precio": 273.02,
-    "importe": 1011812.12,
-    "sentido": "venta",
-    "tras_operacion": 74948.0,
-    "clase": "Common Stock, par value $.01  per share",
-    "persona": "RUBINSTEIN JONATHAN",
-    "cargo": "Consejero",
-    "plan_10b5_1": true,
-    "fecha_presentacion": "2026-05-04",
-    "url": "https://www.sec.gov/Archives/edgar/data/1018724/000120952226000008/0001209522-26-000008-index.htm"
    }
   ],
   "operaciones_por_filing": [
@@ -14642,34 +14626,9 @@
       "clase": "Common Stock, par value $.01  per share"
      }
     ]
-   },
-   {
-    "accn": "0001209522-26-000008",
-    "fecha_presentacion": "2026-05-04",
-    "url": "https://www.sec.gov/Archives/edgar/data/1018724/000120952226000008/0001209522-26-000008-index.htm",
-    "personas": [
-     {
-      "nombre": "RUBINSTEIN JONATHAN",
-      "cargo": "Consejero"
-     }
-    ],
-    "plan_10b5_1": true,
-    "operaciones": [
-     {
-      "fecha": "2026-04-30",
-      "codigo": "S",
-      "tipo": "Venta en mercado",
-      "acciones": 3706.0,
-      "precio": 273.02,
-      "importe": 1011812.12,
-      "sentido": "venta",
-      "tras_operacion": 74948.0,
-      "clase": "Common Stock, par value $.01  per share"
-     }
-    ]
    }
   ],
-  "n_formularios": 31
+  "n_formularios": 30
  },
  "riesgos_10k": {
   "version": 4,
@@ -14705,11 +14664,11 @@
  "precio": {
   "minimo_52s": 196,
   "maximo_52s": 287.2,
-  "beta": 1.5449275,
-  "valor": 250.69,
-  "cierre_anterior": 245.63,
+  "beta": 1.5442097,
+  "valor": 268.07,
+  "cierre_anterior": 250.69,
   "moneda": "USD",
-  "fecha": "2026-11-03",
+  "fecha": "2026-11-04",
   "fuente": "Finnhub (API oficial, plan gratuito)",
   "url": "https://finnhub.io/"
  },
@@ -14763,6 +14722,7 @@
   "proximos": {
    "fecha": "2027-02-03",
    "hora": "tras el cierre",
+   "hora_codigo": "amc",
    "trimestre": 4,
    "anio": 2026,
    "bpa_estimado": 2.4698,
@@ -14805,152 +14765,148 @@
  },
  "noticias": [
   {
-   "titular": "Do You Know How Much of Your 401(k) Is Riding on the AI Trade Voters Want Paused?",
+   "titular": "Credo Sinks 10% as Democratic Sweep Hits AI Data Center Stocks: “Biggest Worry”",
    "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=b82ceb28034c91dd44a7f5f232cfc45fa1846a4b4730aa7bc76ba527d8d050f1",
-   "fecha": "2026-11-03",
-   "resumen": "Picture a married near-retiree with $720,000 of their 401(k) in an S&P 500 index fund. That one fund puts roughly $345,600 into the AI trade without a single stock pick. The math rests on The Kobeissi Letter’s estimate that AI-related stocks now make up about 48% of the S&P 500, "
+   "url": "https://finnhub.io/api/news?id=5609a2fa868a2ab27e73a816ca189a7870e2479e5ae3e6e5f291b526e62e3b7a",
+   "fecha": "2026-11-04",
+   "resumen": "Key TakeawaysCredo fell 10% today as AI data center stocks sold off after Democrats won Congress and the Texas governor’s race. Credo’s growth depends on data centers that voters in Texas want to limit."
   },
   {
-   "titular": "Jeff Bezos has simple advice for retirees watching the AI market",
+   "titular": "Big Tech Stocks And Mag7 ETF Jumps After Democratic Sweep Raises Bets For Easing AI Capex",
    "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=ef8a07ffd6dfe251fd1d4bd395d923f67e63528d0ba2159c1fcbfb55902f4972",
-   "fecha": "2026-11-03",
-   "resumen": "Bezos called the AI boom something unusual, then turned to retirees with a message worth sitting with."
+   "url": "https://finnhub.io/api/news?id=2f5f0332e4ae306e33ae17f2427684b8e8b3f6dbc40ad5a90fbaea816aade8a0",
+   "fecha": "2026-11-04",
+   "resumen": "Major U.S. technology stocks rallied on Wednesday with investors speculating that a Democratic wave will force a halt to costly AI infrastructure spending."
   },
   {
-   "titular": "Nvidia vs. SK Hynix: Comparing Quarterly Revenue Trajectories",
+   "titular": "The Rise of AI Shoppers—and the Asterisk Attached",
    "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=218f4c36a3e764fa1f8866a4065c2c13ff3cc2d1e2bc4a90116b57a10d2be746",
-   "fecha": "2026-11-03",
-   "resumen": "SK Hynix's revenue has surged 420% in two years, yet Nvidia still holds a commanding lead -- here's what the gap reveals about their competitive positioning."
+   "url": "https://finnhub.io/api/news?id=eb9704866e7e63e61625c31cf2e2499abd8c3116c4377022d38388c81a971661",
+   "fecha": "2026-11-04",
+   "resumen": "The success or failure of bot shoppers is going to come down to trust. So far, the retail establishment has the upper hand."
   },
   {
-   "titular": "Tesla, Amazon, and SpaceX among companies snubbing tokenized stocks",
+   "titular": "Prediction: Nov. 6 Will Be a Huge Day for the Stock Market",
    "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=bd64e9deecaece77a5a85cfbc6359f6e4367f965240944057daaaaf5327a8ec5",
-   "fecha": "2026-11-03",
-   "resumen": "Scott Melker discusses how Tesla (TSLA), Amazon (AMZN), SpaceX (SPCX), Netflix (NFLX), Lam Research (LRCX) and SoFi (SOFI) have opted out of a tokenized-stock offering, and why Nasdaq (^IXIC) sees tokenization as competition. \"The Daily Wolf with Scott Melker\" airs every day at 1"
+   "url": "https://finnhub.io/api/news?id=3d61d70f42dfece47d0219538a1d4c8cbc582d899ee66b57509d43e44c476d77",
+   "fecha": "2026-11-04",
+   "resumen": "Two important events are scheduled to happen this Friday, Nov. 6."
   },
   {
-   "titular": "X-energy Lost 23% in a Month. Wedbush Sees 54% Upside From Here",
+   "titular": "Sector Update: Tech Stocks Mixed Wednesday Afternoon",
    "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=90e214b516cd1df6683d5d3ee2a74573abe213ea300a2222a947ce9a11334a5b",
-   "fecha": "2026-11-03",
-   "resumen": "Key TakeawaysX-energy stock fell 23% in the past month as investors sold small-reactor stocks, Oklo and NuScale Power among them. The company’s own news was good: a joint development deal with American Electric Power and Amazon for a 960 MW plant in Indiana, and a finished NRC sa"
+   "url": "https://finnhub.io/api/news?id=5d57a4399b0f7b1220ce4388fb4bb3d2f40ecef39babc22ffd475d92dca3378f",
+   "fecha": "2026-11-04",
+   "resumen": "Tech stocks were mixed Wednesday afternoon, with the State Street Technology Select Sector SPDR ETF"
   },
   {
-   "titular": "Shopify vs. Amazon: Which Stock Wins When AI Agents Do the Shopping?",
+   "titular": "Nvidia And Tesla Left Behind, As Rest Of Mag7 Rally On Dem’s Big Night",
    "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=61769df851f63eded68111e2d684fccd3ce3864b6d83d258d78988273b411280",
-   "fecha": "2026-11-03",
-   "resumen": "Key TakeawaysShopify shares fell 8% today after its third-quarter revenue grew 32%, but its merchandise volume came in just short of Wall Street’s expectations. Shopify’s checkout runs inside ChatGPT, Gemini, Copilot and Meta’s Muse."
+   "url": "https://finnhub.io/api/news?id=1e08af916866a137776a1b5f7638fb06d79da676690a6aadad4b44540eeed8d7",
+   "fecha": "2026-11-04",
+   "resumen": "Democrats flipped Congress and the Magnificent Seven fractured, with five megacaps surging while two of the group's biggest names moved in the opposite direction. The split points to a rotation that could reshape which companies lead the market through year-end."
   },
   {
-   "titular": "Amazon.com, Inc. (AMZN) Could Be Entering Its Next Growth Phase: Here’s What Investors Should Know",
+   "titular": "Nexxus Capital Strengthens Market Position with Latest E-Commerce Acquisition",
    "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=3a41feeb8890eb16ca3fd201014b1a5e5aa5fb77f2f26eec5c635501bd899c46",
-   "fecha": "2026-11-03",
-   "resumen": "Pershing Square Inc. recently released its Q3 2026 investor letter. A copy of the letter can be downloaded here. The letter reported 13% year-over-year growth in third-quarter fee-related earnings (FRE) to $63.7 million, while distributable earnings (DE) before taxes increased 8%"
+   "url": "https://finnhub.io/api/news?id=470d5c07c54ce8ed53c652ea3b99b9bbf4ed279442e98c4132a187b2f3e9c2e4",
+   "fecha": "2026-11-04",
+   "resumen": "Nexxus Capital, LLC, a premier e-commerce acquirer and operations company, today officially announced the finalization of a multi-stage transaction originally completed in April 2026. This milestone marks the successful acquisition and integration of two key brand assets from a m"
   },
   {
-   "titular": "Why Western Digital’s (WDC) Massive Quarter Is Only the Beginning (ready)",
+   "titular": "This Magnificent 7 Stock Is Quietly Building an AI Empire",
    "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=716cdab28975034d4b9e825368f9ce4ca5c777ec78c4d0650a48d618e5ff02a0",
-   "fecha": "2026-11-03",
-   "resumen": "We just published the list of the 10 Best and Cheap Stocks to Buy Heading into 2027 and Western Digital (NASDAQ:WDC) ranks 7th on this list. Wall Street’s AI trade took a hard hit on October 30. Reuters reported that a selloff in tech shares pushed MSCI’s global index down 1.5%, "
+   "url": "https://finnhub.io/api/news?id=95b85fe5f1ec048f70cd93e7c53cc4c5c8a7fa5efc7a9b07fdfa89781914f81d",
+   "fecha": "2026-11-04",
+   "resumen": "Azure is accelerating, Copilot adoption is surging, and a $677 billion commercial backlog sits on the books, yet a massive capex bill threatens to swallow the gains before investors ever see them."
   },
   {
-   "titular": "Dell (DELL): A Top 10 Cheap AI Stock Trading at 13x Forward Earnings",
+   "titular": "Alphabet’s Asymmetry Is All You Need To Know About to Hit ‘Buy’",
    "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=a80e10f1c33b4defc99abd559cb9a8128dce974a6990f7559bfb9f06521d33ca",
-   "fecha": "2026-11-03",
-   "resumen": "We just published the list of the 10 Best and Cheap Stocks to Buy Heading into 2027 and Dell Technologies (NYSE:DELL) ranks 10th on this list. Wall Street’s AI trade took a hard hit on October 30. Reuters reported that a selloff in tech shares pushed MSCI’s global index down 1.5%"
+   "url": "https://finnhub.io/api/news?id=4ddf5ba1d9785f682ca7d73dfaee2314ab5ee08eb179c43f2d2e51f641aed220",
+   "fecha": "2026-11-04",
+   "resumen": "Alphabet's stock keeps falling while its cloud revenue triples and its search business records its fastest query growth in five years. Something in that gap deserves a closer look before the market closes it."
   },
   {
-   "titular": "Hedge Funds Are Snapping Up AppLovin (APP) at a Steep Discount",
+   "titular": "Amazon is saying bye-bye to Muse while Walmart is rolling out the welcome mat for Meta’s shopping agent",
    "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=1eb1082c1ad181909e36efa65bb571b2858073751fd21580bee8ca069fe3cdd0",
-   "fecha": "2026-11-03",
-   "resumen": "We just published the list of the 10 Best and Cheap Stocks to Buy Heading into 2027 and AppLovin (NASDAQ:APP) ranks 9th on this list. Wall Street’s AI trade took a hard hit on October 30. Reuters reported that a selloff in tech shares pushed MSCI’s global index down 1.5%, after r"
+   "url": "https://finnhub.io/api/news?id=b519cab8b85c7f7f346068253303ce9da9e78d10f8d11b0b9648b8d35cc8105e",
+   "fecha": "2026-11-04",
+   "resumen": "Amazon has blocked Meta’s Muse AI shopping agent from shopping on its platform, while Walmart and Shopify are embracing the technology, potentially reshaping how consumers discover and buy products."
   },
   {
-   "titular": "Schwab’s (SCHW) Latest Move Proves Its Moat Is Doing Its Job",
+   "titular": "Qualcomm to report Q4 earnings amid slowing smartphone, PC sales",
    "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=903447915a9ea936a918e04e56575dee4dc60427c6a8ce04b8209f4d817920a1",
-   "fecha": "2026-11-03",
-   "resumen": "We just published the list of the 10 Best and Cheap Stocks to Buy Heading into 2027 and Charles Schwab (NYSE:SCHW) ranks 8th on this list. Wall Street’s AI trade took a hard hit on October 30. Reuters reported that a selloff in tech shares pushed MSCI’s global index down 1.5%, af"
+   "url": "https://finnhub.io/api/news?id=27e1a28f31bc2044410778d0b334adb6e595617686f2c1e7834dff02c92b2b23",
+   "fecha": "2026-11-04",
+   "resumen": "Qualcomm will report its Q4 earnings after the bell Wednesday."
   },
   {
-   "titular": "Oracle (ORCL): A Top 10 Cheap AI Stock Trading at Just 11x Forward Earnings",
+   "titular": "The SPAC Sponsor Behind Lucid and Oklo Is Taking Agility Robotics Public on Nov. 5. Here's What Those 2 Stocks Did in Their First 90 Days.",
    "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=8afed5f6868e57486c72ed50806018a9a201bf53ffb2be4f337572549440f10d",
-   "fecha": "2026-11-03",
-   "resumen": "We just published the list of the 10 Best and Cheap Stocks to Buy Heading into 2027 and Oracle (NYSE:ORCL) ranks 6th on this list. Wall Street’s AI trade took a hard hit on October 30. Reuters reported that a selloff in tech shares pushed MSCI’s global index down 1.5%, after resu"
+   "url": "https://finnhub.io/api/news?id=ccd35c0078ac08c114eb9ea46c0d46cc6e2f2ffdb57baabca33594526ba0789b",
+   "fecha": "2026-11-04",
+   "resumen": "The robotics stock could see wild swings after its public debut."
   },
   {
-   "titular": "AI Debt is Hitting Record Levels at the Worst Possible Time",
+   "titular": "Big Tech Rallies, Defense and Prison Stocks Sink: Here’s What’s Moving After the Democrats’ Sweep",
    "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=a9b1f33bb506000cc7982124c168fb1068ac1bd2ee7a18b701a2c2f449a44dc4",
-   "fecha": "2026-11-03",
-   "resumen": "AI is driving a massive increase in leverage. It’ll need to be paid."
+   "url": "https://finnhub.io/api/news?id=7026e7f71e050562b4128c9719f6029d9be25d928cbcf821c6789d7beb90f526",
+   "fecha": "2026-11-04",
+   "resumen": "Apple, Amazon, and Microsoft, as well as health and solar stocks, rallied while Nvidia, data centers, defense, and prisons fell after Democrats won Congress. Here’s what’s moving."
   },
   {
-   "titular": "What Needs To Be True To Buy Walmart Stock Now?",
+   "titular": "Brookfield and CPP Close LXP Buyout in $5.2B Take-Private",
    "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=9000896ee39d23e5e925346f71d5f3ddd6fb61120a2b9888f63f4b82d2742457",
-   "fecha": "2026-11-03",
-   "resumen": "For questions about this article or underlying research, email help@trefis.com."
+   "url": "https://finnhub.io/api/news?id=3e17b77bf102a1587c16097a2adf41030ddb7867521169794f0cea13e99fac98",
+   "fecha": "2026-11-04",
+   "resumen": "Brookfield and CPP completed their $5.2 billion LXP acquisition, adding 52 million SF of logistics properties across the Sun Belt and Midwest."
   },
   {
-   "titular": "Best Value Stocks to Buy Now in November",
+   "titular": "Amazon and Walmart's $74 Billion Ad Market Faces an AI Test",
    "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=ee2660b519158d8583d68c0cf9e053442f17d33f041d3cfb8dd6d77ecd0db028",
-   "fecha": "2026-11-03",
-   "resumen": "Diving into how investors can find highly ranked--Zacks Rank #1 (Strong Buy) or #2 (Buy)--value stocks to buy now as Wall Street kicks off a busy week."
+   "url": "https://finnhub.io/api/news?id=30a197ace63f64b1d1d948e163cf1ad5e73c155fb3830d027225f4cdf8d04e53",
+   "fecha": "2026-11-04",
+   "resumen": "Amazon and Walmart are taking different approaches to third-party shopping assistants as retailers assess their impact on advertising revenue."
   },
   {
-   "titular": "Amazon Stocks Edge Higher as Custom-Chip Commitments Increase More Than 20-Fold",
+   "titular": "Mag 7 Stocks Rise After Elections, Set to Add $600B in Market Cap",
    "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=757e0aef84253003d89c8f0cc431060dde683b92c5a4075de2c022878d24fb7d",
-   "fecha": "2026-11-03",
-   "resumen": "Management describes rising silicon demand while planning to offer Trainium outside AWS in late 2027."
+   "url": "https://finnhub.io/api/news?id=db5d0f7553b009651483b1f147e65b77f2b14042444efc0158cc0a10b17b3095",
+   "fecha": "2026-11-04",
+   "resumen": "Nvidia, Apple, Meta Platforms, Amazon.com, Tesla, Alphabet, and Microsoft were on track for their tenth largest combined one-day valuation gain ever."
   },
   {
-   "titular": "What Is Behind The Move In DoorDash Stock?",
+   "titular": "Big Tech Stocks Soar as Traders Bet Democrats Will Slow AI Spend",
    "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=c6b3791226beeb7b2fb74210917c1a196e056a0eec75c4b0ac3cc076aac757e7",
-   "fecha": "2026-11-03",
-   "resumen": "For questions about this article or underlying research, email help@trefis.com."
+   "url": "https://finnhub.io/api/news?id=1c8af7f3ce08897f9d2d07a45e1fb399fa5fdc4e728ef7567c48c98144c85812",
+   "fecha": "2026-11-04",
+   "resumen": "The shares of US technology giants led the market higher on Wednesday as investors bet that a Democrat-controlled Congress will slow the massive spending on artificial intelligence that’s eating up free cash flow."
   },
   {
-   "titular": "Amazon's Earnings Just Hit a Record. So Why Is the Stock Down 11% From Its Peak?",
+   "titular": "Dow Skyrockets 1,500 Points in Best Day Since Trump's Tariff Pause",
    "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=20ff5f018f1b9433e5b7b7c5d853ed18344a6dd3e23ae2a23bebf6128e18a338",
-   "fecha": "2026-11-03",
-   "resumen": "Wall Street is worried about the tech giant's cash flow and its slowing e-commerce growth."
+   "url": "https://finnhub.io/api/news?id=00f7cfce04b10e9131c2c04076a829fbc8bdb06d178fbd944f4c5788f0a9287d",
+   "fecha": "2026-11-04",
+   "resumen": "The Dow was on track for its best post-Election Day performance since 1986."
   },
   {
-   "titular": "Bill Ackman Drops Stunning Take on AI Spending",
+   "titular": "These 3 Stocks Boost Dow Jones' Bounce. Here's Why.",
    "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=370756b4b642176865a895d85dbf3c99b49eefda4ab5a306eef46e319003e41f",
-   "fecha": "2026-11-03",
-   "resumen": "Pershing Square says analysts price the AI costs but understate the returns."
+   "url": "https://finnhub.io/api/news?id=ee1f99a8d8700310376ee0c1c662e778f1dc1f7f71b93deae132c7058ca8dab8",
+   "fecha": "2026-11-04",
+   "resumen": "Amazon led the Dow Jones Industrial Average on Wednesday morning, as markets rallied following the midterm elections."
   },
   {
-   "titular": "Morgan Stanley Flags Major Turn in the AI Trade",
+   "titular": "Microsoft Soars 7% to Record, Apple and Amazon Up 7% After Democratic Midterm Sweep",
    "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=10b21b7c4750a0117c4b8b2c29d2813518defde76a0988fac7655007c6370c3f",
-   "fecha": "2026-11-03",
-   "resumen": "Recent tech buying has mostly reflected short covering, not fresh conviction."
+   "url": "https://finnhub.io/api/news?id=dc0f1ce7b5b312d7b18dee208a1a67441f51918e1596a864aa46387fde3d633f",
+   "fecha": "2026-11-04",
+   "resumen": "Key TakeawaysMicrosoft rose 7% to a record after Democrats swept Congress in Tuesday’s midterms, and Amazon rallied too. Fears of a slower AI data-center build-out hit CoreWeave instead."
   }
  ],
  "historico_precio": {
   "serie": [
-   [
-    "2021-08-03",
-    168.312
-   ],
    [
     "2021-08-04",
     167.736
@@ -20226,18 +20182,22 @@
    [
     "2026-11-03",
     250.69
+   ],
+   [
+    "2026-11-04",
+    268.0
    ]
   ],
   "fuente": "Twelve Data (API oficial, plan gratuito)",
   "url": "https://twelvedata.com/",
-  "fecha": "2026-11-03",
+  "fecha": "2026-11-04",
   "ajuste": "splits"
  },
- "generado": "2026-11-03T23:47:51+00:00",
+ "generado": "2026-11-04T20:27:02+00:00",
  "peers": {
   "fuente_lista": "manual",
   "fuente_cifras": "SEC EDGAR (companyfacts, UDM) · precio Finnhub",
-  "actualizado": "2026-11-03",
+  "actualizado": "2026-11-04",
   "propia": {
    "ingresos": 797455000000,
    "crecimiento": 15.35,
@@ -20255,13 +20215,13 @@
    "informe": "10-Q",
    "informe_fecha": "2026-10-30",
    "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/0001018724-26-000040-index.htm",
-   "precio": 250.69,
-   "capitalizacion": 2710745641931.14,
-   "ev": 2776471641931.14,
-   "per": 20.11,
-   "precio_ventas": 3.4,
-   "ev_ebitda": 15.11,
-   "rentabilidad_fcf": -1.73,
+   "precio": 268.07,
+   "capitalizacion": 2898677985689.42,
+   "ev": 2964403985689.42,
+   "per": 21.51,
+   "precio_ventas": 3.63,
+   "ev_ebitda": 16.14,
+   "rentabilidad_fcf": -1.62,
    "deuda_neta_ebitda": 0.36,
    "ticker": "AMZN",
    "nombre": "Amazon",
@@ -20295,13 +20255,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-08-28",
     "url": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000154/0000104169-26-000154-index.htm",
-    "precio": 124.86,
-    "capitalizacion": 990607555651.26,
-    "ev": 1019010555651.26,
-    "per": 44.87,
-    "precio_ventas": 1.36,
-    "ev_ebitda": 21.51,
-    "rentabilidad_fcf": 1.36,
+    "precio": 130.06,
+    "capitalizacion": 1031863036104.46,
+    "ev": 1060266036104.46,
+    "per": 46.74,
+    "precio_ventas": 1.42,
+    "ev_ebitda": 22.38,
+    "rentabilidad_fcf": 1.31,
     "deuda_neta_ebitda": 0.6
    },
    {
@@ -20331,13 +20291,13 @@
     "informe": "10-K",
     "informe_fecha": "2026-10-07",
     "url": "https://www.sec.gov/Archives/edgar/data/909832/000090983226000093/0000909832-26-000093-index.htm",
-    "precio": 1019.26,
-    "capitalizacion": 451664020261.74,
-    "ev": 436525020261.74,
-    "per": 48.96,
-    "precio_ventas": 1.49,
-    "ev_ebitda": 30.4,
-    "rentabilidad_fcf": 2.08,
+    "precio": 1049.49,
+    "capitalizacion": 465059820482.01,
+    "ev": 449920820482.01,
+    "per": 50.41,
+    "precio_ventas": 1.53,
+    "ev_ebitda": 31.33,
+    "rentabilidad_fcf": 2.02,
     "deuda_neta_ebitda": -1.05
    },
    {
@@ -20367,13 +20327,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-28",
     "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526436133/0001193125-26-436133-index.htm",
-    "precio": 520.99,
-    "capitalizacion": 3868973099646.48,
-    "ev": 3839945099646.48,
-    "per": 27.13,
-    "precio_ventas": 11.17,
-    "ev_ebitda": 18.67,
-    "rentabilidad_fcf": 1.55,
+    "precio": 558.41,
+    "capitalizacion": 4146861299782.32,
+    "ev": 4117833299782.32,
+    "per": 29.07,
+    "precio_ventas": 11.97,
+    "ev_ebitda": 20.02,
+    "rentabilidad_fcf": 1.45,
     "deuda_neta_ebitda": -0.14
    },
    {
@@ -20403,13 +20363,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-29",
     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/0001652044-26-000084-index.htm",
-    "precio": 280.03,
-    "capitalizacion": 3463411039999.9995,
-    "ev": 3324431039999.9995,
-    "per": 14.69,
-    "precio_ventas": 7.35,
-    "ev_ebitda": 17.97,
-    "rentabilidad_fcf": 0.57,
+    "precio": 290.93,
+    "capitalizacion": 3598222240000.0,
+    "ev": 3459242240000.0,
+    "per": 15.27,
+    "precio_ventas": 7.64,
+    "ev_ebitda": 18.7,
+    "rentabilidad_fcf": 0.55,
     "deuda_neta_ebitda": -0.75
    },
    {
@@ -20439,13 +20399,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-29",
     "url": "https://www.sec.gov/Archives/edgar/data/1065088/000106508826000212/0001065088-26-000212-index.htm",
-    "precio": 118.62,
-    "capitalizacion": 52074180000.0,
-    "ev": 57641180000.0,
-    "per": 24.81,
-    "precio_ventas": 4.2,
-    "ev_ebitda": 19.04,
-    "rentabilidad_fcf": 4.63,
+    "precio": 125.59,
+    "capitalizacion": 55134010000.0,
+    "ev": 60701010000.0,
+    "per": 26.27,
+    "precio_ventas": 4.45,
+    "ev_ebitda": 20.05,
+    "rentabilidad_fcf": 4.37,
     "deuda_neta_ebitda": 1.84
    },
    {
@@ -20475,13 +20435,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-09-11",
     "url": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526389274/0001193125-26-389274-index.htm",
-    "precio": 126.19,
-    "capitalizacion": 381565245840.0,
-    "ev": 344488245840.0,
-    "per": 20.17,
-    "precio_ventas": 5.32,
-    "ev_ebitda": 10.15,
-    "rentabilidad_fcf": -7.53,
+    "precio": 124.47,
+    "capitalizacion": 376364419920.0,
+    "ev": 339287419920.0,
+    "per": 19.89,
+    "precio_ventas": 5.24,
+    "ev_ebitda": 10.0,
+    "rentabilidad_fcf": -7.63,
     "deuda_neta_ebitda": -1.09
    }
   ]
