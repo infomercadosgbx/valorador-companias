@@ -1,332 +1,727 @@
 {
- "_nota": "Supuestos y textos propios. Creado automáticamente en el alta: el punto de partida del DCF sale de las cifras reales de la SEC; revísalo y completa tesis, negocio, MOAT, directiva y riesgos.",
- "esquema": 1,
- "meta": {
-  "sector": "Tecnología",
-  "hq": "Austin, TX",
-  "founded": "",
-  "employees": "",
-  "asOf": "",
-  "fav": false,
-  "autogenerado": "2026-11-02"
- },
- "overview": {
-  "thesis": "",
-  "summary": "",
-  "keyFacts": [
-   {
-    "k": "Ingresos último año",
-    "v": ""
-   },
-   {
-    "k": "Margen",
-    "v": ""
-   },
-   {
-    "k": "Caja / deuda",
-    "v": ""
-   }
-  ],
-  "catalysts": [
-   {
-    "d": "",
-    "t": ""
-   }
-  ]
- },
- "business": {
-  "model": "",
-  "customers": "",
-  "segNote": "",
-  "segments": [
-   {
-    "n": "Segmento 1",
-    "v": 60
-   },
-   {
-    "n": "Segmento 2",
-    "v": 40
-   }
-  ],
-  "customerTypes": [
-   {
-    "n": "Cliente tipo",
-    "d": ""
-   }
-  ],
-  "quality": [
-   {
-    "n": "Márgenes",
-    "s": 3,
-    "note": ""
-   },
-   {
-    "n": "Retorno sobre capital",
-    "s": 3,
-    "note": ""
-   },
-   {
-    "n": "Conversión en caja",
-    "s": 3,
-    "note": ""
-   },
-   {
-    "n": "Recurrencia de ingresos",
-    "s": 3,
-    "note": ""
-   },
-   {
-    "n": "Diversificación",
-    "s": 3,
-    "note": ""
-   },
-   {
-    "n": "Balance",
-    "s": 3,
-    "note": ""
-   }
-  ],
-  "phase": 2,
-  "phaseNote": ""
- },
- "moat": {
-  "width": "Estrecho",
-  "trend": "Estable",
-  "note": "",
-  "sources": [
-   {
-    "n": "Efecto red",
-    "s": 2,
-    "note": ""
-   },
-   {
-    "n": "Costes de cambio",
-    "s": 2,
-    "note": ""
-   },
-   {
-    "n": "Activos intangibles",
-    "s": 2,
-    "note": ""
-   },
-   {
-    "n": "Ventaja de costes",
-    "s": 2,
-    "note": ""
-   },
-   {
-    "n": "Escala eficiente",
-    "s": 2,
-    "note": ""
-   }
-  ],
-  "comps": [
-   {
-    "n": "Competidor",
-    "threat": 3,
-    "note": ""
-   }
-  ]
- },
- "growth": {
-  "score": 3,
-  "scoreNote": "",
-  "tam": "",
-  "guidance": "",
-  "drivers": [
-   {
-    "n": "Motor de crecimiento",
-    "impact": 3,
-    "h": "",
-    "d": ""
-   }
-  ]
- },
- "mgmt": {
-  "call": {
-   "q": "",
-   "date": "",
-   "periodEnd": "",
-   "doc": "",
-   "url": "",
-   "nota": "",
-   "dir": [],
-   "ret": [],
-   "guia": [],
-   "cap": []
+  "_nota": "Supuestos y textos propios. Creado automáticamente en el alta: el punto de partida del DCF sale de las cifras reales de la SEC; revísalo y completa tesis, negocio, MOAT, directiva y riesgos.",
+  "esquema": 1,
+  "meta": {
+    "sector": "Software empresarial e infraestructura en la nube",
+    "hq": "Austin, Texas",
+    "founded": "1977",
+    "employees": "~160.000",
+    "asOf": "4-nov-2026",
+    "fav": false,
+    "autogenerado": "2026-11-02",
+    "nextEarnings": "8-dic-2026 (Finnhub)"
   },
-  "note": "",
-  "people": [
-   {
-    "n": "CEO",
-    "role": "Consejero delegado",
-    "since": "",
-    "note": ""
-   }
-  ],
-  "scores": [
-   {
-    "n": "Alineación con el accionista",
-    "s": 3,
-    "note": ""
-   },
-   {
-    "n": "Asignación de capital",
-    "s": 3,
-    "note": ""
-   },
-   {
-    "n": "Credibilidad y ejecución",
-    "s": 3,
-    "note": ""
-   },
-   {
-    "n": "Gobierno corporativo",
-    "s": 3,
-    "note": ""
-   },
-   {
-    "n": "Transparencia",
-    "s": 3,
-    "note": ""
-   }
-  ],
-  "alloc": {
-   "label": "Uso de la caja (M)",
-   "items": [
-    {
-     "n": "Capex",
-     "v": 0
-    },
-    {
-     "n": "Recompras",
-     "v": 0
-    },
-    {
-     "n": "Dividendos",
-     "v": 0
+  "overview": {
+    "thesis": "Oracle se ha convertido en uno de los grandes constructores de centros de datos de IA, con una cartera de contratos de 664.000 M$ y el objetivo de vender 225.000 M$ en FY30. Lo financia con deuda (125.000 M$, a un escalón del bono basura) y con la mitad de la cartera atada a OpenAI. A ~125 $ cotiza un 62% por debajo de máximos: mucho potencial si ejecuta, con un riesgo financiero alto.",
+    "summary": "Oracle tiene dos negocios. El clásico: la base de datos más usada por las grandes empresas, sus licencias y el soporte anual, más aplicaciones de gestión en la nube (Fusion ERP, NetSuite, Oracle Health). Es muy rentable y recurrente.\nEl nuevo: Oracle Cloud Infrastructure (OCI), que alquila capacidad de cómputo, sobre todo para entrenar y ejecutar IA. Creció un 121% en el 1T FY27, hasta 7.400 M$, y ya supone el 38% de las ventas.\nPara construir esa capacidad invierte 90.000–95.000 M$ en FY27, más que todos sus ingresos. Por eso quema caja y se endeuda. La dirección promete volver a generar caja en la segunda mitad de FY28 y más de 30.000 M$ en FY29.",
+    "keyFacts": [
+      {
+        "k": "Ingresos FY26 (a may-26)",
+        "v": "67.357 M$ (+17%)"
+      },
+      {
+        "k": "Ingresos 1T FY27",
+        "v": "19.345 M$ (+30%)"
+      },
+      {
+        "k": "OCI 1T FY27",
+        "v": "7.388 M$ (+121%)"
+      },
+      {
+        "k": "Cartera de contratos (RPO)",
+        "v": "664.000 M$, más del 90% de infraestructura"
+      },
+      {
+        "k": "Guía FY27",
+        "v": "≥90.000 M$ de ingresos (+34%) y BPA ajustado de 8,10 $"
+      },
+      {
+        "k": "Objetivo FY30",
+        "v": ">225.000 M$ de ingresos y >21 $ de BPA"
+      },
+      {
+        "k": "Capex FY27 (guía)",
+        "v": "90.000–95.000 M$ (≤70.000 M$ en caja neta)"
+      },
+      {
+        "k": "Deuda / caja (ago-26)",
+        "v": "125.337 / 37.077 M$"
+      },
+      {
+        "k": "Rating S&P",
+        "v": "BBB- (un escalón sobre «basura»)"
+      },
+      {
+        "k": "Analistas",
+        "v": "27 comprar, 4 mantener, 1 vender; objetivo medio 244 $"
+      }
+    ],
+    "catalysts": [
+      {
+        "d": "8-dic-26",
+        "t": "Resultados del 2T FY27: guía de ingresos +30–34% y nube +65–71%."
+      },
+      {
+        "d": "FY27",
+        "t": "Entrega de capacidad: 850 MW en el 1T; primeros sistemas Nvidia Vera Rubin a clientes en el 2T."
+      },
+      {
+        "d": "2026–27",
+        "t": "Últimas emisiones del ciclo: 10.000 M$ en acciones y 10.000 M$ en deuda (tope fijado en el día del inversor)."
+      },
+      {
+        "d": "2S FY28",
+        "t": "Vuelta a flujo de caja libre positivo prometida por la dirección."
+      },
+      {
+        "d": "FY29",
+        "t": "Más de 30.000 M$ de caja libre y deuda neta/EBITDA por debajo de 3,5 veces."
+      },
+      {
+        "d": "FY30",
+        "t": "Objetivo de más de 225.000 M$ de ingresos y 21 $ de BPA."
+      }
+    ]
+  },
+  "business": {
+    "model": "Base de datos y software: licencias y, sobre todo, soporte anual (cerca del 90% de margen) que pagan las empresas por seguir usándolo.\nAplicaciones en la nube por suscripción (Fusion, NetSuite, Oracle Health).\nInfraestructura (OCI): contratos plurianuales de capacidad de cómputo para IA. Según la dirección, por cada GW invierte unos 37.000 M$ y factura unos 16.000 M$ al año con un margen bruto del ~35%. Cada vez más clientes pagan por adelantado o aportan su propio hardware, lo que reduce la inversión de Oracle.",
+    "customers": "Grandes empresas y administraciones de todo el mundo (base de datos y aplicaciones), unas 44.000 compañías en NetSuite y, en infraestructura, más de 1.000 clientes de IA con OpenAI como el mayor con diferencia.",
+    "segNote": "Último trimestre, del XBRL de la SEC.",
+    "segments": [
+      {
+        "n": "Infraestructura en la nube (OCI)",
+        "v": 7388
+      },
+      {
+        "n": "Aplicaciones en la nube",
+        "v": 4219
+      },
+      {
+        "n": "Soporte de software",
+        "v": 4895
+      },
+      {
+        "n": "Licencias",
+        "v": 655
+      },
+      {
+        "n": "Servicios",
+        "v": 1414
+      },
+      {
+        "n": "Hardware",
+        "v": 774
+      }
+    ],
+    "customerTypes": [
+      {
+        "n": "Laboratorios de IA",
+        "d": "OpenAI (Stargate, Abilene) y otros: alquilan GPU a varios años. Más del 90% de la cartera de contratos."
+      },
+      {
+        "n": "Grandes empresas",
+        "d": "Base de datos, Fusion ERP y multicloud (Oracle Database dentro de AWS, Azure y Google Cloud, +353%)."
+      },
+      {
+        "n": "Pymes",
+        "d": "Unas 44.000 compañías usan NetSuite."
+      },
+      {
+        "n": "Sanidad y sector público",
+        "d": "Oracle Health (antigua Cerner) y administraciones."
+      }
+    ],
+    "quality": [
+      {
+        "n": "Márgenes",
+        "s": 4,
+        "note": "Margen operativo ajustado del 43% en FY26, a la baja por la infraestructura de IA (~35% bruto)"
+      },
+      {
+        "n": "Retorno sobre capital",
+        "s": 2,
+        "note": "Activos fijos ×2 en un año; el retorno de la nueva capacidad está por demostrar"
+      },
+      {
+        "n": "Conversión en caja",
+        "s": 1,
+        "note": "Caja libre de −23.700 M$ en FY26 y −28.700 M$ en los últimos 12 meses"
+      },
+      {
+        "n": "Recurrencia de ingresos",
+        "s": 5,
+        "note": "Soporte, suscripciones y contratos de varios años; 664.000 M$ de cartera"
+      },
+      {
+        "n": "Diversificación",
+        "s": 2,
+        "note": "La mitad de la cartera ligada a OpenAI, según S&P"
+      },
+      {
+        "n": "Balance",
+        "s": 1,
+        "note": "125.000 M$ de deuda, BBB- en S&P y perspectiva negativa en Moody's"
+      }
+    ],
+    "phase": 1,
+    "phaseNote": "Una compañía madura de software que se ha reinventado como constructora de infraestructura de IA: los ingresos se aceleran (+30%, objetivo de +35% anual hasta FY30) a costa de un ciclo de inversión enorme.",
+    "segView": "producto",
+    "clients": {
+      "nota": "Dos mundos. En software, miles de grandes empresas y administraciones muy fieles (cambiar de base de datos es caro y arriesgado). En infraestructura de IA, pocos clientes enormes: según S&P, cerca de la mitad de la cartera de 664.000 M$ depende de OpenAI.",
+      "kpis": [
+        {
+          "k": "Cartera de contratos (RPO)",
+          "v": "664.000 M$",
+          "d": "+26.000 M$ en el 1T FY27; ~50% se ingresa en 36 meses"
+        },
+        {
+          "k": "Peso estimado de OpenAI",
+          "v": "~50%",
+          "d": "de la cartera, según S&P (jul-26)"
+        },
+        {
+          "k": "Clientes de infraestructura de IA",
+          "v": "más de 1.000",
+          "d": "día del inversor, oct-26"
+        },
+        {
+          "k": "Uso de las GPU",
+          "v": "97,9%",
+          "d": "1T FY27"
+        }
+      ],
+      "conocidos": [
+        {
+          "n": "OpenAI",
+          "sector": "IA",
+          "cifra": "~50% de la cartera (S&P)",
+          "d": "Su mayor cliente: Stargate. En el 1T FY27 entregó 131.000 GPU en Abilene (Texas); OpenAI aceptó la capacidad en menos de 24 horas.",
+          "u": "https://thenextweb.com/news/oracle-sp-downgrade-ai-spending-junk-risk",
+          "fu": "The Next Web (S&P)",
+          "f": "jul-26"
+        },
+        {
+          "n": "Grupo Bimbo",
+          "sector": "Alimentación",
+          "cifra": "39 países · 250 marcas",
+          "d": "Cliente de las aplicaciones en la nube, presentado en el día del inversor.",
+          "u": "https://stockanalysis.com/stocks/orcl/transcripts/780561-investor-day-2026/",
+          "fu": "Día del inversor 2026",
+          "f": "oct-26"
+        },
+        {
+          "n": "Vodafone",
+          "t": "VOD",
+          "sector": "Telecomunicaciones",
+          "cifra": "15 países · 300 M de clientes",
+          "d": "Usa la nube de Oracle, incluida la plataforma de pagos M-PESA (100 M de usuarios).",
+          "u": "https://stockanalysis.com/stocks/orcl/transcripts/780561-investor-day-2026/",
+          "fu": "Día del inversor 2026",
+          "f": "oct-26"
+        },
+        {
+          "n": "MGM Resorts",
+          "t": "MGM",
+          "sector": "Ocio",
+          "cifra": "16 complejos · 43.000 habitaciones",
+          "d": "Aplicaciones de Oracle para hoteles y casinos.",
+          "u": "https://stockanalysis.com/stocks/orcl/transcripts/780561-investor-day-2026/",
+          "fu": "Día del inversor 2026",
+          "f": "oct-26"
+        },
+        {
+          "n": "Uber, Mitsubishi UFJ, Petronas…",
+          "sector": "Varios",
+          "cifra": "Nuevos contratos de aplicaciones",
+          "d": "Uber, Stanford, Mitsubishi UFJ, Johnson Controls, Saudi National Bank, GuideWell y Petronas, citados en la llamada del 1T FY27.",
+          "u": "https://longbridge.com/en/news/298651335",
+          "fu": "Transcripción 1T FY27",
+          "f": "sep-26"
+        }
+      ]
     }
-   ]
   },
-  "vote": {
-   "label": "Poder de voto (%)",
-   "items": [
+  "moat": {
+    "width": "Amplio",
+    "trend": "Estable",
+    "note": "La ventaja está en la base de datos: decenas de miles de empresas tienen sus sistemas críticos sobre Oracle y cambiar es caro y arriesgado, lo que sostiene un soporte con márgenes altísimos. Ahora la vende también dentro de AWS, Azure y Google Cloud. En infraestructura de IA la ventaja es más estrecha: compite en coste y rapidez de entrega (8,5 MW al día) con rivales mucho más grandes, y el cliente puede irse cuando acabe el contrato.",
+    "sources": [
+      {
+        "n": "Costes de cambio",
+        "s": 5,
+        "note": "Migrar una base de datos crítica es caro y arriesgado"
+      },
+      {
+        "n": "Activos intangibles",
+        "s": 4,
+        "note": "Base de datos y aplicaciones con décadas de desarrollo"
+      },
+      {
+        "n": "Ventaja de costes",
+        "s": 3,
+        "note": "Red y diseño de centros de datos eficientes; entrega rápida"
+      },
+      {
+        "n": "Escala eficiente",
+        "s": 3,
+        "note": "Pocas compañías pueden financiar y construir GW de capacidad"
+      },
+      {
+        "n": "Efecto red",
+        "s": 1,
+        "note": "Poco relevante"
+      }
+    ],
+    "comps": [
+      {
+        "n": "Amazon Web Services",
+        "threat": 4,
+        "note": "Líder de la nube, con chips propios"
+      },
+      {
+        "n": "Microsoft Azure",
+        "threat": 4,
+        "note": "Socio y rival en IA; también aloja a OpenAI"
+      },
+      {
+        "n": "Google Cloud",
+        "threat": 4,
+        "note": "Crece más del 100% con TPU propias"
+      },
+      {
+        "n": "CoreWeave y otras «neoclouds»",
+        "threat": 3,
+        "note": "Especialistas en GPU que compiten por los mismos contratos"
+      },
+      {
+        "n": "SAP y Workday",
+        "threat": 3,
+        "note": "Rivales en aplicaciones de gestión"
+      }
+    ]
+  },
+  "growth": {
+    "score": 5,
+    "scoreNote": "Crecimiento muy alto para su tamaño (+30% en el 1T FY27 y guía de +34% en FY27) con un objetivo de +35% anual hasta FY30. Mi modelo lo recorta: 188.000 M$ en FY30 frente a los 225.000 M$ de la compañía.",
+    "tam": "Gasto en centros de datos de IA de cientos de miles de millones al año, más bases de datos y aplicaciones empresariales. Oracle quiere pasar de ~3 GW a unos 10 GW de capacidad al final de FY28.",
+    "guidance": "2T FY27: ingresos +30–34%, nube +65–71%, BPA ajustado de 1,85–1,93 $. FY27: al menos 90.000 M$ de ingresos (+34%), BPA ajustado de 8,10 $ y capex de 90.000–95.000 M$. FY30: más de 225.000 M$ de ingresos, más de 21 $ de BPA y margen operativo superior al 40%.",
+    "drivers": [
+      {
+        "n": "Infraestructura de IA (OCI)",
+        "impact": 5,
+        "h": "2026–2030",
+        "st": "en marcha",
+        "k": "+121% en 1T FY27 · 7.400 M$",
+        "peso": "38% de las ventas",
+        "d": "Alquila capacidad de GPU a laboratorios de IA y empresas. En el 1T FY27 entregó 850 MW (más de 300.000 GPU) y firmó más de 30.000 M$ de contratos nuevos. El uso de las GPU es del 97,9% y las que vencen se renuevan con un 20% de prima.",
+        "ev": "Ingresos de OCI, MW entregados por trimestre y cartera (RPO).",
+        "r": "Retrasos de permisos y energía (Nuevo México, Wisconsin) y concentración en OpenAI.",
+        "u": "https://longbridge.com/en/news/298651335"
+      },
+      {
+        "n": "Base de datos en otras nubes (multicloud)",
+        "impact": 4,
+        "h": "2026–2028",
+        "st": "en marcha",
+        "k": "+353% en 1T FY27",
+        "peso": "base de datos en la nube +50% previsto",
+        "d": "Oracle Database dentro de AWS, Azure y Google Cloud: lleva su producto estrella a clientes que no quieren salir de su nube. Clientes multicloud +180% y unas 71 regiones.",
+        "ev": "Crecimiento de la base de datos en la nube.",
+        "r": "Que los hiperescaladores empujen sus propias bases de datos.",
+        "u": "https://longbridge.com/en/news/298651335"
+      },
+      {
+        "n": "Aplicaciones con agentes de IA",
+        "impact": 3,
+        "h": "2026–2028",
+        "st": "en marcha",
+        "k": "Fusion +14% · sectoriales +20%",
+        "peso": "4.219 M$ en el trimestre",
+        "d": "Fusion ERP, NetSuite y aplicaciones sectoriales con agentes de IA integrados: 3.500 agentes en producción y casi 500.000 M de tokens consumidos en septiembre.",
+        "ev": "Crecimiento de aplicaciones en la nube.",
+        "r": "NetSuite crece más despacio por ciclos de decisión más largos.",
+        "u": "https://stockanalysis.com/stocks/orcl/transcripts/780561-investor-day-2026/"
+      },
+      {
+        "n": "Financiación con clientes y proveedores",
+        "impact": 3,
+        "h": "2026–2028",
+        "st": "en marcha",
+        "k": "Prepagos y hardware del cliente",
+        "peso": "capex neto ≤70.000 M$ de 90.000–95.000 M$",
+        "d": "Cada vez más contratos se pagan por adelantado o el cliente aporta el hardware; con financiación de proveedores la inversión inicial por GW baja de 37.000 a 18.000 M$, o a 6.000 M$ si el cliente pone el hardware.",
+        "ev": "Capex neto frente a bruto y caja operativa.",
+        "r": "Si se cierran estas vías, tendría que volver a emitir deuda o acciones.",
+        "u": "https://stockanalysis.com/stocks/orcl/transcripts/780561-investor-day-2026/"
+      },
+      {
+        "n": "Oracle Health",
+        "impact": 2,
+        "h": "2027+",
+        "st": "temprano",
+        "k": "«Acelerando» según la dirección",
+        "d": "La antigua Cerner, con historia clínica electrónica y agentes de IA para hospitales.",
+        "ev": "Contratos con sistemas sanitarios.",
+        "r": "Integración lenta y pérdida de clientes frente a Epic."
+      }
+    ]
+  },
+  "mgmt": {
+    "call": {
+      "periodEnd": "2026-08-31",
+      "q": "1T FY2027 (cierre 31-ago-2026)",
+      "date": "10-sep-2026",
+      "doc": "Nota de resultados (8-K, Exhibit 99.1)",
+      "url": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526387905/orcl-ex99_1.htm",
+      "nota": "Resumen de la llamada de resultados (transcripción) y del día del inversor del 28-oct-2026.",
+      "dir": [
+        "Ingresos de 19.300 M$ (+30%), el primer 1T con crecimiento frente al trimestre anterior; OCI +121% hasta 7.400 M$.",
+        "Entregó 850 MW de capacidad de IA (más de 300.000 GPU) y firmó más de 30.000 M$ de contratos nuevos; la cartera llega a 664.000 M$.",
+        "En el día del inversor (28-oct) fijó más de 225.000 M$ de ingresos y 21 $ de BPA para FY30."
+      ],
+      "ret": [
+        "Caja libre negativa (−5.000 M$ en el trimestre) y sin fecha concreta hasta el día del inversor (2S FY28).",
+        "Retrasos de permisos y conexión eléctrica en Nuevo México y Wisconsin.",
+        "El margen bruto baja mientras se ponen en marcha los centros; costes de componentes al alza."
+      ],
+      "guia": [
+        "2T FY27: ingresos +30–34%, nube +65–71%, BPA ajustado de 1,85–1,93 $.",
+        "FY27: al menos 90.000 M$ de ingresos y 8,10 $ de BPA ajustado; capex de 90.000–95.000 M$ (≤70.000 M$ netos)."
+      ],
+      "cap": [
+        "Completó una ampliación de capital de 20.000 M$ en el 1T FY27.",
+        "Tope de 20.000 M$ de capital nuevo para el resto del ciclo: 10.000 M$ en acciones y 10.000 M$ en deuda. Deuda bruta estable y deuda neta/EBITDA <3,5 veces en FY29.",
+        "Prioridades: mantener el grado de inversión, el dividendo y después el crecimiento."
+      ]
+    },
+    "note": "Larry Ellison, fundador, presidente y director de tecnología, controla cerca del 40% de las acciones, así que sus intereses están alineados con el accionista pero el consejo depende de él. Desde septiembre de 2025 hay dos consejeros delegados: Clay Magouyrk (infraestructura) y Mike Sicilia (aplicaciones). La apuesta por la IA se financia con deuda, acciones y convertibles.",
+    "people": [
+      {
+        "n": "Larry Ellison",
+        "role": "Fundador, presidente y director de tecnología",
+        "since": "1977",
+        "note": "Principal accionista; impulsor de la apuesta por la IA"
+      },
+      {
+        "n": "Clay Magouyrk",
+        "role": "Consejero delegado (infraestructura)",
+        "since": "2025",
+        "note": "Antes presidente de OCI"
+      },
+      {
+        "n": "Mike Sicilia",
+        "role": "Consejero delegado (aplicaciones)",
+        "since": "2025",
+        "note": "Antes responsable de aplicaciones sectoriales"
+      },
+      {
+        "n": "Safra Catz",
+        "role": "Vicepresidenta ejecutiva del consejo",
+        "since": "2025",
+        "note": "Consejera delegada de 2014 a 2025"
+      },
+      {
+        "n": "Hilary Maxson",
+        "role": "Directora financiera",
+        "since": "",
+        "note": "Presentó el plan financiero del día del inversor 2026"
+      },
+      {
+        "n": "Mahesh Thiagarajan",
+        "role": "Presidente de Oracle Cloud Infrastructure",
+        "since": "",
+        "note": "Responsable de la construcción de capacidad"
+      }
+    ],
+    "scores": [
+      {
+        "n": "Alineación con el accionista",
+        "s": 4,
+        "note": "Ellison tiene cerca del 40%; pero en 2026 se ha diluido al accionista"
+      },
+      {
+        "n": "Asignación de capital",
+        "s": 2,
+        "note": "Apuesta enorme financiada con deuda; tope de 20.000 M$ de capital nuevo"
+      },
+      {
+        "n": "Credibilidad y ejecución",
+        "s": 3,
+        "note": "Cumple los objetivos de 2025 (FY26 y guía de FY27 por encima), con algunos centros retrasados"
+      },
+      {
+        "n": "Gobierno corporativo",
+        "s": 2,
+        "note": "Consejo dependiente del fundador; dos consejeros delegados"
+      },
+      {
+        "n": "Transparencia",
+        "s": 3,
+        "note": "No detalla el peso de OpenAI ni los márgenes por contrato"
+      }
+    ],
+    "alloc": {
+      "label": "Uso de la caja, FY26 (M$, SEC)",
+      "items": [
+        {
+          "n": "Capex",
+          "v": 55663
+        },
+        {
+          "n": "Dividendos",
+          "v": 5787
+        },
+        {
+          "n": "Recompras",
+          "v": 95
+        }
+      ]
+    },
+    "vote": {
+      "label": "Propiedad aproximada (%)",
+      "items": [
+        {
+          "n": "Larry Ellison",
+          "v": 40
+        },
+        {
+          "n": "Resto de accionistas",
+          "v": 60
+        }
+      ]
+    }
+  },
+  "risks": [
     {
-     "n": "Fundadores y directivos",
-     "v": null
+      "n": "Concentración en OpenAI",
+      "cat": "Comercial",
+      "p": 4,
+      "i": 5,
+      "note": "Cerca de la mitad de la cartera, según S&P; OpenAI depende de seguir financiándose"
     },
     {
-     "n": "Resto de accionistas",
-     "v": null
+      "n": "Deuda y rating al límite",
+      "cat": "Financiero",
+      "p": 3,
+      "i": 5,
+      "note": "125.000 M$; BBB- en S&P (jul-26) y perspectiva negativa en Moody's"
+    },
+    {
+      "n": "Caja libre negativa hasta FY28",
+      "cat": "Financiero",
+      "p": 4,
+      "i": 3,
+      "note": "−28.700 M$ en 12 meses; capex de 90.000–95.000 M$ en FY27"
+    },
+    {
+      "n": "Retrasos en los centros de datos",
+      "cat": "Operativo",
+      "p": 3,
+      "i": 4,
+      "note": "Permisos, energía y suministro de componentes"
+    },
+    {
+      "n": "Dilución",
+      "cat": "Financiero",
+      "p": 4,
+      "i": 2,
+      "note": "20.000 M$ en acciones en el 1T, convertibles y 10.000 M$ más previstos"
+    },
+    {
+      "n": "Margen bajo de la infraestructura",
+      "cat": "Operativo",
+      "p": 3,
+      "i": 3,
+      "note": "~35% de margen bruto por GW frente al ~90% del soporte"
+    },
+    {
+      "n": "Freno del gasto en IA u obsolescencia de las GPU",
+      "cat": "Mercado",
+      "p": 3,
+      "i": 4,
+      "note": "Capacidad cara que podría quedar ociosa o perder valor"
+    },
+    {
+      "n": "Competencia de los grandes de la nube",
+      "cat": "Comercial",
+      "p": 3,
+      "i": 3,
+      "note": "AWS, Azure y Google con más escala y chips propios"
+    },
+    {
+      "n": "Dependencia del fundador",
+      "cat": "Gobierno",
+      "p": 2,
+      "i": 3,
+      "note": "Larry Ellison controla cerca del 40%"
     }
-   ]
-  }
- },
- "risks": [
-  {
-   "n": "Riesgo principal",
-   "cat": "Operativo",
-   "p": 3,
-   "i": 3,
-   "note": ""
-  }
- ],
- "v": {
-  "rev0": 71776,
-  "year0": 2026,
-  "g": [
-   10.5,
-   9.2,
-   7.9,
-   6.5,
-   5.2
   ],
-  "m1": 54.0,
-  "m5": 54.0,
-  "da": 15.2,
-  "da5": 15.2,
-  "sbc": 6.7,
-  "capex": 105.4,
-  "capex5": 44.2,
-  "nwc": 5,
-  "tax": 25.0,
-  "wacc": 9,
-  "tg": 3,
-  "exit": 12,
-  "method": "blend",
-  "eps": 6.26,
-  "pe": 20,
-  "evm": 12,
-  "scn": [
-   {
-    "n": "Bajista",
-    "dg": -5,
-    "dm": -3,
-    "p": 25
-   },
-   {
-    "n": "Base",
-    "dg": 0,
-    "dm": 0,
-    "p": 50
-   },
-   {
-    "n": "Alcista",
-    "dg": 4,
-    "dm": 2,
-    "p": 25
-   }
-  ]
- },
- "verdict": {
-  "rating": "",
-  "conviction": null,
-  "buyBelow": null,
-  "horizon": "",
-  "summary": "",
-  "bull": [],
-  "bear": [],
-  "watch": []
- },
- "notes": "",
- "sources": {
-  "web": "https://www.oracle.com/",
-  "ir": "",
-  "docs": [],
-  "news": []
- },
- "social": {
-  "pulse": [
-   {
-    "p": "Reddit",
-    "s": null,
-    "note": ""
-   },
-   {
-    "p": "X",
-    "s": null,
-    "note": ""
-   },
-   {
-    "p": "YouTube",
-    "s": null,
-    "note": ""
-   }
-  ],
-  "videos": []
- },
- "fin_manual": {
-  "nota": "Series que la SEC no publica (por segmento). Las etiquetas de trimestre deben coincidir con las de la SEC (p. ej. 3T26).",
-  "q": {
-   "labels": [
-    "T1",
-    "T2",
-    "T3",
-    "T4"
-   ],
-   "series": []
+  "v": {
+    "rev0": 67357,
+    "year0": 2026,
+    "g": [
+      34,
+      30,
+      28,
+      25,
+      10
+    ],
+    "m1": 52,
+    "m5": 58,
+    "da": 15,
+    "da5": 22,
+    "sbc": 6.7,
+    "capex": 78,
+    "capex5": 12,
+    "nwc": 5,
+    "tax": 22,
+    "wacc": 10.5,
+    "tg": 3,
+    "exit": 12,
+    "method": "blend",
+    "eps": 6.26,
+    "pe": 20,
+    "evm": 12,
+    "scn": [
+      {
+        "n": "Bajista",
+        "dg": -12,
+        "dm": -6,
+        "p": 30
+      },
+      {
+        "n": "Base",
+        "dg": 0,
+        "dm": 0,
+        "p": 45
+      },
+      {
+        "n": "Alcista",
+        "dg": 6,
+        "dm": 2,
+        "p": 25
+      }
+    ]
   },
-  "nota_antigua": ""
- },
- "peers": []
+  "verdict": {
+    "rating": "Acumular",
+    "conviction": 2.5,
+    "buyBelow": 120,
+    "horizon": "24–36 meses",
+    "summary": "Oracle ofrece crecimiento de compañía joven (+30%) con un negocio de software de enorme calidad detrás, y cotiza a unas seis veces su objetivo de BPA de FY30 tras caer un 62%. Mi modelo, que recorta sus objetivos y retrasa la vuelta a la caja positiva, da ~190 $. Pero el riesgo es alto: deuda de 125.000 M$ al límite del bono basura, la mitad de la cartera en un solo cliente que pierde dinero y un plan que solo funciona si se cumple casi todo. Acumular poco a poco por debajo de ~120 $, con tamaño pequeño.",
+    "bull": [
+      "Cartera de 664.000 M$ y OCI +121%",
+      "Objetivo de 225.000 M$ de ingresos y 21 $ de BPA en FY30",
+      "Base de datos con clientes muy cautivos",
+      "Tope de 20.000 M$ a la nueva financiación"
+    ],
+    "bear": [
+      "La mitad de la cartera depende de OpenAI",
+      "Deuda de 125.000 M$ y rating BBB-",
+      "Caja libre negativa hasta 2S FY28",
+      "Dilución por ampliaciones y convertibles"
+    ],
+    "watch": [
+      "Resultados del 8-dic: OCI, RPO y capex neto",
+      "Rating de S&P y Moody's",
+      "Financiación de OpenAI",
+      "MW entregados y retrasos de centros"
+    ]
+  },
+  "notes": "Supuestos del DCF (4-nov-2026): ingresos +34% en FY27 (guía), +30%, +28%, +25% y +10%: 188.000 M$ en FY30 frente a los 225.000 M$ de la compañía. Capex del 78% de las ventas en FY27 bajando al 12%: más prudente que la guía (caja libre positiva en FY30 en vez de 2S FY28). WACC del 10,5% por la beta (1,8) y el riesgo de crédito. El valor terminal pesa todo el valor, porque los primeros años la caja libre es negativa.",
+  "sources": {
+    "web": "https://www.oracle.com/",
+    "ir": "https://investor.oracle.com",
+    "docs": [
+      {
+        "cat": "Resultados trimestrales",
+        "t": "Nota de resultados 1T FY27 (8-K, Exhibit 99.1)",
+        "d": "10-sep-2026",
+        "u": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526387905/orcl-ex99_1.htm"
+      },
+      {
+        "cat": "Formularios SEC",
+        "t": "10-Q 1T FY27",
+        "d": "11-sep-2026",
+        "u": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526389274/orcl-20260831.htm"
+      },
+      {
+        "cat": "Transcripciones",
+        "t": "Llamada de resultados 1T FY27 (Longbridge)",
+        "d": "10-sep-2026",
+        "u": "https://longbridge.com/en/news/298651335"
+      },
+      {
+        "cat": "Presentaciones",
+        "t": "Día del inversor 2026 (transcripción)",
+        "d": "28-oct-2026",
+        "u": "https://stockanalysis.com/stocks/orcl/transcripts/780561-investor-day-2026/"
+      }
+    ],
+    "news": [
+      {
+        "t": "S&P rebaja a Oracle a BBB-, a un escalón del bono basura",
+        "src": "The Next Web",
+        "u": "https://thenextweb.com/news/oracle-sp-downgrade-ai-spending-junk-risk"
+      },
+      {
+        "t": "Oracle ha perdido un 60% desde su anterior día del inversor",
+        "src": "Motley Fool",
+        "u": "https://www.fool.com/investing/2026/10/27/oracle-stock-has-lost-60-since-its-last-investor-day-is-it-a-buy-before-wednesday/"
+      },
+      {
+        "t": "Oracle sigue presionada pese a sus planes para FY30",
+        "src": "TipRanks",
+        "u": "https://tipranks.com/news/article/oracle-stock-orcl-remains-under-pressure-despite-big-fiscal-2030-plans"
+      },
+      {
+        "t": "Bono de 25.000 M$ con la deuda en 130.000 M$",
+        "src": "StartupMap",
+        "u": "https://startupmap.iamsterdam.com/news/note/oracle-taps-25b-bond-as-debt-hits-130b-and-rating-slips-to-junk-s-edge"
+      },
+      {
+        "t": "Financiación de 16.300 M$ para un centro en Michigan",
+        "src": "Rallies",
+        "u": "https://rallies.ai/news/oracle-drops-as-163b-michigan-ai-data-center-financing-spotlights-funding-strain"
+      }
+    ]
+  },
+  "social": {
+    "pulse": [
+      {
+        "p": "Reddit",
+        "s": -1,
+        "note": "Según SentiSense, 19-oct: escepticismo por la construcción de centros de IA financiada con deuda y por la dependencia de OpenAI."
+      },
+      {
+        "p": "X",
+        "s": 1,
+        "note": "El tono mejora (SentiSense, 30 días «ligeramente alcista» y en ascenso). Tras el día del inversor (+11%) se habla de los objetivos de FY30 y del tope a la financiación."
+      },
+      {
+        "p": "YouTube",
+        "s": 1,
+        "note": "Vídeos de «comprar la caída» tras el −62% desde máximos, con el BPA de FY30 como argumento."
+      }
+    ],
+    "pulseFuente": "Lectura del 4-nov-2026 con SentiSense y búsquedas propias.",
+    "videos": []
+  },
+  "fin_manual": {
+    "nota": "Series que la SEC no publica (por segmento). Las etiquetas de trimestre deben coincidir con las de la SEC (p. ej. 3T26).",
+    "q": {
+      "labels": [
+        "1T27"
+      ],
+      "series": []
+    }
+  },
+  "peers": [
+    "MSFT",
+    "AMZN",
+    "GOOGL",
+    "SAP",
+    "CRM",
+    "IBM"
+  ]
 }
