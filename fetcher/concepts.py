@@ -170,6 +170,11 @@ INSTANT_CONCEPTS = {
             {"required": ["ConvertibleNotesPayable"],
              "optional": [["ConvertibleNotesPayableCurrent"]]},
             {"required": ["SeniorLongTermNotes"], "optional": []},
+            # Oracle: pagarés y préstamos a largo + pagarés corrientes (10-Q); en el 10-K, LongTermNotesPayable
+            {"required": ["LongTermNotesAndLoans"],
+             "optional": [["NotesPayableCurrent", "DebtCurrent"]]},
+            {"required": ["LongTermNotesPayable"],
+             "optional": [["NotesPayableCurrent", "DebtCurrent"]]},
         ],
         "assume_zero_if_missing": True,
     },
