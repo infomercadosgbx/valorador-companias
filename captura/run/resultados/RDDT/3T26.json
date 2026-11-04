@@ -1,0 +1,1480 @@
+{
+ "_nota": "Informe de resultados generado por el Action (fetcher/resultados.py). No se edita a mano.",
+ "esquema": 1,
+ "ticker": "RDDT",
+ "nombre": "Reddit",
+ "color": "#FF4500",
+ "monograma": "R",
+ "logo": "logos/RDDT.png",
+ "periodo": "3T26",
+ "periodo_fin": "2026-09-30",
+ "fecha_resultados": "2026-10-29",
+ "estado": "definitivo",
+ "fuente_cifras": "SEC EDGAR · 10-Q (XBRL)",
+ "informe": {
+  "accn_8k": "0001713445-26-000114",
+  "url_8k": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000114/0001713445-26-000114-index.htm",
+  "url_nota": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000114/earningspressreleaseq326.htm",
+  "anexos": [
+   {
+    "tipo": "EX-99.1",
+    "descripcion": "",
+    "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000114/earningspressreleaseq326.htm"
+   },
+   {
+    "tipo": "EX-99.2",
+    "descripcion": "",
+    "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000114/exhibit992q326.htm"
+   }
+  ],
+  "periodico": {
+   "formulario": "10-Q",
+   "fecha_presentacion": "2026-10-30",
+   "url_indice": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000116/0001713445-26-000116-index.htm",
+   "url_documento": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000116/rddt-20260930.htm"
+  }
+ },
+ "tabla": [
+  {
+   "concepto": "ingresos",
+   "nombre": "Ingresos",
+   "tipo": "total",
+   "reportado": {
+    "valor": 894957000,
+    "fuente": "SEC EDGAR · 10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000116/0001713445-26-000116-index.htm",
+    "fecha_presentacion": "2026-10-30",
+    "etiqueta": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+    "periodo": "3T26",
+    "periodo_inicio": "2026-07-01",
+    "periodo_fin": "2026-09-30",
+    "formulario": "10-Q"
+   },
+   "estimado": {
+    "valor": 895955494,
+    "fuente": "Finnhub · calendario de resultados",
+    "url": "https://finnhub.io/docs/api/earnings-calendar"
+   },
+   "dif_pct": -0.11,
+   "resultado": "Miss",
+   "anio_anterior": 584911000,
+   "interanual_pct": 53.01
+  },
+  {
+   "concepto": "segmento",
+   "nombre": "Advertising",
+   "tipo": "segmento",
+   "reportado": {
+    "valor": 846996000.0,
+    "fuente": "SEC EDGAR · 10-Q (XBRL, segmentos)",
+    "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000116/0001713445-26-000116-index.htm",
+    "fecha_presentacion": "2026-10-30",
+    "periodo": "3T26",
+    "etiqueta": "us-gaap:AdvertisingMember"
+   },
+   "estimado": null,
+   "dif_pct": null,
+   "resultado": null,
+   "anio_anterior": 549342000.0,
+   "interanual_pct": 54.18,
+   "pendiente": null
+  },
+  {
+   "concepto": "beneficio_operativo",
+   "nombre": "Beneficio operativo (EBIT)",
+   "tipo": "total",
+   "reportado": {
+    "valor": 261586000,
+    "fuente": "SEC EDGAR · 10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000116/0001713445-26-000116-index.htm",
+    "fecha_presentacion": "2026-10-30",
+    "etiqueta": "us-gaap:OperatingIncomeLoss",
+    "periodo": "3T26",
+    "periodo_inicio": "2026-07-01",
+    "periodo_fin": "2026-09-30",
+    "formulario": "10-Q"
+   },
+   "estimado": null,
+   "dif_pct": null,
+   "resultado": null,
+   "anio_anterior": 138542000,
+   "interanual_pct": 88.81
+  },
+  {
+   "concepto": "beneficio_neto",
+   "nombre": "Beneficio neto",
+   "tipo": "total",
+   "reportado": {
+    "valor": 283264000,
+    "fuente": "SEC EDGAR · 10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000116/0001713445-26-000116-index.htm",
+    "fecha_presentacion": "2026-10-30",
+    "etiqueta": "us-gaap:NetIncomeLoss",
+    "periodo": "3T26",
+    "periodo_inicio": "2026-07-01",
+    "periodo_fin": "2026-09-30",
+    "formulario": "10-Q"
+   },
+   "estimado": null,
+   "dif_pct": null,
+   "resultado": null,
+   "anio_anterior": 162663000,
+   "interanual_pct": 74.14
+  },
+  {
+   "concepto": "bpa_diluido",
+   "nombre": "BPA diluido",
+   "tipo": "total",
+   "reportado": {
+    "valor": 1.4,
+    "fuente": "SEC EDGAR · 10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000116/0001713445-26-000116-index.htm",
+    "fecha_presentacion": "2026-10-30",
+    "etiqueta": "us-gaap:EarningsPerShareDiluted",
+    "periodo": "3T26",
+    "periodo_inicio": "2026-07-01",
+    "periodo_fin": "2026-09-30",
+    "formulario": "10-Q"
+   },
+   "estimado": {
+    "valor": 1.3755,
+    "fuente": "Finnhub · calendario de resultados",
+    "url": "https://finnhub.io/docs/api/earnings-calendar"
+   },
+   "dif_pct": 1.78,
+   "resultado": "Beat",
+   "anio_anterior": 0.8,
+   "interanual_pct": 75.0
+  }
+ ],
+ "guia": {
+  "items": [
+   {
+    "concepto": "ingresos",
+    "min": 1000000000.0,
+    "max": 1030000000.0,
+    "medio": 1015000000.0,
+    "texto": "• Revenue in the range of $1,000 million to $1,030 million",
+    "estimado": {
+     "valor": 1052858851,
+     "fuente": "Finnhub · consenso del trimestre siguiente (2026-11-04)",
+     "url": "https://finnhub.io/docs/api/earnings-calendar"
+    },
+    "dif_pct": -3.6,
+    "resultado": "Miss"
+   },
+   {
+    "concepto": "ebitda",
+    "min": 480000000.0,
+    "max": 510000000.0,
+    "medio": 495000000.0,
+    "texto": "• Adjusted EBITDA 2 in the range of $480 million to $510 million",
+    "estimado": null,
+    "dif_pct": null,
+    "resultado": null
+   }
+  ],
+  "texto": [
+   "As we look ahead, we will share our internal thoughts on revenue and Adjusted EBITDA for the fourth quarter.",
+   "In the fourth quarter of 2026, we estimate:",
+   "• Revenue in the range of $1,000 million to $1,030 million",
+   "• Adjusted EBITDA 2 in the range of $480 million to $510 million"
+  ],
+  "titulo": "Financial Outlook",
+  "fuente": "SEC EDGAR · 8-K, Exhibit 99.1 (texto original)",
+  "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000114/earningspressreleaseq326.htm"
+ },
+ "reaccion": {
+  "hora": "tras el cierre",
+  "hora_supuesta": false,
+  "fecha_antes": "2026-10-29",
+  "cierre_antes": 129.6,
+  "fuente": "Twelve Data (API oficial, plan gratuito)",
+  "fecha_despues": "2026-10-30",
+  "cierre_despues": 91.73,
+  "variacion_pct": -29.22,
+  "provisional": false
+ },
+ "cotizacion": {
+  "serie": [
+   [
+    "2025-10-30",
+    194.42
+   ],
+   [
+    "2025-10-31",
+    208.95
+   ],
+   [
+    "2025-11-03",
+    204.98
+   ],
+   [
+    "2025-11-04",
+    187.77
+   ],
+   [
+    "2025-11-05",
+    196.27
+   ],
+   [
+    "2025-11-06",
+    183.64
+   ],
+   [
+    "2025-11-07",
+    194.58
+   ],
+   [
+    "2025-11-10",
+    204.19
+   ],
+   [
+    "2025-11-11",
+    208.21
+   ],
+   [
+    "2025-11-12",
+    202.82
+   ],
+   [
+    "2025-11-13",
+    189.42
+   ],
+   [
+    "2025-11-14",
+    193.31
+   ],
+   [
+    "2025-11-17",
+    187.55
+   ],
+   [
+    "2025-11-18",
+    185.69
+   ],
+   [
+    "2025-11-19",
+    187.78
+   ],
+   [
+    "2025-11-20",
+    181.88
+   ],
+   [
+    "2025-11-21",
+    183.48
+   ],
+   [
+    "2025-11-24",
+    195.0
+   ],
+   [
+    "2025-11-25",
+    218.48
+   ],
+   [
+    "2025-11-26",
+    207.56
+   ],
+   [
+    "2025-11-28",
+    216.47
+   ],
+   [
+    "2025-12-01",
+    223.4
+   ],
+   [
+    "2025-12-02",
+    222.76
+   ],
+   [
+    "2025-12-03",
+    220.84
+   ],
+   [
+    "2025-12-04",
+    222.75
+   ],
+   [
+    "2025-12-05",
+    234.11
+   ],
+   [
+    "2025-12-08",
+    236.95
+   ],
+   [
+    "2025-12-09",
+    236.11
+   ],
+   [
+    "2025-12-10",
+    238.11
+   ],
+   [
+    "2025-12-11",
+    233.54
+   ],
+   [
+    "2025-12-12",
+    224.78
+   ],
+   [
+    "2025-12-15",
+    218.5
+   ],
+   [
+    "2025-12-16",
+    224.0
+   ],
+   [
+    "2025-12-17",
+    227.34
+   ],
+   [
+    "2025-12-18",
+    231.34
+   ],
+   [
+    "2025-12-19",
+    233.19
+   ],
+   [
+    "2025-12-22",
+    233.15
+   ],
+   [
+    "2025-12-23",
+    225.82
+   ],
+   [
+    "2025-12-24",
+    225.85
+   ],
+   [
+    "2025-12-26",
+    225.77
+   ],
+   [
+    "2025-12-29",
+    234.65
+   ],
+   [
+    "2025-12-30",
+    233.36
+   ],
+   [
+    "2025-12-31",
+    229.87
+   ],
+   [
+    "2026-01-02",
+    241.89
+   ],
+   [
+    "2026-01-05",
+    244.05
+   ],
+   [
+    "2026-01-06",
+    253.81
+   ],
+   [
+    "2026-01-07",
+    255.5
+   ],
+   [
+    "2026-01-08",
+    253.95
+   ],
+   [
+    "2026-01-09",
+    244.56
+   ],
+   [
+    "2026-01-12",
+    244.02
+   ],
+   [
+    "2026-01-13",
+    258.93
+   ],
+   [
+    "2026-01-14",
+    252.38
+   ],
+   [
+    "2026-01-15",
+    228.75
+   ],
+   [
+    "2026-01-16",
+    231.01
+   ],
+   [
+    "2026-01-20",
+    225.36
+   ],
+   [
+    "2026-01-21",
+    210.13
+   ],
+   [
+    "2026-01-22",
+    214.54
+   ],
+   [
+    "2026-01-23",
+    218.88
+   ],
+   [
+    "2026-01-26",
+    213.63
+   ],
+   [
+    "2026-01-27",
+    196.3
+   ],
+   [
+    "2026-01-28",
+    193.14
+   ],
+   [
+    "2026-01-29",
+    190.05
+   ],
+   [
+    "2026-01-30",
+    180.27
+   ],
+   [
+    "2026-02-02",
+    177.15
+   ],
+   [
+    "2026-02-03",
+    165.41
+   ],
+   [
+    "2026-02-04",
+    152.69
+   ],
+   [
+    "2026-02-05",
+    151.05
+   ],
+   [
+    "2026-02-06",
+    139.83
+   ],
+   [
+    "2026-02-09",
+    141.74
+   ],
+   [
+    "2026-02-10",
+    149.98
+   ],
+   [
+    "2026-02-11",
+    139.29
+   ],
+   [
+    "2026-02-12",
+    131.07
+   ],
+   [
+    "2026-02-13",
+    139.65
+   ],
+   [
+    "2026-02-17",
+    139.23
+   ],
+   [
+    "2026-02-18",
+    147.46
+   ],
+   [
+    "2026-02-19",
+    146.13
+   ],
+   [
+    "2026-02-20",
+    150.17
+   ],
+   [
+    "2026-02-23",
+    142.46
+   ],
+   [
+    "2026-02-24",
+    142.08
+   ],
+   [
+    "2026-02-25",
+    149.67
+   ],
+   [
+    "2026-02-26",
+    151.25
+   ],
+   [
+    "2026-02-27",
+    145.81
+   ],
+   [
+    "2026-03-02",
+    147.11
+   ],
+   [
+    "2026-03-03",
+    145.69
+   ],
+   [
+    "2026-03-04",
+    147.29
+   ],
+   [
+    "2026-03-05",
+    144.34
+   ],
+   [
+    "2026-03-06",
+    139.39
+   ],
+   [
+    "2026-03-09",
+    138.86
+   ],
+   [
+    "2026-03-10",
+    134.13
+   ],
+   [
+    "2026-03-11",
+    137.12
+   ],
+   [
+    "2026-03-12",
+    132.25
+   ],
+   [
+    "2026-03-13",
+    132.36
+   ],
+   [
+    "2026-03-16",
+    140.0
+   ],
+   [
+    "2026-03-17",
+    144.33
+   ],
+   [
+    "2026-03-18",
+    142.79
+   ],
+   [
+    "2026-03-19",
+    138.12
+   ],
+   [
+    "2026-03-20",
+    139.85
+   ],
+   [
+    "2026-03-23",
+    140.96
+   ],
+   [
+    "2026-03-24",
+    136.12
+   ],
+   [
+    "2026-03-25",
+    139.63
+   ],
+   [
+    "2026-03-26",
+    127.26
+   ],
+   [
+    "2026-03-27",
+    121.84
+   ],
+   [
+    "2026-03-30",
+    124.13
+   ],
+   [
+    "2026-03-31",
+    134.65
+   ],
+   [
+    "2026-04-01",
+    136.18
+   ],
+   [
+    "2026-04-02",
+    136.0
+   ],
+   [
+    "2026-04-06",
+    138.34
+   ],
+   [
+    "2026-04-07",
+    141.14
+   ],
+   [
+    "2026-04-08",
+    145.0
+   ],
+   [
+    "2026-04-09",
+    138.38
+   ],
+   [
+    "2026-04-10",
+    139.73
+   ],
+   [
+    "2026-04-13",
+    149.35
+   ],
+   [
+    "2026-04-14",
+    154.54
+   ],
+   [
+    "2026-04-15",
+    158.48
+   ],
+   [
+    "2026-04-16",
+    162.45
+   ],
+   [
+    "2026-04-17",
+    163.8
+   ],
+   [
+    "2026-04-20",
+    166.28
+   ],
+   [
+    "2026-04-21",
+    156.82
+   ],
+   [
+    "2026-04-22",
+    164.31
+   ],
+   [
+    "2026-04-23",
+    152.96
+   ],
+   [
+    "2026-04-24",
+    154.89
+   ],
+   [
+    "2026-04-27",
+    160.21
+   ],
+   [
+    "2026-04-28",
+    147.93
+   ],
+   [
+    "2026-04-29",
+    147.75
+   ],
+   [
+    "2026-04-30",
+    147.23
+   ],
+   [
+    "2026-05-01",
+    166.48
+   ],
+   [
+    "2026-05-04",
+    169.07
+   ],
+   [
+    "2026-05-05",
+    171.63
+   ],
+   [
+    "2026-05-06",
+    166.56
+   ],
+   [
+    "2026-05-07",
+    163.95
+   ],
+   [
+    "2026-05-08",
+    155.8
+   ],
+   [
+    "2026-05-11",
+    159.51
+   ],
+   [
+    "2026-05-12",
+    152.35
+   ],
+   [
+    "2026-05-13",
+    154.12
+   ],
+   [
+    "2026-05-14",
+    156.31
+   ],
+   [
+    "2026-05-15",
+    158.17
+   ],
+   [
+    "2026-05-18",
+    159.11
+   ],
+   [
+    "2026-05-19",
+    154.88
+   ],
+   [
+    "2026-05-20",
+    146.72
+   ],
+   [
+    "2026-05-21",
+    150.04
+   ],
+   [
+    "2026-05-22",
+    141.67
+   ],
+   [
+    "2026-05-26",
+    144.64
+   ],
+   [
+    "2026-05-27",
+    154.19
+   ],
+   [
+    "2026-05-28",
+    167.69
+   ],
+   [
+    "2026-05-29",
+    176.0
+   ],
+   [
+    "2026-06-01",
+    177.85
+   ],
+   [
+    "2026-06-02",
+    169.13
+   ],
+   [
+    "2026-06-03",
+    169.49
+   ],
+   [
+    "2026-06-04",
+    183.91
+   ],
+   [
+    "2026-06-05",
+    173.45
+   ],
+   [
+    "2026-06-08",
+    171.13
+   ],
+   [
+    "2026-06-09",
+    178.11
+   ],
+   [
+    "2026-06-10",
+    172.21
+   ],
+   [
+    "2026-06-11",
+    173.26
+   ],
+   [
+    "2026-06-12",
+    162.1
+   ],
+   [
+    "2026-06-15",
+    181.88
+   ],
+   [
+    "2026-06-16",
+    175.39
+   ],
+   [
+    "2026-06-17",
+    165.95
+   ],
+   [
+    "2026-06-18",
+    174.96
+   ],
+   [
+    "2026-06-22",
+    170.44
+   ],
+   [
+    "2026-06-23",
+    165.63
+   ],
+   [
+    "2026-06-24",
+    160.72
+   ],
+   [
+    "2026-06-25",
+    158.02
+   ],
+   [
+    "2026-06-26",
+    166.94
+   ],
+   [
+    "2026-06-29",
+    174.39
+   ],
+   [
+    "2026-06-30",
+    173.58
+   ],
+   [
+    "2026-07-01",
+    197.76
+   ],
+   [
+    "2026-07-02",
+    194.67
+   ],
+   [
+    "2026-07-06",
+    200.86
+   ],
+   [
+    "2026-07-07",
+    199.44
+   ],
+   [
+    "2026-07-08",
+    195.31
+   ],
+   [
+    "2026-07-09",
+    200.31
+   ],
+   [
+    "2026-07-10",
+    195.34
+   ],
+   [
+    "2026-07-13",
+    200.93
+   ],
+   [
+    "2026-07-14",
+    203.27
+   ],
+   [
+    "2026-07-15",
+    198.03
+   ],
+   [
+    "2026-07-16",
+    185.26
+   ],
+   [
+    "2026-07-17",
+    181.18
+   ],
+   [
+    "2026-07-20",
+    181.64
+   ],
+   [
+    "2026-07-21",
+    185.84
+   ],
+   [
+    "2026-07-22",
+    170.38
+   ],
+   [
+    "2026-07-23",
+    168.78
+   ],
+   [
+    "2026-07-24",
+    168.73
+   ],
+   [
+    "2026-07-27",
+    179.23
+   ],
+   [
+    "2026-07-28",
+    178.44
+   ],
+   [
+    "2026-07-29",
+    177.99
+   ],
+   [
+    "2026-07-30",
+    178.04
+   ],
+   [
+    "2026-07-31",
+    140.67
+   ],
+   [
+    "2026-08-03",
+    154.71
+   ],
+   [
+    "2026-08-04",
+    159.97
+   ],
+   [
+    "2026-08-05",
+    155.26
+   ],
+   [
+    "2026-08-06",
+    150.87
+   ],
+   [
+    "2026-08-07",
+    161.7
+   ],
+   [
+    "2026-08-10",
+    158.72
+   ],
+   [
+    "2026-08-11",
+    156.19
+   ],
+   [
+    "2026-08-12",
+    153.45
+   ],
+   [
+    "2026-08-13",
+    158.12
+   ],
+   [
+    "2026-08-14",
+    178.09
+   ],
+   [
+    "2026-08-17",
+    164.5
+   ],
+   [
+    "2026-08-18",
+    158.25
+   ],
+   [
+    "2026-08-19",
+    151.71
+   ],
+   [
+    "2026-08-20",
+    150.31
+   ],
+   [
+    "2026-08-21",
+    153.29
+   ],
+   [
+    "2026-08-24",
+    152.7
+   ],
+   [
+    "2026-08-25",
+    162.45
+   ],
+   [
+    "2026-08-26",
+    155.36
+   ],
+   [
+    "2026-08-27",
+    153.95
+   ],
+   [
+    "2026-08-28",
+    153.0
+   ],
+   [
+    "2026-08-31",
+    147.81
+   ],
+   [
+    "2026-09-01",
+    144.64
+   ],
+   [
+    "2026-09-02",
+    158.1
+   ],
+   [
+    "2026-09-03",
+    155.99
+   ],
+   [
+    "2026-09-04",
+    154.46
+   ],
+   [
+    "2026-09-08",
+    149.38
+   ],
+   [
+    "2026-09-09",
+    146.44
+   ],
+   [
+    "2026-09-10",
+    155.34
+   ],
+   [
+    "2026-09-11",
+    157.77
+   ],
+   [
+    "2026-09-14",
+    162.38
+   ],
+   [
+    "2026-09-15",
+    159.63
+   ],
+   [
+    "2026-09-16",
+    157.6
+   ],
+   [
+    "2026-09-17",
+    152.83
+   ],
+   [
+    "2026-09-18",
+    150.85
+   ],
+   [
+    "2026-09-21",
+    158.73
+   ],
+   [
+    "2026-09-22",
+    155.67
+   ],
+   [
+    "2026-09-23",
+    151.98
+   ],
+   [
+    "2026-09-24",
+    152.72
+   ],
+   [
+    "2026-09-25",
+    149.84
+   ],
+   [
+    "2026-09-28",
+    143.08
+   ],
+   [
+    "2026-09-29",
+    145.36
+   ],
+   [
+    "2026-09-30",
+    142.44
+   ],
+   [
+    "2026-10-01",
+    149.53
+   ],
+   [
+    "2026-10-02",
+    147.86
+   ],
+   [
+    "2026-10-05",
+    150.42
+   ],
+   [
+    "2026-10-06",
+    148.95
+   ],
+   [
+    "2026-10-07",
+    152.71
+   ],
+   [
+    "2026-10-08",
+    156.47
+   ],
+   [
+    "2026-10-09",
+    159.91
+   ],
+   [
+    "2026-10-12",
+    159.93
+   ],
+   [
+    "2026-10-13",
+    155.29
+   ],
+   [
+    "2026-10-14",
+    148.6
+   ],
+   [
+    "2026-10-15",
+    159.36
+   ],
+   [
+    "2026-10-16",
+    156.14
+   ],
+   [
+    "2026-10-19",
+    155.14
+   ],
+   [
+    "2026-10-20",
+    155.65
+   ],
+   [
+    "2026-10-21",
+    153.28
+   ],
+   [
+    "2026-10-22",
+    150.26
+   ],
+   [
+    "2026-10-23",
+    144.25
+   ],
+   [
+    "2026-10-26",
+    138.45
+   ],
+   [
+    "2026-10-27",
+    136.46
+   ],
+   [
+    "2026-10-28",
+    134.7
+   ],
+   [
+    "2026-10-29",
+    129.6
+   ],
+   [
+    "2026-10-30",
+    91.73
+   ]
+  ],
+  "precio": 91.73,
+  "fecha_precio": "2026-10-30",
+  "capitalizacion": 18516640273.850002,
+  "minimo_12m": 91.73,
+  "maximo_12m": 258.93,
+  "variacion_12m_pct": -52.82,
+  "fuente": "Twelve Data (API oficial, plan gratuito)"
+ },
+ "desglose": {
+  "producto": [
+   {
+    "nombre": "Advertising",
+    "miembro": "us-gaap:AdvertisingMember",
+    "valor": 846996000.0,
+    "anio_anterior": 549342000.0,
+    "interanual_pct": 54.18,
+    "peso_pct": 94.6,
+    "margen_operativo_pct": null,
+    "margen_operativo_ya_pct": null
+   },
+   {
+    "nombre": "Other Revenue",
+    "miembro": "rddt:OtherRevenueMember",
+    "valor": 47961000.0,
+    "anio_anterior": 35569000.0,
+    "interanual_pct": 34.84,
+    "peso_pct": 5.4,
+    "margen_operativo_pct": null,
+    "margen_operativo_ya_pct": null
+   }
+  ],
+  "segmento": []
+ },
+ "estrella": {
+  "nombre": "Advertising",
+  "miembro": "us-gaap:AdvertisingMember",
+  "elegido": "automático",
+  "serie": [
+   {
+    "periodo": "1T23",
+    "periodo_fin": "2023-03-31",
+    "valor": 160080000.0,
+    "run_rate": 640320000.0,
+    "interanual_pct": null,
+    "margen_operativo_pct": null
+   },
+   {
+    "periodo": "2T23",
+    "periodo_fin": "2023-06-30",
+    "valor": 179482000.0,
+    "run_rate": 717928000.0,
+    "interanual_pct": null,
+    "margen_operativo_pct": null
+   },
+   {
+    "periodo": "3T23",
+    "periodo_fin": "2023-09-30",
+    "valor": 202372000.0,
+    "run_rate": 809488000.0,
+    "interanual_pct": null,
+    "margen_operativo_pct": null
+   },
+   {
+    "periodo": "4T23",
+    "periodo_fin": "2023-12-31",
+    "valor": 246848000.0,
+    "run_rate": 987392000.0,
+    "interanual_pct": null,
+    "margen_operativo_pct": null
+   },
+   {
+    "periodo": "1T24",
+    "periodo_fin": "2024-03-31",
+    "valor": 222682000.0,
+    "run_rate": 890728000.0,
+    "interanual_pct": 39.11,
+    "margen_operativo_pct": null
+   },
+   {
+    "periodo": "2T24",
+    "periodo_fin": "2024-06-30",
+    "valor": 253125000.0,
+    "run_rate": 1012500000.0,
+    "interanual_pct": 41.03,
+    "margen_operativo_pct": null
+   },
+   {
+    "periodo": "3T24",
+    "periodo_fin": "2024-09-30",
+    "valor": 315104000.0,
+    "run_rate": 1260416000.0,
+    "interanual_pct": 55.71,
+    "margen_operativo_pct": null
+   },
+   {
+    "periodo": "4T24",
+    "periodo_fin": "2024-12-31",
+    "valor": 394545000.0,
+    "run_rate": 1578180000.0,
+    "interanual_pct": 59.83,
+    "margen_operativo_pct": null
+   },
+   {
+    "periodo": "1T25",
+    "periodo_fin": "2025-03-31",
+    "valor": 358630000.0,
+    "run_rate": 1434520000.0,
+    "interanual_pct": 61.05,
+    "margen_operativo_pct": null
+   },
+   {
+    "periodo": "2T25",
+    "periodo_fin": "2025-06-30",
+    "valor": 464785000.0,
+    "run_rate": 1859140000.0,
+    "interanual_pct": 83.62,
+    "margen_operativo_pct": null
+   },
+   {
+    "periodo": "3T25",
+    "periodo_fin": "2025-09-30",
+    "valor": 549342000.0,
+    "run_rate": 2197368000.0,
+    "interanual_pct": 74.34,
+    "margen_operativo_pct": null
+   },
+   {
+    "periodo": "4T25",
+    "periodo_fin": "2025-12-31",
+    "valor": 689723000.0,
+    "run_rate": 2758892000.0,
+    "interanual_pct": 74.81,
+    "margen_operativo_pct": null
+   },
+   {
+    "periodo": "1T26",
+    "periodo_fin": "2026-03-31",
+    "valor": 624670000.0,
+    "run_rate": 2498680000.0,
+    "interanual_pct": 74.18,
+    "margen_operativo_pct": null
+   },
+   {
+    "periodo": "2T26",
+    "periodo_fin": "2026-06-30",
+    "valor": 761625000.0,
+    "run_rate": 3046500000.0,
+    "interanual_pct": 63.87,
+    "margen_operativo_pct": null
+   },
+   {
+    "periodo": "3T26",
+    "periodo_fin": "2026-09-30",
+    "valor": 846996000.0,
+    "run_rate": 3387984000.0,
+    "interanual_pct": 54.18,
+    "margen_operativo_pct": null
+   }
+  ]
+ },
+ "margenes": {
+  "trimestral": [
+   {
+    "periodo": "4T23",
+    "margen_pct": 1.21
+   },
+   {
+    "periodo": "1T24",
+    "margen_pct": -242.53
+   },
+   {
+    "periodo": "2T24",
+    "margen_pct": -11.04
+   },
+   {
+    "periodo": "3T24",
+    "margen_pct": 1.97
+   },
+   {
+    "periodo": "4T24",
+    "margen_pct": 12.36
+   },
+   {
+    "periodo": "1T25",
+    "margen_pct": 0.99
+   },
+   {
+    "periodo": "2T25",
+    "margen_pct": 13.55
+   },
+   {
+    "periodo": "3T25",
+    "margen_pct": 23.69
+   },
+   {
+    "periodo": "4T25",
+    "margen_pct": 31.95
+   },
+   {
+    "periodo": "1T26",
+    "margen_pct": 27.57
+   },
+   {
+    "periodo": "2T26",
+    "margen_pct": 28.79
+   },
+   {
+    "periodo": "3T26",
+    "margen_pct": 29.23
+   }
+  ]
+ },
+ "cita": {
+  "cita": "Our business is growing because the Reddit experience captures the human experience in a way that no other platform can replicate",
+  "quien": "Steve Huffman, Founder and CEO of Reddit"
+ },
+ "destacados": {
+  "titulo": "Third Quarter 2026 Financial Highlights",
+  "texto": [
+   "U.S. $ 719 $ 480 50%",
+   "GAAP gross margin 91.5 % 91.0 %",
+   "Adjusted EBITDA* $ 402 $ 236 70%",
+   "Adjusted EBITDA margin* 44.9 % 40.3 %",
+   "Net cash provided by (used in) operating activities",
+   "Free Cash Flow* $ 363 $ 183 98%",
+   "Cash, cash equivalents, and marketable securities"
+  ]
+ },
+ "lectura": {
+  "estado": "revisada",
+  "fuente": "Tu resumen de la presentación (Directiva)",
+  "q": "3T 2026",
+  "date": "29-oct-2026",
+  "doc": "Nota de resultados (8-K, Exhibit 99.1)",
+  "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000114/earningspressreleaseq326.htm",
+  "nota": "Resumen de la nota de resultados y de la llamada con analistas del 29-oct-2026.",
+  "dir": [
+   "Ingresos de 895 M$ (+53%) y BPA de 1,40 $, por encima de lo esperado; ARPU +36%.",
+   "Internacional: 79,6 M de usuarios diarios (+24%) e ingresos +67% (176 M$).",
+   "Más del 80% de los ingresos viene de usuarios con sesión iniciada en la app: prueba de acceso solo con sesión fuera de EE. UU. en el 4T."
+  ],
+  "ret": [
+   "Las visitas desde Google cayeron con fuerza al final del trimestre y en octubre (más de 1 M menos por semana) por AI Overviews y AI Mode.",
+   "Usuarios diarios: 130,3 M (+12%), por debajo de los 134 M esperados; pueden caer un porcentaje de dos dígitos en el 4T.",
+   "Huffman: AI Mode «no genera tráfico»; no da por hecho que se recupere."
+  ],
+  "guia": [
+   "4T26: ingresos de 1.000–1.030 M$ (+38–42%) y EBITDA ajustado de 480–510 M$.",
+   "Más marketing para captar usuarios fuera de EE. UU. y descargas de la app en EE. UU."
+  ],
+  "cap": [
+   "Recompró unas 670.000 acciones por 100 M$ (a 149,81 $ de media).",
+   "3.030 M$ de caja y sin deuda; FCF de 363 M$ en el trimestre."
+  ]
+ },
+ "estimaciones": {
+  "foto": null,
+  "manual": false
+ },
+ "avisos": [],
+ "_calendario_finnhub": {
+  "fecha": "2026-10-29",
+  "hora": "amc",
+  "trimestre": 3,
+  "anio": 2026,
+  "bpa_estimado": 1.3755,
+  "ingresos_estimados": 895955494,
+  "bpa_real": 1.4,
+  "ingresos_reales": 894957000
+ },
+ "_cifras_nota": null
+}

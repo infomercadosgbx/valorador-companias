@@ -1,0 +1,1595 @@
+{
+ "_nota": "Informe de resultados generado por el Action (fetcher/resultados.py). No se edita a mano.",
+ "esquema": 1,
+ "ticker": "AMZN",
+ "nombre": "Amazon",
+ "color": "#FF9900",
+ "monograma": "A",
+ "logo": "logos/AMZN.png",
+ "periodo": "3T26",
+ "periodo_fin": "2026-09-30",
+ "fecha_resultados": "2026-10-29",
+ "estado": "definitivo",
+ "fuente_cifras": "SEC EDGAR · 10-Q (XBRL)",
+ "informe": {
+  "accn_8k": "0001018724-26-000038",
+  "url_8k": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000038/0001018724-26-000038-index.htm",
+  "url_nota": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000038/amzn-20260930xex991.htm",
+  "anexos": [
+   {
+    "tipo": "EX-99.1",
+    "descripcion": "",
+    "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000038/amzn-20260930xex991.htm"
+   },
+   {
+    "tipo": "EX-99.2",
+    "descripcion": "",
+    "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000038/amzn-20260930xex992.htm"
+   }
+  ],
+  "periodico": {
+   "formulario": "10-Q",
+   "fecha_presentacion": "2026-10-30",
+   "url_indice": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/0001018724-26-000040-index.htm",
+   "url_documento": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/amzn-20260930.htm"
+  }
+ },
+ "tabla": [
+  {
+   "concepto": "ingresos",
+   "nombre": "Ingresos",
+   "tipo": "total",
+   "reportado": {
+    "valor": 201944000000,
+    "fuente": "SEC EDGAR · 10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/0001018724-26-000040-index.htm",
+    "fecha_presentacion": "2026-10-30",
+    "etiqueta": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+    "periodo": "3T26",
+    "periodo_inicio": "2026-07-01",
+    "periodo_fin": "2026-09-30",
+    "formulario": "10-Q"
+   },
+   "estimado": {
+    "valor": 206355625383,
+    "fuente": "Finnhub · calendario de resultados",
+    "url": "https://finnhub.io/docs/api/earnings-calendar"
+   },
+   "dif_pct": -2.14,
+   "resultado": "Miss",
+   "anio_anterior": 180169000000,
+   "interanual_pct": 12.09
+  },
+  {
+   "concepto": "segmento",
+   "nombre": "Amazon Web Services Segment",
+   "tipo": "segmento",
+   "reportado": {
+    "valor": 45984000000.0,
+    "fuente": "SEC EDGAR · 10-Q (XBRL, segmentos)",
+    "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/0001018724-26-000040-index.htm",
+    "fecha_presentacion": "2026-10-30",
+    "periodo": "3T26",
+    "etiqueta": "amzn:AmazonWebServicesSegmentMember"
+   },
+   "estimado": {
+    "valor": 45400000000.0,
+    "fuente": "manual · Infografía Invertir Desde Cero (resultados 3T26)",
+    "manual": true
+   },
+   "dif_pct": 1.29,
+   "resultado": "Beat",
+   "anio_anterior": 33006000000.0,
+   "interanual_pct": 39.32,
+   "pendiente": null
+  },
+  {
+   "concepto": "beneficio_operativo",
+   "nombre": "Beneficio operativo (EBIT)",
+   "tipo": "total",
+   "reportado": {
+    "valor": 28076000000,
+    "fuente": "SEC EDGAR · 10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/0001018724-26-000040-index.htm",
+    "fecha_presentacion": "2026-10-30",
+    "etiqueta": "us-gaap:OperatingIncomeLoss",
+    "periodo": "3T26",
+    "periodo_inicio": "2026-07-01",
+    "periodo_fin": "2026-09-30",
+    "formulario": "10-Q"
+   },
+   "estimado": {
+    "valor": 26100000000.0,
+    "fuente": "manual · Infografía Invertir Desde Cero (resultados 3T26)",
+    "manual": true,
+    "fecha": "4-nov-2026"
+   },
+   "dif_pct": 7.57,
+   "resultado": "Beat",
+   "anio_anterior": 17422000000,
+   "interanual_pct": 61.15
+  },
+  {
+   "concepto": "beneficio_neto",
+   "nombre": "Beneficio neto",
+   "tipo": "total",
+   "reportado": {
+    "valor": 20685000000,
+    "fuente": "SEC EDGAR · 10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/0001018724-26-000040-index.htm",
+    "fecha_presentacion": "2026-10-30",
+    "etiqueta": "us-gaap:NetIncomeLoss",
+    "periodo": "3T26",
+    "periodo_inicio": "2026-07-01",
+    "periodo_fin": "2026-09-30",
+    "formulario": "10-Q"
+   },
+   "estimado": null,
+   "dif_pct": null,
+   "resultado": null,
+   "anio_anterior": 21187000000,
+   "interanual_pct": -2.37
+  },
+  {
+   "concepto": "bpa_diluido",
+   "nombre": "BPA diluido",
+   "tipo": "total",
+   "reportado": {
+    "valor": 1.89,
+    "fuente": "SEC EDGAR · 10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/0001018724-26-000040-index.htm",
+    "fecha_presentacion": "2026-10-30",
+    "etiqueta": "us-gaap:EarningsPerShareDiluted",
+    "periodo": "3T26",
+    "periodo_inicio": "2026-07-01",
+    "periodo_fin": "2026-09-30",
+    "formulario": "10-Q"
+   },
+   "estimado": {
+    "valor": 1.99,
+    "fuente": "manual · Infografía Invertir Desde Cero (resultados 3T26)",
+    "manual": true,
+    "fecha": "4-nov-2026"
+   },
+   "dif_pct": -5.03,
+   "resultado": "Miss",
+   "anio_anterior": 1.95,
+   "interanual_pct": -3.08
+  }
+ ],
+ "guia": {
+  "items": [
+   {
+    "concepto": "ingresos",
+    "min": 240000000000.0,
+    "max": 247000000000.0,
+    "medio": 243500000000.0,
+    "texto": "• Net sales are expected to be between $240.0 billion and $247.0 billion, or to grow between 12% and 16% compared with fourth quarter 2025.",
+    "estimado": {
+     "valor": 244500000000.0,
+     "fuente": "manual · Infografía Invertir Desde Cero (resultados 3T26)",
+     "manual": true
+    },
+    "dif_pct": -0.41,
+    "resultado": "Miss"
+   },
+   {
+    "concepto": "beneficio_operativo",
+    "min": 28500000000.0,
+    "max": 33500000000.0,
+    "medio": 31000000000.0,
+    "texto": "• Operating income is expected to be between $28.5 billion and $33.5 billion, compared with $25.0 billion in fourth quarter 2025.",
+    "estimado": {
+     "valor": 33100000000.0,
+     "fuente": "manual · Infografía Invertir Desde Cero (resultados 3T26)",
+     "manual": true
+    },
+    "dif_pct": -6.34,
+    "resultado": "Miss"
+   }
+  ],
+  "texto": [
+   "• Net sales are expected to be between $240.0 billion and $247.0 billion, or to grow between 12% and 16% compared with fourth quarter 2025. This guidance anticipates an unfavorable impact of approximately 60 basis points from foreign exchange rates. Advertising revenue grew 12% year-over-year excluding changes in foreign exchange rates in the third quarter 2026 impacted by timing anomalies primarily related to Prime Day (and a couple other timing factors). We expect year-over-year advertising re",
+   "• Operating income is expected to be between $28.5 billion and $33.5 billion, compared with $25.0 billion in fourth quarter 2025.",
+   "• We continue to expect 2026 cash capital expenditures to be approximately $220 billion.",
+   "• This guidance assumes, among other things, no impact from energy derivative contract remeasurements, and that no additional business acquisitions, restructurings, or legal settlements are concluded."
+  ],
+  "titulo": "Financial Guidance",
+  "fuente": "SEC EDGAR · 8-K, Exhibit 99.1 (texto original)",
+  "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000038/amzn-20260930xex991.htm"
+ },
+ "reaccion": {
+  "hora": "tras el cierre",
+  "hora_supuesta": false,
+  "fecha_antes": "2026-10-29",
+  "cierre_antes": 243.79,
+  "fuente": "Twelve Data (API oficial, plan gratuito)",
+  "fecha_despues": "2026-10-30",
+  "cierre_despues": 240.35,
+  "variacion_pct": -1.41,
+  "provisional": false
+ },
+ "cotizacion": {
+  "serie": [
+   [
+    "2025-10-30",
+    222.86
+   ],
+   [
+    "2025-10-31",
+    244.22
+   ],
+   [
+    "2025-11-03",
+    254.0
+   ],
+   [
+    "2025-11-04",
+    249.32
+   ],
+   [
+    "2025-11-05",
+    250.2
+   ],
+   [
+    "2025-11-06",
+    243.04
+   ],
+   [
+    "2025-11-07",
+    244.41
+   ],
+   [
+    "2025-11-10",
+    248.4
+   ],
+   [
+    "2025-11-11",
+    249.1
+   ],
+   [
+    "2025-11-12",
+    244.2
+   ],
+   [
+    "2025-11-13",
+    237.58
+   ],
+   [
+    "2025-11-14",
+    234.69
+   ],
+   [
+    "2025-11-17",
+    232.87
+   ],
+   [
+    "2025-11-18",
+    222.55
+   ],
+   [
+    "2025-11-19",
+    222.69
+   ],
+   [
+    "2025-11-20",
+    217.14
+   ],
+   [
+    "2025-11-21",
+    220.69
+   ],
+   [
+    "2025-11-24",
+    226.28
+   ],
+   [
+    "2025-11-25",
+    229.67
+   ],
+   [
+    "2025-11-26",
+    229.16
+   ],
+   [
+    "2025-11-28",
+    233.22
+   ],
+   [
+    "2025-12-01",
+    233.88
+   ],
+   [
+    "2025-12-02",
+    234.42
+   ],
+   [
+    "2025-12-03",
+    232.38
+   ],
+   [
+    "2025-12-04",
+    229.11
+   ],
+   [
+    "2025-12-05",
+    229.53
+   ],
+   [
+    "2025-12-08",
+    226.89
+   ],
+   [
+    "2025-12-09",
+    227.92
+   ],
+   [
+    "2025-12-10",
+    231.78
+   ],
+   [
+    "2025-12-11",
+    230.28
+   ],
+   [
+    "2025-12-12",
+    226.19
+   ],
+   [
+    "2025-12-15",
+    222.54
+   ],
+   [
+    "2025-12-16",
+    222.56
+   ],
+   [
+    "2025-12-17",
+    221.27
+   ],
+   [
+    "2025-12-18",
+    226.76
+   ],
+   [
+    "2025-12-19",
+    227.35
+   ],
+   [
+    "2025-12-22",
+    228.43
+   ],
+   [
+    "2025-12-23",
+    232.14
+   ],
+   [
+    "2025-12-24",
+    232.38
+   ],
+   [
+    "2025-12-26",
+    232.52
+   ],
+   [
+    "2025-12-29",
+    232.07
+   ],
+   [
+    "2025-12-30",
+    232.53
+   ],
+   [
+    "2025-12-31",
+    230.82
+   ],
+   [
+    "2026-01-02",
+    226.5
+   ],
+   [
+    "2026-01-05",
+    233.06
+   ],
+   [
+    "2026-01-06",
+    240.93
+   ],
+   [
+    "2026-01-07",
+    241.56
+   ],
+   [
+    "2026-01-08",
+    246.29
+   ],
+   [
+    "2026-01-09",
+    247.38
+   ],
+   [
+    "2026-01-12",
+    246.47
+   ],
+   [
+    "2026-01-13",
+    242.6
+   ],
+   [
+    "2026-01-14",
+    236.65
+   ],
+   [
+    "2026-01-15",
+    238.18
+   ],
+   [
+    "2026-01-16",
+    239.12
+   ],
+   [
+    "2026-01-20",
+    231.0
+   ],
+   [
+    "2026-01-21",
+    231.31
+   ],
+   [
+    "2026-01-22",
+    234.34
+   ],
+   [
+    "2026-01-23",
+    239.16
+   ],
+   [
+    "2026-01-26",
+    238.42
+   ],
+   [
+    "2026-01-27",
+    244.68
+   ],
+   [
+    "2026-01-28",
+    243.01
+   ],
+   [
+    "2026-01-29",
+    241.73
+   ],
+   [
+    "2026-01-30",
+    239.3
+   ],
+   [
+    "2026-02-02",
+    242.96
+   ],
+   [
+    "2026-02-03",
+    238.62
+   ],
+   [
+    "2026-02-04",
+    232.99
+   ],
+   [
+    "2026-02-05",
+    222.69
+   ],
+   [
+    "2026-02-06",
+    210.32
+   ],
+   [
+    "2026-02-09",
+    208.72
+   ],
+   [
+    "2026-02-10",
+    206.96
+   ],
+   [
+    "2026-02-11",
+    204.08
+   ],
+   [
+    "2026-02-12",
+    199.6
+   ],
+   [
+    "2026-02-13",
+    198.79
+   ],
+   [
+    "2026-02-17",
+    201.15
+   ],
+   [
+    "2026-02-18",
+    204.79
+   ],
+   [
+    "2026-02-19",
+    204.86
+   ],
+   [
+    "2026-02-20",
+    210.11
+   ],
+   [
+    "2026-02-23",
+    205.27
+   ],
+   [
+    "2026-02-24",
+    208.56
+   ],
+   [
+    "2026-02-25",
+    210.64
+   ],
+   [
+    "2026-02-26",
+    207.92
+   ],
+   [
+    "2026-02-27",
+    210.0
+   ],
+   [
+    "2026-03-02",
+    208.39
+   ],
+   [
+    "2026-03-03",
+    208.73
+   ],
+   [
+    "2026-03-04",
+    216.82
+   ],
+   [
+    "2026-03-05",
+    218.94
+   ],
+   [
+    "2026-03-06",
+    213.21
+   ],
+   [
+    "2026-03-09",
+    213.49
+   ],
+   [
+    "2026-03-10",
+    214.33
+   ],
+   [
+    "2026-03-11",
+    212.65
+   ],
+   [
+    "2026-03-12",
+    209.53
+   ],
+   [
+    "2026-03-13",
+    207.67
+   ],
+   [
+    "2026-03-16",
+    211.74
+   ],
+   [
+    "2026-03-17",
+    215.2
+   ],
+   [
+    "2026-03-18",
+    209.87
+   ],
+   [
+    "2026-03-19",
+    208.76
+   ],
+   [
+    "2026-03-20",
+    205.37
+   ],
+   [
+    "2026-03-23",
+    210.14
+   ],
+   [
+    "2026-03-24",
+    207.24
+   ],
+   [
+    "2026-03-25",
+    211.71
+   ],
+   [
+    "2026-03-26",
+    207.54
+   ],
+   [
+    "2026-03-27",
+    199.34
+   ],
+   [
+    "2026-03-30",
+    200.95
+   ],
+   [
+    "2026-03-31",
+    208.27
+   ],
+   [
+    "2026-04-01",
+    210.57
+   ],
+   [
+    "2026-04-02",
+    209.77
+   ],
+   [
+    "2026-04-06",
+    212.79
+   ],
+   [
+    "2026-04-07",
+    213.77
+   ],
+   [
+    "2026-04-08",
+    221.25
+   ],
+   [
+    "2026-04-09",
+    233.65
+   ],
+   [
+    "2026-04-10",
+    238.38
+   ],
+   [
+    "2026-04-13",
+    239.89
+   ],
+   [
+    "2026-04-14",
+    249.02
+   ],
+   [
+    "2026-04-15",
+    248.5
+   ],
+   [
+    "2026-04-16",
+    249.7
+   ],
+   [
+    "2026-04-17",
+    250.56
+   ],
+   [
+    "2026-04-20",
+    248.28
+   ],
+   [
+    "2026-04-21",
+    249.91
+   ],
+   [
+    "2026-04-22",
+    255.36
+   ],
+   [
+    "2026-04-23",
+    255.08
+   ],
+   [
+    "2026-04-24",
+    263.99
+   ],
+   [
+    "2026-04-27",
+    261.12
+   ],
+   [
+    "2026-04-28",
+    259.7
+   ],
+   [
+    "2026-04-29",
+    263.04
+   ],
+   [
+    "2026-04-30",
+    265.06
+   ],
+   [
+    "2026-05-01",
+    268.26
+   ],
+   [
+    "2026-05-04",
+    272.05
+   ],
+   [
+    "2026-05-05",
+    273.55
+   ],
+   [
+    "2026-05-06",
+    274.99
+   ],
+   [
+    "2026-05-07",
+    271.17
+   ],
+   [
+    "2026-05-08",
+    272.68
+   ],
+   [
+    "2026-05-11",
+    268.99
+   ],
+   [
+    "2026-05-12",
+    265.82
+   ],
+   [
+    "2026-05-13",
+    270.13
+   ],
+   [
+    "2026-05-14",
+    267.22
+   ],
+   [
+    "2026-05-15",
+    264.14
+   ],
+   [
+    "2026-05-18",
+    264.86
+   ],
+   [
+    "2026-05-19",
+    259.34
+   ],
+   [
+    "2026-05-20",
+    265.01
+   ],
+   [
+    "2026-05-21",
+    268.46
+   ],
+   [
+    "2026-05-22",
+    266.32
+   ],
+   [
+    "2026-05-26",
+    265.29
+   ],
+   [
+    "2026-05-27",
+    271.85
+   ],
+   [
+    "2026-05-28",
+    274.0
+   ],
+   [
+    "2026-05-29",
+    270.64
+   ],
+   [
+    "2026-06-01",
+    261.26
+   ],
+   [
+    "2026-06-02",
+    256.52
+   ],
+   [
+    "2026-06-03",
+    250.02
+   ],
+   [
+    "2026-06-04",
+    253.79
+   ],
+   [
+    "2026-06-05",
+    246.03
+   ],
+   [
+    "2026-06-08",
+    245.22
+   ],
+   [
+    "2026-06-09",
+    244.19
+   ],
+   [
+    "2026-06-10",
+    238.0
+   ],
+   [
+    "2026-06-11",
+    241.51
+   ],
+   [
+    "2026-06-12",
+    238.55
+   ],
+   [
+    "2026-06-15",
+    246.02
+   ],
+   [
+    "2026-06-16",
+    246.0
+   ],
+   [
+    "2026-06-17",
+    237.5
+   ],
+   [
+    "2026-06-18",
+    244.39
+   ],
+   [
+    "2026-06-22",
+    232.79
+   ],
+   [
+    "2026-06-23",
+    234.11
+   ],
+   [
+    "2026-06-24",
+    234.27
+   ],
+   [
+    "2026-06-25",
+    227.01
+   ],
+   [
+    "2026-06-26",
+    232.69
+   ],
+   [
+    "2026-06-29",
+    240.14
+   ],
+   [
+    "2026-06-30",
+    238.34
+   ],
+   [
+    "2026-07-01",
+    241.7
+   ],
+   [
+    "2026-07-02",
+    242.67
+   ],
+   [
+    "2026-07-06",
+    244.16
+   ],
+   [
+    "2026-07-07",
+    245.98
+   ],
+   [
+    "2026-07-08",
+    243.62
+   ],
+   [
+    "2026-07-09",
+    247.04
+   ],
+   [
+    "2026-07-10",
+    245.34
+   ],
+   [
+    "2026-07-13",
+    247.31
+   ],
+   [
+    "2026-07-14",
+    247.49
+   ],
+   [
+    "2026-07-15",
+    254.96
+   ],
+   [
+    "2026-07-16",
+    249.89
+   ],
+   [
+    "2026-07-17",
+    247.23
+   ],
+   [
+    "2026-07-20",
+    249.99
+   ],
+   [
+    "2026-07-21",
+    247.55
+   ],
+   [
+    "2026-07-22",
+    244.85
+   ],
+   [
+    "2026-07-23",
+    233.66
+   ],
+   [
+    "2026-07-24",
+    232.11
+   ],
+   [
+    "2026-07-27",
+    231.39
+   ],
+   [
+    "2026-07-28",
+    230.86
+   ],
+   [
+    "2026-07-29",
+    226.65
+   ],
+   [
+    "2026-07-30",
+    235.5
+   ],
+   [
+    "2026-07-31",
+    271.58
+   ],
+   [
+    "2026-08-03",
+    284.02
+   ],
+   [
+    "2026-08-04",
+    277.42
+   ],
+   [
+    "2026-08-05",
+    272.65
+   ],
+   [
+    "2026-08-06",
+    272.26
+   ],
+   [
+    "2026-08-07",
+    274.48
+   ],
+   [
+    "2026-08-10",
+    278.09
+   ],
+   [
+    "2026-08-11",
+    272.27
+   ],
+   [
+    "2026-08-12",
+    267.28
+   ],
+   [
+    "2026-08-13",
+    265.13
+   ],
+   [
+    "2026-08-14",
+    262.65
+   ],
+   [
+    "2026-08-17",
+    261.31
+   ],
+   [
+    "2026-08-18",
+    259.45
+   ],
+   [
+    "2026-08-19",
+    265.84
+   ],
+   [
+    "2026-08-20",
+    260.11
+   ],
+   [
+    "2026-08-21",
+    258.63
+   ],
+   [
+    "2026-08-24",
+    262.07
+   ],
+   [
+    "2026-08-25",
+    261.06
+   ],
+   [
+    "2026-08-26",
+    260.28
+   ],
+   [
+    "2026-08-27",
+    256.26
+   ],
+   [
+    "2026-08-28",
+    266.43
+   ],
+   [
+    "2026-08-31",
+    259.77
+   ],
+   [
+    "2026-09-01",
+    254.92
+   ],
+   [
+    "2026-09-02",
+    254.98
+   ],
+   [
+    "2026-09-03",
+    258.9
+   ],
+   [
+    "2026-09-04",
+    258.51
+   ],
+   [
+    "2026-09-08",
+    256.97
+   ],
+   [
+    "2026-09-09",
+    252.4
+   ],
+   [
+    "2026-09-10",
+    251.89
+   ],
+   [
+    "2026-09-11",
+    256.78
+   ],
+   [
+    "2026-09-14",
+    253.54
+   ],
+   [
+    "2026-09-15",
+    248.42
+   ],
+   [
+    "2026-09-16",
+    245.96
+   ],
+   [
+    "2026-09-17",
+    251.19
+   ],
+   [
+    "2026-09-18",
+    253.71
+   ],
+   [
+    "2026-09-21",
+    258.45
+   ],
+   [
+    "2026-09-22",
+    254.98
+   ],
+   [
+    "2026-09-23",
+    249.27
+   ],
+   [
+    "2026-09-24",
+    249.38
+   ],
+   [
+    "2026-09-25",
+    249.67
+   ],
+   [
+    "2026-09-28",
+    246.15
+   ],
+   [
+    "2026-09-29",
+    246.67
+   ],
+   [
+    "2026-09-30",
+    249.15
+   ],
+   [
+    "2026-10-01",
+    248.23
+   ],
+   [
+    "2026-10-02",
+    251.52
+   ],
+   [
+    "2026-10-05",
+    251.4
+   ],
+   [
+    "2026-10-06",
+    256.29
+   ],
+   [
+    "2026-10-07",
+    259.92
+   ],
+   [
+    "2026-10-08",
+    254.06
+   ],
+   [
+    "2026-10-09",
+    262.43
+   ],
+   [
+    "2026-10-12",
+    259.53
+   ],
+   [
+    "2026-10-13",
+    258.58
+   ],
+   [
+    "2026-10-14",
+    254.08
+   ],
+   [
+    "2026-10-15",
+    254.76
+   ],
+   [
+    "2026-10-16",
+    250.0
+   ],
+   [
+    "2026-10-19",
+    262.45
+   ],
+   [
+    "2026-10-20",
+    262.63
+   ],
+   [
+    "2026-10-21",
+    262.37
+   ],
+   [
+    "2026-10-22",
+    250.38
+   ],
+   [
+    "2026-10-23",
+    248.0
+   ],
+   [
+    "2026-10-26",
+    249.09
+   ],
+   [
+    "2026-10-27",
+    253.1
+   ],
+   [
+    "2026-10-28",
+    254.6
+   ],
+   [
+    "2026-10-29",
+    243.79
+   ],
+   [
+    "2026-10-30",
+    240.35
+   ]
+  ],
+  "precio": 240.35,
+  "fecha_precio": "2026-10-30",
+  "capitalizacion": 2598937791847.1,
+  "minimo_12m": 198.79,
+  "maximo_12m": 284.02,
+  "variacion_12m_pct": 7.85,
+  "fuente": "Twelve Data (API oficial, plan gratuito)"
+ },
+ "desglose": {
+  "producto": [
+   {
+    "nombre": "Online Stores",
+    "miembro": "amzn:OnlineStoresMember",
+    "valor": 68470000000.0,
+    "anio_anterior": 67407000000.0,
+    "interanual_pct": 1.58,
+    "peso_pct": 33.9,
+    "margen_operativo_pct": null,
+    "margen_operativo_ya_pct": null
+   },
+   {
+    "nombre": "Third-Party Seller Services",
+    "miembro": "amzn:ThirdPartySellerServicesMember",
+    "valor": 46492000000.0,
+    "anio_anterior": 42486000000.0,
+    "interanual_pct": 9.43,
+    "peso_pct": 23.0,
+    "margen_operativo_pct": null,
+    "margen_operativo_ya_pct": null
+   },
+   {
+    "nombre": "Amazon Web Services",
+    "miembro": "amzn:AmazonWebServicesMember",
+    "valor": 45984000000.0,
+    "anio_anterior": 33006000000.0,
+    "interanual_pct": 39.32,
+    "peso_pct": 22.8,
+    "margen_operativo_pct": null,
+    "margen_operativo_ya_pct": null
+   },
+   {
+    "nombre": "Advertising Services",
+    "miembro": "amzn:AdvertisingServicesMember",
+    "valor": 19637000000.0,
+    "anio_anterior": 17703000000.0,
+    "interanual_pct": 10.92,
+    "peso_pct": 9.7,
+    "margen_operativo_pct": null,
+    "margen_operativo_ya_pct": null
+   },
+   {
+    "nombre": "Subscription Services",
+    "miembro": "amzn:SubscriptionServicesMember",
+    "valor": 14006000000.0,
+    "anio_anterior": 12574000000.0,
+    "interanual_pct": 11.39,
+    "peso_pct": 6.9,
+    "margen_operativo_pct": null,
+    "margen_operativo_ya_pct": null
+   },
+   {
+    "nombre": "Physical Stores",
+    "miembro": "amzn:PhysicalStoresMember",
+    "valor": 5710000000.0,
+    "anio_anterior": 5578000000.0,
+    "interanual_pct": 2.37,
+    "peso_pct": 2.8,
+    "margen_operativo_pct": null,
+    "margen_operativo_ya_pct": null
+   },
+   {
+    "nombre": "Other Services",
+    "miembro": "amzn:OtherServicesMember",
+    "valor": 1645000000.0,
+    "anio_anterior": 1415000000.0,
+    "interanual_pct": 16.25,
+    "peso_pct": 0.8,
+    "margen_operativo_pct": null,
+    "margen_operativo_ya_pct": null
+   }
+  ],
+  "segmento": [
+   {
+    "nombre": "North America Segment",
+    "miembro": "amzn:NorthAmericaSegmentMember",
+    "valor": 112852000000.0,
+    "anio_anterior": 106267000000.0,
+    "interanual_pct": 6.2,
+    "peso_pct": 55.9,
+    "margen_operativo_pct": 7.7,
+    "margen_operativo_ya_pct": 4.5
+   },
+   {
+    "nombre": "Amazon Web Services Segment",
+    "miembro": "amzn:AmazonWebServicesSegmentMember",
+    "valor": 45984000000.0,
+    "anio_anterior": 33006000000.0,
+    "interanual_pct": 39.32,
+    "peso_pct": 22.8,
+    "margen_operativo_pct": 38.7,
+    "margen_operativo_ya_pct": 34.6
+   },
+   {
+    "nombre": "International Segment",
+    "miembro": "amzn:InternationalSegmentMember",
+    "valor": 43108000000.0,
+    "anio_anterior": 40896000000.0,
+    "interanual_pct": 5.41,
+    "peso_pct": 21.3,
+    "margen_operativo_pct": 3.7,
+    "margen_operativo_ya_pct": 2.9
+   }
+  ]
+ },
+ "estrella": {
+  "nombre": "Amazon Web Services Segment",
+  "miembro": "amzn:AmazonWebServicesSegmentMember",
+  "elegido": "automático",
+  "serie": [
+   {
+    "periodo": "2T22",
+    "periodo_fin": "2022-06-30",
+    "valor": 19739000000.0,
+    "run_rate": 78956000000.0,
+    "interanual_pct": null,
+    "margen_operativo_pct": 29.0
+   },
+   {
+    "periodo": "3T22",
+    "periodo_fin": "2022-09-30",
+    "valor": 20538000000.0,
+    "run_rate": 82152000000.0,
+    "interanual_pct": null,
+    "margen_operativo_pct": 26.3
+   },
+   {
+    "periodo": "1T23",
+    "periodo_fin": "2023-03-31",
+    "valor": 21354000000.0,
+    "run_rate": 85416000000.0,
+    "interanual_pct": null,
+    "margen_operativo_pct": 24.0
+   },
+   {
+    "periodo": "2T23",
+    "periodo_fin": "2023-06-30",
+    "valor": 22140000000.0,
+    "run_rate": 88560000000.0,
+    "interanual_pct": 12.16,
+    "margen_operativo_pct": 24.2
+   },
+   {
+    "periodo": "3T23",
+    "periodo_fin": "2023-09-30",
+    "valor": 23059000000.0,
+    "run_rate": 92236000000.0,
+    "interanual_pct": 12.27,
+    "margen_operativo_pct": 30.3
+   },
+   {
+    "periodo": "4T23",
+    "periodo_fin": "2023-12-31",
+    "valor": 24204000000.0,
+    "run_rate": 96816000000.0,
+    "interanual_pct": null,
+    "margen_operativo_pct": 29.6
+   },
+   {
+    "periodo": "1T24",
+    "periodo_fin": "2024-03-31",
+    "valor": 25037000000.0,
+    "run_rate": 100148000000.0,
+    "interanual_pct": 17.25,
+    "margen_operativo_pct": 37.6
+   },
+   {
+    "periodo": "2T24",
+    "periodo_fin": "2024-06-30",
+    "valor": 26281000000.0,
+    "run_rate": 105124000000.0,
+    "interanual_pct": 18.7,
+    "margen_operativo_pct": 35.5
+   },
+   {
+    "periodo": "3T24",
+    "periodo_fin": "2024-09-30",
+    "valor": 27452000000.0,
+    "run_rate": 109808000000.0,
+    "interanual_pct": 19.05,
+    "margen_operativo_pct": 38.1
+   },
+   {
+    "periodo": "4T24",
+    "periodo_fin": "2024-12-31",
+    "valor": 28786000000.0,
+    "run_rate": 115144000000.0,
+    "interanual_pct": 18.93,
+    "margen_operativo_pct": 36.9
+   },
+   {
+    "periodo": "1T25",
+    "periodo_fin": "2025-03-31",
+    "valor": 29267000000.0,
+    "run_rate": 117068000000.0,
+    "interanual_pct": 16.89,
+    "margen_operativo_pct": 39.5
+   },
+   {
+    "periodo": "2T25",
+    "periodo_fin": "2025-06-30",
+    "valor": 30873000000.0,
+    "run_rate": 123492000000.0,
+    "interanual_pct": 17.47,
+    "margen_operativo_pct": 32.9
+   },
+   {
+    "periodo": "3T25",
+    "periodo_fin": "2025-09-30",
+    "valor": 33006000000.0,
+    "run_rate": 132024000000.0,
+    "interanual_pct": 20.23,
+    "margen_operativo_pct": 34.6
+   },
+   {
+    "periodo": "4T25",
+    "periodo_fin": "2025-12-31",
+    "valor": 35579000000.0,
+    "run_rate": 142316000000.0,
+    "interanual_pct": 23.6,
+    "margen_operativo_pct": 35.0
+   },
+   {
+    "periodo": "1T26",
+    "periodo_fin": "2026-03-31",
+    "valor": 37587000000.0,
+    "run_rate": 150348000000.0,
+    "interanual_pct": 28.43,
+    "margen_operativo_pct": 37.7
+   },
+   {
+    "periodo": "2T26",
+    "periodo_fin": "2026-06-30",
+    "valor": 42232000000.0,
+    "run_rate": 168928000000.0,
+    "interanual_pct": 36.79,
+    "margen_operativo_pct": 39.4
+   },
+   {
+    "periodo": "3T26",
+    "periodo_fin": "2026-09-30",
+    "valor": 45984000000.0,
+    "run_rate": 183936000000.0,
+    "interanual_pct": 39.32,
+    "margen_operativo_pct": 38.7
+   }
+  ]
+ },
+ "margenes": {
+  "trimestral": [
+   {
+    "periodo": "4T23",
+    "margen_pct": 7.77
+   },
+   {
+    "periodo": "1T24",
+    "margen_pct": 10.68
+   },
+   {
+    "periodo": "2T24",
+    "margen_pct": 9.92
+   },
+   {
+    "periodo": "3T24",
+    "margen_pct": 10.96
+   },
+   {
+    "periodo": "4T24",
+    "margen_pct": 11.29
+   },
+   {
+    "periodo": "1T25",
+    "margen_pct": 11.82
+   },
+   {
+    "periodo": "2T25",
+    "margen_pct": 11.43
+   },
+   {
+    "periodo": "3T25",
+    "margen_pct": 9.67
+   },
+   {
+    "periodo": "4T25",
+    "margen_pct": 11.71
+   },
+   {
+    "periodo": "1T26",
+    "margen_pct": 13.14
+   },
+   {
+    "periodo": "2T26",
+    "margen_pct": 13.69
+   },
+   {
+    "periodo": "3T26",
+    "margen_pct": 13.9
+   }
+  ]
+ },
+ "cita": {
+  "cita": "Our AWS investment in functionality and infrastructure is working, with over 39% year-over-year revenue growth in Q3 ($184 billion revenue run rate) and projected revenue growth rates of over 40% both in 2027 and in 2028",
+  "quien": "Andy Jassy, President and CEO, Amazon"
+ },
+ "destacados": {
+  "titulo": "Some other highlights since the company’s last earnings announcement include that Amazon",
+  "texto": [
+   "• Signed new AWS agreements with Meta, NVIDIA, OpenAI, Salesforce, Oracle, Qualcomm, Verizon, ADP, Stripe, Accenture Edge, Novo, Fanatics, Zoom, Raymond James, Prometheus AI, AppFolio, Instructure, Cognition, Sigma, Lila Sciences, The Biological Computing Co., NATO, Columbia University Irving Medical Center, and more.",
+   "• Drove continued rapid growth for Amazon Bedrock, AWS’s inference service, with Fortune 500 companies spending nearly 7x more year-over-year and total Bedrock token volume growing nearly 17x year-over-year.",
+   "• Expanded Bedrock’s leading selection of frontier and open weight models, adding OpenAI’s GPT-6 Astra, GPT-6 Sol, GPT-6 Luna, and GPT-6.1 Sol; Anthropic’s Claude Fable 5.1, Opus 5.5, Sonnet 5.5, and Haiku 5.5; Moonshot AI’s Kimi K3; SpaceXAI’s Grok 4.7; Z.ai’s GLM 5.3; and two purpose-built cybersecurity models from OpenAI.",
+   "• Launched built-in web search for OpenAI models on Bedrock so customers can ground responses in current information—while keeping data secure and answers accurate for time-sensitive questions without building and maintaining their own web-retrieval pipelines.",
+   "• Launched public preview of Bedrock Managed Agents, which is a managed service powered by OpenAI that makes it faster for enterprises to build and deploy production-ready AI agents.",
+   "• Added to AWS’s leadership position in open source agent-building:",
+   "• Released Strands harness, a fully assembled, state-of-the-art agent harness that developers can get working with a single line of code and build custom agents that can run locally, on Bedrock AgentCore, or on a provider of their choice. Strands harness lowers the cost of agent tasks by 32% through greater token efficiency than other harnesses when using the same frontier models, while achieving equal or better accuracy."
+  ]
+ },
+ "lectura": {
+  "estado": "revisada",
+  "fuente": "Tu resumen de la presentación (Directiva)",
+  "q": "3T 2026",
+  "date": "29-oct-2026",
+  "doc": "Nota de resultados (IR de Amazon; 8-K, Exhibit 99.1)",
+  "url": "https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-Third-Quarter-Results/",
+  "nota": "Hechos y citas de la nota oficial. La cartera de AWS, el capex de 2027 y los comentarios sobre márgenes salen de la llamada de resultados (resumen de MarketBeat en Yahoo Finance), no del texto oficial.",
+  "dir": [
+   "Jassy: la inversión en AWS «está funcionando» (+39%) y proyecta un crecimiento de los ingresos de AWS de «más del 40%» tanto en 2027 como en 2028.",
+   "AWS firma acuerdos con Meta, NVIDIA, OpenAI y Oracle; el gasto en Bedrock de empresas del Fortune 500 se multiplica casi por 7 y el volumen de tokens casi por 17.",
+   "Comercio: más selección y entregas más rápidas le dan cuota con márgenes mejores. Grocery, Pharmacy, Leo y Zoox avanzan de forma «alentadora».",
+   "«Nunca ha existido un negocio de un billón de dólares de ingresos»: Jassy cree que Amazon podría tener dos en 5–10 años."
+  ],
+  "ret": [
+   "El FCF de 12 meses es de −42.357 M$: capex bruto de 77.259 M$ en el trimestre (35.095 M$ un año antes).",
+   "Los servicios de IA tienen menos margen que el AWS tradicional y presionan la mezcla; también el precio de los componentes (llamada).",
+   "La publicidad se frena al +11% (+26% en el 2T); la directiva espera volver a la parte alta de la decena en el 4T.",
+   "Más inflación de combustible y transporte en el 4T; los costes de Leo se gastan hasta que empiecen a capitalizarse en el 1T27."
+  ],
+  "guia": [
+   "4T26: ventas de 240.000–247.000 M$ (+12% a +16%) y beneficio operativo de 28.500–33.500 M$ (25.000 M$ un año antes).",
+   "Publicidad: crecimiento en la parte alta de la decena («high teens») en el 4T.",
+   "La divisa restará unos 60 pb. Capex 2026: ~220.000 M$; el de 2027 subirá de forma significativa."
+  ],
+  "cap": [
+   "Sin recompras. Se financia con deuda: 48.102 M$ emitidos en el trimestre y 130.027 M$ en 12 meses; deuda a largo plazo de 173.125 M$.",
+   "Plantilla de 1.638.000 personas (+4%); más de 1.500 M$ para subir a 20 $/hora el salario mínimo de entrada en operaciones de EE. UU.",
+   "Beneficio neto de 20.685 M$ (−2%): el 3T25 incluía 9.500 M$ de ganancias por Anthropic."
+  ]
+ },
+ "estimaciones": {
+  "foto": null,
+  "manual": true
+ },
+ "avisos": [],
+ "_calendario_finnhub": {
+  "fecha": "2026-10-29",
+  "hora": "amc",
+  "trimestre": 3,
+  "anio": 2026,
+  "bpa_estimado": 2.003,
+  "ingresos_estimados": 206355625383,
+  "bpa_real": 1.89,
+  "ingresos_reales": 201944000000
+ },
+ "_cifras_nota": null
+}
