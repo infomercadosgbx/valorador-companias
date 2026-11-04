@@ -66,7 +66,10 @@ def main(argv):
     threading.Thread(target=srv.serve_forever, daemon=True).start()
     hechos, fallos = 0, []
     with sync_playwright() as pw:
-        browser = pw.chromium.launch()
+        try:   # los runners de GitHub traen Google Chrome: no hace falta descargar navegador
+            browser = pw.chromium.launch(channel="chrome")
+        except Exception:  # noqa: BLE001
+            browser = pw.chromium.launch()
         page = browser.new_page()
         for idx_path, per, h in todo:
             t = idx_path.parent.name
