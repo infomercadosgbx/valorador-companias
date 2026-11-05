@@ -3,7 +3,7 @@
  "creada": "2026-11-05",
  "motivo": "Resultados del 3T26 (8-K del 4-nov-2026)",
  "informe_accn": "0001751008-26-000068",
- "resumen": "AppLovin batió en el 3T26: ingresos de 2.185 M$ (+55%), ~100 M$ sobre su guía, EBITDA ajustado de 1.842 M$ (84%) y FCF de ~1.400 M$. Guía para el 4T de 2.365–2.395 M$ (+43–44%), por encima del consenso, y amplía la recompra hasta 3.600 M$; la acción subió ~25% tras la publicación. Se propone actualizar tesis, datos clave, guía y llamada, subir ingresos 2026 a 8.330 M$ y el crecimiento de 2027 al 25%, bajar dos riesgos y subir la convicción a 4 manteniendo Comprar por debajo de 300 $.",
+ "resumen": "AppLovin batió en el 3T26: ingresos de 2.185 M$ (+55%), ~100 M$ sobre su guía, EBITDA ajustado de 1.842 M$ (84%) y caja operativa de 1.429 M$ (10-Q). Guía para el 4T de 2.365–2.395 M$ (+43–44%), por encima del consenso, y amplía la recompra hasta 3.600 M$; la acción subió ~25% tras la publicación. Se propone actualizar tesis, datos clave, guía y llamada, subir ingresos 2026 a 8.330 M$ y el crecimiento de 2027 al 25%, bajar dos riesgos y subir la convicción a 4 manteniendo Comprar por debajo de 300 $.",
  "fuentes": [
   {
    "t": "Nota de resultados 3T26 (8-K, Ex. 99.1)",
@@ -28,6 +28,10 @@
   {
    "t": "BTIG sube el precio objetivo a 450 $",
    "u": "https://rallies.ai/news/applovin-corporation-btig-raises-target-price-to-450-from-396-ab96d170f9bfada4"
+  },
+  {
+   "t": "Cifras SEC del robot (data/APP.json, 10-Q 0001751008-26-000069)",
+   "u": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000069/0001751008-26-000069-index.htm"
   }
  ],
  "cambios": [
@@ -56,8 +60,8 @@
      "v": "2.365–2.395 M$ (+43–44%); EBITDA 84–85%"
     },
     {
-     "k": "FCF 3T26",
-     "v": "~1.400 M$ (77% del EBITDA; 53% en 2T26)"
+     "k": "Caja operativa 3T26",
+     "v": "1.429 M$ (≈FCF; 77% del EBITDA, 53% en 2T26)"
     },
     {
      "k": "Caja / deuda (sep-26)",
@@ -72,7 +76,7 @@
      "v": "BBB+ (Fitch, jun-26)"
     }
    ],
-   "porque": "Cifras del 3T26 (nota de resultados y 10-Q) en lugar de las del 2T26; se quita la línea de la SEC, ya recogida en riesgos y fuentes."
+   "porque": "Cifras del 3T26 (nota de resultados y 10-Q) en lugar de las del 2T26; se quita la línea de la SEC, ya recogida en riesgos y fuentes. Cifras cotejadas con el 10-Q que descarga el robot desde la SEC (data/APP.json)."
   },
   {
    "campo": "overview.catalysts",
