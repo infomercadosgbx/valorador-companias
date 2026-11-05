@@ -11630,12 +11630,12 @@
   "fuente": "SEC EDGAR · formularios 4",
   "resumen": {
    "compras_mercado": 0,
-   "ventas_mercado": 401980889.93,
+   "ventas_mercado": 394152739.93,
    "n_compras": 0,
-   "n_ventas": 61,
-   "ventas_con_plan": 401980889.93,
+   "n_ventas": 59,
+   "ventas_con_plan": 394152739.93,
    "compradores": [],
-   "desde": "2026-05-05"
+   "desde": "2026-05-06"
   },
   "operaciones": [
    {
@@ -13157,70 +13157,6 @@
     "plan_10b5_1": true,
     "fecha_presentacion": "2026-05-06",
     "url": "https://www.sec.gov/Archives/edgar/data/1018724/000137454526000006/0001374545-26-000006-index.htm"
-   },
-   {
-    "fecha": "2026-05-04",
-    "codigo": "S",
-    "tipo": "Venta en mercado",
-    "acciones": 27500.0,
-    "precio": 275.0,
-    "importe": 7562500.0,
-    "sentido": "venta",
-    "tras_operacion": 471361.0,
-    "clase": "Common Stock, par value $.01  per share",
-    "persona": "Herrington Douglas J",
-    "cargo": "CEO Worldwide Amazon Stores",
-    "plan_10b5_1": true,
-    "fecha_presentacion": "2026-05-05",
-    "url": "https://www.sec.gov/Archives/edgar/data/1018724/000193600626000014/0001936006-26-000014-index.htm"
-   },
-   {
-    "fecha": "2026-05-04",
-    "codigo": "G",
-    "tipo": "Donación",
-    "acciones": 220200.0,
-    "precio": 0.0,
-    "importe": null,
-    "sentido": "venta",
-    "tras_operacion": 880948653.0,
-    "clase": "Common Stock, par value $.01  per share",
-    "persona": "BEZOS JEFFREY P",
-    "cargo": "Consejero, Executive Chair",
-    "plan_10b5_1": false,
-    "fecha_presentacion": "2026-05-05",
-    "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000016/0001018724-26-000016-index.htm"
-   },
-   {
-    "fecha": "2026-05-01",
-    "codigo": "S",
-    "tipo": "Venta en mercado",
-    "acciones": 1000.0,
-    "precio": 265.65,
-    "importe": 265650.0,
-    "sentido": "venta",
-    "tras_operacion": 498861.0,
-    "clase": "Common Stock, par value $.01  per share",
-    "persona": "Herrington Douglas J",
-    "cargo": "CEO Worldwide Amazon Stores",
-    "plan_10b5_1": true,
-    "fecha_presentacion": "2026-05-05",
-    "url": "https://www.sec.gov/Archives/edgar/data/1018724/000193600626000014/0001936006-26-000014-index.htm"
-   },
-   {
-    "fecha": "2026-05-01",
-    "codigo": "G",
-    "tipo": "Donación",
-    "acciones": 1033597.0,
-    "precio": 0.0,
-    "importe": null,
-    "sentido": "venta",
-    "tras_operacion": 881168853.0,
-    "clase": "Common Stock, par value $.01  per share",
-    "persona": "BEZOS JEFFREY P",
-    "cargo": "Consejero, Executive Chair",
-    "plan_10b5_1": false,
-    "fecha_presentacion": "2026-05-05",
-    "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000016/0001018724-26-000016-index.htm"
    }
   ],
   "operaciones_por_filing": [
@@ -14672,81 +14608,9 @@
       "clase": "Common Stock, par value $.01  per share"
      }
     ]
-   },
-   {
-    "accn": "0001936006-26-000014",
-    "fecha_presentacion": "2026-05-05",
-    "url": "https://www.sec.gov/Archives/edgar/data/1018724/000193600626000014/0001936006-26-000014-index.htm",
-    "personas": [
-     {
-      "nombre": "Herrington Douglas J",
-      "cargo": "CEO Worldwide Amazon Stores"
-     }
-    ],
-    "plan_10b5_1": true,
-    "operaciones": [
-     {
-      "fecha": "2026-05-01",
-      "codigo": "S",
-      "tipo": "Venta en mercado",
-      "acciones": 1000.0,
-      "precio": 265.65,
-      "importe": 265650.0,
-      "sentido": "venta",
-      "tras_operacion": 498861.0,
-      "clase": "Common Stock, par value $.01  per share"
-     },
-     {
-      "fecha": "2026-05-04",
-      "codigo": "S",
-      "tipo": "Venta en mercado",
-      "acciones": 27500.0,
-      "precio": 275.0,
-      "importe": 7562500.0,
-      "sentido": "venta",
-      "tras_operacion": 471361.0,
-      "clase": "Common Stock, par value $.01  per share"
-     }
-    ]
-   },
-   {
-    "accn": "0001018724-26-000016",
-    "fecha_presentacion": "2026-05-05",
-    "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000016/0001018724-26-000016-index.htm",
-    "personas": [
-     {
-      "nombre": "BEZOS JEFFREY P",
-      "cargo": "Consejero, Executive Chair"
-     }
-    ],
-    "plan_10b5_1": false,
-    "operaciones": [
-     {
-      "fecha": "2026-05-01",
-      "codigo": "G",
-      "tipo": "Donación",
-      "acciones": 1033597.0,
-      "precio": 0.0,
-      "importe": null,
-      "sentido": "venta",
-      "tras_operacion": 881168853.0,
-      "clase": "Common Stock, par value $.01  per share"
-     },
-     {
-      "fecha": "2026-05-04",
-      "codigo": "G",
-      "tipo": "Donación",
-      "acciones": 220200.0,
-      "precio": 0.0,
-      "importe": null,
-      "sentido": "venta",
-      "tras_operacion": 880948653.0,
-      "clase": "Common Stock, par value $.01  per share"
-     }
-    ]
    }
   ],
-  "n_formularios": 31
+  "n_formularios": 29
  },
  "riesgos_10k": {
   "version": 4,
@@ -14782,11 +14646,11 @@
  "precio": {
   "minimo_52s": 196,
   "maximo_52s": 287.2,
-  "beta": 1.5442097,
-  "valor": 266.03,
-  "cierre_anterior": 250.69,
+  "beta": 1.5528384,
+  "valor": 260.21,
+  "cierre_anterior": 266.03,
   "moneda": "USD",
-  "fecha": "2026-11-04",
+  "fecha": "2026-11-05",
   "fuente": "Finnhub (API oficial, plan gratuito)",
   "url": "https://finnhub.io/"
  },
@@ -14883,152 +14747,295 @@
  },
  "noticias": [
   {
-   "titular": "Dow Jones Futures: Elections, Plunging Oil Fuel Big Rally; Apple, Microsoft, Amazon Flash Buy Signals. CoreWeave, SpaceX Skid.",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=52279df7ab8987a60569cafcbfad0ecbaf0a195517a6c27e52b0b5dd73208f7f",
-   "fecha": "2026-11-04",
-   "resumen": "Elections and diving oil prices sparked a stock market surge. Stocks from many sectors flash buy signals, but avoid this area."
+   "titular": "Amazon adds over 100 Alexa for Shopping functions",
+   "url": "https://www.retaildive.com/news/amazon-adds-alexa-ai-shopping-functions/873602/",
+   "fecha": "2026-11-05",
+   "resumen": "New capabilities include managing subscriptions, resolving billing questions, and creating and editing lists and registries.",
+   "medio": "Retail Dive",
+   "tipo": "sectorial",
+   "via": "RSS del medio"
   },
   {
-   "titular": "The Nasdaq-100 Is Outperforming Nvidia, Microsoft, Amazon, Meta Platforms, Alphabet, and Tesla This Year. Here's My Favorite Low-Cost ETF to Buy the Dip.",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=3e864c54862b78871716f65b53263fd9dd276aeafdf847e2b98d59c3e7e3101a",
-   "fecha": "2026-11-04",
-   "resumen": "Many megacap growth stocks are underperforming the major indexes this year."
+   "titular": "Micron: When A 3.8x Forward 2028 P/E Is Too Expensive",
+   "medio": "Seeking Alpha",
+   "url": "https://finnhub.io/api/news?id=f3736199c823f166c138e0f5c5e574698559a9973c70a034171c0943d18d1383",
+   "fecha": "2026-11-05",
+   "resumen": "",
+   "tipo": "prensa",
+   "via": "Finnhub"
   },
   {
-   "titular": "Alphabet, Amazon, and Microsoft All Surged Today. You Can Thank the Big Blue Wave.",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=0278d1a1bfb3de9684e317ebcf149af4029430e8b162839596ab02a2b9505b41",
-   "fecha": "2026-11-04",
-   "resumen": "While it might seem counterintuitive at first glance, the biggest cloud operators might gain an advantage from a Democratic sweep."
+   "titular": "AI Stocks Are Having The Sale Of The Year, But Avoid These",
+   "medio": "Seeking Alpha",
+   "url": "https://finnhub.io/api/news?id=3702e12efa426c0c127cc809ace6da2533a8bd8316c7095e4c3c3951f62658ea",
+   "fecha": "2026-11-05",
+   "resumen": "AI sector selloff looks overdone. See why Nvidia, TSMC, Broadcom, and Micron may be buys on this dip, and where political risks still matter.",
+   "tipo": "prensa",
+   "via": "Finnhub"
   },
   {
-   "titular": "Dow Heads for Best Post-Election Day Peformance in Decades",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=d2252ca6b0d6e8523355461e04a432d039ecca81ee0d67e0855086e1a9b1bfc6",
-   "fecha": "2026-11-04",
-   "resumen": "The Dow was on track for its best post-Election Day performance since 1986."
+   "titular": "Wall Street Lunch: Fear Grips The Market",
+   "medio": "Seeking Alpha",
+   "url": "https://finnhub.io/api/news?id=cd5c390c9701c901019f0e5aac95d3bfbb3f090702b97402f279426782d834b9",
+   "fecha": "2026-11-05",
+   "resumen": "Markets plunged as investors reacted to uncertainty.",
+   "tipo": "prensa",
+   "via": "Finnhub"
   },
   {
-   "titular": "Ironically, the Blue Wave Could Make Hyperscalers “Good Businesses Again” by Forcing Capex Discipline",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=c4995e4443392c73f481ce4a3e9e56809007a6237007113125cd3173121bf1a3",
-   "fecha": "2026-11-04",
-   "resumen": "Key TakeawaysDemocrats won control of the House and Senate in Tuesday’s midterms, and state results point to more limits on building data centers but fewer outright bans. Tighter rules that slow the build-out would help Amazon, Alphabet, Meta and Microsoft shareholders, because l"
+   "titular": "Micron's Selloff Is A Once-In-A-Decade Opportunity",
+   "medio": "Seeking Alpha",
+   "url": "https://finnhub.io/api/news?id=6ef6482a55654bbb7e0be56c682e64637fefabbb806497b7c084c619f97e94ce",
+   "fecha": "2026-11-05",
+   "resumen": "Micron trades at a very low multiple of 4.5x based on the forward P/E ratio despite a robust, triple-digit growth, and top-tier profitability. Read more on MU.",
+   "tipo": "prensa",
+   "via": "Finnhub"
   },
   {
-   "titular": "Why Ethereum Is Following Amazon’s Playbook: Sharplink CEO",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=0d311f617801e1c7240aaa6471614b5163a214baa863f4bf99dacb7cc90a78d9",
-   "fecha": "2026-11-04",
-   "resumen": "Sharplink CEO Joseph Chalom explains why Ethereum could be following Amazon's playbook, as tokenization and AI agents create a massive opportunity"
+   "titular": "Palantir Looks Like Apple In 2007, Only For Enterprise AI",
+   "medio": "Seeking Alpha",
+   "url": "https://finnhub.io/api/news?id=0f2f7008d8fc0198c39790c85b06fd92dd2e79536d66d8199fff867e7fe9de41",
+   "fecha": "2026-11-05",
+   "resumen": "Palantir Technologies Inc. stock analysis: AI CapEx selloff may miss strong U.S. commercial growth and 2026 revenue upside. Click for this PLTR update.",
+   "tipo": "prensa",
+   "via": "Finnhub"
   },
   {
-   "titular": "Mike Hopkins on Why Amazon Passed on “Artificial”",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=d04ce003cfe16688b06756d9c61f471b496cb65115307eb65e1c6539f0bba782",
-   "fecha": "2026-11-04",
-   "resumen": "Amazon MGM Studios head Mike Hopkins discusses his decision to pass on the Sam Altman biopic."
+   "titular": "Hopium Around Gridlock Takes Hold",
+   "medio": "Seeking Alpha",
+   "url": "https://finnhub.io/api/news?id=ff6ce94670688e04bae15efbcbced3a75c0fda1ed0ebfb83b1b229a88c676044",
+   "fecha": "2026-11-05",
+   "resumen": "AI infrastructure faces growing regulatory and grid risks, threatening U.S. compute capacity, tech spending, and stocks.",
+   "tipo": "prensa",
+   "via": "Finnhub"
   },
   {
-   "titular": "The Mag 7 Just Got a $600B Blue-Wave Surprise",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=8fbea97fb7c1153a1c6e3d6068800627c0243f6365a752e76a5d01200b937a4d",
-   "fecha": "2026-11-04",
-   "resumen": "Nvidia, Apple, Meta Platforms, Amazon.com, Tesla, Alphabet, and Microsoft were on track for their tenth largest combined one-day valuation gain ever."
+   "titular": "Virgin Galactic Enters Three-Year Collaboration With Non-Profit Space For Humanity To Fly Three Dedicated Charters For Up To 18 Astronauts In Total",
+   "medio": "Benzinga",
+   "url": "https://finnhub.io/api/news?id=7f5e98336cd46184b96005bf21c1fee72f757754c89e2f28cc3c5d763509d05f",
+   "fecha": "2026-11-05",
+   "resumen": "Three-year collaboration with Space for Humanity, a 501(c)(3) non-profit organization dedicated to democratizing access to space. Under this agreement, Virgin Galactic plans to fly three dedicated Space for Humanity",
+   "tipo": "prensa",
+   "via": "Finnhub"
   },
   {
-   "titular": "Credo Sinks 10% as Democratic Sweep Hits AI Data Center Stocks: “Biggest Worry”",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=5609a2fa868a2ab27e73a816ca189a7870e2479e5ae3e6e5f291b526e62e3b7a",
-   "fecha": "2026-11-04",
-   "resumen": "Key TakeawaysCredo fell 10% today as AI data center stocks sold off after Democrats won Congress and the Texas governor’s race. Credo’s growth depends on data centers that voters in Texas want to limit."
+   "titular": "Zipline Announces $1.5B Capital Raise At Post-Money Valuation Of $21.5B; Working With Walmart To Launch 300 Additional Sites",
+   "medio": "Benzinga",
+   "url": "https://finnhub.io/api/news?id=951ef8e987f2b9e1100392e1fd4768562944c47205f98b21ea8be103b15c4be2",
+   "fecha": "2026-11-05",
+   "resumen": "Round led by Paradigm, WCM Investment Management, and Layer Global with participation from Valor Equity Partners, Fidelity Management &amp; Research Company, Uber, Tiger Global, J.P. Morgan, ARK Invest, and Salesforce",
+   "tipo": "prensa",
+   "via": "Finnhub"
   },
   {
-   "titular": "Why the Blue Wave Isn't Crushing Every AI Play",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=70ecdaaa297c25556e3216ed0417d07f365e2c7494fc2d6ce197ef229abd1cac",
-   "fecha": "2026-11-04",
-   "resumen": "Just yesterday, worries a blue wave would crush the AI trade loomed over Wall Street."
+   "titular": "SpaceX Stock Is Still Falling. It Trades At Apple’s Valuation.",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=48156ee18f765962ec49ad55aa4e83d0b33dfd686657ae74cfa16e36f84c62ee",
+   "fecha": "2026-11-05",
+   "resumen": "China Renaissance initiates coverage of SpaceX with a Buy rating and a $194.20 price target,",
+   "tipo": "prensa",
+   "via": "Finnhub"
   },
   {
-   "titular": "Big Tech Stocks And Mag7 ETF Jumps After Democratic Sweep Raises Bets For Easing AI Capex",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=2f5f0332e4ae306e33ae17f2427684b8e8b3f6dbc40ad5a90fbaea816aade8a0",
-   "fecha": "2026-11-04",
-   "resumen": "Major U.S. technology stocks rallied on Wednesday with investors speculating that a Democratic wave will force a halt to costly AI infrastructure spending."
+   "titular": "What Anthropic's IPO could mean for Amazon and Google",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=4a3288879460fa5242aa18651c12c0e205ca24b98ede26b30e9f48364fdd0cc4",
+   "fecha": "2026-11-05",
+   "resumen": "Anthropic's IPO could payoff for Amazon and Google.",
+   "tipo": "prensa",
+   "via": "Finnhub"
   },
   {
-   "titular": "Market reaction to changes in Congress, AMD earnings, and where to find value in healthcare stocks",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=34bfb6c42121c1534748de0e7f11c746d608b70fab3af33f6f70c3fc07b541fe",
-   "fecha": "2026-11-04",
-   "resumen": "Host and \"The Buy Side\" author Turney Duff and his panel of experts weigh in on market reactions to the midterms, the AMD earnings report and what it means for investors, and where to find value in the healthcare sector. Today's panel includes Drew Pettit, Chief Investment Strate"
+   "titular": "Amazon Stocks Decline 3.52% With AWS Profitability in Focus",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=9fe15862e10ee2cf7fdd35b20c085d1f266ff79163262dc9b5462ac077668f6f",
+   "fecha": "2026-11-05",
+   "resumen": "The cloud division contributes a much larger share of profit than sales.",
+   "tipo": "prensa",
+   "via": "Finnhub"
   },
   {
-   "titular": "The Rise of AI Shoppers—and the Asterisk Attached",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=eb9704866e7e63e61625c31cf2e2499abd8c3116c4377022d38388c81a971661",
-   "fecha": "2026-11-04",
-   "resumen": "The success or failure of bot shoppers is going to come down to trust. So far, the retail establishment has the upper hand."
+   "titular": "Blue Origin delays New Glenn launches to January 2027",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=4f5b28ff1cbf693159c8e614f748175a594cfe99dea861d28120e9fa2198ac97",
+   "fecha": "2026-11-05",
+   "resumen": "Investing.com -- Blue Origin has pushed back the return to flight for its New Glenn rocket to January 2027, moving past its previous target of late 2026, as the company works to recover from a major explosion that occurred in May.",
+   "tipo": "prensa",
+   "via": "Finnhub"
   },
   {
-   "titular": "Prediction: Nov. 6 Will Be a Huge Day for the Stock Market",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=3d61d70f42dfece47d0219538a1d4c8cbc582d899ee66b57509d43e44c476d77",
-   "fecha": "2026-11-04",
-   "resumen": "Two important events are scheduled to happen this Friday, Nov. 6."
+   "titular": "Layoffs Hit Lowest October Level Since 2023, Report Shows Ahead of Friday's NFPs",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=c168b9a8bb2914797e895039cd866c3cd06fe3d55b29a6134ad543dc314d8590",
+   "fecha": "2026-11-05",
+   "resumen": "US job cut announcements in October reached the lowest total for the month in three years, while hir",
+   "tipo": "prensa",
+   "via": "Finnhub"
   },
   {
-   "titular": "Sector Update: Tech Stocks Mixed Wednesday Afternoon",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=5d57a4399b0f7b1220ce4388fb4bb3d2f40ecef39babc22ffd475d92dca3378f",
-   "fecha": "2026-11-04",
-   "resumen": "Tech stocks were mixed Wednesday afternoon, with the State Street Technology Select Sector SPDR ETF"
+   "titular": "Don’t Underestimate the Ultrarich—or How Fast They Can Leave California",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=488ee4255ea0137029ce17d692d5507cd13371d4f5a4c96ee1dcf0750f6b4a22",
+   "fecha": "2026-11-05",
+   "resumen": "The wealth tax proposal in California offers a lesson about the mobility of billionaires and could push advocates to find a different, more conciliatory approach.",
+   "tipo": "prensa",
+   "via": "Finnhub"
   },
   {
-   "titular": "Nvidia And Tesla Left Behind, As Rest Of Mag7 Rally On Dem’s Big Night",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=1e08af916866a137776a1b5f7638fb06d79da676690a6aadad4b44540eeed8d7",
-   "fecha": "2026-11-04",
-   "resumen": "Democrats flipped Congress and the Magnificent Seven fractured, with five megacaps surging while two of the group's biggest names moved in the opposite direction. The split points to a rotation that could reshape which companies lead the market through year-end."
+   "titular": "Amazon switches to Uber Eats for restaurant delivery perks",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=eb9f2a372e2dedbf4a3854101a18e10290ead13e06872857de32f3bb7b9b9c33",
+   "fecha": "2026-11-05",
+   "resumen": "The ecommerce giant is now offering delivery through Uber Eats for Prime members, replacing a similar partnership with Grubhub.",
+   "tipo": "prensa",
+   "via": "Finnhub"
   },
   {
-   "titular": "Nexxus Capital Strengthens Market Position with Latest E-Commerce Acquisition",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=470d5c07c54ce8ed53c652ea3b99b9bbf4ed279442e98c4132a187b2f3e9c2e4",
-   "fecha": "2026-11-04",
-   "resumen": "Nexxus Capital, LLC, a premier e-commerce acquirer and operations company, today officially announced the finalization of a multi-stage transaction originally completed in April 2026. This milestone marks the successful acquisition and integration of two key brand assets from a m"
+   "titular": "Neocloud Stocks Fell More Than Hyperscalers After Election Night. Here's Why Exposure Differs.",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=8659194a52c7bc2f86ba44d3bb6c24bdefe3c0c8d5b9f17254b0d6e03b88d5c4",
+   "fecha": "2026-11-05",
+   "resumen": "Neocloud and hyperscaler stocks could head in opposite directions.",
+   "tipo": "prensa",
+   "via": "Finnhub"
   },
   {
-   "titular": "This Magnificent 7 Stock Is Quietly Building an AI Empire",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=95b85fe5f1ec048f70cd93e7c53cc4c5c8a7fa5efc7a9b07fdfa89781914f81d",
+   "titular": "Buy Alphabet for The Limted Downside Floor if The Coiled Spring Asymmetry Doesn’t Pique Your Interest",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=f82c0021c7e474699a48a317c939d53d1a9701fc4cf5632b0c22137a79a9a1fa",
+   "fecha": "2026-11-05",
+   "resumen": "Alphabet stock sank 16% in a month, and one investor keeps buying every dip. Two scenarios, one of them involving a $175 billion spending binge, explain why he thinks the downside is already priced in.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Qualcomm's Impressive Guidance Comes With a Big Catch",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=a87282c0bf141d2277db15465c624569dda3ca7eb462add9646c5ae5ce67bcfa",
+   "fecha": "2026-11-05",
+   "resumen": "AI, autos and data centers are growing fast, but handset revenue fell 26%.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Alphabet: Investors Are Making The Same Mistake They Did With Microsoft",
+   "medio": "Seeking Alpha",
+   "url": "https://finnhub.io/api/news?id=7f477922ce6519e3310ee63674016b06132eacb2488fab2aa699a2ee8fbf6449",
+   "fecha": "2026-11-05",
+   "resumen": "Alphabet is a buy as AI spending hits cash flow, but cloud growth, strong margins, and attractive valuation offer long-term upside. Click for a GOOG update.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Amazon: An Earnings Supercycle Is Taking Shape",
+   "medio": "Seeking Alpha",
+   "url": "https://finnhub.io/api/news?id=55bfa629137d978ac36ad2bbccbf1a3421205ee0b86ed9635029408a41ca47cf",
+   "fecha": "2026-11-05",
+   "resumen": "AWS revenue surged 39.3% to $46 billion, while its 38.7% margin contributed 63% of Amazon's operating income. I rate AMZN stock as Buy. Read my analysis now.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "The Stocks Making Noise-And the Ones That Actually Matter",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=6263c4f23340af6f09ffcc9dbde7d7529b5d74a2b1941924387718cf7caca5af",
+   "fecha": "2026-11-05",
+   "resumen": "NVIDIA, Amazon, and Palantir are posting strong growth underneath a volatile October, but each stock needs something specific to happen before 2027 for bold price targets to hold up.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "What Is Behind The Move In Coupang Stock?",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=66ce216e7200d8f0298a7e8c2a7ba02290f7bc0513d2e16d80bed2a97d7968ca",
+   "fecha": "2026-11-05",
+   "resumen": "For questions about this article or underlying research, email help@trefis.com.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Big Tech's massive AI spending is causing another problem for investors",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=f104ee6466eb22828a5800437986c917fcd27a1065d1ba3e70eaa05314cba86d",
+   "fecha": "2026-11-05",
+   "resumen": "The Big Tech buyback may be on ice for now.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Qualcomm Says December Won’t Be Its Biggest Quarter Anymore as Apple Walks Away",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=82e02201b535baaa33386b2468c7a2451e16408fcbac4763c77b9152b58a175f",
+   "fecha": "2026-11-05",
+   "resumen": "Qualcomm has known for years that Apple would leave, and now the CFO says it will rewrite the company's calendar. Can automotive and AI data centers fill the gap before the next earnings report tests the story?",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "CoreWeave Sinks 9% as Microsoft Rejects Nscale’s Texas Expansion: “The First Person Who’s Going to Suffer”",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=e4788dc01806124e612ecf29bbd8044707098f006bad9d5ad4b2ec6cf08ff476",
+   "fecha": "2026-11-05",
+   "resumen": "Key TakeawaysCoreWeave fell 9% today after a report that Microsoft passed on an option to more than double its Texas lease with Nscale. Neoclouds borrow against new contracts, so a hyperscaler walking away hurts CoreWeave even with its own deals untouched.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Amazon deploys thousands of smart glasses to delivery drivers",
+   "url": "https://www.supplychaindive.com/news/amazon-deploys-thousands-of-smart-glasses-to-delivery-drivers/873620/",
    "fecha": "2026-11-04",
-   "resumen": "Azure is accelerating, Copilot adoption is surging, and a $677 billion commercial backlog sits on the books, yet a massive capex bill threatens to swallow the gains before investors ever see them."
+   "resumen": "The glasses provide navigation and drop-off instructions within drivers field of view, part of the company s effort to boost delivery efficiency.",
+   "medio": "Supply Chain Dive",
+   "tipo": "sectorial",
+   "via": "RSS del medio"
   },
   {
    "titular": "Intel: The Foundry Trap Is Getting Worse",
-   "medio": "SeekingAlpha",
+   "medio": "Seeking Alpha",
    "url": "https://finnhub.io/api/news?id=3ca577d6134cd28ce647f746f8adf809abe6bcad6512baea7ae5236835f56c75",
    "fecha": "2026-11-04",
-   "resumen": "Intel gets a Sell rating as Foundry losses persist, AI revenue growth masks weak unit demand, and CPU declines hit earnings. Click for an INTC update."
+   "resumen": "Intel gets a Sell rating as Foundry losses persist, AI revenue growth masks weak unit demand, and CPU declines hit earnings. Click for an INTC update.",
+   "tipo": "prensa"
   },
   {
-   "titular": "Alphabet’s Asymmetry Is All You Need To Know About to Hit ‘Buy’",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=4ddf5ba1d9785f682ca7d73dfaee2314ab5ee08eb179c43f2d2e51f641aed220",
-   "fecha": "2026-11-04",
-   "resumen": "Alphabet's stock keeps falling while its cloud revenue triples and its search business records its fastest query growth in five years. Something in that gap deserves a closer look before the market closes it."
+   "titular": "8-K a la SEC: Resultados",
+   "medio": "SEC · 8-K (oficial)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000038/amzn-20261029.htm",
+   "fecha": "2026-10-29",
+   "resumen": "Comunicación oficial de la compañía. Items: 2.02.",
+   "oficial": true,
+   "tipo": "prensa"
   }
  ],
+ "noticias_sentimiento": null,
+ "noticias_fuentes": {
+  "medios_sectoriales": [
+   "The Next Platform",
+   "Data Center Dynamics",
+   "Supply Chain Dive",
+   "Retail Dive"
+  ],
+  "alias": [
+   "AWS",
+   "Amazon Web Services"
+  ],
+  "proveedores": {
+   "Finnhub": {
+    "ok": true,
+    "titulares": 80
+   },
+   "Marketaux": {
+    "ok": true,
+    "titulares": 0
+   },
+   "RSS de medios": {
+    "ok": true,
+    "titulares": 3
+   }
+  }
+ },
  "historico_precio": {
   "serie": [
-   [
-    "2021-08-04",
-    167.736
-   ],
    [
     "2021-08-05",
     168.7995
@@ -20303,19 +20310,23 @@
    ],
    [
     "2026-11-04",
-    266.14
+    266.03
+   ],
+   [
+    "2026-11-05",
+    260.51
    ]
   ],
   "fuente": "Twelve Data (API oficial, plan gratuito)",
   "url": "https://twelvedata.com/",
-  "fecha": "2026-11-04",
+  "fecha": "2026-11-05",
   "ajuste": "splits"
  },
- "generado": "2026-11-04T23:51:28+00:00",
+ "generado": "2026-11-05T21:39:06+00:00",
  "peers": {
   "fuente_lista": "manual",
   "fuente_cifras": "SEC EDGAR (companyfacts, UDM) · precio Finnhub",
-  "actualizado": "2026-11-04",
+  "actualizado": "2026-11-05",
   "propia": {
    "ingresos": 797455000000,
    "crecimiento": 15.35,
@@ -20333,13 +20344,13 @@
    "informe": "10-Q",
    "informe_fecha": "2026-10-30",
    "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/0001018724-26-000040-index.htm",
-   "precio": 266.03,
-   "capitalizacion": 2876619183545.1797,
-   "ev": 2942345183545.1797,
-   "per": 21.34,
-   "precio_ventas": 3.61,
-   "ev_ebitda": 16.02,
-   "rentabilidad_fcf": -1.63,
+   "precio": 260.21,
+   "capitalizacion": 2813686718604.26,
+   "ev": 2879412718604.26,
+   "per": 20.88,
+   "precio_ventas": 3.53,
+   "ev_ebitda": 15.67,
+   "rentabilidad_fcf": -1.67,
    "deuda_neta_ebitda": 0.36,
    "ticker": "AMZN",
    "nombre": "Amazon",
@@ -20373,13 +20384,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-08-28",
     "url": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000154/0000104169-26-000154-index.htm",
-    "precio": 129.17,
-    "capitalizacion": 1024802001949.9698,
-    "ev": 1053205001949.9698,
-    "per": 46.42,
-    "precio_ventas": 1.41,
-    "ev_ebitda": 22.23,
-    "rentabilidad_fcf": 1.32,
+    "precio": 127.72,
+    "capitalizacion": 1013298069900.52,
+    "ev": 1041701069900.52,
+    "per": 45.9,
+    "precio_ventas": 1.39,
+    "ev_ebitda": 21.99,
+    "rentabilidad_fcf": 1.33,
     "deuda_neta_ebitda": 0.6
    },
    {
@@ -20409,13 +20420,13 @@
     "informe": "10-K",
     "informe_fecha": "2026-10-07",
     "url": "https://www.sec.gov/Archives/edgar/data/909832/000090983226000093/0000909832-26-000093-index.htm",
-    "precio": 1046.47,
-    "capitalizacion": 463721569848.03,
-    "ev": 448582569848.03,
-    "per": 50.26,
-    "precio_ventas": 1.53,
-    "ev_ebitda": 31.24,
-    "rentabilidad_fcf": 2.02,
+    "precio": 1065.59,
+    "capitalizacion": 472194203000.91,
+    "ev": 457055203000.91,
+    "per": 51.18,
+    "precio_ventas": 1.56,
+    "ev_ebitda": 31.83,
+    "rentabilidad_fcf": 1.99,
     "deuda_neta_ebitda": -1.05
    },
    {
@@ -20445,13 +20456,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-28",
     "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526436133/0001193125-26-436133-index.htm",
-    "precio": 555.8,
-    "capitalizacion": 4127478932001.5996,
-    "ev": 4098450932001.5996,
-    "per": 28.94,
-    "precio_ventas": 11.91,
-    "ev_ebitda": 19.93,
-    "rentabilidad_fcf": 1.45,
+    "precio": 535.93,
+    "capitalizacion": 3979920446253.36,
+    "ev": 3950892446253.36,
+    "per": 27.9,
+    "precio_ventas": 11.49,
+    "ev_ebitda": 19.21,
+    "rentabilidad_fcf": 1.51,
     "deuda_neta_ebitda": -0.14
    },
    {
@@ -20481,13 +20492,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-29",
     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/0001652044-26-000084-index.htm",
-    "precio": 288.93,
-    "capitalizacion": 3573486240000.0,
-    "ev": 3434506240000.0,
-    "per": 15.16,
-    "precio_ventas": 7.59,
-    "ev_ebitda": 18.57,
-    "rentabilidad_fcf": 0.55,
+    "precio": 282.57,
+    "capitalizacion": 3494825760000.0,
+    "ev": 3355845760000.0,
+    "per": 14.83,
+    "precio_ventas": 7.42,
+    "ev_ebitda": 18.14,
+    "rentabilidad_fcf": 0.57,
     "deuda_neta_ebitda": -0.75
    },
    {
@@ -20517,13 +20528,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-29",
     "url": "https://www.sec.gov/Archives/edgar/data/1065088/000106508826000212/0001065088-26-000212-index.htm",
-    "precio": 125.15,
-    "capitalizacion": 54940850000.0,
-    "ev": 60507850000.0,
-    "per": 26.17,
-    "precio_ventas": 4.43,
-    "ev_ebitda": 19.98,
-    "rentabilidad_fcf": 4.39,
+    "precio": 123.35,
+    "capitalizacion": 54150650000.0,
+    "ev": 59717650000.0,
+    "per": 25.8,
+    "precio_ventas": 4.37,
+    "ev_ebitda": 19.72,
+    "rentabilidad_fcf": 4.45,
     "deuda_neta_ebitda": 1.84
    },
    {
@@ -20553,13 +20564,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-09-11",
     "url": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526389274/0001193125-26-389274-index.htm",
-    "precio": 123.73,
-    "capitalizacion": 374126855280.0,
-    "ev": 337049855280.0,
-    "per": 19.77,
-    "precio_ventas": 5.21,
-    "ev_ebitda": 9.93,
-    "rentabilidad_fcf": -7.68,
+    "precio": 115.16,
+    "capitalizacion": 348213437760.0,
+    "ev": 311136437760.0,
+    "per": 18.4,
+    "precio_ventas": 4.85,
+    "ev_ebitda": 9.17,
+    "rentabilidad_fcf": -8.25,
     "deuda_neta_ebitda": -1.09
    }
   ]

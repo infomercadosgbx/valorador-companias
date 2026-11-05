@@ -7,10 +7,10 @@
  "monograma": "CH",
  "logo": "logos/CVX.png",
  "periodo": "3T26",
- "periodo_fin": "2026-09-29",
+ "periodo_fin": "2026-09-30",
  "fecha_resultados": "2026-10-30",
- "estado": "provisional",
- "fuente_cifras": "Nota de resultados (8-K, Exhibit 99.1), provisional hasta el 10-Q",
+ "estado": "definitivo",
+ "fuente_cifras": "SEC EDGAR · 10-Q (XBRL)",
  "informe": {
   "accn_8k": "0000093410-26-000196",
   "url_8k": "https://www.sec.gov/Archives/edgar/data/93410/000009341026000196/0000093410-26-000196-index.htm",
@@ -22,7 +22,12 @@
     "url": "https://www.sec.gov/Archives/edgar/data/93410/000009341026000196/a09302026ex9918-k.htm"
    }
   ],
-  "periodico": null
+  "periodico": {
+   "formulario": "10-Q",
+   "fecha_presentacion": "2026-11-05",
+   "url_indice": "https://www.sec.gov/Archives/edgar/data/93410/000009341026000200/0000093410-26-000200-index.htm",
+   "url_documento": "https://www.sec.gov/Archives/edgar/data/93410/000009341026000200/cvx-20260930.htm"
+  }
  },
  "tabla": [
   {
@@ -30,14 +35,15 @@
    "nombre": "Ingresos",
    "tipo": "total",
    "reportado": {
-    "fuente": "SEC EDGAR · 8-K, Exhibit 99.1 (provisional)",
-    "url": "https://www.sec.gov/Archives/edgar/data/93410/000009341026000196/a09302026ex9918-k.htm",
-    "fecha_presentacion": "2026-10-30",
+    "valor": 65237000000,
+    "fuente": "SEC EDGAR · 10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/93410/000009341026000200/0000093410-26-000200-index.htm",
+    "fecha_presentacion": "2026-11-05",
+    "etiqueta": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
     "periodo": "3T26",
-    "provisional": true,
-    "valor": 65237000000.0,
-    "etiqueta": "Nota de resultados: fila «Sales and other operating revenues»",
-    "nota": "Unidades deducidas comparando con el trimestre anterior (la tabla no las indica)."
+    "periodo_inicio": "2026-07-01",
+    "periodo_fin": "2026-09-30",
+    "formulario": "10-Q"
    },
    "estimado": {
     "valor": 62239251462,
@@ -54,14 +60,16 @@
    "nombre": "Beneficio operativo (EBIT)",
    "tipo": "total",
    "reportado": {
-    "fuente": "SEC EDGAR · 8-K, Exhibit 99.1 (provisional)",
-    "url": "https://www.sec.gov/Archives/edgar/data/93410/000009341026000196/a09302026ex9918-k.htm",
-    "fecha_presentacion": "2026-10-30",
+    "valor": 13929000000,
+    "fuente": "SEC EDGAR · 10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/93410/000009341026000200/0000093410-26-000200-index.htm",
+    "fecha_presentacion": "2026-11-05",
+    "etiqueta": "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments + us-gaap:InterestExpenseDebt",
     "periodo": "3T26",
-    "provisional": true,
-    "valor": 13929000000.0,
-    "etiqueta": "Nota de resultados: beneficio antes de impuestos + gastos por intereses",
-    "derivado": "La compañía no publica beneficio operativo (EBIT aproximado)"
+    "periodo_inicio": "2026-07-01",
+    "periodo_fin": "2026-09-30",
+    "formulario": "10-Q",
+    "derivado": "Beneficio antes de impuestos + gastos por intereses (la compañía no publica beneficio operativo)"
    },
    "estimado": null,
    "dif_pct": null,
@@ -74,14 +82,15 @@
    "nombre": "Beneficio neto",
    "tipo": "total",
    "reportado": {
-    "fuente": "SEC EDGAR · 8-K, Exhibit 99.1 (provisional)",
-    "url": "https://www.sec.gov/Archives/edgar/data/93410/000009341026000196/a09302026ex9918-k.htm",
-    "fecha_presentacion": "2026-10-30",
+    "valor": 9924000000,
+    "fuente": "SEC EDGAR · 10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/93410/000009341026000200/0000093410-26-000200-index.htm",
+    "fecha_presentacion": "2026-11-05",
+    "etiqueta": "us-gaap:NetIncomeLoss",
     "periodo": "3T26",
-    "provisional": true,
-    "valor": 9924000000.0,
-    "etiqueta": "Nota de resultados: fila «NET INCOME (LOSS) ATTRIBUTABLE TO CHEVRON CORPORATION»",
-    "nota": "Unidades deducidas comparando con el trimestre anterior (la tabla no las indica)."
+    "periodo_inicio": "2026-07-01",
+    "periodo_fin": "2026-09-30",
+    "formulario": "10-Q"
    },
    "estimado": null,
    "dif_pct": null,
@@ -94,13 +103,15 @@
    "nombre": "BPA diluido",
    "tipo": "total",
    "reportado": {
-    "fuente": "SEC EDGAR · 8-K, Exhibit 99.1 (provisional)",
-    "url": "https://www.sec.gov/Archives/edgar/data/93410/000009341026000196/a09302026ex9918-k.htm",
-    "fecha_presentacion": "2026-10-30",
-    "periodo": "3T26",
-    "provisional": true,
     "valor": 5.06,
-    "etiqueta": "Nota de resultados: fila «Diluted»"
+    "fuente": "SEC EDGAR · 10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/93410/000009341026000200/0000093410-26-000200-index.htm",
+    "fecha_presentacion": "2026-11-05",
+    "etiqueta": "us-gaap:EarningsPerShareDiluted",
+    "periodo": "3T26",
+    "periodo_inicio": "2026-07-01",
+    "periodo_fin": "2026-09-30",
+    "formulario": "10-Q"
    },
    "estimado": {
     "valor": 4.934,
@@ -1144,7 +1155,7 @@
   ],
   "precio": 235.52,
   "fecha_precio": "2026-10-30",
-  "capitalizacion": 465333650452.48004,
+  "capitalizacion": 462896115486.72003,
   "minimo_12m": 146.75,
   "maximo_12m": 235.52,
   "variacion_12m_pct": 53.41,
@@ -1152,7 +1163,28 @@
  },
  "desglose": {
   "producto": [],
-  "segmento": []
+  "segmento": [
+   {
+    "nombre": "Reportable Segment, Aggregation before Other Operating Segment",
+    "miembro": "us-gaap:ReportableSegmentAggregationBeforeOtherOperatingSegmentMember",
+    "valor": 65212000000.0,
+    "anio_anterior": 48145000000.0,
+    "interanual_pct": 35.45,
+    "peso_pct": 100.0,
+    "margen_operativo_pct": null,
+    "margen_operativo_ya_pct": null
+   },
+   {
+    "nombre": "Other Operating Segment",
+    "miembro": "us-gaap:AllOtherSegmentsMember",
+    "valor": 25000000.0,
+    "anio_anterior": 24000000.0,
+    "interanual_pct": 4.17,
+    "peso_pct": 0.0,
+    "margen_operativo_pct": null,
+    "margen_operativo_ya_pct": null
+   }
+  ]
  },
  "estrella": null,
  "margenes": {
@@ -1203,19 +1235,13 @@
    },
    {
     "periodo": "3T26",
-    "margen_pct": 21.35,
-    "provisional": true
+    "margen_pct": 21.35
    }
   ]
  },
  "dentro": {
-  "periodo": "2T26",
+  "periodo": "3T26",
   "ingresos": [
-   {
-    "periodo": "2T24",
-    "valor": 49574000000,
-    "interanual_pct": 4.99
-   },
    {
     "periodo": "3T24",
     "valor": 48926000000,
@@ -1255,17 +1281,14 @@
     "periodo": "2T26",
     "valor": 67199000000,
     "interanual_pct": 51.43
+   },
+   {
+    "periodo": "3T26",
+    "valor": 65237000000,
+    "interanual_pct": 35.43
    }
   ],
   "caja": [
-   {
-    "periodo": "2T25",
-    "beneficio_neto": 2490000000,
-    "caja_operativa": 8576000000,
-    "capex": 3712000000,
-    "fcf": 4864000000,
-    "conversion_pct": 344.0
-   },
    {
     "periodo": "3T25",
     "beneficio_neto": 3539000000,
@@ -1297,6 +1320,14 @@
     "capex": 4538000000,
     "fcf": 18095000000,
     "conversion_pct": 187.0
+   },
+   {
+    "periodo": "3T26",
+    "beneficio_neto": 9924000000,
+    "caja_operativa": 16014000000,
+    "capex": 4011000000,
+    "fcf": 12003000000,
+    "conversion_pct": 161.0
    }
   ],
   "capex_solo_anual": false,
@@ -1304,35 +1335,35 @@
    {
     "clave": "coste_ventas",
     "nombre": "Coste de ventas",
-    "valor": 36607000000,
-    "pct": 54.5,
-    "pct_ya": 60.5
+    "valor": 36534000000,
+    "pct": 56.0,
+    "pct_ya": 56.9
    },
    {
     "clave": "gastos_generales",
     "nombre": "Comerciales, generales y admin.",
-    "valor": 1314000000,
-    "pct": 2.0,
-    "pct_ya": 2.0
+    "valor": 1227000000,
+    "pct": 1.9,
+    "pct_ya": 3.2
    }
   ],
   "accionista": {
-   "recompras": 3003000000,
-   "recompras_ya": 2598000000,
-   "recompras_12m": 11139000000,
-   "dividendos": 3504000000,
-   "dividendos_12m": 13863000000,
-   "acciones_diluidas": 1975087000,
-   "acciones_diluidas_ya": 1724397000,
-   "acciones_var_pct": 14.54,
+   "recompras": 2502000000,
+   "recompras_ya": 2566000000,
+   "recompras_12m": 11075000000,
+   "dividendos": 3482000000,
+   "dividendos_12m": 13916000000,
+   "acciones_diluidas": 1962905000,
+   "acciones_diluidas_ya": 1946035000,
+   "acciones_var_pct": 0.87,
    "remuneracion_acciones": null,
    "remuneracion_pct_ingresos": null,
-   "retorno_sobre_caja_pct": 93.0,
+   "retorno_sobre_caja_pct": 73.0,
    "retorno_base": "flujo de caja libre"
   },
   "fuente": "SEC EDGAR · XBRL (10-Q/10-K)",
-  "url": "https://www.sec.gov/Archives/edgar/data/93410/000009341026000167/0000093410-26-000167-index.htm",
-  "fecha_presentacion": "2026-08-06"
+  "url": "https://www.sec.gov/Archives/edgar/data/93410/000009341026000200/0000093410-26-000200-index.htm",
+  "fecha_presentacion": "2026-11-05"
  },
  "cita": {
   "cita": "We delivered strong operational performance and disciplined execution, while continuing to invest to grow energy supply",
@@ -1519,47 +1550,7 @@
   "bpa_real": 5.28,
   "ingresos_reales": 67798000000
  },
- "_cifras_nota": {
-  "ingresos": {
-   "fuente": "SEC EDGAR · 8-K, Exhibit 99.1 (provisional)",
-   "url": "https://www.sec.gov/Archives/edgar/data/93410/000009341026000196/a09302026ex9918-k.htm",
-   "fecha_presentacion": "2026-10-30",
-   "periodo": "3T26",
-   "provisional": true,
-   "valor": 65237000000.0,
-   "etiqueta": "Nota de resultados: fila «Sales and other operating revenues»",
-   "nota": "Unidades deducidas comparando con el trimestre anterior (la tabla no las indica)."
-  },
-  "beneficio_neto": {
-   "fuente": "SEC EDGAR · 8-K, Exhibit 99.1 (provisional)",
-   "url": "https://www.sec.gov/Archives/edgar/data/93410/000009341026000196/a09302026ex9918-k.htm",
-   "fecha_presentacion": "2026-10-30",
-   "periodo": "3T26",
-   "provisional": true,
-   "valor": 9924000000.0,
-   "etiqueta": "Nota de resultados: fila «NET INCOME (LOSS) ATTRIBUTABLE TO CHEVRON CORPORATION»",
-   "nota": "Unidades deducidas comparando con el trimestre anterior (la tabla no las indica)."
-  },
-  "bpa_diluido": {
-   "fuente": "SEC EDGAR · 8-K, Exhibit 99.1 (provisional)",
-   "url": "https://www.sec.gov/Archives/edgar/data/93410/000009341026000196/a09302026ex9918-k.htm",
-   "fecha_presentacion": "2026-10-30",
-   "periodo": "3T26",
-   "provisional": true,
-   "valor": 5.06,
-   "etiqueta": "Nota de resultados: fila «Diluted»"
-  },
-  "beneficio_operativo": {
-   "fuente": "SEC EDGAR · 8-K, Exhibit 99.1 (provisional)",
-   "url": "https://www.sec.gov/Archives/edgar/data/93410/000009341026000196/a09302026ex9918-k.htm",
-   "fecha_presentacion": "2026-10-30",
-   "periodo": "3T26",
-   "provisional": true,
-   "valor": 13929000000.0,
-   "etiqueta": "Nota de resultados: beneficio antes de impuestos + gastos por intereses",
-   "derivado": "La compañía no publica beneficio operativo (EBIT aproximado)"
-  }
- },
+ "_cifras_nota": null,
  "traduccion": {
   "pendientes": 0,
   "completa": true,
