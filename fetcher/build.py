@@ -407,6 +407,12 @@ def build_company(client, company, price_provider, price_warning=None, previous=
             except Exception as e:  # noqa: BLE001
                 rec[key] = prev.get(key)
                 rec["avisos"].append(X.warn("info", f"sin_{key}", f"{key.replace('_', ' ').capitalize()} no disponibles: {e}"))
+        # 8-K oficiales recientes junto a las noticias de prensa (máximo 30 en total)
+        if subs:
+            of = F.recent_8k_news(company["cik"], subs)
+            if of:
+                prensa = [n for n in (rec.get("noticias") or []) if not n.get("oficial")]
+                rec["noticias"] = sorted(of + prensa[:30 - len(of)], key=lambda n: n.get("fecha") or "", reverse=True)
         try:
             rec["consenso_automatico"] = price_provider.recommendations(company["ticker"])
         except Exception as e:  # noqa: BLE001

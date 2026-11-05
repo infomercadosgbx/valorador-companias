@@ -148,22 +148,39 @@ class FinnhubProvider(PriceProvider):
         rows = self._get("/stock/peers", symbol=ticker) or []
         return [r for r in rows if isinstance(r, str)]
 
-    def news(self, ticker, today=None, days=21, limit=20):
+    # Finnhub etiqueta como «Yahoo» todo lo que reenvía Yahoo Finance (Reuters, Zacks, Motley Fool…):
+    # sin tope llenaba casi toda la lista. Se limita para dejar sitio a otros medios.
+    MEDIOS = {"Yahoo": "Yahoo Finance", "SeekingAlpha": "Seeking Alpha", "MarketWatch": "MarketWatch"}
+    MAX_POR_MEDIO = {"Yahoo Finance": 12}
+    MAX_OTRO_MEDIO = 10
+
+    def news(self, ticker, today=None, days=30, limit=30):
         from datetime import date, timedelta
         today = today or date.today()
         rows = self._get("/company-news", symbol=ticker, **{"from": (today - timedelta(days=days)).isoformat(),
                          "to": today.isoformat()}) or []
-        seen, out = set(), []
+        seen, cand = set(), []
         for r in sorted(rows, key=lambda r: -(r.get("datetime") or 0)):
             h = (r.get("headline") or "").strip()
             if not h or h.lower() in seen or not r.get("url"):
                 continue
             seen.add(h.lower())
-            out.append({"titular": h, "medio": r.get("source"), "url": r.get("url"),
-                        "fecha": datetime.fromtimestamp(r["datetime"], tz=timezone.utc).date().isoformat() if r.get("datetime") else None,
-                        "resumen": (r.get("summary") or "")[:280]})
+            medio = self.MEDIOS.get(r.get("source") or "", r.get("source") or "")
+            cand.append({"titular": h, "medio": medio, "url": r.get("url"),
+                         "fecha": datetime.fromtimestamp(r["datetime"], tz=timezone.utc).date().isoformat() if r.get("datetime") else None,
+                         "resumen": (r.get("summary") or "")[:280]})
+        # 1.ª pasada con tope por medio; 2.ª rellena hasta el límite si no hay variedad suficiente
+        out, cnt = [], {}
+        for n in cand:
+            cap = self.MAX_POR_MEDIO.get(n["medio"], self.MAX_OTRO_MEDIO)
+            if cnt.get(n["medio"], 0) < cap:
+                out.append(n); cnt[n["medio"]] = cnt.get(n["medio"], 0) + 1
             if len(out) >= limit:
                 break
+        if len(out) < limit:
+            ya = {id(n) for n in out}
+            out += [n for n in cand if id(n) not in ya][:limit - len(out)]
+        out.sort(key=lambda n: n["fecha"] or "", reverse=True)
         return out
 
     def recommendations(self, ticker):
