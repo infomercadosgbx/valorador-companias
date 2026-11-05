@@ -575,6 +575,11 @@ h3{font-weight:600;font-size:13.5px}
 .idrow{gap:8px!important;margin-top:8px} .idrow .pill,.idrow .tick{font-size:13px;padding:4px 10px}
 #hdrSector{font-size:12px;letter-spacing:.06em}
 .pxrow{display:flex;align-items:baseline;gap:10px;justify-content:flex-end}
+.src.live{color:var(--goodText);background:color-mix(in srgb,var(--good) 12%,transparent);border:0;border-radius:4px;padding:0 6px;font-weight:600}
+.src.live::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--good);margin-right:5px;vertical-align:1px;animation:livepulse 2s ease-in-out infinite}
+.src.live.lag::before{background:var(--warn);animation:none}
+@keyframes livepulse{0%,100%{opacity:1}50%{opacity:.35}}
+@media (prefers-reduced-motion:reduce){.src.live::before{animation:none}}
 .pricebox .px{font-size:32px}
 .daychg{font-weight:700;font-size:14px;padding:2px 8px;border-radius:6px} .daychg.up{color:var(--goodText);background:color-mix(in srgb,var(--good) 14%,transparent)} .daychg.dn{color:var(--critText);background:color-mix(in srgb,var(--crit) 12%,transparent)}
 .r52{display:grid;grid-template-columns:auto auto minmax(110px,180px) auto;align-items:center;gap:8px;font-size:12.5px;font-variant-numeric:tabular-nums}
@@ -1048,7 +1053,7 @@ function secFigures(d){
 function applyData(c){
   const d=c._data, man=c._manual||{}, P=d&&d.precio;
   c.v=c.v||{}; c._auto={};
-  c.v.price=P&&fin(P.valor)?P.valor:NaN;
+  c.v.price=c._live?c._live.precio:(P&&fin(P.valor)?P.valor:NaN);
   c.v.lo52=P&&fin(P.minimo_52s)?P.minimo_52s:null; c.v.hi52=P&&fin(P.maximo_52s)?P.maximo_52s:null;
   { const H=d&&d.historico_precio&&d.historico_precio.serie; if(H&&H.length>200){ const t=Date.parse(H.at(-1)[0])-365.25*864e5, y=H.filter(p=>Date.parse(p[0])>=t).map(p=>p[1]); c.v.lo52=Math.min(...y); c.v.hi52=Math.max(...y); } }
   const n=x=>typeof x==="number"&&Number.isFinite(x)?x:null;
@@ -1459,10 +1464,10 @@ function renderHeader(){
   $("hdrRow").innerHTML=`${cur.meta.ticker?`<span class="tick">${esc(cur.meta.ticker)}</span>`:""}${(cur.verdict.rating?ratingPill(cur.verdict.rating):`<span class="pill neutral">Sin recomendación</span>`)}
     <span class="pill neutral">Puntuación ${nf(s.total,0)}/100</span>${fin(vz.w)?upPill(vz.w,cur.v.price).replace("vs cotización","de potencial"):""}`;
   const P=cur._data&&cur._data.precio, ref=cur._data&&cur._data.referencia_fecha_datos, px=cur.v.price;
-  const day=P&&fin(P.cierre_anterior)&&P.cierre_anterior>0&&fin(px)?(px/P.cierre_anterior-1)*100:NaN;
+  const day=dayPct(cur);
   const lo=cur.v.lo52, hi=cur.v.hi52, pos=fin(lo)&&fin(hi)&&hi>lo&&fin(px)?Math.min(100,Math.max(0,(px-lo)/(hi-lo)*100)):NaN;
-  $("priceBox").innerHTML=`<span class="eyebrow">Cotización ${P?srcTag(P):""}</span>
-    <div class="pxrow"><span class="px">${money(px)}</span>${fin(day)?`<span class="daychg ${day>=0?"up":"dn"}" title="Variación en la última sesión">${day>=0?"▲":"▼"} ${nf(Math.abs(day),1)}%</span>`:""}</div>
+  $("priceBox").innerHTML=`<span class="eyebrow">Cotización ${cur._live?liveTag(cur):P?srcTag(P):""}</span>
+    <div class="pxrow"><span class="px">${money(px)}</span>${fin(day)?`<span class="daychg ${day>=0?"up":"dn"}" title="${cur._live&&LIVE.estado==="vivo"?"Variación en la sesión de hoy":"Variación en la última sesión"}">${day>=0?"▲":"▼"} ${nf(Math.abs(day),1)}%</span>`:""}</div>
     ${fin(pos)?`<div class="r52" title="Rango de 52 semanas"><span class="lab">52 semanas</span><span class="v">${nf(lo,2)}</span><span class="bar"><i style="left:${pos.toFixed(1)}%"></i></span><span class="v">${nf(hi,2)}</span></div>
       <span class="note">${pos<5?"En mínimos del año":pos>95?"En máximos del año":`+${nf((px/lo-1)*100,0)}% desde el mínimo · ${nf((px/hi-1)*100,0)}% desde el máximo`}</span>`:""}
     <span class="note">Capitalización <b>${big(mcap)}</b></span>`;
@@ -1575,7 +1580,7 @@ function inicioHtml(){
    <div class="htiles">
     ${tile("favoritas","★","Favoritas","Tus compañías marcadas, a un clic.",favs.length?`${favs.length} favorita${favs.length>1?"s":""}: ${favs.map(r=>esc(r.name)).join(", ")}`:"Aún no tienes favoritas")}
     ${tile("lista","📋","Lista de seguimiento","Precio, valor de tu modelo, puntuación y lo que toca vigilar de todas las compañías.",`${W.length} compañías · ${below.length} en zona de compra${soon.length?` · resultados: ${soon.slice(0,2).map(r=>`${esc(r.name)} ${esc(fecha(r.eDate))}`).join(", ")}`:""}`)}
-    ${tile("cartera","💼","Cartera","Tus posiciones con el precio de cada noche y tu valoración.",rows.length?`${nf(tot,0)} $ · ${tot>=cost?"+":"−"}${nf(Math.abs(cost>0?(tot/cost-1)*100:0),1)}% · ${rows.length} posiciones`:"Sin posiciones todavía")}
+    ${tile("cartera","💼","Cartera","Tus posiciones con el precio actual y tu valoración.",rows.length?`${nf(tot,0)} $ · ${tot>=cost?"+":"−"}${nf(Math.abs(cost>0?(tot/cost-1)*100:0),1)}% · ${rows.length} posiciones`:"Sin posiciones todavía")}
     ${tile("ajustes","⚙","Ajustes","Tema, favoritas, guardado en GitHub, copia de la cartera y avisos revisados.","")}
    </div>`;
 }
@@ -1619,7 +1624,7 @@ function carteraHtml(){
      <label>Precio medio ($)<input name="pm" type="number" step="any" min="0" required value="${ed?esc(ed.precio):""}" placeholder="250,00"></label>
      <label>Fecha de compra<input name="f" type="date" value="${ed?esc(ed.fecha||""):""}"></label>
      <div class="carbtns"><button type="submit" class="primary">${ed?"Guardar cambios":"Añadir posición"}</button>${ed?`<button type="button" data-cancel>Cancelar</button>`:""}</div></form>`;
-  return `<div class="tabhead"><div><div class="eyebrow">Valorador</div><h2>Cartera</h2><p>Tus posiciones con el precio de cada noche y el valor de tu modelo. Se guarda solo en este navegador.</p></div></div>${homeNav()}
+  return `<div class="tabhead"><div><div class="eyebrow">Valorador</div><h2>Cartera</h2><p>Tus posiciones con el precio actual y el valor de tu modelo. Se guarda solo en este navegador.</p></div></div>${homeNav()}
   ${rows.length?`<div class="kpis">
     ${kpi("Valor de la cartera",usd(tot),`<span class="note">coste ${usd(cost)} · ${rows.length} posiciones</span>`,true)}
     ${kpi("Ganancia / pérdida",`<span class="${pl>=0?"up":"dn"}">${pl>=0?"+":"−"}${nf(Math.abs(pl),0)} $</span>`,sg(plp))}
@@ -1637,7 +1642,7 @@ function carteraHtml(){
       <td class="cact"><button type="button" class="add" data-cedit="${r.i}" title="Editar">✎</button><button type="button" class="add" data-cdel="${r.i}" title="Eliminar">✕</button></td></tr>`).join("")}
     <tr class="em"><td style="text-align:left">Total</td><td></td><td></td><td></td><td><b>${usd(tot)}</b></td><td>100%</td><td>${pl>=0?"+":"−"}${nf(Math.abs(pl),0)} $<span class="wsub">${sg(plp)}</span></td><td>${sg(dayP)}</td><td>${usd(fvTot)}</td><td>${sg(potT)}</td><td></td><td></td></tr>
   </tbody></table></div>
-  <p class="note">Precio: cierre de Finnhub de cada noche. Valor razonable: el ponderado de tu DCF de cada compañía. «Potencial» de la cartera: valor razonable de las posiciones frente a su valor de mercado. Pulsa una compañía para abrir su análisis.</p></section>
+  <p class="note">Precio: en vivo durante la sesión de Wall Street (15:30–22:00 en España, salvo las semanas de cambio de hora) y, fuera de ella, el último cierre de Finnhub. Valor razonable: el ponderado de tu DCF de cada compañía. «Potencial» de la cartera: valor razonable de las posiciones frente a su valor de mercado. Pulsa una compañía para abrir su análisis.</p></section>
   <div class="g2">
     <section class="card"><h2>Reparto de la cartera</h2><div class="cv h260"><canvas id="ch_c_mix" role="img" aria-label="Peso de cada posición"></canvas></div></section>
     <section class="card"><h2>Ganancia y potencial por posición</h2><p class="sub">% sobre tu precio medio y % hasta tu valor razonable.</p><div class="cv h260"><canvas id="ch_c_pl" role="img" aria-label="Ganancia y potencial por posición"></canvas></div></section>
@@ -1662,7 +1667,7 @@ function watchRows(){
     const E=d.resultados_previstos&&d.resultados_previstos.proximos, eDays=E?Math.round((Date.parse(E.fecha)-Date.now())/864e5):NaN;
     const bb=+c.verdict.buyBelow, toBuy=fin(bb)&&bb>0&&fin(v.price)?(v.price/bb-1)*100:NaN;
     const ws=(allWarnings(c)||[]).filter(w=>w.nivel!=="info"&&lsGet(wKey(c._t,w))!=="1").length;
-    const day=fin(P.valor)&&fin(P.cierre_anterior)&&P.cierre_anterior>0?(P.valor/P.cierre_anterior-1)*100:NaN;
+    const day=dayPct(c);
     let per=NaN, gr=NaN; try{ const prev=cur; cur=c; const m=mctx(); per=MET.per.calc(m).res; const pe=d.peers&&d.peers.propia; gr=pe?pe.crecimiento:NaN; cur=prev; }catch(e){}
     const days=st?st.days:NaN;
     return {k,c,name:c.meta.name,price:v.price,day,fv:vz.w,pot:fin(vz.w)&&v.price>0?(vz.w/v.price-1)*100:NaN,bb,toBuy,rating:c.verdict.rating||"",score:sc.total,
@@ -4030,6 +4035,57 @@ function cellTitle(k,i){const map={rev:"rev",profit:"profit",ni:"ni",capex:"cape
   return p?[p.etiqueta,`Presentado ${fecha(p.fecha_presentacion)} (${p.formulario||""})`,p.derivado||"",k==="fcf"?"FCF = caja operativa − capex":k==="ebitda"?"EBITDA = beneficio operativo + amortizaciones":k==="gross"&&!(cur.fin.pts.gross[i])?"Bruto = ingresos − coste de ventas":""].filter(Boolean).join("\n"):"";}
 function dataStamp(){const d=cur._data, P=d&&d.precio; return [d&&d.referencia_fecha_datos?`Cifras financieras: SEC EDGAR hasta ${fecha(d.referencia_fecha_datos)}`:"Sin cifras de la SEC",P?`cotización: Finnhub, ${fecha(P.fecha)}`:"",`análisis propio: ${cur.meta.asOf||"sin fecha"}`].filter(Boolean).join("; ")+".";}
 
+/* ================= PRECIO EN VIVO (Cloudflare Worker con la clave de Finnhub) =================
+   Solo cambia la cotización que se muestra y los cálculos que dependen de ella (potencial, capitalización,
+   múltiplos). Nunca se escribe en /data: el dato guardado sigue siendo el cierre de cada noche. */
+const LIVE={url:"",estado:"off",mercado:null,at:0,err:null,timer:null};
+function nyNow(){ const p={}; new Intl.DateTimeFormat("en-US",{timeZone:"America/New_York",weekday:"short",hour:"2-digit",minute:"2-digit",hourCycle:"h23"}).formatToParts(new Date()).forEach(x=>{p[x.type]=x.value;});
+  return {dow:p.weekday,min:(+p.hour)*60+(+p.minute)}; }
+function enHorario(){ const n=nyNow(); return n.dow!=="Sat"&&n.dow!=="Sun"&&n.min>=570&&n.min<960; }
+function dayPct(c){ const L=c._live; if(L&&fin(L.var_pct)) return L.var_pct;
+  const P=(c._data&&c._data.precio)||{}; return fin(P.valor)&&fin(P.cierre_anterior)&&P.cierre_anterior>0?(P.valor/P.cierre_anterior-1)*100:NaN; }
+function liveTag(c){ const L=c._live; if(!L) return "";
+  const h=new Date(L.hora), mins=(Date.now()-h)/60000, hh=h.toLocaleTimeString("es-ES",{hour:"2-digit",minute:"2-digit"});
+  const tip=`Finnhub vía tu Worker de Cloudflare. Última operación: ${h.toLocaleString("es-ES")}. Se actualiza cada minuto durante la sesión. El cierre de cada noche sigue guardado en /data.`;
+  if(LIVE.estado==="vivo") return `<span class="src live${mins>15?" lag":""}" title="${esc(tip)}">${mins>15?"retrasado · "+hh:mins<1.5?"en vivo · ahora":"en vivo · "+hh}</span>`;
+  if(LIVE.estado==="error") return `<span class="src warn" title="${esc("No se pudo actualizar: "+(LIVE.err||"")+". Se reintentará en 2 minutos.")}">sin conexión · ${hh}</span>`;
+  return `<span class="src" title="${esc(tip)}">Finnhub · cierre ${esc(h.toLocaleDateString("es-ES",{day:"numeric",month:"short"}))}</span>`;
+}
+function liveRerender(changedCur){
+  const a=document.activeElement, typing=a&&/^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName)&&$("main").contains(a);
+  if(WATCH){ if(!typing&&WVIEW!=="ajustes") renderWatch(); return; }
+  renderHeader();
+  if(!changedCur||typing||EDIT||REPORT) return;
+  if(TAB==="valuation") renderValOut(); else if(TAB==="overview"||TAB==="verdict") renderTab();
+}
+async function livePoll(){
+  clearTimeout(LIVE.timer); LIVE.timer=null;
+  if(!LIVE.url||document.hidden) return;                     // se reanuda al volver a la pestaña
+  const abiertoReloj=enHorario();
+  if(!abiertoReloj&&LIVE.at){                                   // fuera de sesión: solo vigilar cuándo abre
+    if(LIVE.estado==="vivo"){ LIVE.estado="cerrado"; liveRerender(false); }
+    LIVE.timer=setTimeout(livePoll,5*60e3); return; }
+  const before=cur&&cur.v.price;
+  try{
+    const r=await fetch(LIVE.url+(LIVE.url.includes("?")?"&":"?")+"s="+encodeURIComponent(Object.keys(store.companies).join(",")),{cache:"no-store"});
+    const j=await r.json().catch(()=>({})); if(!r.ok) throw new Error(j.error||("HTTP "+r.status));
+    const abierto=j.mercado?j.mercado.abierto:abiertoReloj;
+    LIVE.mercado=j.mercado; LIVE.at=Date.now(); LIVE.err=null; LIVE.estado=abierto?"vivo":"cerrado";
+    Object.entries(store.companies).forEach(([t,c])=>{ const q=(j.cotizaciones||{})[t], P=c._data&&c._data.precio;
+      // fuera de sesión solo se usa si es más reciente que el cierre guardado esta noche
+      const util=q&&fin(q.precio)&&(abierto||!P||!P.fecha||q.hora.slice(0,10)>P.fecha);
+      c._live=util?q:null; const base=P&&fin(P.valor)?P.valor:NaN; c.v.price=util?q.precio:base; });
+  }catch(e){ LIVE.err=e.message; LIVE.estado="error"; console.warn("Precio en vivo:",e.message); }
+  liveRerender(!!cur&&cur.v.price!==before);
+  LIVE.timer=setTimeout(livePoll,LIVE.estado==="vivo"?60e3:LIVE.estado==="error"?120e3:5*60e3);
+}
+async function liveStart(){
+  try{ const a=await getJSON("ajustes.json"); LIVE.url=String(a.precio_vivo_url||"").trim().replace(/\/$/,""); }catch(e){ return; }
+  if(!/^https:\/\//.test(LIVE.url)){ LIVE.url=""; return; }
+  document.addEventListener("visibilitychange",()=>{ if(!document.hidden&&!LIVE.timer) livePoll(); });
+  livePoll();
+}
+
 /* ================= ARRANQUE ================= */
 async function boot(){
   $("main").innerHTML='<p class="note" style="padding:24px 0">Cargando datos…</p>';
@@ -4052,6 +4108,7 @@ async function boot(){
   store.current=store.companies[saved]?saved:(keys.find(k=>store.companies[k].meta.fav)||keys[0]);
   cur=store.companies[store.current];
   renderHeader(); renderTabs(); if({seguimiento:1,cartera:1,inicio:1,favoritas:1,ajustes:1}[(location.hash||"").slice(1)]){ const h=location.hash.slice(1); WVIEW=h==="seguimiento"?"lista":h; WATCH=true; renderWatch(); } else goTab((location.hash||"").slice(1)||"overview",false);
+  liveStart();
 }
 boot();
 </script>

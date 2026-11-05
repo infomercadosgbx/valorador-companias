@@ -1,0 +1,11 @@
+# Solo hace falta si despliegas con la línea de comandos (npx wrangler deploy).
+# Desde el panel de Cloudflare basta con pegar precio.js (ver el README).
+name = "valorador-precio"
+main = "precio.js"
+compatibility_date = "2026-11-01"
+
+[vars]
+ORIGENES = "https://infomercadosgbx.github.io"
+
+# La clave se guarda aparte, nunca en este archivo:
+#   npx wrangler secret put FINNHUB_API_KEY

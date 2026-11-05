@@ -133,6 +133,27 @@ El PDF solo se regenera si el informe cambia (huella en `data/resultados/<T>/ind
 - **Cambios del valorador antiguo.** Si editaste algo en la versión anterior, en ella pulsa «Datos → Copiar JSON» y pégalo en «Mi análisis → Importar como borradores».
 - **En local**, abre la carpeta con `python -m http.server` y entra en `http://localhost:8000/valorador.html` (abriendo el archivo con doble clic el navegador bloquea la lectura de los JSON).
 
+## Precio en vivo durante la sesión (opcional)
+
+El cierre de cada noche sigue siendo el dato guardado en `data/`. Además, mientras Wall Street está abierto (9:30–16:00 en Nueva York; 15:30–22:00 en España, salvo las semanas de cambio de hora), la web pide la cotización cada minuto a un **Cloudflare Worker** tuyo, que consulta Finnhub con la clave guardada como secreto. La clave nunca llega al navegador.
+
+- La cabecera muestra «● en vivo · 16:42» y la variación de la sesión; la lista de seguimiento, la cartera, la capitalización, los múltiplos y el potencial del DCF se recalculan con ese precio. Las cifras de la SEC no cambian.
+- Fuera de sesión deja de preguntar. Si el último cierre de Finnhub es más reciente que el de `data/` (entre las 22:00 y la ejecución nocturna), la web lo usa y lo marca «Finnhub · cierre».
+- Si el Worker no responde, la etiqueta pasa a «sin conexión» y la web vuelve al cierre de `data/`. Reintenta cada 2 minutos.
+- Si la pestaña está en segundo plano no hace peticiones.
+- El Worker guarda cada cotización 30 s en memoria: con 10 compañías son unas 10 llamadas por minuto a Finnhub aunque tengas la web abierta en varios dispositivos (el plan gratuito permite 60).
+- Solo responde a peticiones de tu web (`https://infomercadosgbx.github.io`). Es una protección básica: si la clave se agotara por un uso ajeno, cámbiala en Finnhub y en el secreto del Worker.
+
+### Puesta en marcha (unos 5 minutos)
+
+1. En el panel de Cloudflare: *Workers & Pages → Create → Create Worker*. Nombre: `valorador-precio`. Pulsa *Deploy*.
+2. *Edit code*: borra el contenido, pega el de [`worker/precio.js`](worker/precio.js) y pulsa *Deploy*.
+3. En el Worker, *Settings → Variables and Secrets → Add*: tipo **Secret**, nombre `FINNHUB_API_KEY`, valor tu clave de Finnhub (la misma del secret de GitHub). Guarda con *Deploy*.
+4. Copia la dirección del Worker, del tipo `https://valorador-precio.<tu-subdominio>.workers.dev`. Si la abres en el navegador verás «Origen no permitido»: es lo esperado.
+5. En GitHub edita [`ajustes.json`](ajustes.json) y pon esa dirección en `precio_vivo_url`. Al hacer commit se vuelve a publicar la web.
+
+Si sirves la web desde otro dominio, añádelo en el Worker como variable de texto `ORIGENES` (varios separados por comas). Para desactivarlo, deja `precio_vivo_url` vacío.
+
 ## Qué hace cada noche
 
 1. Ejecuta los tests. Si fallan, no se toca ningún dato.
@@ -159,6 +180,8 @@ El PDF solo se regenera si el informe cambia (huella en `data/resultados/<T>/ind
 | `fetcher/` | Código Python (solo biblioteca estándar) | — |
 | `tests/` | Tests sintéticos de cada regla y tests de aceptación con fixtures reales | — |
 | `valorador.html` | La web | — |
+| `ajustes.json` | Ajustes de la web: dirección del Worker de precio en vivo | Tú |
+| `worker/` | Cloudflare Worker del precio en vivo (se pega en Cloudflare, no se publica en Pages) | — |
 
 ## Fuentes de datos
 
