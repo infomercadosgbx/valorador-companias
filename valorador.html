@@ -504,6 +504,9 @@ table.mini2 td{padding:3px 6px;font-size:12px;border-bottom:1px solid var(--grid
 .mktop{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}.mktop h2{margin:0}.mktop .sub{margin:4px 0 0}
 .mksent{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-top:14px;align-items:stretch}
 .mkcard>.mkcnn,.mkcard>.mkgo{margin-top:auto}
+.mkdue{font-size:11px;padding:1px 8px}.mksig{font-size:11px;color:var(--ink3,var(--ink2))}
+.mkn .mkdue,.mkn .mksig,.mkfn .mkdue,.mkfn .mksig{display:block;width:max-content;margin-top:3px}
+.mkbadge{display:inline-grid;place-items:center;min-width:18px;height:18px;padding:0 5px;margin-left:4px;border-radius:99px;background:var(--warn);color:#000;font-size:11px;font-weight:700}
 .mkcard{border:1px solid var(--line);border-radius:12px;padding:14px;background:var(--surface2);display:flex;flex-direction:column;gap:8px;min-width:0}
 .mkcard .note{margin:0;font-size:12px}
 .mkh{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap}.mkh .eyebrow{margin:0}
@@ -1714,8 +1717,28 @@ function mkRow(i){
   return `<div class="mkrow"><div class="mkn"><span class="mknt"><b>${esc(i.nombre)}</b>${mkI(i.id)}</span>${src}</div>
     <div class="mkv"><b>${mkFmt(i,x.v)}</b>${fin(x.pb)?mkSign(x.pb,1," pb"):mkSign(x.pct)}${ref}</div></div>`+mkInfoPanel(i.id);
 }
+/* Calendario de los valores manuales: cuándo sale un dato nuevo (hora de Nueva York; no tiene en cuenta festivos de EE. UU.) */
+const MKCAL={cnn:{tipo:"diario",hora:570,txt:"cada día de sesión, desde la apertura (15:30 en España)"},
+  move:{tipo:"diario",hora:570,txt:"cada día de sesión, desde la apertura (15:30 en España)"},
+  aaii:{tipo:"semanal",hora:540,lag:0,txt:"los jueves, con la encuesta cerrada el miércoles"},
+  naaim:{tipo:"semanal",hora:540,lag:91,txt:"los jueves; la web gratuita da el dato con 13 semanas de retraso"}};
+function mkNY(){ const p={}; new Intl.DateTimeFormat("en-CA",{timeZone:"America/New_York",year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",hourCycle:"h23"}).formatToParts(new Date()).forEach(x=>p[x.type]=x.value);
+  return {d:new Date(Date.UTC(+p.year,+p.month-1,+p.day)),m:+p.hour*60+ +p.minute}; }
+function mkDue(k,f){ const R=MKCAL[k]; if(!R) return null;
+  const add=(d,n)=>new Date(d.getTime()+n*864e5), iso=d=>d.toISOString().slice(0,10), lab=d=>d.getUTCDay()%6!==0, {d:hoy,m}=mkNY(); let disp,sig;
+  if(R.tipo==="diario"){ disp=hoy; if(!lab(disp)||m<R.hora){ disp=add(disp,-1); while(!lab(disp)) disp=add(disp,-1); }
+    sig=add(disp,1); while(!lab(sig)) sig=add(sig,1); }
+  else{ const ref=add(hoy,-R.lag); let ju=add(ref,-((ref.getUTCDay()+3)%7)); if(iso(ju)===iso(ref)&&m<R.hora) ju=add(ju,-7);
+    disp=add(ju,-1); sig=add(ju,7+R.lag); }
+  return {due:!f||f<iso(disp),disp:iso(disp),sig:iso(sig),txt:R.txt}; }
+function mkDueTag(k,f){ const D=mkDue(k,f); if(!D) return "";
+  return D.due?`<span class="pill mid mkdue" title="Se publica ${esc(D.txt)}.">Toca actualizar · ya hay dato del ${esc(fecha(D.disp))}</span>`
+    :`<span class="mksig" title="Se publica ${esc(D.txt)}.">Al día · próximo dato: ${esc(fecha(D.sig))}</span>`; }
+function mkPendientes(){ const S=(MKH.d&&MKH.d.sentimiento)||{}, M=MKH.man, am=M.aaii||{};
+  const fA=[S.aaii&&S.aaii.fecha,fin(am.alcistas)?am.fecha:null].filter(Boolean).sort().at(-1);
+  return [["naaim",M.naaim&&M.naaim.fecha],["cnn",M.cnn&&M.cnn.fecha],["move",M.move&&M.move.fecha],["aaii",fA]].filter(([k,f])=>mkDue(k,f).due).length; }
 function mkManualRow(k,nombre){ const m=MKH.man[k]||{};
-  return `<div class="mkrow"><div class="mkn"><span class="mknt"><b>${esc(nombre)}</b>${mkI(k)}</span>${fin(m.valor)?srcTag({manual:true,fecha:fecha(m.fecha),fuente:m.fuente||"Introducido a mano"}):`<span class="src off">sin apuntar</span>`}</div>
+  return `<div class="mkrow"><div class="mkn"><span class="mknt"><b>${esc(nombre)}</b>${mkI(k)}</span>${fin(m.valor)?srcTag({manual:true,fecha:fecha(m.fecha),fuente:m.fuente||"Introducido a mano"}):`<span class="src off">sin apuntar</span>`}${mkDueTag(k,fin(m.valor)?m.fecha:null)}</div>
     <div class="mkv"><b>${fin(m.valor)?nf(m.valor,2):"–"}</b>${mkA(k,"consultar")}</div></div>`+mkInfoPanel(k); }
 function mkGauge(v){ return `<div class="mkgauge" role="img" aria-label="${nf(v,0)} sobre 100"><span class="mkmark" style="left:${Math.max(0,Math.min(100,v))}%"></span></div>
   <div class="mkscale"><span>Miedo extremo</span><span>Neutral</span><span>Codicia extrema</span></div>`; }
@@ -1738,7 +1761,7 @@ function mkSentHtml(){
       <details class="mkdet" data-mkdet${MKH.abierto?" open":""}><summary>Cómo se calcula (${F.n_componentes} de 5 componentes)</summary>
         <ul>${F.componentes.map(c=>`<li><span class="mkch"><b>${esc(c.nombre)}</b>${fin(c.puntuacion)?`<span class="pill ${mkFgTone(c.puntuacion)}">${nf(c.puntuacion,0)} · ${esc(c.etiqueta)}</span>`:`<span class="src off">sin dato</span>`}</span><span class="note">${esc(c.descripcion)}</span></li>`).join("")}</ul>
         <p class="note">${esc(F.metodo||"")} No es el número de CNN: se mueve de forma parecida, pero puede diferir unos puntos.${fin(cnn.valor)?` CNN (manual, ${esc(fecha(cnn.fecha))}): <b>${nf(cnn.valor,0)}</b>.`:""}</p></details>
-      <div class="mkcnn">${fin(cnn.valor)?`<span>CNN <b>${nf(cnn.valor,0)}</b> <span class="note">· manual ${esc(fecha(cnn.fecha))}</span></span>`:`<span class="note">CNN: sin apuntar</span>`}${mkI("cnn")}${mkA("cnn","Ver el de CNN")}</div>${mkInfoPanel("cnn")}
+      <div class="mkcnn">${fin(cnn.valor)?`<span>CNN <b>${nf(cnn.valor,0)}</b> <span class="note">· manual ${esc(fecha(cnn.fecha))}</span></span>`:`<span class="note">CNN: sin apuntar</span>`}${mkDueTag("cnn",fin(cnn.valor)?cnn.fecha:null)}${mkI("cnn")}${mkA("cnn","Ver el de CNN")}</div>${mkInfoPanel("cnn")}
     </div>`:`<div class="mkcard"><div class="mkh"><span class="eyebrow">Miedo y codicia</span></div><p class="note">Sin datos todavía.</p></div>`;
   const ofr=O?`<div class="mkcard">
       <div class="mkh"><span class="eyebrow">Estrés financiero (OFR) ${mkI("ofr")}</span>${srcTag({fuente:"OFR (Tesoro de EE. UU.)",fecha:O.fecha,url:O.url})}</div>${mkInfoPanel("ofr")}
@@ -1747,7 +1770,7 @@ function mkSentHtml(){
       <p class="note">0 es el nivel medio de estrés. Valores positivos: tensión en crédito, volatilidad, financiación o huida a activos refugio. Se publica con dos días hábiles de retraso.</p>
     </div>`:`<div class="mkcard"><div class="mkh"><span class="eyebrow">Estrés financiero (OFR)</span></div><p class="note">Sin datos todavía.</p></div>`;
   const aaii=A?`<div class="mkcard">
-      <div class="mkh"><span class="eyebrow">Encuesta AAII · inversores particulares ${mkI("aaii")}</span>${A.manual?srcTag({manual:true,fecha:fecha(A.fecha),fuente:"AAII · introducido a mano"}):srcTag({fuente:"AAII",fecha:A.fecha,url:A.url})}</div>${mkInfoPanel("aaii")}
+      <div class="mkh"><span class="eyebrow">Encuesta AAII · inversores particulares ${mkI("aaii")}</span>${A.manual?srcTag({manual:true,fecha:fecha(A.fecha),fuente:"AAII · introducido a mano"}):srcTag({fuente:"AAII",fecha:A.fecha,url:A.url})}</div>${mkDueTag("aaii",A.fecha)}${mkInfoPanel("aaii")}
       <div class="mkbar3" role="img" aria-label="Alcistas ${nf(A.alcistas,1)}%, neutrales ${nf(A.neutrales,1)}%, bajistas ${nf(A.bajistas,1)}%"><span class="b" style="width:${A.alcistas}%"></span><span class="n" style="width:${A.neutrales}%"></span><span class="r" style="width:${A.bajistas}%"></span></div>
       <div class="mk3"><span><i class="b"></i>Alcistas <b>${nf(A.alcistas,1)}%</b>${A.medias?` <small>media ${nf(A.medias.alcistas,1)}%</small>`:""}</span>
         <span><i class="n"></i>Neutrales <b>${nf(A.neutrales,1)}%</b></span>
@@ -1755,7 +1778,7 @@ function mkSentHtml(){
       <p class="note">Diferencial alcistas − bajistas: ${mkSign(A.diferencial,1," pp")}. Por debajo de −20 pp suele marcar pesimismo excesivo (señal contraria).</p>${mkA("aaii")}
     </div>`:`<div class="mkcard"><div class="mkh"><span class="eyebrow">Encuesta AAII ${mkI("aaii")}</span></div>${mkInfoPanel("aaii")}<p class="note">Sin datos: no se ha podido leer aaii.com. Apúntala con «Apuntar valores».</p>${mkA("aaii")}</div>`;
   const nai=`<div class="mkcard">
-      <div class="mkh"><span class="eyebrow">NAAIM · gestores activos ${mkI("naaim")}</span>${fin(naaim.valor)?srcTag({manual:true,fecha:fecha(naaim.fecha),fuente:"NAAIM · introducido a mano"}):`<span class="src off">manual</span>`}</div>${mkInfoPanel("naaim")}
+      <div class="mkh"><span class="eyebrow">NAAIM · gestores activos ${mkI("naaim")}</span>${fin(naaim.valor)?srcTag({manual:true,fecha:fecha(naaim.fecha),fuente:"NAAIM · introducido a mano"}):`<span class="src off">manual</span>`}</div>${mkDueTag("naaim",fin(naaim.valor)?naaim.fecha:null)}${mkInfoPanel("naaim")}
       ${fin(naaim.valor)?`<div class="mkbig"><b>${nf(naaim.valor,1)}</b><span class="pill ${naaim.valor>=80?"up":naaim.valor<40?"down":"neutral"}">${naaim.valor>=80?"Muy invertidos":naaim.valor<40?"Poco invertidos":"Exposición media"}</span></div>
         <p class="note">Exposición media a bolsa de los gestores encuestados (0 = sin acciones, 100 = totalmente invertidos). Se publica los miércoles.</p>`
       :`<p class="note">El dato actual de la NAAIM es de pago (la web pública lo da con tres meses de retraso), así que se apunta a mano cada semana con «Apuntar valores».</p>`}${mkA("naaim")}
@@ -1763,10 +1786,8 @@ function mkSentHtml(){
   return `<div class="mksent">${fg}${ofr}${aaii}${nai}</div>`;
 }
 function mkEditHtml(){ const m=MKH.man, v=(k,f="valor")=>m[k]&&m[k][f]!=null?esc(String(m[k][f])):"";
-  const iso=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
-  const hoy=iso(new Date()), mie=(()=>{ const d=new Date(); d.setDate(d.getDate()-((d.getDay()+4)%7)); return iso(d); })();  // último miércoles
   const fila=(k,nombre,ayuda,valor,fdef)=>`<div class="mkfrow">
-      <div class="mkfn"><b>${nombre}</b> ${mkA(k,"consultar")}<span class="note">${ayuda}</span></div>
+      <div class="mkfn"><b>${nombre}</b> ${mkA(k,"consultar")}<span class="note">${ayuda}</span>${mkDueTag(k,m[k]&&(m[k].valor!=null||m[k].alcistas!=null)?m[k].fecha:null)}</div>
       <div class="mkfv">${valor}</div>
       <label class="mkff"><span>Fecha del dato</span><input type="date" id="mk_${k}_f" value="${v(k,"fecha")||fdef}"></label></div>`;
   const inp=(id,val,ph,lab)=>`<label><span>${lab}</span><input type="number" step="any" inputmode="decimal" id="${id}" value="${val}" placeholder="${ph}"></label>`;
@@ -1774,10 +1795,10 @@ function mkEditHtml(){ const m=MKH.man, v=(k,f="valor")=>m[k]&&m[k][f]!=null?esc
     <h3 style="margin-top:0">Apuntar valores manuales</h3>
     <p class="note">Una fila por indicador: valor y la fecha a la que corresponde ese dato. Se guardan en <code>manual/_mercado.json</code>. Deja vacío lo que no quieras mostrar.</p>
     <div class="mkform2">
-      ${fila("naaim","NAAIM","Semanal. Fecha: el miércoles de la encuesta.",inp("mk_naaim",v("naaim"),"p. ej. 72,4","Exposición (de −200 a 200)"),mie)}
-      ${fila("cnn","Miedo y codicia de CNN","Diario. Fecha: el día que lo consultas.",inp("mk_cnn",v("cnn"),"0–100","Valor (0–100)"),hoy)}
-      ${fila("move","MOVE","Diario. Fecha: la del último cierre.",inp("mk_move",v("move"),"p. ej. 93,9","Valor"),hoy)}
-      ${fila("aaii","Encuesta AAII","Semanal (sale los jueves). Fecha: la de «week ending», un miércoles.",inp("mk_aaii_b",v("aaii","alcistas"),"p. ej. 34,1","Alcistas %")+inp("mk_aaii_r",v("aaii","bajistas"),"p. ej. 48,4","Bajistas %"),mie)}
+      ${fila("naaim","NAAIM","Semanal. Fecha: el miércoles de la encuesta (la web gratuita va 13 semanas por detrás).",inp("mk_naaim",v("naaim"),"p. ej. 72,4","Exposición (de −200 a 200)"),mkDue("naaim").disp)}
+      ${fila("cnn","Miedo y codicia de CNN","Diario. Fecha: el día que lo consultas.",inp("mk_cnn",v("cnn"),"0–100","Valor (0–100)"),mkDue("cnn").disp)}
+      ${fila("move","MOVE","Diario. Fecha: la del último cierre.",inp("mk_move",v("move"),"p. ej. 93,9","Valor"),mkDue("move").disp)}
+      ${fila("aaii","Encuesta AAII","Semanal (sale los jueves). Fecha: la de «week ending», un miércoles.",inp("mk_aaii_b",v("aaii","alcistas"),"p. ej. 34,1","Alcistas %")+inp("mk_aaii_r",v("aaii","bajistas"),"p. ej. 48,4","Bajistas %"),mkDue("aaii").disp)}
     </div>
     <p class="note">Las neutrales de la AAII se calculan solas (100 − alcistas − bajistas). El formato de la fecha depende del idioma del navegador: en inglés se ve mes/día/año.</p>
     <div class="toolbar">${ghToken()?`<button type="button" class="btn-acc" data-mk="guardar">Guardar en GitHub</button>`:`<a class="mklink" href="${esc(repoUrl())}/edit/main/manual/_mercado.json" target="_blank" rel="noopener">Editar en GitHub</a><span class="note">o conecta GitHub en ⚙ Ajustes para guardarlo desde aquí</span>`}<button type="button" data-mk="cerrar">Cerrar</button><span class="saved" id="mkMsg"></span></div>
@@ -1812,7 +1833,7 @@ function mercadoHtml(){
     return rows.length||extra?`<div class="mkgrp"><h3>${esc(t)}</h3>${rows.map(mkRow).join("")}${extra}</div>`:""; }).join("");
   return `<section class="card mk">
     <div class="mktop"><div><h2>Mercado hoy</h2><p class="sub">${vivo?`<span class="pill up">● Sesión abierta</span> Los ETF se actualizan cada minuto; índices, tipos y materias primas son el último cierre oficial.`:ult?`Último cierre disponible: ${esc(fecha(ult))}. Se actualiza dos veces cada día laborable.`:esc(MKH.err||"")}</p></div>
-      <button type="button" data-mk="editar" aria-expanded="${MKH.editar}">✎ Apuntar valores</button></div>
+      ${(n=>`<button type="button" data-mk="editar" aria-expanded="${MKH.editar}"${n?` title="${n} ${n===1?"valor manual tiene":"valores manuales tienen"} un dato nuevo publicado"`:""}>✎ Apuntar valores${n?` <span class="mkbadge">${n}</span>`:""}</button>`)(D?mkPendientes():0)}</div>
     ${MKH.editar?mkEditHtml():""}
     ${D?mkSentHtml():""}
     ${grupos?`<div class="mkgrid">${grupos}</div>`:""}
