@@ -131,6 +131,66 @@
      }
     ]
    }
+  },
+  {
+   "fecha_commit": "2026-11-05",
+   "commit": "919e525ec1",
+   "analisis_a": "5-nov-2026",
+   "recomendacion": "Acumular",
+   "conviccion": 3,
+   "comprar_por_debajo": 100,
+   "horizonte": "12–24 meses",
+   "resumen": "El riesgo que más pesaba en la tesis se ha cumplido: Google envía cada vez menos visitas y los usuarios diarios pueden caer en el 4T. Aun así, el negocio sigue creciendo al 40–50% con márgenes de software, 3.000 M$ de caja y recompras. Tras caer un 29%, a ~92 $ el precio descuenta crecimiento cero y coincide con el escenario bajista del modelo (~87 $), con un valor ponderado de ~167 $. Para acumul",
+   "supuestos": {
+    "shares": 206.3,
+    "cash": 3030,
+    "debt": 0,
+    "rev0": 3380,
+    "year0": 2026,
+    "g": [
+     22,
+     18,
+     15,
+     13,
+     11
+    ],
+    "m1": 46,
+    "m5": 50,
+    "da": 0.6,
+    "da5": 0.6,
+    "sbc": 8,
+    "capex": 0.3,
+    "capex5": 0.3,
+    "nwc": 8,
+    "tax": 18,
+    "wacc": 10.5,
+    "tg": 3,
+    "exit": 15,
+    "method": "blend",
+    "eps": 6,
+    "pe": 22,
+    "evm": 18,
+    "scn": [
+     {
+      "n": "Bajista",
+      "dg": -14,
+      "dm": -8,
+      "p": 25
+     },
+     {
+      "n": "Base",
+      "dg": 0,
+      "dm": 0,
+      "p": 50
+     },
+     {
+      "n": "Alcista",
+      "dg": 8,
+      "dm": 3,
+      "p": 25
+     }
+    ]
+   }
   }
  ],
  "fuente": "Historial de git de analysis/RDDT.json"

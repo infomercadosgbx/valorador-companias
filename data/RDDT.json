@@ -6066,14 +6066,46 @@
   "fuente": "SEC EDGAR · formularios 4",
   "resumen": {
    "compras_mercado": 0,
-   "ventas_mercado": 89746607.22,
+   "ventas_mercado": 90334607.22,
    "n_compras": 0,
-   "n_ventas": 152,
+   "n_ventas": 154,
    "ventas_con_plan": 88926537.46,
    "compradores": [],
    "desde": "2026-05-06"
   },
   "operaciones": [
+   {
+    "fecha": "2026-11-04",
+    "codigo": "S",
+    "tipo": "Venta en mercado",
+    "acciones": 3000.0,
+    "precio": 100.0,
+    "importe": 300000.0,
+    "sentido": "venta",
+    "tras_operacion": 15181.0,
+    "clase": "Class A Common Stock",
+    "persona": "Gale Mary Porter",
+    "cargo": "Consejero",
+    "plan_10b5_1": false,
+    "fecha_presentacion": "2026-11-05",
+    "url": "https://www.sec.gov/Archives/edgar/data/1713445/000192458126000009/0001924581-26-000009-index.htm"
+   },
+   {
+    "fecha": "2026-11-03",
+    "codigo": "S",
+    "tipo": "Venta en mercado",
+    "acciones": 3000.0,
+    "precio": 96.0,
+    "importe": 288000.0,
+    "sentido": "venta",
+    "tras_operacion": 18181.0,
+    "clase": "Class A Common Stock",
+    "persona": "Gale Mary Porter",
+    "cargo": "Consejero",
+    "plan_10b5_1": false,
+    "fecha_presentacion": "2026-11-05",
+    "url": "https://www.sec.gov/Archives/edgar/data/1713445/000192458126000009/0001924581-26-000009-index.htm"
+   },
    {
     "fecha": "2026-10-14",
     "codigo": "M",
@@ -9241,41 +9273,45 @@
     "plan_10b5_1": true,
     "fecha_presentacion": "2026-05-07",
     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000072/0001713445-26-000072-index.htm"
-   },
-   {
-    "fecha": "2026-05-05",
-    "codigo": "S",
-    "tipo": "Venta en mercado",
-    "acciones": 7249.0,
-    "precio": 171.9,
-    "importe": 1246103.1,
-    "sentido": "venta",
-    "tras_operacion": 415845.0,
-    "clase": "Class A Common Stock",
-    "persona": "Huffman Steve Ladd",
-    "cargo": "Consejero, CEO & President, Accionista >10%",
-    "plan_10b5_1": true,
-    "fecha_presentacion": "2026-05-07",
-    "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000072/0001713445-26-000072-index.htm"
-   },
-   {
-    "fecha": "2026-05-05",
-    "codigo": "S",
-    "tipo": "Venta en mercado",
-    "acciones": 1850.0,
-    "precio": 172.82,
-    "importe": 319717.0,
-    "sentido": "venta",
-    "tras_operacion": 413995.0,
-    "clase": "Class A Common Stock",
-    "persona": "Huffman Steve Ladd",
-    "cargo": "Consejero, CEO & President, Accionista >10%",
-    "plan_10b5_1": true,
-    "fecha_presentacion": "2026-05-07",
-    "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000072/0001713445-26-000072-index.htm"
    }
   ],
   "operaciones_por_filing": [
+   {
+    "accn": "0001924581-26-000009",
+    "fecha_presentacion": "2026-11-05",
+    "url": "https://www.sec.gov/Archives/edgar/data/1713445/000192458126000009/0001924581-26-000009-index.htm",
+    "personas": [
+     {
+      "nombre": "Gale Mary Porter",
+      "cargo": "Consejero"
+     }
+    ],
+    "plan_10b5_1": false,
+    "operaciones": [
+     {
+      "fecha": "2026-11-03",
+      "codigo": "S",
+      "tipo": "Venta en mercado",
+      "acciones": 3000.0,
+      "precio": 96.0,
+      "importe": 288000.0,
+      "sentido": "venta",
+      "tras_operacion": 18181.0,
+      "clase": "Class A Common Stock"
+     },
+     {
+      "fecha": "2026-11-04",
+      "codigo": "S",
+      "tipo": "Venta en mercado",
+      "acciones": 3000.0,
+      "precio": 100.0,
+      "importe": 300000.0,
+      "sentido": "venta",
+      "tras_operacion": 15181.0,
+      "clase": "Class A Common Stock"
+     }
+    ]
+   },
    {
     "accn": "0001663651-26-000023",
     "fecha_presentacion": "2026-10-16",
@@ -12207,7 +12243,7 @@
     ]
    }
   ],
-  "n_formularios": 49
+  "n_formularios": 50
  },
  "riesgos_10k": {
   "version": 4,
@@ -12347,6 +12383,15 @@
   ]
  },
  "noticias": [
+  {
+   "titular": "Reddit Sinks 8% as Social Ad Worries Deepen in Tech Rout",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=6191b8e02e60b4fd11cb66451cc10b1f73abc1d81b816402145f6977ed5a1825",
+   "fecha": "2026-11-05",
+   "resumen": "Key TakeawaysReddit shares fell 8% today after Snap reported just 4% ad revenue growth, in a broad tech selloff. Meta’s 26% revenue growth last quarter suggests advertisers are still spending on the biggest social platform, so Snap’s slowdown looks like Snap’s own problem.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
   {
    "titular": "Workers Caught In 'The Great 2026 Mass Layoff Wave' Share What Life Looks Like Now. 'Been Playing A Lot Of Video Games, But…'",
    "medio": "Yahoo Finance",
@@ -12488,15 +12533,6 @@
    "url": "https://finnhub.io/api/news?id=b0dca06d77ca16d14dce2851fad4ccfe42d9ee236cb9a2234ecc97361f10e7fe",
    "fecha": "2026-11-03",
    "resumen": "For questions about this article or underlying research, email help@trefis.com.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Reddit Is Fighting Back Against AI. What That Means for RDDT Stock.",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=66ae6034900d95c28ebbcc61dadfe6708f89cb99180cba3f1c7c5ddb2a698caa",
-   "fecha": "2026-11-03",
-   "resumen": "Reddit wants to put a login wall between AI bots and its content. Will that protect its business or backfire?",
    "tipo": "prensa",
    "via": "Finnhub"
   },
@@ -15277,7 +15313,7 @@
    ],
    [
     "2026-11-05",
-    93.79
+    93.81
    ]
   ],
   "fuente": "Twelve Data (API oficial, plan gratuito)",
@@ -15285,7 +15321,7 @@
   "fecha": "2026-11-05",
   "ajuste": "splits"
  },
- "generado": "2026-11-05T21:38:58+00:00",
+ "generado": "2026-11-05T23:51:58+00:00",
  "peers": {
   "fuente_lista": "manual",
   "fuente_cifras": "SEC EDGAR (companyfacts, UDM) · precio Finnhub",
