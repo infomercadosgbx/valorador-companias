@@ -1,6 +1,6 @@
 {
  "esquema": 1,
- "generado": "2026-11-05T16:43:48+00:00",
+ "generado": "2026-11-05T16:51:48+00:00",
  "grupos": {
   "bolsa": "Bolsa",
   "riesgo": "Volatilidad y crédito",
@@ -9,18 +9,54 @@
  },
  "indicadores": [
   {
+   "id": "sp500",
+   "nombre": "S&P 500",
+   "grupo": "bolsa",
+   "simbolo": "SP500",
+   "unidad": "pts",
+   "valor": 7568.92,
+   "anterior": 7541.4,
+   "fecha": "2026-11-03",
+   "fuente": "FRED (S&P Dow Jones Indices)",
+   "url": "https://fred.stlouisfed.org/series/SP500",
+   "var": 27.52,
+   "var_pct": 0.36,
+   "vivo": {
+    "ticker": "SPY",
+    "modo": "ref"
+   }
+  },
+  {
+   "id": "nasdaq",
+   "nombre": "Nasdaq Composite",
+   "grupo": "bolsa",
+   "simbolo": "NASDAQCOM",
+   "unidad": "pts",
+   "valor": 25736.51,
+   "anterior": 25372.01,
+   "fecha": "2026-11-04",
+   "fuente": "FRED (Nasdaq)",
+   "url": "https://fred.stlouisfed.org/series/NASDAQCOM",
+   "var": 364.5,
+   "var_pct": 1.44,
+   "vivo": {
+    "ticker": "QQQ",
+    "modo": "ref"
+   }
+  },
+  {
    "id": "msci_world",
    "nombre": "MSCI World (ETF URTH)",
    "grupo": "bolsa",
    "simbolo": "URTH",
    "unidad": "$",
-   "valor": 202.4,
+   "valor": 202.16,
    "anterior": 207.87,
    "fecha": "2026-11-05",
    "fuente": "Finnhub",
    "url": "https://finnhub.io/",
-   "var": -5.47,
-   "var_pct": -2.63,
+   "var": -5.71,
+   "var_pct": -2.75,
    "vivo": {
     "ticker": "URTH",
     "modo": "directo"
@@ -33,13 +69,13 @@
    "grupo": "bolsa",
    "simbolo": "EWY",
    "unidad": "$",
-   "valor": 139.94,
+   "valor": 138.98,
    "anterior": 152.12,
    "fecha": "2026-11-05",
    "fuente": "Finnhub",
    "url": "https://finnhub.io/",
-   "var": -12.18,
-   "var_pct": -8.01,
+   "var": -13.14,
+   "var_pct": -8.64,
    "vivo": {
     "ticker": "EWY",
     "modo": "directo"
@@ -47,18 +83,32 @@
    "nota": "ETF que replica el índice: el índice no tiene fuente gratuita."
   },
   {
+   "id": "vix",
+   "nombre": "VIX",
+   "grupo": "riesgo",
+   "simbolo": "VIXCLS",
+   "unidad": "pts",
+   "valor": 16.61,
+   "anterior": 20.83,
+   "fecha": "2026-11-04",
+   "fuente": "FRED (Cboe)",
+   "url": "https://fred.stlouisfed.org/series/VIXCLS",
+   "var": -4.22,
+   "var_pct": -20.26
+  },
+  {
    "id": "hyg",
    "nombre": "Bonos high yield (HYG)",
    "grupo": "riesgo",
    "simbolo": "HYG",
    "unidad": "$",
-   "valor": 77.25,
+   "valor": 77.27,
    "anterior": 77.52,
    "fecha": "2026-11-05",
    "fuente": "Finnhub",
    "url": "https://finnhub.io/",
-   "var": -0.27,
-   "var_pct": -0.35,
+   "var": -0.25,
+   "var_pct": -0.32,
    "vivo": {
     "ticker": "HYG",
     "modo": "directo"
@@ -70,17 +120,30 @@
    "grupo": "riesgo",
    "simbolo": "LQD",
    "unidad": "$",
-   "valor": 104.63,
+   "valor": 104.65,
    "anterior": 104.5,
    "fecha": "2026-11-05",
    "fuente": "Finnhub",
    "url": "https://finnhub.io/",
-   "var": 0.13,
-   "var_pct": 0.12,
+   "var": 0.15,
+   "var_pct": 0.14,
    "vivo": {
     "ticker": "LQD",
     "modo": "directo"
    }
+  },
+  {
+   "id": "dif_hy",
+   "nombre": "Diferencial high yield",
+   "grupo": "riesgo",
+   "simbolo": "BAMLH0A0HYM2",
+   "unidad": "%",
+   "valor": 3.32,
+   "anterior": 3.4,
+   "fecha": "2026-11-04",
+   "fuente": "FRED (ICE BofA)",
+   "url": "https://fred.stlouisfed.org/series/BAMLH0A0HYM2",
+   "var": -0.08
   },
   {
    "id": "kre",
@@ -88,13 +151,13 @@
    "grupo": "riesgo",
    "simbolo": "KRE",
    "unidad": "$",
-   "valor": 73.01,
+   "valor": 72.96,
    "anterior": 74.13,
    "fecha": "2026-11-05",
    "fuente": "Finnhub",
    "url": "https://finnhub.io/",
-   "var": -1.12,
-   "var_pct": -1.51,
+   "var": -1.17,
+   "var_pct": -1.58,
    "vivo": {
     "ticker": "KRE",
     "modo": "directo"
@@ -132,13 +195,13 @@
    "grupo": "tipos",
    "simbolo": "EUR/USD",
    "unidad": "",
-   "valor": 1.1227,
+   "valor": 1.1233,
    "anterior": 1.1223,
    "fecha": "2026-11-05",
    "fuente": "Twelve Data",
    "url": "https://twelvedata.com/",
-   "var": 0.0004,
-   "var_pct": 0.03
+   "var": 0.0009,
+   "var_pct": 0.08
   },
   {
    "id": "oro",
@@ -146,13 +209,27 @@
    "grupo": "materias",
    "simbolo": "XAU/USD",
    "unidad": "$",
-   "valor": 4114.6373,
+   "valor": 4121.4551,
    "anterior": 4058.0181,
    "fecha": "2026-11-05",
    "fuente": "Twelve Data",
    "url": "https://twelvedata.com/",
-   "var": 56.6192,
-   "var_pct": 1.4
+   "var": 63.437,
+   "var_pct": 1.56
+  },
+  {
+   "id": "wti",
+   "nombre": "Petróleo WTI (barril)",
+   "grupo": "materias",
+   "simbolo": "DCOILWTICO",
+   "unidad": "$",
+   "valor": 99.64,
+   "anterior": 100.06,
+   "fecha": "2026-11-03",
+   "fuente": "FRED (EIA)",
+   "url": "https://fred.stlouisfed.org/series/DCOILWTICO",
+   "var": -0.42,
+   "var_pct": -0.42
   },
   {
    "id": "bitcoin",
@@ -160,13 +237,13 @@
    "grupo": "materias",
    "simbolo": "BTC/USD",
    "unidad": "$",
-   "valor": 76646.13,
+   "valor": 76602.0,
    "anterior": 80504.01,
    "fecha": "2026-11-05",
    "fuente": "Twelve Data",
    "url": "https://twelvedata.com/",
-   "var": -3857.88,
-   "var_pct": -4.79
+   "var": -3902.01,
+   "var_pct": -4.85
   }
  ],
  "sentimiento": {
@@ -178,16 +255,323 @@
    "maximo_1a": 0.204,
    "fuente": "OFR · Oficina de Investigación Financiera del Tesoro de EE. UU.",
    "url": "https://www.financialresearch.gov/financial-stress-index/"
+  },
+  "miedo_codicia": {
+   "valor": 20.9,
+   "etiqueta": "Miedo extremo",
+   "fecha": "2026-11-03",
+   "n_componentes": 5,
+   "anterior": {
+    "valor": 19.4,
+    "fecha": "2026-11-02"
+   },
+   "hace_1s": {
+    "valor": 19.7,
+    "fecha": "2026-10-27"
+   },
+   "hace_1m": {
+    "valor": 44.9,
+    "fecha": "2026-10-05"
+   },
+   "componentes": [
+    {
+     "id": "impulso",
+     "nombre": "Impulso del mercado",
+     "descripcion": "S&P 500 frente a su media de 125 sesiones. Por encima, codicia.",
+     "puntuacion": 14.5,
+     "etiqueta": "Miedo extremo",
+     "bruto": -0.0023,
+     "fuente": "S&P 500 vía FRED",
+     "url": "https://fred.stlouisfed.org/series/SP500"
+    },
+    {
+     "id": "volatilidad",
+     "nombre": "Volatilidad",
+     "descripcion": "VIX frente a su media de 50 sesiones. Si sube por encima, miedo.",
+     "puntuacion": 9.9,
+     "etiqueta": "Miedo extremo",
+     "bruto": 0.2704,
+     "fuente": "VIX (Cboe) vía FRED",
+     "url": "https://fred.stlouisfed.org/series/VIXCLS"
+    },
+    {
+     "id": "bonos_basura",
+     "nombre": "Demanda de bonos basura",
+     "descripcion": "Diferencial high yield menos el de grado de inversión. Si se abre, miedo.",
+     "puntuacion": 6.7,
+     "etiqueta": "Miedo extremo",
+     "bruto": 2.47,
+     "fuente": "FRED (ICE BofA)",
+     "url": "https://fred.stlouisfed.org/series/BAMLH0A0HYM2"
+    },
+    {
+     "id": "refugio",
+     "nombre": "Demanda de refugio",
+     "descripcion": "Rentabilidad a 20 sesiones de la bolsa menos la del bono a 10 años. Si ganan los bonos, miedo.",
+     "puntuacion": 5.0,
+     "etiqueta": "Miedo extremo",
+     "bruto": -6.3358,
+     "fuente": "S&P 500 y bono a 10 años vía FRED",
+     "url": "https://fred.stlouisfed.org/series/DGS10"
+    },
+    {
+     "id": "put_call",
+     "nombre": "Ratio put/call",
+     "descripcion": "Media de 5 sesiones del ratio put/call total del Cboe. Muchas puts, miedo.",
+     "puntuacion": 68.5,
+     "etiqueta": "Codicia",
+     "bruto": 0.876,
+     "fuente": "Cboe · estadísticas diarias",
+     "url": "https://www.cboe.com/us/options/market_statistics/daily/"
+    }
+   ],
+   "serie": [
+    [
+     "2026-08-11",
+     77.1
+    ],
+    [
+     "2026-08-12",
+     80.4
+    ],
+    [
+     "2026-08-13",
+     82.7
+    ],
+    [
+     "2026-08-14",
+     86.5
+    ],
+    [
+     "2026-08-17",
+     79.7
+    ],
+    [
+     "2026-08-18",
+     69.5
+    ],
+    [
+     "2026-08-19",
+     72.3
+    ],
+    [
+     "2026-08-20",
+     64.6
+    ],
+    [
+     "2026-08-21",
+     72.9
+    ],
+    [
+     "2026-08-24",
+     68.4
+    ],
+    [
+     "2026-08-25",
+     70.3
+    ],
+    [
+     "2026-08-26",
+     73.5
+    ],
+    [
+     "2026-08-27",
+     77.2
+    ],
+    [
+     "2026-08-28",
+     74.2
+    ],
+    [
+     "2026-08-31",
+     66.7
+    ],
+    [
+     "2026-09-01",
+     53.4
+    ],
+    [
+     "2026-09-02",
+     59.8
+    ],
+    [
+     "2026-09-03",
+     67.8
+    ],
+    [
+     "2026-09-04",
+     62.2
+    ],
+    [
+     "2026-09-08",
+     53.0
+    ],
+    [
+     "2026-09-09",
+     48.4
+    ],
+    [
+     "2026-09-10",
+     43.5
+    ],
+    [
+     "2026-09-11",
+     55.6
+    ],
+    [
+     "2026-09-14",
+     45.2
+    ],
+    [
+     "2026-09-15",
+     42.0
+    ],
+    [
+     "2026-09-16",
+     42.2
+    ],
+    [
+     "2026-09-17",
+     54.0
+    ],
+    [
+     "2026-09-18",
+     61.4
+    ],
+    [
+     "2026-09-21",
+     66.4
+    ],
+    [
+     "2026-09-22",
+     69.2
+    ],
+    [
+     "2026-09-23",
+     61.4
+    ],
+    [
+     "2026-09-24",
+     56.1
+    ],
+    [
+     "2026-09-25",
+     53.1
+    ],
+    [
+     "2026-09-28",
+     42.3
+    ],
+    [
+     "2026-09-29",
+     41.0
+    ],
+    [
+     "2026-09-30",
+     38.9
+    ],
+    [
+     "2026-10-01",
+     35.0
+    ],
+    [
+     "2026-10-02",
+     43.2
+    ],
+    [
+     "2026-10-05",
+     44.9
+    ],
+    [
+     "2026-10-06",
+     51.3
+    ],
+    [
+     "2026-10-07",
+     47.9
+    ],
+    [
+     "2026-10-08",
+     40.8
+    ],
+    [
+     "2026-10-09",
+     46.0
+    ],
+    [
+     "2026-10-12",
+     44.2
+    ],
+    [
+     "2026-10-13",
+     41.8
+    ],
+    [
+     "2026-10-14",
+     31.6
+    ],
+    [
+     "2026-10-15",
+     31.2
+    ],
+    [
+     "2026-10-16",
+     18.3
+    ],
+    [
+     "2026-10-19",
+     20.1
+    ],
+    [
+     "2026-10-20",
+     22.1
+    ],
+    [
+     "2026-10-21",
+     25.6
+    ],
+    [
+     "2026-10-22",
+     12.4
+    ],
+    [
+     "2026-10-23",
+     11.0
+    ],
+    [
+     "2026-10-26",
+     15.0
+    ],
+    [
+     "2026-10-27",
+     19.7
+    ],
+    [
+     "2026-10-28",
+     23.9
+    ],
+    [
+     "2026-10-29",
+     19.7
+    ],
+    [
+     "2026-10-30",
+     9.9
+    ],
+    [
+     "2026-11-02",
+     19.4
+    ],
+    [
+     "2026-11-03",
+     20.9
+    ]
+   ],
+   "metodo": "Media de los componentes disponibles, cada uno puntuado de 0 a 100 según su percentil frente a los dos últimos años de sesiones (el put/call, por tramos fijos). Misma receta que el índice de CNN, sin los dos componentes de amplitud de la NYSE, que no tienen fuente gratuita."
   }
  },
  "avisos": [
-  "S&P 500: no disponible (fred.stlouisfed.org: The read operation timed out; falta el secret FRED_API_KEY: sin clave, FRED no responde desde GitHub (ver README)).",
-  "Nasdaq Composite: no disponible (fred.stlouisfed.org: The read operation timed out; falta el secret FRED_API_KEY: sin clave, FRED no responde desde GitHub (ver README)).",
-  "VIX: no disponible (fred.stlouisfed.org: The read operation timed out; falta el secret FRED_API_KEY: sin clave, FRED no responde desde GitHub (ver README)).",
-  "Diferencial high yield: no disponible (fred.stlouisfed.org: The read operation timed out; falta el secret FRED_API_KEY: sin clave, FRED no responde desde GitHub (ver README)).",
-  "Petróleo WTI (barril): no disponible (fred.stlouisfed.org: The read operation timed out; falta el secret FRED_API_KEY: sin clave, FRED no responde desde GitHub (ver README)).",
-  "Encuesta AAII: no se ha podido leer (www.aaii.com: HTTP 403). Puedes apuntarla en manual/_mercado.json.",
-  "Miedo y codicia: no se ha podido calcular (fred.stlouisfed.org: The read operation timed out; falta el secret FRED_API_KEY: sin clave, FRED no responde desde GitHub (ver README))."
+  "Encuesta AAII: no se ha podido leer (www.aaii.com: HTTP 403). Puedes apuntarla en manual/_mercado.json."
  ],
  "_series": {
   "put_call": [
