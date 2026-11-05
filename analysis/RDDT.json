@@ -1,705 +1,737 @@
 {
-  "_nota": "Supuestos y textos propios. Se editan a mano (o desde «Editar» en la web, que descarga este archivo) y se versionan en git. El Action nunca los toca.",
-  "esquema": 1,
-  "peers": [
-    "META",
-    "PINS",
-    "SNAP",
-    "GOOGL",
-    "TTD"
+ "_nota": "Supuestos y textos propios. Se editan a mano (o desde «Editar» en la web, que descarga este archivo) y se versionan en git. El Action nunca los toca.",
+ "esquema": 1,
+ "peers": [
+  "META",
+  "PINS",
+  "SNAP",
+  "GOOGL",
+  "TTD"
+ ],
+ "meta": {
+  "nextEarnings": "29-oct-2026",
+  "sector": "Redes sociales y publicidad",
+  "hq": "San Francisco, California",
+  "founded": "2005",
+  "employees": "2.555 (dic-25)",
+  "asOf": "5-nov-2026",
+  "fav": false
+ },
+ "overview": {
+  "thesis": "Sigue creciendo al 40–50% con márgenes de software y 3.000 M$ de caja, pero el riesgo principal ya se está cumpliendo: Google le envía cada vez menos visitas y sus usuarios diarios pueden caer en el 4T. A ~92 $ (−29% tras los resultados) el precio descuenta crecimiento cero.",
+  "summary": "Red de más de 100.000 comunidades donde los usuarios conversan sobre cualquier tema. Gana dinero con publicidad (95% de los ingresos) y con licencias de su contenido a empresas de IA como Google y OpenAI.\nEl contenido lo crean y moderan los propios usuarios de forma gratuita, por eso su margen bruto es del 91%. Gran parte de sus visitas llega desde el buscador de Google.",
+  "keyFacts": [
+   {
+    "k": "Ingresos 3T26",
+    "v": "895 M$ (+53%)"
+   },
+   {
+    "k": "Publicidad 3T26",
+    "v": "847 M$ (+54%)"
+   },
+   {
+    "k": "Beneficio neto 3T26",
+    "v": "283 M$ (32% de margen)"
+   },
+   {
+    "k": "FCF 3T26",
+    "v": "363 M$ (capex de 1 M$)"
+   },
+   {
+    "k": "Usuarios diarios (DAUq)",
+    "v": "130,3 M (+12%; se esperaban 134 M)"
+   },
+   {
+    "k": "Ingreso por usuario (ARPU)",
+    "v": "6,87 $ (+36%)"
+   },
+   {
+    "k": "Guía 4T26",
+    "v": "1.000–1.030 M$ (+38–42%); EBITDA ajustado 480–510 M$"
+   },
+   {
+    "k": "Caja / deuda (sep-26)",
+    "v": "3.030 M$ / sin deuda"
+   }
   ],
-  "meta": {
-    "nextEarnings": "29-oct-2026",
-    "sector": "Redes sociales y publicidad",
-    "hq": "San Francisco, California",
-    "founded": "2005",
-    "employees": "2.555 (dic-25)",
-    "asOf": "1-nov-2026",
-    "fav": false
-  },
-  "overview": {
-    "thesis": "Sigue creciendo al 40–50% con márgenes de software y 3.000 M$ de caja, pero el riesgo principal ya se está cumpliendo: Google le envía cada vez menos visitas y sus usuarios diarios pueden caer en el 4T. A ~92 $ (−29% tras los resultados) el precio descuenta crecimiento cero.",
-    "summary": "Red de más de 100.000 comunidades donde los usuarios conversan sobre cualquier tema. Gana dinero con publicidad (95% de los ingresos) y con licencias de su contenido a empresas de IA como Google y OpenAI.\nEl contenido lo crean y moderan los propios usuarios de forma gratuita, por eso su margen bruto es del 91%. Gran parte de sus visitas llega desde el buscador de Google.",
-    "keyFacts": [
-      {
-        "k": "Ingresos 3T26",
-        "v": "895 M$ (+53%)"
-      },
-      {
-        "k": "Publicidad 3T26",
-        "v": "847 M$ (+54%)"
-      },
-      {
-        "k": "Beneficio neto 3T26",
-        "v": "283 M$ (32% de margen)"
-      },
-      {
-        "k": "FCF 3T26",
-        "v": "363 M$ (capex de 1 M$)"
-      },
-      {
-        "k": "Usuarios diarios (DAUq)",
-        "v": "130,3 M (+12%; se esperaban 134 M)"
-      },
-      {
-        "k": "Ingreso por usuario (ARPU)",
-        "v": "6,87 $ (+36%)"
-      },
-      {
-        "k": "Guía 4T26",
-        "v": "1.000–1.030 M$ (+38–42%); EBITDA ajustado 480–510 M$"
-      },
-      {
-        "k": "Caja / deuda (sep-26)",
-        "v": "3.030 M$ / sin deuda"
-      }
-    ],
-    "catalysts": [
-      {
-        "d": "4T26",
-        "t": "Prueba de acceso solo con sesión iniciada en algunos países fuera de EE. UU.: menos alcance a cambio de más usuarios que monetizan."
-      },
-      {
-        "d": "3-feb-27",
-        "t": "Resultados del 4T26: ¿cuánto caen los usuarios diarios? La previsión de la dirección es una caída de dos dígitos si sigue la tendencia."
-      },
-      {
-        "d": "Mar-27",
-        "t": "Cierre del acceso público a su API de datos: más poder para negociar licencias."
-      },
-      {
-        "d": "En curso",
-        "t": "Renovación de las licencias de datos con Google (~60 M$ al año) y OpenAI; sin acuerdo garantizado."
-      }
-    ]
-  },
-  "business": {
-    "model": "Vende publicidad dentro de las conversaciones: los anunciantes pagan por llegar a comunidades con intereses muy concretos. Además licencia su archivo de conversaciones para entrenar modelos de IA.\nNo paga por el contenido ni por la moderación, que hacen voluntarios. Casi no necesita inversión en activos.",
-    "customers": "Anunciantes de marca y de rendimiento (grandes cuentas, pymes vía autoservicio y agencias), empresas de IA que compran acceso a los datos, y usuarios que no pagan. El 79% de los ingresos viene de EE. UU.",
-    "segNote": "Ingresos del 2T26 por tipo, en M$. Por geografía: EE. UU. 638 M$ e internacional 167 M$.",
-    "segments": [
-      {
-        "n": "Publicidad",
-        "v": 762
-      },
-      {
-        "n": "Otros (licencias de datos)",
-        "v": 43
-      }
-    ],
-    "customerTypes": [
-      {
-        "n": "Grandes anunciantes",
-        "d": "Marcas que buscan audiencias por interés. Reddit Max automatiza segmentación y creatividades."
-      },
-      {
-        "n": "Pymes y rendimiento",
-        "d": "Autoservicio y anuncios de apps; la dirección admite que el alta de pymes en Max aún debe mejorar."
-      },
-      {
-        "n": "Empresas de IA",
-        "d": "Google y OpenAI licencian el contenido desde 2024; ~140 M$ en 2025."
-      },
-      {
-        "n": "Usuarios",
-        "d": "130,3 M diarios; los internacionales crecen un 28%, los de EE. UU. un 6%."
-      }
-    ],
-    "quality": [
-      {
-        "n": "Márgenes",
-        "s": 4,
-        "note": "Margen bruto 91%, EBITDA ajustado 43%, neto 31%"
-      },
-      {
-        "n": "Retorno sobre capital",
-        "s": 5,
-        "note": "Capex de ~7 M$ al año"
-      },
-      {
-        "n": "Conversión en caja",
-        "s": 4,
-        "note": "FCF del 32% de los ingresos en 2T26"
-      },
-      {
-        "n": "Recurrencia de ingresos",
-        "s": 2,
-        "note": "Depende del gasto publicitario y del tráfico de búsqueda"
-      },
-      {
-        "n": "Diversificación",
-        "s": 2,
-        "note": "95% publicidad; 79% EE. UU."
-      },
-      {
-        "n": "Balance",
-        "s": 5,
-        "note": "2.786 M$ de caja y sin deuda financiera"
-      }
-    ],
-    "phase": 2,
-    "phaseNote": "Pasa del hipercrecimiento (ocho trimestres seguidos por encima del 60%) a un crecimiento rentable: la guía del 3T26 baja al 47–49%.",
-    "clients": {
-      "nota": "Anunciantes (en torno al 95% de los ingresos), con peso creciente de grandes marcas y pymes en autoservicio, y empresas de IA que pagan por usar sus conversaciones para entrenar modelos (licencias de datos). Ningún cliente supera el 10%.",
-      "kpis": [
-        {
-          "k": "Publicidad",
-          "v": "~95% de los ingresos",
-          "d": "marcas, rendimiento y pymes"
-        },
-        {
-          "k": "Licencias de datos",
-          "v": "~5% de los ingresos",
-          "d": "Google y OpenAI, con renovaciones en curso"
-        }
-      ],
-      "conocidos": [
-        {
-          "n": "Google",
-          "t": "GOOGL",
-          "sector": "IA y búsqueda",
-          "cifra": "~60 M$ al año",
-          "d": "Licencia de datos para IA firmada en 2024. En el 3T26 la dirección dijo que no hay novedades: negocia activamente y no descarta quedarse sin acuerdo si el precio no es justo.",
-          "u": "https://www.fool.com/earnings/call-transcripts/2026/10/30/reddit-rddt-q3-2026-earnings-call-transcript/",
-          "f": "oct-26",
-          "fu": "Transcripción 3T26 (Motley Fool)"
-        },
-        {
-          "n": "OpenAI",
-          "sector": "IA",
-          "cifra": "Licencia de contenido",
-          "d": "Usa las conversaciones de Reddit en ChatGPT; negocia, como Google, un precio ligado al uso.",
-          "u": "https://www.storyboard18.com/digital/reddit-eyes-ai-powered-payday-with-new-licensing-model-for-google-openai-81113.htm",
-          "f": "2026"
-        },
-        {
-          "n": "Grandes marcas y agencias",
-          "sector": "Publicidad",
-          "cifra": "Cuentas grandes +80% (3T26)",
-          "d": "Publicidad +51% en EE. UU. y +68% fuera. Los sectores más fuertes: negocios y finanzas, farmacia y viajes; los anuncios de compra e instalación de apps crecen más del 95%.",
-          "u": "https://www.fool.com/earnings/call-transcripts/2026/10/30/reddit-rddt-q3-2026-earnings-call-transcript/",
-          "f": "oct-26",
-          "fu": "Transcripción 3T26 (Motley Fool)"
-        },
-        {
-          "n": "Anunciantes medianos y pymes",
-          "sector": "Publicidad",
-          "cifra": "Anunciantes medianos +50%",
-          "d": "Crecen en Norteamérica y Europa. Ejemplo: Ethnotek (mochilas) logra 4 veces lo invertido con la integración de Shopify. Reddit Max, la campaña automática, triplica su uso en un trimestre.",
-          "u": "https://www.fool.com/earnings/call-transcripts/2026/10/30/reddit-rddt-q3-2026-earnings-call-transcript/",
-          "fu": "Transcripción 3T26 (Motley Fool)",
-          "f": "oct-26"
-        }
-      ]
-    }
-  },
-  "moat": {
-    "width": "Estrecho",
-    "trend": "En riesgo por la búsqueda con IA",
-    "note": "Su activo es un archivo de casi 20 años de conversaciones humanas, difícil de copiar y valioso para buscadores y modelos de IA. La debilidad es la distribución: gran parte de las visitas llega desde Google, y las respuestas con IA pueden quedarse ese tráfico.",
-    "sources": [
-      {
-        "n": "Efecto red",
-        "s": 4,
-        "note": "Más usuarios → más conversaciones → más valor para cada comunidad"
-      },
-      {
-        "n": "Costes de cambio",
-        "s": 2,
-        "note": "Historial y reputación del usuario; bajo para el lector anónimo"
-      },
-      {
-        "n": "Activos intangibles",
-        "s": 4,
-        "note": "Archivo de conversaciones y marca; licenciado a Google y OpenAI"
-      },
-      {
-        "n": "Ventaja de costes",
-        "s": 4,
-        "note": "Contenido y moderación gratuitos: margen bruto del 91%"
-      },
-      {
-        "n": "Escala eficiente",
-        "s": 2,
-        "note": "Nichos abiertos a otros foros y plataformas"
-      }
-    ],
-    "comps": [
-      {
-        "n": "Google (AI Overviews)",
-        "threat": 4,
-        "note": "Socio de datos y a la vez la mayor amenaza para su tráfico"
-      },
-      {
-        "n": "Meta",
-        "threat": 4,
-        "note": "Rival por el presupuesto de los anunciantes"
-      },
-      {
-        "n": "OpenAI (ChatGPT)",
-        "threat": 3,
-        "note": "Responde preguntas con contenido de Reddit sin enviar visitas"
-      },
-      {
-        "n": "TikTok",
-        "threat": 3,
-        "note": "Compite por el tiempo de los usuarios jóvenes"
-      },
-      {
-        "n": "Discord y X",
-        "threat": 2,
-        "note": "Alternativas para comunidades y conversación"
-      }
-    ]
-  },
-  "growth": {
-    "score": 3.5,
-    "scoreNote": "Los ingresos crecen al 53% gracias al ingreso por usuario (+36%) y al exterior (+67%), pero la guía del 4T26 baja al 38–42% y los usuarios diarios pueden caer por la pérdida de visitas desde Google.",
-    "tam": "Publicidad digital mundial: Meta factura más de 160.000 M$ al año; Reddit, unos 3.400 M$. El ARPU internacional (2,26 $) es una quinta parte del de EE. UU. (11,85 $).",
-    "guidance": "4T26: ingresos de 1.000–1.030 M$ (+38–42%; el consenso esperaba 1.046 M$) y EBITDA ajustado de 480–510 M$. Usuarios diarios: posible caída de un porcentaje de dos dígitos frente a los 130 M del 3T26 si siguen bajando las visitas desde buscadores.",
-    "drivers": [
-      {
-        "n": "Más ingresos por usuario (Reddit Max)",
-        "impact": 5,
-        "h": "2026–2027",
-        "st": "en marcha",
-        "k": "Ingresos +53% en 3T26 (895 M$)",
-        "peso": "~95% de los ingresos es publicidad",
-        "d": "Reddit monetiza poco frente a Meta. Con Reddit Max (uso ×3 en un trimestre), anuncios de compra (+95%) y vídeo, los anunciantes pagan más por usuario. La guía del 4T26 es de 1.000–1.030 M$ (+38–42%).",
-        "ev": "ARPU por región y crecimiento de los ingresos publicitarios.",
-        "r": "Caída de usuarios: la guía del 4T26 contempla un descenso de dos dígitos por menos visitas desde Google.",
-        "u": "https://www.fool.com/earnings/call-transcripts/2026/10/30/reddit-rddt-q3-2026-earnings-call-transcript/"
-      },
-      {
-        "n": "Crecimiento internacional",
-        "impact": 4,
-        "h": "2026–2028",
-        "st": "en marcha",
-        "k": "Usuarios intl. +24% · ingresos +67%",
-        "peso": "ARPU intl. 2,26 $ vs 11,85 $ en EE. UU.",
-        "d": "Con traducción automática el contenido en inglés llega a otros idiomas. Fuera de EE. UU. el ARPU es una quinta parte, así que hay mucho margen para monetizar.",
-        "ev": "Usuarios diarios internacionales e ingresos fuera de EE. UU.",
-        "r": "Usuarios menos valiosos para los anunciantes y competencia local."
-      },
-      {
-        "n": "Licencias de datos para IA",
-        "impact": 3,
-        "h": "2026",
-        "st": "en marcha",
-        "k": "Google ~60 M$ al año",
-        "peso": "~5% de los ingresos",
-        "d": "Google y OpenAI pagan por usar las conversaciones de Reddit para entrenar sus modelos. Los contratos se renegocian en 2026 y Reddit quiere un precio ligado al uso.",
-        "ev": "Renovaciones y nuevos acuerdos; evolución de «otros ingresos».",
-        "r": "Que no se renueve con Google o que el precio baje.",
-        "u": "https://www.sherwood.news/business/reddit-bounces-on-report-that-its-in-talks-with-google-openai-on-fresh-data"
-      },
-      {
-        "n": "Solo con sesión iniciada",
-        "impact": 3,
-        "h": "4T26–2027",
-        "st": "temprano",
-        "k": "Más del 80% de la monetización",
-        "d": "Reddit irá hacia una experiencia solo para usuarios registrados: más interacción, mejor segmentación de anuncios y protección de sus datos frente a quien los copia para entrenar IA. Pierde alcance a cambio de usuarios más valiosos.",
-        "ev": "Usuarios diarios con sesión iniciada y en la app, que publica por región.",
-        "r": "Las visitas desde Google caen (más de 1 M menos por semana en octubre por AI Overviews): los usuarios diarios podrían bajar un porcentaje de dos dígitos en el 4T26.",
-        "peso": "prueba fuera de EE. UU. en el 4T26",
-        "u": "https://www.fool.com/earnings/call-transcripts/2026/10/30/reddit-rddt-q3-2026-earnings-call-transcript/"
-      },
-      {
-        "n": "Recompras",
-        "impact": 2,
-        "h": "Continuo",
-        "st": "en marcha",
-        "k": "Programa de 1.000 M$",
-        "peso": "~100 M$ en el 3T26 a menos de 150 $",
-        "d": "Compensan la dilución del pago en acciones.",
-        "ev": "Acciones en circulación.",
-        "r": "Poco efecto si el pago en acciones sigue alto."
-      }
-    ]
-  },
-  "mgmt": {
-    "note": "Huffman controla cerca del 70,7% del voto gracias a un pacto con Advance (familia Newhouse), que posee ~22% del capital. Su participación económica propia es del 3%. Las acciones de clase B tienen 10 votos.",
-    "people": [
-      {
-        "n": "Steve Huffman",
-        "role": "Cofundador y CEO",
-        "since": "2015",
-        "note": "Volvió como CEO en 2015 y llevó la empresa a bolsa en 2024."
-      },
-      {
-        "n": "Jen Wong",
-        "role": "Directora de operaciones",
-        "since": "2018",
-        "note": "Responsable del negocio publicitario."
-      },
-      {
-        "n": "Drew Vollero",
-        "role": "Director financiero",
-        "since": "2020",
-        "note": "Ha llevado a la empresa a beneficios y al programa de recompras."
-      },
-      {
-        "n": "Advance (Newhouse)",
-        "role": "Mayor accionista",
-        "since": "2006",
-        "note": "~22% del capital; vota con Huffman por pacto."
-      }
-    ],
-    "scores": [
-      {
-        "n": "Alineación con el accionista",
-        "s": 3,
-        "note": "Fundador al mando, pero con solo un 3% económico y pago en acciones elevado"
-      },
-      {
-        "n": "Asignación de capital",
-        "s": 4,
-        "note": "Sin deuda, recompras de 1.000 M$, capex mínimo"
-      },
-      {
-        "n": "Credibilidad y ejecución",
-        "s": 5,
-        "note": "Ocho trimestres seguidos creciendo más del 60% y batiendo previsiones"
-      },
-      {
-        "n": "Gobierno corporativo",
-        "s": 2,
-        "note": "Control del voto por pacto con Advance"
-      },
-      {
-        "n": "Transparencia",
-        "s": 3,
-        "note": "Deja de desglosar usuarios conectados y anónimos"
-      }
-    ],
-    "alloc": {
-      "label": "Uso de la caja, 1S 2026 (M$)",
-      "items": [
-        {
-          "n": "Recompras",
-          "v": 240
-        },
-        {
-          "n": "Capex",
-          "v": 2
-        },
-        {
-          "n": "Dividendos",
-          "v": 0
-        }
-      ]
-    },
-    "vote": {
-      "label": "Poder de voto (%, may-26)",
-      "items": [
-        {
-          "n": "Huffman con el pacto de Advance",
-          "v": 70.7
-        },
-        {
-          "n": "Resto de accionistas",
-          "v": 29.3
-        }
-      ]
-    },
-    "call": {
-      "periodEnd": "2026-09-30",
-      "q": "3T 2026",
-      "date": "29-oct-2026",
-      "doc": "Nota de resultados (8-K, Exhibit 99.1)",
-      "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000114/earningspressreleaseq326.htm",
-      "nota": "Resumen de la nota de resultados y de la llamada con analistas del 29-oct-2026.",
-      "dir": [
-        "Ingresos de 895 M$ (+53%) y BPA de 1,40 $, por encima de lo esperado; ARPU +36%.",
-        "Internacional: 79,6 M de usuarios diarios (+24%) e ingresos +67% (176 M$).",
-        "Más del 80% de los ingresos viene de usuarios con sesión iniciada en la app: prueba de acceso solo con sesión fuera de EE. UU. en el 4T."
-      ],
-      "ret": [
-        "Las visitas desde Google cayeron con fuerza al final del trimestre y en octubre (más de 1 M menos por semana) por AI Overviews y AI Mode.",
-        "Usuarios diarios: 130,3 M (+12%), por debajo de los 134 M esperados; pueden caer un porcentaje de dos dígitos en el 4T.",
-        "Huffman: AI Mode «no genera tráfico»; no da por hecho que se recupere."
-      ],
-      "guia": [
-        "4T26: ingresos de 1.000–1.030 M$ (+38–42%) y EBITDA ajustado de 480–510 M$.",
-        "Más marketing para captar usuarios fuera de EE. UU. y descargas de la app en EE. UU."
-      ],
-      "cap": [
-        "Recompró unas 670.000 acciones por 100 M$ (a 149,81 $ de media).",
-        "3.030 M$ de caja y sin deuda; FCF de 363 M$ en el trimestre."
-      ]
-    }
-  },
-  "risks": [
-    {
-      "n": "Menos tráfico desde Google",
-      "cat": "Competencia",
-      "p": 5,
-      "i": 5,
-      "note": "Ya ocurre: las visitas desde Google caen más de 1 M por semana en octubre por AI Overviews y AI Mode"
-    },
-    {
-      "n": "Caída de usuarios diarios",
-      "cat": "Operativo",
-      "p": 4,
-      "i": 4,
-      "note": "130,3 M en 3T26 (+12%, se esperaban 134 M); podrían bajar un porcentaje de dos dígitos en el 4T26"
-    },
-    {
-      "n": "Desaceleración del crecimiento",
-      "cat": "Operativo",
-      "p": 4,
-      "i": 3,
-      "note": "+61% (2T26) → +53% (3T26) → +38–42% guiado para el 4T26"
-    },
-    {
-      "n": "Renovación de licencias de IA",
-      "cat": "Comercial",
-      "p": 3,
-      "i": 3,
-      "note": "Informaciones de que podría cortar el acceso de Google a sus datos"
-    },
-    {
-      "n": "Dilución por pago en acciones",
-      "cat": "Financiero",
-      "p": 3,
-      "i": 2,
-      "note": "~340 M$ al año de pago en acciones"
-    },
-    {
-      "n": "Dependencia de moderadores voluntarios",
-      "cat": "Operativo",
-      "p": 2,
-      "i": 3,
-      "note": "Las protestas de 2023 mostraron el riesgo"
-    },
-    {
-      "n": "Litigios con empresas de IA",
-      "cat": "Legal",
-      "p": 2,
-      "i": 2,
-      "note": "Ganó una decisión clave contra Anthropic en septiembre"
-    },
-    {
-      "n": "Control del voto",
-      "cat": "Gobierno",
-      "p": 2,
-      "i": 2,
-      "note": "Huffman y Advance deciden las votaciones"
-    }
+  "catalysts": [
+   {
+    "d": "4T26",
+    "t": "Prueba de acceso solo con sesión iniciada en algunos países fuera de EE. UU.: menos alcance a cambio de más usuarios que monetizan."
+   },
+   {
+    "d": "3-feb-27",
+    "t": "Resultados del 4T26: ¿cuánto caen los usuarios diarios? La previsión de la dirección es una caída de dos dígitos si sigue la tendencia."
+   },
+   {
+    "d": "Mar-27",
+    "t": "Cierre del acceso público a su API de datos: más poder para negociar licencias."
+   },
+   {
+    "d": "En curso",
+    "t": "Renovación de las licencias de datos con Google (~60 M$ al año) y OpenAI; sin acuerdo garantizado."
+   }
+  ]
+ },
+ "business": {
+  "model": "Vende publicidad dentro de las conversaciones: los anunciantes pagan por llegar a comunidades con intereses muy concretos. Además licencia su archivo de conversaciones para entrenar modelos de IA.\nNo paga por el contenido ni por la moderación, que hacen voluntarios. Casi no necesita inversión en activos.",
+  "customers": "Anunciantes de marca y de rendimiento (grandes cuentas, pymes vía autoservicio y agencias), empresas de IA que compran acceso a los datos, y usuarios que no pagan. El 79% de los ingresos viene de EE. UU.",
+  "segNote": "Ingresos del 2T26 por tipo, en M$. Por geografía: EE. UU. 638 M$ e internacional 167 M$.",
+  "segments": [
+   {
+    "n": "Publicidad",
+    "v": 762
+   },
+   {
+    "n": "Otros (licencias de datos)",
+    "v": 43
+   }
   ],
-  "v": {
-    "shares": 206.3,
-    "cash": 3030,
-    "debt": 0,
-    "rev0": 3380,
-    "year0": 2026,
-    "g": [
-      22,
-      18,
-      15,
-      13,
-      11
-    ],
-    "m1": 46,
-    "m5": 50,
-    "da": 0.6,
-    "da5": 0.6,
-    "sbc": 8,
-    "capex": 0.3,
-    "capex5": 0.3,
-    "nwc": 8,
-    "tax": 18,
-    "wacc": 10.5,
-    "tg": 3,
-    "exit": 15,
-    "method": "blend",
-    "eps": 6,
-    "pe": 22,
-    "evm": 18,
-    "scn": [
-      {
-        "n": "Bajista",
-        "dg": -14,
-        "dm": -8,
-        "p": 25
-      },
-      {
-        "n": "Base",
-        "dg": 0,
-        "dm": 0,
-        "p": 50
-      },
-      {
-        "n": "Alcista",
-        "dg": 8,
-        "dm": 3,
-        "p": 25
-      }
-    ]
-  },
-  "verdict": {
-    "rating": "Acumular",
-    "conviction": 3,
-    "buyBelow": 100,
-    "horizon": "12–24 meses",
-    "summary": "El riesgo que más pesaba en la tesis se ha cumplido: Google envía cada vez menos visitas y los usuarios diarios pueden caer en el 4T. Aun así, el negocio sigue creciendo al 40–50% con márgenes de software, 3.000 M$ de caja y recompras. Tras caer un 29%, a ~92 $ el precio descuenta crecimiento cero y coincide con el escenario bajista del modelo (~87 $), con un valor ponderado de ~167 $. Para acumular con prudencia y en tramos: la clave es que los usuarios con sesión iniciada sigan creciendo aunque caiga el tráfico de búsqueda.",
-    "bull": [
-      "Ingresos +53% y ARPU +36%: cada usuario monetiza más",
-      "El precio descuenta crecimiento cero; el escenario bajista ya está en la cotización",
-      "Usuarios internacionales +24% e ingresos internacionales +67%",
-      "3.030 M$ de caja, sin deuda y recompras a ~150 $"
-    ],
-    "bear": [
-      "Las visitas desde Google caen por AI Overviews y AI Mode",
-      "Usuarios diarios por debajo de lo esperado y con posible caída en el 4T",
-      "Guía del 4T26 por debajo del consenso (+38–42%)",
-      "Renovación incierta de las licencias de datos con Google y OpenAI"
-    ],
-    "watch": [
-      "Usuarios diarios del 4T26 y de los que inician sesión (feb-27)",
-      "Resultado de la prueba de acceso solo con sesión fuera de EE. UU.",
-      "Renovación de las licencias de datos",
-      "Crecimiento del ARPU por encima del 30%"
-    ]
-  },
-  "notes": "Cotización de 91,73 $ del 30-oct-2026, tras caer un 29,2% por los resultados del 3T26 (cierre del 29-oct: 129,60 $).",
-  "sources": {
-    "web": "https://www.redditinc.com",
-    "ir": "https://investor.redditinc.com",
-    "docs": [
-      {
-        "cat": "Resultados trimestrales",
-        "t": "Nota de prensa de resultados 2T26 (PDF)",
-        "d": "30-jul-2026",
-        "u": "https://s203.q4cdn.com/380862485/files/doc_financials/2026/q2/Q2-26-Earnings-Press-Release.pdf"
-      },
-      {
-        "cat": "Resultados trimestrales",
-        "t": "Nota de prensa de resultados 4T25 y año 2025 (PDF)",
-        "d": "05-feb-2026",
-        "u": "https://s203.q4cdn.com/380862485/files/doc_financials/2025/q4/Q4-25-Earnings-Press-Release.pdf"
-      },
-      {
-        "cat": "Formularios SEC",
-        "t": "10-Q segundo trimestre 2026",
-        "d": "jul-2026",
-        "u": "https://www.sec.gov/Archives/edgar/data/0001713445/000171344526000100/rddt-20260630.htm"
-      },
-      {
-        "cat": "Formularios SEC",
-        "t": "10-K ejercicio 2025",
-        "d": "feb-2026",
-        "u": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000022/rddt-20251231.htm"
-      },
-      {
-        "cat": "Formularios SEC",
-        "t": "S-1 de la salida a bolsa",
-        "d": "feb-2024",
-        "u": "https://www.sec.gov/Archives/edgar/data/1713445/000162828024006294/reddits-1q423.htm"
-      },
-      {
-        "cat": "Transcripciones",
-        "t": "Resumen de la llamada de resultados 2T26 (Quartr)",
-        "d": "30-jul-2026",
-        "u": "https://quartr.com/events/reddit-inc-rddt-q2-2026_FLW4MEuM"
-      },
-      {
-        "cat": "Gobierno corporativo",
-        "t": "Quién es dueño de Reddit (accionistas y voto)",
-        "d": "sep-2026",
-        "u": "https://aifundingtracker.com/who-owns-reddit/"
-      }
-    ],
-    "news": [
-      {
-        "t": "Reddit Max y la guía del 3T26",
-        "src": "24/7 Wall St.",
-        "u": "https://247wallst.com/investing/2026/10/25/can-reddit-max-save-rddt-from-slower-growth-guidance-on-oct-29/"
-      },
-      {
-        "t": "La acción cae por las referencias de búsqueda",
-        "src": "TIKR",
-        "u": "https://www.tikr.com/blog/reddit-rddt-stock-sinks-search-referral-concerns-q2-2026"
-      },
-      {
-        "t": "Renovación de los acuerdos de IA",
-        "src": "TIKR",
-        "u": "https://www.tikr.com/blog/reddit-fell-6-as-its-550m-ai-deal-renewal-looms-heres-where-the-stock-could-go-in-2026"
-      },
-      {
-        "t": "Cotización, rango de 52 semanas y consenso",
-        "src": "StockAnalysis",
-        "u": "https://stockanalysis.com/stocks/rddt/"
-      },
-      {
-        "t": "Notas de resultados 2T26",
-        "src": "Barchart",
-        "u": "https://www.barchart.com/story/news/3561487/reddit-nyserddt-delivers-strong-q2-cy2026-numbers-but-stock-drops-10-3"
-      }
-    ]
-  },
-  "social": {
-    "pulse": [
-      {
-        "p": "Reddit",
-        "s": 0,
-        "note": "Dividido. No hay medición propia, pero el debate tras la caída del 25% del 30-oct enfrenta «sobrerreacción» (beneficios, caja, márgenes) con «basurero» (usuarios y tráfico de Google)."
-      },
-      {
-        "p": "X",
-        "s": 1,
-        "note": "Por inercia: Stocktwits marca 84 («extremadamente alcista», 31-oct), aunque muchos mensajes recientes son bajistas. Se espera rebote hacia 130–140 $."
-      },
-      {
-        "p": "YouTube",
-        "s": null,
-        "note": "Sin dato medido. Tras los resultados dominan los vídeos sobre la caída de usuarios por las respuestas con IA de Google."
-      }
-    ],
-    "videos": [
-      {
-        "t": "Reddit (RDDT) Stock Analysis 2026: From Multi-bagger to 60% Crash (And Up Again)",
-        "u": "https://www.youtube.com/watch?v=9ICEu_pNFG8"
-      },
-      {
-        "t": "Reddit Oversold Into Earnings & Options Activity for RDDT",
-        "u": "https://www.youtube.com/watch?v=bWwjLShvxYU"
-      },
-      {
-        "t": "Reddit (RDDT) Stock Analysis: 91% Gross Margins vs. Quant “Hold”",
-        "u": "https://www.youtube.com/watch?v=j4xCzbUZYqU"
-      },
-      {
-        "t": "RDDT Stock Prediction: Is Reddit Stock a Buy or Trap After Q2 Earnings?",
-        "u": "https://www.youtube.com/watch?v=2-xwv4dd264"
-      }
-    ],
-    "pulseFuente": "Lectura del 1-nov-2026 con SentiSense, LunarCrush y Stocktwits (agregadores de redes sociales) y búsquedas propias."
-  },
-  "fin_manual": {
-    "nota": "Series que la SEC no publica (por segmento). Las etiquetas de trimestre deben coincidir con las de la SEC (p. ej. 3T26).",
-    "q": {
-      "labels": [
-        "3T25",
-        "4T25",
-        "1T26",
-        "2T26",
-        "3T26 guía"
-      ],
-      "series": [
-        {
-          "n": "Usuarios diarios",
-          "values": [
-            null,
-            19,
-            null,
-            18,
-            null
-          ]
-        }
-      ]
+  "customerTypes": [
+   {
+    "n": "Grandes anunciantes",
+    "d": "Marcas que buscan audiencias por interés. Reddit Max automatiza segmentación y creatividades."
+   },
+   {
+    "n": "Pymes y rendimiento",
+    "d": "Autoservicio y anuncios de apps; la dirección admite que el alta de pymes en Max aún debe mejorar."
+   },
+   {
+    "n": "Empresas de IA",
+    "d": "Google y OpenAI licencian el contenido desde 2024; ~140 M$ en 2025."
+   },
+   {
+    "n": "Usuarios",
+    "d": "130,3 M diarios; los internacionales crecen un 28%, los de EE. UU. un 6%."
+   }
+  ],
+  "quality": [
+   {
+    "n": "Márgenes",
+    "s": 4,
+    "note": "Margen bruto 91%, EBITDA ajustado 43%, neto 31%"
+   },
+   {
+    "n": "Retorno sobre capital",
+    "s": 5,
+    "note": "Capex de ~7 M$ al año"
+   },
+   {
+    "n": "Conversión en caja",
+    "s": 4,
+    "note": "FCF del 32% de los ingresos en 2T26"
+   },
+   {
+    "n": "Recurrencia de ingresos",
+    "s": 2,
+    "note": "Depende del gasto publicitario y del tráfico de búsqueda"
+   },
+   {
+    "n": "Diversificación",
+    "s": 2,
+    "note": "95% publicidad; 79% EE. UU."
+   },
+   {
+    "n": "Balance",
+    "s": 5,
+    "note": "2.786 M$ de caja y sin deuda financiera"
+   }
+  ],
+  "phase": 2,
+  "phaseNote": "Pasa del hipercrecimiento (ocho trimestres seguidos por encima del 60%) a un crecimiento rentable: la guía del 3T26 baja al 47–49%.",
+  "clients": {
+   "nota": "Anunciantes (en torno al 95% de los ingresos), con peso creciente de grandes marcas y pymes en autoservicio, y empresas de IA que pagan por usar sus conversaciones para entrenar modelos (licencias de datos). Ningún cliente supera el 10%.",
+   "kpis": [
+    {
+     "k": "Publicidad",
+     "v": "~95% de los ingresos",
+     "d": "marcas, rendimiento y pymes"
     },
-    "nota_antigua": "La pérdida de 2024 se debe al pago en acciones de la salida a bolsa. EBITDA ajustado y FCF de 2022–23 no disponibles aquí. 2026e: primer semestre real + guía del 3T + consenso del 4T."
+    {
+     "k": "Licencias de datos",
+     "v": "~5% de los ingresos",
+     "d": "Google y OpenAI, con renovaciones en curso"
+    }
+   ],
+   "conocidos": [
+    {
+     "n": "Google",
+     "t": "GOOGL",
+     "sector": "IA y búsqueda",
+     "cifra": "~60 M$ al año",
+     "d": "Licencia de datos para IA firmada en 2024. En el 3T26 la dirección dijo que no hay novedades: negocia activamente y no descarta quedarse sin acuerdo si el precio no es justo.",
+     "u": "https://www.fool.com/earnings/call-transcripts/2026/10/30/reddit-rddt-q3-2026-earnings-call-transcript/",
+     "f": "oct-26",
+     "fu": "Transcripción 3T26 (Motley Fool)"
+    },
+    {
+     "n": "OpenAI",
+     "sector": "IA",
+     "cifra": "Licencia de contenido",
+     "d": "Usa las conversaciones de Reddit en ChatGPT; negocia, como Google, un precio ligado al uso.",
+     "u": "https://www.storyboard18.com/digital/reddit-eyes-ai-powered-payday-with-new-licensing-model-for-google-openai-81113.htm",
+     "f": "2026"
+    },
+    {
+     "n": "Grandes marcas y agencias",
+     "sector": "Publicidad",
+     "cifra": "Cuentas grandes +80% (3T26)",
+     "d": "Publicidad +51% en EE. UU. y +68% fuera. Los sectores más fuertes: negocios y finanzas, farmacia y viajes; los anuncios de compra e instalación de apps crecen más del 95%.",
+     "u": "https://www.fool.com/earnings/call-transcripts/2026/10/30/reddit-rddt-q3-2026-earnings-call-transcript/",
+     "f": "oct-26",
+     "fu": "Transcripción 3T26 (Motley Fool)"
+    },
+    {
+     "n": "Anunciantes medianos y pymes",
+     "sector": "Publicidad",
+     "cifra": "Anunciantes medianos +50%",
+     "d": "Crecen en Norteamérica y Europa. Ejemplo: Ethnotek (mochilas) logra 4 veces lo invertido con la integración de Shopify. Reddit Max, la campaña automática, triplica su uso en un trimestre.",
+     "u": "https://www.fool.com/earnings/call-transcripts/2026/10/30/reddit-rddt-q3-2026-earnings-call-transcript/",
+     "fu": "Transcripción 3T26 (Motley Fool)",
+     "f": "oct-26"
+    }
+   ]
   }
+ },
+ "moat": {
+  "width": "Estrecho",
+  "trend": "En riesgo por la búsqueda con IA",
+  "note": "Su activo es un archivo de casi 20 años de conversaciones humanas, difícil de copiar y valioso para buscadores y modelos de IA. La debilidad es la distribución: gran parte de las visitas llega desde Google, y las respuestas con IA pueden quedarse ese tráfico.",
+  "sources": [
+   {
+    "n": "Efecto red",
+    "s": 4,
+    "note": "Más usuarios → más conversaciones → más valor para cada comunidad"
+   },
+   {
+    "n": "Costes de cambio",
+    "s": 2,
+    "note": "Historial y reputación del usuario; bajo para el lector anónimo"
+   },
+   {
+    "n": "Activos intangibles",
+    "s": 4,
+    "note": "Archivo de conversaciones y marca; licenciado a Google y OpenAI"
+   },
+   {
+    "n": "Ventaja de costes",
+    "s": 4,
+    "note": "Contenido y moderación gratuitos: margen bruto del 91%"
+   },
+   {
+    "n": "Escala eficiente",
+    "s": 2,
+    "note": "Nichos abiertos a otros foros y plataformas"
+   }
+  ],
+  "comps": [
+   {
+    "n": "Google (AI Overviews)",
+    "threat": 4,
+    "note": "Socio de datos y a la vez la mayor amenaza para su tráfico"
+   },
+   {
+    "n": "Meta",
+    "threat": 4,
+    "note": "Rival por el presupuesto de los anunciantes"
+   },
+   {
+    "n": "OpenAI (ChatGPT)",
+    "threat": 3,
+    "note": "Responde preguntas con contenido de Reddit sin enviar visitas"
+   },
+   {
+    "n": "TikTok",
+    "threat": 3,
+    "note": "Compite por el tiempo de los usuarios jóvenes"
+   },
+   {
+    "n": "Discord y X",
+    "threat": 2,
+    "note": "Alternativas para comunidades y conversación"
+   }
+  ]
+ },
+ "growth": {
+  "score": 3.5,
+  "scoreNote": "Los ingresos crecen al 53% gracias al ingreso por usuario (+36%) y al exterior (+67%), pero la guía del 4T26 baja al 38–42% y los usuarios diarios pueden caer por la pérdida de visitas desde Google.",
+  "tam": "Publicidad digital mundial: Meta factura más de 160.000 M$ al año; Reddit, unos 3.400 M$. El ARPU internacional (2,26 $) es una quinta parte del de EE. UU. (11,85 $).",
+  "guidance": "4T26: ingresos de 1.000–1.030 M$ (+38–42%; el consenso esperaba 1.046 M$) y EBITDA ajustado de 480–510 M$. Usuarios diarios: posible caída de un porcentaje de dos dígitos frente a los 130 M del 3T26 si siguen bajando las visitas desde buscadores.",
+  "drivers": [
+   {
+    "n": "Más ingresos por usuario (Reddit Max)",
+    "impact": 5,
+    "h": "2026–2027",
+    "st": "en marcha",
+    "k": "Ingresos +53% en 3T26 (895 M$)",
+    "peso": "~95% de los ingresos es publicidad",
+    "d": "Reddit monetiza poco frente a Meta. Con Reddit Max (uso ×3 en un trimestre), anuncios de compra (+95%) y vídeo, los anunciantes pagan más por usuario. La guía del 4T26 es de 1.000–1.030 M$ (+38–42%).",
+    "ev": "ARPU por región y crecimiento de los ingresos publicitarios.",
+    "r": "Caída de usuarios: la guía del 4T26 contempla un descenso de dos dígitos por menos visitas desde Google.",
+    "u": "https://www.fool.com/earnings/call-transcripts/2026/10/30/reddit-rddt-q3-2026-earnings-call-transcript/"
+   },
+   {
+    "n": "Crecimiento internacional",
+    "impact": 4,
+    "h": "2026–2028",
+    "st": "en marcha",
+    "k": "Usuarios intl. +24% · ingresos +67%",
+    "peso": "ARPU intl. 2,26 $ vs 11,85 $ en EE. UU.",
+    "d": "Con traducción automática el contenido en inglés llega a otros idiomas. Fuera de EE. UU. el ARPU es una quinta parte, así que hay mucho margen para monetizar.",
+    "ev": "Usuarios diarios internacionales e ingresos fuera de EE. UU.",
+    "r": "Usuarios menos valiosos para los anunciantes y competencia local."
+   },
+   {
+    "n": "Licencias de datos para IA",
+    "impact": 3,
+    "h": "2026",
+    "st": "en marcha",
+    "k": "Google ~60 M$ al año",
+    "peso": "~5% de los ingresos",
+    "d": "Google y OpenAI pagan por usar las conversaciones de Reddit para entrenar sus modelos. Los contratos se renegocian en 2026 y Reddit quiere un precio ligado al uso.",
+    "ev": "Renovaciones y nuevos acuerdos; evolución de «otros ingresos».",
+    "r": "Que no se renueve con Google o que el precio baje.",
+    "u": "https://www.sherwood.news/business/reddit-bounces-on-report-that-its-in-talks-with-google-openai-on-fresh-data"
+   },
+   {
+    "n": "Solo con sesión iniciada",
+    "impact": 3,
+    "h": "4T26–2027",
+    "st": "temprano",
+    "k": "Más del 80% de la monetización",
+    "d": "Reddit irá hacia una experiencia solo para usuarios registrados: más interacción, mejor segmentación de anuncios y protección de sus datos frente a quien los copia para entrenar IA. Pierde alcance a cambio de usuarios más valiosos.",
+    "ev": "Usuarios diarios con sesión iniciada y en la app, que publica por región.",
+    "r": "Las visitas desde Google caen (más de 1 M menos por semana en octubre por AI Overviews): los usuarios diarios podrían bajar un porcentaje de dos dígitos en el 4T26.",
+    "peso": "prueba fuera de EE. UU. en el 4T26",
+    "u": "https://www.fool.com/earnings/call-transcripts/2026/10/30/reddit-rddt-q3-2026-earnings-call-transcript/"
+   },
+   {
+    "n": "Recompras",
+    "impact": 2,
+    "h": "Continuo",
+    "st": "en marcha",
+    "k": "Programa de 1.000 M$",
+    "peso": "~100 M$ en el 3T26 a menos de 150 $",
+    "d": "Compensan la dilución del pago en acciones.",
+    "ev": "Acciones en circulación.",
+    "r": "Poco efecto si el pago en acciones sigue alto."
+   }
+  ]
+ },
+ "mgmt": {
+  "note": "Huffman controla cerca del 70,7% del voto gracias a un pacto con Advance (familia Newhouse), que posee ~22% del capital. Su participación económica propia es del 3%. Las acciones de clase B tienen 10 votos.",
+  "people": [
+   {
+    "n": "Steve Huffman",
+    "role": "Cofundador y CEO",
+    "since": "2015",
+    "note": "Volvió como CEO en 2015 y llevó la empresa a bolsa en 2024."
+   },
+   {
+    "n": "Jen Wong",
+    "role": "Directora de operaciones",
+    "since": "2018",
+    "note": "Responsable del negocio publicitario."
+   },
+   {
+    "n": "Drew Vollero",
+    "role": "Director financiero",
+    "since": "2020",
+    "note": "Ha llevado a la empresa a beneficios y al programa de recompras."
+   },
+   {
+    "n": "Advance (Newhouse)",
+    "role": "Mayor accionista",
+    "since": "2006",
+    "note": "~22% del capital; vota con Huffman por pacto."
+   }
+  ],
+  "scores": [
+   {
+    "n": "Alineación con el accionista",
+    "s": 3,
+    "note": "Fundador al mando, pero con solo un 3% económico y pago en acciones elevado"
+   },
+   {
+    "n": "Asignación de capital",
+    "s": 4,
+    "note": "Sin deuda, recompras de 1.000 M$, capex mínimo"
+   },
+   {
+    "n": "Credibilidad y ejecución",
+    "s": 5,
+    "note": "Ocho trimestres seguidos creciendo más del 60% y batiendo previsiones"
+   },
+   {
+    "n": "Gobierno corporativo",
+    "s": 2,
+    "note": "Control del voto por pacto con Advance"
+   },
+   {
+    "n": "Transparencia",
+    "s": 3,
+    "note": "Deja de desglosar usuarios conectados y anónimos"
+   }
+  ],
+  "alloc": {
+   "label": "Uso de la caja, 1S 2026 (M$)",
+   "items": [
+    {
+     "n": "Recompras",
+     "v": 240
+    },
+    {
+     "n": "Capex",
+     "v": 2
+    },
+    {
+     "n": "Dividendos",
+     "v": 0
+    }
+   ]
+  },
+  "vote": {
+   "label": "Poder de voto (%, may-26)",
+   "items": [
+    {
+     "n": "Huffman con el pacto de Advance",
+     "v": 70.7
+    },
+    {
+     "n": "Resto de accionistas",
+     "v": 29.3
+    }
+   ]
+  },
+  "call": {
+   "periodEnd": "2026-09-30",
+   "q": "3T 2026",
+   "date": "29-oct-2026",
+   "doc": "Nota de resultados (8-K, Exhibit 99.1)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000114/earningspressreleaseq326.htm",
+   "nota": "Resumen de la nota de resultados y de la llamada con analistas del 29-oct-2026.",
+   "dir": [
+    "Ingresos de 895 M$ (+53%) y BPA de 1,40 $, por encima de lo esperado; ARPU +36%.",
+    "Internacional: 79,6 M de usuarios diarios (+24%) e ingresos +67% (176 M$).",
+    "Más del 80% de los ingresos viene de usuarios con sesión iniciada en la app: prueba de acceso solo con sesión fuera de EE. UU. en el 4T."
+   ],
+   "ret": [
+    "Las visitas desde Google cayeron con fuerza al final del trimestre y en octubre (más de 1 M menos por semana) por AI Overviews y AI Mode.",
+    "Usuarios diarios: 130,3 M (+12%), por debajo de los 134 M esperados; pueden caer un porcentaje de dos dígitos en el 4T.",
+    "Huffman: AI Mode «no genera tráfico»; no da por hecho que se recupere."
+   ],
+   "guia": [
+    "4T26: ingresos de 1.000–1.030 M$ (+38–42%) y EBITDA ajustado de 480–510 M$.",
+    "Más marketing para captar usuarios fuera de EE. UU. y descargas de la app en EE. UU."
+   ],
+   "cap": [
+    "Recompró unas 670.000 acciones por 100 M$ (a 149,81 $ de media).",
+    "3.030 M$ de caja y sin deuda; FCF de 363 M$ en el trimestre."
+   ]
+  }
+ },
+ "risks": [
+  {
+   "n": "Menos tráfico desde Google",
+   "cat": "Competencia",
+   "p": 5,
+   "i": 5,
+   "note": "Ya ocurre: las visitas desde Google caen más de 1 M por semana en octubre por AI Overviews y AI Mode"
+  },
+  {
+   "n": "Caída de usuarios diarios",
+   "cat": "Operativo",
+   "p": 4,
+   "i": 4,
+   "note": "130,3 M en 3T26 (+12%, se esperaban 134 M); podrían bajar un porcentaje de dos dígitos en el 4T26"
+  },
+  {
+   "n": "Desaceleración del crecimiento",
+   "cat": "Operativo",
+   "p": 4,
+   "i": 3,
+   "note": "+61% (2T26) → +53% (3T26) → +38–42% guiado para el 4T26"
+  },
+  {
+   "n": "Renovación de licencias de IA",
+   "cat": "Comercial",
+   "p": 3,
+   "i": 3,
+   "note": "Informaciones de que podría cortar el acceso de Google a sus datos"
+  },
+  {
+   "n": "Dilución por pago en acciones",
+   "cat": "Financiero",
+   "p": 3,
+   "i": 2,
+   "note": "~340 M$ al año de pago en acciones"
+  },
+  {
+   "n": "Dependencia de moderadores voluntarios",
+   "cat": "Operativo",
+   "p": 2,
+   "i": 3,
+   "note": "Las protestas de 2023 mostraron el riesgo"
+  },
+  {
+   "n": "Litigios con empresas de IA",
+   "cat": "Legal",
+   "p": 2,
+   "i": 2,
+   "note": "Ganó una decisión clave contra Anthropic en septiembre"
+  },
+  {
+   "n": "Control del voto",
+   "cat": "Gobierno",
+   "p": 2,
+   "i": 2,
+   "note": "Huffman y Advance deciden las votaciones"
+  }
+ ],
+ "v": {
+  "shares": 206.3,
+  "cash": 3030,
+  "debt": 0,
+  "rev0": 3380,
+  "year0": 2026,
+  "g": [
+   22,
+   18,
+   15,
+   13,
+   11
+  ],
+  "m1": 46,
+  "m5": 50,
+  "da": 0.6,
+  "da5": 0.6,
+  "sbc": 8,
+  "capex": 0.3,
+  "capex5": 0.3,
+  "nwc": 8,
+  "tax": 18,
+  "wacc": 10.5,
+  "tg": 3,
+  "exit": 15,
+  "method": "blend",
+  "eps": 6,
+  "pe": 22,
+  "evm": 18,
+  "scn": [
+   {
+    "n": "Bajista",
+    "dg": -14,
+    "dm": -8,
+    "p": 25
+   },
+   {
+    "n": "Base",
+    "dg": 0,
+    "dm": 0,
+    "p": 50
+   },
+   {
+    "n": "Alcista",
+    "dg": 8,
+    "dm": 3,
+    "p": 25
+   }
+  ]
+ },
+ "verdict": {
+  "rating": "Acumular",
+  "conviction": 3,
+  "buyBelow": 100,
+  "horizon": "12–24 meses",
+  "summary": "El riesgo que más pesaba en la tesis se ha cumplido: Google envía cada vez menos visitas y los usuarios diarios pueden caer en el 4T. Aun así, el negocio sigue creciendo al 40–50% con márgenes de software, 3.000 M$ de caja y recompras. Tras caer un 29%, a ~92 $ el precio descuenta crecimiento cero y coincide con el escenario bajista del modelo (~87 $), con un valor ponderado de ~167 $. Para acumular con prudencia y en tramos: la clave es que los usuarios con sesión iniciada sigan creciendo aunque caiga el tráfico de búsqueda.",
+  "bull": [
+   "Ingresos +53% y ARPU +36%: cada usuario monetiza más",
+   "El precio descuenta crecimiento cero; el escenario bajista ya está en la cotización",
+   "Usuarios internacionales +24% e ingresos internacionales +67%",
+   "3.030 M$ de caja, sin deuda y recompras a ~150 $"
+  ],
+  "bear": [
+   "Las visitas desde Google caen por AI Overviews y AI Mode",
+   "Usuarios diarios por debajo de lo esperado y con posible caída en el 4T",
+   "Guía del 4T26 por debajo del consenso (+38–42%)",
+   "Renovación incierta de las licencias de datos con Google y OpenAI"
+  ],
+  "watch": [
+   "Usuarios diarios del 4T26 y de los que inician sesión (feb-27)",
+   "Resultado de la prueba de acceso solo con sesión fuera de EE. UU.",
+   "Renovación de las licencias de datos",
+   "Crecimiento del ARPU por encima del 30%"
+  ]
+ },
+ "notes": "Cotización de 91,73 $ del 30-oct-2026, tras caer un 29,2% por los resultados del 3T26 (cierre del 29-oct: 129,60 $).",
+ "sources": {
+  "web": "https://www.redditinc.com",
+  "ir": "https://investor.redditinc.com",
+  "docs": [
+   {
+    "cat": "Resultados trimestrales",
+    "t": "Nota de prensa de resultados 2T26 (PDF)",
+    "d": "30-jul-2026",
+    "u": "https://s203.q4cdn.com/380862485/files/doc_financials/2026/q2/Q2-26-Earnings-Press-Release.pdf"
+   },
+   {
+    "cat": "Resultados trimestrales",
+    "t": "Nota de prensa de resultados 4T25 y año 2025 (PDF)",
+    "d": "05-feb-2026",
+    "u": "https://s203.q4cdn.com/380862485/files/doc_financials/2025/q4/Q4-25-Earnings-Press-Release.pdf"
+   },
+   {
+    "cat": "Formularios SEC",
+    "t": "10-Q segundo trimestre 2026",
+    "d": "jul-2026",
+    "u": "https://www.sec.gov/Archives/edgar/data/0001713445/000171344526000100/rddt-20260630.htm"
+   },
+   {
+    "cat": "Formularios SEC",
+    "t": "10-K ejercicio 2025",
+    "d": "feb-2026",
+    "u": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000022/rddt-20251231.htm"
+   },
+   {
+    "cat": "Formularios SEC",
+    "t": "S-1 de la salida a bolsa",
+    "d": "feb-2024",
+    "u": "https://www.sec.gov/Archives/edgar/data/1713445/000162828024006294/reddits-1q423.htm"
+   },
+   {
+    "cat": "Transcripciones",
+    "t": "Resumen de la llamada de resultados 2T26 (Quartr)",
+    "d": "30-jul-2026",
+    "u": "https://quartr.com/events/reddit-inc-rddt-q2-2026_FLW4MEuM"
+   },
+   {
+    "cat": "Gobierno corporativo",
+    "t": "Quién es dueño de Reddit (accionistas y voto)",
+    "d": "sep-2026",
+    "u": "https://aifundingtracker.com/who-owns-reddit/"
+   }
+  ],
+  "news": [
+   {
+    "t": "Reddit Max y la guía del 3T26",
+    "src": "24/7 Wall St.",
+    "u": "https://247wallst.com/investing/2026/10/25/can-reddit-max-save-rddt-from-slower-growth-guidance-on-oct-29/"
+   },
+   {
+    "t": "La acción cae por las referencias de búsqueda",
+    "src": "TIKR",
+    "u": "https://www.tikr.com/blog/reddit-rddt-stock-sinks-search-referral-concerns-q2-2026"
+   },
+   {
+    "t": "Renovación de los acuerdos de IA",
+    "src": "TIKR",
+    "u": "https://www.tikr.com/blog/reddit-fell-6-as-its-550m-ai-deal-renewal-looms-heres-where-the-stock-could-go-in-2026"
+   },
+   {
+    "t": "Cotización, rango de 52 semanas y consenso",
+    "src": "StockAnalysis",
+    "u": "https://stockanalysis.com/stocks/rddt/"
+   },
+   {
+    "t": "Notas de resultados 2T26",
+    "src": "Barchart",
+    "u": "https://www.barchart.com/story/news/3561487/reddit-nyserddt-delivers-strong-q2-cy2026-numbers-but-stock-drops-10-3"
+   }
+  ]
+ },
+ "social": {
+  "pulse": [
+   {
+    "p": "Reddit",
+    "s": 0,
+    "note": "Dividido. No hay medición propia, pero el debate tras la caída del 25% del 30-oct enfrenta «sobrerreacción» (beneficios, caja, márgenes) con «basurero» (usuarios y tráfico de Google)."
+   },
+   {
+    "p": "X",
+    "s": 1,
+    "note": "Por inercia: Stocktwits marca 84 («extremadamente alcista», 31-oct), aunque muchos mensajes recientes son bajistas. Se espera rebote hacia 130–140 $."
+   },
+   {
+    "p": "YouTube",
+    "s": null,
+    "note": "Sin dato medido. Tras los resultados dominan los vídeos sobre la caída de usuarios por las respuestas con IA de Google."
+   }
+  ],
+  "videos": [
+   {
+    "t": "Reddit (RDDT) Stock Analysis 2026: From Multi-bagger to 60% Crash (And Up Again)",
+    "u": "https://www.youtube.com/watch?v=9ICEu_pNFG8"
+   },
+   {
+    "t": "Reddit Oversold Into Earnings & Options Activity for RDDT",
+    "u": "https://www.youtube.com/watch?v=bWwjLShvxYU"
+   },
+   {
+    "t": "Reddit (RDDT) Stock Analysis: 91% Gross Margins vs. Quant “Hold”",
+    "u": "https://www.youtube.com/watch?v=j4xCzbUZYqU"
+   },
+   {
+    "t": "RDDT Stock Prediction: Is Reddit Stock a Buy or Trap After Q2 Earnings?",
+    "u": "https://www.youtube.com/watch?v=2-xwv4dd264"
+   }
+  ],
+  "pulseFuente": "Lectura del 1-nov-2026 con SentiSense, LunarCrush y Stocktwits (agregadores de redes sociales) y búsquedas propias."
+ },
+ "fin_manual": {
+  "nota": "Series que la SEC no publica (por segmento). Las etiquetas de trimestre deben coincidir con las de la SEC (p. ej. 3T26).",
+  "q": {
+   "labels": [
+    "3T25",
+    "4T25",
+    "1T26",
+    "2T26",
+    "3T26 guía"
+   ],
+   "series": [
+    {
+     "n": "Usuarios diarios",
+     "values": [
+      null,
+      19,
+      null,
+      18,
+      null
+     ]
+    }
+   ]
+  },
+  "nota_antigua": "La pérdida de 2024 se debe al pago en acciones de la salida a bolsa. EBITDA ajustado y FCF de 2022–23 no disponibles aquí. 2026e: primer semestre real + guía del 3T + consenso del 4T."
+ },
+ "avisos_aprobados": [
+  {
+   "id": "split.Split de #×# detectado en #: las acciones y el BPA de los años anteriores se aju",
+   "fecha": "2026-11-05",
+   "nivel": "info",
+   "mensaje": "Split de 2×1 detectado en 2024: las acciones y el BPA de los años anteriores se ajustan para que sean comparables."
+  },
+  {
+   "id": "etiqueta_obsoleta.Depreciación: «Depreciation» termina el #-#-#; solo se usa para años antiguos.",
+   "fecha": "2026-11-05",
+   "nivel": "info",
+   "mensaje": "Depreciación: «Depreciation» termina el 2024-06-30; solo se usa para años antiguos."
+  },
+  {
+   "id": "etiqueta_obsoleta.Amortización de intangibles: «AmortizationOfIntangibleAssets» termina el #-#-#; ",
+   "fecha": "2026-11-05",
+   "nivel": "info",
+   "mensaje": "Amortización de intangibles: «AmortizationOfIntangibleAssets» termina el 2024-12-31; solo se usa para años antiguos."
+  },
+  {
+   "id": "etiqueta_obsoleta.Beneficio antes de impuestos: «IncomeLossFromContinuingOperationsBeforeIncomeTax",
+   "fecha": "2026-11-05",
+   "nivel": "info",
+   "mensaje": "Beneficio antes de impuestos: «IncomeLossFromContinuingOperationsBeforeIncomeTaxesDomestic» termina el 2025-12-31; solo se usa para años antiguos."
+  },
+  {
+   "id": "acciones_diluidas.Acciones: se usan las diluidas medias del #T# (# M).",
+   "fecha": "2026-11-05",
+   "nivel": "info",
+   "mensaje": "Acciones: se usan las diluidas medias del 3T26 (202 M)."
+  }
+ ]
 }
