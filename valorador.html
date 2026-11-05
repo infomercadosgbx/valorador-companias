@@ -529,6 +529,11 @@ table.mini2 td{padding:3px 6px;font-size:12px;border-bottom:1px solid var(--grid
 .mkfv{display:flex;gap:10px}.mkfv label,.mkff{display:flex;flex-direction:column;gap:3px;flex:1;font-size:11.5px;font-weight:600;color:var(--ink2)}
 @media (max-width:640px){.mkfrow{grid-template-columns:1fr}}
 .mkform{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:10px 0}.mkform label{display:flex;flex-direction:column;gap:4px;font-size:12px;font-weight:600;color:var(--ink2)}
+.mki{all:unset;box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;border-radius:50%;border:1px solid var(--muted);color:var(--muted);font:italic 700 10.5px/1 Georgia,serif;cursor:pointer;vertical-align:1px;margin-left:5px;text-transform:none;letter-spacing:0;flex:none}
+.mki:hover,.mki:focus-visible,.mki[aria-expanded="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.mknt{display:block}.mknt .mki{vertical-align:2px}
+.mkinfo{border-left:3px solid var(--accent);background:color-mix(in srgb,var(--accent) 7%,var(--surface));border-radius:0 8px 8px 0;padding:10px 12px;margin:2px 0 8px;font-size:12.5px;line-height:1.5;color:var(--ink)}
+.mkinfo b{display:block;margin-bottom:4px;font-size:13px}.mkinfo p{margin:4px 0 0}.mkinfo p span{font-weight:700}
 .mkgo{font-size:12px;font-weight:600;color:var(--accent);text-decoration:none;white-space:nowrap}.mkgo:hover{text-decoration:underline}
 .mkcnn{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap;font-size:12.5px;border-top:1px solid var(--grid);padding-top:8px}.mkcnn b{font-family:var(--f-num)}
 .mklinks{display:flex;gap:14px;flex-wrap:wrap;align-items:baseline;margin:6px 0 2px}
@@ -1623,7 +1628,7 @@ function inicioHtml(){
    data/_mercado_hoy.json lo escribe cada día el Action «Mercado hoy» (FRED, Tesoro, Finnhub, Twelve Data,
    OFR, AAII, Cboe). Lo que no tiene fuente gratuita (NAAIM, CNN, MOVE) se apunta en manual/_mercado.json.
    Durante la sesión, los ETF se actualizan con el Worker de precio en vivo. */
-const MKH={d:null,man:{},err:null,cargado:false,abierto:false,editar:false};
+const MKH={d:null,man:{},err:null,cargado:false,abierto:false,editar:false,info:null};
 const MKLINK={naaim:["naaim.org","https://naaim.org/programs/naaim-exposure-index/"],cnn:["CNN","https://edition.cnn.com/markets/fear-and-greed"],
   move:["Investing","https://www.investing.com/indices/ice-bofaml-move"],aaii:["aaii.com","https://www.aaii.com/sentimentsurvey"]};
 function mkUrl(k){ const u=(MKH.man[k]||{}).url; return okUrl(u)?u:MKLINK[k][1]; }
@@ -1634,6 +1639,60 @@ async function mkLoad(){
   }catch(e){ MKH.err=e.message; }
   MKH.cargado=true; if(WATCH&&WVIEW==="inicio") renderWatch();
 }
+/* Fichas (i) de «Mercado hoy»: qué es cada indicador y cómo leerlo */
+const MKINFO={
+  fg:{t:"Miedo y codicia (índice propio)",q:"Resume en un número de 0 a 100 el ánimo del mercado de acciones de EE. UU. Combina cinco señales: la tendencia del S&P 500, la volatilidad (VIX), la demanda de bonos basura, la preferencia por bolsa o bonos y el uso de opciones de cobertura (put/call).",
+    l:"Se usa a la contra. El miedo extremo suele coincidir con caídas avanzadas y precios atractivos; la codicia extrema, con euforia y más riesgo de corrección. No sirve para acertar el día exacto: el miedo puede durar semanas.",
+    u:"Menos de 25: miedo extremo · 25–45: miedo · 45–55: neutral · 55–75: codicia · más de 75: codicia extrema."},
+  cnn:{t:"Miedo y codicia de CNN",q:"El índice original de CNN Business, con siete componentes. Dos de ellos (máximos frente a mínimos y amplitud de la NYSE) no tienen fuente gratuita, por eso el índice propio usa cinco.",
+    l:"Se lee igual que el índice propio. Si los dos difieren mucho, suele ser porque la amplitud del mercado (cuántas acciones suben) va por otro lado que los grandes índices.",u:"Mismos tramos: 25 / 45 / 55 / 75."},
+  ofr:{t:"Índice de estrés financiero (OFR)",q:"Lo calcula la Oficina de Investigación Financiera del Tesoro de EE. UU. con 33 variables de mercado: diferenciales de crédito, valoración de la bolsa, financiación entre bancos, demanda de activos refugio y volatilidad, en EE. UU. y el resto del mundo.",
+    l:"Mide tensión en el sistema financiero, no el ánimo de los inversores. Es útil para distinguir una caída de bolsa normal de una con tensiones en el crédito y la financiación, que es la que suele ir a más.",
+    u:"0 = nivel medio de estrés. Negativo: más calma de lo habitual. Positivo: estrés por encima de la media. En las crisis de 2008 y de marzo de 2020 llegó a dos dígitos."},
+  aaii:{t:"Encuesta AAII",q:"Encuesta semanal a los socios de la Asociación Americana de Inversores Particulares: si creen que la bolsa estará más alta (alcistas), igual (neutrales) o más baja (bajistas) dentro de seis meses. Se publica los jueves.",
+    l:"Es un indicador contrario: cuando casi todos los particulares son bajistas, gran parte del miedo ya está en el precio; cuando son muy alcistas, queda poco comprador nuevo.",
+    u:"Medias históricas: 37,5% alcistas, 31,0% neutrales y 31,5% bajistas. Bajistas por encima del 50% o diferencial alcistas − bajistas por debajo de −20 pp suelen darse cerca de suelos; alcistas por encima del 50%, de excesos de optimismo."},
+  naaim:{t:"NAAIM Exposure Index",q:"Exposición media a la bolsa de EE. UU. que declaran los gestores activos de la NAAIM cada miércoles. Va de −200 (cortos apalancados al doble) a +200 (largos apalancados al doble); 100 = totalmente invertidos.",
+    l:"Muestra qué hacen los profesionales con su dinero, no lo que opinan. Lecturas muy altas indican que ya han comprado casi todo (poco combustible para seguir subiendo); muy bajas, que han vendido mucho y pueden volver a comprar.",
+    u:"Más de 90: muy invertidos, complacencia. 40–80: zona habitual. Menos de 40: exposición baja, a menudo cerca de suelos."},
+  sp500:{t:"S&P 500",q:"Las 500 mayores compañías de EE. UU., ponderadas por capitalización. Es la referencia de la bolsa mundial.",
+    l:"El valor es el cierre oficial (FRED lo publica con un día de retraso). Durante la sesión, al lado se ve la variación en vivo del ETF SPY, que lo replica.",u:"Caída del 10% desde máximos: corrección. Del 20%: mercado bajista."},
+  nasdaq:{t:"Nasdaq Composite",q:"Todas las acciones del Nasdaq, con mucho peso de tecnología y crecimiento.",
+    l:"Más sensible que el S&P 500 a los tipos de interés y a las expectativas de crecimiento: sube más en los buenos momentos y cae más en los malos. En sesión se muestra QQQ (Nasdaq-100) en vivo.",u:""},
+  msci_world:{t:"MSCI World (ETF URTH)",q:"Bolsas de 23 países desarrollados, unas 1.400 compañías; EE. UU. pesa en torno al 70%.",
+    l:"Se muestra el ETF URTH porque el índice no tiene fuente gratuita: su variación diaria es prácticamente la del índice, pero el precio es el del ETF, no los puntos del índice.",u:""},
+  corea:{t:"Corea del Sur (ETF EWY)",q:"Bolsa de Corea del Sur, con mucho peso de Samsung y SK Hynix.",
+    l:"Termómetro del ciclo de semiconductores y del comercio mundial. Sustituye al KOSPI 50, que no tiene fuente gratuita; se mueve de forma muy parecida.",u:""},
+  vix:{t:"VIX",q:"Volatilidad que esperan las opciones del S&P 500 para los próximos 30 días, en % anualizado. Se le llama el «índice del miedo».",
+    l:"Sube cuando la bolsa cae y los inversores pagan por protegerse. Un salto brusco indica pánico; si se mantiene alto varios días, la tensión es de fondo.",
+    u:"Menos de 15: calma · 15–20: normal · 20–30: tensión · más de 30: miedo · más de 40: pánico (2008, 2020)."},
+  move:{t:"MOVE",q:"Lo mismo que el VIX pero para los bonos del Tesoro de EE. UU.: volatilidad esperada de los tipos de interés a un mes.",
+    l:"Si los tipos se mueven mucho, sufren las valoraciones de todo lo demás. Un MOVE alto con el VIX bajo suele anticipar contagio a la bolsa.",u:"En torno a 100 es la media histórica. Menos de 80: calma. Más de 120: tensión en bonos (en 2022 superó 150)."},
+  hyg:{t:"Bonos high yield (HYG)",q:"ETF de bonos corporativos de EE. UU. de baja calidad crediticia («bonos basura»).",
+    l:"Se comporta como un activo de riesgo. Si cae a la vez que la bolsa, los inversores dudan de la capacidad de pago de las empresas. Si la bolsa sube y HYG cae, es una divergencia a vigilar.",u:"Compáralo con LQD: HYG baja y LQD sube = huida hacia la calidad."},
+  lqd:{t:"Bonos grado de inversión (LQD)",q:"ETF de bonos corporativos de EE. UU. de buena calidad crediticia.",
+    l:"Depende sobre todo de los tipos de interés: sube cuando bajan los tipos del Tesoro. Frente a HYG, ayuda a separar el efecto de los tipos del miedo al impago.",u:""},
+  dif_hy:{t:"Diferencial high yield",q:"Rentabilidad extra que exigen los bonos basura de EE. UU. sobre los del Tesoro (índice ICE BofA, ajustado por opciones). La variación diaria va en puntos básicos (pb).",
+    l:"Es de los indicadores de crédito más vigilados: si se abre deprisa, el mercado teme impagos y suele anticipar problemas en la bolsa.",
+    u:"Menos del 3%: muy ajustado, complacencia · 3–5%: normal · más del 5%: estrés · más del 8%: crisis (2020 ≈ 11%, 2008 ≈ 20%)."},
+  kre:{t:"Bancos regionales (KRE)",q:"ETF de bancos regionales de EE. UU.",
+    l:"Termómetro del estrés bancario y del crédito a pymes e inmobiliario comercial. Caídas fuertes y repentinas (como la de 2023 con Silicon Valley Bank) avisan de problemas de financiación.",u:""},
+  us5y:{t:"Bono de EE. UU. a 5 años",q:"Rentabilidad del bono del Tesoro a 5 años. La variación diaria va en puntos básicos (1 pb = 0,01%).",
+    l:"Refleja lo que espera el mercado de los tipos de la Reserva Federal en los próximos años. Si cae mucho en un día de bolsa a la baja, el mercado descuenta recortes de tipos.",u:""},
+  us10y:{t:"Bono de EE. UU. a 10 años",q:"Rentabilidad del bono del Tesoro a 10 años, la referencia mundial de tipos a largo plazo. Es el tipo sin riesgo que usa el WACC del valorador.",
+    l:"Si sube, se encarecen las hipotecas y el crédito y bajan las valoraciones, sobre todo las de compañías de crecimiento. Si baja con la bolsa cayendo, actúa como refugio.",u:"Compáralo con el de 5 años: si el de 10 rinde menos, la curva está invertida, una señal clásica de recesión."},
+  eurusd:{t:"EUR/USD",q:"Dólares que vale un euro.",
+    l:"Si sube, el euro se aprecia. Para un inversor en euros con acciones en dólares, un dólar que se debilita resta rentabilidad aunque la acción suba.",u:""},
+  oro:{t:"Oro",q:"Precio de una onza de oro en dólares.",
+    l:"Activo refugio: sube con el miedo, con tipos reales bajos, con el dólar débil y con las compras de los bancos centrales.",u:""},
+  wti:{t:"Petróleo WTI",q:"Barril de petróleo de referencia en EE. UU., precio al contado según la EIA (llega con dos o tres días de retraso).",
+    l:"Las subidas fuertes presionan la inflación y los márgenes de las empresas; las caídas bruscas pueden indicar demanda débil.",u:""},
+  bitcoin:{t:"Bitcoin",q:"Precio de un bitcoin en dólares. Cotiza las 24 horas, también en fin de semana.",
+    l:"Muy sensible a la liquidez y al apetito por el riesgo especulativo: a menudo se mueve antes que la bolsa en los cambios de sentimiento.",u:""},
+};
+function mkI(k){ return MKINFO[k]?`<button type="button" class="mki" data-mki="${k}" aria-expanded="${MKH.info===k}" aria-label="Qué es ${esc(MKINFO[k].t)}" title="Qué es y cómo leerlo">i</button>`:""; }
+function mkInfoPanel(k){ const x=MKINFO[k]; if(!x||MKH.info!==k) return "";
+  return `<div class="mkinfo"><b>${esc(x.t)}</b><p><span>Qué es.</span> ${esc(x.q)}</p><p><span>Cómo leerlo.</span> ${esc(x.l)}</p>${x.u?`<p><span>Referencias.</span> ${esc(x.u)}</p>`:""}</div>`; }
 function mkLiveTickers(){ return ((MKH.d&&MKH.d.indicadores)||[]).map(i=>i.vivo&&i.vivo.ticker).filter(Boolean); }
 function mkFmt(i,v){ if(!fin(v)) return "–";
   if(i.unidad==="%") return nf(v,i.id==="dif_hy"?2:3)+"%";
@@ -1651,12 +1710,12 @@ function mkRow(i){
     :i.desactualizado?`<span class="src warn" title="La fuente no respondió en la última actualización">${esc(i.fuente)} · ${esc(fecha(i.fecha))} (sin actualizar)</span>`
     :srcTag({fuente:i.fuente,fecha:i.fecha,url:i.url});
   const ref=x.ref?`<span class="mkref" title="Variación en vivo del ETF ${esc(i.vivo.ticker)}, que replica el índice. La cifra de la izquierda es el cierre oficial.">${esc(i.vivo.ticker)} ahora ${mkSign(x.ref.var_pct)}</span>`:"";
-  return `<div class="mkrow"><div class="mkn"><b>${esc(i.nombre)}${i.nota?` <span class="note" title="${esc(i.nota)}">ⓘ</span>`:""}</b>${src}</div>
-    <div class="mkv"><b>${mkFmt(i,x.v)}</b>${fin(x.pb)?mkSign(x.pb,1," pb"):mkSign(x.pct)}${ref}</div></div>`;
+  return `<div class="mkrow"><div class="mkn"><span class="mknt"><b>${esc(i.nombre)}</b>${mkI(i.id)}</span>${src}</div>
+    <div class="mkv"><b>${mkFmt(i,x.v)}</b>${fin(x.pb)?mkSign(x.pb,1," pb"):mkSign(x.pct)}${ref}</div></div>`+mkInfoPanel(i.id);
 }
 function mkManualRow(k,nombre){ const m=MKH.man[k]||{};
-  return `<div class="mkrow"><div class="mkn"><b>${esc(nombre)}</b>${fin(m.valor)?srcTag({manual:true,fecha:fecha(m.fecha),fuente:m.fuente||"Introducido a mano"}):`<span class="src off">sin apuntar</span>`}</div>
-    <div class="mkv"><b>${fin(m.valor)?nf(m.valor,2):"–"}</b>${mkA(k,"consultar")}</div></div>`; }
+  return `<div class="mkrow"><div class="mkn"><span class="mknt"><b>${esc(nombre)}</b>${mkI(k)}</span>${fin(m.valor)?srcTag({manual:true,fecha:fecha(m.fecha),fuente:m.fuente||"Introducido a mano"}):`<span class="src off">sin apuntar</span>`}</div>
+    <div class="mkv"><b>${fin(m.valor)?nf(m.valor,2):"–"}</b>${mkA(k,"consultar")}</div></div>`+mkInfoPanel(k); }
 function mkGauge(v){ return `<div class="mkgauge" role="img" aria-label="${nf(v,0)} sobre 100"><span class="mkmark" style="left:${Math.max(0,Math.min(100,v))}%"></span></div>
   <div class="mkscale"><span>Miedo extremo</span><span>Neutral</span><span>Codicia extrema</span></div>`; }
 function mkFgTone(v){ return v<45?"down":v<=55?"neutral":"up"; }
@@ -1670,7 +1729,7 @@ function mkSentHtml(){
   const A=manA?{...am,neutrales:fin(am.neutrales)?am.neutrales:100-am.alcistas-am.bajistas,diferencial:am.alcistas-am.bajistas,manual:true}:S.aaii;
   const prev=(o,l)=>o&&fin(o.valor)?`<span><small>${l}</small> ${nf(o.valor,0)}</span>`:"";
   const fg=F?`<div class="mkcard">
-      <div class="mkh"><span class="eyebrow">Miedo y codicia · índice propio</span>${srcTag({fuente:"Calculado con FRED y Cboe",fecha:F.fecha})}</div>
+      <div class="mkh"><span class="eyebrow">Miedo y codicia · índice propio ${mkI("fg")}</span>${srcTag({fuente:"Calculado con FRED y Cboe",fecha:F.fecha})}</div>${mkInfoPanel("fg")}
       <div class="mkbig"><b>${nf(F.valor,0)}</b><span class="pill ${mkFgTone(F.valor)}">${esc(F.etiqueta)}</span></div>
       ${mkGauge(F.valor)}
       <div class="mkprev">${prev(F.anterior,"ayer")}${prev(F.hace_1s,"hace 1 sem.")}${prev(F.hace_1m,"hace 1 mes")}</div>
@@ -1678,24 +1737,24 @@ function mkSentHtml(){
       <details class="mkdet" data-mkdet${MKH.abierto?" open":""}><summary>Cómo se calcula (${F.n_componentes} de 5 componentes)</summary>
         <ul>${F.componentes.map(c=>`<li><span class="mkch"><b>${esc(c.nombre)}</b>${fin(c.puntuacion)?`<span class="pill ${mkFgTone(c.puntuacion)}">${nf(c.puntuacion,0)} · ${esc(c.etiqueta)}</span>`:`<span class="src off">sin dato</span>`}</span><span class="note">${esc(c.descripcion)}</span></li>`).join("")}</ul>
         <p class="note">${esc(F.metodo||"")} No es el número de CNN: se mueve de forma parecida, pero puede diferir unos puntos.${fin(cnn.valor)?` CNN (manual, ${esc(fecha(cnn.fecha))}): <b>${nf(cnn.valor,0)}</b>.`:""}</p></details>
-      <div class="mkcnn">${fin(cnn.valor)?`<span>CNN <b>${nf(cnn.valor,0)}</b> <span class="note">· manual ${esc(fecha(cnn.fecha))}</span></span>`:`<span class="note">CNN: sin apuntar</span>`}${mkA("cnn","Ver el de CNN")}</div>
+      <div class="mkcnn">${fin(cnn.valor)?`<span>CNN <b>${nf(cnn.valor,0)}</b> <span class="note">· manual ${esc(fecha(cnn.fecha))}</span></span>`:`<span class="note">CNN: sin apuntar</span>`}${mkI("cnn")}${mkA("cnn","Ver el de CNN")}</div>${mkInfoPanel("cnn")}
     </div>`:`<div class="mkcard"><div class="mkh"><span class="eyebrow">Miedo y codicia</span></div><p class="note">Sin datos todavía.</p></div>`;
   const ofr=O?`<div class="mkcard">
-      <div class="mkh"><span class="eyebrow">Estrés financiero (OFR)</span>${srcTag({fuente:"OFR (Tesoro de EE. UU.)",fecha:O.fecha,url:O.url})}</div>
+      <div class="mkh"><span class="eyebrow">Estrés financiero (OFR) ${mkI("ofr")}</span>${srcTag({fuente:"OFR (Tesoro de EE. UU.)",fecha:O.fecha,url:O.url})}</div>${mkInfoPanel("ofr")}
       <div class="mkbig"><b>${nf(O.valor,2)}</b><span class="pill ${O.valor>1?"down":O.valor>0?"mid":"up"}">${O.valor>1?"Estrés alto":O.valor>0?"Por encima de lo normal":"Por debajo de lo normal"}</span></div>
       <div class="mkprev"><span><small>día anterior</small> ${nf(O.anterior,2)}</span>${fin(O.hace_1s)?`<span><small>hace 1 sem.</small> ${nf(O.hace_1s,2)}</span>`:""}${fin(O.maximo_1a)?`<span><small>máx. 12 meses</small> ${nf(O.maximo_1a,2)}</span>`:""}</div>
       <p class="note">0 es el nivel medio de estrés. Valores positivos: tensión en crédito, volatilidad, financiación o huida a activos refugio. Se publica con dos días hábiles de retraso.</p>
     </div>`:`<div class="mkcard"><div class="mkh"><span class="eyebrow">Estrés financiero (OFR)</span></div><p class="note">Sin datos todavía.</p></div>`;
   const aaii=A?`<div class="mkcard">
-      <div class="mkh"><span class="eyebrow">Encuesta AAII · inversores particulares</span>${A.manual?srcTag({manual:true,fecha:fecha(A.fecha),fuente:"AAII · introducido a mano"}):srcTag({fuente:"AAII",fecha:A.fecha,url:A.url})}</div>
+      <div class="mkh"><span class="eyebrow">Encuesta AAII · inversores particulares ${mkI("aaii")}</span>${A.manual?srcTag({manual:true,fecha:fecha(A.fecha),fuente:"AAII · introducido a mano"}):srcTag({fuente:"AAII",fecha:A.fecha,url:A.url})}</div>${mkInfoPanel("aaii")}
       <div class="mkbar3" role="img" aria-label="Alcistas ${nf(A.alcistas,1)}%, neutrales ${nf(A.neutrales,1)}%, bajistas ${nf(A.bajistas,1)}%"><span class="b" style="width:${A.alcistas}%"></span><span class="n" style="width:${A.neutrales}%"></span><span class="r" style="width:${A.bajistas}%"></span></div>
       <div class="mk3"><span><i class="b"></i>Alcistas <b>${nf(A.alcistas,1)}%</b>${A.medias?` <small>media ${nf(A.medias.alcistas,1)}%</small>`:""}</span>
         <span><i class="n"></i>Neutrales <b>${nf(A.neutrales,1)}%</b></span>
         <span><i class="r"></i>Bajistas <b>${nf(A.bajistas,1)}%</b>${A.medias?` <small>media ${nf(A.medias.bajistas,1)}%</small>`:""}</span></div>
       <p class="note">Diferencial alcistas − bajistas: ${mkSign(A.diferencial,1," pp")}. Por debajo de −20 pp suele marcar pesimismo excesivo (señal contraria).</p>${mkA("aaii")}
-    </div>`:`<div class="mkcard"><div class="mkh"><span class="eyebrow">Encuesta AAII</span></div><p class="note">Sin datos: no se ha podido leer aaii.com. Apúntala con «Apuntar valores».</p>${mkA("aaii")}</div>`;
+    </div>`:`<div class="mkcard"><div class="mkh"><span class="eyebrow">Encuesta AAII ${mkI("aaii")}</span></div>${mkInfoPanel("aaii")}<p class="note">Sin datos: no se ha podido leer aaii.com. Apúntala con «Apuntar valores».</p>${mkA("aaii")}</div>`;
   const nai=`<div class="mkcard">
-      <div class="mkh"><span class="eyebrow">NAAIM · gestores activos</span>${fin(naaim.valor)?srcTag({manual:true,fecha:fecha(naaim.fecha),fuente:"NAAIM · introducido a mano"}):`<span class="src off">manual</span>`}</div>
+      <div class="mkh"><span class="eyebrow">NAAIM · gestores activos ${mkI("naaim")}</span>${fin(naaim.valor)?srcTag({manual:true,fecha:fecha(naaim.fecha),fuente:"NAAIM · introducido a mano"}):`<span class="src off">manual</span>`}</div>${mkInfoPanel("naaim")}
       ${fin(naaim.valor)?`<div class="mkbig"><b>${nf(naaim.valor,1)}</b><span class="pill ${naaim.valor>=80?"up":naaim.valor<40?"down":"neutral"}">${naaim.valor>=80?"Muy invertidos":naaim.valor<40?"Poco invertidos":"Exposición media"}</span></div>
         <p class="note">Exposición media a bolsa de los gestores encuestados (0 = sin acciones, 100 = totalmente invertidos). Se publica los miércoles.</p>`
       :`<p class="note">El dato actual de la NAAIM es de pago (la web pública lo da con tres meses de retraso), así que se apunta a mano cada semana con «Apuntar valores».</p>`}${mkA("naaim")}
@@ -4026,6 +4085,7 @@ document.addEventListener("change",e=>{const t=e.target; const p=t.dataset&&t.da
   if(t.type==="number"||t.type==="range"||t.type==="text") {rebuildCharts(); renderHeader(); if(TAB==="verdict") drawLevels();}
 });
 document.addEventListener("click",e=>{
+  const mki=e.target.closest("[data-mki]"); if(mki){ MKH.info=MKH.info===mki.dataset.mki?null:mki.dataset.mki; renderWatch(); return; }
   const mkb=e.target.closest("[data-mk]"); if(mkb){ const a=mkb.dataset.mk;
     if(a==="editar"||a==="cerrar"){ MKH.editar=a==="editar"&&!MKH.editar; renderWatch(); } else if(a==="guardar") mkGuardar(); return; }
   const mi=e.target.closest("[data-metric]"); if(mi){e.preventDefault(); metricModal(mi.dataset.metric); return;}
