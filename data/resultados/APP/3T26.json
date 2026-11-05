@@ -177,7 +177,32 @@
   "fecha_antes": "2026-11-04",
   "cierre_antes": 271.75,
   "fuente": "Twelve Data (API oficial, plan gratuito)",
-  "provisional": true
+  "provisional": true,
+  "fuera_de_hora": {
+   "fuente": "Alpaca Markets (API oficial, plan gratuito) · SIP con 15 min de retraso",
+   "url": "https://docs.alpaca.markets/docs/historical-stock-data-1",
+   "volumen": 7089463,
+   "after_hours": {
+    "precio": 333.8,
+    "hora_utc": "2026-11-05T00:55:00Z",
+    "hora_ny": "2026-11-04 19:55",
+    "sesion": "after-hours",
+    "variacion_pct": 22.83
+   },
+   "ultimo": {
+    "precio": 318.59,
+    "hora_utc": "2026-11-05T09:15:00Z",
+    "hora_ny": "2026-11-05 04:15",
+    "sesion": "premercado",
+    "variacion_pct": 17.24
+   }
+  },
+  "variacion_pct": 17.24,
+  "cierre_despues": 318.59,
+  "fecha_despues": "2026-11-05",
+  "fuente_despues": "Alpaca Markets (API oficial, plan gratuito) · SIP con 15 min de retraso",
+  "sesion_despues": "premercado",
+  "hora_despues_ny": "2026-11-05 04:15"
  },
  "cotizacion": {
   "serie": [
