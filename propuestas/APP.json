@@ -3,15 +3,11 @@
  "creada": "2026-11-05",
  "motivo": "Resultados del 3T26 (8-K del 4-nov-2026)",
  "informe_accn": "0001751008-26-000068",
- "resumen": "AppLovin batió en el 3T26: ingresos de 2.185 M$ (+55%), ~100 M$ sobre su guía, EBITDA ajustado de 1.842 M$ (84%) y caja operativa de 1.429 M$ (10-Q). Guía para el 4T de 2.365–2.395 M$ (+43–44%), por encima del consenso, y amplía la recompra hasta 3.600 M$; la acción subió ~25% tras la publicación. Se propone actualizar tesis, datos clave, guía y llamada, subir ingresos 2026 a 8.330 M$ y el crecimiento de 2027 al 25%, bajar dos riesgos y subir la convicción a 4 manteniendo Comprar por debajo de 300 $.",
+ "resumen": "AppLovin batió en el 3T26: ingresos de 2.185 M$ (+55%), ~100 M$ sobre su guía, EBITDA ajustado de 1.842 M$ (84%) y FCF de 1.418 M$ (77% del EBITDA). Guía para el 4T de 2.365–2.395 M$ (+43–44%), por encima del consenso, y amplía la recompra hasta 3.600 M$; la acción subió ~25% tras la publicación. Se propone actualizar tesis, datos clave, guía y llamada, subir ingresos 2026 a 8.330 M$ y el crecimiento de 2027 al 25%, bajar dos riesgos y subir la convicción a 4 manteniendo Comprar por debajo de 300 $.",
  "fuentes": [
   {
    "t": "Nota de resultados 3T26 (8-K, Ex. 99.1)",
    "u": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000068/exhibit991-3q26earningspre.htm"
-  },
-  {
-   "t": "Nota de resultados 3T26 (MarketScreener, reproducción)",
-   "u": "https://www.marketscreener.com/news/applovin-announces-third-quarter-2026-financial-results-ce785fdfde80f326"
   },
   {
    "t": "10-Q del 3T26 (SEC)",
@@ -49,7 +45,7 @@
     },
     {
      "k": "EBITDA ajustado 3T26",
-     "v": "1.842 M$ (84%; +59%)"
+     "v": "1.842 M$ (84%, frente al 82%; +59%)"
     },
     {
      "k": "Beneficio neto 3T26",
@@ -60,8 +56,8 @@
      "v": "2.365–2.395 M$ (+43–44%); EBITDA 84–85%"
     },
     {
-     "k": "Caja operativa 3T26",
-     "v": "1.429 M$ (≈FCF; 77% del EBITDA, 53% en 2T26)"
+     "k": "FCF 3T26",
+     "v": "1.418 M$ (77% del EBITDA; caja operativa 1.429 M$)"
     },
     {
      "k": "Caja / deuda (sep-26)",
@@ -76,7 +72,7 @@
      "v": "BBB+ (Fitch, jun-26)"
     }
    ],
-   "porque": "Cifras del 3T26 (nota de resultados y 10-Q) en lugar de las del 2T26; se quita la línea de la SEC, ya recogida en riesgos y fuentes. Cifras cotejadas con el 10-Q que descarga el robot desde la SEC (data/APP.json)."
+   "porque": "Cifras del 3T26 según la nota de resultados oficial (8-K, Ex. 99.1) en lugar de las del 2T26; se quita la línea de la SEC, ya recogida en riesgos y fuentes."
   },
   {
    "campo": "overview.catalysts",
@@ -122,7 +118,7 @@
     "date": "4-nov-2026",
     "doc": "Nota de resultados (8-K, Exhibit 99.1) y resumen de la llamada (MarketBeat)",
     "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000068/exhibit991-3q26earningspre.htm",
-    "nota": "Cifras de la nota de resultados; comentarios de la llamada según el resumen de MarketBeat publicado en Yahoo Finance (no es la transcripción oficial).",
+    "nota": "Cifras de la nota de resultados oficial (SEC). Comentarios de la llamada según el resumen de MarketBeat publicado en Yahoo Finance (no es la transcripción oficial).",
     "dir": [
      "Ingresos +55% interanual y +14% trimestral, ~100 M$ por encima del máximo de la guía.",
      "Gaming crece cerca del 50%: lo explican el juego móvil y las mejoras del modelo.",
@@ -137,7 +133,7 @@
     "guia": [
      "4T26: ingresos de 2.365–2.395 M$ y EBITDA ajustado de 1.995–2.025 M$ (margen del 84–85%).",
      "Incluye estacionalidad normal, crecimiento en consumo, las mejoras del modelo ya activas y más gasto en cómputo de entrenamiento.",
-     "Conversión de EBITDA en FCF del ~70–75% en el año."
+     "Conversión de EBITDA en FCF del ~70–75% en el año (77% en el 3T26: 1.418 M$)."
     ],
     "cap": [
      "Recompras y retenciones de 4,1 M de acciones por ~1.400 M$ en el 3T26; el CFO dice que aceleraron porque el precio se alejó del valor intrínseco.",
@@ -246,8 +242,16 @@
     "label": "Uso de la caja, 9M 2026 (M$)",
     "items": [
      {
-      "n": "Recompras y retenciones",
-      "v": 2955
+      "n": "Recompras",
+      "v": 2811
+     },
+     {
+      "n": "Retenciones por liquidación neta",
+      "v": 56
+     },
+     {
+      "n": "Otras inversiones",
+      "v": 25
      },
      {
       "n": "Dividendos",
@@ -255,7 +259,7 @@
      }
     ]
    },
-   "porque": "1.555 M$ del 1S26 + ~1.400 M$ del 3T26 según la nota de resultados. Se quita el capex: no se ha confirmado la cifra de nueve meses."
+   "porque": "Estado de flujos de caja de nueve meses de la nota de resultados oficial (recompras 2.811 M$, retenciones 56 M$, otras inversiones 25 M$). Sustituye la estimación anterior de ~2.955 M$."
   },
   {
    "campo": "verdict.summary",
