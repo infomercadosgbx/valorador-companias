@@ -502,7 +502,8 @@ table.mini2 td{padding:3px 6px;font-size:12px;border-bottom:1px solid var(--grid
 /* Mercado hoy (menú principal) */
 .mk{margin-bottom:18px}
 .mktop{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}.mktop h2{margin:0}.mktop .sub{margin:4px 0 0}
-.mksent{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-top:14px;align-items:start}
+.mksent{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-top:14px;align-items:stretch}
+.mkcard>.mkcnn,.mkcard>.mkgo{margin-top:auto}
 .mkcard{border:1px solid var(--line);border-radius:12px;padding:14px;background:var(--surface2);display:flex;flex-direction:column;gap:8px;min-width:0}
 .mkcard .note{margin:0;font-size:12px}
 .mkh{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap}.mkh .eyebrow{margin:0}
@@ -1649,10 +1650,10 @@ const MKINFO={
   ofr:{t:"Índice de estrés financiero (OFR)",q:"Lo calcula la Oficina de Investigación Financiera del Tesoro de EE. UU. con 33 variables de mercado: diferenciales de crédito, valoración de la bolsa, financiación entre bancos, demanda de activos refugio y volatilidad, en EE. UU. y el resto del mundo.",
     l:"Mide tensión en el sistema financiero, no el ánimo de los inversores. Es útil para distinguir una caída de bolsa normal de una con tensiones en el crédito y la financiación, que es la que suele ir a más.",
     u:"0 = nivel medio de estrés. Negativo: más calma de lo habitual. Positivo: estrés por encima de la media. En las crisis de 2008 y de marzo de 2020 llegó a dos dígitos."},
-  aaii:{t:"Encuesta AAII",q:"Encuesta semanal a los socios de la Asociación Americana de Inversores Particulares: si creen que la bolsa estará más alta (alcistas), igual (neutrales) o más baja (bajistas) dentro de seis meses. Se publica los jueves.",
+  aaii:{t:"Encuesta AAII",q:"AAII son las siglas de American Association of Individual Investors (Asociación Americana de Inversores Particulares). Encuesta semanal a sus socios: si creen que la bolsa estará más alta (alcistas), igual (neutrales) o más baja (bajistas) dentro de seis meses. Se publica los jueves.",
     l:"Es un indicador contrario: cuando casi todos los particulares son bajistas, gran parte del miedo ya está en el precio; cuando son muy alcistas, queda poco comprador nuevo.",
     u:"Medias históricas: 37,5% alcistas, 31,0% neutrales y 31,5% bajistas. Bajistas por encima del 50% o diferencial alcistas − bajistas por debajo de −20 pp suelen darse cerca de suelos; alcistas por encima del 50%, de excesos de optimismo."},
-  naaim:{t:"NAAIM Exposure Index",q:"Exposición media a la bolsa de EE. UU. que declaran los gestores activos de la NAAIM cada miércoles. Va de −200 (cortos apalancados al doble) a +200 (largos apalancados al doble); 100 = totalmente invertidos.",
+  naaim:{t:"NAAIM Exposure Index",q:"NAAIM son las siglas de National Association of Active Investment Managers (Asociación Nacional de Gestores de Inversión Activa de EE. UU.). El índice es la exposición media a la bolsa de EE. UU. que declaran sus gestores cada miércoles. Va de −200 (cortos apalancados al doble) a +200 (largos apalancados al doble); 100 = totalmente invertidos.",
     l:"Muestra qué hacen los profesionales con su dinero, no lo que opinan. Lecturas muy altas indican que ya han comprado casi todo (poco combustible para seguir subiendo); muy bajas, que han vendido mucho y pueden volver a comprar.",
     u:"Más de 90: muy invertidos, complacencia. 40–80: zona habitual. Menos de 40: exposición baja, a menudo cerca de suelos."},
   sp500:{t:"S&P 500",q:"Las 500 mayores compañías de EE. UU., ponderadas por capitalización. Es la referencia de la bolsa mundial.",
@@ -1809,14 +1810,12 @@ function mercadoHtml(){
   const grupos=Object.entries(G).map(([g,t])=>{ const rows=I.filter(i=>i.grupo===g);
     const extra=g==="riesgo"?mkManualRow("move","MOVE (volatilidad de bonos)"):"";
     return rows.length||extra?`<div class="mkgrp"><h3>${esc(t)}</h3>${rows.map(mkRow).join("")}${extra}</div>`:""; }).join("");
-  const av=(D&&D.avisos)||[];
   return `<section class="card mk">
     <div class="mktop"><div><h2>Mercado hoy</h2><p class="sub">${vivo?`<span class="pill up">● Sesión abierta</span> Los ETF se actualizan cada minuto; índices, tipos y materias primas son el último cierre oficial.`:ult?`Último cierre disponible: ${esc(fecha(ult))}. Se actualiza dos veces cada día laborable.`:esc(MKH.err||"")}</p></div>
       <button type="button" data-mk="editar" aria-expanded="${MKH.editar}">✎ Apuntar valores</button></div>
     ${MKH.editar?mkEditHtml():""}
     ${D?mkSentHtml():""}
     ${grupos?`<div class="mkgrid">${grupos}</div>`:""}
-    ${av.length?`<details class="avisos" style="margin-top:12px"><summary>${av.length} ${av.length===1?"fuente no ha respondido":"fuentes no han respondido"} en la última actualización</summary><ul>${av.map(a=>`<li>${esc(a)}</li>`).join("")}</ul></details>`:""}
   </section>`;
 }
 function favoritasHtml(){
