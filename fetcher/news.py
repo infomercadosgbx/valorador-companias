@@ -289,6 +289,7 @@ def apis_from_env():
 
 # ---------------------------------------------------------------- mezcla
 TOPE_MEDIO = {"Yahoo Finance": 10}
+NOMBRES_ANTIGUOS = {"Yahoo": "Yahoo Finance", "SeekingAlpha": "Seeking Alpha"}
 TOPE_OTRO = 6
 TOPE_OFICIAL = 6
 
@@ -299,6 +300,8 @@ def combinar(fuentes: list, previas: list | None = None, today=None, limite=LIMI
     today = today or date.today()
     desde = (today - timedelta(days=dias)).isoformat()
     todas = [n for lote in fuentes for n in lote] + [n for n in (previas or []) if not n.get("oficial")]
+    for n in todas:                                     # nombres antiguos de Finnhub guardados en noches anteriores
+        n["medio"] = NOMBRES_ANTIGUOS.get(n.get("medio") or "", n.get("medio") or "")
     # prioridad ante duplicados: oficial > nota de prensa > sectorial > con sentimiento > resto; Yahoo al final
     rango = lambda n: (not n.get("oficial"), n.get("tipo") != "nota_prensa", n.get("tipo") != "sectorial",
                        not n.get("sentimiento"), n.get("medio") == "Yahoo Finance")

@@ -109,3 +109,10 @@ def test_8k_oficiales_y_medios_por_sector():
 def test_patron_con_ticker_para_apis():
     p = N.patron({"nombre": "Vistra", "ticker": "VST"}, con_ticker=True)
     assert p.search("Shares of VST rallied") and not p.search("Wall Street Lunch: Fear Grips The Market")
+
+
+def test_nombres_antiguos_cuentan_en_el_tope():
+    previas = [n(f"Old yahoo {i}", "Yahoo") for i in range(15)]
+    nuevas = [n(f"New yahoo {i}", "Yahoo Finance") for i in range(15)]
+    out = N.combinar([nuevas, [n("Zacks piece", "Zacks")]], previas=previas, today=HOY, limite=11)
+    assert {x["medio"] for x in out} == {"Yahoo Finance", "Zacks"} and sum(x["medio"] == "Yahoo Finance" for x in out) == 10
