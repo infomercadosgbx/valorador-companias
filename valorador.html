@@ -524,6 +524,9 @@ table.mini2 td{padding:3px 6px;font-size:12px;border-bottom:1px solid var(--grid
 .mkv{display:flex;flex-direction:column;align-items:flex-end;font-family:var(--f-num);font-size:12.5px;white-space:nowrap}.mkv b{font-size:14.5px;color:var(--ink)}
 .mkref{font-size:11px;color:var(--muted)}
 .mkform{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:10px 0}.mkform label{display:flex;flex-direction:column;gap:4px;font-size:12px;font-weight:600;color:var(--ink2)}
+.mkgo{font-size:12px;font-weight:600;color:var(--accent);text-decoration:none;white-space:nowrap}.mkgo:hover{text-decoration:underline}
+.mkcnn{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap;font-size:12.5px;border-top:1px solid var(--grid);padding-top:8px}.mkcnn b{font-family:var(--f-num)}
+.mklinks{display:flex;gap:14px;flex-wrap:wrap;align-items:baseline;margin:6px 0 2px}
 .mklink{display:inline-flex;align-items:center;padding:7px 12px;border:1px solid var(--line);border-radius:8px;color:var(--ink);text-decoration:none;font-weight:600;font-size:13px}
 @media (max-width:520px){.mkbig b{font-size:26px}.mksent{grid-template-columns:1fr}}
 .fgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px}
@@ -1616,6 +1619,10 @@ function inicioHtml(){
    OFR, AAII, Cboe). Lo que no tiene fuente gratuita (NAAIM, CNN, MOVE) se apunta en manual/_mercado.json.
    Durante la sesión, los ETF se actualizan con el Worker de precio en vivo. */
 const MKH={d:null,man:{},err:null,cargado:false,abierto:false,editar:false};
+const MKLINK={naaim:["naaim.org","https://naaim.org/programs/naaim-exposure-index/"],cnn:["CNN","https://edition.cnn.com/markets/fear-and-greed"],
+  move:["Investing","https://www.investing.com/indices/ice-bofaml-move"],aaii:["aaii.com","https://www.aaii.com/sentimentsurvey"]};
+function mkUrl(k){ const u=(MKH.man[k]||{}).url; return okUrl(u)?u:MKLINK[k][1]; }
+function mkA(k,t){ return `<a class="mkgo" href="${esc(mkUrl(k))}" target="_blank" rel="noopener noreferrer">${t||"Consultar en "+esc(MKLINK[k][0])} ↗</a>`; }
 async function mkLoad(){
   try{ const [d,m]=await Promise.all([getJSON("data/_mercado_hoy.json").catch(()=>null),getJSON("manual/_mercado.json").catch(()=>({}))]);
     MKH.d=d; MKH.man=(m&&m.mercado_hoy)||{}; MKH.err=d?null:"Aún no hay datos: lanza el Action «Mercado hoy» (ver README).";
@@ -1644,7 +1651,7 @@ function mkRow(i){
 }
 function mkManualRow(k,nombre){ const m=MKH.man[k]||{};
   return `<div class="mkrow"><div class="mkn"><b>${esc(nombre)}</b>${fin(m.valor)?srcTag({manual:true,fecha:fecha(m.fecha),fuente:m.fuente||"Introducido a mano"}):`<span class="src off">sin apuntar</span>`}</div>
-    <div class="mkv"><b>${fin(m.valor)?nf(m.valor,2):"–"}</b></div></div>`; }
+    <div class="mkv"><b>${fin(m.valor)?nf(m.valor,2):"–"}</b>${mkA(k,"consultar")}</div></div>`; }
 function mkGauge(v){ return `<div class="mkgauge" role="img" aria-label="${nf(v,0)} sobre 100"><span class="mkmark" style="left:${Math.max(0,Math.min(100,v))}%"></span></div>
   <div class="mkscale"><span>Miedo extremo</span><span>Neutral</span><span>Codicia extrema</span></div>`; }
 function mkFgTone(v){ return v<45?"down":v<=55?"neutral":"up"; }
@@ -1666,6 +1673,7 @@ function mkSentHtml(){
       <details class="mkdet" data-mkdet${MKH.abierto?" open":""}><summary>Cómo se calcula (${F.n_componentes} de 5 componentes)</summary>
         <ul>${F.componentes.map(c=>`<li><span class="mkch"><b>${esc(c.nombre)}</b>${fin(c.puntuacion)?`<span class="pill ${mkFgTone(c.puntuacion)}">${nf(c.puntuacion,0)} · ${esc(c.etiqueta)}</span>`:`<span class="src off">sin dato</span>`}</span><span class="note">${esc(c.descripcion)}</span></li>`).join("")}</ul>
         <p class="note">${esc(F.metodo||"")} No es el número de CNN: se mueve de forma parecida, pero puede diferir unos puntos.${fin(cnn.valor)?` CNN (manual, ${esc(fecha(cnn.fecha))}): <b>${nf(cnn.valor,0)}</b>.`:""}</p></details>
+      <div class="mkcnn">${fin(cnn.valor)?`<span>CNN <b>${nf(cnn.valor,0)}</b> <span class="note">· manual ${esc(fecha(cnn.fecha))}</span></span>`:`<span class="note">CNN: sin apuntar</span>`}${mkA("cnn","Ver el de CNN")}</div>
     </div>`:`<div class="mkcard"><div class="mkh"><span class="eyebrow">Miedo y codicia</span></div><p class="note">Sin datos todavía.</p></div>`;
   const ofr=O?`<div class="mkcard">
       <div class="mkh"><span class="eyebrow">Estrés financiero (OFR)</span>${srcTag({fuente:"OFR (Tesoro de EE. UU.)",fecha:O.fecha,url:O.url})}</div>
@@ -1679,24 +1687,25 @@ function mkSentHtml(){
       <div class="mk3"><span><i class="b"></i>Alcistas <b>${nf(A.alcistas,1)}%</b>${A.medias?` <small>media ${nf(A.medias.alcistas,1)}%</small>`:""}</span>
         <span><i class="n"></i>Neutrales <b>${nf(A.neutrales,1)}%</b></span>
         <span><i class="r"></i>Bajistas <b>${nf(A.bajistas,1)}%</b>${A.medias?` <small>media ${nf(A.medias.bajistas,1)}%</small>`:""}</span></div>
-      <p class="note">Diferencial alcistas − bajistas: ${mkSign(A.diferencial,1," pp")}. Por debajo de −20 pp suele marcar pesimismo excesivo (señal contraria).</p>
-    </div>`:`<div class="mkcard"><div class="mkh"><span class="eyebrow">Encuesta AAII</span></div><p class="note">Sin datos: no se ha podido leer aaii.com. Apúntala con «Apuntar valores».</p></div>`;
+      <p class="note">Diferencial alcistas − bajistas: ${mkSign(A.diferencial,1," pp")}. Por debajo de −20 pp suele marcar pesimismo excesivo (señal contraria).</p>${mkA("aaii")}
+    </div>`:`<div class="mkcard"><div class="mkh"><span class="eyebrow">Encuesta AAII</span></div><p class="note">Sin datos: no se ha podido leer aaii.com. Apúntala con «Apuntar valores».</p>${mkA("aaii")}</div>`;
   const nai=`<div class="mkcard">
       <div class="mkh"><span class="eyebrow">NAAIM · gestores activos</span>${fin(naaim.valor)?srcTag({manual:true,fecha:fecha(naaim.fecha),fuente:"NAAIM · introducido a mano"}):`<span class="src off">manual</span>`}</div>
       ${fin(naaim.valor)?`<div class="mkbig"><b>${nf(naaim.valor,1)}</b><span class="pill ${naaim.valor>=80?"up":naaim.valor<40?"down":"neutral"}">${naaim.valor>=80?"Muy invertidos":naaim.valor<40?"Poco invertidos":"Exposición media"}</span></div>
         <p class="note">Exposición media a bolsa de los gestores encuestados (0 = sin acciones, 100 = totalmente invertidos). Se publica los miércoles.</p>`
-      :`<p class="note">El dato actual de la NAAIM es de pago (la web pública lo da con tres meses de retraso), así que se apunta a mano cada semana con «Apuntar valores».</p>`}
+      :`<p class="note">El dato actual de la NAAIM es de pago (la web pública lo da con tres meses de retraso), así que se apunta a mano cada semana con «Apuntar valores».</p>`}${mkA("naaim")}
     </div>`;
   return `<div class="mksent">${fg}${ofr}${aaii}${nai}</div>`;
 }
 function mkEditHtml(){ const m=MKH.man, v=(k,f="valor")=>m[k]&&m[k][f]!=null?esc(String(m[k][f])):"";
   const hoy=new Date().toISOString().slice(0,10);
-  const fila=(k,l,ph)=>`<label>${l}<input type="number" step="any" id="mk_${k}" value="${v(k)}" placeholder="${ph}"></label><label>Fecha<input type="date" id="mk_${k}_f" value="${v(k,"fecha")||hoy}"></label>`;
+  const fila=(k,l,ph)=>`<label>${l} ${mkA(k,"consultar")}<input type="number" step="any" id="mk_${k}" value="${v(k)}" placeholder="${ph}"></label><label>Fecha<input type="date" id="mk_${k}_f" value="${v(k,"fecha")||hoy}"></label>`;
   return `<div class="mkedit card" style="margin:0 0 14px">
     <h3 style="margin-top:0">Apuntar valores manuales</h3>
     <p class="note">Se guardan en <code>manual/_mercado.json</code> del repositorio. Deja vacío lo que no quieras mostrar.</p>
+    <div class="mklinks"><span class="note">Consultar:</span>${mkA("naaim","NAAIM")}${mkA("cnn","Miedo y codicia CNN")}${mkA("move","MOVE")}${mkA("aaii","AAII")}</div>
     <div class="mkform">${fila("naaim","NAAIM","p. ej. 72,4")}${fila("cnn","Miedo y codicia CNN","0–100")}${fila("move","MOVE","p. ej. 93,9")}
-      <label>AAII alcistas %<input type="number" step="any" id="mk_aaii_b" value="${v("aaii","alcistas")}"></label><label>AAII bajistas %<input type="number" step="any" id="mk_aaii_r" value="${v("aaii","bajistas")}"></label><label>Fecha AAII<input type="date" id="mk_aaii_f" value="${v("aaii","fecha")||hoy}"></label></div>
+      <label>AAII alcistas % ${mkA("aaii","consultar")}<input type="number" step="any" id="mk_aaii_b" value="${v("aaii","alcistas")}"></label><label>AAII bajistas %<input type="number" step="any" id="mk_aaii_r" value="${v("aaii","bajistas")}"></label><label>Fecha AAII<input type="date" id="mk_aaii_f" value="${v("aaii","fecha")||hoy}"></label></div>
     <div class="toolbar">${ghToken()?`<button type="button" class="btn-acc" data-mk="guardar">Guardar en GitHub</button>`:`<a class="mklink" href="${esc(repoUrl())}/edit/main/manual/_mercado.json" target="_blank" rel="noopener">Editar en GitHub</a><span class="note">o conecta GitHub en ⚙ Ajustes para guardarlo desde aquí</span>`}<button type="button" data-mk="cerrar">Cerrar</button><span class="saved" id="mkMsg"></span></div>
   </div>`; }
 async function mkGuardar(){

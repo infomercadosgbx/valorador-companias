@@ -4,7 +4,7 @@
   "fuente": "Damodaran Online (NYU Stern) · prima implícita del S&P 500",
   "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/implpr.html",
   "mercado_hoy": {
-    "_nota": "Valores sin fuente gratuita para la franja «Mercado hoy» del menú principal. Se pueden cambiar desde la propia web (botón «Apuntar valores») o aquí. La fecha es la del dato (AAAA-MM-DD). Deja null lo que no quieras mostrar.",
+    "_nota": "Valores sin fuente gratuita para la franja «Mercado hoy» del menú principal. Se pueden cambiar desde la propia web (botón «Apuntar valores») o aquí. La fecha es la del dato (AAAA-MM-DD). Deja null lo que no quieras mostrar. El campo url de cada indicador es el enlace «Consultar» de la web: cámbialo si prefieres otra página.",
     "naaim": {
       "valor": null,
       "fecha": null,
@@ -20,14 +20,16 @@
     "move": {
       "valor": null,
       "fecha": null,
-      "fuente": "ICE BofA MOVE Index"
+      "fuente": "ICE BofA MOVE Index",
+      "url": "https://www.investing.com/indices/ice-bofaml-move"
     },
     "aaii": {
       "alcistas": null,
       "neutrales": null,
       "bajistas": null,
       "fecha": null,
-      "_nota": "Solo si falla la lectura automática de aaii.com: si el dato manual es más reciente, la web usa este."
+      "_nota": "Solo si falla la lectura automática de aaii.com: si el dato manual es más reciente, la web usa este.",
+      "url": "https://www.aaii.com/sentimentsurvey"
     }
   }
 }
