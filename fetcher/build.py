@@ -6,6 +6,7 @@ from datetime import datetime, timezone
 from . import concepts as C
 from . import extract as X
 from . import filings as F
+from . import news as NEWS
 from . import bonds as BONDS
 from . import insiders as INS
 from . import riskfactors as RISK
@@ -354,6 +355,33 @@ class Memo:
         self._cache.clear()
 
 
+def _noticias(rec, company, subs, price_provider, previous):
+    """Prensa (Finnhub, Marketaux, Alpha Vantage), medios sectoriales y agencias por RSS y 8-K oficiales."""
+    lotes, fuentes = [], {}
+    proveedores = ([price_provider] if price_provider is not None and hasattr(price_provider, "news") else []) + NEWS.APIS
+    for p in proveedores:
+        try:
+            lote = p.news(company["ticker"]) or []
+            fuentes[p.nombre] = {"ok": True, "titulares": len(lote)}
+            lotes.append(lote)
+        except Exception as e:  # noqa: BLE001  secundario: se queda lo anterior
+            fuentes[p.nombre] = {"ok": False, "error": f"{type(e).__name__}: {str(e)[:120]}"}
+    if NEWS.FEEDS_CACHE is not None:
+        try:
+            lote = NEWS.from_feeds(company, NEWS.FEEDS_CACHE)
+            fuentes["RSS de medios"] = {"ok": True, "titulares": len(lote)}
+            lotes.append(lote)
+        except Exception as e:  # noqa: BLE001
+            fuentes["RSS de medios"] = {"ok": False, "error": f"{type(e).__name__}: {str(e)[:120]}"}
+    if subs:
+        lotes.append(F.recent_8k_news(company["cik"], subs))
+    prev = (previous or {}).get("noticias") or []
+    rec["noticias"] = NEWS.combinar(lotes, prev)
+    rec["noticias_sentimiento"] = NEWS.resumen_sentimiento(rec["noticias"])
+    rec["noticias_fuentes"] = {"medios_sectoriales": [NEWS.FEEDS[m][0] for m in company.get("medios") or [] if m in NEWS.FEEDS],
+                               "alias": company.get("alias") or [], "proveedores": fuentes}
+
+
 def build_company(client, company, price_provider, price_warning=None, previous=None, history_provider=None, history_warning=None):
     cik = company["cik"]
     cf = client.companyfacts(cik)
@@ -401,22 +429,17 @@ def build_company(client, company, price_provider, price_warning=None, previous=
                     f"{price_provider.nombre} no devuelve precio para {company['ticker']}."))
         except Exception as e:  # noqa: BLE001
             rec["avisos"].append(X.warn("aviso", "sin_precio", f"Error del proveedor de precios: {e}"))
-        for key, fn in (("resultados_previstos", "earnings"), ("noticias", "news")):
+        for key, fn in (("resultados_previstos", "earnings"),):
             try:
                 rec[key] = getattr(price_provider, fn)(company["ticker"])
             except Exception as e:  # noqa: BLE001
                 rec[key] = prev.get(key)
                 rec["avisos"].append(X.warn("info", f"sin_{key}", f"{key.replace('_', ' ').capitalize()} no disponibles: {e}"))
-        # 8-K oficiales recientes junto a las noticias de prensa (máximo 30 en total)
-        if subs:
-            of = F.recent_8k_news(company["cik"], subs)
-            if of:
-                prensa = [n for n in (rec.get("noticias") or []) if not n.get("oficial")]
-                rec["noticias"] = sorted(of + prensa[:30 - len(of)], key=lambda n: n.get("fecha") or "", reverse=True)
         try:
             rec["consenso_automatico"] = price_provider.recommendations(company["ticker"])
         except Exception as e:  # noqa: BLE001
             rec["avisos"].append(X.warn("info", "sin_consenso", f"Recomendaciones no disponibles: {e}"))
+    _noticias(rec, company, subs, None if price_warning else price_provider, previous)
     # Histórico de cotizaciones (secundario: si falla, se conserva el anterior y se avisa)
     rec["historico_precio"] = (previous or {}).get("historico_precio")
     if history_provider is None:

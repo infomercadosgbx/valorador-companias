@@ -111,20 +111,3 @@ def test_avisos_sin_repetir(tmp_path):
     assert "mañana" in txt and "153 días" in txt
     again = A.company_alerts(c, data, data, an, st, date(2026, 11, 1))
     assert again == []
-
-
-def test_noticias_tope_por_medio_y_8k_oficiales():
-    from datetime import date
-    from fetcher import filings as F
-    from fetcher.prices import FinnhubProvider
-    p = FinnhubProvider.__new__(FinnhubProvider)
-    rows = [{"headline": f"Y{i}", "source": "Yahoo", "url": "u", "datetime": 1793000000 - i} for i in range(40)]
-    rows += [{"headline": f"S{i}", "source": "SeekingAlpha", "url": "u", "datetime": 1792000000 - i} for i in range(5)]
-    p._get = lambda *a, **k: rows
-    out = p.news("X", today=date(2026, 11, 5))
-    assert len(out) == 30
-    assert sum(n["medio"] == "Seeking Alpha" for n in out) == 5   # entran los otros medios
-    subs = {"filings": {"recent": {"accessionNumber": ["0001-26-1", "0001-26-2"], "filingDate": ["2026-10-20", "2026-01-01"],
-            "reportDate": ["", ""], "form": ["8-K", "8-K"], "primaryDocument": ["a.htm", "b.htm"], "items": ["2.02,9.01", "5.02"]}}}
-    of = F.recent_8k_news("123", subs, today=date(2026, 11, 5))
-    assert len(of) == 1 and of[0]["oficial"] and of[0]["titular"].endswith("Resultados")

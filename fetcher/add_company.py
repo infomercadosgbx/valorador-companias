@@ -21,6 +21,7 @@ from datetime import date
 from pathlib import Path
 
 from . import colors, main as M
+from . import news as NEWS
 from .filings import is_foreign_filer, recent_rows
 from .sec_client import SecClient, SecError, cik_10
 
@@ -166,7 +167,7 @@ def add(ticker: str, nombre=None, color=None, root=ROOT, client=None):
     check_filer(subs, ticker)
     name = nombre or clean_name(title or subs.get("name", ticker))
     comp = {"ticker": ticker, "slug": re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-"), "nombre": name, "cik": cik,
-            "color": color or None, "monograma": monogram(name)}
+            "color": color or None, "monograma": monogram(name), "medios": NEWS.medios_por_sic(subs.get("sic"))}
     cj["companies"].append(comp)
     cfile.write_text(dump_companies(cj), encoding="utf-8")
 

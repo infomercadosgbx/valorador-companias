@@ -22,6 +22,7 @@ from . import estimaciones as EST
 from . import logos, prices
 from . import resultados as RES
 from . import peers as PEERS
+from . import news as NEWS
 from .build import NoSecData, build_company
 from .extract import warn
 from .sec_client import SecClient, SecError, cik_10
@@ -165,8 +166,11 @@ def run(only=None, report=None, root=ROOT, client=None, provider=None, price_war
         wanted = {t.upper() for t in only}
         companies = [c for c in companies if c["ticker"].upper() in wanted]
     client = client or SecClient()
+    real = provider is None            # ejecución real (Action): APIs de noticias y feeds RSS; en los tests, no
     if provider is None:
         provider, price_warning = prices.from_env()
+    NEWS.APIS = NEWS.apis_from_env() if real else []
+    NEWS.FEEDS_CACHE = NEWS.FeedCache() if real else None
     hist, hist_warning = (history if history is not None else prices.history_from_env())
     extended = prices.extended_from_env()
     cik_issues = check_ciks(client, companies)
@@ -288,6 +292,18 @@ def run(only=None, report=None, root=ROOT, client=None, provider=None, price_war
            "generado": datetime.now(timezone.utc).isoformat(timespec="seconds")}
     if write_if_changed(root / "data" / "index.json", idx):
         changed.append("index.json")
+
+    if NEWS.FEEDS_CACHE is not None and NEWS.FEEDS_CACHE.estado:
+        prev_est = {}
+        try:
+            prev_est = json.loads((root / "data" / "_noticias_estado.json").read_text(encoding="utf-8")).get("medios") or {}
+        except (OSError, json.JSONDecodeError):
+            pass
+        est = {"esquema": 1, "medios": dict(prev_est, **NEWS.FEEDS_CACHE.estado),
+               "apis": [a.nombre for a in NEWS.APIS],
+               "generado": datetime.now(timezone.utc).isoformat(timespec="seconds")}
+        if write_if_changed(root / "data" / "_noticias_estado.json", est):
+            changed.append("_noticias_estado.json")
 
     if report:
         lines = [f"# Fallo de la actualización de datos ({datetime.now(timezone.utc):%Y-%m-%d %H:%M} UTC)", ""]

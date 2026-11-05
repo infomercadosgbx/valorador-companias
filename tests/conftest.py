@@ -49,3 +49,15 @@ def load_fixture(ticker):
 
 
 COMPANY = {"ticker": "TST", "nombre": "Test Co", "cik": "0000000001", "color": "#000", "monograma": "T"}
+
+
+@pytest.fixture(autouse=True)
+def _sin_red_noticias(monkeypatch):
+    """Los tests no leen feeds RSS ni APIs de noticias reales."""
+    from fetcher import news
+
+    class _Cache(news.FeedCache):
+        def get(self, fid):
+            return []
+    monkeypatch.setattr(news, "FeedCache", _Cache)
+    monkeypatch.setattr(news, "apis_from_env", lambda: [])

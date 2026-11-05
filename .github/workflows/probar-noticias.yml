@@ -1,0 +1,55 @@
+name: Probar fuentes de noticias
+
+# Comprueba desde GitHub qué feeds RSS de medios y agencias responden, cuántos titulares dan
+# y si las claves de Marketaux y Alpha Vantage funcionan. Solo lectura: no cambia nada.
+on:
+  workflow_dispatch:
+    inputs:
+      ticker:
+        description: "Ticker para probar el filtro y las APIs"
+        required: true
+        default: "VST"
+
+permissions:
+  contents: read
+
+jobs:
+  probar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Probar
+        env:
+          MARKETAUX_API_KEY: ${{ secrets.MARKETAUX_API_KEY }}
+          ALPHAVANTAGE_API_KEY: ${{ secrets.ALPHAVANTAGE_API_KEY }}
+          TICKER: ${{ inputs.ticker }}
+        run: |
+          python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import os
+          from fetcher import news as N
+          from fetcher.main import load_companies
+          t = os.environ["TICKER"].strip().upper()
+          c = next((x for x in load_companies() if x["ticker"].upper() == t), {"ticker": t, "nombre": t})
+          cache = N.FeedCache()
+          print("## Feeds RSS\n\n| Medio | Tipo | Estado | Titulares | Error |\n|---|---|---|---|---|")
+          for fid in N.FEEDS:
+              cache.get(fid); e = cache.estado[fid]
+              print(f"| {e['medio']} (`{fid}`) | {e['tipo']} | {'✅' if e['ok'] and e['titulares'] else '⚠️' if e['ok'] else '❌'} | {e['titulares']} | {e['error'] or ''} |")
+          print(f"\n## Titulares de hoy que mencionan a {c['nombre']}\n")
+          for n in N.from_feeds(c, cache)[:15]:
+              print(f"- {n['fecha']} · **{n['medio']}** · [{n['titular']}]({n['url']})")
+          print("\n## APIs\n")
+          apis = N.apis_from_env()
+          if not apis:
+              print("Ninguna clave configurada (MARKETAUX_API_KEY, ALPHAVANTAGE_API_KEY).")
+          for a in apis:
+              try:
+                  r = a.news(t)
+                  print(f"- ✅ **{a.nombre}**: {len(r)} noticias. " + "; ".join(f"{n['medio']}: {n['titular'][:70]}" for n in r[:3]))
+              except Exception as e:
+                  print(f"- ❌ **{a.nombre}**: {e}")
+          PY
+          cat "$GITHUB_STEP_SUMMARY"

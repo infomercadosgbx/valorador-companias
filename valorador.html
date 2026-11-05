@@ -418,6 +418,14 @@ table.mult td,table.mult th{padding:9px 12px} table.mult td:first-child{white-sp
 .subsec{display:flex;flex-direction:column;gap:8px;padding-top:12px;border-top:1px solid var(--line)} .subsec:first-child{border-top:0} .subsec>h2{font-size:15px;font-weight:700;margin:0}
 .nlist2{list-style:none;margin:4px 0 0;padding:0;border-top:1px solid var(--line)}
 .nrow{display:grid;grid-template-columns:72px 120px minmax(0,1fr);gap:14px;padding:11px 6px;border-bottom:1px solid var(--line);align-items:baseline}
+.nmeta{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:4px}.nmeta:empty{display:none}.nmeta .pill{font-size:11px;padding:1px 7px}
+.ntag{font-size:10.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:1px 7px;border-radius:5px;border:1px solid var(--line);color:var(--ink2)}
+.ntag.oficial{border-color:color-mix(in srgb,var(--good) 45%,var(--line));color:var(--goodText)}
+.ntag.sectorial{border-color:color-mix(in srgb,var(--warn) 55%,var(--line))}
+.nfilt{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin:2px 0 8px}
+.nfilt button{font:inherit;font-size:12.5px;padding:4px 10px;border-radius:99px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.nfilt button[aria-pressed="true"]{background:var(--ink);color:var(--surface);border-color:var(--ink)}
+.nfilt .nsent{margin-left:auto;font-size:12.5px;display:inline-flex;gap:6px;align-items:center}
 .nrow:hover{background:var(--surface2)} .nrow time{font-size:12px;color:var(--ink2);font-variant-numeric:tabular-nums;white-space:nowrap}
 .nrow .nsrc{font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--ink2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .nrow .nbody a{font-weight:600;font-size:14px;line-height:1.35;color:var(--ink);text-decoration:none} .nrow .nbody a:hover{text-decoration:underline}
@@ -3736,8 +3744,8 @@ R.sources=()=>{
   ${glossaryHtml()}`;
 };
 
-let NEWSTAB=lsGet("valorador.newstab")||"n", NEWSPAGE=0;
-const NEWS_PER=5;
+let NEWSTAB=lsGet("valorador.newstab")||"n", NEWSPAGE=0, NEWSFILT=lsGet("valorador.newsfilt")||"todas";
+const NEWS_PER=6;
 function analyzedSources(){
   const out=[], seen=new Set(), push=(t,u,src,f,ctx)=>{ if(!okUrl(u)||seen.has(u)) return; seen.add(u); out.push({t,u,src:src||host(u),f:f||"",ctx}); };
   (cur.sources.news||[]).forEach(n=>push(n.t,n.u,n.src,n.f,"Noticias y análisis"));
@@ -3755,15 +3763,25 @@ function pressLinks(){
     ["Business Wire",g("businesswire.com")],["PR Newswire",g("prnewswire.com")],["Transcripciones (Motley Fool)",g("fool.com",name+" earnings call transcript")],["Expansión",g("expansion.com")],["Cinco Días",g("cincodias.elpais.com")]];
 }
 function newsHtml(){
-  const N=((cur._data&&cur._data.noticias)||[]).slice(0,30), A=analyzedSources();
+  const NALL=((cur._data&&cur._data.noticias)||[]).slice(0,30), A=analyzedSources(), D=cur._data||{};
+  const NTIPO=x=>x.oficial||x.tipo==="nota_prensa"?"oficial":x.tipo==="sectorial"?"sectorial":"prensa";
+  const NF=[["todas","Todas"],["prensa","Prensa financiera"],["sectorial","Medios del sector"],["oficial","Notas de prensa y 8-K"]].map(([k,l])=>[k,l,k==="todas"?NALL.length:NALL.filter(x=>NTIPO(x)===k).length]);
+  if(NEWSFILT!=="todas"&&!NALL.some(x=>NTIPO(x)===NEWSFILT)) NEWSFILT="todas";
+  const N=NEWSFILT==="todas"?NALL:NALL.filter(x=>NTIPO(x)===NEWSFILT);
+  const SCLS=l=>/alcista/i.test(l||"")?"up":/bajista/i.test(l||"")?"down":"neutral";
+  const NS=D.noticias_sentimiento, NFU=D.noticias_fuentes||{};
   const T=NEWSTAB==="a"&&A.length?"a":N.length?"n":"a", L=T==="n"?N:A, pages=Math.max(1,Math.ceil(L.length/NEWS_PER));
   NEWSPAGE=Math.min(Math.max(0,NEWSPAGE),pages-1); const rows=L.slice(NEWSPAGE*NEWS_PER,NEWSPAGE*NEWS_PER+NEWS_PER);
-  const nrow=n=>`<li class="nrow"><time>${esc(fecha(n.fecha))}</time><span class="nsrc">${esc(n.medio||"")}</span><div class="nbody"><a class="ext" href="${esc(n.url)}" target="_blank" rel="noopener noreferrer">${esc(n.titular)}</a>${n.resumen?`<p>${esc(n.resumen)}</p>`:""}</div></li>`;
+  const nrow=n=>{ const tp=NTIPO(n), tag=n.oficial?"Oficial · SEC":n.tipo==="nota_prensa"?"Nota de prensa":tp==="sectorial"?"Sector":"";
+    return `<li class="nrow"><time>${esc(fecha(n.fecha))}</time><span class="nsrc" title="${esc(n.medio||"")}">${esc(n.medio||"")}</span><div class="nbody"><a class="ext" href="${esc(n.url)}" target="_blank" rel="noopener noreferrer">${esc(n.titular)}</a>${n.resumen?`<p>${esc(n.resumen)}</p>`:""}
+      <div class="nmeta">${tag?`<span class="ntag ${tp}">${tag}</span>`:""}${n.sentimiento&&n.sentimiento.etiqueta?`<span class="pill ${SCLS(n.sentimiento.etiqueta)}" title="Sentimiento sobre ${esc(cur.meta.name||"")} (${nf(n.sentimiento.puntuacion,2)}, de −1 a 1)">${esc(n.sentimiento.etiqueta)}</span>`:""}${n.via?`<span class="note">vía ${esc(n.via)}</span>`:""}</div></div></li>`; };
   const arow=n=>`<li class="nrow"><time>${esc(n.f||"")}</time><span class="nsrc">${esc(n.src)}</span><div class="nbody"><a class="ext" href="${esc(n.u)}" target="_blank" rel="noopener noreferrer">${esc(n.t)}</a><p>${esc(n.ctx)}</p></div></li>`;
   const pager=pages>1?`<div class="npager"><span class="note">${NEWSPAGE*NEWS_PER+1}–${Math.min(L.length,(NEWSPAGE+1)*NEWS_PER)} de ${L.length}</span><div>
       <button type="button" data-npage="${NEWSPAGE-1}" ${NEWSPAGE?"":"disabled"} aria-label="Anteriores">‹</button>${Array.from({length:pages},(_,i)=>`<button type="button" data-npage="${i}" aria-pressed="${i===NEWSPAGE}">${i+1}</button>`).join("")}<button type="button" data-npage="${NEWSPAGE+1}" ${NEWSPAGE<pages-1?"":"disabled"} aria-label="Siguientes">›</button></div></div>`:"";
-  return `<section class="card" id="newsCard"><div class="invhead"><h2>Noticias y prensa</h2><div class="seg tbl" role="group" style="width:max-content;max-width:100%">${[["n",`Noticias recientes`,N.length],["a",`Fuentes analizadas`,A.length]].map(([k,l,c])=>`<button type="button" data-newstab="${k}" aria-pressed="${T===k}">${l} <span class="note">${c}</span></button>`).join("")}</div></div>
-    <p class="sub">${T==="n"?`Último mes: hasta 30 titulares de medios financieros vía <span class="rsrc off">Finnhub</span> (con tope por medio para que Yahoo no lo cope) y los 8-K que la compañía presenta a la SEC. De la más reciente a la más antigua; se actualizan cada noche.`:"Artículos, transcripciones, documentos y notas usados para escribir este análisis, con el apartado donde se usaron."}</p>
+  return `<section class="card" id="newsCard"><div class="invhead"><h2>Noticias y prensa</h2><div class="seg tbl" role="group" style="width:max-content;max-width:100%">${[["n",`Noticias recientes`,NALL.length],["a",`Fuentes analizadas`,A.length]].map(([k,l,c])=>`<button type="button" data-newstab="${k}" aria-pressed="${T===k}">${l} <span class="note">${c}</span></button>`).join("")}</div></div>
+    <p class="sub">${T==="n"?`Último mes, hasta 30 titulares: prensa financiera (Finnhub${(NFU.proveedores&&NFU.proveedores.Marketaux)?", Marketaux":""}${(NFU.proveedores&&NFU.proveedores["Alpha Vantage"])?", Alpha Vantage":""}), medios del sector${(NFU.medios_sectoriales||[]).length?" ("+esc(NFU.medios_sectoriales.join(", "))+")":""}, agencias de notas de prensa y los 8-K presentados a la SEC. Sin duplicados y con tope por medio; se actualizan cada noche.`:"Artículos, transcripciones, documentos y notas usados para escribir este análisis, con el apartado donde se usaron."}</p>
+    ${T==="n"&&NALL.length?`<div class="nfilt">${NF.filter(f=>f[2]||f[0]==="todas").map(([k,l,c])=>`<button type="button" data-newsfilt="${k}" aria-pressed="${NEWSFILT===k}">${l} <span class="note">${c}</span></button>`).join("")}
+      ${NS?`<span class="nsent">Sentimiento medio <span class="pill ${SCLS(NS.etiqueta)}" title="${esc(NS.fuente||"")}">${esc(NS.etiqueta)}</span> <span class="note">${NS.noticias} noticias</span></span>`:""}</div>`:""}
     ${rows.length?`<ol class="nlist2">${rows.map(T==="n"?nrow:arow).join("")}</ol>`:`<p class="empty">Sin elementos todavía.</p>`}${pager}
     <div class="presschips"><span class="eyebrow">Buscar ${esc(cur.meta.name||"")} en</span>${pressLinks().map(([l,u])=>`<a href="${esc(u)}" target="_blank" rel="noopener noreferrer">${esc(l)}</a>`).join("")}</div>
   </section>`;
@@ -4159,6 +4177,7 @@ document.addEventListener("click",e=>{
   const mi=e.target.closest("[data-metric]"); if(mi){e.preventDefault(); metricModal(mi.dataset.metric); return;}
   if(e.target.closest("[data-close]")||e.target.id==="overlay"){closeModal(); return;}
   const tb=e.target.closest(".tab"); if(tb){goTab(tb.dataset.tab);return;}
+  const nfl=e.target.closest("[data-newsfilt]"); if(nfl){ NEWSFILT=nfl.dataset.newsfilt; NEWSPAGE=0; lsSet("valorador.newsfilt",NEWSFILT); const c=$("newsCard"); if(c) c.outerHTML=newsHtml(); return; }
   const nt=e.target.closest("[data-newstab]"); if(nt){ NEWSTAB=nt.dataset.newstab; NEWSPAGE=0; lsSet("valorador.newstab",NEWSTAB); const c=$("newsCard"); if(c) c.outerHTML=newsHtml(); return; }
   const np=e.target.closest("[data-npage]"); if(np&&!np.disabled){ NEWSPAGE=+np.dataset.npage; const c=$("newsCard"); if(c){ c.outerHTML=newsHtml(); const n=$("newsCard"); if(n&&n.getBoundingClientRect().top<0) n.scrollIntoView({block:"start"}); } return; }
   const pr=e.target.closest("[data-prange]"); if(pr){PRANGE=pr.dataset.prange; lsSet("valorador.prange",PRANGE); renderValOut(); return;}

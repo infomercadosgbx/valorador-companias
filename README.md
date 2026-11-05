@@ -24,6 +24,10 @@ Necesitas permisos de administrador en el repositorio. Todo se hace desde la web
 - Nombre: `FINNHUB_API_KEY`, valor: la clave.
 - Sin esta clave todo funciona salvo el precio, y la web lo avisa.
 - **Reacción en after-hours y premercado (Alpaca, opcional):** abre una cuenta gratuita en <https://app.alpaca.markets/signup> (no hace falta depositar dinero; vale la cuenta de prueba, *Paper*). En el panel, *API Keys → Generate New Keys*, y crea dos secrets: `ALPACA_API_KEY_ID` (la *Key ID*) y `ALPACA_API_SECRET_KEY` (la *Secret Key*). Con ellas, el informe de resultados muestra la reacción de la acción fuera de horario (después del cierre y antes de la apertura, con 15 minutos de retraso) en lugar de «pendiente». Sin ellas, la reacción aparece al día siguiente con el cierre.
+- **Noticias con sentimiento (Marketaux y Alpha Vantage, opcionales):** amplían la prensa financiera más allá de Finnhub (Benzinga, Motley Fool, Zacks, CNBC…).
+  - Marketaux: regístrate en <https://www.marketaux.com/register>, copia tu *API token* y créalo como secret `MARKETAUX_API_KEY` (plan gratuito: 100 consultas al día).
+  - Alpha Vantage: pide la clave gratuita en <https://www.alphavantage.co/support/#api-key> y créala como secret `ALPHAVANTAGE_API_KEY` (plan gratuito: 25 consultas al día; da el sentimiento de cada noticia sobre la compañía).
+  - Sin ellas todo funciona igual, con Finnhub, los medios del sector y los 8-K. Para comprobarlas, lanza el workflow **Probar fuentes de noticias**.
 
 **4. Activa GitHub Pages.**
 - *Settings → Pages → Build and deployment → Source:* **GitHub Actions**.
@@ -276,3 +280,21 @@ pip install pytest && python -m pytest -v
 - **El Action no hace commit:** revisa el paso 5 (permisos de escritura).
 - **Error «Falta SEC_USER_AGENT»:** la variable del paso 2 no existe o no tiene el formato «Nombre email».
 - **No se ejecuta de noche:** GitHub desactiva los workflows programados de repositorios públicos tras 60 días sin actividad; el propio commit diario lo evita, pero si lo ves desactivado, reactívalo en *Actions*.
+
+## Noticias
+
+Cada noche, la pestaña Fuentes reúne hasta 30 titulares del último mes de cuatro orígenes, sin leer ninguna web:
+
+| Origen | Qué aporta | Cómo se obtiene |
+|---|---|---|
+| Prensa financiera | Yahoo Finance, Seeking Alpha, Benzinga, Motley Fool, Zacks, CNBC… | APIs de Finnhub, Marketaux y Alpha Vantage (estas dos, opcionales y con sentimiento) |
+| Medios del sector | Utility Dive, World Nuclear News, The Next Platform, Data Center Dynamics, AdExchanger, Digiday, Oil & Gas Journal, Food Dive… | Feed RSS que publica cada medio, filtrado por el nombre de la compañía y sus alias |
+| Notas de prensa | Business Wire, PR Newswire, GlobeNewswire | Feed RSS de cada agencia; solo cuenta si la compañía está en el titular |
+| Oficial | 8-K presentados a la SEC, con su tema en español | `submissions` de EDGAR (sin peticiones extra) |
+
+- **Qué medios lee cada compañía:** campos `medios` (ids de `fetcher/news.py`) y `alias` (otros nombres: Google, AWS, VMware…) de `companies.json`. Al dar de alta una compañía se le asignan medios según su sector (código SIC); puedes cambiarlos a mano.
+- **Sin duplicados y con variedad:** la misma noticia en dos medios cuenta una vez (gana el medio original sobre Yahoo), y cada medio tiene un tope (Yahoo 10, el resto 6).
+- **Se acumula:** los feeds RSS solo muestran lo último, así que lo encontrado se conserva noche a noche durante 30 días.
+- **Si un medio falla,** la compañía no recibe avisos: el estado de cada feed queda en `data/_noticias_estado.json`. El workflow **Probar fuentes de noticias** muestra qué feeds responden y qué titulares encuentran para un ticker.
+- **Reuters, FT, Bloomberg, WSJ e Investing** no ofrecen API ni RSS públicos para esto. Sus artículos se leen para escribir el análisis con tu sesión iniciada en el navegador de la app de escritorio (ver `claude/fuentes-de-prensa.md` en el proyecto), y en la web quedan los enlaces «Buscar en…».
+
