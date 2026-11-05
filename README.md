@@ -24,9 +24,9 @@ Necesitas permisos de administrador en el repositorio. Todo se hace desde la web
 - Nombre: `FINNHUB_API_KEY`, valor: la clave.
 - Sin esta clave todo funciona salvo el precio, y la web lo avisa.
 - **Reacción en after-hours y premercado (Alpaca, opcional):** abre una cuenta gratuita en <https://app.alpaca.markets/signup> (no hace falta depositar dinero; vale la cuenta de prueba, *Paper*). En el panel, *API Keys → Generate New Keys*, y crea dos secrets: `ALPACA_API_KEY_ID` (la *Key ID*) y `ALPACA_API_SECRET_KEY` (la *Secret Key*). Con ellas, el informe de resultados muestra la reacción de la acción fuera de horario (después del cierre y antes de la apertura, con 15 minutos de retraso) en lugar de «pendiente». Sin ellas, la reacción aparece al día siguiente con el cierre.
-- **Noticias con sentimiento (Marketaux y Alpha Vantage, opcionales):** amplían la prensa financiera más allá de Finnhub (Benzinga, Motley Fool, Zacks, CNBC…).
+- **Noticias con sentimiento (Marketaux, opcional):** amplían la prensa financiera más allá de Finnhub (Benzinga, Motley Fool, Zacks, CNBC…).
   - Marketaux: regístrate en <https://www.marketaux.com/register>, copia tu *API token* y créalo como secret `MARKETAUX_API_KEY` (plan gratuito: 100 consultas al día).
-  - Alpha Vantage: pide la clave gratuita en <https://www.alphavantage.co/support/#api-key> y créala como secret `ALPHAVANTAGE_API_KEY` (plan gratuito: 25 consultas al día; da el sentimiento de cada noticia sobre la compañía).
+  - Alpha Vantage: su API de noticias pasó a los planes de pago (comprobado el 5-nov-2026). El código queda preparado: con una suscripción, crea el secret `ALPHAVANTAGE_API_KEY` y la variable `ALPHAVANTAGE_NOTICIAS` = `1`.
   - Sin ellas todo funciona igual, con Finnhub, los medios del sector y los 8-K. Para comprobarlas, lanza el workflow **Probar fuentes de noticias**.
 
 **4. Activa GitHub Pages.**
@@ -287,9 +287,9 @@ Cada noche, la pestaña Fuentes reúne hasta 30 titulares del último mes de cua
 
 | Origen | Qué aporta | Cómo se obtiene |
 |---|---|---|
-| Prensa financiera | Yahoo Finance, Seeking Alpha, Benzinga, Motley Fool, Zacks, CNBC… | APIs de Finnhub, Marketaux y Alpha Vantage (estas dos, opcionales y con sentimiento) |
+| Prensa financiera | Yahoo Finance, Seeking Alpha, Benzinga, Motley Fool, Zacks, CNBC… | APIs de Finnhub y Marketaux (opcional, con sentimiento) |
 | Medios del sector | Utility Dive, World Nuclear News, The Next Platform, Data Center Dynamics, AdExchanger, Digiday, Oil & Gas Journal, Food Dive… | Feed RSS que publica cada medio, filtrado por el nombre de la compañía y sus alias |
-| Notas de prensa | Business Wire, PR Newswire, GlobeNewswire | Feed RSS de cada agencia; solo cuenta si la compañía está en el titular |
+| Notas de prensa | Business Wire, PR Newswire (GlobeNewswire bloquea a los robots) | Feed RSS de cada agencia; solo cuenta si la compañía está en el titular |
 | Oficial | 8-K presentados a la SEC, con su tema en español | `submissions` de EDGAR (sin peticiones extra) |
 
 - **Qué medios lee cada compañía:** campos `medios` (ids de `fetcher/news.py`) y `alias` (otros nombres: Google, AWS, VMware…) de `companies.json`. Al dar de alta una compañía se le asignan medios según su sector (código SIC); puedes cambiarlos a mano.

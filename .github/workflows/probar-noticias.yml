@@ -25,6 +25,7 @@ jobs:
         env:
           MARKETAUX_API_KEY: ${{ secrets.MARKETAUX_API_KEY }}
           ALPHAVANTAGE_API_KEY: ${{ secrets.ALPHAVANTAGE_API_KEY }}
+          ALPHAVANTAGE_NOTICIAS: "1"
           TICKER: ${{ inputs.ticker }}
         run: |
           python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
@@ -37,7 +38,7 @@ jobs:
           print("## Feeds RSS\n\n| Medio | Tipo | Estado | Titulares | Error |\n|---|---|---|---|---|")
           for fid in N.FEEDS:
               cache.get(fid); e = cache.estado[fid]
-              print(f"| {e['medio']} (`{fid}`) | {e['tipo']} | {'✅' if e['ok'] and e['titulares'] else '⚠️' if e['ok'] else '❌'} | {e['titulares']} | {e['error'] or ''} |")
+              print(f"| {e['medio']} (`{fid}`) <br><sub>{e['url'][:90]}</sub> | {e['tipo']} | {'✅' if e['ok'] and e['titulares'] else '⚠️' if e['ok'] else '❌'} | {e['titulares']} | {e['error'] or ''} |")
           print(f"\n## Titulares de hoy que mencionan a {c['nombre']}\n")
           for n in N.from_feeds(c, cache)[:15]:
               print(f"- {n['fecha']} · **{n['medio']}** · [{n['titular']}]({n['url']})")

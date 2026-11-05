@@ -1,10 +1,10 @@
 """Noticias de cada compañía a partir de varias fuentes, todas oficiales o publicadas por el propio medio:
 
   · Finnhub (API, la misma clave que la cotización): prensa financiera general.
-  · Marketaux y Alpha Vantage (APIs con plan gratuito; opcionales, clave en GitHub Secrets).
-    Alpha Vantage añade el sentimiento de cada noticia sobre la compañía.
+  · Marketaux (API con plan gratuito; opcional, clave en GitHub Secrets), con el sentimiento de cada
+    noticia sobre la compañía. Alpha Vantage queda preparado, pero sus noticias ya son de pago.
   · Feeds RSS que publica cada medio sectorial (Utility Dive, The Next Platform…) y las agencias
-    de notas de prensa (Business Wire, PR Newswire, GlobeNewswire). Se filtran por el nombre
+    de notas de prensa (Business Wire, PR Newswire). Se filtran por el nombre
     de la compañía y sus alias. No se lee ninguna web: solo el RSS que el medio ofrece.
   · 8-K de la SEC (sin peticiones extra; ver filings.recent_8k_news).
 
@@ -18,6 +18,7 @@ import json
 import os
 import re
 import time
+import urllib.error
 import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
@@ -41,17 +42,16 @@ FEEDS = {
     "marketingdive": ("Marketing Dive", "https://www.marketingdive.com/feeds/news/", "sectorial"),
     "techcrunch": ("TechCrunch", "https://techcrunch.com/feed/", "sectorial"),
     "ciodive": ("CIO Dive", "https://www.ciodive.com/feeds/news/", "sectorial"),
-    "ogj": ("Oil & Gas Journal", "https://www.ogj.com/rss", "sectorial"),
+    "ogj": ("Oil & Gas Journal", ["https://www.ogj.com/__rss/website-scheduled-content.xml?input=%7B%22sectionAlias%22%3A%22general-interest%22%7D",
+                                  "https://feeds.feedburner.com/OilGasJournal-GeneralInterest"], "sectorial"),
     "rigzone": ("Rigzone", "https://www.rigzone.com/news/rss/rigzone_latest.aspx", "sectorial"),
     "fooddive": ("Food Dive", "https://www.fooddive.com/feeds/news/", "sectorial"),
     "retaildive": ("Retail Dive", "https://www.retaildive.com/feeds/news/", "sectorial"),
     "supplychaindive": ("Supply Chain Dive", "https://www.supplychaindive.com/feeds/news/", "sectorial"),
     "businesswire": ("Business Wire", "https://feed.businesswire.com/rss/home/?rss=G1QFDERJXkJeEFtRWQ==", "nota_prensa"),
     "prnewswire": ("PR Newswire", "https://www.prnewswire.com/rss/news-releases-list.rss", "nota_prensa"),
-    "globenewswire": ("GlobeNewswire", "https://www.globenewswire.com/RssFeed/orgclass/1/feedTitle/"
-                      "GlobeNewswire%20-%20News%20about%20Public%20Companies", "nota_prensa"),
 }
-AGENCIAS = ["businesswire", "prnewswire", "globenewswire"]   # a todas las compañías
+AGENCIAS = ["businesswire", "prnewswire"]   # a todas las compañías (GlobeNewswire bloquea a los robots: 403)
 
 # Medios sectoriales por código SIC de la SEC (para las compañías nuevas; se editan en companies.json)
 SIC_MEDIOS = [
@@ -78,10 +78,20 @@ def medios_por_sic(sic) -> list:
 
 
 # ---------------------------------------------------------------- utilidades
-def _http_get(url, timeout=20, opener=None):
+def _http_get(url, timeout=20, opener=None, reintentos=2, sleep=time.sleep):
+    """GET con reintento ante errores temporales del servidor (5xx) o de red."""
     req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "application/rss+xml, application/atom+xml, application/xml, application/json, */*"})
-    with (opener or urllib.request.urlopen)(req, timeout=timeout) as r:
-        return r.read(3_000_000)
+    for i in range(reintentos + 1):
+        try:
+            with (opener or urllib.request.urlopen)(req, timeout=timeout) as r:
+                return r.read(3_000_000)
+        except urllib.error.HTTPError as e:
+            if e.code < 500 or i == reintentos:
+                raise
+        except (urllib.error.URLError, TimeoutError):
+            if i == reintentos:
+                raise
+        sleep(4 * (i + 1))
 
 
 def _clean(txt, n=280):
@@ -150,17 +160,16 @@ class FeedCache:
     def get(self, fid):
         if fid in self.items:
             return self.items[fid]
-        nombre, url, tipo = FEEDS[fid]
-        items, err = [], None
-        for intento in range(2):
+        nombre, urls, tipo = FEEDS[fid]
+        urls = [urls] if isinstance(urls, str) else list(urls)
+        items, err, url = [], None, urls[0]
+        for url in urls:                      # direcciones alternativas: vale la primera que dé un feed
             try:
-                items = parse_feed(_http_get(url, opener=self._open))
+                items = parse_feed(_http_get(url, opener=self._open, sleep=self._sleep))
                 err = None
                 break
             except Exception as e:  # noqa: BLE001
                 err = f"{type(e).__name__}: {str(e)[:120]}"
-                if intento == 0:
-                    self._sleep(3)
         self.items[fid] = items
         self.estado[fid] = {"medio": nombre, "url": url, "tipo": tipo, "ok": err is None,
                             "titulares": len(items), "error": err}
@@ -270,7 +279,9 @@ def apis_from_env():
     out = []
     if os.environ.get("MARKETAUX_API_KEY", "").strip():
         out.append(Marketaux(os.environ["MARKETAUX_API_KEY"].strip()))
-    if os.environ.get("ALPHAVANTAGE_API_KEY", "").strip():
+    # Alpha Vantage pasó NEWS_SENTIMENT a sus planes de pago (comprobado el 5-nov-2026). Solo se usa
+    # si se activa a propósito con ALPHAVANTAGE_NOTICIAS=1 (por ejemplo, con una suscripción).
+    if os.environ.get("ALPHAVANTAGE_API_KEY", "").strip() and os.environ.get("ALPHAVANTAGE_NOTICIAS", "") == "1":
         out.append(AlphaVantage(os.environ["ALPHAVANTAGE_API_KEY"].strip()))
     return out
 
