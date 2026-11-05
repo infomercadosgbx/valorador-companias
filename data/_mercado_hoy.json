@@ -1,6 +1,6 @@
 {
  "esquema": 1,
- "generado": "2026-11-05T16:41:54+00:00",
+ "generado": "2026-11-05T16:43:48+00:00",
  "grupos": {
   "bolsa": "Bolsa",
   "riesgo": "Volatilidad y crédito",
@@ -14,13 +14,13 @@
    "grupo": "bolsa",
    "simbolo": "URTH",
    "unidad": "$",
-   "valor": 202.74,
+   "valor": 202.4,
    "anterior": 207.87,
    "fecha": "2026-11-05",
    "fuente": "Finnhub",
    "url": "https://finnhub.io/",
-   "var": -5.13,
-   "var_pct": -2.47,
+   "var": -5.47,
+   "var_pct": -2.63,
    "vivo": {
     "ticker": "URTH",
     "modo": "directo"
@@ -33,13 +33,13 @@
    "grupo": "bolsa",
    "simbolo": "EWY",
    "unidad": "$",
-   "valor": 139.86,
+   "valor": 139.94,
    "anterior": 152.12,
    "fecha": "2026-11-05",
    "fuente": "Finnhub",
    "url": "https://finnhub.io/",
-   "var": -12.26,
-   "var_pct": -8.06,
+   "var": -12.18,
+   "var_pct": -8.01,
    "vivo": {
     "ticker": "EWY",
     "modo": "directo"
@@ -52,13 +52,13 @@
    "grupo": "riesgo",
    "simbolo": "HYG",
    "unidad": "$",
-   "valor": 77.3,
+   "valor": 77.25,
    "anterior": 77.52,
    "fecha": "2026-11-05",
    "fuente": "Finnhub",
    "url": "https://finnhub.io/",
-   "var": -0.22,
-   "var_pct": -0.28,
+   "var": -0.27,
+   "var_pct": -0.35,
    "vivo": {
     "ticker": "HYG",
     "modo": "directo"
@@ -70,13 +70,13 @@
    "grupo": "riesgo",
    "simbolo": "LQD",
    "unidad": "$",
-   "valor": 104.64,
+   "valor": 104.63,
    "anterior": 104.5,
    "fecha": "2026-11-05",
    "fuente": "Finnhub",
    "url": "https://finnhub.io/",
-   "var": 0.14,
-   "var_pct": 0.13,
+   "var": 0.13,
+   "var_pct": 0.12,
    "vivo": {
     "ticker": "LQD",
     "modo": "directo"
@@ -88,13 +88,13 @@
    "grupo": "riesgo",
    "simbolo": "KRE",
    "unidad": "$",
-   "valor": 73.31,
+   "valor": 73.01,
    "anterior": 74.13,
    "fecha": "2026-11-05",
    "fuente": "Finnhub",
    "url": "https://finnhub.io/",
-   "var": -0.82,
-   "var_pct": -1.11,
+   "var": -1.12,
+   "var_pct": -1.51,
    "vivo": {
     "ticker": "KRE",
     "modo": "directo"
@@ -132,13 +132,13 @@
    "grupo": "tipos",
    "simbolo": "EUR/USD",
    "unidad": "",
-   "valor": 1.1222,
+   "valor": 1.1227,
    "anterior": 1.1223,
    "fecha": "2026-11-05",
    "fuente": "Twelve Data",
    "url": "https://twelvedata.com/",
-   "var": -0.0001,
-   "var_pct": -0.01
+   "var": 0.0004,
+   "var_pct": 0.03
   },
   {
    "id": "oro",
@@ -146,13 +146,13 @@
    "grupo": "materias",
    "simbolo": "XAU/USD",
    "unidad": "$",
-   "valor": 4112.6427,
+   "valor": 4114.6373,
    "anterior": 4058.0181,
    "fecha": "2026-11-05",
    "fuente": "Twelve Data",
    "url": "https://twelvedata.com/",
-   "var": 54.6246,
-   "var_pct": 1.35
+   "var": 56.6192,
+   "var_pct": 1.4
   },
   {
    "id": "bitcoin",
@@ -160,13 +160,13 @@
    "grupo": "materias",
    "simbolo": "BTC/USD",
    "unidad": "$",
-   "valor": 76725.04,
+   "valor": 76646.13,
    "anterior": 80504.01,
    "fecha": "2026-11-05",
    "fuente": "Twelve Data",
    "url": "https://twelvedata.com/",
-   "var": -3778.97,
-   "var_pct": -4.69
+   "var": -3857.88,
+   "var_pct": -4.79
   }
  ],
  "sentimiento": {
@@ -181,13 +181,13 @@
   }
  },
  "avisos": [
-  "S&P 500: no disponible (fred.stlouisfed.org: The read operation timed out).",
-  "Nasdaq Composite: no disponible (fred.stlouisfed.org: The read operation timed out).",
-  "VIX: no disponible (fred.stlouisfed.org: The read operation timed out).",
-  "Diferencial high yield: no disponible (fred.stlouisfed.org: The read operation timed out).",
-  "Petróleo WTI (barril): no disponible (fred.stlouisfed.org: The read operation timed out).",
+  "S&P 500: no disponible (fred.stlouisfed.org: The read operation timed out; falta el secret FRED_API_KEY: sin clave, FRED no responde desde GitHub (ver README)).",
+  "Nasdaq Composite: no disponible (fred.stlouisfed.org: The read operation timed out; falta el secret FRED_API_KEY: sin clave, FRED no responde desde GitHub (ver README)).",
+  "VIX: no disponible (fred.stlouisfed.org: The read operation timed out; falta el secret FRED_API_KEY: sin clave, FRED no responde desde GitHub (ver README)).",
+  "Diferencial high yield: no disponible (fred.stlouisfed.org: The read operation timed out; falta el secret FRED_API_KEY: sin clave, FRED no responde desde GitHub (ver README)).",
+  "Petróleo WTI (barril): no disponible (fred.stlouisfed.org: The read operation timed out; falta el secret FRED_API_KEY: sin clave, FRED no responde desde GitHub (ver README)).",
   "Encuesta AAII: no se ha podido leer (www.aaii.com: HTTP 403). Puedes apuntarla en manual/_mercado.json.",
-  "Miedo y codicia: no se ha podido calcular (fred.stlouisfed.org: The read operation timed out)."
+  "Miedo y codicia: no se ha podido calcular (fred.stlouisfed.org: The read operation timed out; falta el secret FRED_API_KEY: sin clave, FRED no responde desde GitHub (ver README))."
  ],
  "_series": {
   "put_call": [
