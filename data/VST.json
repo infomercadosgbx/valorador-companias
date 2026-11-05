@@ -10903,7 +10903,7 @@
    "compradores": [
     "BURKE JAMES A"
    ],
-   "desde": "2026-05-05"
+   "desde": "2026-05-06"
   },
   "operaciones": [
    {
@@ -11988,13 +11988,13 @@
   "fuente": "SEC EDGAR · 10-K, Item 1A (comparación automática)"
  },
  "precio": {
-  "minimo_52s": 132.66,
+  "minimo_52s": 117.27,
   "maximo_52s": 196.8,
-  "beta": 1.3696396,
-  "valor": 120.29,
-  "cierre_anterior": 139.59,
+  "beta": 1.3597664,
+  "valor": 112.89,
+  "cierre_anterior": 120.29,
   "moneda": "USD",
-  "fecha": "2026-11-04",
+  "fecha": "2026-11-05",
   "fuente": "Finnhub (API oficial, plan gratuito)",
   "url": "https://finnhub.io/"
  },
@@ -12091,152 +12091,301 @@
  },
  "noticias": [
   {
-   "titular": "VST, CEG Stocks Drop As Election Outcome Hits Merchant Power Generators",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=5a9a0a5c109c3cd63beb0999f7f0657248973a3e7a82745cf560caef0d02669a",
-   "fecha": "2026-11-04",
-   "resumen": "Incoming Texas governor Gina Hinojosa has advocated an immediate pause on new data-center construction, an end to related tax incentives, and stronger local controls over water and electricity use."
+   "titular": "8-K a la SEC: Compra o venta de activos; nueva deuda u obligación financiera; venta de acciones no registrada; comunicación al mercado (Reg FD)",
+   "medio": "SEC · 8-K (oficial)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1692819/000114036126042013/ef20084950_8k.htm",
+   "fecha": "2026-11-05",
+   "resumen": "Comunicación oficial de la compañía. Items: 2.01, 2.03, 3.02, 7.01.",
+   "oficial": true,
+   "tipo": "prensa"
   },
   {
-   "titular": "Vistra plunges 13.5% as Texas election rattles AI power trade, KeyBanc downgrades",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=d1c1a35c8b2a09d40b275b6b0b5b66aa5515796293b78396e50c9f81a8a18b30",
+   "titular": "Vistra: The Market Is Underpricing Its Shift To Contracted Earnings (NYSE:VST)",
+   "url": "https://seekingalpha.com/article/4963003-vistra-the-market-is-underpricing-its-shift-to-contracted-earnings",
+   "fecha": "2026-11-05",
+   "resumen": "Vistra Corp. shifts to steadier contracted power earnings, with 2026 EBITDA growth and valuation upside. Click to read more about the VST stock.",
+   "medio": "Seeking Alpha",
+   "tipo": "prensa",
+   "via": "Marketaux",
+   "sentimiento": {
+    "puntuacion": 0.089,
+    "etiqueta": "Neutral"
+   }
+  },
+  {
+   "titular": "Vistra: The Market Is Underpricing Its Shift To Contracted Earnings",
+   "medio": "Seeking Alpha",
+   "url": "https://finnhub.io/api/news?id=e36de4829b606392c60b2b94d32127cbb171ee3c8ff1aa2ecdc8f360dbf77a19",
+   "fecha": "2026-11-05",
+   "resumen": "Vistra Corp. shifts to steadier contracted power earnings, with 2026 EBITDA growth and valuation upside. Click to read more about the VST stock.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Vistra: Texas Turned Blue, And The 2026 Forecast Didn't Move",
+   "medio": "Seeking Alpha",
+   "url": "https://finnhub.io/api/news?id=87343aea110ab77229a6510dd690096830bdf39a177b219cf3100294a7bdff14",
+   "fecha": "2026-11-05",
+   "resumen": "",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "FuelCell Energy Plunges 17%, Bloom Energy Sinks 14% Despite NTT Data Deal, Plug Power Drops 7%",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=38eae2fae36a7ae7624da96dddd2537bde59557bb6908ebb60ef6cce301c1f28",
+   "fecha": "2026-11-05",
+   "resumen": "Bloom Energy just landed its biggest international deal ever, yet its stock still tumbled. A political shift in Washington and Texas is spooking investors in AI power, and the fallout may reach well beyond fuel cells.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Vertiv Sinks Another 16% as Data Center Selloff Deepens: “Forced Control on CapEx”",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=cc00a4ddb7045e3f840d5341be693c0bd22c1e1d8639464a7e702df5c062a3c2",
+   "fecha": "2026-11-05",
+   "resumen": "Key TakeawaysVertiv fell another 16% today, after Wednesday’s 13% drop, on fears that Democrats’ midterm wins will slow data center construction. The fear reaches Vistra too.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Vistra Cratered by 25% This Year: One Wall Street Team Says 110% Returns Ahead for Investors",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=c7273cee30a9a81dbbe07d7c58071d4919fdd0562bf58d464a983c57f64549ba",
+   "fecha": "2026-11-05",
+   "resumen": "Hyperscalers lined up for Vistra's nuclear power, yet Texas price doubts just knocked the stock to a 52-week low. Is the Street seeing a bargain or ignoring a crack in the thesis, and why does a rival look even cheaper?",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Vistra Fell 14% on the Texas Election Vote. Here’s What the November 6 Report Has to Settle",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=6206e62126b9c4ba2b29723eeb51d5753c30a755a26488e7fef4c7c735e7da1e",
+   "fecha": "2026-11-05",
+   "resumen": "Key TakeawaysVistra closed down 14% on Wednesday, at a new 52-week low, after Texas elected a governor who campaigned on pausing new data centers. KeyBanc downgraded the stock the same day.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Centuri Holdings (CTRI) Beats Q3 Earnings and Revenue Estimates",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=a3273de4ad0b833892f16f165167080acd6b59dd5370e67d2cc02b29a6d8dfa4",
+   "fecha": "2026-11-05",
+   "resumen": "Centuri (CTRI) delivered earnings and revenue surprises of +68.00% and +12.63%, respectively, for the quarter ended September 2026. Do the numbers hold clues to what lies ahead for the stock?",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Can Democrats Slow The $800 Billion AI Boom?",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=6e6c0f4d4c21b69fe36ed72ceb593f8baca27123a741b2079e38c793e749a02b",
+   "fecha": "2026-11-05",
+   "resumen": "Part of our midterms guide. Start here: what the vote really changes for your money.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Stock Market Crash Or Rally? Plan For Both",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=07617a6264fc35e252a3965e4b1552a6766c13a66ae381f515f9fc7dffcc0521",
+   "fecha": "2026-11-05",
+   "resumen": "Part of our midterms guide. Start here: what the vote really changes for your money.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "KeyBanc Just Downgraded Vistra Stock. Here's Why.",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=e15b057364e57baf0b844e40824f941dcab73c4bc2abb6cebc35b864a87e9290",
+   "fecha": "2026-11-05",
+   "resumen": "Vistra stock sinks on a bearish KeyBanc research note. Here’s why analyst Sophie Karp downgraded VST shares to Sector Weight today.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "NRG Energy to Release Q3 Earnings: What's in the Cards for the Stock?",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=fd22693ac835ed0dfd2e14690af0f5e5c68654cea83503480e7b127a5d1a0c5a",
+   "fecha": "2026-11-05",
+   "resumen": "NRG's Q3 earnings face a mixed outlook as customer growth and acquisitions support results, while higher interest costs and weak stock performance loom.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "If You Ran NRG Energy, What Would You Do?",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=916a493e5a2e5cd71ed78a10b6cc85e8587043046f371a4ef0ecf29ad3edca8a",
+   "fecha": "2026-11-05",
+   "resumen": "For questions about this article or underlying research, email help@trefis.com.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "S&P 500 Top Movers: Gainers and Losers in Today's US Session",
+   "medio": "ChartMill",
+   "url": "https://finnhub.io/api/news?id=00de67f364a0e9c6936a8e31ef13f5ce904883d14b7a6c891acd5b259df9a819",
    "fecha": "2026-11-04",
-   "resumen": "Investing.com -- Vistra shares plunged 13.5% on Wednesday after a sweeping Democratic victory in the US midterm elections raised concerns about the future of data-center development in Texas, prompting KeyBanc to downgrade the electricity generator."
+   "resumen": "S&P 500 top movers for today's US session, with XYZ leading gainers at 15.99% and FIS leading losers at -24.87%.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "S&P 500 Top Movers: Nov. 4, 2026 Session Gainers and Losers",
+   "medio": "ChartMill",
+   "url": "https://finnhub.io/api/news?id=055d9c0317330336a8c177655c3143ea2fc418e7048759f97d7078b780156b7d",
+   "fecha": "2026-11-04",
+   "resumen": "S&P 500 top movers for Nov. 4, 2026: XYZ and SWK lead gainers while FIS and TRMB lead decliners in today's US session.",
+   "tipo": "prensa",
+   "via": "Finnhub"
   },
   {
    "titular": "Post-Election AI Infrastructure And Data Center Rethink",
-   "medio": "SeekingAlpha",
+   "medio": "Seeking Alpha",
    "url": "https://finnhub.io/api/news?id=5ccec8dcd6795e9ce2ec748a9e3b114f2f8c65e0290782d51c338c4ab39d7c26",
    "fecha": "2026-11-04",
-   "resumen": "Explore how U.S. data center and AI infrastructure spending may shift by 2030, with policy, power, and supply chain risks shaping investment decisions. Click for more."
+   "resumen": "Explore how U.S. data center and AI infrastructure spending may shift by 2030, with policy, power, and supply chain risks shaping investment decisions. Click for more.",
+   "tipo": "prensa",
+   "via": "Finnhub"
   },
   {
-   "titular": "Constellation Energy Sinks 8%, Vistra Down 14% as Democrats’ Midterm Sweep Hits AI Power Stocks",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=aaa1b481e6d8233c9d934055f49eb0eaec6cff1791e3de8515505a08c7d106e7",
+   "titular": "Today's S&P 500 Gap Movers: XYZ and ZBH Lead Gap-Ups, FIS and TRMB Top Gap-Downs",
+   "medio": "ChartMill",
+   "url": "https://finnhub.io/api/news?id=e529c5258033b90232cc48825b175958f03281b5b20038d1a63260517485474d",
    "fecha": "2026-11-04",
-   "resumen": "Key TakeawaysConstellation Energy fell 8% this morning after Democrats won Congress, in a selloff that also hit Vistra, GE Vernova and CoreWeave. Its signed deals with Alphabet’s Google and Amazon still stand, so the risk is in future contracts."
-  },
-  {
-   "titular": "GE Vernova Sinks 10%, Vistra Down 12% as Democrats Win Congress: “Incrementally More Negative Sentiment”",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=b9efa4cf3f1eb28296731140a798f1a156f8b5e7e72de185a4989ae704aaa4af",
-   "fecha": "2026-11-04",
-   "resumen": "Key TakeawaysGE Vernova fell 10% today, with Vistra and Constellation Energy, after Democrats won both chambers of Congress. Only about 20% of GE Vernova’s contracted gas turbine capacity serves data centers."
-  },
-  {
-   "titular": "Vistra Set for Q3 Earnings Release: Is the Stock a Buy, Sell or Hold?",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=95a1747ac37b7866815761921a3fa6486fe19c8cb1c0edc2a3ffdab273e73df5",
-   "fecha": "2026-11-04",
-   "resumen": "VST expects strong Q3 earnings growth on robust power demand, hedging and higher capacity revenues, but is the stock worth buying ahead of results?"
-  },
-  {
-   "titular": "Vistra Sinks 10%, Constellation Down 6% as Democrats’ “Blue Tsunami” Hits AI Power Stocks",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=7fc9683f60d846964902b731eacaa1ec918690add4c21d5ce09d7f33ef26f710",
-   "fecha": "2026-11-04",
-   "resumen": "Key TakeawaysVistra stock fell 10% today after Democrats won Congress and Texas, pulling Constellation Energy, GE Vernova and Vertiv down too. Texas Governor-elect Gina Hinojosa campaigned on a moratorium on new data centers."
+   "resumen": "S&P 500 gap movers today: XYZ, ZBH, SWK and FSLR led gap-ups, while FIS, TRMB, FIX and SWKS topped gap-downs, with opening gaps, percentage changes and prices.",
+   "tipo": "prensa",
+   "via": "Finnhub"
   },
   {
    "titular": "Vistra: Midterms Uncertainty Casts Dark Clouds - So Does The Chart (Rating Downgrade)",
-   "medio": "SeekingAlpha",
+   "medio": "Seeking Alpha",
    "url": "https://finnhub.io/api/news?id=f376907ef837f1ce5789f123d9feac38e6a01e59f8812917964c6764b16dcb5b",
    "fecha": "2026-11-04",
-   "resumen": "Vistra Corp. faces regulatory risks, ERCOT volatility, and technical weakness despite growth potential. Click for this VST stock update and earnings preview."
-  },
-  {
-   "titular": "GE Vernova Soars 6%, Eaton Up 7% on Record Orders and Bernstein’s Data Center Call",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=5f8785dc5ea1a7f2af309e969b297b6c10d6b49535eb4d4072a94c7bd4f27b13",
-   "fecha": "2026-11-04",
-   "resumen": "Key TakeawaysGE Vernova shares rose 6% on Nov. 3 after Eaton’s record third-quarter orders and a bullish Bernstein note on data centers."
+   "resumen": "Vistra Corp. faces regulatory risks, ERCOT volatility, and technical weakness despite growth potential. Click for this VST stock update and earnings preview.",
+   "tipo": "prensa",
+   "via": "Finnhub"
   },
   {
    "titular": "S&P 500 Premarket Movers for Nov. 4",
    "medio": "ChartMill",
    "url": "https://finnhub.io/api/news?id=64e1e067d297cd9663b262f6d082f583dbfbe776196f3e9d8bb027b27c38301b",
    "fecha": "2026-11-04",
-   "resumen": "S&P 500 premarket movers for Nov. 4 include Block up 9.87% and Fidelity National Information Services down 21.77%, with gainers and losers ahead of the U.S. open."
+   "resumen": "S&P 500 premarket movers for Nov. 4 include Block up 9.87% and Fidelity National Information Services down 21.77%, with gainers and losers ahead of the U.S. open.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Dow Rallies 2.9%, Oil Sinks 7% After Midterms: Stock Market Today",
+   "medio": "Benzinga",
+   "url": "https://finnhub.io/api/news?id=da864d1f6364ece8aef14815dea42ecff8d8d346521c81e737da789fc2f4bcf6",
+   "fecha": "2026-11-04",
+   "resumen": "Democrats&#39; sweep of Congress lifted hyperscalers and retailers, sank oil and data-center builders, and pulled yields lower.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Keybanc Downgrades Vistra to Sector Weight",
+   "medio": "Benzinga",
+   "url": "https://finnhub.io/api/news?id=8ee78f11765964e98af52a600b1da2c44c117027ba9807ee99036d4bbe36f8df",
+   "fecha": "2026-11-04",
+   "resumen": "Keybanc  analyst Sophie Karp   downgrades Vistra (NYSE:VST) from Overweight to Sector Weight.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "VST, CEG Stocks Drop As Election Outcome Hits Merchant Power Generators",
+   "medio": "Yahoo",
+   "url": "https://finnhub.io/api/news?id=5a9a0a5c109c3cd63beb0999f7f0657248973a3e7a82745cf560caef0d02669a",
+   "fecha": "2026-11-04",
+   "resumen": "Incoming Texas governor Gina Hinojosa has advocated an immediate pause on new data-center construction, an end to related tax incentives, and stronger local controls over water and electricity use.",
+   "tipo": "prensa"
+  },
+  {
+   "titular": "Vistra plunges 13.5% as Texas election rattles AI power trade, KeyBanc downgrades",
+   "medio": "Yahoo",
+   "url": "https://finnhub.io/api/news?id=d1c1a35c8b2a09d40b275b6b0b5b66aa5515796293b78396e50c9f81a8a18b30",
+   "fecha": "2026-11-04",
+   "resumen": "Investing.com -- Vistra shares plunged 13.5% on Wednesday after a sweeping Democratic victory in the US midterm elections raised concerns about the future of data-center development in Texas, prompting KeyBanc to downgrade the electricity generator.",
+   "tipo": "prensa"
+  },
+  {
+   "titular": "Constellation Energy Sinks 8%, Vistra Down 14% as Democrats’ Midterm Sweep Hits AI Power Stocks",
+   "medio": "Yahoo",
+   "url": "https://finnhub.io/api/news?id=aaa1b481e6d8233c9d934055f49eb0eaec6cff1791e3de8515505a08c7d106e7",
+   "fecha": "2026-11-04",
+   "resumen": "Key TakeawaysConstellation Energy fell 8% this morning after Democrats won Congress, in a selloff that also hit Vistra, GE Vernova and CoreWeave. Its signed deals with Alphabet’s Google and Amazon still stand, so the risk is in future contracts.",
+   "tipo": "prensa"
+  },
+  {
+   "titular": "GE Vernova Sinks 10%, Vistra Down 12% as Democrats Win Congress: “Incrementally More Negative Sentiment”",
+   "medio": "Yahoo",
+   "url": "https://finnhub.io/api/news?id=b9efa4cf3f1eb28296731140a798f1a156f8b5e7e72de185a4989ae704aaa4af",
+   "fecha": "2026-11-04",
+   "resumen": "Key TakeawaysGE Vernova fell 10% today, with Vistra and Constellation Energy, after Democrats won both chambers of Congress. Only about 20% of GE Vernova’s contracted gas turbine capacity serves data centers.",
+   "tipo": "prensa"
+  },
+  {
+   "titular": "Vistra Set for Q3 Earnings Release: Is the Stock a Buy, Sell or Hold?",
+   "medio": "Yahoo",
+   "url": "https://finnhub.io/api/news?id=95a1747ac37b7866815761921a3fa6486fe19c8cb1c0edc2a3ffdab273e73df5",
+   "fecha": "2026-11-04",
+   "resumen": "VST expects strong Q3 earnings growth on robust power demand, hedging and higher capacity revenues, but is the stock worth buying ahead of results?",
+   "tipo": "prensa"
+  },
+  {
+   "titular": "Vistra Sinks 10%, Constellation Down 6% as Democrats’ “Blue Tsunami” Hits AI Power Stocks",
+   "medio": "Yahoo",
+   "url": "https://finnhub.io/api/news?id=7fc9683f60d846964902b731eacaa1ec918690add4c21d5ce09d7f33ef26f710",
+   "fecha": "2026-11-04",
+   "resumen": "Key TakeawaysVistra stock fell 10% today after Democrats won Congress and Texas, pulling Constellation Energy, GE Vernova and Vertiv down too. Texas Governor-elect Gina Hinojosa campaigned on a moratorium on new data centers.",
+   "tipo": "prensa"
   },
   {
    "titular": "Dividend Announcements: October 24-30, 2026 (Part 2 Of 2)",
-   "medio": "SeekingAlpha",
+   "medio": "Seeking Alpha",
    "url": "https://finnhub.io/api/news?id=37b39cff42574613b9b3ac7b5e48f01bf3342c9071597283e364b501151360a0",
    "fecha": "2026-11-03",
-   "resumen": "Track dividend increases and cuts across 1,200+ stocks with insights on safety, valuation, and riskâspot top opportunities and avoid dividend traps now."
+   "resumen": "Track dividend increases and cuts across 1,200+ stocks with insights on safety, valuation, and riskâspot top opportunities and avoid dividend traps now.",
+   "tipo": "prensa",
+   "via": "Finnhub"
   },
   {
    "titular": "Nancy Pelosi Isn't Running for Re-Election in 2026 Midterms: Say Goodbye to Her Stock Picks in Two Months",
    "medio": "Benzinga",
    "url": "https://finnhub.io/api/news?id=6fc3bf7bfc770e75966e2258d029525116722ff57ec9c7f106d2b4123b9a96e7",
    "fecha": "2026-11-03",
-   "resumen": "Nancy Pelosi is not seeking re-election Tuesday and will leave Congress in January 2027."
-  },
-  {
-   "titular": "Vistra Gains 5% as Talen Guides 2027 EBITDA Up 26% on “Strong PJM Fundamentals”",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=2c2730ef9e22b9d9da5b6da093b7399626baf2c6d27a83df180a949663c8d375",
-   "fecha": "2026-11-03",
-   "resumen": "Key TakeawaysVistra gained 5% today after Talen Energy guided 2027 adjusted EBITDA about 26% higher on PJM demand. Constellation Energy rose on the same news, and GE Vernova and Vertiv rallied on their own."
-  },
-  {
-   "titular": "Energy Transition Today - Australia's Wind Energy Surge Driven By Coal Phase-Out",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=8cbc9e76021ef71db72b9ac226abf5703cf776c728a1abf6744689f80274ccfb",
-   "fecha": "2026-11-03",
-   "resumen": "Australia's wind energy market is experiencing significant growth driven by the phase-out of coal-fired plants, increasing corporate demand for renewable energy, and government initiatives focused on clean energy infrastructure. The country's wind energy capacity is expected to s"
-  },
-  {
-   "titular": "Tech's Biggest Winners Just Became The Market's Biggest Trap",
-   "medio": "SeekingAlpha",
-   "url": "https://finnhub.io/api/news?id=4c8f29c7b4f65ceb83b2e85b6becb35a98a0785d8b59212bcca37426a0a5e37f",
-   "fecha": "2026-11-03",
-   "resumen": "Alphabet faces a critical cash bottleneck as CapEx accelerates, raising concerns about funding future AI-driven growth. Read why I favor hyperscalers."
-  },
-  {
-   "titular": "Is Constellation Energy Stock's Drop A Chance To Buy?",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=e231563141d8e69b7b2a52404640404564cb69313ee8f58619d262018379a524",
-   "fecha": "2026-11-02",
-   "resumen": "For questions about this article or underlying research, email help@trefis.com."
-  },
-  {
-   "titular": "3 AI Power Stocks to Hold for the Next 10 Years",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=adcc3217d354a351ce63f2380125fab7612d41514b364d12ca151f92a7085ebb",
-   "fecha": "2026-11-02",
-   "resumen": "AI can't scale without electricity -- here are three power stocks built to profit from the demand over the next decade."
-  },
-  {
-   "titular": "5 Best Meme Stocks to Invest In",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=ec25d2fad58527e420985c2ac094388039cecb066d6a6bf7f27eaacb55bf9394",
-   "fecha": "2026-11-02",
-   "resumen": "Nobody has to double their money every year to build real wealth. An investor who puts $10,000 into a stock that returns 15% annually and holds it for 40 years ends up with about $2.7 million. That takes patience, not a lucky guess. Reaching for stocks that promise to multiply ov"
-  },
-  {
-   "titular": "NRG Energy (NRG) Earnings Expected to Grow: What to Know Ahead of Next Week's Release",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=30b9f1b443f061ee88eb2000caabd55bc9cb4e6b746f1de12ab5990037cf5976",
-   "fecha": "2026-11-02",
-   "resumen": "NRG (NRG) doesn't possess the right combination of the two key ingredients for a likely earnings beat in its upcoming report. Get prepared with the key expectations."
-  },
-  {
-   "titular": "Vistra Added 5,500 MW of Gas Plants, Most of Them Outside Texas. Here’s What That Means for Its November 6 Report",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=994dd6f153095df4004847ca19cedc376791dd6156ba63af9f225612ca4cf2ad",
-   "fecha": "2026-11-02",
-   "resumen": "Key Stats for Vistra StockCurrent Price: $138. 37Target Price (Mid): ~$155Street Target: ~$205Potential Total Return: ~12%Annualized IRR: ~3% / yearWhat Happened?Vistra (VST:NYSE) closed its purchase of Cogentrix Energy from funds managed by Quantum Capital Group on October 30, a"
+   "resumen": "Nancy Pelosi is not seeking re-election Tuesday and will leave Congress in January 2027.",
+   "tipo": "prensa",
+   "via": "Finnhub"
   }
  ],
+ "noticias_sentimiento": null,
+ "noticias_fuentes": {
+  "medios_sectoriales": [
+   "Utility Dive",
+   "World Nuclear News"
+  ],
+  "alias": [
+   "Vistra Corp",
+   "Energy Harbor"
+  ],
+  "proveedores": {
+   "Finnhub": {
+    "ok": true,
+    "titulares": 80
+   },
+   "Marketaux": {
+    "ok": true,
+    "titulares": 3
+   },
+   "RSS de medios": {
+    "ok": true,
+    "titulares": 0
+   }
+  }
+ },
  "historico_precio": {
   "serie": [
-   [
-    "2021-08-04",
-    18.91
-   ],
    [
     "2021-08-05",
     18.27
@@ -17511,19 +17660,23 @@
    ],
    [
     "2026-11-04",
-    120.25
+    120.29
+   ],
+   [
+    "2026-11-05",
+    112.9
    ]
   ],
   "fuente": "Twelve Data (API oficial, plan gratuito)",
   "url": "https://twelvedata.com/",
-  "fecha": "2026-11-04",
+  "fecha": "2026-11-05",
   "ajuste": "splits"
  },
- "generado": "2026-11-04T23:51:45+00:00",
+ "generado": "2026-11-05T21:35:28+00:00",
  "peers": {
   "fuente_lista": "manual",
   "fuente_cifras": "SEC EDGAR (companyfacts, UDM) · precio Finnhub",
-  "actualizado": "2026-11-04",
+  "actualizado": "2026-11-05",
   "propia": {
    "ingresos": 18985000000,
    "crecimiento": 18.61,
@@ -17541,13 +17694,13 @@
    "informe": "10-Q",
    "informe_fecha": "2026-08-10",
    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
-   "precio": 120.29,
-   "capitalizacion": 40373557606.55,
-   "ev": 59533557606.55,
-   "per": 18.19,
-   "precio_ventas": 2.13,
-   "ev_ebitda": 10.99,
-   "rentabilidad_fcf": 5.59,
+   "precio": 112.89,
+   "capitalizacion": 37889857163.55,
+   "ev": 57049857163.55,
+   "per": 17.08,
+   "precio_ventas": 2.0,
+   "ev_ebitda": 10.54,
+   "rentabilidad_fcf": 5.95,
    "deuda_neta_ebitda": 3.54,
    "ticker": "VST",
    "nombre": "Vistra",
@@ -17581,13 +17734,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-08-06",
     "url": "https://www.sec.gov/Archives/edgar/data/1868275/000186827526000104/0001868275-26-000104-index.htm",
-    "precio": 245.72,
-    "capitalizacion": 87060409167.88,
-    "ev": 105837409167.88,
-    "per": 25.13,
-    "precio_ventas": 3.51,
-    "ev_ebitda": 12.81,
-    "rentabilidad_fcf": 0.35,
+    "precio": 239.65,
+    "capitalizacion": 84909763377.35,
+    "ev": 103686763377.35,
+    "per": 24.5,
+    "precio_ventas": 3.43,
+    "ev_ebitda": 12.55,
+    "rentabilidad_fcf": 0.36,
     "deuda_neta_ebitda": 2.27
    },
    {
@@ -17617,13 +17770,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-08-04",
     "url": "https://www.sec.gov/Archives/edgar/data/1013871/000101387126000020/0001013871-26-000020-index.htm",
-    "precio": 83.25,
-    "capitalizacion": 17500022709.75,
-    "ev": 40730022709.75,
-    "per": 20.61,
-    "precio_ventas": 0.54,
-    "ev_ebitda": 11.08,
-    "rentabilidad_fcf": 1.99,
+    "precio": 80.55,
+    "capitalizacion": 16932454405.65,
+    "ev": 40162454405.65,
+    "per": 19.94,
+    "precio_ventas": 0.52,
+    "ev_ebitda": 10.92,
+    "rentabilidad_fcf": 2.06,
     "deuda_neta_ebitda": 6.32
    },
    {
@@ -17653,9 +17806,9 @@
     "informe": "10-Q",
     "informe_fecha": "2026-08-05",
     "url": "https://www.sec.gov/Archives/edgar/data/1622536/000162253626000066/0001622536-26-000066-index.htm",
-    "precio": 326.78,
-    "capitalizacion": 15657421556.019999,
-    "ev": 24998421556.019997,
+    "precio": 316.225,
+    "capitalizacion": 15151686552.275002,
+    "ev": 24492686552.275,
     "per": null,
     "precio_ventas": null,
     "ev_ebitda": null,
@@ -17689,13 +17842,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-08-04",
     "url": "https://www.sec.gov/Archives/edgar/data/874761/000087476126000144/0000874761-26-000144-index.htm",
-    "precio": 14.9,
-    "capitalizacion": 10630235587.0,
-    "ev": 8777235587.0,
-    "per": 5.68,
+    "precio": 14.89,
+    "capitalizacion": 10623101200.7,
+    "ev": 8770101200.7,
+    "per": 5.67,
     "precio_ventas": 0.81,
     "ev_ebitda": 2.3,
-    "rentabilidad_fcf": -16.18,
+    "rentabilidad_fcf": -16.19,
     "deuda_neta_ebitda": -0.49
    },
    {
@@ -17725,12 +17878,12 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-21",
     "url": "https://www.sec.gov/Archives/edgar/data/753308/000075330826000081/0000753308-26-000081-index.htm",
-    "precio": 88.45,
-    "capitalizacion": 184448451783.2,
-    "ev": 280235451783.2,
-    "per": 22.54,
-    "precio_ventas": 7.12,
-    "ev_ebitda": 18.57,
+    "precio": 88.25,
+    "capitalizacion": 184031383492.0,
+    "ev": 279818383492.0,
+    "per": 22.49,
+    "precio_ventas": 7.11,
+    "ev_ebitda": 18.55,
     "rentabilidad_fcf": null,
     "deuda_neta_ebitda": 6.35
    }

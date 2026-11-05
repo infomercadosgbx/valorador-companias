@@ -11895,7 +11895,7 @@
    "n_ventas": 54,
    "ventas_con_plan": 4430718.77,
    "compradores": [],
-   "desde": "2026-05-05"
+   "desde": "2026-05-06"
   },
   "operaciones": [
    {
@@ -20959,11 +20959,11 @@
  "precio": {
   "minimo_52s": 270.7,
   "maximo_52s": 408.61,
-  "beta": 1.2457957,
-  "valor": 288.93,
-  "cierre_anterior": 280.03,
+  "beta": 1.2461063,
+  "valor": 282.57,
+  "cierre_anterior": 288.93,
   "moneda": "USD",
-  "fecha": "2026-11-04",
+  "fecha": "2026-11-05",
   "fuente": "Finnhub (API oficial, plan gratuito)",
   "url": "https://finnhub.io/"
  },
@@ -21060,152 +21060,308 @@
  },
  "noticias": [
   {
+   "titular": "8-K a la SEC: Otros hechos relevantes",
+   "medio": "SEC · 8-K (oficial)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1652044/000119312526449835/d174184d8k.htm",
+   "fecha": "2026-11-05",
+   "resumen": "Comunicación oficial de la compañía. Items: 8.01.",
+   "oficial": true,
+   "tipo": "prensa"
+  },
+  {
+   "titular": "Google to serve as credit backstop for TeraWulf data center in Kentucky",
+   "url": "https://www.datacenterdynamics.com/en/news/google-to-serve-as-credit-backstop-for-terawulf-data-center-in-kentucky/",
+   "fecha": "2026-11-05",
+   "resumen": "Data center is contracted to Anthropic under $19bn deal",
+   "medio": "Data Center Dynamics",
+   "tipo": "sectorial",
+   "via": "RSS del medio"
+  },
+  {
+   "titular": "Google Commits $17 Billion to Wyoming Data Center; Banxico Surprises with Rate Cut",
+   "url": "https://www2.stockmarketwatch.com/stock-market-news/google-commits-17-billion-to-wyoming-data-center-banxico-surprises-with-rate-cut/74221/",
+   "fecha": "2026-11-05",
+   "resumen": "Alphabet Inc.'s Google (GOOGL) is launching its first data center project in Laramie County, Wyoming, representing a long-term $17 billion investment.",
+   "medio": "thestockmarketwatch.com",
+   "tipo": "prensa",
+   "via": "Marketaux",
+   "sentimiento": {
+    "puntuacion": 0.247,
+    "etiqueta": "Algo alcista"
+   }
+  },
+  {
+   "titular": "Micron: When A 3.8x Forward 2028 P/E Is Too Expensive",
+   "medio": "Seeking Alpha",
+   "url": "https://finnhub.io/api/news?id=f3736199c823f166c138e0f5c5e574698559a9973c70a034171c0943d18d1383",
+   "fecha": "2026-11-05",
+   "resumen": "",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Alphabet: The AI Reckoning Starts Here",
+   "medio": "Seeking Alpha",
+   "url": "https://finnhub.io/api/news?id=2558cac9018d9588b654d6d01d0a97fe42e51d69a77d70c81cf548f9bd4c8668",
+   "fecha": "2026-11-05",
+   "resumen": "Alphabet faces rising CapEx, negative free cash flow, and debt growth, signaling downside risk. Click here to read our latest analysis of GOOG stock.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Wall Street Lunch: Fear Grips The Market",
+   "medio": "Seeking Alpha",
+   "url": "https://finnhub.io/api/news?id=cd5c390c9701c901019f0e5aac95d3bfbb3f090702b97402f279426782d834b9",
+   "fecha": "2026-11-05",
+   "resumen": "Markets plunged as investors reacted to uncertainty.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Alphabet: The Advertising Phenomenon Investors Always Miss",
+   "medio": "Seeking Alpha",
+   "url": "https://finnhub.io/api/news?id=57d9fdf8673243fdc344c501a583f965c7f62e96c7cb490cc504ed74616690ba",
+   "fecha": "2026-11-05",
+   "resumen": "Strong Buy on Alphabet: learn why AI search growth, TPU investments, and a compelling valuation may offer timely upsideâread the analysis.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Five Signals That Preceded Past Recessions Are Back — and AI Is at the Center",
+   "medio": "Benzinga",
+   "url": "https://finnhub.io/api/news?id=08ceb3d12e35c6492a291c48047101ae9618d18d196486c8eca3ab3351a1d06a",
+   "fecha": "2026-11-05",
+   "resumen": "Oxford Economics says five signals that preceded past recessions are back. Chip stocks sink 23% in a month as equal-weight stocks lead and bonds rally.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Alphabet: Investors Are Making The Same Mistake They Did With Microsoft",
+   "medio": "Seeking Alpha",
+   "url": "https://finnhub.io/api/news?id=7f477922ce6519e3310ee63674016b06132eacb2488fab2aa699a2ee8fbf6449",
+   "fecha": "2026-11-05",
+   "resumen": "Alphabet is a buy as AI spending hits cash flow, but cloud growth, strong margins, and attractive valuation offer long-term upside. Click for a GOOG update.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Google Created 5 Billionaires Worth $553B — Almost All That Wealth Belongs to 2 People",
+   "medio": "Benzinga",
+   "url": "https://finnhub.io/api/news?id=d2e44f67d36d35905f397f3633ae118ab8799fbb549f262ccdeca5789908695c",
+   "fecha": "2026-11-05",
+   "resumen": "Google has produced five billionaires worth $553 billion, but Larry Page and Sergey Brin account for roughly 93% of that wealth.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Alphabet: Cheapest Hyperscaler By A Margin",
+   "medio": "Seeking Alpha",
+   "url": "https://finnhub.io/api/news?id=997e6fa12cfbbb0893a7c3584b2626cc8407c7f24fd8d721fb79a9d8d9cfee8e",
+   "fecha": "2026-11-05",
+   "resumen": "Alphabet Inc. stock looks undervalued despite a sell-off. Click for why GOOG's strong growth, Cloud momentum, and cheap valuation point to more upside ahead.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "The less water AI data centers use, the more power they consume. Here’s why.",
+   "medio": "CNBC",
+   "url": "https://finnhub.io/api/news?id=a407484879cfd6ac91ad8d5c877b0296a47f92f3c51fc6b71bddaff994dabdd5",
+   "fecha": "2026-11-05",
+   "resumen": "U.S. voters passed 40 ballot measures putting limits on AI data centers this week, as huge 1GW data centers from OpenAI, Meta, SpaceXAI, Amazon, Google and more push up water and power bills and put a strain on local resources. Closed-loop liquid cooling keeps water use low insid",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Microsoft, Amazon Add $400 Billion in Market Value as Analyst Sees Pricing Upside From Data Center Constraints",
+   "medio": "Benzinga",
+   "url": "https://finnhub.io/api/news?id=f1d363c726b0a63cce0be8b122d560f6c60f0facfaad7e0e14471e533a0b0f44",
+   "fecha": "2026-11-05",
+   "resumen": "Microsoft and Amazon could gain pricing power as AI data center constraints tighten capacity, boosting cloud profitability, analyst says.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Microsoft’s $5 Billion AI Spending Shortfall Puts IREN, Nebius Under Spotlight as Satellite Imagery Shows Data Center Delays: Report",
+   "medio": "Benzinga",
+   "url": "https://finnhub.io/api/news?id=9fb93113ab2eeb60fd982e8e674898e9f7ba3d55626a64709249b78f26954474",
+   "fecha": "2026-11-05",
+   "resumen": "Microsoft&#39;s $5 billion AI spending shortfall raises questions as satellite images reportedly point to delays at IREN data center projects.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Kevin O'Leary Predicts Political U-Turn on AI Data Centers, Says They Will Become a Middle-Class Wealth Engine: 'Resistance is Going to Disappear'",
+   "medio": "Benzinga",
+   "url": "https://finnhub.io/api/news?id=a16fd8f9fe030758defcf809bd5cb7f2513c910176096d8c93b1183b6e9b4355",
+   "fecha": "2026-11-05",
+   "resumen": "Kevin O’Leary predicts opposition to U.S. AI data centers will fade as states embrace high-paying jobs and major power investments.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "AI demand isn't going anywhere, but volatility lies ahead",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=0dc1c6b33415d29597a63688e2c4b5b53f2ad8cd1111de1e6b296458f3ab0701",
+   "fecha": "2026-11-05",
+   "resumen": "Host and \"The Buy Side\" author Turney Duff and his panel of experts weigh in on the effect of the blue wave following the midterm election results.Today's panel includes Hennion & Walsh CIO Kevin Mahn, Neostellar Principal Willy Lee, Grenadilla Advisory Founder and CEO Anna Rathb",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Google could take stake in TeraWulf’s $19B AI project",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=fa6ef5364694bb289bb9a9c4a1b0ca821c1ebdfb7c6dbdc2927dca4c2944531f",
+   "fecha": "2026-11-05",
+   "resumen": "Google has agreed to backstop Anthropic’s $19 billion lease at bitcoin miner TeraWulf’s Kentucky data center. If Anthropic defaults, Google can take over the lease or take a stake in the project. Plus, Payward purchases AAVE tokens and Standard Chartered’s venture arm invests in ",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "What Anthropic's IPO could mean for Amazon and Google",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=4a3288879460fa5242aa18651c12c0e205ca24b98ede26b30e9f48364fdd0cc4",
+   "fecha": "2026-11-05",
+   "resumen": "Anthropic's IPO could payoff for Amazon and Google.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "The AI Trade Selloff Is Crushing Industrial Stocks. What Caterpillar’s Valuation Tells Us.",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=b4f79d89bddac57cbf9a7f61b9779f7e0d48e1b55f756495b4f4633f3febcbe5",
+   "fecha": "2026-11-05",
+   "resumen": "The market clearly believes that a Democratic Congress means less AI spending. We ask two very hard questions. Will you like our answers?",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Meta, Google, TikTok Challenge New California Youth Social Media Law",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=aa57c448b585e5d7dded1aa8ab440a183c8bedfc69e85bd4ec4d576c532feaa1",
+   "fecha": "2026-11-05",
+   "resumen": "Meta Platforms (META), Alphabet's (GOOG, GOOGL) Google and TikTok filed separate complaints Wednesda",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Alphabet Stocks Decline 2% as AI Spending Outruns Cash Generation",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=3f6d96255995cb7fbcc08f12a51e703d567a3c15de6a9d8b257b387d6922344c",
+   "fecha": "2026-11-05",
+   "resumen": "Rapid cloud growth has not removed the pressure from infrastructure investment.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Don’t Underestimate the Ultrarich—or How Fast They Can Leave California",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=488ee4255ea0137029ce17d692d5507cd13371d4f5a4c96ee1dcf0750f6b4a22",
+   "fecha": "2026-11-05",
+   "resumen": "The wealth tax proposal in California offers a lesson about the mobility of billionaires and could push advocates to find a different, more conciliatory approach.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Buy Alphabet for The Limted Downside Floor if The Coiled Spring Asymmetry Doesn’t Pique Your Interest",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=f82c0021c7e474699a48a317c939d53d1a9701fc4cf5632b0c22137a79a9a1fa",
+   "fecha": "2026-11-05",
+   "resumen": "Alphabet stock sank 16% in a month, and one investor keeps buying every dip. Two scenarios, one of them involving a $175 billion spending binge, explain why he thinks the downside is already priced in.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Big Tech's massive AI spending is causing another problem for investors",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=f104ee6466eb22828a5800437986c917fcd27a1065d1ba3e70eaa05314cba86d",
+   "fecha": "2026-11-05",
+   "resumen": "The Big Tech buyback may be on ice for now.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Superpath and JB Warranties Announce Strategic Marketing Partnership to Help Home Service Contractors Grow",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=e7569976b87ede688fc9ed1d78c17722cce868d2a7e491e56c64eff94d82ad4d",
+   "fecha": "2026-11-05",
+   "resumen": "Superpath, a digital marketing agency specializing in home service contractors, has announced a new strategic marketing partnership with JB Warranties, a leading provider of extended warranty programs and dealer business services for the HVAC and plumbing industries.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Google Plays Hardball With Schoolchildren; Reddit Upvotes Search Ads",
+   "url": "https://www.adexchanger.com/daily-news-roundup/wednesday-04112026/",
+   "fecha": "2026-11-04",
+   "resumen": "All Or Nothing Schools looking to ban AI for students are realizing just how much weight Google has to throw around. It’s a story publishers and ad tech companies know well. As more K-12 schools ban AI, Google is playing ball by turning off the AI features in its products (unless",
+   "medio": "AdExchanger",
+   "tipo": "sectorial",
+   "via": "RSS del medio"
+  },
+  {
    "titular": "Dow Jones Futures: Elections, Plunging Oil Fuel Big Rally; Apple, Microsoft, Amazon Flash Buy Signals. CoreWeave, SpaceX Skid.",
    "medio": "Yahoo",
    "url": "https://finnhub.io/api/news?id=52279df7ab8987a60569cafcbfad0ecbaf0a195517a6c27e52b0b5dd73208f7f",
    "fecha": "2026-11-04",
-   "resumen": "Elections and diving oil prices sparked a stock market surge. Stocks from many sectors flash buy signals, but avoid this area."
+   "resumen": "Elections and diving oil prices sparked a stock market surge. Stocks from many sectors flash buy signals, but avoid this area.",
+   "tipo": "prensa"
   },
   {
    "titular": "Adobe (ADBE) Brings CX Enterprise Coworker to Major AI Platforms",
    "medio": "Yahoo",
    "url": "https://finnhub.io/api/news?id=5b7a121ac4bcdefe7ed5ac028fa47c560c6e189ff7e5cb44ed2623d6278a0608",
    "fecha": "2026-11-04",
-   "resumen": "Adobe (NasdaqGS: ADBE) introduced its CX Enterprise Coworker agentic AI into leading third party AI platforms from Anthropic, Google, Microsoft, OpenAI, and Databricks. The CX Enterprise Coworker is designed to help marketing teams coordinate customer experiences across multiple "
+   "resumen": "Adobe (NasdaqGS: ADBE) introduced its CX Enterprise Coworker agentic AI into leading third party AI platforms from Anthropic, Google, Microsoft, OpenAI, and Databricks. The CX Enterprise Coworker is designed to help marketing teams coordinate customer experiences across multiple ",
+   "tipo": "prensa"
   },
   {
    "titular": "The Nasdaq-100 Is Outperforming Nvidia, Microsoft, Amazon, Meta Platforms, Alphabet, and Tesla This Year. Here's My Favorite Low-Cost ETF to Buy the Dip.",
    "medio": "Yahoo",
    "url": "https://finnhub.io/api/news?id=3e864c54862b78871716f65b53263fd9dd276aeafdf847e2b98d59c3e7e3101a",
    "fecha": "2026-11-04",
-   "resumen": "Many megacap growth stocks are underperforming the major indexes this year."
+   "resumen": "Many megacap growth stocks are underperforming the major indexes this year.",
+   "tipo": "prensa"
   },
   {
-   "titular": "OpenAI Says ChatGPT’s Search Volume Is Now a Fifth of Google’s",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=5d811a05268effc47f579c3cf3fe9d56dd5b6bd2bb133e72bf824968990dc45a",
-   "fecha": "2026-11-04",
-   "resumen": "OpenAI just claimed ChatGPT is closing in on Google Search, but independent analysts, Alphabet's own earnings, and a missing baseline in the comparison all tell a messier story about who is actually winning."
-  },
-  {
-   "titular": "Alphabet, Amazon, and Microsoft All Surged Today. You Can Thank the Big Blue Wave.",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=0278d1a1bfb3de9684e317ebcf149af4029430e8b162839596ab02a2b9505b41",
-   "fecha": "2026-11-04",
-   "resumen": "While it might seem counterintuitive at first glance, the biggest cloud operators might gain an advantage from a Democratic sweep."
-  },
-  {
-   "titular": "Dow Heads for Best Post-Election Day Peformance in Decades",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=d2252ca6b0d6e8523355461e04a432d039ecca81ee0d67e0855086e1a9b1bfc6",
-   "fecha": "2026-11-04",
-   "resumen": "The Dow was on track for its best post-Election Day performance since 1986."
-  },
-  {
-   "titular": "Lumentum Fell to $750 With Marvell’s Offer Worth $820. Its November 5 Report Tests the Floor",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=b64c482432c8a914dcbed67c231ae26e33d3ab29b10f1e97b49d73b05ee4620c",
-   "fecha": "2026-11-04",
-   "resumen": "Key TakeawaysLumentum fell to $750 on Monday after agreeing to an all-stock sale to Marvell for 4. 5 Marvell shares apiece, which were worth $820 at Marvell’s price then."
-  },
-  {
-   "titular": "Ironically, the Blue Wave Could Make Hyperscalers “Good Businesses Again” by Forcing Capex Discipline",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=c4995e4443392c73f481ce4a3e9e56809007a6237007113125cd3173121bf1a3",
-   "fecha": "2026-11-04",
-   "resumen": "Key TakeawaysDemocrats won control of the House and Senate in Tuesday’s midterms, and state results point to more limits on building data centers but fewer outright bans. Tighter rules that slow the build-out would help Amazon, Alphabet, Meta and Microsoft shareholders, because l"
-  },
-  {
-   "titular": "Top VC: The Best AI Models Take “80% Plus” of Spend. And Alphabet’s Gemini Just Ranked No. 1",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=be582cc5e9159df06dec6f52e785cb5d5807c526936bf56243687056b34e0b4a",
-   "fecha": "2026-11-04",
-   "resumen": "Key TakeawaysAlphabet’s Gemini 4 Carbon now ranks first on Artificial Analysis’s Intelligence Index, and a16z’s Martin Casado says the best frontier models take more than 80% of AI spending, weighted by dollars. The ranking hasn’t won Alphabet that spending yet: Anthropic and Ope"
-  },
-  {
-   "titular": "Lincoln, Cross Ocean buy distressed Addison office campus with $100M makeover in mind",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=751f6ae9ff32cd9d2a8f1351f7e837fd7f0209e899edae12464da8e7aab7328a",
-   "fecha": "2026-11-04",
-   "resumen": "Chase Prospere, senior vice president at Lincoln Property Company with an aerial view of 15301 Dallas Pkwy in Addison (Getty, Lincoln Property Company, Google Maps)Cross Ocean Partners and Lincoln Property Company are gambling that a $100 million renovation plan of The Colonnade "
-  },
-  {
-   "titular": "Bill Ackman: Netflix “an Incredibly Cheap Stock” After a 55% Drop. But Is He Right?",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=6e060700d3d2bc50311cf62f4cbb3611af654442b7368af7bdc9ecf09678dee4",
-   "fecha": "2026-11-04",
-   "resumen": "Key TakeawaysBill Ackman called Netflix “an incredibly cheap stock” on CNBC’s Squawk Pod, after his fund sold out of most of its Alphabet stake and with Netflix down about 55% from its June 2025 high. Ackman says viewing hours are falling because Netflix’s content mix is changing"
-  },
-  {
-   "titular": "The Mag 7 Just Got a $600B Blue-Wave Surprise",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=8fbea97fb7c1153a1c6e3d6068800627c0243f6365a752e76a5d01200b937a4d",
-   "fecha": "2026-11-04",
-   "resumen": "Nvidia, Apple, Meta Platforms, Amazon.com, Tesla, Alphabet, and Microsoft were on track for their tenth largest combined one-day valuation gain ever."
-  },
-  {
-   "titular": "Alphabet Stocks Rise 1.4% as Euro Borrowing Meets a $200 Billion Spending Plan",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=014ad964d456c0b24986211d01aea98f96dd182f207af6802bdb572740a36ffc",
-   "fecha": "2026-11-04",
-   "resumen": "The latest financing diversifies funding while cloud growth carries near-term margin pressure."
-  },
-  {
-   "titular": "Google Is Telling Schools to Take Its AI or Lose Its Search Engine",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=98767ded971d17ce0426c872351bd77974897e8f0120bc216ba5cac55bbccdc0",
-   "fecha": "2026-11-04",
-   "resumen": "Google just gave K-12 schools a choice that may not feel like one: accept AI bundled into Search or lose Search entirely. With a monopoly ruling already on appeal and senators demanding answers, the stakes reach far beyond any classroom."
-  },
-  {
-   "titular": "California Could Raise $100 Billion From Billionaires — But There's a $38.9 Billion Problem",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=e467b68e41eaaf79ca3d03e4c954977a740d3265f066837ec74edef0df1a0c8a",
-   "fecha": "2026-11-04",
-   "resumen": "California voters are deciding the fate of a proposed billionaire wealth tax in Tuesday’s midterm elections, with supporters pointing to billions in potential public funding and business leaders warning that the measure could push wealthy residents out of the state...."
-  },
-  {
-   "titular": "DuckDuckGo pitches itself to schools amid backlash over Google’s AI policy",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=42212a91b94b503ab7eb8e361c4aace0ea7340873b86f5983f82f5d60f9a4f4d",
-   "fecha": "2026-11-04",
-   "resumen": "DuckDuckGo is courting schools frustrated by Google's AI restrictions, pointing educators to its search engine and options to disable AI features."
-  },
-  {
-   "titular": "Cathie Wood Picks a Side Between Palantir and Google",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=05933ca5e95d88ce6b1218cf650726df8ff9135754ae7c3f690bb51adc4b23b9",
-   "fecha": "2026-11-04",
-   "resumen": "Both stocks fell after earnings, but ARK responded very differently."
-  },
-  {
-   "titular": "Strategy Gains 7% as Bitcoin Rallies After Midterms, CEO Touts “Bitcoin Capital Cycle”",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=ec27e699dbd8ab609ca47bbff51aae222c695f8562ec155a53b72c86a8a9e82d",
-   "fecha": "2026-11-04",
-   "resumen": "Key TakeawaysStrategy shares rose 7% today as Bitcoin and the broader market rallied after the midterm elections. CEO Phong Le ranked Strategy fourth among US stock sellers in 2026, calling it a “Bitcoin capital cycle."
-  },
-  {
-   "titular": "California's billionaire tax on track for defeat as the state continues to count votes",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=dd606dced6d73139bdb5edf196ccbd3dfd366d3db94638992c13d067d096bb3a",
-   "fecha": "2026-11-04",
-   "resumen": "The referendum would amend California's constitution and impose a one-time 5% tax on California residents and trusts with assets over $1 billion."
-  },
-  {
-   "titular": "Why the Blue Wave Isn't Crushing Every AI Play",
-   "medio": "Yahoo",
-   "url": "https://finnhub.io/api/news?id=70ecdaaa297c25556e3216ed0417d07f365e2c7494fc2d6ce197ef229abd1cac",
-   "fecha": "2026-11-04",
-   "resumen": "Just yesterday, worries a blue wave would crush the AI trade loomed over Wall Street."
+   "titular": "8-K a la SEC: Resultados",
+   "medio": "SEC · 8-K (oficial)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000080/goog-20261028.htm",
+   "fecha": "2026-10-28",
+   "resumen": "Comunicación oficial de la compañía. Items: 2.02.",
+   "oficial": true,
+   "tipo": "prensa"
   }
  ],
+ "noticias_sentimiento": null,
+ "noticias_fuentes": {
+  "medios_sectoriales": [
+   "The Next Platform",
+   "Data Center Dynamics",
+   "AdExchanger",
+   "TechCrunch"
+  ],
+  "alias": [
+   "Google",
+   "YouTube",
+   "Waymo",
+   "DeepMind"
+  ],
+  "proveedores": {
+   "Finnhub": {
+    "ok": true,
+    "titulares": 80
+   },
+   "Marketaux": {
+    "ok": true,
+    "titulares": 1
+   },
+   "RSS de medios": {
+    "ok": true,
+    "titulares": 7
+   }
+  }
+ },
  "historico_precio": {
   "serie": [
-   [
-    "2021-08-04",
-    135.1255
-   ],
    [
     "2021-08-05",
     136.2515
@@ -26480,19 +26636,23 @@
    ],
    [
     "2026-11-04",
-    288.99
+    288.93
+   ],
+   [
+    "2026-11-05",
+    282.6
    ]
   ],
   "fuente": "Twelve Data (API oficial, plan gratuito)",
   "url": "https://twelvedata.com/",
-  "fecha": "2026-11-04",
+  "fecha": "2026-11-05",
   "ajuste": "splits"
  },
- "generado": "2026-11-04T23:50:45+00:00",
+ "generado": "2026-11-05T21:35:08+00:00",
  "peers": {
   "fuente_lista": "manual",
   "fuente_cifras": "SEC EDGAR (companyfacts, UDM) · precio Finnhub",
-  "actualizado": "2026-11-04",
+  "actualizado": "2026-11-05",
   "propia": {
    "ingresos": 471097000000,
    "crecimiento": 22.21,
@@ -26510,13 +26670,13 @@
    "informe": "10-Q",
    "informe_fecha": "2026-10-29",
    "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/0001652044-26-000084-index.htm",
-   "precio": 288.93,
-   "capitalizacion": 3573486240000.0,
-   "ev": 3434506240000.0,
-   "per": 15.16,
-   "precio_ventas": 7.59,
-   "ev_ebitda": 18.57,
-   "rentabilidad_fcf": 0.55,
+   "precio": 282.57,
+   "capitalizacion": 3494825760000.0,
+   "ev": 3355845760000.0,
+   "per": 14.83,
+   "precio_ventas": 7.42,
+   "ev_ebitda": 18.14,
+   "rentabilidad_fcf": 0.57,
    "deuda_neta_ebitda": -0.75,
    "ticker": "GOOGL",
    "nombre": "Alphabet",
@@ -26550,13 +26710,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-22",
     "url": "https://www.sec.gov/Archives/edgar/data/1326801/000162828026066773/0001628280-26-066773-index.htm",
-    "precio": 630,
-    "capitalizacion": 1620990000000,
-    "ev": 1622210000000,
-    "per": 21.54,
-    "precio_ventas": 6.71,
-    "ev_ebitda": 15.55,
-    "rentabilidad_fcf": 1.77,
+    "precio": 605.08,
+    "capitalizacion": 1556870840000.0,
+    "ev": 1558090840000.0,
+    "per": 20.69,
+    "precio_ventas": 6.44,
+    "ev_ebitda": 14.94,
+    "rentabilidad_fcf": 1.84,
     "deuda_neta_ebitda": 0.01
    },
    {
@@ -26586,13 +26746,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-28",
     "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526436133/0001193125-26-436133-index.htm",
-    "precio": 555.8,
-    "capitalizacion": 4127478932001.5996,
-    "ev": 4098450932001.5996,
-    "per": 28.94,
-    "precio_ventas": 11.91,
-    "ev_ebitda": 19.93,
-    "rentabilidad_fcf": 1.45,
+    "precio": 535.93,
+    "capitalizacion": 3979920446253.36,
+    "ev": 3950892446253.36,
+    "per": 27.9,
+    "precio_ventas": 11.49,
+    "ev_ebitda": 19.21,
+    "rentabilidad_fcf": 1.51,
     "deuda_neta_ebitda": -0.14
    },
    {
@@ -26622,13 +26782,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-30",
     "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/0001018724-26-000040-index.htm",
-    "precio": 266.03,
-    "capitalizacion": 2876619183545.1797,
-    "ev": 2942345183545.1797,
-    "per": 21.34,
-    "precio_ventas": 3.61,
-    "ev_ebitda": 16.02,
-    "rentabilidad_fcf": -1.63,
+    "precio": 260.21,
+    "capitalizacion": 2813686718604.26,
+    "ev": 2879412718604.26,
+    "per": 20.88,
+    "precio_ventas": 3.53,
+    "ev_ebitda": 15.67,
+    "rentabilidad_fcf": -1.67,
     "deuda_neta_ebitda": 0.36
    },
    {
@@ -26658,13 +26818,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-30",
     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000116/0001713445-26-000116-index.htm",
-    "precio": 101.89,
-    "capitalizacion": 20567540363.05,
-    "ev": 17534108363.05,
-    "per": 20.74,
-    "precio_ventas": 6.66,
-    "ev_ebitda": 18.96,
-    "rentabilidad_fcf": 5.83,
+    "precio": 93.81,
+    "capitalizacion": 18936509583.45,
+    "ev": 15903077583.45,
+    "per": 19.1,
+    "precio_ventas": 6.13,
+    "ev_ebitda": 17.19,
+    "rentabilidad_fcf": 6.33,
     "deuda_neta_ebitda": -3.28
    },
    {
@@ -26694,13 +26854,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-29",
     "url": "https://www.sec.gov/Archives/edgar/data/1506293/000150629326000153/0001506293-26-000153-index.htm",
-    "precio": 21.22,
-    "capitalizacion": 12363875440.0,
-    "ev": 10893854440.0,
-    "per": 69.33,
-    "precio_ventas": 2.64,
-    "ev_ebitda": 47.24,
-    "rentabilidad_fcf": 10.21,
+    "precio": 19.79,
+    "capitalizacion": 11530683080.0,
+    "ev": 10060662080.0,
+    "per": 64.66,
+    "precio_ventas": 2.46,
+    "ev_ebitda": 43.63,
+    "rentabilidad_fcf": 10.95,
     "deuda_neta_ebitda": -6.37
    },
    {
@@ -26730,13 +26890,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-08-04",
     "url": "https://www.sec.gov/Archives/edgar/data/1564408/000156440826000052/0001564408-26-000052-index.htm",
-    "precio": 5.92,
-    "capitalizacion": 9847618080.0,
-    "ev": 10569308080.0,
+    "precio": 5.09,
+    "capitalizacion": 8466955410.0,
+    "ev": 9188645410.0,
     "per": null,
-    "precio_ventas": 1.55,
+    "precio_ventas": 1.33,
     "ev_ebitda": null,
-    "rentabilidad_fcf": 7.16,
+    "rentabilidad_fcf": 8.33,
     "deuda_neta_ebitda": null
    }
   ]
