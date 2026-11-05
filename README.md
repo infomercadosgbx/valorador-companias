@@ -141,6 +141,8 @@ El PDF solo se regenera si el informe cambia (huella en `data/resultados/<T>/ind
 4. Hace commit solo si cambió algún archivo (el sello de hora no cuenta como cambio).
 5. Si la SEC no devuelve nada para alguna compañía, el Action termina en rojo y abre un Issue (o comenta en el que ya esté abierto) con el error. Las demás compañías se actualizan igualmente.
 
+**Días de resultados.** Además, el mismo workflow se ejecuta de lunes a viernes a las 7:37 y 9:22 h de Nueva York (antes de la apertura) y a las 16:41 h (tras el cierre), pero solo actualiza las compañías que presentan ese día según el calendario de Finnhub (o las que presentaron el día anterior tras el cierre, para recoger el premercado). Si no presenta ninguna, termina sin hacer nada. Así el informe, su PDF y la reacción fuera de horario se generan solos; el botón «⟳ Actualizar resultados» sigue sirviendo para adelantarlo.
+
 ## Estructura
 
 | Ruta | Qué es | ¿Quién lo edita? |
