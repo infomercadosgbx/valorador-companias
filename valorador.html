@@ -11,7 +11,7 @@
 <meta name="theme-color" content="#0B1424">
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap">
 <style>
 /* Layout: cabecera con la compañía; barra de pestañas fija, cada pestaña con su color; tarjetas en rejilla de 2 columnas que se apilan en móvil */
 :root{
@@ -867,6 +867,37 @@ body.report .seg{display:none}
 .wl .wsub li{display:list-item;font-size:12px;color:var(--ink2);margin:1px 0;overflow-wrap:anywhere} .wn{color:var(--ink2);font-size:12px}
 .wl li.wrow{display:grid;grid-template-columns:62px minmax(0,1fr) auto;align-items:start}
 @media (max-width:640px){.wl li.wrow{grid-template-columns:62px minmax(0,1fr)} .wl li.wrow .wok{grid-column:2;justify-self:start}}
+
+/* ================= Acabado «informe de resultados» (capa final, nov-26) =================
+   Misma estructura y colores; tipografía, títulos con regla y fichas con el color de la compañía, como en resultados.html.
+   La cabecera de la compañía no cambia. */
+:root{
+  --f-display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --f-body:"Public Sans","Segoe UI",system-ui,sans-serif;
+  --f-num:"JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+h1,h2,h3{font-family:var(--f-display);letter-spacing:-.01em}
+.eyebrow,.kpi .k,.kpi>span:first-child{letter-spacing:.12em}
+.kpi b,.kpi .v,.pricebox .px,.daychg,.r52 .v,.tick,td.num,.num{font-family:var(--f-num)}
+.pricebox .px{font-weight:700;letter-spacing:-.03em}
+
+/* la cabecera conserva la tipografía de siempre (Inter en texto y cifras) */
+.cohead{--f-display:"Inter","Segoe UI",system-ui,sans-serif;--f-body:"Inter","Segoe UI",system-ui,sans-serif;--f-num:"Inter","Segoe UI",system-ui,sans-serif}
+.cohead h1{letter-spacing:-.015em} .cohead .pricebox .px{letter-spacing:-.02em} .cohead .eyebrow{letter-spacing:.06em}
+/* títulos de tarjeta con regla, como las secciones del informe */
+.card>h2,.card>.ch>h2,.card>header>h2{font-weight:700;font-size:17px;padding-bottom:7px;border-bottom:1.5px solid var(--ink);margin-bottom:2px}
+.card>h2+.sub{margin-top:-2px}
+.invhead{padding-bottom:7px;border-bottom:1.5px solid var(--ink);margin-bottom:6px} .invhead h2{font-weight:700;font-size:17px}
+
+/* fichas de cifras (todas las pestañas): canto superior del color de la compañía */
+.official{gap:10px;background:none;border:0;border-radius:0;overflow:visible}
+.official>.kpi{background:var(--surface2);border:1px solid var(--line);border-top:3px solid var(--brand);border-radius:8px}
+.official>.kpi b{font-size:21px;letter-spacing:-.02em}
+.kpis{gap:10px;background:none;border:0;border-radius:0;overflow:visible;box-shadow:none}
+.kpis>.kpi{background:var(--surface2);border:1px solid var(--line);border-top:3px solid var(--brand);border-radius:8px}
+
+/* identidad de la compañía, con mesura: canto de las fichas y rótulo de la pestaña */
+.tabhead .eyebrow.tc{color:var(--brand)}
 </style>
 </head>
 <body>
