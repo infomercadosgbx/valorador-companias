@@ -523,6 +523,11 @@ table.mini2 td{padding:3px 6px;font-size:12px;border-bottom:1px solid var(--grid
 .mkn{display:flex;flex-direction:column;min-width:0}.mkn b{font-size:13.5px;font-weight:600;color:var(--ink)}
 .mkv{display:flex;flex-direction:column;align-items:flex-end;font-family:var(--f-num);font-size:12.5px;white-space:nowrap}.mkv b{font-size:14.5px;color:var(--ink)}
 .mkref{font-size:11px;color:var(--muted)}
+.mkform2{display:flex;flex-direction:column;margin:12px 0}
+.mkfrow{display:grid;grid-template-columns:minmax(200px,1.3fr) minmax(200px,1.2fr) minmax(150px,.8fr);gap:8px 16px;align-items:end;padding:10px 0;border-top:1px solid var(--grid)}
+.mkfn{display:flex;flex-wrap:wrap;gap:2px 8px;align-items:baseline;align-self:center}.mkfn b{font-size:14px}.mkfn .note{flex-basis:100%;font-size:12px}
+.mkfv{display:flex;gap:10px}.mkfv label,.mkff{display:flex;flex-direction:column;gap:3px;flex:1;font-size:11.5px;font-weight:600;color:var(--ink2)}
+@media (max-width:640px){.mkfrow{grid-template-columns:1fr}}
 .mkform{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:10px 0}.mkform label{display:flex;flex-direction:column;gap:4px;font-size:12px;font-weight:600;color:var(--ink2)}
 .mkgo{font-size:12px;font-weight:600;color:var(--accent);text-decoration:none;white-space:nowrap}.mkgo:hover{text-decoration:underline}
 .mkcnn{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap;font-size:12.5px;border-top:1px solid var(--grid);padding-top:8px}.mkcnn b{font-family:var(--f-num)}
@@ -1698,14 +1703,23 @@ function mkSentHtml(){
   return `<div class="mksent">${fg}${ofr}${aaii}${nai}</div>`;
 }
 function mkEditHtml(){ const m=MKH.man, v=(k,f="valor")=>m[k]&&m[k][f]!=null?esc(String(m[k][f])):"";
-  const hoy=new Date().toISOString().slice(0,10);
-  const fila=(k,l,ph)=>`<label>${l} ${mkA(k,"consultar")}<input type="number" step="any" id="mk_${k}" value="${v(k)}" placeholder="${ph}"></label><label>Fecha<input type="date" id="mk_${k}_f" value="${v(k,"fecha")||hoy}"></label>`;
+  const iso=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
+  const hoy=iso(new Date()), mie=(()=>{ const d=new Date(); d.setDate(d.getDate()-((d.getDay()+4)%7)); return iso(d); })();  // último miércoles
+  const fila=(k,nombre,ayuda,valor,fdef)=>`<div class="mkfrow">
+      <div class="mkfn"><b>${nombre}</b> ${mkA(k,"consultar")}<span class="note">${ayuda}</span></div>
+      <div class="mkfv">${valor}</div>
+      <label class="mkff"><span>Fecha del dato</span><input type="date" id="mk_${k}_f" value="${v(k,"fecha")||fdef}"></label></div>`;
+  const inp=(id,val,ph,lab)=>`<label><span>${lab}</span><input type="number" step="any" inputmode="decimal" id="${id}" value="${val}" placeholder="${ph}"></label>`;
   return `<div class="mkedit card" style="margin:0 0 14px">
     <h3 style="margin-top:0">Apuntar valores manuales</h3>
-    <p class="note">Se guardan en <code>manual/_mercado.json</code> del repositorio. Deja vacío lo que no quieras mostrar.</p>
-    <div class="mklinks"><span class="note">Consultar:</span>${mkA("naaim","NAAIM")}${mkA("cnn","Miedo y codicia CNN")}${mkA("move","MOVE")}${mkA("aaii","AAII")}</div>
-    <div class="mkform">${fila("naaim","NAAIM","p. ej. 72,4")}${fila("cnn","Miedo y codicia CNN","0–100")}${fila("move","MOVE","p. ej. 93,9")}
-      <label>AAII alcistas % ${mkA("aaii","consultar")}<input type="number" step="any" id="mk_aaii_b" value="${v("aaii","alcistas")}"></label><label>AAII bajistas %<input type="number" step="any" id="mk_aaii_r" value="${v("aaii","bajistas")}"></label><label>Fecha AAII<input type="date" id="mk_aaii_f" value="${v("aaii","fecha")||hoy}"></label></div>
+    <p class="note">Una fila por indicador: valor y la fecha a la que corresponde ese dato. Se guardan en <code>manual/_mercado.json</code>. Deja vacío lo que no quieras mostrar.</p>
+    <div class="mkform2">
+      ${fila("naaim","NAAIM","Semanal. Fecha: el miércoles de la encuesta.",inp("mk_naaim",v("naaim"),"p. ej. 72,4","Exposición (de −200 a 200)"),mie)}
+      ${fila("cnn","Miedo y codicia de CNN","Diario. Fecha: el día que lo consultas.",inp("mk_cnn",v("cnn"),"0–100","Valor (0–100)"),hoy)}
+      ${fila("move","MOVE","Diario. Fecha: la del último cierre.",inp("mk_move",v("move"),"p. ej. 93,9","Valor"),hoy)}
+      ${fila("aaii","Encuesta AAII","Semanal (sale los jueves). Fecha: la de «week ending», un miércoles.",inp("mk_aaii_b",v("aaii","alcistas"),"p. ej. 34,1","Alcistas %")+inp("mk_aaii_r",v("aaii","bajistas"),"p. ej. 48,4","Bajistas %"),mie)}
+    </div>
+    <p class="note">Las neutrales de la AAII se calculan solas (100 − alcistas − bajistas). El formato de la fecha depende del idioma del navegador: en inglés se ve mes/día/año.</p>
     <div class="toolbar">${ghToken()?`<button type="button" class="btn-acc" data-mk="guardar">Guardar en GitHub</button>`:`<a class="mklink" href="${esc(repoUrl())}/edit/main/manual/_mercado.json" target="_blank" rel="noopener">Editar en GitHub</a><span class="note">o conecta GitHub en ⚙ Ajustes para guardarlo desde aquí</span>`}<button type="button" data-mk="cerrar">Cerrar</button><span class="saved" id="mkMsg"></span></div>
   </div>`; }
 async function mkGuardar(){
