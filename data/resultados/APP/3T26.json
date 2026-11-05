@@ -83,6 +83,26 @@
    "interanual_pct": 58.38
   },
   {
+   "concepto": "ebitda_ajustado",
+   "nombre": "EBITDA ajustado",
+   "tipo": "total",
+   "reportado": {
+    "valor": 1842000000.0,
+    "fuente": "SEC EDGAR · 8-K, Exhibit 99.1 (non-GAAP)",
+    "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000068/exhibit991-3q26earningspre.htm",
+    "fecha_presentacion": "2026-11-04",
+    "periodo": "3T26",
+    "etiqueta": "Nota de resultados: fila «Adjusted EBITDA»"
+   },
+   "estimado": null,
+   "dif_pct": null,
+   "resultado": null,
+   "anio_anterior": 1158000000.0,
+   "interanual_pct": 59.07,
+   "nota": "Cifra non-GAAP de la compañía (no está en el XBRL de la SEC).",
+   "pendiente": null
+  },
+  {
    "concepto": "beneficio_neto",
    "nombre": "Beneficio neto",
    "tipo": "total",
@@ -181,7 +201,7 @@
   "fuera_de_hora": {
    "fuente": "Alpaca Markets (API oficial, plan gratuito) · SIP con 15 min de retraso",
    "url": "https://docs.alpaca.markets/docs/historical-stock-data-1",
-   "volumen": 7089463,
+   "volumen": 7117748,
    "after_hours": {
     "precio": 333.8,
     "hora_utc": "2026-11-05T00:55:00Z",
@@ -190,19 +210,19 @@
     "variacion_pct": 22.83
    },
    "ultimo": {
-    "precio": 318.59,
-    "hora_utc": "2026-11-05T09:15:00Z",
-    "hora_ny": "2026-11-05 04:15",
+    "precio": 316.5,
+    "hora_utc": "2026-11-05T09:25:00Z",
+    "hora_ny": "2026-11-05 04:25",
     "sesion": "premercado",
-    "variacion_pct": 17.24
+    "variacion_pct": 16.47
    }
   },
-  "variacion_pct": 17.24,
-  "cierre_despues": 318.59,
+  "variacion_pct": 16.47,
+  "cierre_despues": 316.5,
   "fecha_despues": "2026-11-05",
   "fuente_despues": "Alpaca Markets (API oficial, plan gratuito) · SIP con 15 min de retraso",
   "sesion_despues": "premercado",
-  "hora_despues_ny": "2026-11-05 04:15"
+  "hora_despues_ny": "2026-11-05 04:25"
  },
  "cotizacion": {
   "serie": [
