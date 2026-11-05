@@ -352,13 +352,23 @@ class Fuentes:
         self.fred_key = (env.get("FRED_API_KEY") or "").strip()
         self.fh_key = (env.get("FINNHUB_API_KEY") or "").strip()
         self.td_key = (env.get("TWELVEDATA_API_KEY") or "").strip()
+        self.fred_caido = None
 
     def fred(self, sid, desde):
-        if self.fred_key:
-            q = urllib.parse.urlencode({"series_id": sid, "api_key": self.fred_key, "file_type": "json",
-                                        "observation_start": desde})
-            return parse_fred_json(self.http(f"{FRED_API}?{q}"))
-        return parse_fred_csv(self.http(f"{FRED_CSV}?{urllib.parse.urlencode({'id': sid, 'cosd': desde})}"))
+        if self.fred_caido:            # si FRED no responde, no se insiste con cada serie
+            raise RuntimeError(self.fred_caido)
+        try:
+            if self.fred_key:
+                q = urllib.parse.urlencode({"series_id": sid, "api_key": self.fred_key, "file_type": "json",
+                                            "observation_start": desde})
+                return parse_fred_json(self.http(f"{FRED_API}?{q}"))
+            # sin clave: la descarga CSV de FRED suele no responder a servidores, así que un solo intento
+            return parse_fred_csv(self.http(f"{FRED_CSV}?{urllib.parse.urlencode({'id': sid, 'cosd': desde})}",
+                                            tries=1, timeout=20))
+        except RuntimeError as e:
+            self.fred_caido = (f"{e}" if self.fred_key else
+                               f"{e}; falta el secret FRED_API_KEY: sin clave, FRED no responde desde GitHub (ver README)")
+            raise RuntimeError(self.fred_caido) from None
 
     def tesoro(self, col):
         pts = []
@@ -394,7 +404,7 @@ class Fuentes:
         return parse_ofr(self.http(OFR_CSV))
 
     def aaii(self):
-        return parse_aaii(self.http(AAII_PAGE, headers={"Accept": "text/html", "Accept-Language": "en-US,en"}))
+        return parse_aaii(self.http(AAII_PAGE, headers={"Accept": "text/html", "Accept-Language": "en-US,en"}, tries=2))
 
     def putcall(self, ya=None):
         """Últimas sesiones del ratio put/call; solo pide al Cboe los días que no tenemos."""
@@ -443,7 +453,12 @@ def build(f: Fuentes, old=None):
 
     def fred(sid):
         if sid not in series:
-            series[sid] = f.fred(sid, desde)
+            try:
+                series[sid] = f.fred(sid, desde)
+            except RuntimeError as e:
+                series[sid] = e
+        if isinstance(series[sid], Exception):
+            raise series[sid]
         return series[sid]
 
     ind = []

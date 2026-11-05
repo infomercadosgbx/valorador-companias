@@ -183,3 +183,16 @@ def test_sin_claves_avisa_sin_romper():
     out = MH.build(f)
     assert out["indicadores"] == [] and out["sentimiento"] == {}
     assert any("FINNHUB_API_KEY" in a for a in out["avisos"]) and any("TWELVEDATA_API_KEY" in a for a in out["avisos"])
+
+
+def test_fred_caido_no_insiste():
+    llamadas = []
+
+    def http(url, **k):
+        llamadas.append(url)
+        if "stlouisfed" in url:
+            raise RuntimeError("fred.stlouisfed.org: The read operation timed out")
+        raise RuntimeError("sin red")
+    out = MH.build(MH.Fuentes(env={}, http=http, sleep=lambda s: None))
+    assert sum("stlouisfed" in u for u in llamadas) == 1
+    assert any("FRED_API_KEY" in a for a in out["avisos"])
