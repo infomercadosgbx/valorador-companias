@@ -5,7 +5,7 @@ on:
   push:
     branches: [main]
   workflow_run:
-    workflows: ["Actualizar datos", "Añadir compañía"]
+    workflows: ["Actualizar datos", "Añadir compañía", "Rehacer informes"]
     types: [completed]
   workflow_dispatch:
 

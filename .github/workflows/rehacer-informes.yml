@@ -1,0 +1,67 @@
+name: Rehacer informes
+
+# Regenera los informes de resultados y sus PDF cuando cambia algo que muestran y que
+# no viene de la SEC: tu resumen de la presentación (analysis/), tus estimaciones
+# (manual/) o las traducciones de la nota (i18n/notas_es.json). No descarga la SEC
+# entera: parte de data/<T>.json. Los commits del propio robot no lo disparan.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "analysis/*.json"
+      - "manual/*.json"
+      - "i18n/notas_es.json"
+  workflow_dispatch:
+    inputs:
+      tickers:
+        description: "Tickers separados por espacios (vacío = todos)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: actualizar-datos
+  cancel-in-progress: false
+
+jobs:
+  rehacer:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Rehacer informes de resultados
+        env:
+          SEC_USER_AGENT: ${{ vars.SEC_USER_AGENT || secrets.SEC_USER_AGENT }}
+          ALPACA_API_KEY_ID: ${{ secrets.ALPACA_API_KEY_ID }}
+          ALPACA_API_SECRET_KEY: ${{ secrets.ALPACA_API_SECRET_KEY }}
+          TICKERS: ${{ inputs.tickers }}
+          EVENTO: ${{ github.event_name }}
+        run: |
+          if [[ ! "$TICKERS" =~ ^[A-Za-z0-9.\ -]*$ ]]; then echo "Tickers no válidos: $TICKERS"; exit 1; fi
+          if [ "$EVENTO" = "push" ]; then python -m fetcher.rehacer --desde-git; else python -m fetcher.rehacer $TICKERS; fi
+      - name: PDF de los informes de resultados
+        run: |
+          set +e
+          python scripts/pdf_resultados.py --pendientes
+          rc=$?
+          set -e
+          if [ "$rc" = "0" ]; then exit 0; fi
+          pip install --quiet "playwright==1.64.1"
+          command -v google-chrome >/dev/null || python -m playwright install --with-deps chromium > /dev/null
+          python scripts/pdf_resultados.py
+      - name: Commit si algo cambió
+        run: |
+          git config user.name "valorador-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          if git diff --cached --quiet; then echo "Sin cambios."; exit 0; fi
+          git commit -m "informes: rehechos $(date -u +%Y-%m-%d)"
+          git pull --rebase --quiet
+          git push

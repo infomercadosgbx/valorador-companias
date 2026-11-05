@@ -27,6 +27,7 @@ from pathlib import Path
 
 from . import estimaciones as EST
 from . import nota_tablas as NT
+from . import traduccion as TR
 
 ESQUEMA = 1
 CONCEPTOS = [("ingresos", "Ingresos"), ("beneficio_operativo", "Beneficio operativo (EBIT)"),
@@ -370,6 +371,80 @@ def star_series(H, member, upto_end, n=20):
     return out
 
 
+# ---------------------------------------------------------------- el trimestre por dentro (XBRL)
+GASTOS = [("coste_ventas", "Coste de ventas"), ("investigacion_desarrollo", "I+D"), ("ventas_marketing", "Ventas y marketing"),
+          ("gastos_admin", "Generales y administración"), ("gastos_generales", "Comerciales, generales y admin."),
+          ("remuneracion_acciones", "Remuneración en acciones (incluida arriba)")]
+
+
+def por_dentro(rec, label, end, n=9):
+    """Series trimestrales de la SEC para leer la calidad del trimestre: ingresos, caja frente a
+    beneficio, estructura de costes y retribución al accionista. Solo cifras XBRL (10-Q/10-K);
+    lo que la compañía no etiqueta queda fuera, sin estimarlo."""
+    R = rec.get("resultados") or {}
+    E = _d(end)
+
+    def serie(k):
+        return {p["periodo"]: p for p in (R.get(k) or {}).get("trimestral") or [] if _d(p.get("periodo_fin")) and _d(p["periodo_fin"]) <= E}
+
+    ing = serie("ingresos")
+    if not ing:
+        return None
+    labs = sorted(ing, key=lambda x: ing[x]["periodo_fin"])
+    ult = labs[-1]
+    S = {k: serie(k) for k in ("beneficio_neto", "caja_operativa", "capex", "recompras", "dividendos", "remuneracion_acciones",
+                               "acciones_diluidas_media") + tuple(k for k, _ in GASTOS)}
+
+    def v(k, lb):
+        p = (ing if k == "ingresos" else S[k]).get(lb)
+        return p.get("valor") if p else None
+
+    ingresos = [{"periodo": lb, "valor": v("ingresos", lb), "interanual_pct": _pct(v("ingresos", lb), v("ingresos", _lab(lb, dy=-1)))}
+                for lb in labs[-n:]]
+    capex_anual = bool((R.get("capex") or {}).get("anual"))
+    caja = []
+    for lb in labs[-5:]:
+        bn, co, cx = v("beneficio_neto", lb), v("caja_operativa", lb), v("capex", lb)
+        fcf = co - abs(cx) if co is not None and cx is not None else None
+        caja.append({"periodo": lb, "beneficio_neto": bn, "caja_operativa": co, "capex": abs(cx) if cx is not None else None,
+                     "fcf": fcf, "conversion_pct": round(co / bn * 100, 0) if co is not None and bn and bn > 0 else None})
+    ya = _lab(ult, dy=-1)
+    gastos = []
+    for k, nombre in GASTOS:
+        a, b = v(k, ult), v(k, ya)
+        ia, ib = v("ingresos", ult), v("ingresos", ya)
+        if a is None or not ia:
+            continue
+        gastos.append({"clave": k, "nombre": nombre, "valor": a, "pct": round(a / ia * 100, 1),
+                       "pct_ya": round(b / ib * 100, 1) if b is not None and ib else None})
+    if any(g["clave"] == "gastos_admin" for g in gastos):
+        gastos = [g for g in gastos if g["clave"] != "gastos_generales"]
+    rec4 = [v("recompras", lb) for lb in labs[-4:]]
+    div4 = [v("dividendos", lb) for lb in labs[-4:]]
+    fcf4 = [c["fcf"] for c in caja[-4:]]
+    co4 = [c["caja_operativa"] for c in caja[-4:]]
+    ac, aya = v("acciones_diluidas_media", ult), v("acciones_diluidas_media", ya)
+    accionista = {
+        "recompras": v("recompras", ult), "recompras_ya": v("recompras", ya),
+        "recompras_12m": sum(rec4) if len(rec4) == 4 and all(x is not None for x in rec4) else None,
+        "dividendos": v("dividendos", ult),
+        "dividendos_12m": sum(div4) if len(div4) == 4 and all(x is not None for x in div4) else None,
+        "acciones_diluidas": ac, "acciones_diluidas_ya": aya, "acciones_var_pct": _pct(ac, aya),
+        "remuneracion_acciones": v("remuneracion_acciones", ult),
+        "remuneracion_pct_ingresos": round(v("remuneracion_acciones", ult) / v("ingresos", ult) * 100, 1)
+        if v("remuneracion_acciones", ult) is not None and v("ingresos", ult) else None,
+    }
+    base12 = sum(fcf4) if len(fcf4) == 4 and all(x is not None for x in fcf4) else (
+        sum(co4) if len(co4) == 4 and all(x is not None for x in co4) else None)
+    if base12 and base12 > 0:
+        accionista["retorno_sobre_caja_pct"] = round(((accionista["recompras_12m"] or 0) + (accionista["dividendos_12m"] or 0)) / base12 * 100, 0)
+        accionista["retorno_base"] = "flujo de caja libre" if sum(1 for x in fcf4 if x is not None) == 4 else "caja operativa"
+    src = ing[ult]
+    return {"periodo": ult, "ingresos": ingresos, "caja": caja, "capex_solo_anual": capex_anual and not S["capex"],
+            "gastos": gastos, "accionista": accionista,
+            "fuente": "SEC EDGAR · XBRL (10-Q/10-K)", "url": src.get("url"), "fecha_presentacion": src.get("fecha_presentacion")}
+
+
 # ---------------------------------------------------------------- guía
 _MULT = {"billion": 1e9, "bn": 1e9, "b": 1e9, "million": 1e6, "m": 1e6, "mm": 1e6}
 _GKIND = [("ingresos", r"net sales|revenues?|total revenue"),
@@ -472,7 +547,25 @@ def reading(root, ticker, analysis, periodo_fin, accn):
 
 
 # ---------------------------------------------------------------- informe
-def build(root: Path, company: dict, rec: dict, analysis=None, manual=None, client=None, provider=None, subs=None):
+def extended_reaction(reac, ext):
+    """Añade la cotización fuera de horario (after-hours / premercado) mientras falta el siguiente cierre."""
+    if not reac or not ext or reac.get("provisional") is False or not reac.get("cierre_antes"):
+        return reac
+    b = reac["cierre_antes"]
+    fh = {"fuente": ext.get("fuente"), "url": ext.get("url"), "volumen": ext.get("volumen")}
+    for k in ("after_hours", "ultimo"):
+        if ext.get(k):
+            fh[k] = dict(ext[k], variacion_pct=_pct(ext[k]["precio"], b))
+    reac["fuera_de_hora"] = fh
+    if reac.get("variacion_pct") is None and fh.get("ultimo"):
+        u = fh["ultimo"]
+        reac.update({"variacion_pct": u["variacion_pct"], "cierre_despues": u["precio"], "fecha_despues": u["hora_utc"][:10],
+                     "fuente_despues": ext.get("fuente"), "provisional": True, "sesion_despues": u["sesion"],
+                     "hora_despues_ny": u["hora_ny"]})
+    return reac
+
+
+def build(root: Path, company: dict, rec: dict, analysis=None, manual=None, client=None, provider=None, subs=None, extended=None):
     """Devuelve (informe, historial_cambiado) o (None, False) si no hay presentación que reflejar."""
     t = company["ticker"].upper()
     if not rec or not rec.get("soportada", True):
@@ -584,10 +677,18 @@ def build(root: Path, company: dict, rec: dict, analysis=None, manual=None, clie
 
     # cotización
     reac, serie12 = reaction(rec, F, hora)
+    if reac and reac.get("provisional") and extended is not None and 0 <= (date.today() - F).days <= 4:
+        try:
+            ext = extended.extended(t, F, amc=(hora or "amc") != "bmo")
+        except Exception as e:  # noqa: BLE001  secundario
+            ext = None
+            avisos.append(f"Sin cotización fuera de horario: {e}"[:200])
+        reac = extended_reaction(reac, ext)
     q = rec.get("precio") or {}
     sh = (rec.get("acciones_en_circulacion") or {}).get("valor")
-    px = (reac or {}).get("cierre_despues") or q.get("valor")
-    cot = {"serie": serie12, "precio": px, "fecha_precio": (reac or {}).get("fecha_despues") or q.get("fecha"),
+    fuera = bool((reac or {}).get("sesion_despues"))   # precio fuera de horario: no mueve la capitalización
+    px = (None if fuera else (reac or {}).get("cierre_despues")) or q.get("valor")
+    cot = {"serie": serie12, "precio": px, "fecha_precio": (None if fuera else (reac or {}).get("fecha_despues")) or q.get("fecha"),
            "capitalizacion": px * sh if px and sh else None,
            "minimo_12m": min((p[1] for p in serie12), default=None), "maximo_12m": max((p[1] for p in serie12), default=None),
            "variacion_12m_pct": _pct(serie12[-1][1], serie12[0][1]) if len(serie12) > 1 else None,
@@ -625,6 +726,7 @@ def build(root: Path, company: dict, rec: dict, analysis=None, manual=None, clie
                     if definitivo and _d(ui.get("fecha_periodo")) == _d(end) else None},
         "tabla": tabla, "guia": guia, "reaccion": reac, "cotizacion": cot,
         "desglose": des, "estrella": estrella, "margenes": {"trimestral": mq},
+        "dentro": por_dentro(rec, label, end),
         "cita": (nota or {}).get("cita"), "destacados": (nota or {}).get("destacados"), "lectura": lect,
         "estimaciones": {"foto": {"fecha_resultados": snap.get("fecha_resultados"), "evolucion": snap.get("evolucion")} if snap else None,
                          "manual": bool(EST.manual_for(manual, label))},
@@ -632,6 +734,7 @@ def build(root: Path, company: dict, rec: dict, analysis=None, manual=None, clie
         "_calendario_finnhub": cal or None,
         "_cifras_nota": rep if not definitivo else None,
     }
+    TR.aplicar(informe, root)
     return informe, hist_changed
 
 

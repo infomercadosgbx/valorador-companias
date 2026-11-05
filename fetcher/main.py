@@ -135,7 +135,7 @@ def _json(path):
         return None
 
 
-def results_report(root, company, rec, client=None, provider=None):
+def results_report(root, company, rec, client=None, provider=None, extended=None):
     """Foto del consenso antes de resultados e informe de la última presentación.
     Es secundario: un fallo deja un aviso en el log y no detiene la actualización."""
     t = company["ticker"].upper()
@@ -145,7 +145,7 @@ def results_report(root, company, rec, client=None, provider=None):
             out.append(f"estimaciones {t}")
         an = _json(root / "analysis" / f"{t}.json")
         man = _json(root / "manual" / f"{t}.json")
-        rep, hist_changed = RES.build(root, company, rec, an, man, client=client, provider=provider)
+        rep, hist_changed = RES.build(root, company, rec, an, man, client=client, provider=provider, extended=extended)
         if hist_changed:
             out.append(f"segmentos {t}")
         if rep:
@@ -168,6 +168,7 @@ def run(only=None, report=None, root=ROOT, client=None, provider=None, price_war
     if provider is None:
         provider, price_warning = prices.from_env()
     hist, hist_warning = (history if history is not None else prices.history_from_env())
+    extended = prices.extended_from_env()
     cik_issues = check_ciks(client, companies)
 
     failures, changed, index = [], [], []
@@ -219,7 +220,7 @@ def run(only=None, report=None, root=ROOT, client=None, provider=None, price_war
                 rec["avisos"].insert(0, warn("aviso", "cik", cik_issues[c["ticker"]]))
             if write_if_changed(path, rec):
                 changed.append(path.name)
-            changed += results_report(root, c, rec, client, provider)
+            changed += results_report(root, c, rec, client, provider, extended)
             print(f"✓ {c['ticker']}: {len(rec.get('avisos', []))} avisos")
         except (NoSecData, SecError) as e:
             failures.append((c["ticker"], str(e)))

@@ -23,6 +23,7 @@ Necesitas permisos de administrador en el repositorio. Todo se hace desde la web
 - *Settings → Secrets and variables → Actions → pestaña **Secrets** → **New repository secret***
 - Nombre: `FINNHUB_API_KEY`, valor: la clave.
 - Sin esta clave todo funciona salvo el precio, y la web lo avisa.
+- **Reacción en after-hours y premercado (Alpaca, opcional):** abre una cuenta gratuita en <https://app.alpaca.markets/signup> (no hace falta depositar dinero; vale la cuenta de prueba, *Paper*). En el panel, *API Keys → Generate New Keys*, y crea dos secrets: `ALPACA_API_KEY_ID` (la *Key ID*) y `ALPACA_API_SECRET_KEY` (la *Secret Key*). Con ellas, el informe de resultados muestra la reacción de la acción fuera de horario (después del cierre y antes de la apertura, con 15 minutos de retraso) en lugar de «pendiente». Sin ellas, la reacción aparece al día siguiente con el cierre.
 
 **4. Activa GitHub Pages.**
 - *Settings → Pages → Build and deployment → Source:* **GitHub Actions**.
@@ -82,8 +83,8 @@ Cuando una compañía presenta resultados, una tarea programada de Claude (cada 
 Cada vez que una compañía presenta resultados se genera un informe de 3 páginas A4 en `resultados.html` y su PDF en `data/resultados/<TICKER>/<periodo>.pdf`:
 
 1. **Resultados frente a estimaciones.** Ingresos, segmento clave, beneficio operativo, beneficio neto y BPA: reportado, estimado, diferencia, *Beat/Miss* e interanual. Debajo, la guía para el siguiente periodo frente a lo esperado, cuatro claves del trimestre, la cotización de 12 meses (capitalización, mínimo, máximo), la cita de la dirección y la reacción en bolsa.
-2. **El trimestre por dentro.** Crecimiento interanual por línea de negocio, márgenes por segmento, margen operativo de los últimos 12 trimestres e ingresos anualizados (*run-rate*) del segmento que más crece.
-3. **Lectura del trimestre y guía.** Tu resumen de la presentación (Directiva → `mgmt.call`) o, si aún no lo has revisado, la propuesta pendiente; lo destacado y la guía en el texto original de la nota; fuentes con enlace.
+2. **El trimestre por dentro.** Crecimiento por línea de negocio (si la compañía lo publica), margen operativo, *run-rate* del segmento que más crece, ingresos trimestrales con su crecimiento interanual, **calidad del beneficio** (beneficio neto frente a caja operativa, capex y flujo de caja libre de los últimos 5 trimestres), **estructura de costes** en % de los ingresos frente al año anterior y **retribución al accionista** (recompras, dividendos, dilución y pago en acciones). Todo del XBRL de la SEC; si algo no cabe en el A4, se omite el bloque menos importante.
+3. **Lectura del trimestre y guía.** Tu resumen de la presentación (Directiva → `mgmt.call`) o, si aún no lo has revisado, la propuesta pendiente; lo destacado (frases y tabla de cifras) y la guía de la nota **traducidos al español**; fuentes con enlace.
 
 **El día de resultados**, en la web: *Más → Informe de resultados* (o el enlace «Informe de resultados (PDF)» del resumen del último trimestre) → **⟳ Actualizar resultados**. Lanza el Action solo para esa compañía (SEC, precio, informe y PDF) y avisa cuando termina (3–5 minutos). El token guardado en el navegador necesita, además de *Contents*, el permiso **Actions: Read and write**. Sin token, el botón explica cómo lanzarlo a mano: *Actions → Actualizar datos → Run workflow* con el ticker en «Tickers». Si no pulsas nada, la actualización nocturna lo genera igualmente.
 
@@ -97,7 +98,8 @@ De dónde sale cada cifra:
 | Estimaciones de EBIT, segmentos y guía | No hay fuente gratuita: se escriben a mano en `manual/<T>.json` → `estimaciones_resultados` (desde la propia página del informe, panel «Estimaciones para el próximo informe», con *Guardar en GitHub*). Lo manual manda sobre Finnhub. |
 | BPA ajustado | Si el consenso de Finnhub está en BPA ajustado (non-GAAP) y difiere del contable, el *Beat/Miss* se calcula en la base del consenso y la tabla muestra los dos. |
 | Guía | Horquillas leídas del texto de la nota; se compara su punto medio con tu estimación o, para las ventas, con el consenso del trimestre siguiente guardado la primera vez que se genera el informe. |
-| Reacción en bolsa | Cierre del día de resultados frente al siguiente (si presentan tras el cierre) o del día anterior frente al de resultados (antes de la apertura), con el histórico de Twelve Data. Hasta que existe ese cierre, se usa la cotización de Finnhub y se marca provisional. |
+| Reacción en bolsa | Cierre del día de resultados frente al siguiente (si presentan tras el cierre) o del día anterior frente al de resultados (antes de la apertura), con el histórico de Twelve Data. Hasta que existe ese cierre, se usa la cotización fuera de horario de Alpaca (after-hours y premercado, SIP con 15 min de retraso; secrets `ALPACA_API_KEY_ID` y `ALPACA_API_SECRET_KEY`) o la de Finnhub, y se marca provisional. |
+| Traducción de la nota | Las filas de tablas y las horquillas de la guía se traducen solas con un glosario (`fetcher/traduccion.py`). Las frases, con `i18n/notas_es.json`, que rellena la tarea «Revisión tras resultados» (o tú a mano); lo pendiente se ve en inglés con la marca «sin traducir». `python -m fetcher.traduccion` lista lo que falta. |
 
 Formato de `estimaciones_resultados` (cifras en millones de dólares; BPA en $/acción; lo que no tengas, `null`):
 
@@ -112,6 +114,8 @@ Formato de `estimaciones_resultados` (cifras en millones de dólares; BPA en $/a
 ```
 
 El PDF solo se regenera si el informe cambia (huella en `data/resultados/<T>/index.json`), así que no se acumulan PDF repetidos.
+
+**Cambios que no vienen de la SEC.** Cuando guardas tu resumen de la presentación (`analysis/`), tus estimaciones (`manual/`) o una traducción (`i18n/notas_es.json`), el workflow **Rehacer informes** regenera en un par de minutos el informe y el PDF de esa compañía, sin descargar de nuevo la SEC. También se puede lanzar a mano (*Actions → Rehacer informes → Run workflow*).
 
 ## La web
 

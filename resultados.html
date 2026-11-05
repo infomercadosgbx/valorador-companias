@@ -146,6 +146,20 @@ table.rt{width:100%;border-collapse:collapse}
 .minit td{font:500 10.5px var(--f-num);text-align:right;padding:4px;border-bottom:1px solid var(--line)}
 .minit td:first-child{font:600 10.5px var(--f-body)}
 .lead{font-size:11px;color:var(--ink2);margin:2mm 0 0}
+.lead.sm{font-size:9px;color:var(--muted)}
+.g2.grid{row-gap:0;align-items:start}
+.yoy{display:flex;justify-content:space-around;font:600 8px var(--f-num);margin:-1mm 0 0;padding:0 1px}
+.yoy span{flex:1;text-align:center}
+.minit td:last-child{white-space:nowrap}
+.minit tr.cur td{font-weight:700;background:var(--brandsoft)}
+.keys.tight{margin-top:2mm}
+.keys.tight .v{font-size:17px}
+.key .v.up{color:var(--beat)} .key .v.dn{color:var(--miss)}
+.nt{font-size:9px;color:var(--muted);font-style:italic}
+.ftab{margin-top:2mm}
+.ftab td{font-size:9.5px}
+.ftab td:first-child{font-size:9.5px}
+.cab{font-size:8.5px;color:var(--muted);margin-top:1.5mm}
 .lead b{color:var(--ink)}
 .cols4{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4mm 7mm;margin-top:2mm}
 .cols4 h3{font:700 9px var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:1.5mm;display:flex;align-items:center;gap:6px}
@@ -332,11 +346,20 @@ function page1(R){
        <div class="stat"><div class="k">Variación 12 meses</div><div class="v ${fin(C.variacion_12m_pct)?(C.variacion_12m_pct>=0?"up":"dn"):""}">${pct(C.variacion_12m_pct,0)}</div></div>
       </div></div>
     </div>
-    ${R.cita?`<div class="quote" lang="en"><p>${esc(R.cita.cita)}</p><div class="who" lang="es">${esc(R.cita.quien||"Dirección de la compañía")} · nota de resultados (texto original)</div></div>`:""}
+    ${R.cita?`<div class="quote"${R.cita.cita_es?"":' lang="en"'}><p>${esc(R.cita.cita_es||R.cita.cita)}</p><div class="who" lang="es">${esc(R.cita.quien||"Dirección de la compañía")} · nota de resultados (${R.cita.cita_es?"traducción":"texto original"})</div></div>`:""}
    </div>
-   <div class="react"><div class="t">Reacción de la acción tras los resultados<small>${X.fecha_antes?`Cierre del ${esc(fecha(X.fecha_antes))} (${nf(X.cierre_antes,2)} $) frente al ${X.fecha_despues?esc(fecha(X.fecha_despues))+` (${nf(X.cierre_despues,2)} $)`:"siguiente cierre"}${X.provisional&&X.fecha_despues?" · provisional, cotización de Finnhub":""}`:"Sin cotizaciones para calcularla"}</small></div>
+   <div class="react"><div class="t">Reacción de la acción tras los resultados<small>${reactTxt(X)}</small></div>
      <div class="v ${fin(X.variacion_pct)?(X.variacion_pct>=0?"up":"dn"):""}">${reac}</div></div>
   </section>`;
+}
+function reactTxt(X){
+  if(!X.fecha_antes) return "Sin cotizaciones para calcularla";
+  const base=`Cierre del ${esc(fecha(X.fecha_antes))} (${nf(X.cierre_antes,2)} $)`;
+  if(X.sesion_despues){ const FH=X.fuera_de_hora||{}, ah=FH.after_hours, h=(X.hora_despues_ny||"").slice(11);
+    const extra=ah&&FH.ultimo&&ah.hora_utc!==FH.ultimo.hora_utc&&fin(ah.variacion_pct)?` · after-hours del ${esc(fecha(ah.hora_ny.slice(0,10)))}: ${pct(ah.variacion_pct,1)} (${nf(ah.precio,2)} $)`:"";
+    return `${base} frente a ${nf(X.cierre_despues,2)} $ en ${esc(X.sesion_despues)} (${esc(fecha(X.fecha_despues))}, ${esc(h)} h de Nueva York)${extra} · provisional hasta el cierre · Alpaca, 15 min de retraso`; }
+  if(X.fecha_despues) return `${base} frente al ${esc(fecha(X.fecha_despues))} (${nf(X.cierre_despues,2)} $)${X.provisional?" · provisional, cotización de Finnhub":""}`;
+  return `${base} frente al siguiente cierre`;
 }
 function keysHtml(R){
   const row=c=>R.tabla.find(r=>r.concepto===c)||{}, rev=row("ingresos"), op=row("beneficio_operativo");
@@ -377,31 +400,70 @@ function page2(R){
   if(R.informe&&R.informe.periodico) add(`${R.informe.periodico.formulario} del ${fecha(R.informe.periodico.fecha_presentacion)} (cifras XBRL)`,R.informe.periodico.url_indice);
   R.tabla.forEach(r=>{ if(r.reportado&&r.reportado.url) add(`${r.nombre}: ${r.reportado.fuente}`,r.reportado.url); });
   if(Lc&&Lc.url) add(Lc.doc||"Documento de la presentación",Lc.url);
+  const Dn=R.dentro, star=S&&ser.length>=2, P=[];
+  const pNeg=`<div class="sec"><div class="sech"><h2>Crecimiento por negocio</h2><span class="src">interanual · ${esc(R.periodo)}</span></div>
+      <div class="hbars">${prods.slice(0,8).map(hb).join("")}</div>
+      ${segs.length&&D.producto&&D.producto.length?`<div data-opt="5"><table class="minit"><thead><tr><th>Segmento</th><th>Ingresos</th><th>Interanual</th><th>Margen op.</th></tr></thead><tbody>${segs.slice(0,4).map(s=>`<tr><td>${esc(nice(s.nombre))}</td><td>${M$(s.valor)}</td><td class="${(s.interanual_pct||0)>=0?"up":"dn"}">${pct(s.interanual_pct,0)}</td><td>${fin(s.margen_operativo_pct)?nf(s.margen_operativo_pct,1)+"%":"–"}${fin(s.margen_operativo_ya_pct)?` <span style="color:#76828E">(${nf(s.margen_operativo_ya_pct,1)}%)</span>`:""}</td></tr>`).join("")}</tbody></table><p class="lead sm">Entre paréntesis, el margen operativo del mismo trimestre del año anterior.</p></div>`:""}</div>`;
+  const pMar=`<div class="sec"><div class="sech"><h2>Margen operativo (EBIT)</h2><span class="src">trimestral · SEC EDGAR</span></div>
+      ${M.length?barsSVG(M,{val:m=>m.margen_pct,label:m=>m.periodo,fmt:v=>nf(v,1),color:REP._brand,hiIdx:[curIdx,yaIdx].filter(i=>i>=0),h:165,w:300,aria:"Margen operativo trimestral"})+
+        `<p class="lead">${esc(M[curIdx].periodo)}: <b>${nf(M[curIdx].margen_pct,1)}%</b>${yaIdx>=0?` frente al ${nf(M[yaIdx].margen_pct,1)}% del ${esc(M[yaIdx].periodo)} (${pct(M[curIdx].margen_pct-M[yaIdx].margen_pct,1).replace("%"," pp")})`:""}.</p>`:`<div class="empty">Sin datos de margen.</div>`}</div>`;
+  const pRun=star?`<div class="sec" data-opt="4"><div class="sech"><h2>${esc(nice(S.nombre))}: run-rate</h2><span class="src">trimestre × 4 · miles de M$${S.elegido==="automático"?" · el segmento que más crece":""}</span></div>
+      ${barsSVG(ser.slice(-10),{val:p=>p.run_rate/1e9,label:p=>p.periodo,fmt:v=>nf(v,v>=100?0:1),color:REP._brand,hiIdx:[Math.min(ser.length,10)-1],h:165,w:300,aria:"Run-rate trimestral del segmento"})}
+      <p class="lead">${esc(R.periodo)}: <b>${big(lastS.run_rate)}</b> anualizados${fin(lastS.interanual_pct)?`, <b>${pct(lastS.interanual_pct,0)}</b> interanual`:""}${fin(lastS.margen_operativo_pct)?`; margen operativo del <b>${nf(lastS.margen_operativo_pct,1)}%</b>`:""}.</p></div>`:"";
+  let pIng="", pCaja="", pGas="", strip="";
+  if(Dn&&Dn.ingresos&&Dn.ingresos.length){
+    const I=Dn.ingresos, mxI=Math.max(...I.map(p=>p.valor||0)), enMil=mxI>=1e10, li=I.at(-1), first=I[0];
+    const yaI=I.findIndex(p=>p.periodo===yaLabel(li.periodo));
+    pIng=`<div class="sec"${prods.length?' data-opt="3"':""}><div class="sech"><h2>Ingresos trimestrales</h2><span class="src">${enMil?"miles de M$":"M$"} · SEC EDGAR (XBRL)</span></div>
+      ${barsSVG(I,{val:p=>p.valor/(enMil?1e9:1e6),label:p=>p.periodo,fmt:v=>nf(v,enMil?1:0),color:REP._brand,hiIdx:[I.length-1,yaI].filter(i=>i>=0),h:165,w:300,aria:"Ingresos trimestrales"})}
+      <div class="yoy">${I.map(p=>`<span class="${fin(p.interanual_pct)?(p.interanual_pct>=0?"up":"dn"):""}">${fin(p.interanual_pct)?pct(p.interanual_pct,0):"·"}</span>`).join("")}</div>
+      <p class="lead">${esc(li.periodo)}: <b>${M$(li.valor)}</b>${fin(li.interanual_pct)?`, <b>${pct(li.interanual_pct,1)}</b> interanual`:""}${I.length>=5&&first.valor?`. En ${I.length-1} trimestres los ingresos se multiplican por ${nf(li.valor/first.valor,1)}`:""}.${R.estado==="provisional"?" El trimestre recién presentado se añade con el 10-Q.":""}</p></div>`;
+  }
+  if(Dn&&Dn.caja&&Dn.caja.length){
+    const C=Dn.caja.filter(c=>fin(c.caja_operativa)||fin(c.beneficio_neto)), cx=!Dn.capex_solo_anual&&C.some(c=>fin(c.capex));
+    const lc=C.at(-1)||{}, conv=C.map(c=>c.conversion_pct).filter(fin), avg=conv.length?conv.reduce((a,b)=>a+b,0)/conv.length:null;
+    const mm=v=>fin(v)?nf(v/1e6,0):"–";
+    pCaja=`<div class="sec"><div class="sech"><h2>Calidad del beneficio: caja</h2><span class="src">M$ · SEC EDGAR (XBRL)</span></div>
+      <table class="minit"><thead><tr><th>Trim.</th><th>Benef. neto</th><th>Caja op.</th>${cx?"<th>Capex</th><th>FCF</th>":""}<th>Caja/benef.</th></tr></thead>
+      <tbody>${C.map((c,i)=>`<tr${i===C.length-1?' class="cur"':""}><td>${esc(c.periodo)}</td><td>${mm(c.beneficio_neto)}</td><td>${mm(c.caja_operativa)}</td>${cx?`<td>${mm(c.capex)}</td><td class="${fin(c.fcf)&&c.fcf<0?"dn":""}">${mm(c.fcf)}</td>`:""}<td class="${fin(c.conversion_pct)?(c.conversion_pct>=90?"up":c.conversion_pct<70?"dn":""):""}">${fin(c.conversion_pct)?nf(c.conversion_pct,0)+"%":"–"}</td></tr>`).join("")}</tbody></table>
+      <p class="lead">${fin(lc.conversion_pct)?`En el ${esc(lc.periodo)} la caja operativa fue el <b>${nf(lc.conversion_pct,0)}%</b> del beneficio neto${fin(avg)&&conv.length>=3?` (media de ${conv.length} trimestres: ${nf(avg,0)}%)`:""}. ${cx&&fin(lc.fcf)&&lc.fcf<0?`El capex supera la caja operativa: flujo de caja libre de <b>${mm(lc.fcf)} M$</b>.`:lc.conversion_pct>=90?"El beneficio se convierte en caja.":lc.conversion_pct<70?"Parte del beneficio no llega a caja: conviene mirar circulante y partidas no monetarias.":""}`:"Sin datos de caja del trimestre."}${Dn.capex_solo_anual?" El capex solo se detalla en el informe anual.":""}</p></div>`;
+  }
+  if(Dn&&Dn.gastos&&Dn.gastos.length){
+    const G=Dn.gastos;
+    pGas=`<div class="sec" data-opt="2"><div class="sech"><h2>Estructura de costes</h2><span class="src">% de los ingresos · SEC EDGAR (XBRL)</span></div>
+      <table class="minit"><thead><tr><th>Partida</th><th>${esc(Dn.periodo)}</th><th>${esc(yaLabel(Dn.periodo))}</th><th>Cambio</th></tr></thead>
+      <tbody>${G.map(g=>{ const d=fin(g.pct_ya)?g.pct-g.pct_ya:null; return `<tr><td>${esc(g.nombre)}</td><td>${nf(g.pct,1)}%</td><td>${fin(g.pct_ya)?nf(g.pct_ya,1)+"%":"–"}</td><td class="${fin(d)?(d<=0?"up":"dn"):""}">${fin(d)?pct(d,1).replace("%"," pp"):"–"}</td></tr>`; }).join("")}</tbody></table>
+      <p class="lead sm">Un cambio negativo es ahorro (en verde). La remuneración en acciones ya está repartida entre las demás partidas; aquí se muestra aparte por su efecto en la dilución.</p></div>`;
+    const A=Dn.accionista||{}, k=[];
+    if(fin(A.recompras)) k.push(["Recompras "+Dn.periodo,M$(A.recompras),fin(A.recompras_12m)?`${M$(A.recompras_12m)} en 12 meses`:(fin(A.recompras_ya)?`${M$(A.recompras_ya)} un año antes`:""),""]);
+    if(fin(A.dividendos)&&A.dividendos>0) k.push(["Dividendos "+Dn.periodo,M$(A.dividendos),fin(A.dividendos_12m)?`${M$(A.dividendos_12m)} en 12 meses`:"",""]);
+    if(fin(A.retorno_sobre_caja_pct)) k.push(["Devuelto al accionista",`${nf(A.retorno_sobre_caja_pct,0)}%`,`del ${esc(A.retorno_base||"flujo de caja")} de 12 meses`,""]);
+    if(fin(A.acciones_var_pct)) k.push(["Acciones diluidas",pct(A.acciones_var_pct,1),`interanual · ${nf(A.acciones_diluidas/1e6,1)} M de media`,A.acciones_var_pct<=0?"up":"dn"]);
+    if(fin(A.remuneracion_pct_ingresos)&&k.length<4) k.push(["Pago en acciones",`${nf(A.remuneracion_pct_ingresos,1)}%`,`de los ingresos · ${M$(A.remuneracion_acciones)}`,""]);
+    if(k.length) strip=`<div class="sec" data-opt="1"><div class="sech"><h2>Retribución al accionista y dilución</h2><span class="src">${esc(Dn.periodo)} · SEC EDGAR (XBRL)</span></div>
+      <div class="keys tight">${k.slice(0,4).map(([a,b,c,cl])=>`<div class="key"><div class="k">${esc(a)}</div><div class="v ${cl}">${esc(b)}</div><div class="s">${c}</div></div>`).join("")}</div></div>`;
+  }
+  if(prods.length) P.push(pNeg);
+  else if(pIng) P.push(pIng);
+  P.push(pMar);
+  if(pRun) P.push(pRun);
+  if(prods.length&&pIng&&!pRun) P.push(pIng);
+  if(pCaja) P.push(pCaja);
+  if(pGas) P.push(pGas);
   return `<section class="sheet flow">
    <header class="mast slim"><div class="row"><div><div class="kicker">${esc(R.nombre)} · ${esc(R.ticker)} · ${esc(R.periodo)}</div><h1>El trimestre por dentro</h1></div></div></header>
    <div class="pad">
-    <div class="g2">
-     <div class="sec"><div class="sech"><h2>Crecimiento por negocio</h2><span class="src">interanual · ${esc(R.periodo)}</span></div>
-      ${prods.length?`<div class="hbars">${prods.slice(0,9).map(hb).join("")}</div>`:`<div class="empty">${R.estado==="provisional"?"El desglose por negocio llega con el 10-Q.":"La compañía no publica desglose por negocio en XBRL."}</div>`}
-      ${segs.length&&D.producto&&D.producto.length?`<table class="minit"><thead><tr><th>Segmento</th><th>Ingresos</th><th>Interanual</th><th>Margen op.</th></tr></thead><tbody>${segs.map(s=>`<tr><td>${esc(nice(s.nombre))}</td><td>${M$(s.valor)}</td><td class="${(s.interanual_pct||0)>=0?"up":"dn"}">${pct(s.interanual_pct,0)}</td><td>${fin(s.margen_operativo_pct)?nf(s.margen_operativo_pct,1)+"%":"–"}${fin(s.margen_operativo_ya_pct)?` <span style="color:#76828E">(${nf(s.margen_operativo_ya_pct,1)}%)</span>`:""}</td></tr>`).join("")}</tbody></table><p class="lead" style="font-size:9px">Entre paréntesis, el margen operativo del mismo trimestre del año anterior.</p>`:""}
-     </div>
-     <div class="sec"><div class="sech"><h2>Margen operativo (EBIT)</h2><span class="src">trimestral · SEC EDGAR</span></div>
-      ${M.length?barsSVG(M,{val:m=>m.margen_pct,label:m=>m.periodo,fmt:v=>nf(v,1),color:REP._brand,hiIdx:[curIdx,yaIdx].filter(i=>i>=0),h:175,w:300,aria:"Margen operativo trimestral"})+
-        `<p class="lead">${esc(R.periodo)}: <b>${nf(M[curIdx].margen_pct,1)}%</b>${yaIdx>=0?` frente al ${nf(M[yaIdx].margen_pct,1)}% del ${esc(M[yaIdx].periodo)} (${pct(M[curIdx].margen_pct-M[yaIdx].margen_pct,1).replace("%"," pp")})`:""}.</p>`:`<div class="empty">Sin datos de margen.</div>`}
-     </div>
-    </div>
-    ${S&&ser.length>=2?`<div class="sec"><div class="sech"><h2>${esc(nice(S.nombre))}: ingresos anualizados (run-rate)</h2><span class="src">ingresos del trimestre × 4 · miles de M$ · SEC EDGAR (XBRL por segmentos)${S.elegido==="automático"?" · segmento que más crece":""}</span></div>
-      ${barsSVG(ser,{val:p=>p.run_rate/1e9,label:p=>p.periodo,fmt:v=>nf(v,v>=100?0:1),color:REP._brand,hiIdx:[ser.length-1],h:235,aria:"Run-rate trimestral del segmento"})}
-      <p class="lead">${esc(R.periodo)}: <b>${big(lastS.run_rate)}</b> anualizados${fin(lastS.interanual_pct)?`, crecimiento interanual del <b>${pct(lastS.interanual_pct,0).replace("+","")}</b>`:""}${fin(lastS.margen_operativo_pct)?` y margen operativo del <b>${nf(lastS.margen_operativo_pct,1)}%</b>`:""}${ser.length>=5&&fin(ser[0].run_rate)?`. Hace ${ser.length-1} trimestres era ${big(ser[0].run_rate)} (${pct((lastS.run_rate/ser[0].run_rate-1)*100,0)}).`:"."}</p></div>`:""}
+    <div class="g2 grid">${P.join("")}</div>
+    ${strip}
    </div>
-   <footer class="foot"><div>${esc(R.nombre)} · ${esc(R.periodo)} · página 2 de 3 · Segmentos y márgenes: SEC EDGAR (XBRL). ${R.estado==="provisional"?"El desglose por segmentos llega con el 10-Q.":""}</div></footer>
+   <footer class="foot"><div>${esc(R.nombre)} · ${esc(R.periodo)} · página 2 de 3 · Segmentos, márgenes, caja, costes y acciones: SEC EDGAR (XBRL${Dn&&Dn.fecha_presentacion?`, presentado el ${esc(fecha(Dn.fecha_presentacion))}`:""}). ${R.estado==="provisional"?"El desglose del trimestre recién presentado llega con el 10-Q.":""}${!prods.length?" La compañía no publica desglose por negocio en XBRL.":""}</div></footer>
   </section>
   <section class="sheet flow">
    <header class="mast slim"><div class="row"><div><div class="kicker">${esc(R.nombre)} · ${esc(R.ticker)} · ${esc(R.periodo)}</div><h1>Lectura del trimestre y guía</h1></div></div></header>
    <div class="pad">
     <div class="sec"><div class="sech"><h2>Qué cuenta la directiva</h2><span class="src">${Lc&&Lc.estado==="propuesta"?"pendiente de tu revisión":"tu resumen de la presentación"}</span></div>${lect()}</div>
-    ${destac(R).length>=2?`<div class="sec"><div class="sech"><h2>Lo destacado según la compañía</h2><span class="src">texto original de la nota</span></div><ul class="gtext" lang="en">${destac(R).slice(0,5).map(t=>`<li>${esc(t)}</li>`).join("")}</ul></div>`:""}
-    ${R.guia&&R.guia.texto&&R.guia.texto.length?`<div class="sec"><div class="sech"><h2>Guía de la compañía</h2><span class="src">texto original de la nota</span></div><ul class="gtext" lang="en">${R.guia.texto.slice(0,5).map(t=>`<li>${esc(String(t).replace(/^[•·\-–\s]+/,""))}</li>`).join("")}</ul></div>`:""}
+    ${destacHtml(R)}
+    ${guiaHtml(R)}
    </div>
    <footer class="foot">
     <div><b>Fuentes</b> · Cifras financieras: SEC EDGAR (XBRL; el día de resultados, la nota del 8-K). Estimaciones: Finnhub (consenso) y las introducidas a mano. Cotización: ${esc((R.cotizacion||{}).fuente||"Twelve Data")} y Finnhub. Generado por el Valorador${R._gen?` el ${esc(fecha(R._gen))}`:""}.</div>
@@ -409,8 +471,30 @@ function page2(R){
    </footer>
   </section>`;
 }
-function destac(R){ const T=(R.destacados&&R.destacados.texto)||[];
-  return T.map(t=>String(t).replace(/^[•·\-–\s]+/,"").trim()).filter(t=>t.length>=40&&!/following table|\$\s?[\d,.]+\s+\$|\d\s?%\s+\d|in millions|year over year \d/i.test(t)); }
+/* texto de la nota: en español si hay traducción; si no, el original marcado «sin traducir» */
+const liTr=(es,en)=>es?`<li>${esc(es)}</li>`:`<li><span lang="en">${esc(en)}</span> <span class="nt">(sin traducir)</span></li>`;
+const srcTr=(n,tot)=>n===0?"traducción de la nota":n===tot?"texto original de la nota (sin traducir aún)":"traducción de la nota · lo pendiente, en inglés";
+function destac(R){ const D=R.destacados||{}, T=D.texto||[], E=D.texto_es||[];
+  return T.map((t,i)=>({en:String(t).replace(/^[•·●\-–\s]+/,"").trim(),es:E[i]||null}))
+    .filter(x=>x.en.length>=40&&!/following table|\$\s?[\d,.]+\s+\$|\d\s?%\s+\d|in millions|year over year \d/i.test(x.en)); }
+function destacHtml(R){
+  const D=R.destacados||{}, F=(D.filas||[]).slice(0,6), L=destac(R).slice(0,F.length?4:5);
+  if(L.length<2&&F.length<2) return "";
+  const miss=L.filter(x=>!x.es).length+F.filter(f=>!f.etiqueta_es).length;
+  const nc=Math.max(...F.map(f=>(f.valores_es||f.valores||[]).length),0);
+  const cab=D.cabecera_es||D.cabecera||"", ct=cab.match(/\d[TQ]\d{2}\b|\b(?:19|20)\d{2}\b|% var\.|Var\.|Mínimo|Máximo|Acumulado(?: \d{4})?/g)||[];
+  const pre=ct.length===nc&&nc?cab.slice(0,cab.indexOf(ct[0])).trim():cab;
+  const head=ct.length===nc&&nc?`<thead><tr><th></th>${ct.map(c=>`<th>${esc(c)}</th>`).join("")}</tr></thead>`:"";
+  const tab=F.length>=2?`${pre?`<div class="cab">${esc(pre)}</div>`:""}<table class="minit ftab" data-opt="2">${head}<tbody>${F.map(f=>{ const v=f.valores_es||f.valores||[];
+      return `<tr><td>${f.etiqueta_es?esc(f.etiqueta_es):`<span lang="en">${esc(f.etiqueta)}</span>`}</td>${Array.from({length:nc},(_,i)=>`<td>${esc(v[i]||"")}</td>`).join("")}</tr>`; }).join("")}</tbody></table>`:"";
+  return `<div class="sec"><div class="sech"><h2>Lo destacado según la compañía</h2><span class="src">${srcTr(miss,L.length+F.length)}</span></div>
+    ${L.length?`<ul class="gtext">${L.map(x=>liTr(x.es,x.en)).join("")}</ul>`:""}${tab}</div>`;
+}
+function guiaHtml(R){
+  const G=R.guia||{}, T=(G.texto||[]).map((t,i)=>({en:String(t).replace(/^[•·●\-–\s]+/,"").trim(),es:(G.texto_es||[])[i]||null})).filter(x=>x.en).slice(0,6);
+  if(!T.length) return "";
+  return `<div class="sec"><div class="sech"><h2>Guía de la compañía</h2><span class="src">${srcTr(T.filter(x=>!x.es).length,T.length)}</span></div><ul class="gtext">${T.map(x=>liTr(x.es,x.en)).join("")}</ul></div>`;
+}
 function yaLabel(l){ const m=/^(\d)T(\d{2})$/.exec(l||""); return m?`${m[1]}T${String(+m[2]-1).padStart(2,"0")}`:""; }
 function nice(n){ return String(n||"").replace(/\s*\(Segment\)|\s+Segment$|\s+Member$/i,"").replace(/Amazon Web Services/,"AWS"); }
 
@@ -501,6 +585,15 @@ async function runUpdate(){
 }
 
 /* ================= carga ================= */
+/* Cada hoja es un A4 fijo: si el contenido no cabe, se quitan bloques secundarios
+   (data-opt: el número más alto se quita antes) hasta que cabe. */
+function fitSheets(){
+  document.querySelectorAll(".sheet").forEach(sh=>{ sh.style.zoom="";
+    for(let n=0;n<8&&sh.scrollHeight>sh.clientHeight+1;n++){
+      const c=[...sh.querySelectorAll("[data-opt]")].filter(e=>e.style.display!=="none");
+      if(!c.length) break;
+      c.sort((a,b)=>(+b.dataset.opt)-(+a.dataset.opt))[0].style.display="none"; } });
+}
 function fitZoom(){ if(PDF) return; const w=document.documentElement.clientWidth-16, s=Math.min(1,w/794);
   document.querySelectorAll(".sheet").forEach(el=>el.style.zoom=s<1?String(s):""); }
 async function load(){
@@ -523,6 +616,8 @@ async function load(){
   document.title=`Resultados ${REP.periodo} · ${REP.nombre} (${REP.ticker})`;
   const pdf=$("btnPdf"); if(it.pdf){ pdf.hidden=false; pdf.href=`data/resultados/${t}/${it.pdf}${it.pdf_de?`?v=${encodeURIComponent(it.pdf_de)}`:""}`; pdf.setAttribute("download",`Resultados ${REP.ticker} ${REP.periodo}.pdf`); } else pdf.hidden=true;
   $("sheets").innerHTML=page1(REP)+page2(REP)+(PDF?"":await panelHtml());
+  try{ await document.fonts.ready; }catch(e){}
+  fitSheets();
   fitZoom();
   try{ await document.fonts.ready; }catch(e){}
   window.__listo=true;

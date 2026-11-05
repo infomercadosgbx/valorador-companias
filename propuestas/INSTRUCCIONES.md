@@ -60,8 +60,19 @@ Cada cambio lleva un `porque` de una línea. Los listados se proponen completos 
 }
 ```
 
-## 5. Guardar
+## 5. Traducir la nota al español
+
+El informe de resultados (resultados.html y su PDF) copia de la nota los titulares («Lo destacado según la compañía»), la guía y la cita de la dirección. Las filas de tablas y las horquillas de guía se traducen solas; las frases, no.
+
+1. Ejecuta `python -m fetcher.traduccion`: lista, por compañía, las frases sin traducir del último informe.
+2. Añade cada una a `i18n/notas_es.json` → `t`, con el texto original **exacto** como clave (cópialo de la salida, sin tocar espacios ni comillas) y la traducción como valor.
+3. Traducción fiel y en español claro: no resumas ni añadas nada. Cifras en formato español («1.400 M$», «4,30 $», «3T26»); nombres propios y de productos sin traducir; las llamadas a notas al pie como «(1)». Si el original está cortado, termina con «…».
+4. Vuelve a ejecutar `python -m fetcher.traduccion` hasta que diga «Frases sin traducir: 0» y valida el JSON.
+
+Al hacer push, el workflow «Rehacer informes» regenera los informes y sus PDF en un par de minutos.
+
+## 6. Guardar
 
 1. Escribe `propuestas/<T>.json` y actualiza `propuestas/_estado.json` → `revisado.<T> = {accn, fecha}`.
-2. Valida que ambos son JSON correctos (`python -m json.tool`).
-3. Commit en `main`: `Propuesta: <T> tras resultados <periodo>` y push. La web y el aviso por email se actualizan solos.
+2. Valida que los JSON son correctos (`python -m json.tool`), también `i18n/notas_es.json` si lo tocaste.
+3. Commit en `main` (propuesta y traducciones juntas): `Propuesta: <T> tras resultados <periodo>` y push. La web y el aviso por email se actualizan solos.

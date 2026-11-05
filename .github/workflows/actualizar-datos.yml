@@ -45,6 +45,8 @@ jobs:
           SEC_USER_AGENT: ${{ vars.SEC_USER_AGENT || secrets.SEC_USER_AGENT }}
           FINNHUB_API_KEY: ${{ secrets.FINNHUB_API_KEY }}
           TWELVEDATA_API_KEY: ${{ secrets.TWELVEDATA_API_KEY }}
+          ALPACA_API_KEY_ID: ${{ secrets.ALPACA_API_KEY_ID }}
+          ALPACA_API_SECRET_KEY: ${{ secrets.ALPACA_API_SECRET_KEY }}
           TICKERS: ${{ inputs.tickers }}
         run: |
           if [[ ! "$TICKERS" =~ ^[A-Za-z0-9.\ -]*$ ]]; then echo "Tickers no válidos: $TICKERS"; exit 1; fi

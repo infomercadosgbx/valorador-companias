@@ -229,6 +229,95 @@ class TwelveDataHistory:
         raise RuntimeError("Twelve Data no responde")
 
 
+class AlpacaExtendedHours:
+    """Cotización fuera de horario (after-hours y premercado) para la reacción a resultados.
+
+    API oficial de Alpaca Markets, plan gratuito «Basic»: barras históricas del SIP (todas las
+    bolsas de EE. UU., sesiones de 4:00 a 20:00 ET) con al menos 15 minutos de retraso.
+    Claves en los secrets ALPACA_API_KEY_ID y ALPACA_API_SECRET_KEY (cuenta gratuita, sin
+    depósito). Es secundario: si falla, la reacción queda «pendiente» hasta el cierre."""
+    nombre = "Alpaca"
+    BASE = "https://data.alpaca.markets/v2/stocks/bars"
+    RETRASO_MIN = 16
+
+    def __init__(self, key_id: str, secret: str, opener=None, sleep=time.sleep):
+        self.key_id, self.secret = key_id, secret
+        self._open = opener or urllib.request.urlopen
+        self._sleep = sleep
+
+    def _bars(self, ticker, start, end):
+        params = {"symbols": ticker, "timeframe": "5Min", "start": start.strftime("%Y-%m-%dT%H:%M:%SZ"),
+                  "end": end.strftime("%Y-%m-%dT%H:%M:%SZ"), "feed": "sip", "adjustment": "raw", "limit": 10000, "sort": "asc"}
+        url = f"{self.BASE}?{urllib.parse.urlencode(params)}"
+        hdr = {"APCA-API-KEY-ID": self.key_id, "APCA-API-SECRET-KEY": self.secret, "Accept": "application/json",
+               "User-Agent": "valorador"}
+        for attempt in range(3):
+            try:
+                with self._open(urllib.request.Request(url, headers=hdr), timeout=30) as r:
+                    j = json.loads(r.read())
+                return (j.get("bars") or {}).get(ticker) or []
+            except urllib.error.HTTPError as e:
+                if e.code in (401, 403):
+                    raise RuntimeError("Alpaca rechaza las claves (revisa ALPACA_API_KEY_ID y ALPACA_API_SECRET_KEY)") from e
+                if e.code not in (429, 500, 502, 503, 504):
+                    raise
+            except (urllib.error.URLError, TimeoutError):
+                pass
+            self._sleep(3 * (attempt + 1))
+        raise RuntimeError("Alpaca no responde")
+
+    @staticmethod
+    def sesion(ts_utc):
+        """«after-hours», «premercado» o «sesión» según la hora de Nueva York."""
+        from zoneinfo import ZoneInfo
+        ny = ts_utc.astimezone(ZoneInfo("America/New_York"))
+        m = ny.hour * 60 + ny.minute
+        if m < 9 * 60 + 30:
+            return "premercado", ny
+        if m >= 16 * 60:
+            return "after-hours", ny
+        return "sesión", ny
+
+    def extended(self, ticker, day, amc=True, now=None):
+        """Última cotización desde el cierre previo a los resultados (día «day», date) hasta ahora − 16 min.
+        Devuelve {ultimo: {...}, after_hours: {...}} o None si no hay operaciones."""
+        from datetime import timedelta
+        from zoneinfo import ZoneInfo
+        ny = ZoneInfo("America/New_York")
+        now = now or datetime.now(timezone.utc)
+        ref = day if amc else day - timedelta(days=1)
+        while not amc and ref.weekday() >= 5:
+            ref -= timedelta(days=1)
+        start = datetime(ref.year, ref.month, ref.day, 16, 0, tzinfo=ny).astimezone(timezone.utc)
+        end = now - timedelta(minutes=self.RETRASO_MIN)
+        if end <= start:
+            return None
+        bars = [b for b in self._bars(ticker, start, end) if b.get("c") and b.get("t")]
+        if not bars:
+            return None
+
+        def pt(b):
+            ts = datetime.fromisoformat(b["t"].replace("Z", "+00:00"))
+            ses, loc = self.sesion(ts)
+            return {"precio": round(float(b["c"]), 4), "hora_utc": ts.strftime("%Y-%m-%dT%H:%M:%SZ"),
+                    "hora_ny": loc.strftime("%Y-%m-%d %H:%M"), "sesion": ses}
+        out = {"ultimo": pt(bars[-1]), "fuente": "Alpaca Markets (API oficial, plan gratuito) · SIP con 15 min de retraso",
+               "url": "https://docs.alpaca.markets/docs/historical-stock-data-1",
+               "volumen": int(sum(b.get("v") or 0 for b in bars))}
+        ah = [b for b in bars if self.sesion(datetime.fromisoformat(b["t"].replace("Z", "+00:00")))[1].date() == ref
+              and self.sesion(datetime.fromisoformat(b["t"].replace("Z", "+00:00")))[0] == "after-hours"]
+        if ah:
+            out["after_hours"] = pt(ah[-1])
+        return out
+
+
+def extended_from_env():
+    kid, sec = os.environ.get("ALPACA_API_KEY_ID", "").strip(), os.environ.get("ALPACA_API_SECRET_KEY", "").strip()
+    if kid and sec:
+        return AlpacaExtendedHours(kid, sec)
+    return None
+
+
 def history_from_env():
     key = os.environ.get("TWELVEDATA_API_KEY", "").strip()
     if key:

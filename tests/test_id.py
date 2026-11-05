@@ -125,3 +125,29 @@ def test_clientes_concentracion_y_geografia():
     assert ("StatementGeographicalAxis", "country:US") in rows
     blk = SEG._conc_block({"pep:WalmartMember": {"nombre": c["nombre"], "valores": {k: (v, {"formulario": "10-K"}) for k, v in c["valores"].items()}}}, 12)
     assert blk[0]["ultimo"]["porcentaje"] == 14.0 and "Walmart" in blk[0]["nombre"]
+
+
+def test_nota_tabla_de_guia_y_destacados_con_vinetas():
+    """AppLovin 3T26: guía en tabla sin «to», viñetas «●», cabeceras de tabla y notas al pie."""
+    from fetcher import pressrelease as PR, resultados as RES
+    html = """<p>Third Quarter 2026 Financial Highlights:</p><p>Quarter Ended</p>
+<p>September 30, Nine Months Ended September 30,</p><p>(In millions, except percentages) 2026 2025 % Change 2026 2025 % Change</p>
+<p>Revenue $2,185 $1,405 55 % $5,951 $3,823 56 %</p><p>Adjusted EBITDA $1,842 $1,158 59 % $5,013 $3,114 61 %</p>
+<p>Additional Financial Highlights:</p>
+<p>● Net cash from operating activities and Free Cash Flow were $1.4 billion for the third quarter 2026.</p>
+<p>● Basic and Diluted earnings per share ("EPS") were $4.31 and $4.30, respectively, for the third quarter 2026.</p>
+<p>Fourth Quarter 2026 Financial Guidance Summary 2</p><p>4Q26</p><p>(In millions, except percentages) Low High</p>
+<p>Revenue $2,365 $2,395</p><p>Adjusted EBITDA $1,995 $2,025</p><p>Adjusted EBITDA Margin 84 % 85 %</p>
+<p>1 Includes repurchased shares as well as withholdings upon net share settlement of vested equity awards. Total cost includes fees.</p>
+<p>Webcast and Conference Call</p>"""
+    got = PR.extract(html)
+    d = got["destacados"]
+    assert d["texto"][0].startswith("Net cash from operating activities")   # sin «●» ni cabeceras
+    assert not any("Months Ended" in t for t in d["texto"])
+    assert [f["etiqueta"] for f in d["filas"]] == ["Revenue", "Adjusted EBITDA"]
+    assert d["filas"][0]["valores"][:3] == ["$2,185", "$1,405", "55%"]
+    g = got["guia"]["texto"]
+    assert g == ["Revenue: $2,365 – $2,395 million", "Adjusted EBITDA: $1,995 – $2,025 million", "Adjusted EBITDA Margin: 84% – 85%"]
+    items = {x["concepto"]: x for x in RES.parse_guidance(g)}
+    assert items["ingresos"]["min"] == 2365e6 and items["ingresos"]["max"] == 2395e6
+    assert items["ebitda"]["medio"] == 2010e6
