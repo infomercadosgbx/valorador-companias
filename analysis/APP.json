@@ -1,712 +1,726 @@
 {
-  "_nota": "Supuestos y textos propios. Se editan a mano (o desde el botón «Editar» de la web, que descarga este archivo) y se versionan en git. El Action nunca los toca.",
-  "esquema": 1,
-  "meta": {
-    "sector": "Tecnología publicitaria (ad tech)",
-    "hq": "Palo Alto, California",
-    "founded": "2012",
-    "employees": "898 (dic-25)",
-    "asOf": "1-nov-2026",
-    "nextEarnings": "4-nov-2026",
-    "fav": true
-  },
-  "overview": {
-    "thesis": "Negocio excepcional en mínimos del año: a ~230 $ (−69% desde máximos) el precio descuenta menos de un 4% de crecimiento anual cuando la guía del 3T26 habla del 46–48%. El 4-nov dirá si AXON vuelve a mejorar.",
-    "summary": "Plataforma de publicidad móvil basada en IA. Su motor AXON decide qué anuncio ve cada usuario en miles de juegos y apps, y cobra una comisión sobre lo que gastan los anunciantes.\nTras vender sus estudios de juegos en 2025, es un negocio 100% de software publicitario con márgenes EBITDA del 84%. Desde junio de 2026 cualquier marca de e-commerce puede anunciarse en autoservicio.",
-    "keyFacts": [
-      {
-        "k": "Ingresos 2T26",
-        "v": "1.924 M$ (+53%)"
-      },
-      {
-        "k": "EBITDA ajustado 2T26",
-        "v": "1.614 M$ (84%)"
-      },
-      {
-        "k": "Guía 3T26",
-        "v": "2.055–2.085 M$ (+46–48%)"
-      },
-      {
-        "k": "FCF 2T26",
-        "v": "863 M$"
-      },
-      {
-        "k": "Caja / deuda (jun-26)",
-        "v": "3.053 / 3.515 M$"
-      },
-      {
-        "k": "Rating crediticio",
-        "v": "BBB+ (Fitch, jun-26)"
-      },
-      {
-        "k": "SEC",
-        "v": "Consulta cerrada sin acción (ago-26)"
-      }
-    ],
-    "catalysts": [
-      {
-        "d": "4-nov-26",
-        "t": "Resultados 3T26 (tras el cierre): guía 2.055–2.085 M$ y margen del 83%. Clave: que AXON vuelva a mejorar y la guía del 4T. Tras los dos últimos resultados la acción cayó cerca de un 20%."
-      },
-      {
-        "d": "16-nov-26",
-        "t": "Plazo para liderar la demanda colectiva por sus declaraciones sobre la mejora de los modelos."
-      },
-      {
-        "d": "4T26",
-        "t": "Campaña navideña: primera prueba del e-commerce en autoservicio (BofA espera aquí el punto de inflexión)."
-      },
-      {
-        "d": "2027",
-        "t": "Siguiente salto del modelo (AXON 3, según Evercore)."
-      },
-      {
-        "d": "En curso",
-        "t": "Litigio con Unity por los datos de MAX, demanda colectiva y demanda del condado de San Diego."
-      }
-    ]
-  },
-  "business": {
-    "model": "Cobra un porcentaje del gasto de los anunciantes que pasa por su subasta y registra solo esa comisión como ingreso.\nApenas necesita inversión en activos: su coste principal es el cómputo para entrenar y servir los modelos de IA.",
-    "customers": "Tiene dos lados. Los anunciantes, sobre todo estudios de juegos móviles que compran usuarios con un retorno objetivo, y desde junio de 2026 cualquier marca de e-commerce. Y los desarrolladores (publishers), que venden su espacio publicitario a través de MAX.",
-    "segNote": "Estimación propia: la empresa no desglosa ingresos por vertical. El gaming sigue siendo la mayoría.",
-    "segments": [
-      {
-        "n": "Anunciantes de juegos",
-        "v": 80
-      },
-      {
-        "n": "Consumo y e-commerce",
-        "v": 15
-      },
-      {
-        "n": "Adjust y otros",
-        "v": 5
-      }
-    ],
-    "customerTypes": [
-      {
-        "n": "Estudios de juegos móviles",
-        "d": "El núcleo. AppLovin capta ~50% del gasto en captación de usuarios del sector (Wells Fargo)."
-      },
-      {
-        "n": "Marcas de e-commerce",
-        "d": "Abierto a todos desde jun-26. Ganó 169 pb de cuota de presupuesto en la encuesta de Jefferies, hasta el 11%."
-      },
-      {
-        "n": "Publishers (MAX)",
-        "d": "Miles de apps integran su SDK para subastar su inventario. Son la fuente de datos del modelo."
-      },
-      {
-        "n": "Apps no gaming y CTV",
-        "d": "Fintech, salud y televisión conectada. Fase inicial."
-      }
-    ],
-    "quality": [
-      {
-        "n": "Márgenes",
-        "s": 5,
-        "note": "EBITDA ajustado 84%; margen operativo 77% en 12 meses"
-      },
-      {
-        "n": "Retorno sobre capital",
-        "s": 5,
-        "note": "ROE cercano al 190%; capex casi nulo"
-      },
-      {
-        "n": "Conversión en caja",
-        "s": 4,
-        "note": "FCF ~75% del EBITDA (54% en 2T26 por impuestos e intereses)"
-      },
-      {
-        "n": "Recurrencia de ingresos",
-        "s": 3,
-        "note": "Gasto publicitario variable, sin contratos plurianuales"
-      },
-      {
-        "n": "Diversificación",
-        "s": 2,
-        "note": "La mayoría de ingresos depende del gaming"
-      },
-      {
-        "n": "Balance",
-        "s": 4,
-        "note": "Deuda neta ~0,1x EBITDA; rating BBB+"
-      }
-    ],
-    "phase": 2,
-    "phaseNote": "Ha pasado del hipercrecimiento (+70% en 2025) a un crecimiento rentable: +53% en 2T26, y la dirección habla de ~30% anual a largo plazo.",
-    "clients": {
-      "nota": "Anunciantes de apps móviles, sobre todo estudios de videojuegos (la mayor parte de los ingresos), y desde 2025 tiendas online que se anuncian en sus juegos. Ingresos muy repartidos: ningún cliente supera el 10%. AppLovin no publica nombres de anunciantes.",
-      "kpis": [
-        {
-          "k": "Comercios en Axon",
-          "v": "~4.000",
-          "d": "dic-25; 450 nuevos en diciembre"
-        },
-        {
-          "k": "Ads Manager",
-          "v": "Abierto a todos",
-          "d": "autoservicio desde junio de 2026"
-        },
-        {
-          "k": "Gasto de anunciantes de consumo",
-          "v": "+28%",
-          "d": "2T26 frente al 4T25"
-        }
-      ],
-      "conocidos": [
-        {
-          "n": "Estudios de videojuegos móviles",
-          "sector": "Videojuegos",
-          "cifra": "La mayor parte de los ingresos",
-          "d": "Su base histórica: compran instalaciones de jugadores con Axon y monetizan sus juegos con la mediación MAX.",
-          "u": "https://www.modernretail.co/marketing/applovin-rebrands-its-ad-platform-as-axon-launches-ads-manager-on-referral-only-basis/",
-          "f": "oct-25"
-        },
-        {
-          "n": "Tiendas de Shopify",
-          "t": "SHOP",
-          "sector": "Comercio electrónico",
-          "cifra": "~4.000 comercios en Axon (dic-25)",
-          "d": "Se anuncian con la app oficial de Axon en Shopify; es la puerta de entrada de las marcas pequeñas y medianas.",
-          "u": "https://apps.shopify.com/axon",
-          "f": "2026"
-        },
-        {
-          "n": "Marcas de consumo de tamaño medio",
-          "sector": "Consumo",
-          "cifra": "E-commerce: 1.000 M$ al año",
-          "d": "Primer objetivo del e-commerce: récord de gasto en el 2T26 y autoservicio abierto a todos desde junio de 2026.",
-          "u": "https://commonthreadco.com/blogs/coachs-corner/applovin-q2-2026-earnings-ecommerce-advertisers",
-          "f": "ago-26"
-        }
-      ]
-    }
-  },
-  "moat": {
-    "width": "Estrecho",
-    "trend": "Estable, con riesgo",
-    "note": "El foso depende de los datos que ve a través de MAX. La negativa del tribunal a frenar el SDK de Unity (oct-26) es la primera grieta seria. S&P considera que replicar su motor exige mucho tiempo y capital.",
-    "sources": [
-      {
-        "n": "Efecto red",
-        "s": 4,
-        "note": "Más anunciantes y publishers → más datos → mejor modelo → más retorno"
-      },
-      {
-        "n": "Costes de cambio",
-        "s": 3,
-        "note": "El SDK de MAX está integrado en miles de apps"
-      },
-      {
-        "n": "Activos intangibles",
-        "s": 4,
-        "note": "AXON entrenado con miles de millones de subastas"
-      },
-      {
-        "n": "Ventaja de costes",
-        "s": 3,
-        "note": "Margen operativo del 77% frente a competidores en pérdidas"
-      },
-      {
-        "n": "Escala eficiente",
-        "s": 2,
-        "note": "Gaming cerca de su techo de cuota (~50%)"
-      }
-    ],
-    "comps": [
-      {
-        "n": "Unity (LevelPlay, Vector)",
-        "threat": 4,
-        "note": "Rival directo en mediación; el tribunal no frenó su SDK Ad Quality"
-      },
-      {
-        "n": "Meta (Advantage+)",
-        "threat": 4,
-        "note": "Domina el e-commerce y segmenta mejor"
-      },
-      {
-        "n": "Google (AdMob, Performance Max)",
-        "threat": 3,
-        "note": "Escala enorme, menos foco en juegos"
-      },
-      {
-        "n": "Moloco y CloudX",
-        "threat": 2,
-        "note": "DSP con IA; Oppenheimer ve intactas las ventajas de AppLovin"
-      }
-    ]
-  },
-  "growth": {
-    "score": 4,
-    "scoreNote": "Crece al ~50% con una ruta creíble al 25–30% a medio plazo, pero el gaming se acerca a su techo de cuota.",
-    "tam": "Publicidad digital de rendimiento: Meta y Google facturan más de 400.000 M$ al año en publicidad; AppLovin, unos 8.000 M$.",
-    "guidance": "Guía 3T26: ingresos 2.055–2.085 M$ (+46–48%), EBITDA 1.710–1.740 M$ (83%). A largo plazo la dirección habla de ~30% anual.",
-    "drivers": [
-      {
-        "n": "Mejoras de Axon en videojuegos",
-        "impact": 5,
-        "h": "Continuo",
-        "st": "maduro",
-        "k": "+58% de precio por instalación",
-        "peso": "el núcleo de los ingresos",
-        "d": "Cada nueva versión del modelo de IA de Axon predice mejor qué usuario va a pagar en un juego, así que los anunciantes pujan más por cada instalación. En el 2T26 el precio por instalación subió un 58% con un 2% menos de instalaciones: el crecimiento viene de la calidad, no del volumen.",
-        "ev": "Precio por instalación e ingresos de publicidad trimestrales; comentarios sobre nuevas versiones del modelo.",
-        "r": "Saturación del mercado de juegos móviles y que el modelo deje de mejorar (la dirección pausó una actualización en el 2T26)."
-      },
-      {
-        "n": "E-commerce en autoservicio",
-        "impact": 4,
-        "h": "4T26–2027",
-        "st": "en marcha",
-        "k": "Ritmo anual de 1.000 M$ (2T26)",
-        "peso": "gasto +28% sobre el pico del 4T25",
-        "d": "Llevar la misma máquina de anuncios a tiendas online que se anuncian dentro de los juegos. El autoservicio abrió a anunciantes de todo el mundo en junio de 2026, con Shopify como puerta de entrada. La web y el e-commerce ya van a un ritmo de 1.000 M$ al año.",
-        "ev": "Número de anunciantes de e-commerce y su gasto; retención de anunciantes tras los primeros meses.",
-        "r": "Que el retorno para tiendas sea peor que en Meta o Google y los anunciantes no repitan.",
-        "u": "https://www.techtimes.com/articles/323336/20260806/applovin-stock-lost-40b-16m-miss-while-sec-cleared-axon-data-probe.htm"
-      },
-      {
-        "n": "Nuevos verticales e internacional",
-        "impact": 3,
-        "h": "2027+",
-        "st": "temprano",
-        "k": "Fintech, salud y TV conectada",
-        "peso": "todavía marginal",
-        "d": "Tras el e-commerce, la dirección quiere abrir Axon a otros sectores (servicios financieros, salud) y a la televisión conectada, y crecer fuera de EE. UU.",
-        "ev": "Anuncios de lanzamientos y primeros datos de gasto por vertical.",
-        "r": "Regulación de privacidad y publicidad en sectores sensibles."
-      },
-      {
-        "n": "Recompras",
-        "impact": 2,
-        "h": "Continuo",
-        "st": "maduro",
-        "k": "~1.550 M$ en el 1S26",
-        "peso": "−1% de acciones al año",
-        "d": "Con márgenes de EBITDA superiores al 80% la caja sobra; las recompras reducen el número de acciones y suben el beneficio por acción.",
-        "ev": "Acciones en circulación trimestre a trimestre.",
-        "r": "Recomprar caro si la acción cotiza con mucha prima."
-      }
-    ]
-  },
-  "mgmt": {
-    "note": "Empresa controlada: Foroughi y Herald Chen tienen un pacto de voto sobre las acciones de clase B. El consejo es mayoritariamente independiente, con Craig Billings como consejero independiente coordinador. El CEO y el CTO vendieron acciones en junio de 2026.",
-    "people": [
-      {
-        "n": "Adam Foroughi",
-        "role": "Cofundador, CEO y presidente",
-        "since": "2012",
-        "note": "Controla el 60,9% del voto. Salario de 400.000 $; casi toda su retribución es en acciones ligadas a resultados."
-      },
-      {
-        "n": "Matt Stumpf",
-        "role": "Director financiero",
-        "since": "",
-        "note": "Comunicó el cierre de la consulta de la SEC en ago-26."
-      },
-      {
-        "n": "Basil Shikin",
-        "role": "Director de tecnología",
-        "since": "",
-        "note": "Responsable técnico del motor AXON."
-      },
-      {
-        "n": "Herald Chen",
-        "role": "Consejero",
-        "since": "",
-        "note": "Firmante del pacto de voto con Foroughi."
-      }
-    ],
-    "scores": [
-      {
-        "n": "Alineación con el accionista",
-        "s": 5,
-        "note": "Fundador con participación muy grande"
-      },
-      {
-        "n": "Asignación de capital",
-        "s": 4,
-        "note": "Venta acertada del negocio de apps; recompras constantes"
-      },
-      {
-        "n": "Credibilidad y ejecución",
-        "s": 3,
-        "note": "Primer incumplimiento de guía en 2T26 desde la salida a bolsa"
-      },
-      {
-        "n": "Gobierno corporativo",
-        "s": 2,
-        "note": "Voto dual; CEO y presidente a la vez"
-      },
-      {
-        "n": "Transparencia",
-        "s": 2,
-        "note": "No desglosa e-commerce; mucha métrica no GAAP"
-      }
-    ],
-    "alloc": {
-      "label": "Uso de la caja, 1S 2026 (M$)",
-      "items": [
-        {
-          "n": "Recompras y retenciones",
-          "v": 1555
-        },
-        {
-          "n": "Capex",
-          "v": 8
-        },
-        {
-          "n": "Dividendos",
-          "v": 0
-        }
-      ]
-    },
-    "vote": {
-      "label": "Poder de voto (%)",
-      "items": [
-        {
-          "n": "Foroughi y pacto de voto",
-          "v": 60.9
-        },
-        {
-          "n": "Resto de accionistas",
-          "v": 39.1
-        }
-      ]
-    },
-    "call": {
-      "periodEnd": "2026-06-30",
-      "q": "2T 2026",
-      "date": "5-ago-2026",
-      "doc": "Nota de resultados (8-K, Exhibit 99.1)",
-      "url": "https://www.sec.gov/Archives/edgar/data/0001751008/000175100826000057/exhibit991-2q26earningspre.htm",
-      "nota": "El comunicado no trae citas de la directiva ni habla de estrategia: los matices están en el webinar de resultados, que no es texto oficial publicado. Lo que sigue son hechos del comunicado.",
-      "dir": [
-        "Describe su negocio como publicidad de principio a fin para que las empresas lleguen a su público, moneticen y crezcan.",
-        "El crecimiento sigue acelerado: ingresos +53% interanual en el trimestre y +56% en el semestre."
-      ],
-      "ret": [
-        "El comunicado no menciona retos: los riesgos están en el 10-Q y en la pestaña Riesgos de esta ficha."
-      ],
-      "guia": [
-        "3T26: ingresos de 2.055–2.085 M$ y EBITDA ajustado de 1.710–1.740 M$ (margen del 83%).",
-        "Margen EBITDA ajustado del 84% en el 2T26 (81% un año antes)."
-      ],
-      "cap": [
-        "Recompras de 551 M$ en el 2T26 (1,1 M de acciones) y 1.533 M$ en el semestre.",
-        "Caja de 3.053 M$ y deuda a largo plazo de 3.515 M$, casi sin cambios desde diciembre."
-      ]
-    }
-  },
-  "risks": [
-    {
-      "n": "AXON mejora más despacio",
-      "cat": "Operativo",
-      "p": 3,
-      "i": 5,
-      "note": "Ya ocurrió en 2T26: primer incumplimiento de guía"
-    },
-    {
-      "n": "Erosión del dato de MAX",
-      "cat": "Competencia",
-      "p": 3,
-      "i": 4,
-      "note": "El tribunal negó la cautelar contra el SDK de Unity (oct-26)"
-    },
-    {
-      "n": "Cambios de privacidad de Apple o Google",
-      "cat": "Regulatorio",
-      "p": 2,
-      "i": 5,
-      "note": "Una restricción de plataforma golpearía la segmentación"
-    },
-    {
-      "n": "El e-commerce no escala",
-      "cat": "Operativo",
-      "p": 3,
-      "i": 3,
-      "note": "Píxeles nuevos: 950 en mayo y 750 en junio (BofA)"
-    },
-    {
-      "n": "Litigios",
-      "cat": "Legal",
-      "p": 3,
-      "i": 2,
-      "note": "Demanda colectiva por sus declaraciones sobre IA; San Diego por datos de menores"
-    },
-    {
-      "n": "Coste de cómputo",
-      "cat": "Financiero",
-      "p": 3,
-      "i": 2,
-      "note": "Margen guiado al 83% desde el 84–85%"
-    },
-    {
-      "n": "Ciclo publicitario",
-      "cat": "Mercado",
-      "p": 2,
-      "i": 3,
-      "note": "Beta cercana a 2,5"
-    },
-    {
-      "n": "Gobierno corporativo",
-      "cat": "Gobierno",
-      "p": 2,
-      "i": 2,
-      "note": "Voto dual y ventas de directivos en junio"
-    }
+ "_nota": "Supuestos y textos propios. Se editan a mano (o desde el botón «Editar» de la web, que descarga este archivo) y se versionan en git. El Action nunca los toca.",
+ "esquema": 1,
+ "meta": {
+  "sector": "Tecnología publicitaria (ad tech)",
+  "hq": "Palo Alto, California",
+  "founded": "2012",
+  "employees": "898 (dic-25)",
+  "asOf": "5-nov-2026",
+  "nextEarnings": "feb-2027 (por confirmar)",
+  "fav": true
+ },
+ "overview": {
+  "thesis": "Negocio excepcional que vuelve a acelerar: en el 3T26 superó su guía en ~100 M$ y guía el 4T por encima del consenso. Cerró a ~271 $ el 4-nov (−63% desde máximos) y subió ~25% tras resultados (~339 $); aun así cotiza a ~23x el beneficio de los últimos 12 meses con crecimientos del 43–55%.",
+  "summary": "Plataforma de publicidad móvil basada en IA. Su motor AXON decide qué anuncio ve cada usuario en miles de juegos y apps, y cobra una comisión sobre lo que gastan los anunciantes.\nTras vender sus estudios de juegos en 2025, es un negocio 100% de software publicitario con márgenes EBITDA del 84%. Desde junio de 2026 cualquier marca de e-commerce puede anunciarse en autoservicio.",
+  "keyFacts": [
+   {
+    "k": "Ingresos 3T26",
+    "v": "2.185 M$ (+55%; +14% trimestral)"
+   },
+   {
+    "k": "EBITDA ajustado 3T26",
+    "v": "1.842 M$ (84%, frente al 82%; +59%)"
+   },
+   {
+    "k": "Beneficio neto 3T26",
+    "v": "1.439 M$ (+72%; BPA 4,30 $)"
+   },
+   {
+    "k": "Guía 4T26",
+    "v": "2.365–2.395 M$ (+43–44%); EBITDA 84–85%"
+   },
+   {
+    "k": "FCF 3T26",
+    "v": "1.418 M$ (77% del EBITDA; caja operativa 1.429 M$)"
+   },
+   {
+    "k": "Caja / deuda (sep-26)",
+    "v": "3.174 / 3.516 M$"
+   },
+   {
+    "k": "Recompras 3T26",
+    "v": "~1.400 M$ (4,1 M de acciones); autorización 3.600 M$"
+   },
+   {
+    "k": "Rating crediticio",
+    "v": "BBB+ (Fitch, jun-26)"
+   }
   ],
-  "v": {
-    "shares": 335,
-    "cash": 3053,
-    "debt": 3515,
-    "rev0": 8100,
-    "year0": 2026,
-    "g": [
-      22,
-      18,
-      15,
-      12,
-      10
-    ],
-    "m1": 82,
-    "m5": 80,
-    "da": 1.5,
-    "da5": 1.5,
-    "sbc": 4,
-    "capex": 0.3,
-    "capex5": 0.3,
-    "nwc": 10,
-    "tax": 16,
-    "wacc": 11,
-    "tg": 3,
-    "exit": 14,
-    "method": "blend",
-    "eps": 18.55,
-    "pe": 20,
-    "evm": 14,
-    "scn": [
-      {
-        "n": "Bajista",
-        "dg": -12,
-        "dm": -5,
-        "p": 25
-      },
-      {
-        "n": "Base",
-        "dg": 0,
-        "dm": 0,
-        "p": 50
-      },
-      {
-        "n": "Alcista",
-        "dg": 8,
-        "dm": 1,
-        "p": 25
-      }
-    ]
-  },
-  "verdict": {
-    "rating": "Comprar",
-    "conviction": 3.5,
-    "buyBelow": 300,
-    "horizon": "12–18 meses",
-    "summary": "Negocio de calidad excepcional (márgenes del 80%, balance limpio, foso de datos) a un precio que ya descuenta un frenazo muy fuerte: a ~230 $ cotiza a ~17x beneficios y con una rentabilidad por FCF de casi el 6%. Desde el último análisis ha caído un 12% sin noticias nuevas del negocio: pesan el fallo judicial a favor de Unity, las rebajas de Wells Fargo y BofA y la demanda colectiva. La tesis no cambia, pero el 4-nov es decisivo: si la mejora de AXON no vuelve, el crecimiento se frenaría más rápido de lo que supone el modelo. Entrada escalonada; no cargar todo antes de resultados.",
-    "bull": [
-      "A ~230 $ el precio implica menos de un 4% de crecimiento anual frente a una guía del 46–48%",
-      "Margen EBITDA del 83–84% y capex casi nulo; ~17x beneficios",
-      "El e-commerce gana cuota (Jefferies: +169 pb)",
-      "Recompras continuas: 551 M$ en el 2T26"
-    ],
-    "bear": [
-      "La mejora del modelo AXON se frenó en el 2T26 y la dirección no puede garantizarla cada trimestre",
-      "Unity puede erosionar el dato de MAX (el tribunal negó la cautelar)",
-      "Rebajas de recomendación: Wells Fargo y BofA a neutral; dudas sobre el objetivo de crecer un 30% a largo plazo",
-      "Litigios abiertos: demanda colectiva y San Diego"
-    ],
-    "watch": [
-      "Resultados del 4-nov: crecimiento secuencial y comentarios sobre la mejora de AXON",
-      "Guía del 4T26 (campaña navideña y e-commerce)",
-      "Conversión de FCF de vuelta al ~75%",
-      "Comisiones de MAX tras el caso Unity"
-    ]
-  },
-  "notes": "",
-  "sources": {
-    "web": "https://www.applovin.com",
-    "ir": "https://investors.applovin.com",
-    "docs": [
-      {
-        "cat": "Resultados trimestrales",
-        "t": "Nota de prensa de resultados 2T26 (PDF)",
-        "d": "05-ago-2026",
-        "u": "https://s21.q4cdn.com/165405286/files/doc_financials/2026/q2/AppLovin-2Q26-Earnings-Press-Release.pdf"
-      },
-      {
-        "cat": "Presentaciones",
-        "t": "Financial Update 2T26 (PDF)",
-        "d": "05-ago-2026",
-        "u": "https://s21.q4cdn.com/165405286/files/doc_financials/2026/q2/Financial-Update-Q2-2026.pdf"
-      },
-      {
-        "cat": "Resultados trimestrales",
-        "t": "8-K de resultados 2T26 (Exhibit 99.1)",
-        "d": "05-ago-2026",
-        "u": "https://www.sec.gov/Archives/edgar/data/0001751008/000175100826000057/exhibit991-2q26earningspre.htm"
-      },
-      {
-        "cat": "Formularios SEC",
-        "t": "10-Q segundo trimestre 2026",
-        "d": "05-ago-2026",
-        "u": "https://www.sec.gov/Archives/edgar/data/0001751008/000175100826000059/app-20260630.htm"
-      },
-      {
-        "cat": "Formularios SEC",
-        "t": "10-Q primer trimestre 2026",
-        "d": "06-may-2026",
-        "u": "https://www.sec.gov/Archives/edgar/data/0001751008/000175100826000044/app-20260331.htm"
-      },
-      {
-        "cat": "Formularios SEC",
-        "t": "10-K ejercicio 2025",
-        "d": "feb-2026",
-        "u": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000010/app-20251231.htm"
-      },
-      {
-        "cat": "Formularios SEC",
-        "t": "Índice de documentos del 10-K 2025",
-        "d": "feb-2026",
-        "u": "https://www.sec.gov/Archives/edgar/data/1751008/0001751008-26-000010-index.html"
-      },
-      {
-        "cat": "Informe anual",
-        "t": "Informe anual 2025 (PDF)",
-        "d": "2026",
-        "u": "https://s21.q4cdn.com/165405286/files/doc_financials/2025/ar/d6d59334-570b-453f-8c55-30d0bda96a8e.pdf"
-      },
-      {
-        "cat": "Formularios SEC",
-        "t": "S-1 de la salida a bolsa",
-        "d": "2021",
-        "u": "https://www.sec.gov/Archives/edgar/data/1751008/000119312521340630/d223514ds1.htm"
-      },
-      {
-        "cat": "Transcripciones",
-        "t": "Llamada de resultados 2T26 (MarketBeat)",
-        "d": "05-ago-2026",
-        "u": "https://www.marketbeat.com/earnings/reports/2026-8-4-applovin-co-stock/"
-      },
-      {
-        "cat": "Gobierno corporativo",
-        "t": "Perfil de Adam Foroughi y pacto de voto (proxy 2025)",
-        "d": "2025",
-        "u": "https://fintool.com/app/research/companies/APP/people/adam-foroughi"
-      }
-    ],
-    "news": [
-      {
-        "t": "La SEC cierra su investigación sin acción",
-        "src": "Tech Times",
-        "u": "https://www.techtimes.com/articles/323336/20260806/applovin-stock-lost-40b-16m-miss-while-sec-cleared-axon-data-probe.htm"
-      },
-      {
-        "t": "Fitch sube el rating a BBB+",
-        "src": "Börse Global",
-        "u": "https://www.boerse-global.de/applovin-fitch-hebt-auf-bbb-an/801446"
-      },
-      {
-        "t": "AppLovin demanda a Unity por los datos de MAX",
-        "src": "Yahoo Finance / TIKR",
-        "u": "https://finance.yahoo.com/markets/stocks/articles/applovin-took-unity-court-over-153345724.html"
-      },
-      {
-        "t": "Recortes de precio objetivo de octubre",
-        "src": "TIKR",
-        "u": "https://www.tikr.com/blog/oppenheimer-cut-its-applovin-target-it-still-sees-80-upside"
-      },
-      {
-        "t": "San Diego demanda a AppLovin por anuncios a menores",
-        "src": "Claims Journal",
-        "u": "https://www.claimsjournal.com/news/national/2026/10/06/340564.htm"
-      },
-      {
-        "t": "Jefferies: AppLovin gana cuota en e-commerce",
-        "src": "Parameter",
-        "u": "https://parameter.io/applovin-app-stock-captures-market-share-from-meta-and-google-latest-survey-data-reveals/"
-      },
-      {
-        "t": "Morningstar: foso estrecho y riesgo de la SEC",
-        "src": "Morningstar",
-        "u": "https://www.morningstar.com/stocks/applovin-sec-probe-into-data-collection-practices-lends-some-legitimacy-short-reports"
-      }
-    ]
-  },
-  "social": {
-    "pulse": [
-      {
-        "p": "Reddit",
-        "s": -1,
-        "note": "Según SentiSense, 1-nov: desconfianza tras el −64% en un año, la demanda colectiva y las dudas sobre la calidad de los datos. Llega con miedo a los resultados del 4-nov."
-      },
-      {
-        "p": "X",
-        "s": 1,
-        "note": "Los seguidores destacan el margen EBITDA superior al 80%, el cierre sin sanción de la investigación de la SEC y el e-commerce. Lo ven barato tras la caída."
-      },
-      {
-        "p": "YouTube",
-        "s": 0,
-        "note": "Vídeos divididos entre «oportunidad histórica» y «trampa de valor» antes de los resultados."
-      }
-    ],
-    "videos": [
-      {
-        "t": "AppLovin Stock Analysis 2026: Is the Dip a Buy?",
-        "u": "https://www.youtube.com/watch?v=wl2p2r7zRwA"
-      },
-      {
-        "t": "AppLovin (APP) – 2026 Q2 Earnings Analysis",
-        "u": "https://www.youtube.com/watch?v=cFyxCLM8LiA"
-      },
-      {
-        "t": "Why Is AppLovin Stock Falling, and is it a Buying Opportunity?",
-        "u": "https://www.youtube.com/watch?v=alF5T0G0baA"
-      },
-      {
-        "t": "APP Stock Crash: Why AppLovin Is Dropping & Price Prediction 2026",
-        "u": "https://www.youtube.com/watch?v=eskne5gy7DI"
-      },
-      {
-        "t": "AppLovin ($APP) Stock Analysis: Bears in Control, But a Stronger Zone Below",
-        "u": "https://www.youtube.com/watch?v=skaPYMOs1Ls"
-      }
-    ],
-    "pulseFuente": "Lectura del 1-nov-2026 con SentiSense, LunarCrush y Stocktwits (agregadores de redes sociales) y búsquedas propias."
-  },
-  "fin_manual": {
-    "nota": "Series que la SEC no publica (por segmento). Las etiquetas de trimestre deben coincidir con las de la SEC (p. ej. 3T26).",
-    "q": {
-      "labels": [
-        "2T25",
-        "3T25",
-        "4T25",
-        "1T26",
-        "2T26",
-        "3T26 guía"
-      ],
-      "series": []
-    },
-    "nota_antigua": "2021–22 incluyen el negocio de apps propias (vendido en 2025); desde 2023, solo software publicitario. 2026e: primer semestre real + guía del 3T + 4T estimado."
-  },
-  "peers": [
-    "TTD",
-    "META",
-    "GOOGL",
-    "U",
-    "DV",
-    "MGNI",
-    "PUBM"
+  "catalysts": [
+   {
+    "d": "16-nov-26",
+    "t": "Plazo para liderar la demanda colectiva por sus declaraciones sobre la mejora de los modelos."
+   },
+   {
+    "d": "4T26",
+    "t": "Campaña navideña: guía de 2.365–2.395 M$. El e-commerce gasta mucho en el 4T y menos en el 1T, así que la dirección avisa de 1T más flojos."
+   },
+   {
+    "d": "feb-27",
+    "t": "Resultados del 4T26 (fecha por confirmar): primera guía de 2027 y avance de la nueva arquitectura de AXON."
+   },
+   {
+    "d": "2027",
+    "t": "Despliegue completo de la nueva arquitectura de AXON (parcial en el 3T26; sin fecha ni impacto cuantificado)."
+   },
+   {
+    "d": "En curso",
+    "t": "Litigio con Unity por los datos de MAX, demanda colectiva y demanda del condado de San Diego."
+   }
   ]
+ },
+ "business": {
+  "model": "Cobra un porcentaje del gasto de los anunciantes que pasa por su subasta y registra solo esa comisión como ingreso.\nApenas necesita inversión en activos: su coste principal es el cómputo para entrenar y servir los modelos de IA.",
+  "customers": "Tiene dos lados. Los anunciantes, sobre todo estudios de juegos móviles que compran usuarios con un retorno objetivo, y desde junio de 2026 cualquier marca de e-commerce. Y los desarrolladores (publishers), que venden su espacio publicitario a través de MAX.",
+  "segNote": "Estimación propia: la empresa no desglosa ingresos por vertical. El gaming sigue siendo la mayoría.",
+  "segments": [
+   {
+    "n": "Anunciantes de juegos",
+    "v": 80
+   },
+   {
+    "n": "Consumo y e-commerce",
+    "v": 15
+   },
+   {
+    "n": "Adjust y otros",
+    "v": 5
+   }
+  ],
+  "customerTypes": [
+   {
+    "n": "Estudios de juegos móviles",
+    "d": "El núcleo. AppLovin capta ~50% del gasto en captación de usuarios del sector (Wells Fargo)."
+   },
+   {
+    "n": "Marcas de e-commerce",
+    "d": "Abierto a todos desde jun-26. Ganó 169 pb de cuota de presupuesto en la encuesta de Jefferies, hasta el 11%."
+   },
+   {
+    "n": "Publishers (MAX)",
+    "d": "Miles de apps integran su SDK para subastar su inventario. Son la fuente de datos del modelo."
+   },
+   {
+    "n": "Apps no gaming y CTV",
+    "d": "Fintech, salud y televisión conectada. Fase inicial."
+   }
+  ],
+  "quality": [
+   {
+    "n": "Márgenes",
+    "s": 5,
+    "note": "EBITDA ajustado 84%; margen operativo 77% en 12 meses"
+   },
+   {
+    "n": "Retorno sobre capital",
+    "s": 5,
+    "note": "ROE cercano al 190%; capex casi nulo"
+   },
+   {
+    "n": "Conversión en caja",
+    "s": 4,
+    "note": "FCF ~75% del EBITDA (54% en 2T26 por impuestos e intereses)"
+   },
+   {
+    "n": "Recurrencia de ingresos",
+    "s": 3,
+    "note": "Gasto publicitario variable, sin contratos plurianuales"
+   },
+   {
+    "n": "Diversificación",
+    "s": 2,
+    "note": "La mayoría de ingresos depende del gaming"
+   },
+   {
+    "n": "Balance",
+    "s": 4,
+    "note": "Deuda neta ~0,1x EBITDA; rating BBB+"
+   }
+  ],
+  "phase": 2,
+  "phaseNote": "Ha pasado del hipercrecimiento (+70% en 2025) a un crecimiento rentable: +53% en 2T26, y la dirección habla de ~30% anual a largo plazo.",
+  "clients": {
+   "nota": "Anunciantes de apps móviles, sobre todo estudios de videojuegos (la mayor parte de los ingresos), y desde 2025 tiendas online que se anuncian en sus juegos. Ingresos muy repartidos: ningún cliente supera el 10%. AppLovin no publica nombres de anunciantes.",
+   "kpis": [
+    {
+     "k": "Comercios en Axon",
+     "v": "~4.000",
+     "d": "dic-25; 450 nuevos en diciembre"
+    },
+    {
+     "k": "Ads Manager",
+     "v": "Abierto a todos",
+     "d": "autoservicio desde junio de 2026"
+    },
+    {
+     "k": "Gasto de anunciantes de consumo",
+     "v": "+28%",
+     "d": "2T26 frente al 4T25"
+    }
+   ],
+   "conocidos": [
+    {
+     "n": "Estudios de videojuegos móviles",
+     "sector": "Videojuegos",
+     "cifra": "La mayor parte de los ingresos",
+     "d": "Su base histórica: compran instalaciones de jugadores con Axon y monetizan sus juegos con la mediación MAX.",
+     "u": "https://www.modernretail.co/marketing/applovin-rebrands-its-ad-platform-as-axon-launches-ads-manager-on-referral-only-basis/",
+     "f": "oct-25"
+    },
+    {
+     "n": "Tiendas de Shopify",
+     "t": "SHOP",
+     "sector": "Comercio electrónico",
+     "cifra": "~4.000 comercios en Axon (dic-25)",
+     "d": "Se anuncian con la app oficial de Axon en Shopify; es la puerta de entrada de las marcas pequeñas y medianas.",
+     "u": "https://apps.shopify.com/axon",
+     "f": "2026"
+    },
+    {
+     "n": "Marcas de consumo de tamaño medio",
+     "sector": "Consumo",
+     "cifra": "E-commerce: 1.000 M$ al año",
+     "d": "Primer objetivo del e-commerce: récord de gasto en el 2T26 y autoservicio abierto a todos desde junio de 2026.",
+     "u": "https://commonthreadco.com/blogs/coachs-corner/applovin-q2-2026-earnings-ecommerce-advertisers",
+     "f": "ago-26"
+    }
+   ]
+  }
+ },
+ "moat": {
+  "width": "Estrecho",
+  "trend": "Estable, con riesgo",
+  "note": "El foso depende de los datos que ve a través de MAX. La negativa del tribunal a frenar el SDK de Unity (oct-26) es la primera grieta seria. S&P considera que replicar su motor exige mucho tiempo y capital.",
+  "sources": [
+   {
+    "n": "Efecto red",
+    "s": 4,
+    "note": "Más anunciantes y publishers → más datos → mejor modelo → más retorno"
+   },
+   {
+    "n": "Costes de cambio",
+    "s": 3,
+    "note": "El SDK de MAX está integrado en miles de apps"
+   },
+   {
+    "n": "Activos intangibles",
+    "s": 4,
+    "note": "AXON entrenado con miles de millones de subastas"
+   },
+   {
+    "n": "Ventaja de costes",
+    "s": 3,
+    "note": "Margen operativo del 77% frente a competidores en pérdidas"
+   },
+   {
+    "n": "Escala eficiente",
+    "s": 2,
+    "note": "Gaming cerca de su techo de cuota (~50%)"
+   }
+  ],
+  "comps": [
+   {
+    "n": "Unity (LevelPlay, Vector)",
+    "threat": 4,
+    "note": "Rival directo en mediación; el tribunal no frenó su SDK Ad Quality"
+   },
+   {
+    "n": "Meta (Advantage+)",
+    "threat": 4,
+    "note": "Domina el e-commerce y segmenta mejor"
+   },
+   {
+    "n": "Google (AdMob, Performance Max)",
+    "threat": 3,
+    "note": "Escala enorme, menos foco en juegos"
+   },
+   {
+    "n": "Moloco y CloudX",
+    "threat": 2,
+    "note": "DSP con IA; Oppenheimer ve intactas las ventajas de AppLovin"
+   }
+  ]
+ },
+ "growth": {
+  "score": 4,
+  "scoreNote": "Vuelve a acelerar: +55% en el 3T26 (gaming cerca del +50%) y guía del +43–44% para el 4T. La ruta al ~30% a medio plazo sigue en pie, pero el gaming se acerca a su techo de cuota y el e-commerce será estacional.",
+  "tam": "Publicidad digital de rendimiento: Meta y Google facturan más de 400.000 M$ al año en publicidad; AppLovin, unos 8.000 M$.",
+  "guidance": "Guía 4T26: ingresos 2.365–2.395 M$ (+43–44% interanual, +8–10% trimestral) y EBITDA ajustado 1.995–2.025 M$ (84–85%). La anterior (3T26: 2.055–2.085 M$) se superó en ~100 M$. A largo plazo la dirección mantiene ~30% anual, con poca visibilidad trimestre a trimestre.",
+  "drivers": [
+   {
+    "n": "Mejoras de Axon en videojuegos",
+    "impact": 5,
+    "h": "Continuo",
+    "st": "maduro",
+    "k": "+58% de precio por instalación",
+    "peso": "el núcleo de los ingresos",
+    "d": "Cada nueva versión del modelo de IA de Axon predice mejor qué usuario va a pagar en un juego, así que los anunciantes pujan más por cada instalación. En el 2T26 el precio por instalación subió un 58% con un 2% menos de instalaciones: el crecimiento viene de la calidad, no del volumen.",
+    "ev": "Precio por instalación e ingresos de publicidad trimestrales; comentarios sobre nuevas versiones del modelo.",
+    "r": "Saturación del mercado de juegos móviles y que el modelo deje de mejorar (la dirección pausó una actualización en el 2T26)."
+   },
+   {
+    "n": "E-commerce en autoservicio",
+    "impact": 4,
+    "h": "4T26–2027",
+    "st": "en marcha",
+    "k": "Ritmo anual de 1.000 M$ (2T26)",
+    "peso": "gasto +28% sobre el pico del 4T25",
+    "d": "Llevar la misma máquina de anuncios a tiendas online que se anuncian dentro de los juegos. El autoservicio abrió a anunciantes de todo el mundo en junio de 2026, con Shopify como puerta de entrada. La web y el e-commerce ya van a un ritmo de 1.000 M$ al año.",
+    "ev": "Número de anunciantes de e-commerce y su gasto; retención de anunciantes tras los primeros meses.",
+    "r": "Que el retorno para tiendas sea peor que en Meta o Google y los anunciantes no repitan.",
+    "u": "https://www.techtimes.com/articles/323336/20260806/applovin-stock-lost-40b-16m-miss-while-sec-cleared-axon-data-probe.htm"
+   },
+   {
+    "n": "Nuevos verticales e internacional",
+    "impact": 3,
+    "h": "2027+",
+    "st": "temprano",
+    "k": "Fintech, salud y TV conectada",
+    "peso": "todavía marginal",
+    "d": "Tras el e-commerce, la dirección quiere abrir Axon a otros sectores (servicios financieros, salud) y a la televisión conectada, y crecer fuera de EE. UU.",
+    "ev": "Anuncios de lanzamientos y primeros datos de gasto por vertical.",
+    "r": "Regulación de privacidad y publicidad en sectores sensibles."
+   },
+   {
+    "n": "Recompras",
+    "impact": 2,
+    "h": "Continuo",
+    "st": "maduro",
+    "k": "~1.550 M$ en el 1S26",
+    "peso": "−1% de acciones al año",
+    "d": "Con márgenes de EBITDA superiores al 80% la caja sobra; las recompras reducen el número de acciones y suben el beneficio por acción.",
+    "ev": "Acciones en circulación trimestre a trimestre.",
+    "r": "Recomprar caro si la acción cotiza con mucha prima."
+   }
+  ]
+ },
+ "mgmt": {
+  "note": "Empresa controlada: Foroughi y Herald Chen tienen un pacto de voto sobre las acciones de clase B. El consejo es mayoritariamente independiente, con Craig Billings como consejero independiente coordinador. El CEO y el CTO vendieron acciones en junio de 2026.",
+  "people": [
+   {
+    "n": "Adam Foroughi",
+    "role": "Cofundador, CEO y presidente",
+    "since": "2012",
+    "note": "Controla el 60,9% del voto. Salario de 400.000 $; casi toda su retribución es en acciones ligadas a resultados."
+   },
+   {
+    "n": "Matt Stumpf",
+    "role": "Director financiero",
+    "since": "",
+    "note": "Comunicó el cierre de la consulta de la SEC en ago-26."
+   },
+   {
+    "n": "Basil Shikin",
+    "role": "Director de tecnología",
+    "since": "",
+    "note": "Responsable técnico del motor AXON."
+   },
+   {
+    "n": "Herald Chen",
+    "role": "Consejero",
+    "since": "",
+    "note": "Firmante del pacto de voto con Foroughi."
+   }
+  ],
+  "scores": [
+   {
+    "n": "Alineación con el accionista",
+    "s": 5,
+    "note": "Fundador con participación muy grande"
+   },
+   {
+    "n": "Asignación de capital",
+    "s": 4,
+    "note": "Venta acertada del negocio de apps; recompras constantes"
+   },
+   {
+    "n": "Credibilidad y ejecución",
+    "s": 3,
+    "note": "Primer incumplimiento de guía en 2T26 desde la salida a bolsa"
+   },
+   {
+    "n": "Gobierno corporativo",
+    "s": 2,
+    "note": "Voto dual; CEO y presidente a la vez"
+   },
+   {
+    "n": "Transparencia",
+    "s": 2,
+    "note": "No desglosa e-commerce; mucha métrica no GAAP"
+   }
+  ],
+  "alloc": {
+   "label": "Uso de la caja, 9M 2026 (M$)",
+   "items": [
+    {
+     "n": "Recompras",
+     "v": 2811
+    },
+    {
+     "n": "Retenciones por liquidación neta",
+     "v": 56
+    },
+    {
+     "n": "Otras inversiones",
+     "v": 25
+    },
+    {
+     "n": "Dividendos",
+     "v": 0
+    }
+   ]
+  },
+  "vote": {
+   "label": "Poder de voto (%)",
+   "items": [
+    {
+     "n": "Foroughi y pacto de voto",
+     "v": 60.9
+    },
+    {
+     "n": "Resto de accionistas",
+     "v": 39.1
+    }
+   ]
+  },
+  "call": {
+   "periodEnd": "2026-09-30",
+   "q": "3T 2026",
+   "date": "4-nov-2026",
+   "doc": "Nota de resultados (8-K, Exhibit 99.1) y resumen de la llamada (MarketBeat)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000068/exhibit991-3q26earningspre.htm",
+   "nota": "Cifras de la nota de resultados oficial (SEC). Comentarios de la llamada según el resumen de MarketBeat publicado en Yahoo Finance (no es la transcripción oficial).",
+   "dir": [
+    "Ingresos +55% interanual y +14% trimestral, ~100 M$ por encima del máximo de la guía.",
+    "Gaming crece cerca del 50%: lo explican el juego móvil y las mejoras del modelo.",
+    "Nueva arquitectura de AXON que permite entrenar modelos más grandes; despliegue parcial en el 3T26, comparable en complejidad a AXON 2.0, sin fecha ni impacto cuantificado.",
+    "Gasto de anunciantes de consumo: crece a doble dígito trimestral y triple dígito interanual (no desglosa ingresos por vertical)."
+   ],
+   "ret": [
+    "Las mejoras del modelo y la llegada de clientes son difíciles de prever cada trimestre.",
+    "Los anunciantes nuevos y pequeños tardan en validar resultados (estudios de incrementalidad) antes de gastar más.",
+    "El e-commerce es estacional: 4T fuertes y 1T más flojos. La TV conectada está en pruebas y no aportará pronto."
+   ],
+   "guia": [
+    "4T26: ingresos de 2.365–2.395 M$ y EBITDA ajustado de 1.995–2.025 M$ (margen del 84–85%).",
+    "Incluye estacionalidad normal, crecimiento en consumo, las mejoras del modelo ya activas y más gasto en cómputo de entrenamiento.",
+    "Conversión de EBITDA en FCF del ~70–75% en el año (77% en el 3T26: 1.418 M$)."
+   ],
+   "cap": [
+    "Recompras y retenciones de 4,1 M de acciones por ~1.400 M$ en el 3T26; el CFO dice que aceleraron porque el precio se alejó del valor intrínseco.",
+    "El consejo amplía la autorización en 3.200 M$, hasta 3.600 M$ a finales de octubre.",
+    "Caja de 3.174 M$ y deuda a largo plazo de 3.516 M$; 331 M de acciones al cierre del trimestre."
+   ]
+  }
+ },
+ "risks": [
+  {
+   "n": "AXON mejora más despacio",
+   "cat": "Operativo",
+   "p": 2,
+   "i": 5,
+   "note": "En el 3T26 superó la guía en ~100 M$; la nueva arquitectura aún no tiene fecha ni impacto"
+  },
+  {
+   "n": "Erosión del dato de MAX",
+   "cat": "Competencia",
+   "p": 3,
+   "i": 4,
+   "note": "El tribunal negó la cautelar contra el SDK de Unity (oct-26)"
+  },
+  {
+   "n": "Cambios de privacidad de Apple o Google",
+   "cat": "Regulatorio",
+   "p": 2,
+   "i": 5,
+   "note": "Una restricción de plataforma golpearía la segmentación"
+  },
+  {
+   "n": "El e-commerce no escala",
+   "cat": "Operativo",
+   "p": 3,
+   "i": 3,
+   "note": "Gasto de consumo +doble dígito trimestral, pero los anunciantes pequeños tardan en validar y el 1T será flojo por estacionalidad"
+  },
+  {
+   "n": "Litigios",
+   "cat": "Legal",
+   "p": 3,
+   "i": 2,
+   "note": "Demanda colectiva por sus declaraciones sobre IA; San Diego por datos de menores"
+  },
+  {
+   "n": "Coste de cómputo",
+   "cat": "Financiero",
+   "p": 2,
+   "i": 2,
+   "note": "Margen del 84% en el 3T26 y guía del 84–85%; el gasto en centros de datos bajó en % de ingresos"
+  },
+  {
+   "n": "Ciclo publicitario",
+   "cat": "Mercado",
+   "p": 2,
+   "i": 3,
+   "note": "Beta cercana a 2,5"
+  },
+  {
+   "n": "Gobierno corporativo",
+   "cat": "Gobierno",
+   "p": 2,
+   "i": 2,
+   "note": "Voto dual y ventas de directivos en junio"
+  }
+ ],
+ "v": {
+  "shares": 335,
+  "cash": 3174,
+  "debt": 3516,
+  "rev0": 8330,
+  "year0": 2026,
+  "g": [
+   25,
+   20,
+   16,
+   13,
+   10
+  ],
+  "m1": 83,
+  "m5": 80,
+  "da": 1.5,
+  "da5": 1.5,
+  "sbc": 4,
+  "capex": 0.3,
+  "capex5": 0.3,
+  "nwc": 10,
+  "tax": 16,
+  "wacc": 11,
+  "tg": 3,
+  "exit": 14,
+  "method": "blend",
+  "eps": 18.55,
+  "pe": 20,
+  "evm": 14,
+  "scn": [
+   {
+    "n": "Bajista",
+    "dg": -12,
+    "dm": -5,
+    "p": 25
+   },
+   {
+    "n": "Base",
+    "dg": 0,
+    "dm": 0,
+    "p": 50
+   },
+   {
+    "n": "Alcista",
+    "dg": 8,
+    "dm": 1,
+    "p": 25
+   }
+  ]
+ },
+ "verdict": {
+  "rating": "Comprar",
+  "conviction": 4,
+  "buyBelow": 300,
+  "horizon": "12–18 meses",
+  "summary": "El 4-nov era decisivo y salió bien: ingresos +55% (~100 M$ sobre la guía), margen del 84%, FCF de vuelta al 77% del EBITDA y guía del 4T un ~6% por encima del consenso. La duda del 2T26 sobre el frenazo de AXON se disipa en parte y la dirección anuncia una nueva arquitectura del modelo. Tras subir ~25% (~339 $) ya cotiza por encima del precio de compra de 300 $: la tesis se refuerza, pero conviene esperar retrocesos para ampliar. Vigilar el 1T, estacionalmente flojo por el e-commerce.",
+  "bull": [
+   "Vuelve a superar la guía (~100 M$) y guía el 4T por encima del consenso (2.380 M$ frente a 2.250 M$ en el punto medio)",
+   "Margen EBITDA del 84% y FCF del 77% del EBITDA en el 3T26",
+   "Nueva arquitectura de AXON en despliegue: margen para nuevas mejoras",
+   "Recompras agresivas: ~1.400 M$ en el 3T26 y autorización de 3.600 M$"
+  ],
+  "bear": [
+   "La mejora del modelo no es predecible cada trimestre y la nueva arquitectura no tiene fecha ni impacto",
+   "Unity puede erosionar el dato de MAX (el tribunal negó la cautelar)",
+   "El e-commerce será estacional: 1T más flojos",
+   "Litigios abiertos: demanda colectiva y San Diego"
+  ],
+  "watch": [
+   "Despliegue completo de la nueva arquitectura de AXON y su efecto en ingresos",
+   "Guía del 1T27 y caída estacional del e-commerce",
+   "Conversión de FCF en el ~70–75% anual",
+   "Comisiones de MAX tras el caso Unity"
+  ]
+ },
+ "notes": "",
+ "sources": {
+  "web": "https://www.applovin.com",
+  "ir": "https://investors.applovin.com",
+  "docs": [
+   {
+    "cat": "Resultados trimestrales",
+    "t": "Nota de prensa de resultados 2T26 (PDF)",
+    "d": "05-ago-2026",
+    "u": "https://s21.q4cdn.com/165405286/files/doc_financials/2026/q2/AppLovin-2Q26-Earnings-Press-Release.pdf"
+   },
+   {
+    "cat": "Presentaciones",
+    "t": "Financial Update 2T26 (PDF)",
+    "d": "05-ago-2026",
+    "u": "https://s21.q4cdn.com/165405286/files/doc_financials/2026/q2/Financial-Update-Q2-2026.pdf"
+   },
+   {
+    "cat": "Resultados trimestrales",
+    "t": "8-K de resultados 2T26 (Exhibit 99.1)",
+    "d": "05-ago-2026",
+    "u": "https://www.sec.gov/Archives/edgar/data/0001751008/000175100826000057/exhibit991-2q26earningspre.htm"
+   },
+   {
+    "cat": "Formularios SEC",
+    "t": "10-Q segundo trimestre 2026",
+    "d": "05-ago-2026",
+    "u": "https://www.sec.gov/Archives/edgar/data/0001751008/000175100826000059/app-20260630.htm"
+   },
+   {
+    "cat": "Formularios SEC",
+    "t": "10-Q primer trimestre 2026",
+    "d": "06-may-2026",
+    "u": "https://www.sec.gov/Archives/edgar/data/0001751008/000175100826000044/app-20260331.htm"
+   },
+   {
+    "cat": "Formularios SEC",
+    "t": "10-K ejercicio 2025",
+    "d": "feb-2026",
+    "u": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000010/app-20251231.htm"
+   },
+   {
+    "cat": "Formularios SEC",
+    "t": "Índice de documentos del 10-K 2025",
+    "d": "feb-2026",
+    "u": "https://www.sec.gov/Archives/edgar/data/1751008/0001751008-26-000010-index.html"
+   },
+   {
+    "cat": "Informe anual",
+    "t": "Informe anual 2025 (PDF)",
+    "d": "2026",
+    "u": "https://s21.q4cdn.com/165405286/files/doc_financials/2025/ar/d6d59334-570b-453f-8c55-30d0bda96a8e.pdf"
+   },
+   {
+    "cat": "Formularios SEC",
+    "t": "S-1 de la salida a bolsa",
+    "d": "2021",
+    "u": "https://www.sec.gov/Archives/edgar/data/1751008/000119312521340630/d223514ds1.htm"
+   },
+   {
+    "cat": "Transcripciones",
+    "t": "Llamada de resultados 2T26 (MarketBeat)",
+    "d": "05-ago-2026",
+    "u": "https://www.marketbeat.com/earnings/reports/2026-8-4-applovin-co-stock/"
+   },
+   {
+    "cat": "Gobierno corporativo",
+    "t": "Perfil de Adam Foroughi y pacto de voto (proxy 2025)",
+    "d": "2025",
+    "u": "https://fintool.com/app/research/companies/APP/people/adam-foroughi"
+   }
+  ],
+  "news": [
+   {
+    "t": "La SEC cierra su investigación sin acción",
+    "src": "Tech Times",
+    "u": "https://www.techtimes.com/articles/323336/20260806/applovin-stock-lost-40b-16m-miss-while-sec-cleared-axon-data-probe.htm"
+   },
+   {
+    "t": "Fitch sube el rating a BBB+",
+    "src": "Börse Global",
+    "u": "https://www.boerse-global.de/applovin-fitch-hebt-auf-bbb-an/801446"
+   },
+   {
+    "t": "AppLovin demanda a Unity por los datos de MAX",
+    "src": "Yahoo Finance / TIKR",
+    "u": "https://finance.yahoo.com/markets/stocks/articles/applovin-took-unity-court-over-153345724.html"
+   },
+   {
+    "t": "Recortes de precio objetivo de octubre",
+    "src": "TIKR",
+    "u": "https://www.tikr.com/blog/oppenheimer-cut-its-applovin-target-it-still-sees-80-upside"
+   },
+   {
+    "t": "San Diego demanda a AppLovin por anuncios a menores",
+    "src": "Claims Journal",
+    "u": "https://www.claimsjournal.com/news/national/2026/10/06/340564.htm"
+   },
+   {
+    "t": "Jefferies: AppLovin gana cuota en e-commerce",
+    "src": "Parameter",
+    "u": "https://parameter.io/applovin-app-stock-captures-market-share-from-meta-and-google-latest-survey-data-reveals/"
+   },
+   {
+    "t": "Morningstar: foso estrecho y riesgo de la SEC",
+    "src": "Morningstar",
+    "u": "https://www.morningstar.com/stocks/applovin-sec-probe-into-data-collection-practices-lends-some-legitimacy-short-reports"
+   }
+  ]
+ },
+ "social": {
+  "pulse": [
+   {
+    "p": "Reddit",
+    "s": -1,
+    "note": "Según SentiSense, 1-nov: desconfianza tras el −64% en un año, la demanda colectiva y las dudas sobre la calidad de los datos. Llega con miedo a los resultados del 4-nov."
+   },
+   {
+    "p": "X",
+    "s": 1,
+    "note": "Los seguidores destacan el margen EBITDA superior al 80%, el cierre sin sanción de la investigación de la SEC y el e-commerce. Lo ven barato tras la caída."
+   },
+   {
+    "p": "YouTube",
+    "s": 0,
+    "note": "Vídeos divididos entre «oportunidad histórica» y «trampa de valor» antes de los resultados."
+   }
+  ],
+  "videos": [
+   {
+    "t": "AppLovin Stock Analysis 2026: Is the Dip a Buy?",
+    "u": "https://www.youtube.com/watch?v=wl2p2r7zRwA"
+   },
+   {
+    "t": "AppLovin (APP) – 2026 Q2 Earnings Analysis",
+    "u": "https://www.youtube.com/watch?v=cFyxCLM8LiA"
+   },
+   {
+    "t": "Why Is AppLovin Stock Falling, and is it a Buying Opportunity?",
+    "u": "https://www.youtube.com/watch?v=alF5T0G0baA"
+   },
+   {
+    "t": "APP Stock Crash: Why AppLovin Is Dropping & Price Prediction 2026",
+    "u": "https://www.youtube.com/watch?v=eskne5gy7DI"
+   },
+   {
+    "t": "AppLovin ($APP) Stock Analysis: Bears in Control, But a Stronger Zone Below",
+    "u": "https://www.youtube.com/watch?v=skaPYMOs1Ls"
+   }
+  ],
+  "pulseFuente": "Lectura del 1-nov-2026 con SentiSense, LunarCrush y Stocktwits (agregadores de redes sociales) y búsquedas propias."
+ },
+ "fin_manual": {
+  "nota": "Series que la SEC no publica (por segmento). Las etiquetas de trimestre deben coincidir con las de la SEC (p. ej. 3T26).",
+  "q": {
+   "labels": [
+    "2T25",
+    "3T25",
+    "4T25",
+    "1T26",
+    "2T26",
+    "3T26 guía"
+   ],
+   "series": []
+  },
+  "nota_antigua": "2021–22 incluyen el negocio de apps propias (vendido en 2025); desde 2023, solo software publicitario. 2026e: primer semestre real + guía del 3T + 4T estimado."
+ },
+ "peers": [
+  "TTD",
+  "META",
+  "GOOGL",
+  "U",
+  "DV",
+  "MGNI",
+  "PUBM"
+ ]
 }
