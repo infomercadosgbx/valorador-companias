@@ -131,15 +131,45 @@
   }
  ],
  "guia": {
-  "items": [],
+  "items": [
+   {
+    "concepto": "ingresos",
+    "min": 2365000000.0,
+    "max": 2395000000.0,
+    "medio": 2380000000.0,
+    "texto": "Revenue: $2,365 – $2,395 million",
+    "estimado": {
+     "valor": 2279916763,
+     "fuente": "Finnhub · consenso del trimestre siguiente (2026-11-05)",
+     "url": "https://finnhub.io/docs/api/earnings-calendar"
+    },
+    "dif_pct": 4.39,
+    "resultado": "Beat"
+   },
+   {
+    "concepto": "ebitda",
+    "min": 1995000000.0,
+    "max": 2025000000.0,
+    "medio": 2010000000.0,
+    "texto": "Adjusted EBITDA: $1,995 – $2,025 million",
+    "estimado": null,
+    "dif_pct": null,
+    "resultado": null
+   }
+  ],
   "texto": [
-   "4Q26",
-   "Adjusted EBITDA Margin 84 % 85 %",
-   "1 Includes repurchased shares as well as withholdings upon net share settlement of vested equity awards. Total cost includes repurchase costs, including commissions, taxes, and fees, as well as cash paid in connection with tax withholding and remittance obligations upon net share settlement. Future repurchases may be made from time to time through open market purchases or through privately negotiated transactions, subject to market conditions, applicable legal requirements, including surplus and"
+   "Revenue: $2,365 – $2,395 million",
+   "Adjusted EBITDA: $1,995 – $2,025 million",
+   "Adjusted EBITDA Margin: 84% – 85%"
   ],
   "titulo": "Fourth Quarter 2026 Financial Guidance Summary",
   "fuente": "SEC EDGAR · 8-K, Exhibit 99.1 (texto original)",
-  "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000068/exhibit991-3q26earningspre.htm"
+  "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000068/exhibit991-3q26earningspre.htm",
+  "texto_es": [
+   "Ingresos: 2.365–2.395 M$",
+   "EBITDA ajustado: 1.995–2.025 M$",
+   "Margen de EBITDA ajustado: 84–85%"
+  ]
  },
  "reaccion": {
   "hora": "tras el cierre",
@@ -1213,21 +1243,253 @@
    }
   ]
  },
+ "dentro": {
+  "periodo": "3T26",
+  "ingresos": [
+   {
+    "periodo": "2T24",
+    "valor": 711015000,
+    "interanual_pct": null
+   },
+   {
+    "periodo": "3T24",
+    "valor": 835186000,
+    "interanual_pct": null
+   },
+   {
+    "periodo": "1T25",
+    "valor": 1158974000,
+    "interanual_pct": null
+   },
+   {
+    "periodo": "2T25",
+    "valor": 1258754000,
+    "interanual_pct": 77.04
+   },
+   {
+    "periodo": "3T25",
+    "valor": 1405045000,
+    "interanual_pct": 68.23
+   },
+   {
+    "periodo": "4T25",
+    "valor": 1657944000,
+    "interanual_pct": null
+   },
+   {
+    "periodo": "1T26",
+    "valor": 1842449000,
+    "interanual_pct": 58.97
+   },
+   {
+    "periodo": "2T26",
+    "valor": 1923686000,
+    "interanual_pct": 52.82
+   },
+   {
+    "periodo": "3T26",
+    "valor": 2184815000,
+    "interanual_pct": 55.5
+   }
+  ],
+  "caja": [
+   {
+    "periodo": "3T25",
+    "beneficio_neto": 835545000,
+    "caja_operativa": 1053422000,
+    "capex": null,
+    "fcf": null,
+    "conversion_pct": 126.0
+   },
+   {
+    "periodo": "4T25",
+    "beneficio_neto": 1102256000,
+    "caja_operativa": 1313734000,
+    "capex": null,
+    "fcf": null,
+    "conversion_pct": 119.0
+   },
+   {
+    "periodo": "1T26",
+    "beneficio_neto": 1205613000,
+    "caja_operativa": 1291393000,
+    "capex": null,
+    "fcf": null,
+    "conversion_pct": 107.0
+   },
+   {
+    "periodo": "2T26",
+    "beneficio_neto": 1266538000,
+    "caja_operativa": 869040000,
+    "capex": null,
+    "fcf": null,
+    "conversion_pct": 69.0
+   },
+   {
+    "periodo": "3T26",
+    "beneficio_neto": 1438902000,
+    "caja_operativa": 1428842000,
+    "capex": null,
+    "fcf": null,
+    "conversion_pct": 99.0
+   }
+  ],
+  "capex_solo_anual": true,
+  "gastos": [
+   {
+    "clave": "coste_ventas",
+    "nombre": "Coste de ventas",
+    "valor": 240765000,
+    "pct": 11.0,
+    "pct_ya": 12.4
+   },
+   {
+    "clave": "investigacion_desarrollo",
+    "nombre": "I+D",
+    "valor": 101817000,
+    "pct": 4.7,
+    "pct_ya": 3.1
+   },
+   {
+    "clave": "ventas_marketing",
+    "nombre": "Ventas y marketing",
+    "valor": 68803000,
+    "pct": 3.1,
+    "pct_ya": 3.5
+   },
+   {
+    "clave": "gastos_admin",
+    "nombre": "Generales y administración",
+    "valor": 64462000,
+    "pct": 3.0,
+    "pct_ya": 4.2
+   },
+   {
+    "clave": "remuneracion_acciones",
+    "nombre": "Remuneración en acciones (incluida arriba)",
+    "valor": 84165000,
+    "pct": 3.9,
+    "pct_ya": 2.4
+   }
+  ],
+  "accionista": {
+   "recompras": 1278270000,
+   "recompras_ya": 501900000,
+   "recompras_12m": 3228837000,
+   "dividendos": null,
+   "dividendos_12m": null,
+   "acciones_diluidas": 334769000,
+   "acciones_diluidas_ya": 340974000,
+   "acciones_var_pct": -1.82,
+   "remuneracion_acciones": 84165000,
+   "remuneracion_pct_ingresos": 3.9,
+   "retorno_sobre_caja_pct": 66.0,
+   "retorno_base": "caja operativa"
+  },
+  "fuente": "SEC EDGAR · XBRL (10-Q/10-K)",
+  "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000069/0001751008-26-000069-index.htm",
+  "fecha_presentacion": "2026-11-04"
+ },
  "cita": null,
  "destacados": {
   "titulo": "Third Quarter 2026 Financial Highlights",
   "texto": [
-   "September 30, Nine Months Ended September 30,",
-   "Revenue $2,185 $1,405 55 % $5,951 $3,823 56 %",
-   "Net Income $1,439 $836 72 % $3,911 $2,231 75 %",
-   "Net Income from Continuing Operations $1,439 $836 72 % $3,911 $2,331 68 %",
-   "Adjusted EBITDA $1,842 $1,158 59 % $5,013 $3,114 61 %",
-   "Additional Financial Highlights:",
-   "● Net cash from operating activities and Free Cash Flow were $1.4 billion for the third quarter 2026.",
-   "● Basic and Diluted earnings per share (\"EPS\") were $4.31 and $4.30, respectively, for the third quarter 2026.",
-   "● During the third quarter 2026, we repurchased and withheld 4.1 million shares of our Class A common stock, for a total cost of $1.4 billion 1 . At the end of 3Q 2026, we had 331 million shares of our Class A and Class B common stock outstanding.",
-   "● Given continued confidence in the Company's future, our board of directors approved an increase to our share repurchase authorization of $3.2 billion, bringing our total current share repurchase authorization to $3.6 billion as of the end of October."
-  ]
+   "Net cash from operating activities and Free Cash Flow were $1.4 billion for the third quarter 2026.",
+   "Basic and Diluted earnings per share (\"EPS\") were $4.31 and $4.30, respectively, for the third quarter 2026.",
+   "During the third quarter 2026, we repurchased and withheld 4.1 million shares of our Class A common stock, for a total cost of $1.4 billion 1 . At the end of 3Q 2026, we had 331 million shares of our Class A and Class B common stock outstanding.",
+   "Given continued confidence in the Company's future, our board of directors approved an increase to our share repurchase authorization of $3.2 billion, bringing our total current share repurchase authorization to $3.6 billion as of the end of October."
+  ],
+  "filas": [
+   {
+    "etiqueta": "Revenue",
+    "valores": [
+     "$2,185",
+     "$1,405",
+     "55%",
+     "$5,951",
+     "$3,823",
+     "56%"
+    ],
+    "etiqueta_es": "Ingresos",
+    "valores_es": [
+     "2.185",
+     "1.405",
+     "55%",
+     "5.951",
+     "3.823",
+     "56%"
+    ]
+   },
+   {
+    "etiqueta": "Net Income",
+    "valores": [
+     "$1,439",
+     "$836",
+     "72%",
+     "$3,911",
+     "$2,231",
+     "75%"
+    ],
+    "etiqueta_es": "Beneficio neto",
+    "valores_es": [
+     "1.439",
+     "836",
+     "72%",
+     "3.911",
+     "2.231",
+     "75%"
+    ]
+   },
+   {
+    "etiqueta": "Net Income from Continuing Operations",
+    "valores": [
+     "$1,439",
+     "$836",
+     "72%",
+     "$3,911",
+     "$2,331",
+     "68%"
+    ],
+    "etiqueta_es": "Beneficio neto de actividades continuadas",
+    "valores_es": [
+     "1.439",
+     "836",
+     "72%",
+     "3.911",
+     "2.331",
+     "68%"
+    ]
+   },
+   {
+    "etiqueta": "Adjusted EBITDA",
+    "valores": [
+     "$1,842",
+     "$1,158",
+     "59%",
+     "$5,013",
+     "$3,114",
+     "61%"
+    ],
+    "etiqueta_es": "EBITDA ajustado",
+    "valores_es": [
+     "1.842",
+     "1.158",
+     "59%",
+     "5.013",
+     "3.114",
+     "61%"
+    ]
+   }
+  ],
+  "cabecera": "(In millions, except percentages) 2026 2025 % Change 2026 2025 % Change",
+  "unidad": "million",
+  "texto_es": [
+   "La caja operativa y el flujo de caja libre fueron de 1.400 M$ en el 3T26.",
+   "El beneficio por acción (BPA) básico y diluido fue de 4,31 $ y 4,30 $ en el 3T26.",
+   "En el 3T26 recompramos y retuvimos 4,1 millones de acciones de clase A por un coste total de 1.400 M$ (1). Al cierre del 3T26 había 331 millones de acciones de clase A y B en circulación.",
+   "Por la confianza en el futuro de la compañía, el consejo amplió en 3.200 M$ la autorización de recompra de acciones, hasta un total de 3.600 M$ a finales de octubre."
+  ],
+  "cabecera_es": "(millones de $, salvo porcentajes y datos por acción) 2026 2025 % var. 2026 2025 % var."
  },
  "lectura": {
   "estado": "revisada",
@@ -1283,5 +1545,10 @@
   "bpa_real": 4.3,
   "ingresos_reales": 2184820000
  },
- "_cifras_nota": null
+ "_cifras_nota": null,
+ "traduccion": {
+  "pendientes": 0,
+  "completa": true,
+  "fuente": "Glosario automático y i18n/notas_es.json (revisión tras resultados)"
+ }
 }

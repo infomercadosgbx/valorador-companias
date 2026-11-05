@@ -145,25 +145,35 @@
     "min": 6800000000.0,
     "max": 7600000000.0,
     "medio": 7200000000.0,
-    "texto": "Ongoing Operations Adjusted EBITDA $6,800 - $7,600",
+    "texto": "Ongoing Operations Adjusted EBITDA: $6,800 – $7,600 million",
     "estimado": null,
     "dif_pct": null,
     "resultado": null
    }
   ],
   "texto": [
-   "Ongoing Operations Adjusted EBITDA $6,800 - $7,600",
-   "Ongoing Operations Adjusted FCFbG $3,925 - $4,725",
+   "Reaffirmed: 2026",
+   "Ongoing Operations Adjusted EBITDA: $6,800 – $7,600 million",
+   "Ongoing Operations Adjusted FCFbG: $3,925 – $4,725 million",
    "As of Aug. 3, 2026, Vistra had hedged approximately 100% of its expected generation volumes for 2026, approximately 94% for 2027, and approximately 72% for 2028. The company's comprehensive hedging program provides support for the reaffirmed 2026 guidance ranges and the previously announced Ongoing Operations Adjusted EBITDA midpoint opportunity 2 range of $7.4 billion to $7.8 billion for 2027. 3 The ranges exclude any potential benefits from the pending acquisition of Cogentrix and the signed p",
    "As of Aug. 3, 2026:",
-   "• Vistra executed ~$6.5 billion in share repurchases since November 2021.",
-   "• Vistra had ~336 million shares outstanding, representing a ~30% reduction of the amount of the shares outstanding on Nov. 2, 2021.",
-   "• ~$1.2 billion of the share repurchase authorization remained available, which we expect to complete no later than year-end 2027.",
-   "As of June 30, 2026, Vistra had total available liquidity of approximately $6,295 million, including cash and cash equivalents of $435 million, $4,408 million of availability under its corporate revolving credit facility, and $1,452 million of availability under its commodity-linked revolving credit facility. Available capacity under the commodity-linked revolving credit facility reflects the borrowing base of $1,452 million and excludes $298 million of commitments under the facility that were n"
+   "Vistra executed ~$6.5 billion in share repurchases since November 2021.",
+   "Vistra had ~336 million shares outstanding, representing a ~30% reduction of the amount of the shares outstanding on Nov. 2, 2021.",
+   "~$1.2 billion of the share repurchase authorization remained available, which we expect to complete no later than year-end 2027."
   ],
   "titulo": "Guidance",
   "fuente": "SEC EDGAR · 8-K, Exhibit 99.1 (texto original)",
-  "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000017/vistra-20260630xearningsre.htm"
+  "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000017/vistra-20260630xearningsre.htm",
+  "texto_es": [
+   "Reafirmada: 2026",
+   "EBITDA ajustado de operaciones continuadas: 6.800–7.600 M$",
+   "Caja libre ajustada antes de crecimiento (FCFbG) de operaciones continuadas: 3.925–4.725 M$",
+   "A 3 de agosto de 2026, Vistra tenía cubierta aproximadamente el 100% de su producción prevista para 2026, cerca del 94% para 2027 y cerca del 72% para 2028. Su programa de coberturas respalda las horquillas reafirmadas de 2026 y la oportunidad ya anunciada para el punto medio del EBITDA ajustado de operaciones continuadas (2), de 7.400 a 7.800 M$ en 2027. (3) Las horquillas no incluyen los posibles beneficios de la compra pendiente de Cogentrix ni del…",
+   "A 3 de agosto de 2026:",
+   "Vistra ha recomprado acciones por unos 6.500 M$ desde noviembre de 2021.",
+   "Vistra tenía unos 336 millones de acciones en circulación, cerca de un 30% menos que el 2 de noviembre de 2021.",
+   "Quedaban disponibles unos 1.200 M$ de la autorización de recompra, que espera completar como muy tarde a finales de 2027."
+  ]
  },
  "reaccion": {
   "hora": "tras el cierre",
@@ -1540,21 +1550,156 @@
    }
   ]
  },
+ "dentro": {
+  "periodo": "2T26",
+  "ingresos": [
+   {
+    "periodo": "2T24",
+    "valor": 3599000000,
+    "interanual_pct": 18.9
+   },
+   {
+    "periodo": "3T24",
+    "valor": 4341000000,
+    "interanual_pct": -9.35
+   },
+   {
+    "periodo": "4T24",
+    "valor": 3662000000,
+    "interanual_pct": 27.11
+   },
+   {
+    "periodo": "1T25",
+    "valor": 4250000000,
+    "interanual_pct": 34.54
+   },
+   {
+    "periodo": "2T25",
+    "valor": 3753000000,
+    "interanual_pct": 4.28
+   },
+   {
+    "periodo": "3T25",
+    "valor": 4778000000,
+    "interanual_pct": 10.07
+   },
+   {
+    "periodo": "4T25",
+    "valor": 4805000000,
+    "interanual_pct": 31.21
+   },
+   {
+    "periodo": "1T26",
+    "valor": 5001000000,
+    "interanual_pct": 17.67
+   },
+   {
+    "periodo": "2T26",
+    "valor": 4401000000,
+    "interanual_pct": 17.27
+   }
+  ],
+  "caja": [
+   {
+    "periodo": "2T25",
+    "beneficio_neto": 327000000,
+    "caja_operativa": 572000000,
+    "capex": 690000000,
+    "fcf": -118000000,
+    "conversion_pct": 175.0
+   },
+   {
+    "periodo": "3T25",
+    "beneficio_neto": 652000000,
+    "caja_operativa": 1467000000,
+    "capex": 458000000,
+    "fcf": 1009000000,
+    "conversion_pct": 225.0
+   },
+   {
+    "periodo": "4T25",
+    "beneficio_neto": 233000000,
+    "caja_operativa": 1432000000,
+    "capex": 836000000,
+    "fcf": 596000000,
+    "conversion_pct": 615.0
+   },
+   {
+    "periodo": "1T26",
+    "beneficio_neto": 1029000000,
+    "caja_operativa": 1199000000,
+    "capex": 883000000,
+    "fcf": 316000000,
+    "conversion_pct": 117.0
+   },
+   {
+    "periodo": "2T26",
+    "beneficio_neto": 305000000,
+    "caja_operativa": 1023000000,
+    "capex": 689000000,
+    "fcf": 334000000,
+    "conversion_pct": 335.0
+   }
+  ],
+  "capex_solo_anual": false,
+  "gastos": [
+   {
+    "clave": "gastos_generales",
+    "nombre": "Comerciales, generales y admin.",
+    "valor": 392000000,
+    "pct": 8.9,
+    "pct_ya": 11.2
+   },
+   {
+    "clave": "remuneracion_acciones",
+    "nombre": "Remuneración en acciones (incluida arriba)",
+    "valor": 35000000,
+    "pct": 0.8,
+    "pct_ya": 0.7
+   }
+  ],
+  "accionista": {
+   "recompras": 337000000,
+   "recompras_ya": 252000000,
+   "recompras_12m": 1148000000,
+   "dividendos": 77000000,
+   "dividendos_12m": 308000000,
+   "acciones_diluidas": 339230976,
+   "acciones_diluidas_ya": 345505188,
+   "acciones_var_pct": -1.82,
+   "remuneracion_acciones": 35000000,
+   "remuneracion_pct_ingresos": 0.8,
+   "retorno_sobre_caja_pct": 65.0,
+   "retorno_base": "flujo de caja libre"
+  },
+  "fuente": "SEC EDGAR · XBRL (10-Q/10-K)",
+  "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
+  "fecha_presentacion": "2026-08-10"
+ },
  "cita": {
   "cita": "The Vistra team delivered another strong quarter, building on our momentum from the start of the year and continuing to execute at a high level",
-  "quien": "Jim Burke, president and CEO of Vistra"
+  "quien": "Jim Burke, president and CEO of Vistra",
+  "cita_es": "El equipo de Vistra ha cerrado otro trimestre fuerte, sobre el impulso de principios de año y con una ejecución de alto nivel"
  },
  "destacados": {
   "titulo": "Earnings Release Highlights",
   "texto": [
-   "• GAAP second quarter 2026 Net Income of $305 million, including an unrealized loss from hedges expected to settle in future years of $472 million.",
-   "• Achieved more than 30% growth in Ongoing Operations Adjusted EBITDA 1 to $1,767 million for the quarter compared to second quarter 2025.",
-   "• Reaffirmed 2026 Ongoing Operations Adjusted EBITDA 1 and Ongoing Operations Adjusted FCFbG 1 guidance ranges of $6.8 billion to $7.6 billion and $3.925 billion to $4.725 billion, respectively. 3",
-   "• Announced Helix Digital Infrastructure alongside KKR, KIA, and NVIDIA with an initial commitment from Vistra of up to $1.0 billion.",
-   "• Received Federal Energy Regulatory Commission approval of the pending Cogentrix Energy acquisition.",
-   "• Earned second consecutive distinction as one of U.S. News & World Report ' s Best Companies to Work For.",
-   "IRVING, Texas — Aug. 7, 2026 — Vistra Corp. (NYSE: VST) today reported its second quarter 2026 financial results and other highlights."
-  ]
+   "GAAP second quarter 2026 Net Income of $305 million, including an unrealized loss from hedges expected to settle in future years of $472 million.",
+   "Achieved more than 30% growth in Ongoing Operations Adjusted EBITDA 1 to $1,767 million for the quarter compared to second quarter 2025.",
+   "Reaffirmed 2026 Ongoing Operations Adjusted EBITDA 1 and Ongoing Operations Adjusted FCFbG 1 guidance ranges of $6.8 billion to $7.6 billion and $3.925 billion to $4.725 billion, respectively. 3",
+   "Announced Helix Digital Infrastructure alongside KKR, KIA, and NVIDIA with an initial commitment from Vistra of up to $1.0 billion.",
+   "Received Federal Energy Regulatory Commission approval of the pending Cogentrix Energy acquisition.",
+   "Earned second consecutive distinction as one of U.S. News & World Report ' s Best Companies to Work For."
+  ],
+  "texto_es": [
+   "Beneficio neto GAAP del 2T26 de 305 M$, que incluye una pérdida no realizada de 472 M$ por coberturas que se liquidarán en años futuros.",
+   "El EBITDA ajustado de operaciones continuadas (1) creció más de un 30%, hasta 1.767 M$ en el trimestre, frente al 2T25.",
+   "Reafirma las horquillas de la guía de 2026 de EBITDA ajustado de operaciones continuadas (1), de 6.800 a 7.600 M$, y de caja libre ajustada antes de crecimiento (FCFbG) (1), de 3.925 a 4.725 M$. (3)",
+   "Anunció Helix Digital Infrastructure junto a KKR, KIA y NVIDIA, con un compromiso inicial de Vistra de hasta 1.000 M$.",
+   "Obtuvo la aprobación de la Comisión Federal Reguladora de la Energía (FERC) para la compra pendiente de Cogentrix Energy.",
+   "Segunda distinción consecutiva como una de las mejores empresas para trabajar de U.S. News & World Report."
+  ],
+  "cabecera_es": null
  },
  "lectura": {
   "estado": "revisada",
@@ -1591,5 +1736,10 @@
  },
  "avisos": [],
  "_calendario_finnhub": null,
- "_cifras_nota": null
+ "_cifras_nota": null,
+ "traduccion": {
+  "pendientes": 0,
+  "completa": true,
+  "fuente": "Glosario automático y i18n/notas_es.json (revisión tras resultados)"
+ }
 }

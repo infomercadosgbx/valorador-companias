@@ -164,7 +164,7 @@
     "min": 240000000000.0,
     "max": 247000000000.0,
     "medio": 243500000000.0,
-    "texto": "• Net sales are expected to be between $240.0 billion and $247.0 billion, or to grow between 12% and 16% compared with fourth quarter 2025.",
+    "texto": "Net sales are expected to be between $240.0 billion and $247.0 billion, or to grow between 12% and 16% compared with fourth quarter 2025.",
     "estimado": {
      "valor": 244500000000.0,
      "fuente": "manual · Infografía Invertir Desde Cero (resultados 3T26)",
@@ -178,7 +178,7 @@
     "min": 28500000000.0,
     "max": 33500000000.0,
     "medio": 31000000000.0,
-    "texto": "• Operating income is expected to be between $28.5 billion and $33.5 billion, compared with $25.0 billion in fourth quarter 2025.",
+    "texto": "Operating income is expected to be between $28.5 billion and $33.5 billion, compared with $25.0 billion in fourth quarter 2025.",
     "estimado": {
      "valor": 33100000000.0,
      "fuente": "manual · Infografía Invertir Desde Cero (resultados 3T26)",
@@ -189,14 +189,20 @@
    }
   ],
   "texto": [
-   "• Net sales are expected to be between $240.0 billion and $247.0 billion, or to grow between 12% and 16% compared with fourth quarter 2025. This guidance anticipates an unfavorable impact of approximately 60 basis points from foreign exchange rates. Advertising revenue grew 12% year-over-year excluding changes in foreign exchange rates in the third quarter 2026 impacted by timing anomalies primarily related to Prime Day (and a couple other timing factors). We expect year-over-year advertising re",
-   "• Operating income is expected to be between $28.5 billion and $33.5 billion, compared with $25.0 billion in fourth quarter 2025.",
-   "• We continue to expect 2026 cash capital expenditures to be approximately $220 billion.",
-   "• This guidance assumes, among other things, no impact from energy derivative contract remeasurements, and that no additional business acquisitions, restructurings, or legal settlements are concluded."
+   "Net sales are expected to be between $240.0 billion and $247.0 billion, or to grow between 12% and 16% compared with fourth quarter 2025. This guidance anticipates an unfavorable impact of approximately 60 basis points from foreign exchange rates. Advertising revenue grew 12% year-over-year excluding changes in foreign exchange rates in the third quarter 2026 impacted by timing anomalies primarily related to Prime Day (and a couple other timing factors). We expect year-over-year advertising reve",
+   "Operating income is expected to be between $28.5 billion and $33.5 billion, compared with $25.0 billion in fourth quarter 2025.",
+   "We continue to expect 2026 cash capital expenditures to be approximately $220 billion.",
+   "This guidance assumes, among other things, no impact from energy derivative contract remeasurements, and that no additional business acquisitions, restructurings, or legal settlements are concluded."
   ],
   "titulo": "Financial Guidance",
   "fuente": "SEC EDGAR · 8-K, Exhibit 99.1 (texto original)",
-  "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000038/amzn-20260930xex991.htm"
+  "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000038/amzn-20260930xex991.htm",
+  "texto_es": [
+   "Se esperan unas ventas netas de entre 240.000 y 247.000 M$, un crecimiento de entre el 12% y el 16% frente al 4T25. La guía incluye un efecto desfavorable del tipo de cambio de unos 60 puntos básicos. Los ingresos por publicidad crecieron un 12% interanual sin efecto divisa en el 3T26, afectados por desfases de calendario ligados sobre todo al Prime Day (y algún otro efecto de calendario). Esperamos que el crecimiento interanual de la publicidad…",
+   "Se espera un beneficio operativo de entre 28.500 y 33.500 M$, frente a 25.000 M$ en el 4T25.",
+   "Seguimos esperando unas inversiones (capex en caja) de unos 220.000 M$ en 2026.",
+   "La guía supone, entre otras cosas, que no habrá efecto de la revalorización de contratos de derivados de energía ni nuevas adquisiciones, reestructuraciones o acuerdos judiciales."
+  ]
  },
  "reaccion": {
   "hora": "tras el cierre",
@@ -1513,21 +1519,302 @@
    }
   ]
  },
+ "dentro": {
+  "periodo": "3T26",
+  "ingresos": [
+   {
+    "periodo": "3T24",
+    "valor": 158877000000,
+    "interanual_pct": 11.04
+   },
+   {
+    "periodo": "4T24",
+    "valor": 187792000000,
+    "interanual_pct": 10.49
+   },
+   {
+    "periodo": "1T25",
+    "valor": 155667000000,
+    "interanual_pct": 8.62
+   },
+   {
+    "periodo": "2T25",
+    "valor": 167702000000,
+    "interanual_pct": 13.33
+   },
+   {
+    "periodo": "3T25",
+    "valor": 180169000000,
+    "interanual_pct": 13.4
+   },
+   {
+    "periodo": "4T25",
+    "valor": 213386000000,
+    "interanual_pct": 13.63
+   },
+   {
+    "periodo": "1T26",
+    "valor": 181519000000,
+    "interanual_pct": 16.61
+   },
+   {
+    "periodo": "2T26",
+    "valor": 200606000000,
+    "interanual_pct": 19.62
+   },
+   {
+    "periodo": "3T26",
+    "valor": 201944000000,
+    "interanual_pct": 12.09
+   }
+  ],
+  "caja": [
+   {
+    "periodo": "3T25",
+    "beneficio_neto": 21187000000,
+    "caja_operativa": 35525000000,
+    "capex": 35095000000,
+    "fcf": 430000000,
+    "conversion_pct": 168.0
+   },
+   {
+    "periodo": "4T25",
+    "beneficio_neto": 21192000000,
+    "caja_operativa": 54459000000,
+    "capex": 39522000000,
+    "fcf": 14937000000,
+    "conversion_pct": 257.0
+   },
+   {
+    "periodo": "1T26",
+    "beneficio_neto": 30255000000,
+    "caja_operativa": 26032000000,
+    "capex": 44203000000,
+    "fcf": -18171000000,
+    "conversion_pct": 86.0
+   },
+   {
+    "periodo": "2T26",
+    "beneficio_neto": 62647000000,
+    "caja_operativa": 45387000000,
+    "capex": 54208000000,
+    "fcf": -8821000000,
+    "conversion_pct": 72.0
+   },
+   {
+    "periodo": "3T26",
+    "beneficio_neto": 20685000000,
+    "caja_operativa": 42422000000,
+    "capex": 77259000000,
+    "fcf": -34837000000,
+    "conversion_pct": 205.0
+   }
+  ],
+  "capex_solo_anual": false,
+  "gastos": [
+   {
+    "clave": "coste_ventas",
+    "nombre": "Coste de ventas",
+    "valor": 94573000000,
+    "pct": 46.8,
+    "pct_ya": 49.2
+   },
+   {
+    "clave": "investigacion_desarrollo",
+    "nombre": "I+D",
+    "valor": 34814000000.0,
+    "pct": 17.2,
+    "pct_ya": 16.1
+   },
+   {
+    "clave": "gastos_admin",
+    "nombre": "Generales y administración",
+    "valor": 2701000000,
+    "pct": 1.3,
+    "pct_ya": 1.6
+   },
+   {
+    "clave": "remuneracion_acciones",
+    "nombre": "Remuneración en acciones (incluida arriba)",
+    "valor": 5406000000,
+    "pct": 2.7,
+    "pct_ya": 2.7
+   }
+  ],
+  "accionista": {
+   "recompras": null,
+   "recompras_ya": null,
+   "recompras_12m": null,
+   "dividendos": null,
+   "dividendos_12m": null,
+   "acciones_diluidas": 10929000000,
+   "acciones_diluidas_ya": 10845000000,
+   "acciones_var_pct": 0.77,
+   "remuneracion_acciones": 5406000000,
+   "remuneracion_pct_ingresos": 2.7
+  },
+  "fuente": "SEC EDGAR · XBRL (10-Q/10-K)",
+  "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/0001018724-26-000040-index.htm",
+  "fecha_presentacion": "2026-10-30"
+ },
  "cita": {
   "cita": "Our AWS investment in functionality and infrastructure is working, with over 39% year-over-year revenue growth in Q3 ($184 billion revenue run rate) and projected revenue growth rates of over 40% both in 2027 and in 2028",
-  "quien": "Andy Jassy, President and CEO, Amazon"
+  "quien": "Andy Jassy, President and CEO, Amazon",
+  "cita_es": "Nuestra inversión en funcionalidad e infraestructura de AWS está dando resultado: los ingresos crecen más de un 39% interanual en el 3T (184.000 M$ anualizados) y prevemos crecimientos de más del 40% tanto en 2027 como en 2028"
  },
  "destacados": {
   "titulo": "Some other highlights since the company’s last earnings announcement include that Amazon",
   "texto": [
-   "• Signed new AWS agreements with Meta, NVIDIA, OpenAI, Salesforce, Oracle, Qualcomm, Verizon, ADP, Stripe, Accenture Edge, Novo, Fanatics, Zoom, Raymond James, Prometheus AI, AppFolio, Instructure, Cognition, Sigma, Lila Sciences, The Biological Computing Co., NATO, Columbia University Irving Medical Center, and more.",
-   "• Drove continued rapid growth for Amazon Bedrock, AWS’s inference service, with Fortune 500 companies spending nearly 7x more year-over-year and total Bedrock token volume growing nearly 17x year-over-year.",
-   "• Expanded Bedrock’s leading selection of frontier and open weight models, adding OpenAI’s GPT-6 Astra, GPT-6 Sol, GPT-6 Luna, and GPT-6.1 Sol; Anthropic’s Claude Fable 5.1, Opus 5.5, Sonnet 5.5, and Haiku 5.5; Moonshot AI’s Kimi K3; SpaceXAI’s Grok 4.7; Z.ai’s GLM 5.3; and two purpose-built cybersecurity models from OpenAI.",
-   "• Launched built-in web search for OpenAI models on Bedrock so customers can ground responses in current information—while keeping data secure and answers accurate for time-sensitive questions without building and maintaining their own web-retrieval pipelines.",
-   "• Launched public preview of Bedrock Managed Agents, which is a managed service powered by OpenAI that makes it faster for enterprises to build and deploy production-ready AI agents.",
-   "• Added to AWS’s leadership position in open source agent-building:",
-   "• Released Strands harness, a fully assembled, state-of-the-art agent harness that developers can get working with a single line of code and build custom agents that can run locally, on Bedrock AgentCore, or on a provider of their choice. Strands harness lowers the cost of agent tasks by 32% through greater token efficiency than other harnesses when using the same frontier models, while achieving equal or better accuracy."
-  ]
+   "Signed new AWS agreements with Meta, NVIDIA, OpenAI, Salesforce, Oracle, Qualcomm, Verizon, ADP, Stripe, Accenture Edge, Novo, Fanatics, Zoom, Raymond James, Prometheus AI, AppFolio, Instructure, Cognition, Sigma, Lila Sciences, The Biological Computing Co., NATO, Columbia University Irving Medical Center, and more.",
+   "Drove continued rapid growth for Amazon Bedrock, AWS’s inference service, with Fortune 500 companies spending nearly 7x more year-over-year and total Bedrock token volume growing nearly 17x year-over-year.",
+   "Expanded Bedrock’s leading selection of frontier and open weight models, adding OpenAI’s GPT-6 Astra, GPT-6 Sol, GPT-6 Luna, and GPT-6.1 Sol; Anthropic’s Claude Fable 5.1, Opus 5.5, Sonnet 5.5, and Haiku 5.5; Moonshot AI’s Kimi K3; SpaceXAI’s Grok 4.7; Z.ai’s GLM 5.3; and two purpose-built cybersecurity models from OpenAI.",
+   "Launched built-in web search for OpenAI models on Bedrock so customers can ground responses in current information—while keeping data secure and answers accurate for time-sensitive questions without building and maintaining their own web-retrieval pipelines.",
+   "Launched public preview of Bedrock Managed Agents, which is a managed service powered by OpenAI that makes it faster for enterprises to build and deploy production-ready AI agents.",
+   "Added to AWS’s leadership position in open source agent-building:",
+   "Released Strands harness, a fully assembled, state-of-the-art agent harness that developers can get working with a single line of code and build custom agents that can run locally, on Bedrock AgentCore, or on a provider of their choice. Strands harness lowers the cost of agent tasks by 32% through greater token efficiency than other harnesses when using the same frontier models, while achieving equal or better accuracy."
+  ],
+  "filas": [
+   {
+    "etiqueta": "North America",
+    "valores": [
+     "11%",
+     "6%",
+     "10%",
+     "11%"
+    ],
+    "etiqueta_es": "Norteamérica",
+    "valores_es": [
+     "11%",
+     "6%",
+     "10%",
+     "11%"
+    ]
+   },
+   {
+    "etiqueta": "International",
+    "valores": [
+     "14",
+     "5",
+     "12",
+     "13"
+    ],
+    "etiqueta_es": "Internacional",
+    "valores_es": [
+     "14",
+     "5",
+     "12",
+     "13"
+    ]
+   },
+   {
+    "etiqueta": "AWS",
+    "valores": [
+     "20",
+     "39",
+     "18",
+     "35"
+    ],
+    "etiqueta_es": "AWS",
+    "valores_es": [
+     "20",
+     "39",
+     "18",
+     "35"
+    ]
+   },
+   {
+    "etiqueta": "Consolidated",
+    "valores": [
+     "13",
+     "12",
+     "12",
+     "16"
+    ],
+    "etiqueta_es": "Consolidado",
+    "valores_es": [
+     "13",
+     "12",
+     "12",
+     "16"
+    ]
+   },
+   {
+    "etiqueta": "North America",
+    "valores": [
+     "59%",
+     "56%",
+     "59%",
+     "57%"
+    ],
+    "etiqueta_es": "Norteamérica",
+    "valores_es": [
+     "59%",
+     "56%",
+     "59%",
+     "57%"
+    ]
+   },
+   {
+    "etiqueta": "International",
+    "valores": [
+     "23",
+     "21",
+     "22",
+     "21"
+    ],
+    "etiqueta_es": "Internacional",
+    "valores_es": [
+     "23",
+     "21",
+     "22",
+     "21"
+    ]
+   },
+   {
+    "etiqueta": "AWS",
+    "valores": [
+     "18",
+     "23",
+     "19",
+     "22"
+    ],
+    "etiqueta_es": "AWS",
+    "valores_es": [
+     "18",
+     "23",
+     "19",
+     "22"
+    ]
+   },
+   {
+    "etiqueta": "Consolidated",
+    "valores": [
+     "100%",
+     "100%",
+     "100%",
+     "100%"
+    ],
+    "etiqueta_es": "Consolidado",
+    "valores_es": [
+     "100%",
+     "100%",
+     "100%",
+     "100%"
+    ]
+   }
+  ],
+  "cabecera": null,
+  "unidad": null,
+  "texto_es": [
+   "Firmó nuevos contratos de AWS con Meta, NVIDIA, OpenAI, Salesforce, Oracle, Qualcomm, Verizon, ADP, Stripe, Accenture Edge, Novo, Fanatics, Zoom, Raymond James, Prometheus AI, AppFolio, Instructure, Cognition, Sigma, Lila Sciences, The Biological Computing Co., la OTAN, el Columbia University Irving Medical Center y otros.",
+   "Siguió creciendo con rapidez Amazon Bedrock, el servicio de inferencia de AWS: las empresas del Fortune 500 gastan casi 7 veces más que hace un año y el volumen total de tokens de Bedrock se multiplica casi por 17.",
+   "Amplió la oferta de modelos punteros y de pesos abiertos de Bedrock con GPT-6 Astra, GPT-6 Sol, GPT-6 Luna y GPT-6.1 Sol de OpenAI; Claude Fable 5.1, Opus 5.5, Sonnet 5.5 y Haiku 5.5 de Anthropic; Kimi K3 de Moonshot AI; Grok 4.7 de SpaceXAI; GLM 5.3 de Z.ai, y dos modelos de ciberseguridad de OpenAI.",
+   "Lanzó la búsqueda web integrada para los modelos de OpenAI en Bedrock, para que los clientes basen las respuestas en información actual, con los datos protegidos y sin tener que construir ni mantener su propio sistema de búsqueda.",
+   "Lanzó en versión preliminar pública Bedrock Managed Agents, un servicio gestionado basado en OpenAI que acelera la creación y el despliegue de agentes de IA listos para producción.",
+   "Reforzó el liderazgo de AWS en la creación de agentes de código abierto:",
+   "Publicó Strands harness, un entorno completo para agentes que se pone en marcha con una sola línea de código y permite crear agentes propios que funcionan en local, en Bedrock AgentCore o en el proveedor que se elija. Reduce un 32% el coste de las tareas de los agentes al gastar menos tokens que otros entornos con los mismos modelos, con igual o mejor precisión."
+  ],
+  "cabecera_es": null
  },
  "lectura": {
   "estado": "revisada",
@@ -1575,5 +1862,10 @@
   "bpa_real": 1.89,
   "ingresos_reales": 201944000000
  },
- "_cifras_nota": null
+ "_cifras_nota": null,
+ "traduccion": {
+  "pendientes": 0,
+  "completa": true,
+  "fuente": "Glosario automático y i18n/notas_es.json (revisión tras resultados)"
+ }
 }

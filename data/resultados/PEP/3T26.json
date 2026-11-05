@@ -151,12 +151,28 @@
  "guia": {
   "items": [],
   "texto": [
-   "• Company updates fiscal 2026 financial guidance 2",
-   "PURCHASE, N.Y. - October 8, 2026 - PepsiCo, Inc. (NASDAQ: PEP) today reported results for third-quarter 2026."
+   "The Company provides guidance on a non-GAAP basis as we cannot predict certain elements which are included in reported GAAP results, including the impact of foreign exchange translation and commodity mark-to-market net impacts. PepsiCo’s current and previous fiscal 2026 outlook is summarized below.",
+   "Fiscal 2026 Guidance ( changes are bolded & italicized below)",
+   "Organic Revenue Approximately +3% +2% to +4%",
+   "Foreign Exchange Translation (a)",
+   "Approximately +1.5% to net revenue and core EPS growth Approximately +1% to net revenue and core EPS growth",
+   "Acquisitions, net of Divestitures (b)",
+   "Approximately +1.5% to net revenue growth Approximately +1% to net revenue growth",
+   "Net Revenue Approximately +6% +4% to +6%"
   ],
-  "titulo": "Guidance",
+  "titulo": "Guidance and Outlook",
   "fuente": "SEC EDGAR · 8-K, Exhibit 99.1 (texto original)",
-  "url": "https://www.sec.gov/Archives/edgar/data/77476/000007747626000050/q320268-kxexhibit991.htm"
+  "url": "https://www.sec.gov/Archives/edgar/data/77476/000007747626000050/q320268-kxexhibit991.htm",
+  "texto_es": [
+   "La compañía da su guía en términos no GAAP porque no puede prever algunos elementos incluidos en los resultados GAAP, como el efecto del tipo de cambio y las variaciones de valor de las materias primas. A continuación se resume la guía actual y la anterior de PepsiCo para el ejercicio 2026.",
+   "Guía del ejercicio 2026 (los cambios van en negrita y cursiva)",
+   "Ingresos orgánicos: aproximadamente +3% (antes, de +2% a +4%)",
+   "Efecto del tipo de cambio (a)",
+   "Aproximadamente +1,5% en el crecimiento de los ingresos netos y del BPA subyacente (antes, aproximadamente +1%)",
+   "Adquisiciones netas de desinversiones (b)",
+   "Aproximadamente +1,5% en el crecimiento de los ingresos netos (antes, aproximadamente +1%)",
+   "Ingresos netos: aproximadamente +6% (antes, de +4% a +6%)"
+  ]
  },
  "reaccion": {
   "hora": "antes de la apertura",
@@ -1344,9 +1360,143 @@
    }
   ]
  },
+ "dentro": {
+  "periodo": "3T26",
+  "ingresos": [
+   {
+    "periodo": "3T24",
+    "valor": 23319000000,
+    "interanual_pct": -0.57
+   },
+   {
+    "periodo": "4T24",
+    "valor": 27784000000,
+    "interanual_pct": -0.24
+   },
+   {
+    "periodo": "1T25",
+    "valor": 17919000000,
+    "interanual_pct": -1.81
+   },
+   {
+    "periodo": "2T25",
+    "valor": 22726000000,
+    "interanual_pct": 1.0
+   },
+   {
+    "periodo": "3T25",
+    "valor": 23937000000,
+    "interanual_pct": 2.65
+   },
+   {
+    "periodo": "4T25",
+    "valor": 29343000000,
+    "interanual_pct": 5.61
+   },
+   {
+    "periodo": "1T26",
+    "valor": 19443000000,
+    "interanual_pct": 8.5
+   },
+   {
+    "periodo": "2T26",
+    "valor": 24181000000,
+    "interanual_pct": 6.4
+   },
+   {
+    "periodo": "3T26",
+    "valor": 25274000000,
+    "interanual_pct": 5.59
+   }
+  ],
+  "caja": [
+   {
+    "periodo": "3T25",
+    "beneficio_neto": 2603000000,
+    "caja_operativa": 4472000000,
+    "capex": 992000000,
+    "fcf": 3480000000,
+    "conversion_pct": 172.0
+   },
+   {
+    "periodo": "4T25",
+    "beneficio_neto": 2540000000,
+    "caja_operativa": 6619000000,
+    "capex": 1916000000,
+    "fcf": 4703000000,
+    "conversion_pct": 261.0
+   },
+   {
+    "periodo": "1T26",
+    "beneficio_neto": 2327000000,
+    "caja_operativa": 41000000,
+    "capex": 447000000,
+    "fcf": -406000000,
+    "conversion_pct": 2.0
+   },
+   {
+    "periodo": "2T26",
+    "beneficio_neto": 2981000000,
+    "caja_operativa": 2324000000,
+    "capex": 819000000,
+    "fcf": 1505000000,
+    "conversion_pct": 78.0
+   },
+   {
+    "periodo": "3T26",
+    "beneficio_neto": 3048000000,
+    "caja_operativa": 5585000000,
+    "capex": 916000000,
+    "fcf": 4669000000,
+    "conversion_pct": 183.0
+   }
+  ],
+  "capex_solo_anual": false,
+  "gastos": [
+   {
+    "clave": "coste_ventas",
+    "nombre": "Coste de ventas",
+    "valor": 11520000000,
+    "pct": 45.6,
+    "pct_ya": 46.4
+   },
+   {
+    "clave": "gastos_generales",
+    "nombre": "Comerciales, generales y admin.",
+    "valor": 9494000000,
+    "pct": 37.6,
+    "pct_ya": 38.1
+   },
+   {
+    "clave": "remuneracion_acciones",
+    "nombre": "Remuneración en acciones (incluida arriba)",
+    "valor": 78000000,
+    "pct": 0.3,
+    "pct_ya": 0.3
+   }
+  ],
+  "accionista": {
+   "recompras": 260000000,
+   "recompras_ya": 258000000,
+   "recompras_12m": 987000000,
+   "dividendos": 2021000000,
+   "dividendos_12m": 7881000000,
+   "acciones_diluidas": 1367000000,
+   "acciones_diluidas_ya": 1372000000,
+   "acciones_var_pct": -0.36,
+   "remuneracion_acciones": 78000000,
+   "remuneracion_pct_ingresos": 0.3,
+   "retorno_sobre_caja_pct": 85.0,
+   "retorno_base": "flujo de caja libre"
+  },
+  "fuente": "SEC EDGAR · XBRL (10-Q/10-K)",
+  "url": "https://www.sec.gov/Archives/edgar/data/77476/000007747626000048/0000077476-26-000048-index.htm",
+  "fecha_presentacion": "2026-10-08"
+ },
  "cita": {
   "cita": "Our third-quarter results featured strong net revenue growth, an acceleration in organic revenue growth with organic volume growth across both global beverages and convenient foods. The results reflect the scale and resilience of the international business, the ongoing evolution of the global portfolio and an improved presence in underpenetrated channels and occasions",
-  "quien": "Chairman and CEO Ramon Laguarta"
+  "quien": "Chairman and CEO Ramon Laguarta",
+  "cita_es": "Nuestros resultados del tercer trimestre muestran un fuerte crecimiento de los ingresos netos, con una aceleración del crecimiento orgánico y más volumen orgánico tanto en bebidas como en alimentos de conveniencia. Reflejan la escala y la solidez del negocio internacional, la evolución de la cartera global y una mayor presencia en canales y ocasiones de consumo poco explotados"
  },
  "destacados": null,
  "lectura": {
@@ -1393,5 +1543,10 @@
   "bpa_real": 2.34,
   "ingresos_reales": 25274000000
  },
- "_cifras_nota": null
+ "_cifras_nota": null,
+ "traduccion": {
+  "pendientes": 0,
+  "completa": true,
+  "fuente": "Glosario automático y i18n/notas_es.json (revisión tras resultados)"
+ }
 }

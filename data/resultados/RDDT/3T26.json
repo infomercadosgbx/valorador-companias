@@ -154,7 +154,7 @@
     "min": 1000000000.0,
     "max": 1030000000.0,
     "medio": 1015000000.0,
-    "texto": "• Revenue in the range of $1,000 million to $1,030 million",
+    "texto": "Revenue in the range of $1,000 million to $1,030 million",
     "estimado": {
      "valor": 1052858851,
      "fuente": "Finnhub · consenso del trimestre siguiente (2026-11-04)",
@@ -168,7 +168,7 @@
     "min": 480000000.0,
     "max": 510000000.0,
     "medio": 495000000.0,
-    "texto": "• Adjusted EBITDA 2 in the range of $480 million to $510 million",
+    "texto": "Adjusted EBITDA 2 in the range of $480 million to $510 million",
     "estimado": null,
     "dif_pct": null,
     "resultado": null
@@ -177,12 +177,18 @@
   "texto": [
    "As we look ahead, we will share our internal thoughts on revenue and Adjusted EBITDA for the fourth quarter.",
    "In the fourth quarter of 2026, we estimate:",
-   "• Revenue in the range of $1,000 million to $1,030 million",
-   "• Adjusted EBITDA 2 in the range of $480 million to $510 million"
+   "Revenue in the range of $1,000 million to $1,030 million",
+   "Adjusted EBITDA 2 in the range of $480 million to $510 million"
   ],
   "titulo": "Financial Outlook",
   "fuente": "SEC EDGAR · 8-K, Exhibit 99.1 (texto original)",
-  "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000114/earningspressreleaseq326.htm"
+  "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000114/earningspressreleaseq326.htm",
+  "texto_es": [
+   "De cara al futuro, compartimos nuestras previsiones internas de ingresos y EBITDA ajustado para el cuarto trimestre.",
+   "Para el cuarto trimestre de 2026 estimamos:",
+   "Ingresos de entre 1.000 y 1.030 M$",
+   "EBITDA ajustado (2) de entre 480 y 510 M$"
+  ]
  },
  "reaccion": {
   "hora": "tras el cierre",
@@ -1418,21 +1424,301 @@
    }
   ]
  },
+ "dentro": {
+  "periodo": "3T26",
+  "ingresos": [
+   {
+    "periodo": "3T24",
+    "valor": 348351000,
+    "interanual_pct": 67.87
+   },
+   {
+    "periodo": "4T24",
+    "valor": 427707000,
+    "interanual_pct": 71.25
+   },
+   {
+    "periodo": "1T25",
+    "valor": 392361000,
+    "interanual_pct": 61.49
+   },
+   {
+    "periodo": "2T25",
+    "valor": 499627000,
+    "interanual_pct": 77.69
+   },
+   {
+    "periodo": "3T25",
+    "valor": 584911000,
+    "interanual_pct": 67.91
+   },
+   {
+    "periodo": "4T25",
+    "valor": 725607000,
+    "interanual_pct": 69.65
+   },
+   {
+    "periodo": "1T26",
+    "valor": 663411000,
+    "interanual_pct": 69.08
+   },
+   {
+    "periodo": "2T26",
+    "valor": 804905000,
+    "interanual_pct": 61.1
+   },
+   {
+    "periodo": "3T26",
+    "valor": 894957000,
+    "interanual_pct": 53.01
+   }
+  ],
+  "caja": [
+   {
+    "periodo": "3T25",
+    "beneficio_neto": 162663000,
+    "caja_operativa": 185159000,
+    "capex": 2058000,
+    "fcf": 183101000,
+    "conversion_pct": 114.0
+   },
+   {
+    "periodo": "4T25",
+    "beneficio_neto": 251603000,
+    "caja_operativa": 266807000,
+    "capex": 3164000,
+    "fcf": 263643000,
+    "conversion_pct": 106.0
+   },
+   {
+    "periodo": "1T26",
+    "beneficio_neto": 203981000,
+    "caja_operativa": 312253000,
+    "capex": 1090000,
+    "fcf": 311163000,
+    "conversion_pct": 153.0
+   },
+   {
+    "periodo": "2T26",
+    "beneficio_neto": 252848000,
+    "caja_operativa": 261876000,
+    "capex": 1134000,
+    "fcf": 260742000,
+    "conversion_pct": 104.0
+   },
+   {
+    "periodo": "3T26",
+    "beneficio_neto": 283264000,
+    "caja_operativa": 363797000,
+    "capex": 1229000,
+    "fcf": 362568000,
+    "conversion_pct": 128.0
+   }
+  ],
+  "capex_solo_anual": false,
+  "gastos": [
+   {
+    "clave": "coste_ventas",
+    "nombre": "Coste de ventas",
+    "valor": 75787000,
+    "pct": 8.5,
+    "pct_ya": 9.0
+   },
+   {
+    "clave": "investigacion_desarrollo",
+    "nombre": "I+D",
+    "valor": 263531000,
+    "pct": 29.4,
+    "pct_ya": 33.6
+   },
+   {
+    "clave": "ventas_marketing",
+    "nombre": "Ventas y marketing",
+    "valor": 209391000,
+    "pct": 23.4,
+    "pct_ya": 22.0
+   },
+   {
+    "clave": "gastos_admin",
+    "nombre": "Generales y administración",
+    "valor": 84662000,
+    "pct": 9.5,
+    "pct_ya": 11.8
+   },
+   {
+    "clave": "remuneracion_acciones",
+    "nombre": "Remuneración en acciones (incluida arriba)",
+    "valor": 131306000,
+    "pct": 14.7,
+    "pct_ya": 14.3
+   }
+  ],
+  "accionista": {
+   "recompras": 100369000,
+   "recompras_ya": 0,
+   "recompras_12m": null,
+   "dividendos": null,
+   "dividendos_12m": null,
+   "acciones_diluidas": 201860245,
+   "acciones_diluidas_ya": 202727809,
+   "acciones_var_pct": -0.43,
+   "remuneracion_acciones": 131306000,
+   "remuneracion_pct_ingresos": 14.7,
+   "retorno_sobre_caja_pct": 0.0,
+   "retorno_base": "flujo de caja libre"
+  },
+  "fuente": "SEC EDGAR · XBRL (10-Q/10-K)",
+  "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000116/0001713445-26-000116-index.htm",
+  "fecha_presentacion": "2026-10-30"
+ },
  "cita": {
   "cita": "Our business is growing because the Reddit experience captures the human experience in a way that no other platform can replicate",
-  "quien": "Steve Huffman, Founder and CEO of Reddit"
+  "quien": "Steve Huffman, Founder and CEO of Reddit",
+  "cita_es": "El negocio crece porque la experiencia de Reddit refleja la experiencia humana como ninguna otra plataforma puede hacerlo"
  },
  "destacados": {
   "titulo": "Third Quarter 2026 Financial Highlights",
-  "texto": [
-   "U.S. $ 719 $ 480 50%",
-   "GAAP gross margin 91.5 % 91.0 %",
-   "Adjusted EBITDA* $ 402 $ 236 70%",
-   "Adjusted EBITDA margin* 44.9 % 40.3 %",
-   "Net cash provided by (used in) operating activities",
-   "Free Cash Flow* $ 363 $ 183 98%",
-   "Cash, cash equivalents, and marketable securities"
-  ]
+  "texto": [],
+  "filas": [
+   {
+    "etiqueta": "Revenue",
+    "valores": [
+     "$895",
+     "$585",
+     "53%"
+    ],
+    "etiqueta_es": "Ingresos",
+    "valores_es": [
+     "895",
+     "585",
+     "53%"
+    ]
+   },
+   {
+    "etiqueta": "U.S.",
+    "valores": [
+     "$719",
+     "$480",
+     "50%"
+    ],
+    "etiqueta_es": "EE. UU.",
+    "valores_es": [
+     "719",
+     "480",
+     "50%"
+    ]
+   },
+   {
+    "etiqueta": "International",
+    "valores": [
+     "$176",
+     "$105",
+     "67%"
+    ],
+    "etiqueta_es": "Internacional",
+    "valores_es": [
+     "176",
+     "105",
+     "67%"
+    ]
+   },
+   {
+    "etiqueta": "GAAP gross margin",
+    "valores": [
+     "91.5%",
+     "91.0%"
+    ],
+    "etiqueta_es": "Margen bruto (GAAP)",
+    "valores_es": [
+     "91,5%",
+     "91,0%"
+    ]
+   },
+   {
+    "etiqueta": "Net income",
+    "valores": [
+     "$283",
+     "$163",
+     "74%"
+    ],
+    "etiqueta_es": "Beneficio neto",
+    "valores_es": [
+     "283",
+     "163",
+     "74%"
+    ]
+   },
+   {
+    "etiqueta": "Net margin",
+    "valores": [
+     "31.7%",
+     "27.8%"
+    ],
+    "etiqueta_es": "Margen neto",
+    "valores_es": [
+     "31,7%",
+     "27,8%"
+    ]
+   },
+   {
+    "etiqueta": "Basic",
+    "valores": [
+     "$1.47",
+     "$0.87",
+     "69%"
+    ],
+    "etiqueta_es": "BPA básico",
+    "valores_es": [
+     "1,47",
+     "0,87",
+     "69%"
+    ]
+   },
+   {
+    "etiqueta": "Diluted",
+    "valores": [
+     "$1.40",
+     "$0.80",
+     "75%"
+    ],
+    "etiqueta_es": "BPA diluido",
+    "valores_es": [
+     "1,40",
+     "0,80",
+     "75%"
+    ]
+   },
+   {
+    "etiqueta": "Adjusted EBITDA",
+    "valores": [
+     "$402",
+     "$236",
+     "70%"
+    ],
+    "etiqueta_es": "EBITDA ajustado",
+    "valores_es": [
+     "402",
+     "236",
+     "70%"
+    ]
+   },
+   {
+    "etiqueta": "Adjusted EBITDA margin",
+    "valores": [
+     "44.9%",
+     "40.3%"
+    ],
+    "etiqueta_es": "Margen de EBITDA ajustado",
+    "valores_es": [
+     "44,9%",
+     "40,3%"
+    ]
+   }
+  ],
+  "cabecera": "(in millions, except percentages and per share amounts; unaudited) 2026 2025 % Change",
+  "unidad": "million",
+  "texto_es": [],
+  "cabecera_es": "(millones de $, salvo porcentajes y datos por acción) 2026 2025 % var."
  },
  "lectura": {
   "estado": "revisada",
@@ -1476,5 +1762,10 @@
   "bpa_real": 1.4,
   "ingresos_reales": 894957000
  },
- "_cifras_nota": null
+ "_cifras_nota": null,
+ "traduccion": {
+  "pendientes": 0,
+  "completa": true,
+  "fuente": "Glosario automático y i18n/notas_es.json (revisión tras resultados)"
+ }
 }

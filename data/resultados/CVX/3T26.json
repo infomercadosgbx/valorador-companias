@@ -1208,16 +1208,270 @@
    }
   ]
  },
+ "dentro": {
+  "periodo": "2T26",
+  "ingresos": [
+   {
+    "periodo": "2T24",
+    "valor": 49574000000,
+    "interanual_pct": 4.99
+   },
+   {
+    "periodo": "3T24",
+    "valor": 48926000000,
+    "interanual_pct": -5.77
+   },
+   {
+    "periodo": "4T24",
+    "valor": 48334000000,
+    "interanual_pct": -1.22
+   },
+   {
+    "periodo": "1T25",
+    "valor": 46101000000,
+    "interanual_pct": -1.03
+   },
+   {
+    "periodo": "2T25",
+    "valor": 44375000000,
+    "interanual_pct": -10.49
+   },
+   {
+    "periodo": "3T25",
+    "valor": 48169000000,
+    "interanual_pct": -1.55
+   },
+   {
+    "periodo": "4T25",
+    "valor": 45787000000,
+    "interanual_pct": -5.27
+   },
+   {
+    "periodo": "1T26",
+    "valor": 47556000000,
+    "interanual_pct": 3.16
+   },
+   {
+    "periodo": "2T26",
+    "valor": 67199000000,
+    "interanual_pct": 51.43
+   }
+  ],
+  "caja": [
+   {
+    "periodo": "2T25",
+    "beneficio_neto": 2490000000,
+    "caja_operativa": 8576000000,
+    "capex": 3712000000,
+    "fcf": 4864000000,
+    "conversion_pct": 344.0
+   },
+   {
+    "periodo": "3T25",
+    "beneficio_neto": 3539000000,
+    "caja_operativa": 9385000000,
+    "capex": 4444000000,
+    "fcf": 4941000000,
+    "conversion_pct": 265.0
+   },
+   {
+    "periodo": "4T25",
+    "beneficio_neto": 2770000000,
+    "caja_operativa": 10789000000,
+    "capex": 5264000000,
+    "fcf": 5525000000,
+    "conversion_pct": 389.0
+   },
+   {
+    "periodo": "1T26",
+    "beneficio_neto": 2210000000,
+    "caja_operativa": 2514000000,
+    "capex": 4063000000,
+    "fcf": -1549000000,
+    "conversion_pct": 114.0
+   },
+   {
+    "periodo": "2T26",
+    "beneficio_neto": 12072000000,
+    "caja_operativa": 22633000000,
+    "capex": 4538000000,
+    "fcf": 18095000000,
+    "conversion_pct": 187.0
+   }
+  ],
+  "capex_solo_anual": false,
+  "gastos": [
+   {
+    "clave": "coste_ventas",
+    "nombre": "Coste de ventas",
+    "valor": 36607000000,
+    "pct": 54.5,
+    "pct_ya": 60.5
+   },
+   {
+    "clave": "gastos_generales",
+    "nombre": "Comerciales, generales y admin.",
+    "valor": 1314000000,
+    "pct": 2.0,
+    "pct_ya": 2.0
+   }
+  ],
+  "accionista": {
+   "recompras": 3003000000,
+   "recompras_ya": 2598000000,
+   "recompras_12m": 11139000000,
+   "dividendos": 3504000000,
+   "dividendos_12m": 13863000000,
+   "acciones_diluidas": 1975087000,
+   "acciones_diluidas_ya": 1724397000,
+   "acciones_var_pct": 14.54,
+   "remuneracion_acciones": null,
+   "remuneracion_pct_ingresos": null,
+   "retorno_sobre_caja_pct": 93.0,
+   "retorno_base": "flujo de caja libre"
+  },
+  "fuente": "SEC EDGAR · XBRL (10-Q/10-K)",
+  "url": "https://www.sec.gov/Archives/edgar/data/93410/000009341026000167/0000093410-26-000167-index.htm",
+  "fecha_presentacion": "2026-08-06"
+ },
  "cita": {
   "cita": "We delivered strong operational performance and disciplined execution, while continuing to invest to grow energy supply",
-  "quien": "Mike Wirth, Chevron’s chairman and chief executive officer"
+  "quien": "Mike Wirth, Chevron’s chairman and chief executive officer",
+  "cita_es": "Hemos tenido un gran rendimiento operativo y una ejecución disciplinada, y seguimos invirtiendo para aumentar el suministro de energía"
  },
  "destacados": {
-  "titulo": "Financial and Business Highlights",
+  "titulo": "Financial Highlights",
   "texto": [
-   "Unit 3Q 2026 2Q 2026 3Q 2025 YTD 2026 YTD 2025",
-   "Return on Capital Employed (ROCE) % 17.7 % 21.4 % 7.6 % 14.5 % 6.7 %"
-  ]
+   "Reported earnings increased compared to third quarter 2025 primarily due to reliable operations with higher margins on refined product sales and higher crude oil realizations, partially offset by unfavorable timing effects resulting from the rising price environment.",
+   "Production in the third quarter of 2026 was lower than a year ago primarily due to lower entitlements from higher prices and impacts from the Middle East conflict, partly offset by record production at operated assets in Australia, higher production in the Gulf of America and the inclusion of one month of Venezuela production following a change to equity accounting in the quarter.",
+   "U.S. refinery crude unit throughput set a new record of 1.09 million barrels per day, reflecting reliable crude unit capacity utilization of nearly 98 percent.",
+   "Cash flow from operations in the third quarter of 2026 was higher than a year ago, driven by higher earnings and increased cash distributions from Tengizchevroil LLP (TCO). Adjusted free cash flow benefited from a $1 billion loan repayment from TCO and proceeds from asset sales.",
+   "Capex in the third quarter of 2026 was lower than last year largely due to lower spend in the Permian Basin.",
+   "Total debt was reduced by an additional $3.5 billion and net debt was down $7.8 billion in the quarter, further strengthening Chevron’s balance sheet.",
+   "The company’s Board of Directors declared a quarterly dividend of one dollar and seventy-eight cents ($1.78) per share, payable December 10, 2026, to all holders of common stock as shown on the transfer records of the corporation at the close of business on November 18, 2026."
+  ],
+  "filas": [
+   {
+    "etiqueta": "Return on Capital Employed (ROCE) (%)",
+    "valores": [
+     "17.7%",
+     "21.4%",
+     "7.6%",
+     "14.5%",
+     "6.7%"
+    ],
+    "etiqueta_es": "Rentabilidad sobre el capital empleado (ROCE, %)",
+    "valores_es": [
+     "17,7%",
+     "21,4%",
+     "7,6%",
+     "14,5%",
+     "6,7%"
+    ]
+   },
+   {
+    "etiqueta": "Capital Expenditures (Capex) ($ B)",
+    "valores": [
+     "$4.0",
+     "$4.5",
+     "$4.4",
+     "$12.6",
+     "$12.1"
+    ],
+    "etiqueta_es": "Inversiones (capex, miles de M$)",
+    "valores_es": [
+     "4,0 $",
+     "4,5 $",
+     "4,4 $",
+     "12,6 $",
+     "12,1 $"
+    ]
+   },
+   {
+    "etiqueta": "Affiliate Capex ($ B)",
+    "valores": [
+     "$0.4",
+     "$0.3",
+     "$0.4",
+     "$0.9",
+     "$1.4"
+    ],
+    "etiqueta_es": "Capex de participadas (miles de M$)",
+    "valores_es": [
+     "0,4 $",
+     "0,3 $",
+     "0,4 $",
+     "0,9 $",
+     "1,4 $"
+    ]
+   },
+   {
+    "etiqueta": "Debt-to-CFFO Ratio",
+    "valores": [
+     "0.6x",
+     "0.8x",
+     "1.3x",
+     "0.6x",
+     "1.3x"
+    ],
+    "etiqueta_es": "Deuda / caja operativa",
+    "valores_es": [
+     "0,6",
+     "0,8",
+     "1,3",
+     "0,6",
+     "1,3"
+    ]
+   },
+   {
+    "etiqueta": "Ratio",
+    "valores": [
+     "0.4x",
+     "0.6x",
+     "1.1x",
+     "0.4x",
+     "1.1x"
+    ],
+    "etiqueta_es": "Ratio",
+    "valores_es": [
+     "0,4",
+     "0,6",
+     "1,1",
+     "0,4",
+     "1,1"
+    ]
+   },
+   {
+    "etiqueta": "Net Oil-Equivalent Production (MBOED)",
+    "valores": [
+     "3,980",
+     "4,070",
+     "4,086",
+     "3,970",
+     "3,614"
+    ],
+    "etiqueta_es": "Producción neta (miles de barriles equivalentes/día)",
+    "valores_es": [
+     "3.980",
+     "4.070",
+     "4.086",
+     "3.970",
+     "3.614"
+    ]
+   }
+  ],
+  "cabecera": "Unit 3Q 2026 2Q 2026 3Q 2025 YTD 2026 YTD 2025",
+  "unidad": null,
+  "texto_es": [
+   "El beneficio contable sube frente al 3T25, sobre todo por la buena marcha de las operaciones, con mayores márgenes en la venta de productos refinados y mejores precios del crudo, en parte compensado por efectos de calendario desfavorables por la subida de precios.",
+   "La producción del 3T26 fue menor que hace un año, sobre todo por menores derechos de producción con precios más altos y por el conflicto de Oriente Medio, en parte compensado por la producción récord de los activos operados en Australia, más producción en el Golfo de América y la inclusión de un mes de producción de Venezuela tras pasar a contabilizarla por puesta en equivalencia en el trimestre.",
+   "El procesado de crudo en las refinerías de EE. UU. marcó un récord de 1,09 millones de barriles diarios, con una utilización de la capacidad de casi el 98%.",
+   "La caja operativa del 3T26 fue mayor que hace un año por el mayor beneficio y más distribuciones de caja de Tengizchevroil LLP (TCO). El flujo de caja libre ajustado se benefició de la devolución de un préstamo de 1.000 M$ por TCO y de la venta de activos.",
+   "El capex del 3T26 fue menor que el del año pasado, sobre todo por menos inversión en la cuenca Pérmica.",
+   "La deuda total bajó otros 3.500 M$ y la deuda neta 7.800 M$ en el trimestre, lo que refuerza el balance de Chevron.",
+   "El consejo aprobó un dividendo trimestral de 1,78 $ por acción, que se paga el 10 de diciembre de 2026 a los accionistas registrados al cierre del 18 de noviembre de 2026."
+  ],
+  "cabecera_es": "Unidad 3T26 2T26 3T25 Acumulado 2026 Acumulado 2025"
  },
  "lectura": {
   "estado": "revisada",
@@ -1305,5 +1559,10 @@
    "etiqueta": "Nota de resultados: beneficio antes de impuestos + gastos por intereses",
    "derivado": "La compañía no publica beneficio operativo (EBIT aproximado)"
   }
+ },
+ "traduccion": {
+  "pendientes": 0,
+  "completa": true,
+  "fuente": "Glosario automático y i18n/notas_es.json (revisión tras resultados)"
  }
 }

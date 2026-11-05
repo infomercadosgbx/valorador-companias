@@ -138,12 +138,17 @@
   "items": [],
   "texto": [
    "Oracle is providing the following forward-looking guidance for Q2 FY 2027:",
-   "• Total revenues are expected to grow between 30% and 34% in constant currency and USD.",
-   "• Total Cloud revenue is expected to grow between 64% and 70% in constant currency and between 65% and 71% in USD."
+   "Total revenues are expected to grow between 30% and 34% in constant currency and USD.",
+   "Total Cloud revenue is expected to grow between 64% and 70% in constant currency and between 65% and 71% in USD."
   ],
   "titulo": "Guidance for Q2 FY 202",
   "fuente": "SEC EDGAR · 8-K, Exhibit 99.1 (texto original)",
-  "url": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526387905/orcl-ex99_1.htm"
+  "url": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526387905/orcl-ex99_1.htm",
+  "texto_es": [
+   "Oracle da la siguiente guía para el 2T del ejercicio 2027:",
+   "Se espera que los ingresos totales crezcan entre un 30% y un 34%, a tipo de cambio constante y en dólares.",
+   "Se espera que los ingresos totales de la nube crezcan entre un 64% y un 70% a tipo de cambio constante y entre un 65% y un 71% en dólares."
+  ]
  },
  "reaccion": {
   "hora": "tras el cierre",
@@ -1402,6 +1407,144 @@
    }
   ]
  },
+ "dentro": {
+  "periodo": "1T27",
+  "ingresos": [
+   {
+    "periodo": "1T25",
+    "valor": 13307000000,
+    "interanual_pct": 6.86
+   },
+   {
+    "periodo": "2T25",
+    "valor": 14059000000,
+    "interanual_pct": 8.64
+   },
+   {
+    "periodo": "3T25",
+    "valor": 14130000000,
+    "interanual_pct": 6.4
+   },
+   {
+    "periodo": "4T25",
+    "valor": 15903000000,
+    "interanual_pct": 11.31
+   },
+   {
+    "periodo": "1T26",
+    "valor": 14926000000,
+    "interanual_pct": 12.17
+   },
+   {
+    "periodo": "2T26",
+    "valor": 16058000000,
+    "interanual_pct": 14.22
+   },
+   {
+    "periodo": "3T26",
+    "valor": 17190000000,
+    "interanual_pct": 21.66
+   },
+   {
+    "periodo": "4T26",
+    "valor": 19183000000,
+    "interanual_pct": 20.63
+   },
+   {
+    "periodo": "1T27",
+    "valor": 19345000000,
+    "interanual_pct": 29.61
+   }
+  ],
+  "caja": [
+   {
+    "periodo": "1T26",
+    "beneficio_neto": 2927000000,
+    "caja_operativa": 8140000000,
+    "capex": 8502000000,
+    "fcf": -362000000,
+    "conversion_pct": 278.0
+   },
+   {
+    "periodo": "2T26",
+    "beneficio_neto": 6135000000,
+    "caja_operativa": 2066000000,
+    "capex": 12033000000,
+    "fcf": -9967000000,
+    "conversion_pct": 34.0
+   },
+   {
+    "periodo": "3T26",
+    "beneficio_neto": 3721000000,
+    "caja_operativa": 7151000000,
+    "capex": 18635000000,
+    "fcf": -11484000000,
+    "conversion_pct": 192.0
+   },
+   {
+    "periodo": "4T26",
+    "beneficio_neto": 4304000000,
+    "caja_operativa": 14620000000,
+    "capex": 16493000000,
+    "fcf": -1873000000,
+    "conversion_pct": 340.0
+   },
+   {
+    "periodo": "1T27",
+    "beneficio_neto": 4760000000,
+    "caja_operativa": 23103000000,
+    "capex": 28499000000,
+    "fcf": -5396000000,
+    "conversion_pct": 485.0
+   }
+  ],
+  "capex_solo_anual": false,
+  "gastos": [
+   {
+    "clave": "investigacion_desarrollo",
+    "nombre": "I+D",
+    "valor": 2401000000,
+    "pct": 12.4,
+    "pct_ya": 16.7
+   },
+   {
+    "clave": "ventas_marketing",
+    "nombre": "Ventas y marketing",
+    "valor": 1811000000,
+    "pct": 9.4,
+    "pct_ya": 13.8
+   },
+   {
+    "clave": "gastos_admin",
+    "nombre": "Generales y administración",
+    "valor": 376000000,
+    "pct": 1.9,
+    "pct_ya": 2.5
+   },
+   {
+    "clave": "remuneracion_acciones",
+    "nombre": "Remuneración en acciones (incluida arriba)",
+    "valor": 1127000000,
+    "pct": 5.8,
+    "pct_ya": 7.5
+   }
+  ],
+  "accionista": {
+   "recompras": null,
+   "recompras_ya": 95000000,
+   "recompras_12m": null,
+   "dividendos": 1565000000,
+   "dividendos_12m": 5939000000,
+   "acciones_diluidas": 3000000000,
+   "acciones_diluidas_ya": 2909000000,
+   "acciones_var_pct": 3.13,
+   "remuneracion_acciones": 1127000000,
+   "remuneracion_pct_ingresos": 5.8
+  },
+  "fuente": "SEC EDGAR · XBRL (10-Q/10-K)",
+  "url": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526389274/0001193125-26-389274-index.htm",
+  "fecha_presentacion": "2026-09-11"
+ },
  "cita": null,
  "destacados": null,
  "lectura": {
@@ -1444,5 +1587,10 @@
  },
  "avisos": [],
  "_calendario_finnhub": null,
- "_cifras_nota": null
+ "_cifras_nota": null,
+ "traduccion": {
+  "pendientes": 0,
+  "completa": true,
+  "fuente": "Glosario automático y i18n/notas_es.json (revisión tras resultados)"
+ }
 }

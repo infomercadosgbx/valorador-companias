@@ -1444,20 +1444,257 @@
    }
   ]
  },
+ "dentro": {
+  "periodo": "3T26",
+  "ingresos": [
+   {
+    "periodo": "3T24",
+    "valor": 88268000000,
+    "interanual_pct": 15.09
+   },
+   {
+    "periodo": "4T24",
+    "valor": 96469000000,
+    "interanual_pct": 11.77
+   },
+   {
+    "periodo": "1T25",
+    "valor": 90234000000,
+    "interanual_pct": 12.04
+   },
+   {
+    "periodo": "2T25",
+    "valor": 96428000000,
+    "interanual_pct": 13.79
+   },
+   {
+    "periodo": "3T25",
+    "valor": 102346000000,
+    "interanual_pct": 15.95
+   },
+   {
+    "periodo": "4T25",
+    "valor": 113828000000,
+    "interanual_pct": 17.99
+   },
+   {
+    "periodo": "1T26",
+    "valor": 109896000000,
+    "interanual_pct": 21.79
+   },
+   {
+    "periodo": "2T26",
+    "valor": 119796000000,
+    "interanual_pct": 24.23
+   },
+   {
+    "periodo": "3T26",
+    "valor": 127577000000,
+    "interanual_pct": 24.65
+   }
+  ],
+  "caja": [
+   {
+    "periodo": "3T25",
+    "beneficio_neto": 34979000000,
+    "caja_operativa": 48414000000,
+    "capex": 23953000000,
+    "fcf": 24461000000,
+    "conversion_pct": 138.0
+   },
+   {
+    "periodo": "4T25",
+    "beneficio_neto": 34455000000,
+    "caja_operativa": 52402000000,
+    "capex": 27851000000,
+    "fcf": 24551000000,
+    "conversion_pct": 152.0
+   },
+   {
+    "periodo": "1T26",
+    "beneficio_neto": 62578000000,
+    "caja_operativa": 45790000000,
+    "capex": 35674000000,
+    "fcf": 10116000000,
+    "conversion_pct": 73.0
+   },
+   {
+    "periodo": "2T26",
+    "beneficio_neto": 112193000000,
+    "caja_operativa": 39069000000,
+    "capex": 44924000000,
+    "fcf": -5855000000,
+    "conversion_pct": 35.0
+   },
+   {
+    "periodo": "3T26",
+    "beneficio_neto": 26468000000,
+    "caja_operativa": 42290000000,
+    "capex": 51355000000,
+    "fcf": -9065000000,
+    "conversion_pct": 160.0
+   }
+  ],
+  "capex_solo_anual": false,
+  "gastos": [
+   {
+    "clave": "coste_ventas",
+    "nombre": "Coste de ventas",
+    "valor": 51419000000,
+    "pct": 40.3,
+    "pct_ya": 40.4
+   },
+   {
+    "clave": "investigacion_desarrollo",
+    "nombre": "I+D",
+    "valor": 20640000000,
+    "pct": 16.2,
+    "pct_ya": 14.8
+   },
+   {
+    "clave": "ventas_marketing",
+    "nombre": "Ventas y marketing",
+    "valor": 8804000000,
+    "pct": 6.9,
+    "pct_ya": 7.0
+   },
+   {
+    "clave": "gastos_admin",
+    "nombre": "Generales y administración",
+    "valor": 6138000000,
+    "pct": 4.8,
+    "pct_ya": 7.2
+   },
+   {
+    "clave": "remuneracion_acciones",
+    "nombre": "Remuneración en acciones (incluida arriba)",
+    "valor": 8700000000,
+    "pct": 6.8,
+    "pct_ya": 6.3
+   }
+  ],
+  "accionista": {
+   "recompras": 0,
+   "recompras_ya": 11504000000,
+   "recompras_12m": 5899000000,
+   "dividendos": null,
+   "dividendos_12m": null,
+   "acciones_diluidas": 12368000000,
+   "acciones_diluidas_ya": 12203000000,
+   "acciones_var_pct": 1.35,
+   "remuneracion_acciones": 8700000000,
+   "remuneracion_pct_ingresos": 6.8,
+   "retorno_sobre_caja_pct": 30.0,
+   "retorno_base": "flujo de caja libre"
+  },
+  "fuente": "SEC EDGAR · XBRL (10-Q/10-K)",
+  "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/0001652044-26-000084-index.htm",
+  "fecha_presentacion": "2026-10-29"
+ },
  "cita": {
   "cita": "We had a strong quarter and are now on a half-trillion dollar revenue run rate. Our deep full stack approach is driving momentum across the business, with Alphabet revenues growing 25% year-over year.",
-  "quien": "Sundar Pichai, CEO of Google and Alphabet,"
+  "quien": "Sundar Pichai, CEO of Google and Alphabet,",
+  "cita_es": "Ha sido un trimestre fuerte y ya estamos en un ritmo de ingresos de medio billón de dólares al año. Nuestro enfoque integral, de principio a fin, impulsa todo el negocio, con unos ingresos de Alphabet que crecen un 25% interanual."
  },
  "destacados": {
   "titulo": "Q3 2026 Financial Highlights (unaudited)",
   "texto": [
    "The following table summarizes our consolidated financial results for the quarters ended September 30, 2025 and 2026 (in millions, except for per share information and percentages).",
-   "Change in revenues year over year 16 % 25 %",
-   "Change in constant currency revenues year over year (1)",
-   "Operating income $ 31,228 $ 40,576",
-   "Net income available to common stockholders $ 34,979 $ 26,170",
-   "Diluted net income per common share $ 2.87 $ 2.12"
-  ]
+   "Change in constant currency revenues year over year (1)"
+  ],
+  "filas": [
+   {
+    "etiqueta": "Revenues",
+    "valores": [
+     "$102,346",
+     "$127,577"
+    ],
+    "etiqueta_es": "Ingresos",
+    "valores_es": [
+     "102.346 $",
+     "127.577 $"
+    ]
+   },
+   {
+    "etiqueta": "Change in revenues year over year",
+    "valores": [
+     "16%",
+     "25%"
+    ],
+    "etiqueta_es": "Variación interanual de los ingresos",
+    "valores_es": [
+     "16%",
+     "25%"
+    ]
+   },
+   {
+    "etiqueta": "Operating income",
+    "valores": [
+     "$31,228",
+     "$40,576"
+    ],
+    "etiqueta_es": "Beneficio operativo",
+    "valores_es": [
+     "31.228 $",
+     "40.576 $"
+    ]
+   },
+   {
+    "etiqueta": "Operating margin",
+    "valores": [
+     "31%",
+     "32%"
+    ],
+    "etiqueta_es": "Margen operativo",
+    "valores_es": [
+     "31%",
+     "32%"
+    ]
+   },
+   {
+    "etiqueta": "Other income (expense), net",
+    "valores": [
+     "$12,759",
+     "$(8,221)"
+    ],
+    "etiqueta_es": "Otros ingresos (gastos) netos",
+    "valores_es": [
+     "12.759 $",
+     "(8.221 $)"
+    ]
+   },
+   {
+    "etiqueta": "Net income available to common stockholders",
+    "valores": [
+     "$34,979",
+     "$26,170"
+    ],
+    "etiqueta_es": "Beneficio neto atribuible a los accionistas",
+    "valores_es": [
+     "34.979 $",
+     "26.170 $"
+    ]
+   },
+   {
+    "etiqueta": "Diluted net income per common share",
+    "valores": [
+     "$2.87",
+     "$2.12"
+    ],
+    "etiqueta_es": "BPA diluido",
+    "valores_es": [
+     "2,87 $",
+     "2,12 $"
+    ]
+   }
+  ],
+  "cabecera": null,
+  "unidad": null,
+  "texto_es": [
+   "La tabla resume los resultados consolidados de los trimestres cerrados el 30 de septiembre de 2025 y 2026 (en millones, salvo datos por acción y porcentajes).",
+   "Variación interanual de los ingresos a tipo de cambio constante (1)"
+  ],
+  "cabecera_es": null
  },
  "lectura": {
   "estado": "revisada",
@@ -1502,5 +1739,10 @@
   "bpa_real": 2.67,
   "ingresos_reales": 127577000000
  },
- "_cifras_nota": null
+ "_cifras_nota": null,
+ "traduccion": {
+  "pendientes": 0,
+  "completa": true,
+  "fuente": "Glosario automático y i18n/notas_es.json (revisión tras resultados)"
+ }
 }

@@ -146,7 +146,7 @@
     "min": 440000000.0,
     "max": 445000000.0,
     "medio": 442500000.0,
-    "texto": "• Revenue in the range of $440 million to $445 million",
+    "texto": "Revenue in the range of $440 million to $445 million",
     "estimado": null,
     "dif_pct": null,
     "resultado": null
@@ -154,12 +154,17 @@
   ],
   "texto": [
    "For th e third quarter fiscal 2027, UiPath expects:",
-   "• Revenue in the range of $440 million to $445 million",
-   "• ARR in the range of $1.992 billion to $1.997 billion as of October 31, 2026"
+   "Revenue in the range of $440 million to $445 million",
+   "ARR in the range of $1.992 billion to $1.997 billion as of October 31, 2026"
   ],
   "titulo": "Financial Outlook",
   "fuente": "SEC EDGAR · 8-K, Exhibit 99.1 (texto original)",
-  "url": "https://www.sec.gov/Archives/edgar/data/1734722/000173472226000047/path-2026731xex991.htm"
+  "url": "https://www.sec.gov/Archives/edgar/data/1734722/000173472226000047/path-2026731xex991.htm",
+  "texto_es": [
+   "Para el tercer trimestre del ejercicio 2027, UiPath espera:",
+   "Ingresos de entre 440 y 445 M$",
+   "ARR de entre 1.992 y 1.997 M$ a 31 de octubre de 2026"
+  ]
  },
  "reaccion": {
   "hora": "tras el cierre",
@@ -1433,18 +1438,173 @@
    }
   ]
  },
+ "dentro": {
+  "periodo": "2T27",
+  "ingresos": [
+   {
+    "periodo": "2T25",
+    "valor": 316253000,
+    "interanual_pct": 10.07
+   },
+   {
+    "periodo": "3T25",
+    "valor": 354653000,
+    "interanual_pct": 8.82
+   },
+   {
+    "periodo": "4T25",
+    "valor": 423646000,
+    "interanual_pct": 4.54
+   },
+   {
+    "periodo": "1T26",
+    "valor": 356624000,
+    "interanual_pct": 6.42
+   },
+   {
+    "periodo": "2T26",
+    "valor": 361728000,
+    "interanual_pct": 14.38
+   },
+   {
+    "periodo": "3T26",
+    "valor": 411113000,
+    "interanual_pct": 15.92
+   },
+   {
+    "periodo": "4T26",
+    "valor": 481107000,
+    "interanual_pct": 13.56
+   },
+   {
+    "periodo": "1T27",
+    "valor": 418382000,
+    "interanual_pct": 17.32
+   },
+   {
+    "periodo": "2T27",
+    "valor": 410256000,
+    "interanual_pct": 13.42
+   }
+  ],
+  "caja": [
+   {
+    "periodo": "2T26",
+    "beneficio_neto": 1584000,
+    "caja_operativa": 41587000,
+    "capex": 0,
+    "fcf": 41587000,
+    "conversion_pct": 2625.0
+   },
+   {
+    "periodo": "3T26",
+    "beneficio_neto": 198839000,
+    "caja_operativa": 28271000,
+    "capex": 3164000,
+    "fcf": 25107000,
+    "conversion_pct": 14.0
+   },
+   {
+    "periodo": "4T26",
+    "beneficio_neto": 104462000,
+    "caja_operativa": 182348000,
+    "capex": 3052000,
+    "fcf": 179296000,
+    "conversion_pct": 175.0
+   },
+   {
+    "periodo": "1T27",
+    "beneficio_neto": 22525000,
+    "caja_operativa": 131928000,
+    "capex": 2684000,
+    "fcf": 129244000,
+    "conversion_pct": 586.0
+   },
+   {
+    "periodo": "2T27",
+    "beneficio_neto": 36089000,
+    "caja_operativa": 30699000,
+    "capex": 1389000,
+    "fcf": 29310000,
+    "conversion_pct": 85.0
+   }
+  ],
+  "capex_solo_anual": false,
+  "gastos": [
+   {
+    "clave": "coste_ventas",
+    "nombre": "Coste de ventas",
+    "valor": 80587000,
+    "pct": 19.6,
+    "pct_ya": 17.8
+   },
+   {
+    "clave": "investigacion_desarrollo",
+    "nombre": "I+D",
+    "valor": 83393000,
+    "pct": 20.3,
+    "pct_ya": 27.2
+   },
+   {
+    "clave": "ventas_marketing",
+    "nombre": "Ventas y marketing",
+    "valor": 164606000,
+    "pct": 40.1,
+    "pct_ya": 46.0
+   },
+   {
+    "clave": "gastos_admin",
+    "nombre": "Generales y administración",
+    "valor": 50066000,
+    "pct": 12.2,
+    "pct_ya": 14.6
+   },
+   {
+    "clave": "remuneracion_acciones",
+    "nombre": "Remuneración en acciones (incluida arriba)",
+    "valor": 44962000,
+    "pct": 11.0,
+    "pct_ya": 21.6
+   }
+  ],
+  "accionista": {
+   "recompras": 24752000,
+   "recompras_ya": 101576000,
+   "recompras_12m": 268548000,
+   "dividendos": null,
+   "dividendos_12m": null,
+   "acciones_diluidas": 523013000,
+   "acciones_diluidas_ya": 542865000,
+   "acciones_var_pct": -3.66,
+   "remuneracion_acciones": 44962000,
+   "remuneracion_pct_ingresos": 11.0,
+   "retorno_sobre_caja_pct": 74.0,
+   "retorno_base": "flujo de caja libre"
+  },
+  "fuente": "SEC EDGAR · XBRL (10-Q/10-K)",
+  "url": "https://www.sec.gov/Archives/edgar/data/1734722/000173472226000050/0001734722-26-000050-index.htm",
+  "fecha_presentacion": "2026-09-08"
+ },
  "cita": {
   "cita": "I am pleased with our second quarter results, demonstrating disciplined execution and the growing momentum across our platform",
-  "quien": "Daniel Dines, UiPath Founder and Chief Executive Officer"
+  "quien": "Daniel Dines, UiPath Founder and Chief Executive Officer",
+  "cita_es": "Estoy satisfecho con los resultados del segundo trimestre, que muestran una ejecución disciplinada y el creciente impulso de nuestra plataforma"
  },
  "destacados": {
   "titulo": "Second Quarter Fiscal 2027 Financial Highlights",
   "texto": [
-   "• Revenue of $410 million increased 13 percent year-over-year.",
-   "• ARR of $1.938 billion as of July 31, 2026 increased 12 percent year-over-year.",
-   "• Dollar based net retention rate of 109 percent.",
-   "• GAAP gross margin was 80 percent."
-  ]
+   "Revenue of $410 million increased 13 percent year-over-year.",
+   "ARR of $1.938 billion as of July 31, 2026 increased 12 percent year-over-year.",
+   "Dollar based net retention rate of 109 percent.",
+   "GAAP gross margin was 80 percent."
+  ],
+  "texto_es": [
+   "Ingresos de 410 M$, un 13% más que hace un año.",
+   "ARR de 1.938 M$ a 31 de julio de 2026, un 12% más que hace un año.",
+   "Tasa de retención neta en dólares del 109%.",
+   "Margen bruto GAAP del 80%."
+  ],
+  "cabecera_es": null
  },
  "lectura": {
   "estado": "revisada",
@@ -1481,5 +1641,10 @@
  },
  "avisos": [],
  "_calendario_finnhub": null,
- "_cifras_nota": null
+ "_cifras_nota": null,
+ "traduccion": {
+  "pendientes": 0,
+  "completa": true,
+  "fuente": "Glosario automático y i18n/notas_es.json (revisión tras resultados)"
+ }
 }

@@ -141,7 +141,7 @@
     "min": 34800000000.0,
     "max": 34800000000.0,
     "medio": 34800000000.0,
-    "texto": "• Fourth quarter revenue guidance of approximately $34.8 billion;",
+    "texto": "Fourth quarter revenue guidance of approximately $34.8 billion;",
     "estimado": null,
     "dif_pct": null,
     "resultado": null
@@ -149,11 +149,15 @@
   ],
   "texto": [
    "Based on current business trends and conditions, the outlook for the fourth quarter of fiscal year 2026, ending November 1, 2026, is expected to be as follows:",
-   "• Fourth quarter revenue guidance of approximately $34.8 billion;"
+   "Fourth quarter revenue guidance of approximately $34.8 billion;"
   ],
   "titulo": "Fourth Quarter Fiscal Year 2026 Business Outlook",
   "fuente": "SEC EDGAR · 8-K, Exhibit 99.1 (texto original)",
-  "url": "https://www.sec.gov/Archives/edgar/data/1730168/000173016826000076/avgo-08022026x8kxex99.htm"
+  "url": "https://www.sec.gov/Archives/edgar/data/1730168/000173016826000076/avgo-08022026x8kxex99.htm",
+  "texto_es": [
+   "Según las tendencias y condiciones actuales del negocio, para el cuarto trimestre del ejercicio 2026, que termina el 1 de noviembre de 2026, se espera lo siguiente:",
+   "Guía de ingresos del cuarto trimestre: unos 34.800 M$."
+  ]
  },
  "reaccion": {
   "hora": "tras el cierre",
@@ -1414,24 +1418,328 @@
    }
   ]
  },
+ "dentro": {
+  "periodo": "3T26",
+  "ingresos": [
+   {
+    "periodo": "3T24",
+    "valor": 13072000000,
+    "interanual_pct": 47.27
+   },
+   {
+    "periodo": "4T24",
+    "valor": 14054000000,
+    "interanual_pct": 51.2
+   },
+   {
+    "periodo": "1T25",
+    "valor": 14916000000,
+    "interanual_pct": 24.71
+   },
+   {
+    "periodo": "2T25",
+    "valor": 15004000000,
+    "interanual_pct": 20.16
+   },
+   {
+    "periodo": "3T25",
+    "valor": 15952000000,
+    "interanual_pct": 22.03
+   },
+   {
+    "periodo": "4T25",
+    "valor": 18015000000,
+    "interanual_pct": 28.18
+   },
+   {
+    "periodo": "1T26",
+    "valor": 19311000000,
+    "interanual_pct": 29.47
+   },
+   {
+    "periodo": "2T26",
+    "valor": 22187000000,
+    "interanual_pct": 47.87
+   },
+   {
+    "periodo": "3T26",
+    "valor": 29591000000,
+    "interanual_pct": 85.5
+   }
+  ],
+  "caja": [
+   {
+    "periodo": "3T25",
+    "beneficio_neto": 4140000000,
+    "caja_operativa": 7166000000,
+    "capex": 142000000,
+    "fcf": 7024000000,
+    "conversion_pct": 173.0
+   },
+   {
+    "periodo": "4T25",
+    "beneficio_neto": 8518000000,
+    "caja_operativa": 7703000000,
+    "capex": 237000000,
+    "fcf": 7466000000,
+    "conversion_pct": 90.0
+   },
+   {
+    "periodo": "1T26",
+    "beneficio_neto": 7349000000,
+    "caja_operativa": 8260000000,
+    "capex": 250000000,
+    "fcf": 8010000000,
+    "conversion_pct": 112.0
+   },
+   {
+    "periodo": "2T26",
+    "beneficio_neto": 9310000000,
+    "caja_operativa": 10493000000,
+    "capex": 231000000,
+    "fcf": 10262000000,
+    "conversion_pct": 113.0
+   },
+   {
+    "periodo": "3T26",
+    "beneficio_neto": 13088000000,
+    "caja_operativa": 14197000000,
+    "capex": 532000000,
+    "fcf": 13665000000,
+    "conversion_pct": 108.0
+   }
+  ],
+  "capex_solo_anual": false,
+  "gastos": [
+   {
+    "clave": "coste_ventas",
+    "nombre": "Coste de ventas",
+    "valor": 9135000000,
+    "pct": 30.9,
+    "pct_ya": 32.9
+   },
+   {
+    "clave": "investigacion_desarrollo",
+    "nombre": "I+D",
+    "valor": 2895000000,
+    "pct": 9.8,
+    "pct_ya": 19.1
+   },
+   {
+    "clave": "gastos_generales",
+    "nombre": "Comerciales, generales y admin.",
+    "valor": 996000000,
+    "pct": 3.4,
+    "pct_ya": 6.7
+   },
+   {
+    "clave": "remuneracion_acciones",
+    "nombre": "Remuneración en acciones (incluida arriba)",
+    "valor": 2019000000,
+    "pct": 6.8,
+    "pct_ya": 14.6
+   }
+  ],
+  "accionista": {
+   "recompras": 0,
+   "recompras_ya": 0,
+   "recompras_12m": 8450000000,
+   "dividendos": 3103000000,
+   "dividendos_12m": 12078000000,
+   "acciones_diluidas": 4887000000,
+   "acciones_diluidas_ya": 4860000000,
+   "acciones_var_pct": 0.56,
+   "remuneracion_acciones": 2019000000,
+   "remuneracion_pct_ingresos": 6.8,
+   "retorno_sobre_caja_pct": 52.0,
+   "retorno_base": "flujo de caja libre"
+  },
+  "fuente": "SEC EDGAR · XBRL (10-Q/10-K)",
+  "url": "https://www.sec.gov/Archives/edgar/data/1730168/000173016826000080/0001730168-26-000080-index.htm",
+  "fecha_presentacion": "2026-09-10"
+ },
  "cita": {
   "cita": "Demand for our custom AI accelerators and networking continues to be very strong. Q3 AI semiconductor revenue of $16.7 billion grew 221% year-over-year, and 54% quarter-over-quarter",
-  "quien": "Hock Tan, President and CEO of Broadcom Inc"
+  "quien": "Hock Tan, President and CEO of Broadcom Inc",
+  "cita_es": "La demanda de nuestros aceleradores de IA a medida y de redes sigue siendo muy fuerte. Los ingresos de semiconductores para IA del 3T, 16.700 M$, crecieron un 221% interanual y un 54% frente al trimestre anterior"
  },
  "destacados": {
   "titulo": "Third Quarter Fiscal Year 2026 Financial Highlights",
   "texto": [
-   "(Dollars in millions, except per share data) Q3 26 Q3 25 Change Q3 26 Q3 25 Change",
-   "Net revenue $ 29,591 $ 15,952 +86 % $ 29,591 $ 15,952 +86 %",
-   "Operating income $ 15,955 $ 5,887 +171 % $ 20,095 $ 10,455 +92 %",
-   "Net income $ 13,088 $ 4,140 +216 % $ 16,372 $ 8,404 +95 %",
-   "Earnings per common share - diluted $ 2.68 $ 0.85 +215 % $ 3.32 $ 1.69 +96 %",
-   "(Dollars in millions) Q3 26 Q3 25 Change",
-   "Cash flow from operations $ 14,197 $ 7,166 +98 %",
-   "Free cash flow $ 13,665 $ 7,024 +95 %",
-   "(Dollars in millions) Q3 26 Q3 25 Change",
-   "Semiconductor solutions $ 20,839 70 % $ 9,166 57 % +127 %"
-  ]
+   "The Company’s cash and cash equivalents at the end of the fiscal quarter were $24.0 billion, compared to $19.6 billion at the end of the prior fiscal quarter.",
+   "During the third fiscal quarter, the Company generated $14.2 billion in cash from operations and spent $0.5 billion on capital expenditures, resulting in $13.7 billion of free cash flow.",
+   "On June 30, 2026, the Company paid a cash dividend of $0.65 per share, totaling $3.1 billion."
+  ],
+  "filas": [
+   {
+    "etiqueta": "Net revenue",
+    "valores": [
+     "$29,591",
+     "$15,952",
+     "+86%",
+     "$29,591",
+     "$15,952",
+     "+86%"
+    ],
+    "etiqueta_es": "Ingresos netos",
+    "valores_es": [
+     "29.591",
+     "15.952",
+     "+86%",
+     "29.591",
+     "15.952",
+     "+86%"
+    ]
+   },
+   {
+    "etiqueta": "Operating income",
+    "valores": [
+     "$15,955",
+     "$5,887",
+     "+171%",
+     "$20,095",
+     "$10,455",
+     "+92%"
+    ],
+    "etiqueta_es": "Beneficio operativo",
+    "valores_es": [
+     "15.955",
+     "5.887",
+     "+171%",
+     "20.095",
+     "10.455",
+     "+92%"
+    ]
+   },
+   {
+    "etiqueta": "Net income",
+    "valores": [
+     "$13,088",
+     "$4,140",
+     "+216%",
+     "$16,372",
+     "$8,404",
+     "+95%"
+    ],
+    "etiqueta_es": "Beneficio neto",
+    "valores_es": [
+     "13.088",
+     "4.140",
+     "+216%",
+     "16.372",
+     "8.404",
+     "+95%"
+    ]
+   },
+   {
+    "etiqueta": "Earnings per common share - diluted",
+    "valores": [
+     "$2.68",
+     "$0.85",
+     "+215%",
+     "$3.32",
+     "$1.69",
+     "+96%"
+    ],
+    "etiqueta_es": "BPA diluido",
+    "valores_es": [
+     "2,68",
+     "0,85",
+     "+215%",
+     "3,32",
+     "1,69",
+     "+96%"
+    ]
+   },
+   {
+    "etiqueta": "Cash flow from operations",
+    "valores": [
+     "$14,197",
+     "$7,166",
+     "+98%"
+    ],
+    "etiqueta_es": "Caja operativa",
+    "valores_es": [
+     "14.197",
+     "7.166",
+     "+98%"
+    ]
+   },
+   {
+    "etiqueta": "Free cash flow",
+    "valores": [
+     "$13,665",
+     "$7,024",
+     "+95%"
+    ],
+    "etiqueta_es": "Flujo de caja libre",
+    "valores_es": [
+     "13.665",
+     "7.024",
+     "+95%"
+    ]
+   },
+   {
+    "etiqueta": "Semiconductor solutions",
+    "valores": [
+     "$20,839",
+     "70%",
+     "$9,166",
+     "57%",
+     "+127%"
+    ],
+    "etiqueta_es": "Soluciones de semiconductores",
+    "valores_es": [
+     "20.839",
+     "70%",
+     "9.166",
+     "57%",
+     "+127%"
+    ]
+   },
+   {
+    "etiqueta": "Infrastructure software",
+    "valores": [
+     "8,752",
+     "30",
+     "6,786",
+     "43",
+     "+29%"
+    ],
+    "etiqueta_es": "Software de infraestructura",
+    "valores_es": [
+     "8.752",
+     "30",
+     "6.786",
+     "43",
+     "+29%"
+    ]
+   },
+   {
+    "etiqueta": "Total net revenue",
+    "valores": [
+     "$29,591",
+     "100%",
+     "$15,952",
+     "100%"
+    ],
+    "etiqueta_es": "Ingresos netos totales",
+    "valores_es": [
+     "29.591",
+     "100%",
+     "15.952",
+     "100%"
+    ]
+   }
+  ],
+  "cabecera": "(Dollars in millions, except per share data) Q3 26 Q3 25 Change Q3 26 Q3 25 Change",
+  "unidad": "million",
+  "texto_es": [
+   "La caja y equivalentes al cierre del trimestre fiscal eran de 24.000 M$, frente a 19.600 M$ al cierre del trimestre anterior.",
+   "En el tercer trimestre fiscal la compañía generó 14.200 M$ de caja operativa e invirtió 500 M$ (capex), con un flujo de caja libre de 13.700 M$.",
+   "El 30 de junio de 2026 la compañía pagó un dividendo de 0,65 $ por acción, 3.100 M$ en total."
+  ],
+  "cabecera_es": "(millones de $, salvo datos por acción) 3T26 3T25 Var. 3T26 3T25 Var."
  },
  "lectura": {
   "estado": "revisada",
@@ -1469,5 +1777,10 @@
  },
  "avisos": [],
  "_calendario_finnhub": null,
- "_cifras_nota": null
+ "_cifras_nota": null,
+ "traduccion": {
+  "pendientes": 0,
+  "completa": true,
+  "fuente": "Glosario automático y i18n/notas_es.json (revisión tras resultados)"
+ }
 }
