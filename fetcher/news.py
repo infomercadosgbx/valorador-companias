@@ -289,6 +289,7 @@ def apis_from_env():
 
 # ---------------------------------------------------------------- mezcla
 TOPE_MEDIO = {"Yahoo Finance": 10}
+TOPE_DURO = {"Yahoo Finance": 15}     # ni siquiera rellenando, si faltan otros medios
 NOMBRES_ANTIGUOS = {"Yahoo": "Yahoo Finance", "SeekingAlpha": "Seeking Alpha"}
 TOPE_OTRO = 6
 TOPE_OFICIAL = 6
@@ -326,7 +327,12 @@ def combinar(fuentes: list, previas: list | None = None, today=None, limite=LIMI
             out.append(n); cnt[n["medio"]] = cnt.get(n["medio"], 0) + 1
     if len(out) < limite:                               # 2.ª: rellena si no hay variedad suficiente
         ya = {id(n) for n in out}
-        out += [n for n in unicas if id(n) not in ya and not n.get("oficial")][:limite - len(out)]
+        for n in unicas:                                # sin pasar el tope duro (Yahoo 15)
+            if len(out) >= limite:
+                break
+            if id(n) in ya or n.get("oficial") or cnt.get(n["medio"], 0) >= TOPE_DURO.get(n["medio"], 99):
+                continue
+            out.append(n); cnt[n["medio"]] = cnt.get(n["medio"], 0) + 1
     out = sorted(out, key=lambda n: n.get("fecha") or "", reverse=True)
     if len(out) > limite:                               # recorta las más antiguas sin perder los 8-K
         keep, borrar = [], len(out) - limite

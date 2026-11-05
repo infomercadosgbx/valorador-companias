@@ -293,7 +293,7 @@ Cada noche, la pestaña Fuentes reúne hasta 30 titulares del último mes de cua
 | Oficial | 8-K presentados a la SEC, con su tema en español | `submissions` de EDGAR (sin peticiones extra) |
 
 - **Qué medios lee cada compañía:** campos `medios` (ids de `fetcher/news.py`) y `alias` (otros nombres: Google, AWS, VMware…) de `companies.json`. Al dar de alta una compañía se le asignan medios según su sector (código SIC); puedes cambiarlos a mano.
-- **Sin duplicados y con variedad:** la misma noticia en dos medios cuenta una vez (gana el medio original sobre Yahoo), y cada medio tiene un tope (Yahoo 10, el resto 6).
+- **Sin duplicados y con variedad:** la misma noticia en dos medios cuenta una vez (gana el medio original sobre Yahoo), y cada medio tiene un tope (Yahoo 10, el resto 6). Si no hay bastantes medios distintos se rellena, pero Yahoo nunca pasa de 15.
 - **Se acumula:** los feeds RSS solo muestran lo último, así que lo encontrado se conserva noche a noche durante 30 días.
 - **Si un medio falla,** la compañía no recibe avisos: el estado de cada feed queda en `data/_noticias_estado.json`. El workflow **Probar fuentes de noticias** muestra qué feeds responden y qué titulares encuentran para un ticker.
 - **Reuters, FT, Bloomberg, WSJ e Investing** no ofrecen API ni RSS públicos para esto. Sus artículos se leen para escribir el análisis con tu sesión iniciada en el navegador de la app de escritorio (ver `claude/fuentes-de-prensa.md` en el proyecto), y en la web quedan los enlaces «Buscar en…».
