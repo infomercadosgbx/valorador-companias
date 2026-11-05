@@ -484,8 +484,17 @@ async function runUpdate(){
   let tries=0; const poll=async()=>{ tries++;
     const q=await gh(`/repos/${R.o}/${R.r}/actions/workflows/actualizar-datos.yml/runs?event=workflow_dispatch&per_page=1&created=>${since.slice(0,19)}Z`);
     const run=q.ok&&q.j&&q.j.workflow_runs&&q.j.workflow_runs[0];
-    if(run&&run.status==="completed"){ $("btnRun").disabled=false;
-      msg.innerHTML=run.conclusion==="success"?`<b>Listo.</b> La web se publica en un minuto: <a href="#" onclick="location.reload();return false">recarga la página</a>.`:`La actualización terminó con error. <a href="${run.html_url}" target="_blank" rel="noopener">Ver el detalle</a>.`; return; }
+    if(run&&run.status==="completed"){
+      if(run.conclusion!=="success"){ $("btnRun").disabled=false; msg.innerHTML=`La actualización terminó con error. <a href="${run.html_url}" target="_blank" rel="noopener">Ver el detalle</a>.`; return; }
+      // Los datos ya están en el repositorio; falta que «Publicar web» los suba a GitHub Pages.
+      msg.innerHTML=`<b>Datos listos.</b> Publicando la web… (se recarga sola)`;
+      const done=new Date(new Date(run.updated_at||Date.now()).getTime()-20e3).toISOString(); let t2=0;
+      const pub=async()=>{ t2++;
+        const p=await gh(`/repos/${R.o}/${R.r}/actions/workflows/publicar-web.yml/runs?per_page=5&created=>${done.slice(0,19)}Z`);
+        const ok=p.ok&&p.j&&(p.j.workflow_runs||[]).find(x=>x.status==="completed"&&x.conclusion==="success");
+        if(ok){ msg.innerHTML=`<b>Listo.</b> Recargando…`; setTimeout(()=>location.reload(),5000); return; }
+        if(t2<20) setTimeout(pub,10000); else { $("btnRun").disabled=false; msg.innerHTML=`<b>Listo.</b> <a href="#" onclick="location.reload();return false">Recarga la página</a> en un minuto.`; } };
+      setTimeout(pub,10000); return; }
     if(run) msg.innerHTML=`<b>En marcha</b> (${run.status==="queued"?"en cola":"descargando y generando"}) · <a href="${run.html_url}" target="_blank" rel="noopener">ver en GitHub</a>`;
     if(tries<45) setTimeout(poll,20000); else $("btnRun").disabled=false; };
   setTimeout(poll,8000);
@@ -512,7 +521,7 @@ async function load(){
   REP._gen=new Date().toISOString().slice(0,10);
   const root=document.documentElement.style; root.setProperty("--brand",REP._brand); root.setProperty("--onbrand",onColor(REP._brand)); root.setProperty("--brandsoft",hexA(REP._brand,.10));
   document.title=`Resultados ${REP.periodo} · ${REP.nombre} (${REP.ticker})`;
-  const pdf=$("btnPdf"); if(it.pdf){ pdf.hidden=false; pdf.href=`data/resultados/${t}/${it.pdf}`; pdf.setAttribute("download",`Resultados ${REP.ticker} ${REP.periodo}.pdf`); } else pdf.hidden=true;
+  const pdf=$("btnPdf"); if(it.pdf){ pdf.hidden=false; pdf.href=`data/resultados/${t}/${it.pdf}${it.pdf_de?`?v=${encodeURIComponent(it.pdf_de)}`:""}`; pdf.setAttribute("download",`Resultados ${REP.ticker} ${REP.periodo}.pdf`); } else pdf.hidden=true;
   $("sheets").innerHTML=page1(REP)+page2(REP)+(PDF?"":await panelHtml());
   fitZoom();
   try{ await document.fonts.ready; }catch(e){}
