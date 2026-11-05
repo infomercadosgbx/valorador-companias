@@ -499,6 +499,33 @@ table.mini2 td{padding:3px 6px;font-size:12px;border-bottom:1px solid var(--grid
 .htiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
 .htile{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:6px;padding:20px;border:1px solid var(--line);border-radius:14px;background:var(--surface);box-shadow:var(--shadow);min-height:150px;transition:transform .12s,border-color .12s}
 .htile:hover,.htile:focus-visible{border-color:var(--tcx);transform:translateY(-2px)} .hic{font-size:26px;line-height:1} .ht{font-size:17px;font-weight:700;color:var(--ink)} .hd{font-size:13px;color:var(--ink2)} .hs{margin-top:auto;font-size:12.5px;color:var(--ink);font-weight:600}
+/* Mercado hoy (menú principal) */
+.mk{margin-bottom:18px}
+.mktop{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}.mktop h2{margin:0}.mktop .sub{margin:4px 0 0}
+.mksent{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-top:14px;align-items:start}
+.mkcard{border:1px solid var(--line);border-radius:12px;padding:14px;background:var(--surface2);display:flex;flex-direction:column;gap:8px;min-width:0}
+.mkcard .note{margin:0;font-size:12px}
+.mkh{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap}.mkh .eyebrow{margin:0}
+.mkbig{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.mkbig b{font-family:var(--f-num);font-size:30px;font-weight:700;line-height:1;color:var(--ink)}
+.mkgauge{position:relative;height:10px;border-radius:5px;background:linear-gradient(90deg,color-mix(in srgb,var(--crit) 55%,var(--surface)),color-mix(in srgb,var(--warn) 50%,var(--surface)) 50%,color-mix(in srgb,var(--good) 55%,var(--surface)))}
+.mkmark{position:absolute;top:-4px;width:4px;height:18px;margin-left:-2px;border-radius:2px;background:var(--ink);box-shadow:0 0 0 2px var(--surface2)}
+.mkscale{display:flex;justify-content:space-between;font-size:10.5px;color:var(--muted)}
+.mkprev{display:flex;gap:14px;flex-wrap:wrap;font-family:var(--f-num);font-size:13px;color:var(--ink)}.mkprev small{font-family:var(--f-ui,inherit);color:var(--muted);font-size:11px}
+.mkspark{width:100%;height:36px}.mkspark polyline{fill:none;stroke:var(--accent);stroke-width:1.6;vector-effect:non-scaling-stroke}.mkspark .mid{stroke:var(--line);stroke-dasharray:3 3;vector-effect:non-scaling-stroke}
+.mkdet summary{cursor:pointer;font-size:12.5px;font-weight:600;color:var(--ink2)}
+.mkdet ul{list-style:none;padding:0;margin:8px 0;display:flex;flex-direction:column;gap:8px}.mkdet li{display:flex;flex-direction:column;gap:2px;font-size:12.5px}.mkch{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.mkbar3{display:flex;height:12px;border-radius:6px;overflow:hidden;background:var(--line)}.mkbar3 span{display:block;height:100%}
+.mkbar3 .b,.mk3 i.b{background:var(--good)}.mkbar3 .n,.mk3 i.n{background:color-mix(in srgb,var(--muted) 55%,var(--surface))}.mkbar3 .r,.mk3 i.r{background:var(--crit)}
+.mk3{display:flex;flex-direction:column;gap:3px;font-size:12.5px;color:var(--ink)}.mk3 i{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:6px}.mk3 b{font-family:var(--f-num)}.mk3 small{color:var(--muted)}
+.mkgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px 22px;margin-top:16px}
+.mkgrp h3{margin:0 0 4px;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink2)}
+.mkrow{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:7px 0;border-top:1px solid var(--grid)}
+.mkn{display:flex;flex-direction:column;min-width:0}.mkn b{font-size:13.5px;font-weight:600;color:var(--ink)}
+.mkv{display:flex;flex-direction:column;align-items:flex-end;font-family:var(--f-num);font-size:12.5px;white-space:nowrap}.mkv b{font-size:14.5px;color:var(--ink)}
+.mkref{font-size:11px;color:var(--muted)}
+.mkform{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:10px 0}.mkform label{display:flex;flex-direction:column;gap:4px;font-size:12px;font-weight:600;color:var(--ink2)}
+.mklink{display:inline-flex;align-items:center;padding:7px 12px;border:1px solid var(--line);border-radius:8px;color:var(--ink);text-decoration:none;font-weight:600;font-size:13px}
+@media (max-width:520px){.mkbig b{font-size:26px}.mksent{grid-template-columns:1fr}}
 .fgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px}
 .fcard{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;align-items:center;border:1px solid var(--line);border-radius:10px;padding:10px 12px}
 .fcard .star{all:unset;cursor:pointer;font-size:20px;color:var(--line);grid-row:span 3;align-self:start} .fcard .star[aria-pressed=true]{color:#f5b301}
@@ -1576,13 +1603,139 @@ function inicioHtml(){
   const W=watchRows(), favs=W.filter(r=>r.fav), below=W.filter(r=>fin(r.toBuy)&&r.toBuy<=0), soon=W.filter(r=>fin(r.eDays)&&r.eDays>=0&&r.eDays<=14).sort((a,b)=>a.eDays-b.eDays);
   const {rows,tot}=carRows(), cost=rows.reduce((a,r)=>a+r.cost,0);
   const tile=(k,ic,t,d,stat)=>`<button type="button" class="htile" data-home="${k}"><span class="hic">${ic}</span><span class="ht">${t}</span><span class="hd">${d}</span>${stat?`<span class="hs">${stat}</span>`:""}</button>`;
-  return homeHead("Menú principal","Elige qué quieres ver. Para volver a una compañía, ábrela desde el selector de arriba o desde cualquier lista.")+`
+  return homeHead("Menú principal","Elige qué quieres ver. Para volver a una compañía, ábrela desde el selector de arriba o desde cualquier lista.")+mercadoHtml()+`
    <div class="htiles">
     ${tile("favoritas","★","Favoritas","Tus compañías marcadas, a un clic.",favs.length?`${favs.length} favorita${favs.length>1?"s":""}: ${favs.map(r=>esc(r.name)).join(", ")}`:"Aún no tienes favoritas")}
     ${tile("lista","📋","Lista de seguimiento","Precio, valor de tu modelo, puntuación y lo que toca vigilar de todas las compañías.",`${W.length} compañías · ${below.length} en zona de compra${soon.length?` · resultados: ${soon.slice(0,2).map(r=>`${esc(r.name)} ${esc(fecha(r.eDate))}`).join(", ")}`:""}`)}
     ${tile("cartera","💼","Cartera","Tus posiciones con el precio actual y tu valoración.",rows.length?`${nf(tot,0)} $ · ${tot>=cost?"+":"−"}${nf(Math.abs(cost>0?(tot/cost-1)*100:0),1)}% · ${rows.length} posiciones`:"Sin posiciones todavía")}
     ${tile("ajustes","⚙","Ajustes","Tema, favoritas, guardado en GitHub, copia de la cartera y avisos revisados.","")}
    </div>`;
+}
+/* ================= MERCADO HOY (menú principal) =================
+   data/_mercado_hoy.json lo escribe cada día el Action «Mercado hoy» (FRED, Tesoro, Finnhub, Twelve Data,
+   OFR, AAII, Cboe). Lo que no tiene fuente gratuita (NAAIM, CNN, MOVE) se apunta en manual/_mercado.json.
+   Durante la sesión, los ETF se actualizan con el Worker de precio en vivo. */
+const MKH={d:null,man:{},err:null,cargado:false,abierto:false,editar:false};
+async function mkLoad(){
+  try{ const [d,m]=await Promise.all([getJSON("data/_mercado_hoy.json").catch(()=>null),getJSON("manual/_mercado.json").catch(()=>({}))]);
+    MKH.d=d; MKH.man=(m&&m.mercado_hoy)||{}; MKH.err=d?null:"Aún no hay datos: lanza el Action «Mercado hoy» (ver README).";
+  }catch(e){ MKH.err=e.message; }
+  MKH.cargado=true; if(WATCH&&WVIEW==="inicio") renderWatch();
+}
+function mkLiveTickers(){ return ((MKH.d&&MKH.d.indicadores)||[]).map(i=>i.vivo&&i.vivo.ticker).filter(Boolean); }
+function mkFmt(i,v){ if(!fin(v)) return "–";
+  if(i.unidad==="%") return nf(v,i.id==="dif_hy"?2:3)+"%";
+  if(i.id==="eurusd") return nf(v,4);
+  if(i.id==="bitcoin") return nf(v,0)+" $";
+  return nf(v,2)+(i.unidad==="$"?" $":""); }
+function mkVar(i){ /* variación del día; durante la sesión, la del Worker si el ETF es el propio indicador */
+  const q=i.vivo&&LIVE.q&&LIVE.q[i.vivo.ticker], vivo=q&&LIVE.estado==="vivo"&&fin(q.precio);
+  if(vivo&&i.vivo.modo==="directo") return {v:q.precio,pct:q.var_pct,vivo:true,hora:q.hora};
+  return {v:i.valor,pct:i.var_pct,pb:i.unidad==="%"&&fin(i.var)?i.var*100:NaN,ref:vivo&&i.vivo.modo==="ref"?q:null}; }
+function mkSign(v,d=2,suf="%"){ return !fin(v)?`<span class="note">–</span>`:`<span class="${v>0?"up":v<0?"dn":""}">${v>0?"+":v<0?"−":""}${nf(Math.abs(v),d)}${suf}</span>`; }
+function mkRow(i){
+  const x=mkVar(i), hh=x.hora?new Date(x.hora).toLocaleTimeString("es-ES",{hour:"2-digit",minute:"2-digit"}):"";
+  const src=x.vivo?`<span class="src live" title="Finnhub vía tu Worker de Cloudflare">en vivo · ${esc(hh)}</span>`
+    :i.desactualizado?`<span class="src warn" title="La fuente no respondió en la última actualización">${esc(i.fuente)} · ${esc(fecha(i.fecha))} (sin actualizar)</span>`
+    :srcTag({fuente:i.fuente,fecha:i.fecha,url:i.url});
+  const ref=x.ref?`<span class="mkref" title="Variación en vivo del ETF ${esc(i.vivo.ticker)}, que replica el índice. La cifra de la izquierda es el cierre oficial.">${esc(i.vivo.ticker)} ahora ${mkSign(x.ref.var_pct)}</span>`:"";
+  return `<div class="mkrow"><div class="mkn"><b>${esc(i.nombre)}${i.nota?` <span class="note" title="${esc(i.nota)}">ⓘ</span>`:""}</b>${src}</div>
+    <div class="mkv"><b>${mkFmt(i,x.v)}</b>${fin(x.pb)?mkSign(x.pb,1," pb"):mkSign(x.pct)}${ref}</div></div>`;
+}
+function mkManualRow(k,nombre){ const m=MKH.man[k]||{};
+  return `<div class="mkrow"><div class="mkn"><b>${esc(nombre)}</b>${fin(m.valor)?srcTag({manual:true,fecha:fecha(m.fecha),fuente:m.fuente||"Introducido a mano"}):`<span class="src off">sin apuntar</span>`}</div>
+    <div class="mkv"><b>${fin(m.valor)?nf(m.valor,2):"–"}</b></div></div>`; }
+function mkGauge(v){ return `<div class="mkgauge" role="img" aria-label="${nf(v,0)} sobre 100"><span class="mkmark" style="left:${Math.max(0,Math.min(100,v))}%"></span></div>
+  <div class="mkscale"><span>Miedo extremo</span><span>Neutral</span><span>Codicia extrema</span></div>`; }
+function mkFgTone(v){ return v<45?"down":v<=55?"neutral":"up"; }
+function mkSpark(serie){ const pts=(serie||[]).filter(p=>fin(p[1])); if(pts.length<2) return "";
+  const W=220,H=36, x=i=>i/(pts.length-1)*W, y=v=>H-2-(v/100)*(H-4);
+  return `<svg class="mkspark" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" aria-hidden="true"><line x1="0" x2="${W}" y1="${y(50)}" y2="${y(50)}" class="mid"/><polyline points="${pts.map((p,i)=>`${x(i).toFixed(1)},${y(p[1]).toFixed(1)}`).join(" ")}"/></svg>`; }
+function mkSentHtml(){
+  const S=(MKH.d&&MKH.d.sentimiento)||{}, F=S.miedo_codicia, O=S.estres_ofr, cnn=MKH.man.cnn||{}, naaim=MKH.man.naaim||{};
+  /* AAII: la lectura automática, salvo que el dato manual sea más reciente */
+  const am=MKH.man.aaii||{}, manA=fin(am.alcistas)&&fin(am.bajistas)&&(!S.aaii||(am.fecha||"")>(S.aaii.fecha||""));
+  const A=manA?{...am,neutrales:fin(am.neutrales)?am.neutrales:100-am.alcistas-am.bajistas,diferencial:am.alcistas-am.bajistas,manual:true}:S.aaii;
+  const prev=(o,l)=>o&&fin(o.valor)?`<span><small>${l}</small> ${nf(o.valor,0)}</span>`:"";
+  const fg=F?`<div class="mkcard">
+      <div class="mkh"><span class="eyebrow">Miedo y codicia · índice propio</span>${srcTag({fuente:"Calculado con FRED y Cboe",fecha:F.fecha})}</div>
+      <div class="mkbig"><b>${nf(F.valor,0)}</b><span class="pill ${mkFgTone(F.valor)}">${esc(F.etiqueta)}</span></div>
+      ${mkGauge(F.valor)}
+      <div class="mkprev">${prev(F.anterior,"ayer")}${prev(F.hace_1s,"hace 1 sem.")}${prev(F.hace_1m,"hace 1 mes")}</div>
+      ${mkSpark(F.serie)}
+      <details class="mkdet" data-mkdet${MKH.abierto?" open":""}><summary>Cómo se calcula (${F.n_componentes} de 5 componentes)</summary>
+        <ul>${F.componentes.map(c=>`<li><span class="mkch"><b>${esc(c.nombre)}</b>${fin(c.puntuacion)?`<span class="pill ${mkFgTone(c.puntuacion)}">${nf(c.puntuacion,0)} · ${esc(c.etiqueta)}</span>`:`<span class="src off">sin dato</span>`}</span><span class="note">${esc(c.descripcion)}</span></li>`).join("")}</ul>
+        <p class="note">${esc(F.metodo||"")} No es el número de CNN: se mueve de forma parecida, pero puede diferir unos puntos.${fin(cnn.valor)?` CNN (manual, ${esc(fecha(cnn.fecha))}): <b>${nf(cnn.valor,0)}</b>.`:""}</p></details>
+    </div>`:`<div class="mkcard"><div class="mkh"><span class="eyebrow">Miedo y codicia</span></div><p class="note">Sin datos todavía.</p></div>`;
+  const ofr=O?`<div class="mkcard">
+      <div class="mkh"><span class="eyebrow">Estrés financiero (OFR)</span>${srcTag({fuente:"OFR (Tesoro de EE. UU.)",fecha:O.fecha,url:O.url})}</div>
+      <div class="mkbig"><b>${nf(O.valor,2)}</b><span class="pill ${O.valor>1?"down":O.valor>0?"mid":"up"}">${O.valor>1?"Estrés alto":O.valor>0?"Por encima de lo normal":"Por debajo de lo normal"}</span></div>
+      <div class="mkprev"><span><small>día anterior</small> ${nf(O.anterior,2)}</span>${fin(O.hace_1s)?`<span><small>hace 1 sem.</small> ${nf(O.hace_1s,2)}</span>`:""}${fin(O.maximo_1a)?`<span><small>máx. 12 meses</small> ${nf(O.maximo_1a,2)}</span>`:""}</div>
+      <p class="note">0 es el nivel medio de estrés. Valores positivos: tensión en crédito, volatilidad, financiación o huida a activos refugio. Se publica con dos días hábiles de retraso.</p>
+    </div>`:`<div class="mkcard"><div class="mkh"><span class="eyebrow">Estrés financiero (OFR)</span></div><p class="note">Sin datos todavía.</p></div>`;
+  const aaii=A?`<div class="mkcard">
+      <div class="mkh"><span class="eyebrow">Encuesta AAII · inversores particulares</span>${A.manual?srcTag({manual:true,fecha:fecha(A.fecha),fuente:"AAII · introducido a mano"}):srcTag({fuente:"AAII",fecha:A.fecha,url:A.url})}</div>
+      <div class="mkbar3" role="img" aria-label="Alcistas ${nf(A.alcistas,1)}%, neutrales ${nf(A.neutrales,1)}%, bajistas ${nf(A.bajistas,1)}%"><span class="b" style="width:${A.alcistas}%"></span><span class="n" style="width:${A.neutrales}%"></span><span class="r" style="width:${A.bajistas}%"></span></div>
+      <div class="mk3"><span><i class="b"></i>Alcistas <b>${nf(A.alcistas,1)}%</b>${A.medias?` <small>media ${nf(A.medias.alcistas,1)}%</small>`:""}</span>
+        <span><i class="n"></i>Neutrales <b>${nf(A.neutrales,1)}%</b></span>
+        <span><i class="r"></i>Bajistas <b>${nf(A.bajistas,1)}%</b>${A.medias?` <small>media ${nf(A.medias.bajistas,1)}%</small>`:""}</span></div>
+      <p class="note">Diferencial alcistas − bajistas: ${mkSign(A.diferencial,1," pp")}. Por debajo de −20 pp suele marcar pesimismo excesivo (señal contraria).</p>
+    </div>`:`<div class="mkcard"><div class="mkh"><span class="eyebrow">Encuesta AAII</span></div><p class="note">Sin datos: no se ha podido leer aaii.com. Apúntala con «Apuntar valores».</p></div>`;
+  const nai=`<div class="mkcard">
+      <div class="mkh"><span class="eyebrow">NAAIM · gestores activos</span>${fin(naaim.valor)?srcTag({manual:true,fecha:fecha(naaim.fecha),fuente:"NAAIM · introducido a mano"}):`<span class="src off">manual</span>`}</div>
+      ${fin(naaim.valor)?`<div class="mkbig"><b>${nf(naaim.valor,1)}</b><span class="pill ${naaim.valor>=80?"up":naaim.valor<40?"down":"neutral"}">${naaim.valor>=80?"Muy invertidos":naaim.valor<40?"Poco invertidos":"Exposición media"}</span></div>
+        <p class="note">Exposición media a bolsa de los gestores encuestados (0 = sin acciones, 100 = totalmente invertidos). Se publica los miércoles.</p>`
+      :`<p class="note">El dato actual de la NAAIM es de pago (la web pública lo da con tres meses de retraso), así que se apunta a mano cada semana con «Apuntar valores».</p>`}
+    </div>`;
+  return `<div class="mksent">${fg}${ofr}${aaii}${nai}</div>`;
+}
+function mkEditHtml(){ const m=MKH.man, v=(k,f="valor")=>m[k]&&m[k][f]!=null?esc(String(m[k][f])):"";
+  const hoy=new Date().toISOString().slice(0,10);
+  const fila=(k,l,ph)=>`<label>${l}<input type="number" step="any" id="mk_${k}" value="${v(k)}" placeholder="${ph}"></label><label>Fecha<input type="date" id="mk_${k}_f" value="${v(k,"fecha")||hoy}"></label>`;
+  return `<div class="mkedit card" style="margin:0 0 14px">
+    <h3 style="margin-top:0">Apuntar valores manuales</h3>
+    <p class="note">Se guardan en <code>manual/_mercado.json</code> del repositorio. Deja vacío lo que no quieras mostrar.</p>
+    <div class="mkform">${fila("naaim","NAAIM","p. ej. 72,4")}${fila("cnn","Miedo y codicia CNN","0–100")}${fila("move","MOVE","p. ej. 93,9")}
+      <label>AAII alcistas %<input type="number" step="any" id="mk_aaii_b" value="${v("aaii","alcistas")}"></label><label>AAII bajistas %<input type="number" step="any" id="mk_aaii_r" value="${v("aaii","bajistas")}"></label><label>Fecha AAII<input type="date" id="mk_aaii_f" value="${v("aaii","fecha")||hoy}"></label></div>
+    <div class="toolbar">${ghToken()?`<button type="button" class="btn-acc" data-mk="guardar">Guardar en GitHub</button>`:`<a class="mklink" href="${esc(repoUrl())}/edit/main/manual/_mercado.json" target="_blank" rel="noopener">Editar en GitHub</a><span class="note">o conecta GitHub en ⚙ Ajustes para guardarlo desde aquí</span>`}<button type="button" data-mk="cerrar">Cerrar</button><span class="saved" id="mkMsg"></span></div>
+  </div>`; }
+async function mkGuardar(){
+  const R=ghRepo(), msg=$("mkMsg"); if(!R) return;
+  const num=id=>{ const s=($(id).value||"").trim().replace(",","."); return s===""?null:+s; }, f=id=>$(id).value||null;
+  const nuevo={naaim:{valor:num("mk_naaim"),fecha:f("mk_naaim_f")},cnn:{valor:num("mk_cnn"),fecha:f("mk_cnn_f")},move:{valor:num("mk_move"),fecha:f("mk_move_f")},
+    aaii:{alcistas:num("mk_aaii_b"),bajistas:num("mk_aaii_r"),fecha:f("mk_aaii_f")}};
+  if(fin(nuevo.aaii.alcistas)&&fin(nuevo.aaii.bajistas)) nuevo.aaii.neutrales=+(100-nuevo.aaii.alcistas-nuevo.aaii.bajistas).toFixed(1);
+  for(const k of ["naaim","cnn","move"]) if(nuevo[k].valor==null) nuevo[k].fecha=null;
+  if(fin(nuevo.cnn.valor)&&(nuevo.cnn.valor<0||nuevo.cnn.valor>100)){ msg.textContent="El índice de CNN va de 0 a 100."; return; }
+  msg.textContent="Guardando…";
+  try{
+    const path="manual/_mercado.json", url=`/repos/${R.o}/${R.r}/contents/${path}`;
+    const g=await gh(url+"?ref=main"); if(!g.ok) throw new Error(ghErr(g.status,g.j));
+    const remote=JSON.parse(new TextDecoder().decode(Uint8Array.from(atob(g.j.content.replace(/\s/g,"")),c=>c.charCodeAt(0))));
+    const mh=remote.mercado_hoy||{}; Object.entries(nuevo).forEach(([k,v])=>{ mh[k]={...(mh[k]||{}),...v}; }); remote.mercado_hoy=mh;
+    const bytes=new TextEncoder().encode(JSON.stringify(remote,null,2)+"\n"); let bin=""; for(let i=0;i<bytes.length;i+=8192) bin+=String.fromCharCode.apply(null,bytes.subarray(i,i+8192));
+    const r=await gh(url,{method:"PUT",body:JSON.stringify({message:"Mercado hoy: valores manuales desde la web",content:btoa(bin),branch:"main",sha:g.j.sha})});
+    if(!r.ok) throw new Error(ghErr(r.status,r.j));
+    MKH.man=mh; MKH.editar=false; renderWatch(); toast("Guardado. La web publicada se actualiza en 1–2 minutos.");
+  }catch(e){ msg.textContent=e.message; }
+}
+function mercadoHtml(){
+  if(!MKH.cargado) return `<section class="card mk"><h2>Mercado hoy</h2><p class="note">Cargando indicadores…</p></section>`;
+  const D=MKH.d, I=(D&&D.indicadores)||[], G=(D&&D.grupos)||{};
+  const ult=I.map(i=>i.fecha).filter(Boolean).sort().at(-1);
+  const vivo=LIVE.estado==="vivo"&&mkLiveTickers().some(t=>LIVE.q&&LIVE.q[t]);
+  const grupos=Object.entries(G).map(([g,t])=>{ const rows=I.filter(i=>i.grupo===g);
+    const extra=g==="riesgo"?mkManualRow("move","MOVE (volatilidad de bonos)"):"";
+    return rows.length||extra?`<div class="mkgrp"><h3>${esc(t)}</h3>${rows.map(mkRow).join("")}${extra}</div>`:""; }).join("");
+  const av=(D&&D.avisos)||[];
+  return `<section class="card mk">
+    <div class="mktop"><div><h2>Mercado hoy</h2><p class="sub">${vivo?`<span class="pill up">● Sesión abierta</span> Los ETF se actualizan cada minuto; índices, tipos y materias primas son el último cierre oficial.`:ult?`Último cierre disponible: ${esc(fecha(ult))}. Se actualiza dos veces cada día laborable.`:esc(MKH.err||"")}</p></div>
+      <button type="button" data-mk="editar" aria-expanded="${MKH.editar}">✎ Apuntar valores</button></div>
+    ${MKH.editar?mkEditHtml():""}
+    ${D?mkSentHtml():""}
+    ${grupos?`<div class="mkgrid">${grupos}</div>`:""}
+    ${av.length?`<details class="avisos" style="margin-top:12px"><summary>${av.length} ${av.length===1?"fuente no ha respondido":"fuentes no han respondido"} en la última actualización</summary><ul>${av.map(a=>`<li>${esc(a)}</li>`).join("")}</ul></details>`:""}
+  </section>`;
 }
 function favoritasHtml(){
   const W=watchRows().sort((a,b)=>(b.fav-a.fav)||a.name.localeCompare(b.name)), F=W.filter(r=>r.fav);
@@ -3850,6 +4003,8 @@ document.addEventListener("change",e=>{const t=e.target; const p=t.dataset&&t.da
   if(t.type==="number"||t.type==="range"||t.type==="text") {rebuildCharts(); renderHeader(); if(TAB==="verdict") drawLevels();}
 });
 document.addEventListener("click",e=>{
+  const mkb=e.target.closest("[data-mk]"); if(mkb){ const a=mkb.dataset.mk;
+    if(a==="editar"||a==="cerrar"){ MKH.editar=a==="editar"&&!MKH.editar; renderWatch(); } else if(a==="guardar") mkGuardar(); return; }
   const mi=e.target.closest("[data-metric]"); if(mi){e.preventDefault(); metricModal(mi.dataset.metric); return;}
   if(e.target.closest("[data-close]")||e.target.id==="overlay"){closeModal(); return;}
   const tb=e.target.closest(".tab"); if(tb){goTab(tb.dataset.tab);return;}
@@ -4038,7 +4193,7 @@ function dataStamp(){const d=cur._data, P=d&&d.precio; return [d&&d.referencia_f
 /* ================= PRECIO EN VIVO (Cloudflare Worker con la clave de Finnhub) =================
    Solo cambia la cotización que se muestra y los cálculos que dependen de ella (potencial, capitalización,
    múltiplos). Nunca se escribe en /data: el dato guardado sigue siendo el cierre de cada noche. */
-const LIVE={url:"",estado:"off",mercado:null,at:0,err:null,timer:null};
+const LIVE={url:"",estado:"off",mercado:null,q:{},at:0,err:null,timer:null};
 function nyNow(){ const p={}; new Intl.DateTimeFormat("en-US",{timeZone:"America/New_York",weekday:"short",hour:"2-digit",minute:"2-digit",hourCycle:"h23"}).formatToParts(new Date()).forEach(x=>{p[x.type]=x.value;});
   return {dow:p.weekday,min:(+p.hour)*60+(+p.minute)}; }
 function enHorario(){ const n=nyNow(); return n.dow!=="Sat"&&n.dow!=="Sun"&&n.min>=570&&n.min<960; }
@@ -4053,7 +4208,7 @@ function liveTag(c){ const L=c._live; if(!L) return "";
 }
 function liveRerender(changedCur){
   const a=document.activeElement, typing=a&&/^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName)&&$("main").contains(a);
-  if(WATCH){ if(!typing&&WVIEW!=="ajustes") renderWatch(); return; }
+  if(WATCH){ if(!typing&&WVIEW!=="ajustes"&&!(WVIEW==="inicio"&&MKH.editar)) renderWatch(); return; }
   renderHeader();
   if(!changedCur||typing||EDIT||REPORT) return;
   if(TAB==="valuation") renderValOut(); else if(TAB==="overview"||TAB==="verdict") renderTab();
@@ -4067,10 +4222,10 @@ async function livePoll(){
     LIVE.timer=setTimeout(livePoll,5*60e3); return; }
   const before=cur&&cur.v.price;
   try{
-    const r=await fetch(LIVE.url+(LIVE.url.includes("?")?"&":"?")+"s="+encodeURIComponent(Object.keys(store.companies).join(",")),{cache:"no-store"});
+    const r=await fetch(LIVE.url+(LIVE.url.includes("?")?"&":"?")+"s="+encodeURIComponent([...new Set([...Object.keys(store.companies),...mkLiveTickers()])].join(",")),{cache:"no-store"});
     const j=await r.json().catch(()=>({})); if(!r.ok) throw new Error(j.error||("HTTP "+r.status));
     const abierto=j.mercado?j.mercado.abierto:abiertoReloj;
-    LIVE.mercado=j.mercado; LIVE.at=Date.now(); LIVE.err=null; LIVE.estado=abierto?"vivo":"cerrado";
+    LIVE.mercado=j.mercado; LIVE.q=j.cotizaciones||{}; LIVE.at=Date.now(); LIVE.err=null; LIVE.estado=abierto?"vivo":"cerrado";
     Object.entries(store.companies).forEach(([t,c])=>{ const q=(j.cotizaciones||{})[t], P=c._data&&c._data.precio;
       // fuera de sesión solo se usa si es más reciente que el cierre guardado esta noche
       const util=q&&fin(q.precio)&&(abierto||!P||!P.fecha||q.hora.slice(0,10)>P.fecha);
@@ -4108,9 +4263,10 @@ async function boot(){
   store.current=store.companies[saved]?saved:(keys.find(k=>store.companies[k].meta.fav)||keys[0]);
   cur=store.companies[store.current];
   renderHeader(); renderTabs(); if({seguimiento:1,cartera:1,inicio:1,favoritas:1,ajustes:1}[(location.hash||"").slice(1)]){ const h=location.hash.slice(1); WVIEW=h==="seguimiento"?"lista":h; WATCH=true; renderWatch(); } else goTab((location.hash||"").slice(1)||"overview",false);
-  liveStart();
+  mkLoad().finally(liveStart);
 }
 boot();
+document.addEventListener("toggle",e=>{ if(e.target.matches&&e.target.matches("[data-mkdet]")) MKH.abierto=e.target.open; },true);
 </script>
 
 </body></html>

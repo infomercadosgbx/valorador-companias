@@ -154,6 +154,35 @@ El cierre de cada noche sigue siendo el dato guardado en `data/`. Además, mient
 
 Si sirves la web desde otro dominio, añádelo en el Worker como variable de texto `ORIGENES` (varios separados por comas). Para desactivarlo, deja `precio_vivo_url` vacío.
 
+## Mercado hoy (menú principal)
+
+Encima de las tarjetas del menú principal hay una franja con indicadores básicos del mercado. La escribe el workflow **Mercado hoy** (`.github/workflows/mercado-hoy.yml`) en `data/_mercado_hoy.json` dos veces cada día laborable: a las 15:07 UTC (FRED ya tiene el cierre del día anterior y, los jueves, la AAII su encuesta) y a las 23:47 UTC (tras el cierre). Va aparte de la actualización de compañías: si una de estas fuentes falla, los datos de la SEC no se ven afectados.
+
+| Indicador | Fuente | Frecuencia |
+|---|---|---|
+| S&P 500, Nasdaq, VIX, petróleo WTI, diferencial high yield | FRED (Reserva Federal de St. Louis) | Cierre diario, con un día de retraso; el WTI, con dos o tres |
+| Bono de EE. UU. a 5 y 10 años | Departamento del Tesoro (curva diaria) | Cierre diario |
+| HYG, LQD, KRE, MSCI World (ETF URTH), Corea (ETF EWY) | Finnhub | Cierre diario y **en vivo** durante la sesión con el Worker |
+| EUR/USD, oro, bitcoin | Twelve Data | Diario |
+| Estrés financiero | OFR (Oficina de Investigación Financiera del Tesoro) | Diario, con dos días hábiles de retraso |
+| Encuesta AAII | aaii.com (el propio emisor) | Semanal (jueves) |
+| Miedo y codicia (índice propio) | Calculado con FRED y el Cboe | Diario |
+| NAAIM, miedo y codicia de CNN, MOVE | **Manual** (no tienen fuente gratuita) | Cuando los apuntes |
+
+Durante la sesión, el S&P 500 y el Nasdaq muestran además la variación en vivo de SPY y QQQ al lado del cierre oficial. No hace falta tocar el Worker: ya acepta cualquier ticker.
+
+**Miedo y codicia propio.** Sigue la receta del índice de CNN con los componentes que tienen fuente oficial: impulso (S&P 500 frente a su media de 125 sesiones), volatilidad (VIX frente a su media de 50), demanda de bonos basura (diferencial high yield menos el de grado de inversión), demanda de refugio (bolsa frente al bono a 10 años en 20 sesiones) y ratio put/call del Cboe (media de 5 sesiones). Cada componente se puntúa de 0 a 100 según su percentil en los dos últimos años (el put/call, por tramos fijos: 1,15 o más = 0; 0,75 o menos = 100) y el índice es la media. Faltan los dos componentes de amplitud de la NYSE, que no tienen fuente gratuita, así que el número no coincide exactamente con el de CNN. Tramos: menos de 25 miedo extremo, 25–45 miedo, 45–55 neutral, 55–75 codicia, más de 75 codicia extrema.
+
+**Valores manuales.** El dato actual de la NAAIM es de pago (la web pública lo da con tres meses de retraso), CNN no tiene API y el MOVE es de ICE. Se apuntan con el botón **✎ Apuntar valores** de la franja (guarda en `manual/_mercado.json` si tienes GitHub conectado en ⚙ Ajustes) o editando ese archivo. Si un día no se puede leer la AAII, también se apunta ahí y la web usa el dato más reciente.
+
+### Puesta en marcha (2 minutos)
+
+1. Crea una clave gratuita de FRED en [fredaccount.stlouisfed.org/apikeys](https://fredaccount.stlouisfed.org/apikeys) (pide registrarse con un email).
+2. En GitHub: *Settings → Secrets and variables → Actions → New repository secret*. Nombre `FRED_API_KEY`, valor la clave. Sin ella también funciona (usa la descarga CSV oficial de FRED), pero la API es más estable.
+3. *Actions → Mercado hoy → Run workflow*. Al terminar, recarga la web.
+
+Las fuentes que no respondan aparecen en un aviso plegable al pie de la franja y en el log del Action; se mantiene el último dato que sí se leyó, marcado «sin actualizar».
+
 ## Qué hace cada noche
 
 1. Ejecuta los tests. Si fallan, no se toca ningún dato.
@@ -181,6 +210,8 @@ Si sirves la web desde otro dominio, añádelo en el Worker como variable de tex
 | `tests/` | Tests sintéticos de cada regla y tests de aceptación con fixtures reales | — |
 | `valorador.html` | La web | — |
 | `ajustes.json` | Ajustes de la web: dirección del Worker de precio en vivo | Tú |
+| `data/_mercado_hoy.json` | Indicadores de «Mercado hoy» | Solo el Action |
+| `manual/_mercado.json` | Prima de riesgo del WACC y valores manuales de «Mercado hoy» (NAAIM, CNN, MOVE) | Tú (o el botón «Apuntar valores») |
 | `worker/` | Cloudflare Worker del precio en vivo (se pega en Cloudflare, no se publica en Pages) | — |
 
 ## Fuentes de datos
@@ -188,7 +219,8 @@ Si sirves la web desde otro dominio, añádelo en el Worker como variable de tex
 - **Cifras financieras:** solo SEC EDGAR (`data.sec.gov/api/xbrl/companyfacts` y `data.sec.gov/submissions`), con User-Agent identificado, como máximo 5 peticiones por segundo y reintentos con espera creciente.
 - **Precio:** Finnhub, endpoints `/quote` y `/stock/metric` (rango de 52 semanas) (API oficial, plan gratuito de 60 llamadas por minuto). Proveedor abstraído en `fetcher/prices.py`; para cambiarlo basta con otra clase `PriceProvider`.
 - **Consenso:** las recomendaciones (compra/mantener/venta) llegan de Finnhub `/stock/recommendation`, gratuito. Los **precios objetivo** son de pago en Finnhub, así que van en `manual/<TICKER>.json` y la web los marcará como «manual».
-- No se hace scraping de ninguna web.
+- **Mercado hoy:** FRED, Tesoro, OFR, Cboe, Finnhub y Twelve Data por sus API o descargas oficiales. La única lectura de una página web es la encuesta de la AAII en aaii.com, que es quien publica el dato; si falla, se apunta a mano.
+- No se hace scraping de webs de terceros.
 
 ## Reglas de extracción
 

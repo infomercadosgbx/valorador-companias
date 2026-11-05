@@ -1,0 +1,44 @@
+name: Mercado hoy
+
+# Indicadores del menú principal (data/_mercado_hoy.json). Va aparte de la actualización
+# de compañías para que un fallo de estas fuentes nunca afecte a los datos de la SEC.
+on:
+  schedule:
+    # 15:07 UTC (16:07 o 17:07 en Madrid): FRED ya ha publicado el cierre del día anterior y,
+    # los jueves, la AAII su encuesta semanal.
+    - cron: "7 15 * * 1-5"
+    # 23:47 UTC: cierre del día (Finnhub, Twelve Data, Tesoro) tras la actualización nocturna.
+    - cron: "47 23 * * 1-5"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: actualizar-datos     # la misma cola que la actualización nocturna: nunca empujan a la vez
+  cancel-in-progress: false
+
+jobs:
+  mercado:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Descargar indicadores
+        env:
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+          FINNHUB_API_KEY: ${{ secrets.FINNHUB_API_KEY }}
+          TWELVEDATA_API_KEY: ${{ secrets.TWELVEDATA_API_KEY }}
+        run: python -m fetcher.mercado_hoy
+      - name: Commit si algo cambió
+        run: |
+          git config user.name "valorador-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/_mercado_hoy.json
+          if git diff --cached --quiet; then echo "Sin cambios."; exit 0; fi
+          git commit -m "mercado: $(date -u +%Y-%m-%d)"
+          git pull --rebase --quiet
+          git push

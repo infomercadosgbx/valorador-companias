@@ -2,5 +2,32 @@
   "prima_riesgo": 4.5,
   "nota": "Prima de riesgo del mercado de acciones de EE. UU., en %. No hay fuente oficial: es una referencia que puedes cambiar. Damodaran (NYU Stern) publica cada mes la prima implícita del S&P 500, en torno al 4–4,5% en 2026.",
   "fuente": "Damodaran Online (NYU Stern) · prima implícita del S&P 500",
-  "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/implpr.html"
+  "url": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/implpr.html",
+  "mercado_hoy": {
+    "_nota": "Valores sin fuente gratuita para la franja «Mercado hoy» del menú principal. Se pueden cambiar desde la propia web (botón «Apuntar valores») o aquí. La fecha es la del dato (AAAA-MM-DD). Deja null lo que no quieras mostrar.",
+    "naaim": {
+      "valor": null,
+      "fecha": null,
+      "fuente": "NAAIM Exposure Index (semanal, miércoles)",
+      "url": "https://naaim.org/programs/naaim-exposure-index/"
+    },
+    "cnn": {
+      "valor": null,
+      "fecha": null,
+      "fuente": "CNN Fear & Greed Index",
+      "url": "https://edition.cnn.com/markets/fear-and-greed"
+    },
+    "move": {
+      "valor": null,
+      "fecha": null,
+      "fuente": "ICE BofA MOVE Index"
+    },
+    "aaii": {
+      "alcistas": null,
+      "neutrales": null,
+      "bajistas": null,
+      "fecha": null,
+      "_nota": "Solo si falla la lectura automática de aaii.com: si el dato manual es más reciente, la web usa este."
+    }
+  }
 }
