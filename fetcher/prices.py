@@ -306,7 +306,7 @@ class AlpacaExtendedHours:
                "volumen": int(sum(b.get("v") or 0 for b in bars))}
         ah = [b for b in bars if self.sesion(datetime.fromisoformat(b["t"].replace("Z", "+00:00")))[1].date() == ref
               and self.sesion(datetime.fromisoformat(b["t"].replace("Z", "+00:00")))[0] == "after-hours"]
-        if ah:
+        if ah and amc:   # antes de la apertura, el after-hours del día anterior es previo a los resultados
             out["after_hours"] = pt(ah[-1])
         return out
 

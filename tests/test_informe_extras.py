@@ -74,3 +74,16 @@ def test_alpaca_after_hours_y_premercado():
     # con el cierre siguiente ya disponible no se toca
     done = {"cierre_antes": 1, "provisional": False, "variacion_pct": 5}
     assert RES.extended_reaction(dict(done), ext) == done
+
+
+def test_dia_resultados_elige_quien_presenta(tmp_path):
+    from fetcher import dia_resultados as DR
+    (tmp_path / "data").mkdir()
+    def w(t, fecha, hora, k8="2026-08-01"):
+        (tmp_path / "data" / f"{t}.json").write_text(json.dumps({"ticker": t, "ultimo_8k_resultados": {"fecha_presentacion": k8},
+            "resultados_previstos": {"proximos": {"fecha": fecha, "hora_codigo": hora}}}), encoding="utf-8")
+    w("VST", "2026-11-06", "bmo"); w("APP", "2026-11-05", "amc"); w("AMZN", "2027-02-01", "amc")
+    w("RDDT", "2027-02-10", "amc", k8="2026-11-06")   # ya presentó hoy: Finnhub ya apunta al trimestre siguiente
+    assert DR.elegir(tmp_path, "manana", date(2026, 11, 6)) == ["APP", "RDDT", "VST"]
+    assert DR.elegir(tmp_path, "tarde", date(2026, 11, 5)) == ["APP"]
+    assert DR.elegir(tmp_path, "manana", date(2026, 11, 10)) == []

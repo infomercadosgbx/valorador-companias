@@ -5,6 +5,13 @@ on:
     # 23:17 UTC, lunes a viernes: tras el cierre de EE. UU. (20:00/21:00 UTC) y la
     # ventana de presentaciones de la SEC (hasta las 22:00 UTC). En Madrid, 00:17 o 01:17.
     - cron: "17 23 * * 1-5"
+    # Día de resultados (solo las compañías que presentan; si no toca ninguna, no hace nada).
+    # 12:37 UTC = 7:37 h en Nueva York: notas publicadas antes de la apertura y premercado de quien presentó ayer tras el cierre.
+    - cron: "37 12 * * 1-5"
+    # 14:22 UTC = 9:22 h en Nueva York: última lectura del premercado.
+    - cron: "22 14 * * 1-5"
+    # 21:41 UTC = 16:41 h en Nueva York: notas publicadas tras el cierre y primer after-hours.
+    - cron: "41 21 * * 1-5"
   workflow_dispatch:
     inputs:
       tickers:
@@ -21,7 +28,34 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  elegir:
+    runs-on: ubuntu-latest
+    outputs:
+      tickers: ${{ steps.sel.outputs.tickers }}
+      seguir: ${{ steps.sel.outputs.seguir }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - id: sel
+        env:
+          CRON: ${{ github.event.schedule }}
+          TICKERS: ${{ inputs.tickers }}
+        run: |
+          case "$CRON" in
+            "37 12 * * 1-5"|"22 14 * * 1-5") t=$(python -m fetcher.dia_resultados manana) ;;
+            "41 21 * * 1-5") t=$(python -m fetcher.dia_resultados tarde) ;;
+            *) t="$TICKERS"; echo "seguir=true" >> "$GITHUB_OUTPUT" ;;
+          esac
+          if [ -n "$CRON" ] && [ "$CRON" != "17 23 * * 1-5" ]; then
+            if [ -n "$t" ]; then echo "seguir=true" >> "$GITHUB_OUTPUT"; echo "Día de resultados: $t"; else echo "Hoy no presenta ninguna compañía."; fi
+          elif [ "$CRON" = "17 23 * * 1-5" ]; then echo "seguir=true" >> "$GITHUB_OUTPUT"; fi
+          echo "tickers=$t" >> "$GITHUB_OUTPUT"
+
   actualizar:
+    needs: elegir
+    if: needs.elegir.outputs.seguir == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
@@ -47,7 +81,7 @@ jobs:
           TWELVEDATA_API_KEY: ${{ secrets.TWELVEDATA_API_KEY }}
           ALPACA_API_KEY_ID: ${{ secrets.ALPACA_API_KEY_ID }}
           ALPACA_API_SECRET_KEY: ${{ secrets.ALPACA_API_SECRET_KEY }}
-          TICKERS: ${{ inputs.tickers }}
+          TICKERS: ${{ needs.elegir.outputs.tickers }}
         run: |
           if [[ ! "$TICKERS" =~ ^[A-Za-z0-9.\ -]*$ ]]; then echo "Tickers no válidos: $TICKERS"; exit 1; fi
           python -m fetcher.main --report "$RUNNER_TEMP/informe.md" ${TICKERS:+--only $TICKERS}
@@ -71,7 +105,7 @@ jobs:
 
       - name: Commit si algo cambió
         env:
-          TICKERS: ${{ inputs.tickers }}
+          TICKERS: ${{ needs.elegir.outputs.tickers }}
         run: |
           git config user.name "valorador-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
