@@ -1,0 +1,224 @@
+{
+ "esquema": 1,
+ "generado": "2026-11-05T16:41:54+00:00",
+ "grupos": {
+  "bolsa": "Bolsa",
+  "riesgo": "Volatilidad y crédito",
+  "tipos": "Tipos y divisas",
+  "materias": "Materias primas y cripto"
+ },
+ "indicadores": [
+  {
+   "id": "msci_world",
+   "nombre": "MSCI World (ETF URTH)",
+   "grupo": "bolsa",
+   "simbolo": "URTH",
+   "unidad": "$",
+   "valor": 202.74,
+   "anterior": 207.87,
+   "fecha": "2026-11-05",
+   "fuente": "Finnhub",
+   "url": "https://finnhub.io/",
+   "var": -5.13,
+   "var_pct": -2.47,
+   "vivo": {
+    "ticker": "URTH",
+    "modo": "directo"
+   },
+   "nota": "ETF que replica el índice: el índice no tiene fuente gratuita."
+  },
+  {
+   "id": "corea",
+   "nombre": "Corea del Sur (ETF EWY)",
+   "grupo": "bolsa",
+   "simbolo": "EWY",
+   "unidad": "$",
+   "valor": 139.86,
+   "anterior": 152.12,
+   "fecha": "2026-11-05",
+   "fuente": "Finnhub",
+   "url": "https://finnhub.io/",
+   "var": -12.26,
+   "var_pct": -8.06,
+   "vivo": {
+    "ticker": "EWY",
+    "modo": "directo"
+   },
+   "nota": "ETF que replica el índice: el índice no tiene fuente gratuita."
+  },
+  {
+   "id": "hyg",
+   "nombre": "Bonos high yield (HYG)",
+   "grupo": "riesgo",
+   "simbolo": "HYG",
+   "unidad": "$",
+   "valor": 77.3,
+   "anterior": 77.52,
+   "fecha": "2026-11-05",
+   "fuente": "Finnhub",
+   "url": "https://finnhub.io/",
+   "var": -0.22,
+   "var_pct": -0.28,
+   "vivo": {
+    "ticker": "HYG",
+    "modo": "directo"
+   }
+  },
+  {
+   "id": "lqd",
+   "nombre": "Bonos grado de inversión (LQD)",
+   "grupo": "riesgo",
+   "simbolo": "LQD",
+   "unidad": "$",
+   "valor": 104.64,
+   "anterior": 104.5,
+   "fecha": "2026-11-05",
+   "fuente": "Finnhub",
+   "url": "https://finnhub.io/",
+   "var": 0.14,
+   "var_pct": 0.13,
+   "vivo": {
+    "ticker": "LQD",
+    "modo": "directo"
+   }
+  },
+  {
+   "id": "kre",
+   "nombre": "Bancos regionales (KRE)",
+   "grupo": "riesgo",
+   "simbolo": "KRE",
+   "unidad": "$",
+   "valor": 73.31,
+   "anterior": 74.13,
+   "fecha": "2026-11-05",
+   "fuente": "Finnhub",
+   "url": "https://finnhub.io/",
+   "var": -0.82,
+   "var_pct": -1.11,
+   "vivo": {
+    "ticker": "KRE",
+    "modo": "directo"
+   }
+  },
+  {
+   "id": "us5y",
+   "nombre": "Bono EE. UU. 5 años",
+   "grupo": "tipos",
+   "simbolo": "5 Yr",
+   "unidad": "%",
+   "valor": 4.69,
+   "anterior": 4.74,
+   "fecha": "2026-11-04",
+   "fuente": "Tesoro de EE. UU.",
+   "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve",
+   "var": -0.05
+  },
+  {
+   "id": "us10y",
+   "nombre": "Bono EE. UU. 10 años",
+   "grupo": "tipos",
+   "simbolo": "10 Yr",
+   "unidad": "%",
+   "valor": 4.9,
+   "anterior": 4.95,
+   "fecha": "2026-11-04",
+   "fuente": "Tesoro de EE. UU.",
+   "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve",
+   "var": -0.05
+  },
+  {
+   "id": "eurusd",
+   "nombre": "EUR/USD",
+   "grupo": "tipos",
+   "simbolo": "EUR/USD",
+   "unidad": "",
+   "valor": 1.1222,
+   "anterior": 1.1223,
+   "fecha": "2026-11-05",
+   "fuente": "Twelve Data",
+   "url": "https://twelvedata.com/",
+   "var": -0.0001,
+   "var_pct": -0.01
+  },
+  {
+   "id": "oro",
+   "nombre": "Oro (onza)",
+   "grupo": "materias",
+   "simbolo": "XAU/USD",
+   "unidad": "$",
+   "valor": 4112.6427,
+   "anterior": 4058.0181,
+   "fecha": "2026-11-05",
+   "fuente": "Twelve Data",
+   "url": "https://twelvedata.com/",
+   "var": 54.6246,
+   "var_pct": 1.35
+  },
+  {
+   "id": "bitcoin",
+   "nombre": "Bitcoin",
+   "grupo": "materias",
+   "simbolo": "BTC/USD",
+   "unidad": "$",
+   "valor": 76725.04,
+   "anterior": 80504.01,
+   "fecha": "2026-11-05",
+   "fuente": "Twelve Data",
+   "url": "https://twelvedata.com/",
+   "var": -3778.97,
+   "var_pct": -4.69
+  }
+ ],
+ "sentimiento": {
+  "estres_ofr": {
+   "valor": -1.484,
+   "anterior": -1.472,
+   "hace_1s": -1.913,
+   "fecha": "2026-11-03",
+   "maximo_1a": 0.204,
+   "fuente": "OFR · Oficina de Investigación Financiera del Tesoro de EE. UU.",
+   "url": "https://www.financialresearch.gov/financial-stress-index/"
+  }
+ },
+ "avisos": [
+  "S&P 500: no disponible (fred.stlouisfed.org: The read operation timed out).",
+  "Nasdaq Composite: no disponible (fred.stlouisfed.org: The read operation timed out).",
+  "VIX: no disponible (fred.stlouisfed.org: The read operation timed out).",
+  "Diferencial high yield: no disponible (fred.stlouisfed.org: The read operation timed out).",
+  "Petróleo WTI (barril): no disponible (fred.stlouisfed.org: The read operation timed out).",
+  "Encuesta AAII: no se ha podido leer (www.aaii.com: HTTP 403). Puedes apuntarla en manual/_mercado.json.",
+  "Miedo y codicia: no se ha podido calcular (fred.stlouisfed.org: The read operation timed out)."
+ ],
+ "_series": {
+  "put_call": [
+   [
+    "2026-10-27",
+    0.93
+   ],
+   [
+    "2026-10-28",
+    0.9
+   ],
+   [
+    "2026-10-29",
+    0.85
+   ],
+   [
+    "2026-10-30",
+    0.9
+   ],
+   [
+    "2026-11-02",
+    0.87
+   ],
+   [
+    "2026-11-03",
+    0.86
+   ],
+   [
+    "2026-11-04",
+    0.8
+   ]
+  ]
+ }
+}
