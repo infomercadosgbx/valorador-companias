@@ -143,10 +143,11 @@ def parse_feed(raw: bytes) -> list:
     return out
 
 
-def patron(company) -> re.Pattern:
-    """Nombre de la compañía y alias, como palabra completa y respetando mayúsculas (evita «path», «amazon rainforest»…)."""
+def patron(company, con_ticker=False) -> re.Pattern:
+    """Nombre de la compañía y alias, como palabra completa y respetando mayúsculas (evita «path», «amazon rainforest»…).
+    Con con_ticker también vale el ticker («$PATH», «(NYSE: VST)»)."""
     nombre = re.sub(r",?\s+(Inc|Corp|Corporation|Holdings|Co|Ltd|plc)\.?$", "", company.get("nombre") or "").strip()
-    alias = [a for a in [nombre, *(company.get("alias") or [])] if a and len(a) >= 3]
+    alias = [a for a in [nombre, *(company.get("alias") or []), *([company.get("ticker")] if con_ticker else [])] if a and len(a) >= 3]
     return re.compile(r"(?<![\w-])(" + "|".join(re.escape(a) for a in alias) + r")(?![\w-])")
 
 

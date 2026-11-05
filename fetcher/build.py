@@ -362,6 +362,9 @@ def _noticias(rec, company, subs, price_provider, previous):
     for p in proveedores:
         try:
             lote = p.news(company["ticker"]) or []
+            if p.nombre != getattr(price_provider, "nombre", None):     # APIs extra: solo lo que habla de la compañía
+                pat = NEWS.patron(company, con_ticker=True)
+                lote = [n for n in lote if pat.search(n["titular"] + " " + (n.get("resumen") or ""))]
             fuentes[p.nombre] = {"ok": True, "titulares": len(lote)}
             lotes.append(lote)
         except Exception as e:  # noqa: BLE001  secundario: se queda lo anterior

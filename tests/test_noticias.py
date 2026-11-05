@@ -104,3 +104,8 @@ def test_8k_oficiales_y_medios_por_sector():
     assert len(of) == 1 and of[0]["oficial"] and of[0]["titular"].endswith("Resultados")
     assert N.medios_por_sic("4911") == ["utilitydive", "wnn"] and "techcrunch" in N.medios_por_sic("7372")
     assert all(m in N.FEEDS for _, ms in N.SIC_MEDIOS for m in ms)
+
+
+def test_patron_con_ticker_para_apis():
+    p = N.patron({"nombre": "Vistra", "ticker": "VST"}, con_ticker=True)
+    assert p.search("Shares of VST rallied") and not p.search("Wall Street Lunch: Fear Grips The Market")
