@@ -145,7 +145,7 @@
   "hora": "tras el cierre",
   "hora_supuesta": false,
   "fecha_antes": "2026-11-04",
-  "cierre_antes": 271.34,
+  "cierre_antes": 271.75,
   "fuente": "Twelve Data (API oficial, plan gratuito)",
   "provisional": true
  },
@@ -1157,7 +1157,7 @@
    ],
    [
     "2026-11-04",
-    271.34
+    271.75
    ]
   ],
   "precio": 271.75,
@@ -1165,7 +1165,7 @@
   "capitalizacion": 90973475750.0,
   "minimo_12m": 228.5,
   "maximo_12m": 733.6,
-  "variacion_12m_pct": -55.42,
+  "variacion_12m_pct": -55.35,
   "fuente": "Twelve Data (API oficial, plan gratuito)"
  },
  "desglose": {
@@ -1229,7 +1229,36 @@
    "● Given continued confidence in the Company's future, our board of directors approved an increase to our share repurchase authorization of $3.2 billion, bringing our total current share repurchase authorization to $3.6 billion as of the end of October."
   ]
  },
- "lectura": null,
+ "lectura": {
+  "estado": "revisada",
+  "fuente": "Tu resumen de la presentación (Directiva)",
+  "q": "3T 2026",
+  "date": "4-nov-2026",
+  "doc": "Nota de resultados (8-K, Exhibit 99.1) y resumen de la llamada (MarketBeat)",
+  "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000068/exhibit991-3q26earningspre.htm",
+  "nota": "Cifras de la nota de resultados oficial (SEC). Comentarios de la llamada según el resumen de MarketBeat publicado en Yahoo Finance (no es la transcripción oficial).",
+  "dir": [
+   "Ingresos +55% interanual y +14% trimestral, ~100 M$ por encima del máximo de la guía.",
+   "Gaming crece cerca del 50%: lo explican el juego móvil y las mejoras del modelo.",
+   "Nueva arquitectura de AXON que permite entrenar modelos más grandes; despliegue parcial en el 3T26, comparable en complejidad a AXON 2.0, sin fecha ni impacto cuantificado.",
+   "Gasto de anunciantes de consumo: crece a doble dígito trimestral y triple dígito interanual (no desglosa ingresos por vertical)."
+  ],
+  "ret": [
+   "Las mejoras del modelo y la llegada de clientes son difíciles de prever cada trimestre.",
+   "Los anunciantes nuevos y pequeños tardan en validar resultados (estudios de incrementalidad) antes de gastar más.",
+   "El e-commerce es estacional: 4T fuertes y 1T más flojos. La TV conectada está en pruebas y no aportará pronto."
+  ],
+  "guia": [
+   "4T26: ingresos de 2.365–2.395 M$ y EBITDA ajustado de 1.995–2.025 M$ (margen del 84–85%).",
+   "Incluye estacionalidad normal, crecimiento en consumo, las mejoras del modelo ya activas y más gasto en cómputo de entrenamiento.",
+   "Conversión de EBITDA en FCF del ~70–75% en el año (77% en el 3T26: 1.418 M$)."
+  ],
+  "cap": [
+   "Recompras y retenciones de 4,1 M de acciones por ~1.400 M$ en el 3T26; el CFO dice que aceleraron porque el precio se alejó del valor intrínseco.",
+   "El consejo amplía la autorización en 3.200 M$, hasta 3.600 M$ a finales de octubre.",
+   "Caja de 3.174 M$ y deuda a largo plazo de 3.516 M$; 331 M de acciones al cierre del trimestre."
+  ]
+ },
  "estimaciones": {
   "foto": {
    "fecha_resultados": "2026-11-04",
