@@ -6,20 +6,20 @@
   "mercado_hoy": {
     "_nota": "Valores sin fuente gratuita para la franja «Mercado hoy» del menú principal. Se pueden cambiar desde la propia web (botón «Apuntar valores») o aquí. La fecha es la del dato (AAAA-MM-DD). Deja null lo que no quieras mostrar. El campo url de cada indicador es el enlace «Consultar» de la web: cámbialo si prefieres otra página.",
     "naaim": {
-      "valor": null,
-      "fecha": null,
+      "valor": 82.55,
+      "fecha": "2026-08-05",
       "fuente": "NAAIM Exposure Index (semanal, miércoles)",
       "url": "https://naaim.org/programs/naaim-exposure-index/"
     },
     "cnn": {
-      "valor": null,
-      "fecha": null,
+      "valor": 22,
+      "fecha": "2026-11-05",
       "fuente": "CNN Fear & Greed Index",
       "url": "https://edition.cnn.com/markets/fear-and-greed"
     },
     "move": {
-      "valor": null,
-      "fecha": null,
+      "valor": 93.88,
+      "fecha": "2026-11-05",
       "fuente": "ICE BofA MOVE Index",
       "url": "https://www.investing.com/indices/ice-bofaml-move"
     },
@@ -27,7 +27,7 @@
       "alcistas": null,
       "neutrales": null,
       "bajistas": null,
-      "fecha": null,
+      "fecha": "2026-11-04",
       "_nota": "Solo si falla la lectura automática de aaii.com: si el dato manual es más reciente, la web usa este.",
       "url": "https://www.aaii.com/sentimentsurvey"
     }
