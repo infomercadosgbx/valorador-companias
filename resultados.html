@@ -307,7 +307,7 @@ function page1(R){
     const sub=row.reportado&&row.reportado.provisional?"provisional · nota de resultados":row.pendiente?"":row.reportado&&row.reportado.derivado?row.reportado.derivado:"";
     return `<tr class="${row.tipo==="segmento"?"seg":"main"}">
       <td>${esc(row.tipo==="segmento"?nice(row.nombre):row.nombre)}${row.nota?`<span class="sub">${esc(row.nota)}</span>`:sub?`<span class="sub">${esc(sub)}</span>`:""}</td>
-      <td class="v">${v!=null?fmtRow(row,v):`<span class="pend">${row.pendiente?"llega con el 10-Q":"pendiente"}</span>`}${cmp?`<span class="sub">ajustado ${usd(cmp.valor)}</span>`:""}</td>
+      <td class="v">${v!=null?fmtRow(row,v):`<span class="pend">${row.concepto==="ebitda_ajustado"?"llega con la nota":row.pendiente?"llega con el 10-Q":"pendiente"}</span>`}${cmp?`<span class="sub">ajustado ${usd(cmp.valor)}</span>`:""}</td>
       <td class="e">${fin(e)?fmtRow(row,e):"–"}${row.estimado?`<span class="sub">${esc(row.estimado.manual?"manual":"Finnhub")}</span>`:""}</td>
       <td class="d ${fin(row.dif_pct)?(row.dif_pct>=0?"up":"dn"):""}">${fin(row.dif_pct)?pct(row.dif_pct,1):"–"}</td>
       <td>${chip(row.resultado)}</td>
@@ -376,7 +376,7 @@ function keysHtml(R){
 }
 function nextLabel(l){ const m=/^(\d)T(\d{2})$/.exec(l||""); if(!m) return ""; let q=+m[1]+1, y=+m[2]; if(q>4){q=1;y++;} return `${q}T${String(y%100).padStart(2,"0")}`; }
 function guiaPeriodo(R,nq){ const t=((R.guia&&R.guia.titulo)||"")+" "+((R.guia&&R.guia.texto)||[]).join(" ");
-  if(/full[- ]year|fiscal year|for 20\d\d|20\d\d (adjusted|guidance|outlook)|annual/i.test(t)&&!/quarter/i.test(t)) return "el ejercicio";
+  if(/full[- ]year|fiscal year|for 20\d\d|20\d\d (adjusted|guidance|outlook|ongoing)|(reaffirmed|raised|updated):?\s*20\d\d|annual/i.test(t)&&!/quarter/i.test(t)) return "el ejercicio";
   return nq||"el próximo trimestre"; }
 
 function page2(R){
@@ -520,8 +520,10 @@ async function panelHtml(){
     ${inp("f_rev","Ingresos (M$)",cur.ingresos_M,"Vacío = consenso de Finnhub")}
     ${inp("f_eps","BPA ($)",cur.bpa,"Vacío = consenso de Finnhub")}
     ${inp("f_op","Beneficio operativo (M$)",cur.beneficio_operativo_M)}
+    ${inp("f_ebitda","EBITDA ajustado (M$)",cur.ebitda_M,"Del trimestre; se compara con la nota de resultados")}
     ${inp("f_grev","Guía esperada: ventas (M$)",cur.guia_ingresos_M,"Del trimestre siguiente")}
     ${inp("f_gop","Guía esperada: EBIT (M$)",cur.guia_beneficio_operativo_M)}
+    ${inp("f_gebitda","Guía esperada: EBITDA ajustado (M$)",cur.guia_ebitda_M,"Del periodo que cubra la guía (trimestre o año)")}
     ${segNames.map((n,i)=>inp("f_seg"+i,`${esc(nice(n))} (M$)`,segVals[n],"",)).join("")}
     <label>Segmento del run-rate<select id="f_clave"><option value="">Automático (el que más crece)</option>${segNames.map(n=>`<option${n===clave?" selected":""}>${esc(n)}</option>`).join("")}</select></label>
    </div>
@@ -535,8 +537,8 @@ function readForm(){
   names.forEach((n,i)=>{ const v=num("f_seg"+i); if(v!=null&&isFinite(v)) seg[n]=v; });
   const d=new Date();
   return {periodo:$("f_per").value.trim().toUpperCase(),fuente:$("f_src").value.trim(),fecha:`${d.getDate()}-${MES[d.getMonth()]}-${d.getFullYear()}`,
-    ingresos_M:num("f_rev"),bpa:num("f_eps"),beneficio_operativo_M:num("f_op"),segmentos_M:seg,
-    guia_ingresos_M:num("f_grev"),guia_beneficio_operativo_M:num("f_gop"),segmento_clave:$("f_clave").value};
+    ingresos_M:num("f_rev"),bpa:num("f_eps"),beneficio_operativo_M:num("f_op"),ebitda_M:num("f_ebitda"),segmentos_M:seg,
+    guia_ingresos_M:num("f_grev"),guia_beneficio_operativo_M:num("f_gop"),guia_ebitda_M:num("f_gebitda"),segmento_clave:$("f_clave").value};
 }
 async function saveEst(){
   const it=readForm(), out=$("estMsg");

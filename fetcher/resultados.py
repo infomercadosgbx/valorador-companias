@@ -210,6 +210,7 @@ def estimates(root, ticker, rec, label, F, manual, provider=None, prev=None):
     est["bpa_diluido"] = pick("bpa_diluido", "bpa", 1.0, "bpa", "bpa_estimado", sorp=True)
     est["beneficio_operativo"] = pick("beneficio_operativo", "beneficio_operativo_M", 1e6)
     est["beneficio_neto"] = pe.get("beneficio_neto")
+    est["ebitda_ajustado"] = pick("ebitda_ajustado", "ebitda_M", 1e6)
     segs = {}
     for name, v in ((man or {}).get("segmentos_M") or {}).items():
         if v is not None:
@@ -223,6 +224,8 @@ def estimates(root, ticker, rec, label, F, manual, provider=None, prev=None):
         guia_est["ingresos"] = {"valor": float(man["guia_ingresos_M"]) * 1e6, "fuente": mfuente, "manual": True}
     if man and man.get("guia_beneficio_operativo_M") is not None:
         guia_est["beneficio_operativo"] = {"valor": float(man["guia_beneficio_operativo_M"]) * 1e6, "fuente": mfuente, "manual": True}
+    if man and man.get("guia_ebitda_M") is not None:
+        guia_est["ebitda"] = {"valor": float(man["guia_ebitda_M"]) * 1e6, "fuente": mfuente, "manual": True}
     return est, segs, cal, hora, guia_est, snap
 
 
@@ -546,6 +549,34 @@ def reading(root, ticker, analysis, periodo_fin, accn):
     return None
 
 
+# ---------------------------------------------------------------- EBITDA ajustado
+def ebitda_row(nota, k8, label, total, rec, est):
+    """Fila «EBITDA ajustado» de la tabla: cifra de la nota (non-GAAP) y tu estimación manual.
+    Las unidades se deducen comparando con los ingresos (la tabla resumen suele ir en millones)."""
+    e = (nota or {}).get("ebitda_ajustado")
+    if not e and not est:
+        return None
+    rep = ya = None
+    if e:
+        cur, prev = (e["valores"][0], e["valores"][1]) if e.get("actual_primero", True) else (e["valores"][1], e["valores"][0])
+        ref = total or _val(rec, "ingresos", _lab(label, dq=-1))
+        escala = None
+        for m in (1e6, 1e3, 1e9, 1.0):
+            if ref and 0.02 <= abs(cur * m) / ref <= 1.5:
+                escala = m
+                break
+        if escala:
+            rep = {"valor": cur * escala, "fuente": "SEC EDGAR · 8-K, Exhibit 99.1 (non-GAAP)", "url": k8.get("url_ex99_1"),
+                   "fecha_presentacion": k8.get("fecha_presentacion"), "periodo": label,
+                   "etiqueta": f"Nota de resultados: fila «{e['fila']}»"}
+            ya = prev * escala
+    dif, res = verdict(rep["valor"] if rep else None, est)
+    return {"concepto": "ebitda_ajustado", "nombre": "EBITDA ajustado", "tipo": "total", "reportado": rep, "estimado": est,
+            "dif_pct": dif, "resultado": res, "anio_anterior": ya, "interanual_pct": _pct(rep["valor"] if rep else None, ya),
+            "nota": "Cifra non-GAAP de la compañía (no está en el XBRL de la SEC).",
+            "pendiente": None if rep else "Llega con la nota de resultados (8-K)."}
+
+
 # ---------------------------------------------------------------- informe
 def extended_reaction(reac, ext):
     """Añade la cotización fuera de horario (after-hours / premercado) mientras falta el siguiente cierre."""
@@ -628,6 +659,12 @@ def build(root: Path, company: dict, rec: dict, analysis=None, manual=None, clie
     rv_i = (next(r for r in tabla if r["concepto"] == "ingresos")["reportado"] or {}).get("valor")
     if rv_i and cal.get("ingresos_reales") and abs(cal["ingresos_reales"] / rv_i - 1) > 0.02:
         avisos.append("Los ingresos reales que da Finnhub difieren más de un 2% de los de la SEC; la tabla usa los de la SEC.")
+
+    # EBITDA ajustado (non-GAAP): no está en XBRL; sale de la tabla resumen de la nota de resultados
+    nota0 = k8.get("nota_resultados") if (k8.get("nota_resultados") or {}).get("accn") == k8.get("accn") else None
+    erow = ebitda_row(nota0, k8, label, total, rec, est.get("ebitda_ajustado"))
+    if erow:
+        tabla.insert(next(i for i, r in enumerate(tabla) if r["concepto"] == "beneficio_operativo") + 1, erow)
 
     clave = EST.segmento_clave(manual)
     star = star_segment(rec, label, total, clave)

@@ -13,7 +13,7 @@ import re
 
 from .riskfactors import to_blocks
 
-VERSION = 5
+VERSION = 6
 HEAD_OUT = re.compile(r"\b(outlook|guidance)\b", re.I)
 HEAD_HI = re.compile(r"\b(highlights)\b", re.I)
 QUOTE = re.compile(r"[“\"]([^”\"]{60,700})(?:[”\"]|$)")
@@ -177,12 +177,44 @@ def _quote(blocks):
     return None
 
 
+EBITDA_ROW = re.compile(r"^(?:ongoing operations |consolidated |total )?adjusted ebitda(?: from continuing operations)?\b(?!.*(?:margin|guidance|per share))", re.I)
+
+
+def _ebitda(blocks):
+    """Primera fila «Adjusted EBITDA» con cifras de la nota (la tabla resumen, normalmente en millones).
+    Devuelve los dos primeros valores sin escalar y si el primero es el periodo actual."""
+    for i, (t, _) in enumerate(blocks):
+        t = BULLET.sub("", t).strip()
+        if not EBITDA_ROW.match(t) or t.endswith("."):
+            continue
+        r = _row(t)
+        if not r or len(r[1]) < 2 or any("%" in v for v in r[1][:2]):
+            continue
+        vals = []
+        for v in r[1][:2]:
+            n = re.sub(r"[^\d.]", "", v)
+            if not n:
+                break
+            x = float(n.replace(",", ""))
+            vals.append(-x if v.startswith("(") or "$(" in v else x)
+        if len(vals) < 2:
+            continue
+        actual_primero = True
+        for t2, _ in reversed(blocks[max(0, i - 8):i]):
+            ys = re.findall(r"\b(20\d{2})\b", t2)
+            if len(ys) >= 2 and ys[0] != ys[1]:
+                actual_primero = ys[0] > ys[1]
+                break
+        return {"fila": r[0], "texto": t[:200], "valores": vals, "actual_primero": actual_primero}
+    return None
+
+
 def extract(html: str):
     blocks = to_blocks(html or "")
     if not blocks:
         return None
     out = {"version": VERSION, "guia": _section(blocks, HEAD_OUT, guide=True), "destacados": _section(blocks, HEAD_HI, 1600, 10),
-           "cita": _quote(blocks)}
+           "cita": _quote(blocks), "ebitda_ajustado": _ebitda(blocks)}
     return out if any(out[k] for k in ("guia", "destacados", "cita")) else None
 
 

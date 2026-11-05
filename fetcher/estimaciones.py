@@ -97,9 +97,11 @@ PLANTILLA_MANUAL = {
     "ingresos_M": None,
     "bpa": None,
     "beneficio_operativo_M": None,
+    "ebitda_M": None,
     "segmentos_M": {},
     "guia_ingresos_M": None,
     "guia_beneficio_operativo_M": None,
+    "guia_ebitda_M": None,
     "segmento_clave": "",
 }
 

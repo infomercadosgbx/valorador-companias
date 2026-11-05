@@ -87,3 +87,16 @@ def test_dia_resultados_elige_quien_presenta(tmp_path):
     assert DR.elegir(tmp_path, "manana", date(2026, 11, 6)) == ["APP", "RDDT", "VST"]
     assert DR.elegir(tmp_path, "tarde", date(2026, 11, 5)) == ["APP"]
     assert DR.elegir(tmp_path, "manana", date(2026, 11, 10)) == []
+
+
+def test_ebitda_ajustado_de_la_nota_frente_a_estimacion_manual():
+    nota = {"ebitda_ajustado": {"fila": "Ongoing operations Adjusted EBITDA", "valores": [1767.0, 1349.0], "actual_primero": True}}
+    k8 = {"url_ex99_1": "https://www.sec.gov/x.htm", "fecha_presentacion": "2026-08-07"}
+    est = {"valor": 1700e6, "fuente": "manual", "manual": True}
+    r = RES.ebitda_row(nota, k8, "2T26", 4_300e6, {}, est)
+    assert r["reportado"]["valor"] == 1767e6 and r["anio_anterior"] == 1349e6
+    assert r["resultado"] == "Beat" and round(r["dif_pct"], 1) == 3.9 and r["interanual_pct"] == 30.99
+    # sin nota todavía: fila pendiente con la estimación
+    p = RES.ebitda_row(None, k8, "3T26", None, {}, est)
+    assert p["reportado"] is None and p["pendiente"]
+    assert RES.ebitda_row(None, k8, "3T26", None, {}, None) is None
