@@ -1,674 +1,708 @@
 {
-  "_nota": "Supuestos y textos propios. Se editan a mano (o desde el botón «Editar» de la web, que descarga este archivo) y se versionan en git. El Action nunca los toca.",
-  "esquema": 1,
-  "meta": {
-    "sector": "Generación eléctrica y venta minorista de luz",
-    "hq": "Irving, Texas",
-    "founded": "2016 (raíces en TXU, 1882)",
-    "employees": "6.390",
-    "asOf": "28-oct-2026",
-    "nextEarnings": "6-nov-2026"
-  },
-  "overview": {
-    "thesis": "Productor eléctrico con nuclear y gas que firma contratos de 20 años con Amazon y Meta para sus centros de datos. A 143 $ el precio casi no descuenta crecimiento, pero depende de los precios de la luz en Texas y carga con 20.500 M$ de deuda.",
-    "summary": "Vistra genera electricidad con una de las mayores flotas de EE. UU.: cuatro centrales nucleares (Comanche Peak en Texas; Beaver Valley, Davis-Besse y Perry en la red PJM), centrales de gas y baterías. Además vende luz a millones de hogares y empresas con marcas como TXU Energy.\nLa demanda de los centros de datos de IA ha cambiado su historia: ya tiene contratos de 20 años con Amazon (1.200 MW) y Meta (más de 2.600 MW), y ha comprado 8.100 MW de centrales de gas (Lotus y Cogentrix).",
-    "keyFacts": [
-      {
-        "k": "EBITDA ajustado 2T26",
-        "v": "1.767 M$ (+31%)"
-      },
-      {
-        "k": "Guía EBITDA ajustado 2026",
-        "v": "6.800–7.600 M$ (en o por encima del punto medio)"
-      },
-      {
-        "k": "Guía FCF antes de crecimiento 2026",
-        "v": "3.925–4.725 M$"
-      },
-      {
-        "k": "Rango de oportunidad 2027",
-        "v": "7.400–7.800 M$ (+~700 M$ por Cogentrix y Meta)"
-      },
-      {
-        "k": "Deuda total (jun-26)",
-        "v": "20.508 M$"
-      },
-      {
-        "k": "Recompras desde nov-2021",
-        "v": "~5.900 M$ · reduce un 30% las acciones en circulación"
-      },
-      {
-        "k": "Dividendo",
-        "v": "0,92 $ por acción (0,6%)"
-      }
-    ],
-    "catalysts": [
-      {
-        "d": "6-nov-26",
-        "t": "Resultados 3T26 y actualización de la guía de 2027."
-      },
-      {
-        "d": "Final 2027",
-        "t": "Comanche Peak empieza a suministrar 1.200 MW al centro de datos de Amazon."
-      },
-      {
-        "d": "2027",
-        "t": "Contratos con Meta (más de 2.600 MW nucleares en PJM) empiezan a sumar EBITDA."
-      },
-      {
-        "d": "En curso",
-        "t": "Préstamo condicional del Departamento de Energía de 4.200 M$ para ampliar potencia nuclear (433 MW)."
-      }
-    ]
-  },
-  "business": {
-    "model": "Dos negocios que se cubren entre sí. Generación: produce electricidad y la vende en los mercados mayoristas o con contratos a largo plazo. Minorista: compra esa energía y la vende a hogares y empresas con margen.\nCubre por adelantado casi toda su producción del año siguiente, lo que da estabilidad pero genera grandes pérdidas o ganancias contables no realizadas.",
-    "customers": "Hogares y empresas que compran luz (sobre todo en Texas), operadores de red que pagan por tener capacidad disponible, y grandes consumidores como Amazon y Meta que firman contratos de 20 años.",
-    "segNote": "EBITDA ajustado del 2T26 por negocio, en M$.",
-    "segments": [
-      {
-        "n": "Generación",
-        "v": 994
-      },
-      {
-        "n": "Venta minorista",
-        "v": 773
-      }
-    ],
-    "customerTypes": [
-      {
-        "n": "Hogares y pymes",
-        "d": "Marcas como TXU Energy en Texas y otros estados."
-      },
-      {
-        "n": "Hiperescaladores",
-        "d": "Amazon (1.200 MW de Comanche Peak) y Meta (más de 2.600 MW en PJM), 20 años."
-      },
-      {
-        "n": "Mercados mayoristas",
-        "d": "ERCOT (Texas) y PJM (Este de EE. UU.): energía y capacidad."
-      },
-      {
-        "n": "Industria",
-        "d": "Clientes grandes con contratos de suministro."
-      }
-    ],
-    "quality": [
-      {
-        "n": "Márgenes",
-        "s": 3,
-        "note": "EBITDA ~32% de las ventas; beneficio neto muy volátil por coberturas"
-      },
-      {
-        "n": "Retorno sobre capital",
-        "s": 3,
-        "note": "Activos pesados; mejora con las recompras"
-      },
-      {
-        "n": "Conversión en caja",
-        "s": 4,
-        "note": "FCF antes de crecimiento ~60% del EBITDA"
-      },
-      {
-        "n": "Recurrencia de ingresos",
-        "s": 3,
-        "note": "Minorista y contratos de 20 años, pero parte depende del precio de mercado"
-      },
-      {
-        "n": "Diversificación",
-        "s": 3,
-        "note": "Texas y PJM; nuclear, gas y minorista"
-      },
-      {
-        "n": "Balance",
-        "s": 2,
-        "note": "20.508 M$ de deuda total, ~2,8 veces el EBITDA"
-      }
-    ],
-    "phase": 3,
-    "phaseNote": "Negocio maduro de servicios públicos que vuelve a crecer: la demanda de los centros de datos de IA eleva el EBITDA un ~20% en 2026.",
-    "clients": {
-      "nota": "Hogares y empresas de Texas y otros estados a través de sus comercializadoras (TXU Energy, entre otras), el mercado mayorista de electricidad y, cada vez más, grandes tecnológicas que compran energía nuclear a largo plazo para sus centros de datos.",
-      "kpis": [
-        {
-          "k": "Contratado con tecnológicas",
-          "v": "~3,8 GW",
-          "d": "Meta y Amazon, a 20 años"
-        },
-        {
-          "k": "Por contratar",
-          "v": "hasta 3,2 GW",
-          "d": "Beaver Valley y Comanche Peak, en negociación"
-        },
-        {
-          "k": "Minorista",
-          "v": "~76% de los ingresos",
-          "d": "2T26, segmento minorista"
-        }
-      ],
-      "conocidos": [
-        {
-          "n": "Meta",
-          "t": "META",
-          "sector": "Tecnología",
-          "cifra": "2.609 MW · 20 años",
-          "d": "Energía de Perry y Davis-Besse (Ohio) más ampliaciones en Beaver Valley; arranca en dic-26 (Perry) y dic-27 (Davis-Besse).",
-          "u": "https://world-nuclear-news.org/articles/ppas-support-extended-operations-at-vistra-plants",
-          "f": "ene-26"
-        },
-        {
-          "n": "Amazon (AWS)",
-          "t": "AMZN",
-          "sector": "Centros de datos",
-          "cifra": "1.200 MW · 20 años",
-          "d": "Energía de la nuclear de Comanche Peak para un centro de datos de 5.000 M$ junto a la central; entregas desde 2027, plena capacidad en 2032.",
-          "u": "https://www.utilitydive.com/news/vistra-texas-data-center-pause-comanche-amazon-earnings/827434/",
-          "f": "ago-26"
-        },
-        {
-          "n": "Clientes de TXU Energy y otras marcas",
-          "sector": "Minorista",
-          "cifra": "~76% de los ingresos",
-          "d": "Hogares y pymes de Texas y del noreste: ingresos estables que compensan los vaivenes del precio mayorista."
-        }
-      ]
-    },
-    "segView": "segmento",
-    "segExplain": "Vistra vende sobre todo electricidad al cliente final (Minorista). Sus centrales de Texas venden gran parte de su producción a esa misma división minorista; esas ventas internas se eliminan, por eso «Generación Texas» parece pequeña aunque sea el corazón del negocio."
-  },
-  "moat": {
-    "width": "Estrecho",
-    "trend": "Ampliándose",
-    "note": "Su ventaja es tener centrales ya construidas y con permisos, sobre todo nucleares, cuando la demanda de electricidad vuelve a crecer y construir una central nueva cuesta años. La debilidad: vende un producto sin diferenciación y, fuera de los contratos largos, depende del precio de mercado.",
-    "sources": [
-      {
-        "n": "Efecto red",
-        "s": 1,
-        "note": "No aplica: la electricidad es un producto homogéneo"
-      },
-      {
-        "n": "Costes de cambio",
-        "s": 2,
-        "note": "Los clientes minoristas de Texas pueden cambiar de comercializadora"
-      },
-      {
-        "n": "Activos intangibles",
-        "s": 3,
-        "note": "Licencias nucleares, permisos y la marca TXU Energy"
-      },
-      {
-        "n": "Ventaja de costes",
-        "s": 4,
-        "note": "Nuclear amortizada con coste variable muy bajo"
-      },
-      {
-        "n": "Escala eficiente",
-        "s": 4,
-        "note": "Centrales existentes difíciles de replicar; nuclear casi imposible"
-      }
-    ],
-    "comps": [
-      {
-        "n": "Constellation Energy",
-        "threat": 3,
-        "note": "Mayor flota nuclear; compite por los mismos contratos con hiperescaladores"
-      },
-      {
-        "n": "NRG Energy",
-        "threat": 3,
-        "note": "Rival directo en Texas en minorista y generación"
-      },
-      {
-        "n": "Talen Energy",
-        "threat": 2,
-        "note": "Nuclear en PJM con contratos con Amazon"
-      },
-      {
-        "n": "Renovables y baterías",
-        "threat": 3,
-        "note": "Bajan los precios en Texas en horas de sol y viento"
-      }
-    ]
-  },
-  "growth": {
-    "score": 3.5,
-    "scoreNote": "Los ingresos crecen poco, pero el EBITDA sube ~20% en 2026 y los contratos con centros de datos aportan crecimiento contratado desde 2027.",
-    "tam": "Consumo eléctrico de EE. UU., que vuelve a crecer por los centros de datos, la electrificación y la relocalización industrial. Vistra espera un crecimiento de la demanda en Texas del 4–6% anual.",
-    "guidance": "EBITDA ajustado 2026: 6.800–7.600 M$, en o por encima del punto medio. 2027: 7.400–7.800 M$, cerca del extremo bajo por los precios a plazo en Texas, más ~700 M$ por Cogentrix y Meta.",
-    "drivers": [
-      {
-        "n": "Contratos con centros de datos",
-        "impact": 5,
-        "h": "2027+",
-        "st": "en marcha",
-        "k": "~3,8 GW contratados a 20 años",
-        "peso": "Meta 2.609 MW · Amazon 1.200 MW",
-        "d": "Las grandes tecnológicas pagan contratos de 20 años por energía nuclear sin emisiones. Dan ingresos estables y mejor precio que el mercado mayorista. Vistra negocia hasta 3,2 GW más en Beaver Valley y Comanche Peak.",
-        "ev": "Nuevos contratos firmados y fecha de arranque (Perry dic-26, Davis-Besse dic-27, Amazon 2027).",
-        "r": "La pausa en nuevos centros de datos en Texas mientras ERCOT revisa su cola de conexión.",
-        "u": "https://world-nuclear-news.org/articles/ppas-support-extended-operations-at-vistra-plants"
-      },
-      {
-        "n": "Compras de centrales de gas",
-        "impact": 4,
-        "h": "2026–2027",
-        "st": "en marcha",
-        "k": "Cogentrix 5.500 MW · Lotus 2.600 MW",
-        "peso": "~700 M$ de EBITDA extra en 2027 (con Meta)",
-        "d": "Compra centrales de gas ya construidas, más baratas que construir nuevas, en mercados donde falta potencia firme.",
-        "ev": "Cierre de Cogentrix (ya aprobada por la FERC) y EBITDA aportado.",
-        "r": "Más deuda y precio del gas."
-      },
-      {
-        "n": "Más potencia nuclear",
-        "impact": 3,
-        "h": "2027–2030",
-        "st": "temprano",
-        "k": "433 MW de ampliaciones",
-        "peso": "préstamo condicional del DOE de hasta 4.200 M$ (oct-26)",
-        "d": "El Departamento de Energía ofreció el 6-oct-26 hasta 4.200 M$ para ampliar Beaver Valley, Davis-Besse y Perry, que suman 433 MW nuevos y aseguran casi 4 GW de base; incluye una opción para Comanche Peak.",
-        "ev": "Avance de las ampliaciones y contratos asociados.",
-        "r": "Retrasos regulatorios y sobrecostes.",
-        "u": "https://www.world-nuclear-news.org/articles/doe-offers-vistra-loan-for-reactor-upgrades-and-uprates"
-      },
-      {
-        "n": "Recompras",
-        "impact": 3,
-        "h": "Continuo",
-        "st": "maduro",
-        "k": "~1.800 M$ pendientes hasta 2027",
-        "d": "La caja de las centrales se devuelve en parte con recompras.",
-        "ev": "Acciones en circulación.",
-        "r": "Menos recompras si se prioriza reducir deuda."
-      },
-      {
-        "n": "Helix Digital Infrastructure",
-        "impact": 2,
-        "h": "2027+",
-        "st": "temprano",
-        "k": "Hasta 1.000 M$ con KKR y NVIDIA",
-        "d": "Plataforma de centros de datos de la que Vistra sería proveedor eléctrico preferente.",
-        "ev": "Primeros proyectos y contratos de suministro.",
-        "r": "Proyecto todavía sin ingresos."
-      }
-    ]
-  },
-  "mgmt": {
-    "note": "Una acción, un voto, sin accionista de control. La dirección publica guía de EBITDA y de FCF a dos años. Desde 2021 ha recomprado ~30% de sus acciones mientras compraba Energy Harbor, Lotus y Cogentrix.",
-    "people": [
-      {
-        "n": "Jim Burke",
-        "role": "CEO",
-        "since": "2022",
-        "note": "Antes director de operaciones; lidera la estrategia de contratos con centros de datos."
-      },
-      {
-        "n": "Kris Moldovan",
-        "role": "Director financiero",
-        "since": "2022",
-        "note": "Ha avisado de que 2027 tenderá al extremo bajo del rango por los precios en Texas."
-      },
-      {
-        "n": "Stacey Doré",
-        "role": "Directora de estrategia y sostenibilidad",
-        "since": "",
-        "note": "Negocia con los grandes consumidores y la regulación."
-      }
-    ],
-    "scores": [
-      {
-        "n": "Alineación con el accionista",
-        "s": 3,
-        "note": "Retribución ligada a FCF y recompras"
-      },
-      {
-        "n": "Asignación de capital",
-        "s": 5,
-        "note": "~5.900 M$ en recompras y compras de centrales a buen precio"
-      },
-      {
-        "n": "Credibilidad y ejecución",
-        "s": 4,
-        "note": "Cumple o mejora su guía de EBITDA y FCF"
-      },
-      {
-        "n": "Gobierno corporativo",
-        "s": 4,
-        "note": "Una acción, un voto"
-      },
-      {
-        "n": "Transparencia",
-        "s": 4,
-        "note": "Guía a dos años y desglose por negocio"
-      }
-    ],
-    "alloc": {
-      "label": "Uso de la caja (M$)",
-      "items": [
-        {
-          "n": "Recompras desde nov-2021",
-          "v": 5900
-        },
-        {
-          "n": "Capex 2025",
-          "v": 2752
-        },
-        {
-          "n": "Dividendos 2025",
-          "v": 306
-        }
-      ]
-    },
-    "vote": {
-      "label": "Poder de voto (%)",
-      "items": [
-        {
-          "n": "Accionistas (una acción, un voto)",
-          "v": 100
-        }
-      ]
-    },
-    "call": {
-      "periodEnd": "2026-06-30",
-      "q": "2T 2026",
-      "date": "7-ago-2026",
-      "doc": "Nota de resultados (8-K)",
-      "url": "https://www.sec.gov/Archives/edgar/data/0001692819/000169281926000017/vistra-20260630xearningsre.htm",
-      "nota": "Próxima presentación: 6-nov-2026.",
-      "dir": [
-        "Jim Burke destaca la disponibilidad comercial de la flota (97% o más) en las olas de calor de Texas y PJM.",
-        "Helix Digital Infrastructure, con NVIDIA, KKR y Kuwait Investment Authority: Vistra se compromete con hasta 1.000 M$ y será su proveedor preferente de energía.",
-        "Contratos de compra de energía a largo plazo con Meta, que contribuirán en parte al EBITDA de 2027.",
-        "Compra de Cogentrix pendiente de cierre (ya aprobada por la FERC). Construye dos unidades de gas en la cuenca Pérmica y proyectos solares."
-      ],
-      "ret": [
-        "El beneficio neto bajó a 305 M$ (327 M$ un año antes) por 488 M$ más de pérdidas no realizadas en derivados.",
-        "Cierre de activos: pérdida de 23 M$ de EBITDA ajustado. Gastos financieros de 312 M$ en el trimestre.",
-        "Riesgos citados: volatilidad de mercado y clima, integración de Cogentrix y rebajas de rating."
-      ],
-      "guia": [
-        "2026 (reiterada): EBITDA ajustado de 6.800–7.600 M$ y FCF antes de crecimiento de 3.925–4.725 M$, sin Cogentrix ni Meta.",
-        "2027 (oportunidad, no guía formal): 7.400–7.800 M$, según curvas de octubre de 2025.",
-        "Cobertura: ~100% de la generación de 2026, 94% de 2027 y 72% de 2028."
-      ],
-      "cap": [
-        "Ha recomprado unos 6.500 M$ desde noviembre de 2021 (acciones un 30% menos). Quedan unos 1.200 M$ autorizados, hasta fin de 2027.",
-        "Capex 2026: 1.536 M$. Liquidez de 6.295 M$. Sin objetivo explícito de deuda."
-      ]
-    }
-  },
-  "risks": [
-    {
-      "n": "Precios de la luz bajos en Texas",
-      "cat": "Mercado",
-      "p": 4,
-      "i": 4,
-      "note": "ERCOT en ~30 $/MWh en 2026; la guía de 2027 tiende al extremo bajo"
-    },
-    {
-      "n": "Endeudamiento",
-      "cat": "Financiero",
-      "p": 3,
-      "i": 3,
-      "note": "20.508 M$ de deuda total mientras financia compras, ampliaciones y recompras"
-    },
-    {
-      "n": "Retrasos regulatorios en centros de datos",
-      "cat": "Regulatorio",
-      "p": 3,
-      "i": 3,
-      "note": "Texas pausó aprobaciones de grandes consumos; ERCOT aplazó estudios"
-    },
-    {
-      "n": "Incidente o parada nuclear",
-      "cat": "Operativo",
-      "p": 2,
-      "i": 4,
-      "note": "Cuatro centrales nucleares concentran gran parte del valor"
-    },
-    {
-      "n": "Clima extremo",
-      "cat": "Operativo",
-      "p": 2,
-      "i": 4,
-      "note": "La tormenta Uri de 2021 le costó más de 1.500 M$"
-    },
-    {
-      "n": "Integración de Cogentrix",
-      "cat": "Operativo",
-      "p": 2,
-      "i": 3,
-      "note": "5.500 MW de gas en nuevos mercados"
-    },
-    {
-      "n": "Volatilidad contable por coberturas",
-      "cat": "Financiero",
-      "p": 4,
-      "i": 1,
-      "note": "472 M$ de pérdidas no realizadas en el 2T26"
-    },
-    {
-      "n": "Inversión en Helix",
-      "cat": "Comercial",
-      "p": 2,
-      "i": 2,
-      "note": "Hasta 1.000 M$ en un negocio fuera de su núcleo"
-    }
+ "_nota": "Supuestos y textos propios. Se editan a mano (o desde el botón «Editar» de la web, que descarga este archivo) y se versionan en git. El Action nunca los toca.",
+ "esquema": 1,
+ "meta": {
+  "sector": "Generación eléctrica y venta minorista de luz",
+  "hq": "Irving, Texas",
+  "founded": "2016 (raíces en TXU, 1882)",
+  "employees": "6.390",
+  "asOf": "6-nov-2026",
+  "nextEarnings": "Feb-2027 (4T26, fecha por confirmar)"
+ },
+ "overview": {
+  "thesis": "Productor eléctrico con nuclear y gas y contratos de 20 años con Amazon y Meta. Acaba de dar una guía de 2027 de 7.700–8.500 M$ de EBITDA ajustado y, a 112,89 $, el precio descuenta poco de ese crecimiento; depende de los precios de la luz en Texas y su deuda sube tras comprar Cogentrix.",
+  "summary": "Vistra genera electricidad con una de las mayores flotas de EE. UU.: cuatro centrales nucleares (Comanche Peak en Texas; Beaver Valley, Davis-Besse y Perry en la red PJM), centrales de gas y baterías. Además vende luz a millones de hogares y empresas con marcas como TXU Energy.\nLa demanda de los centros de datos de IA ha cambiado su historia: ya tiene contratos de 20 años con Amazon (1.200 MW) y Meta (más de 2.600 MW), y ha comprado 8.100 MW de centrales de gas (Lotus y Cogentrix).",
+  "keyFacts": [
+   {
+    "k": "EBITDA ajustado 3T26",
+    "v": "2.378 M$ (+50%; 1.581 M$ en 3T25)"
+   },
+   {
+    "k": "Ingresos 3T26",
+    "v": "6.347 M$ (+28%)"
+   },
+   {
+    "k": "Beneficio neto 3T26",
+    "v": "1.140 M$ (652 M$ en 3T25; incluye +559 M$ no realizados por coberturas)"
+   },
+   {
+    "k": "Guía EBITDA ajustado 2026",
+    "v": "7.100–7.500 M$ (antes 6.800–7.600 M$)"
+   },
+   {
+    "k": "Guía EBITDA ajustado 2027",
+    "v": "7.700–8.500 M$ (primera guía formal)"
+   },
+   {
+    "k": "Guía FCF antes de crecimiento",
+    "v": "2026: 4.300–4.700 M$ · 2027: 4.300–5.100 M$"
+   },
+   {
+    "k": "Cobertura de generación",
+    "v": "~100% 2026 · ~98% 2027 · ~78% 2028"
+   },
+   {
+    "k": "Recompras desde nov-2021",
+    "v": "~6.700 M$ · ~339 M de acciones (−30%); quedan ~2.500 M$ hasta 2028"
+   },
+   {
+    "k": "Liquidez",
+    "v": "8.923 M$ a sep-26; ~5.400 M$ pro forma tras Cogentrix y preferentes"
+   }
   ],
-  "v": {
-    "shares": 335.64,
-    "cash": 435,
-    "debt": 20508,
-    "rev0": 22200,
-    "year0": 2026,
-    "g": [
-      8,
-      6,
-      5,
-      4,
-      3
-    ],
-    "m1": 34,
-    "m5": 35,
-    "da": 10,
-    "da5": 10,
-    "sbc": 0.5,
-    "capex": 9,
-    "capex5": 7,
-    "nwc": 5,
-    "tax": 15,
-    "wacc": 9.5,
-    "tg": 2.5,
-    "exit": 9,
-    "method": "blend",
-    "eps": 10.14,
-    "pe": 16,
-    "evm": 10,
-    "scn": [
-      {
-        "n": "Bajista",
-        "dg": -4,
-        "dm": -5,
-        "p": 25
-      },
-      {
-        "n": "Base",
-        "dg": 0,
-        "dm": 0,
-        "p": 50
-      },
-      {
-        "n": "Alcista",
-        "dg": 3,
-        "dm": 2,
-        "p": 25
-      }
-    ]
-  },
-  "verdict": {
-    "rating": "Acumular",
-    "conviction": 3,
-    "buyBelow": 135,
-    "horizon": "12–24 meses",
-    "summary": "Activos difíciles de replicar justo cuando la demanda eléctrica vuelve a crecer, con contratos de 20 años ya firmados con Amazon y Meta y una dirección muy disciplinada con el capital. A ~143 $ el precio casi no descuenta crecimiento, pero el negocio no es inmune a los precios de la luz en Texas y la deuda es alta. Acumular por debajo de ~135–145 $ y vigilar la guía de 2027 el 6 de noviembre.",
-    "bull": [
-      "Contratos de 20 años con Amazon y Meta desde 2027",
-      "EBITDA ajustado +20% en 2026 y ~8.100 M$ posibles en 2027",
-      "Recompras: −30% de acciones desde 2021",
-      "Nuclear con coste variable muy bajo"
-    ],
-    "bear": [
-      "Precios mayoristas débiles en Texas",
-      "Deuda total de 20.508 M$",
-      "Riesgo regulatorio en la conexión de centros de datos",
-      "Beneficio contable muy volátil"
-    ],
-    "watch": [
-      "Guía de 2027 en los resultados del 6-nov",
-      "Precios a plazo en ERCOT",
-      "Nuevos contratos con centros de datos",
-      "Desembolso del préstamo del DOE"
-    ]
-  },
-  "notes": "Datos de mercado leídos de StockAnalysis el 29-oct-2026 (cierre del 28-oct). El modelo usa EBITDA ajustado; las cifras GAAP están distorsionadas por las coberturas.",
-  "sources": {
-    "web": "https://vistracorp.com",
-    "ir": "https://investor.vistracorp.com",
-    "docs": [
-      {
-        "cat": "Resultados trimestrales",
-        "t": "Resultados 4T25 y año 2025",
-        "d": "26-feb-2026",
-        "u": "https://marketchameleon.com/PressReleases/i/2257320/VST/vistra-reports-fourth-quarter-and-fullyear-2025"
-      },
-      {
-        "cat": "Presentaciones",
-        "t": "Presentación de resultados 2T26 (resumen)",
-        "d": "07-ago-2026",
-        "u": "https://www.investing.com/news/company-news/vistra-q2-2026-slides-ebitda-surges-30-amid-revenue-miss-93CH-4847120"
-      },
-      {
-        "cat": "Formularios SEC",
-        "t": "10-Q segundo trimestre 2026",
-        "d": "ago-2026",
-        "u": "https://www.sec.gov/Archives/edgar/data/0001692819/000169281926000019/vistra-20260630.htm"
-      },
-      {
-        "cat": "Formularios SEC",
-        "t": "10-Q primer trimestre 2026",
-        "d": "may-2026",
-        "u": "https://www.sec.gov/Archives/edgar/data/0001692819/000169281926000014/vistra-20260331.htm"
-      },
-      {
-        "cat": "Formularios SEC",
-        "t": "10-K ejercicio 2025",
-        "d": "feb-2026",
-        "u": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000006/vistra-20251231.htm"
-      },
-      {
-        "cat": "Transcripciones",
-        "t": "Llamada de resultados 2T26 (Benzinga)",
-        "d": "07-ago-2026",
-        "u": "https://www.benzinga.com/news/26/10/62319342/transcript-vistra-q2-2026-earnings-conference-call"
-      },
-      {
-        "cat": "Transcripciones",
-        "t": "Llamada de resultados 4T25 (The Motley Fool)",
-        "d": "26-feb-2026",
-        "u": "https://www.fool.com/earnings/call-transcripts/2026/02/26/vistra-vst-q4-2025-earnings-call-transcript/"
-      },
-      {
-        "cat": "Otros",
-        "t": "Compra de Cogentrix (nota de prensa)",
-        "d": "2026",
-        "u": "https://www.itiger.com/news/2601634837"
-      }
-    ],
-    "news": [
-      {
-        "t": "Comanche Peak, Amazon y la pausa de centros de datos en Texas",
-        "src": "Utility Dive",
-        "u": "https://www.utilitydive.com/news/vistra-texas-data-center-pause-comanche-amazon-earnings/827434/"
-      },
-      {
-        "t": "Por qué ha caído un 28% en un año",
-        "src": "TIKR",
-        "u": "https://www.tikr.com/blog/vistra-stock-is-down-28-over-the-past-year-discount-or-warning-sign"
-      },
-      {
-        "t": "Resultados 2T26 y la apuesta por Helix",
-        "src": "TIKR",
-        "u": "https://www.tikr.com/blog/what-vistras-q2-earnings-reveal-about-its-1-billion-helix-bet"
-      },
-      {
-        "t": "Contratos con Meta, Cogentrix y Lotus",
-        "src": "24/7 Wall St.",
-        "u": "https://247wallst.com/investing/2026/09/10/beyond-meta-and-nuclear-inside-vistras-real-power-play/"
-      }
-    ]
-  },
-  "social": {
-    "pulse": [
-      {
-        "p": "Reddit",
-        "s": 1,
-        "note": "Y mejorando (SentiSense, 25-oct): préstamo del DOE de 4.200 M$ para ampliar las nucleares (+11% en la sesión)."
-      },
-      {
-        "p": "X",
-        "s": 1,
-        "note": "Se la ve como valor clave del «tema energía para la IA», junto a Constellation y NRG."
-      },
-      {
-        "p": "YouTube",
-        "s": 1,
-        "note": "Vídeos sobre el contrato con Meta, la compra de Cogentrix y la demanda eléctrica de los centros de datos."
-      }
-    ],
-    "videos": [
-      {
-        "t": "Is $VST a Sell? The Bear Case Against Vistra at $148",
-        "u": "https://www.youtube.com/watch?v=32PJliCNO-8"
-      },
-      {
-        "t": "Vistra (VST) Stock Analysis: $4B Boost & Nuclear Power Catalyst",
-        "u": "https://www.youtube.com/watch?v=eJmt9mdo8f4"
-      },
-      {
-        "t": "Is $VST a Sell? (Aug '26) 100% of 2026 Is Already Sold Forward",
-        "u": "https://www.youtube.com/watch?v=l-n-bvzLXD0"
-      },
-      {
-        "t": "VST Stock Price Prediction 2026: Why This AI Utility Giant Fell",
-        "u": "https://www.youtube.com/watch?v=lbhuv2yBa8s"
-      },
-      {
-        "t": "Vistra Stock (VST): Deep Dive into a Potential 40% Upside?",
-        "u": "https://www.youtube.com/watch?v=rVaN6lZo0Ys"
-      }
-    ],
-    "pulseFuente": "Lectura del 1-nov-2026 con SentiSense, LunarCrush y Stocktwits (agregadores de redes sociales) y búsquedas propias."
-  },
-  "fin_manual": {
-    "nota": "Series que la SEC no publica (por segmento). Las etiquetas de trimestre deben coincidir con las de la SEC (p. ej. 3T26).",
-    "q": {
-      "labels": [
-        "1T25",
-        "2T25",
-        "3T25",
-        "4T25",
-        "1T26",
-        "2T26"
-      ],
-      "series": []
-    },
-    "nota_antigua": "Ingresos y beneficio neto según StockAnalysis: muy volátiles por la contabilidad de coberturas (por ejemplo, −808 M$ no realizados en 2025). Por eso se usa el EBITDA ajustado de operaciones continuadas de la empresa. 2026e: punto medio de la guía (EBITDA) y consenso (ingresos, beneficio y FCF). El crecimiento trimestral de ingresos no es representativo por las coberturas."
-  },
-  "peers": [
-    "CEG",
-    "NRG",
-    "TLN",
-    "AES",
-    "NEE"
+  "catalysts": [
+   {
+    "d": "Nov-26",
+    "t": "10-Q del 3T26: deuda total y caja tras la compra de Cogentrix."
+   },
+   {
+    "d": "2026–2028",
+    "t": "Recompras: ~2.500 M$ de autorización disponible hasta final de 2028."
+   },
+   {
+    "d": "2027",
+    "t": "Contratos con Meta (más de 2.600 MW nucleares en PJM) empiezan a sumar EBITDA."
+   },
+   {
+    "d": "Final 2027",
+    "t": "Comanche Peak empieza a suministrar 1.200 MW al centro de datos de Amazon."
+   },
+   {
+    "d": "20 años",
+    "t": "Contrato de 207 MW con New Era Energy and Digital en la central de gas de Odessa (Texas)."
+   },
+   {
+    "d": "Sin fecha",
+    "t": "Préstamo del DOE de hasta 4.200 M$ (433 MW nucleares): solo compromiso condicional desde el 5-oct-26; falta firmar los documentos definitivos y puede cancelarse. El robot lo vigila cada noche (Riesgos → Seguimientos). Las ampliaciones que financia no aportarán beneficio hasta 2031, según la dirección."
+   }
   ]
+ },
+ "business": {
+  "model": "Dos negocios que se cubren entre sí. Generación: produce electricidad y la vende en los mercados mayoristas o con contratos a largo plazo. Minorista: compra esa energía y la vende a hogares y empresas con margen.\nCubre por adelantado casi toda su producción del año siguiente, lo que da estabilidad pero genera grandes pérdidas o ganancias contables no realizadas.",
+  "customers": "Hogares y empresas que compran luz (sobre todo en Texas), operadores de red que pagan por tener capacidad disponible, y grandes consumidores como Amazon y Meta que firman contratos de 20 años.",
+  "segNote": "EBITDA ajustado del 2T26 por negocio, en M$.",
+  "segments": [
+   {
+    "n": "Generación",
+    "v": 994
+   },
+   {
+    "n": "Venta minorista",
+    "v": 773
+   }
+  ],
+  "customerTypes": [
+   {
+    "n": "Hogares y pymes",
+    "d": "Marcas como TXU Energy en Texas y otros estados."
+   },
+   {
+    "n": "Hiperescaladores",
+    "d": "Amazon (1.200 MW de Comanche Peak) y Meta (más de 2.600 MW en PJM), 20 años."
+   },
+   {
+    "n": "Mercados mayoristas",
+    "d": "ERCOT (Texas) y PJM (Este de EE. UU.): energía y capacidad."
+   },
+   {
+    "n": "Industria",
+    "d": "Clientes grandes con contratos de suministro."
+   }
+  ],
+  "quality": [
+   {
+    "n": "Márgenes",
+    "s": 3,
+    "note": "EBITDA ~32% de las ventas; beneficio neto muy volátil por coberturas"
+   },
+   {
+    "n": "Retorno sobre capital",
+    "s": 3,
+    "note": "Activos pesados; mejora con las recompras"
+   },
+   {
+    "n": "Conversión en caja",
+    "s": 4,
+    "note": "FCF antes de crecimiento ~60% del EBITDA"
+   },
+   {
+    "n": "Recurrencia de ingresos",
+    "s": 3,
+    "note": "Minorista y contratos de 20 años, pero parte depende del precio de mercado"
+   },
+   {
+    "n": "Diversificación",
+    "s": 3,
+    "note": "Texas y PJM; nuclear, gas y minorista"
+   },
+   {
+    "n": "Balance",
+    "s": 2,
+    "note": "20.508 M$ de deuda total, ~2,8 veces el EBITDA"
+   }
+  ],
+  "phase": 3,
+  "phaseNote": "Negocio maduro de servicios públicos que vuelve a crecer: la demanda de los centros de datos de IA eleva el EBITDA un ~20% en 2026.",
+  "clients": {
+   "nota": "Hogares y empresas de Texas y otros estados a través de sus comercializadoras (TXU Energy, entre otras), el mercado mayorista de electricidad y, cada vez más, grandes tecnológicas que compran energía nuclear a largo plazo para sus centros de datos.",
+   "kpis": [
+    {
+     "k": "Contratado con tecnológicas",
+     "v": "~3,8 GW",
+     "d": "Meta y Amazon, a 20 años"
+    },
+    {
+     "k": "Por contratar",
+     "v": "hasta 3,2 GW",
+     "d": "Beaver Valley y Comanche Peak, en negociación"
+    },
+    {
+     "k": "Minorista",
+     "v": "~76% de los ingresos",
+     "d": "2T26, segmento minorista"
+    }
+   ],
+   "conocidos": [
+    {
+     "n": "Meta",
+     "t": "META",
+     "sector": "Tecnología",
+     "cifra": "2.609 MW · 20 años",
+     "d": "Energía de Perry y Davis-Besse (Ohio) más ampliaciones en Beaver Valley; arranca en dic-26 (Perry) y dic-27 (Davis-Besse).",
+     "u": "https://world-nuclear-news.org/articles/ppas-support-extended-operations-at-vistra-plants",
+     "f": "ene-26"
+    },
+    {
+     "n": "Amazon (AWS)",
+     "t": "AMZN",
+     "sector": "Centros de datos",
+     "cifra": "1.200 MW · 20 años",
+     "d": "Energía de la nuclear de Comanche Peak para un centro de datos de 5.000 M$ junto a la central; entregas desde 2027, plena capacidad en 2032.",
+     "u": "https://www.utilitydive.com/news/vistra-texas-data-center-pause-comanche-amazon-earnings/827434/",
+     "f": "ago-26"
+    },
+    {
+     "n": "Clientes de TXU Energy y otras marcas",
+     "sector": "Minorista",
+     "cifra": "~76% de los ingresos",
+     "d": "Hogares y pymes de Texas y del noreste: ingresos estables que compensan los vaivenes del precio mayorista."
+    }
+   ]
+  },
+  "segView": "segmento",
+  "segExplain": "Vistra vende sobre todo electricidad al cliente final (Minorista). Sus centrales de Texas venden gran parte de su producción a esa misma división minorista; esas ventas internas se eliminan, por eso «Generación Texas» parece pequeña aunque sea el corazón del negocio."
+ },
+ "moat": {
+  "width": "Estrecho",
+  "trend": "Ampliándose",
+  "note": "Su ventaja es tener centrales ya construidas y con permisos, sobre todo nucleares, cuando la demanda de electricidad vuelve a crecer y construir una central nueva cuesta años. La debilidad: vende un producto sin diferenciación y, fuera de los contratos largos, depende del precio de mercado.",
+  "sources": [
+   {
+    "n": "Efecto red",
+    "s": 1,
+    "note": "No aplica: la electricidad es un producto homogéneo"
+   },
+   {
+    "n": "Costes de cambio",
+    "s": 2,
+    "note": "Los clientes minoristas de Texas pueden cambiar de comercializadora"
+   },
+   {
+    "n": "Activos intangibles",
+    "s": 3,
+    "note": "Licencias nucleares, permisos y la marca TXU Energy"
+   },
+   {
+    "n": "Ventaja de costes",
+    "s": 4,
+    "note": "Nuclear amortizada con coste variable muy bajo"
+   },
+   {
+    "n": "Escala eficiente",
+    "s": 4,
+    "note": "Centrales existentes difíciles de replicar; nuclear casi imposible"
+   }
+  ],
+  "comps": [
+   {
+    "n": "Constellation Energy",
+    "threat": 3,
+    "note": "Mayor flota nuclear; compite por los mismos contratos con hiperescaladores"
+   },
+   {
+    "n": "NRG Energy",
+    "threat": 3,
+    "note": "Rival directo en Texas en minorista y generación"
+   },
+   {
+    "n": "Talen Energy",
+    "threat": 2,
+    "note": "Nuclear en PJM con contratos con Amazon"
+   },
+   {
+    "n": "Renovables y baterías",
+    "threat": 3,
+    "note": "Bajan los precios en Texas en horas de sol y viento"
+   }
+  ]
+ },
+ "growth": {
+  "score": 3.5,
+  "scoreNote": "Los ingresos suben un 28% en el 3T26 y el EBITDA ajustado un 50%. La guía de 2027 implica ~+11% de EBITDA sobre el punto medio de 2026, con el 98% de la generación ya cubierta; el FCF crece menos (punto medio de 4.500 a 4.700 M$). La dirección habla de ~70% de crecimiento del FCF por acción entre 2027 y 2030, sin contar las ampliaciones nucleares de PJM (desde 2031) ni la rampa final con AWS (2032).",
+  "tam": "Consumo eléctrico de EE. UU., que vuelve a crecer por los centros de datos, la electrificación y la relocalización industrial. Vistra espera un crecimiento de la demanda en Texas del 4–6% anual.",
+  "guidance": "EBITDA ajustado 2026: 7.100–7.500 M$ (antes 6.800–7.600 M$; sube el punto medio de 7.200 a 7.300 M$). 2027, primera guía formal: 7.700–8.500 M$ (punto medio 8.100 M$, frente al rango de oportunidad de 7.400–7.800 M$ más ~700 M$ por Cogentrix y Meta). FCF antes de crecimiento: 4.300–4.700 M$ en 2026 y 4.300–5.100 M$ en 2027.",
+  "drivers": [
+   {
+    "n": "Contratos con centros de datos",
+    "impact": 5,
+    "h": "2027+",
+    "st": "en marcha",
+    "k": "~3,8 GW contratados a 20 años",
+    "peso": "Meta 2.609 MW · Amazon 1.200 MW",
+    "d": "Las grandes tecnológicas pagan contratos de 20 años por energía nuclear sin emisiones. Dan ingresos estables y mejor precio que el mercado mayorista. Vistra negocia hasta 3,2 GW más en Beaver Valley y Comanche Peak.",
+    "ev": "Nuevos contratos firmados y fecha de arranque (Perry dic-26, Davis-Besse dic-27, Amazon 2027).",
+    "r": "La pausa en nuevos centros de datos en Texas mientras ERCOT revisa su cola de conexión.",
+    "u": "https://world-nuclear-news.org/articles/ppas-support-extended-operations-at-vistra-plants"
+   },
+   {
+    "n": "Compras de centrales de gas",
+    "impact": 4,
+    "h": "2026–2027",
+    "st": "en marcha",
+    "k": "Cogentrix 5.500 MW · Lotus 2.600 MW",
+    "peso": "~700 M$ de EBITDA extra en 2027 (con Meta)",
+    "d": "Compra centrales de gas ya construidas, más baratas que construir nuevas, en mercados donde falta potencia firme.",
+    "ev": "Cierre de Cogentrix (ya aprobada por la FERC) y EBITDA aportado.",
+    "r": "Más deuda y precio del gas."
+   },
+   {
+    "n": "Más potencia nuclear",
+    "impact": 3,
+    "h": "2027–2030",
+    "st": "temprano",
+    "k": "433 MW de ampliaciones",
+    "peso": "préstamo condicional del DOE de hasta 4.200 M$ (oct-26)",
+    "d": "El Departamento de Energía ofreció el 6-oct-26 hasta 4.200 M$ para ampliar Beaver Valley, Davis-Besse y Perry, que suman 433 MW nuevos y aseguran casi 4 GW de base; incluye una opción para Comanche Peak.",
+    "ev": "Avance de las ampliaciones y contratos asociados.",
+    "r": "Retrasos regulatorios y sobrecostes.",
+    "u": "https://www.world-nuclear-news.org/articles/doe-offers-vistra-loan-for-reactor-upgrades-and-uprates"
+   },
+   {
+    "n": "Recompras",
+    "impact": 3,
+    "h": "Continuo",
+    "st": "maduro",
+    "k": "~1.800 M$ pendientes hasta 2027",
+    "d": "La caja de las centrales se devuelve en parte con recompras.",
+    "ev": "Acciones en circulación.",
+    "r": "Menos recompras si se prioriza reducir deuda."
+   },
+   {
+    "n": "Helix Digital Infrastructure",
+    "impact": 2,
+    "h": "2027+",
+    "st": "temprano",
+    "k": "Hasta 1.000 M$ con KKR y NVIDIA",
+    "d": "Plataforma de centros de datos de la que Vistra sería proveedor eléctrico preferente.",
+    "ev": "Primeros proyectos y contratos de suministro.",
+    "r": "Proyecto todavía sin ingresos."
+   }
+  ]
+ },
+ "mgmt": {
+  "note": "Una acción, un voto, sin accionista de control. La dirección publica guía de EBITDA y de FCF a dos años. Desde 2021 ha recomprado ~30% de sus acciones mientras compraba Energy Harbor, Lotus y Cogentrix.",
+  "people": [
+   {
+    "n": "Jim Burke",
+    "role": "CEO",
+    "since": "2022",
+    "note": "Antes director de operaciones; lidera la estrategia de contratos con centros de datos."
+   },
+   {
+    "n": "Kris Moldovan",
+    "role": "Director financiero",
+    "since": "2022",
+    "note": "Ha avisado de que 2027 tenderá al extremo bajo del rango por los precios en Texas."
+   },
+   {
+    "n": "Stacey Doré",
+    "role": "Directora de estrategia y sostenibilidad",
+    "since": "",
+    "note": "Negocia con los grandes consumidores y la regulación."
+   }
+  ],
+  "scores": [
+   {
+    "n": "Alineación con el accionista",
+    "s": 3,
+    "note": "Retribución ligada a FCF y recompras"
+   },
+   {
+    "n": "Asignación de capital",
+    "s": 5,
+    "note": "~5.900 M$ en recompras y compras de centrales a buen precio"
+   },
+   {
+    "n": "Credibilidad y ejecución",
+    "s": 4,
+    "note": "Cumple o mejora su guía de EBITDA y FCF"
+   },
+   {
+    "n": "Gobierno corporativo",
+    "s": 4,
+    "note": "Una acción, un voto"
+   },
+   {
+    "n": "Transparencia",
+    "s": 4,
+    "note": "Guía a dos años y desglose por negocio"
+   }
+  ],
+  "alloc": {
+   "label": "Uso de la caja (M$)",
+   "items": [
+    {
+     "n": "Recompras desde nov-2021",
+     "v": 5900
+    },
+    {
+     "n": "Capex 2025",
+     "v": 2752
+    },
+    {
+     "n": "Dividendos 2025",
+     "v": 306
+    }
+   ]
+  },
+  "vote": {
+   "label": "Poder de voto (%)",
+   "items": [
+    {
+     "n": "Accionistas (una acción, un voto)",
+     "v": 100
+    }
+   ]
+  },
+  "call": {
+   "periodEnd": "2026-09-30",
+   "q": "3T 2026",
+   "date": "6-nov-2026",
+   "doc": "Nota de resultados (8-K, Ex. 99.1)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000023/vistra-20260930xearningsre.htm",
+   "nota": "Nota de prensa y llamada con analistas del 6-nov (transcripciones de Motley Fool y Benzinga).",
+   "dir": [
+    "Jim Burke destaca un verano de récords de demanda en ERCOT y PJM (julio) con disponibilidad comercial de la flota de casi el 95%.",
+    "Cogentrix cerrada en octubre: ~5.500 MW de gas nuevos en la cartera.",
+    "Entran en operación Pulaski Solar (405 MW, Illinois, contrato con Microsoft) y Deer Creek Solar y almacenamiento (100 MW, California).",
+    "Contrato de 20 años y 207 MW con New Era Energy and Digital en la central de gas de Odessa; la dirección dice ver más oportunidades de este tipo.",
+    "Burke: la previsión de lo que aportará Cogentrix ha mejorado claramente desde el anuncio y ve margen al alza; espera que aumente el FCF por acción en un porcentaje de un dígito alto a corto plazo y de dos dígitos desde 2029.",
+    "Pagó ~4.000 M$ netos por los 5.500 MW de Cogentrix (~729 $/kW), incluidos 5 M de acciones a un valor pactado de 185 $.",
+    "Sobre las elecciones de mitad de mandato: dice que no cambian su visión de las oportunidades de mercado y que el equipo sigue ejecutando.",
+    "Defiende exigir más garantías y contratos de pago obligatorio (take-or-pay) en las colas de conexión de grandes consumos, para filtrar los proyectos de centros de datos poco serios."
+   ],
+   "ret": [
+    "El beneficio neto de 1.140 M$ incluye 559 M$ de ganancias no realizadas por coberturas de años futuros.",
+    "Más amortización por las plantas de Lotus y deterioro parcial de Moss Landing 350.",
+    "Retail baja a 939 M$ de EBITDA en 9M26 (977 M$ en 9M25).",
+    "La liquidez cae de 8.923 M$ a ~5.400 M$ pro forma tras pagar Cogentrix y amortizar preferentes."
+   ],
+   "guia": [
+    "2026: EBITDA ajustado 7.100–7.500 M$ y FCF antes de crecimiento 4.300–4.700 M$ (punto medio al alza y rango más estrecho).",
+    "2027 (primera guía formal): EBITDA ajustado 7.700–8.500 M$ y FCF antes de crecimiento 4.300–5.100 M$.",
+    "Cobertura a 30-oct: ~100% de la generación de 2026, ~98% de 2027 y ~78% de 2028.",
+    "Dice ver un crecimiento de ~70% del FCF antes de crecimiento por acción entre 2027 y 2030, si mantiene el destino de la caja a recompras.",
+    "Esa proyección no incluye la rampa final del contrato de Comanche Peak con AWS (prevista en 2032) ni las ampliaciones nucleares de PJM, que empezarán a aportar beneficio en 2031: la inversión se hace antes."
+   ],
+   "cap": [
+    "~6.700 M$ recomprados desde nov-2021; ~339 M de acciones (−30%).",
+    "Nueva autorización de 1.500 M$: quedan ~2.500 M$, que espera usar antes de final de 2028.",
+    "Amortizadas las preferentes de la Serie A (1.000 M$); 2.200 M$ en efectivo por Cogentrix y repago de ~1.700 M$ de su deuda.",
+    "9M26: emisiones de deuda de 7.985 M$, recompras de 917 M$ y dividendos ordinarios de 231 M$.",
+    "Desde nov-2021 ha retirado ~172 M de acciones a un coste medio de ~39 $; en 2026 lleva ~1.000 M$ recomprados hasta el 2-nov.",
+    "Prioridad: recompras manteniendo métricas de grado de inversión."
+   ]
+  }
+ },
+ "risks": [
+  {
+   "n": "Precios de la luz bajos en Texas",
+   "cat": "Mercado",
+   "p": 3,
+   "i": 4,
+   "note": "2027 cubierto al ~98%, lo que reduce la exposición a corto plazo; el riesgo se desplaza a 2028 (~78% cubierto)"
+  },
+  {
+   "n": "Endeudamiento",
+   "cat": "Financiero",
+   "p": 3,
+   "i": 3,
+   "note": "7.985 M$ de emisiones de deuda en 9M26 y compra de Cogentrix; liquidez ~5.400 M$ pro forma. Deuda total del 3T pendiente del 10-Q"
+  },
+  {
+   "n": "Retrasos regulatorios en centros de datos",
+   "cat": "Regulatorio",
+   "p": 3,
+   "i": 3,
+   "note": "Texas pausó aprobaciones de grandes consumos; ERCOT aplazó estudios"
+  },
+  {
+   "n": "Incidente o parada nuclear",
+   "cat": "Operativo",
+   "p": 2,
+   "i": 4,
+   "note": "Cuatro centrales nucleares concentran gran parte del valor"
+  },
+  {
+   "n": "Clima extremo",
+   "cat": "Operativo",
+   "p": 2,
+   "i": 4,
+   "note": "La tormenta Uri de 2021 le costó más de 1.500 M$; el verano de 2026 batió récords de demanda sin incidencias"
+  },
+  {
+   "n": "Integración de Cogentrix",
+   "cat": "Operativo",
+   "p": 2,
+   "i": 3,
+   "note": "Cerrada en oct-26: ~5.500 MW de gas, 2.200 M$ en efectivo y ~1.700 M$ de deuda asumida ya repagada"
+  },
+  {
+   "n": "Volatilidad contable por coberturas",
+   "cat": "Financiero",
+   "p": 4,
+   "i": 1,
+   "note": "+559 M$ no realizados en el 3T26 tras −472 M$ en el 2T26"
+  },
+  {
+   "n": "Inversión en Helix",
+   "cat": "Comercial",
+   "p": 2,
+   "i": 2,
+   "note": "Hasta 1.000 M$ en un negocio fuera de su núcleo"
+  },
+  {
+   "n": "Préstamo del DOE no se cierra",
+   "cat": "Financiero",
+   "p": 2,
+   "i": 2,
+   "note": "Compromiso condicional de hasta 4.200 M$, no firmado. El DOE ya canceló otro compromiso condicional (Grain Belt Express, 4.900 M$, jul-2025). Con la Cámara demócrata desde ene-2027 puede haber más supervisión del programa, pero la decisión es del DOE. Si se cayera, la ampliación seguiría con deuda privada, más cara."
+  }
+ ],
+ "v": {
+  "shares": 339,
+  "cash": 435,
+  "debt": 20508,
+  "rev0": 22200,
+  "year0": 2026,
+  "g": [
+   8,
+   6,
+   5,
+   4,
+   3
+  ],
+  "m1": 34,
+  "m5": 35,
+  "da": 10,
+  "da5": 10,
+  "sbc": 0.5,
+  "capex": 9,
+  "capex5": 7,
+  "nwc": 5,
+  "tax": 15,
+  "wacc": 9.5,
+  "tg": 2.5,
+  "exit": 9,
+  "method": "blend",
+  "eps": 10.14,
+  "pe": 16,
+  "evm": 10,
+  "scn": [
+   {
+    "n": "Bajista",
+    "dg": -4,
+    "dm": -5,
+    "p": 25
+   },
+   {
+    "n": "Base",
+    "dg": 0,
+    "dm": 0,
+    "p": 50
+   },
+   {
+    "n": "Alcista",
+    "dg": 3,
+    "dm": 2,
+    "p": 25
+   }
+  ]
+ },
+ "verdict": {
+  "rating": "Acumular",
+  "conviction": 4,
+  "buyBelow": 135,
+  "horizon": "12–24 meses",
+  "summary": "El 3T26 confirma la tesis: EBITDA ajustado +50%, punto medio de 2026 al alza y una primera guía de 2027 de 7.700–8.500 M$, casi totalmente cubierta. Cogentrix ya suma y las recompras siguen (quedan ~2.500 M$ hasta 2028). A 112,89 $ cotiza por debajo del precio de compra del modelo. Acumular por debajo de ~135 $, vigilando la deuda tras Cogentrix (10-Q pendiente) y los precios en Texas para 2028.",
+  "bull": [
+   "Guía de EBITDA 2027 de 7.700–8.500 M$, con el 98% de la generación cubierta",
+   "Contratos de 20 años con Amazon y Meta desde 2027, y nuevo contrato en Odessa",
+   "Recompras: −30% de acciones desde 2021 y ~2.500 M$ más hasta 2028",
+   "Nuclear con coste variable muy bajo y ~5.500 MW de gas de Cogentrix"
+  ],
+  "bear": [
+   "Precios mayoristas débiles en Texas a partir de 2028",
+   "Deuda al alza tras Cogentrix (7.985 M$ emitidos en 9M26)",
+   "Riesgo regulatorio en la conexión de centros de datos",
+   "Beneficio contable muy volátil por coberturas"
+  ],
+  "watch": [
+   "Deuda total y caja en el 10-Q del 3T26",
+   "Precios a plazo en ERCOT para 2028",
+   "Cierre definitivo o cancelación del préstamo del DOE (seguimiento automático)",
+   "Ejecución del objetivo de ~70% de crecimiento del FCF por acción 2027–2030"
+  ]
+ },
+ "notes": "Datos de mercado leídos de StockAnalysis el 29-oct-2026 (cierre del 28-oct). El modelo usa EBITDA ajustado; las cifras GAAP están distorsionadas por las coberturas.",
+ "sources": {
+  "web": "https://vistracorp.com",
+  "ir": "https://investor.vistracorp.com",
+  "docs": [
+   {
+    "cat": "Resultados trimestrales",
+    "t": "Resultados 4T25 y año 2025",
+    "d": "26-feb-2026",
+    "u": "https://marketchameleon.com/PressReleases/i/2257320/VST/vistra-reports-fourth-quarter-and-fullyear-2025"
+   },
+   {
+    "cat": "Presentaciones",
+    "t": "Presentación de resultados 2T26 (resumen)",
+    "d": "07-ago-2026",
+    "u": "https://www.investing.com/news/company-news/vistra-q2-2026-slides-ebitda-surges-30-amid-revenue-miss-93CH-4847120"
+   },
+   {
+    "cat": "Formularios SEC",
+    "t": "10-Q segundo trimestre 2026",
+    "d": "ago-2026",
+    "u": "https://www.sec.gov/Archives/edgar/data/0001692819/000169281926000019/vistra-20260630.htm"
+   },
+   {
+    "cat": "Formularios SEC",
+    "t": "10-Q primer trimestre 2026",
+    "d": "may-2026",
+    "u": "https://www.sec.gov/Archives/edgar/data/0001692819/000169281926000014/vistra-20260331.htm"
+   },
+   {
+    "cat": "Formularios SEC",
+    "t": "10-K ejercicio 2025",
+    "d": "feb-2026",
+    "u": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000006/vistra-20251231.htm"
+   },
+   {
+    "cat": "Transcripciones",
+    "t": "Llamada de resultados 2T26 (Benzinga)",
+    "d": "07-ago-2026",
+    "u": "https://www.benzinga.com/news/26/10/62319342/transcript-vistra-q2-2026-earnings-conference-call"
+   },
+   {
+    "cat": "Transcripciones",
+    "t": "Llamada de resultados 4T25 (The Motley Fool)",
+    "d": "26-feb-2026",
+    "u": "https://www.fool.com/earnings/call-transcripts/2026/02/26/vistra-vst-q4-2025-earnings-call-transcript/"
+   },
+   {
+    "cat": "Otros",
+    "t": "Compra de Cogentrix (nota de prensa)",
+    "d": "2026",
+    "u": "https://www.itiger.com/news/2601634837"
+   }
+  ],
+  "news": [
+   {
+    "t": "Comanche Peak, Amazon y la pausa de centros de datos en Texas",
+    "src": "Utility Dive",
+    "u": "https://www.utilitydive.com/news/vistra-texas-data-center-pause-comanche-amazon-earnings/827434/"
+   },
+   {
+    "t": "Por qué ha caído un 28% en un año",
+    "src": "TIKR",
+    "u": "https://www.tikr.com/blog/vistra-stock-is-down-28-over-the-past-year-discount-or-warning-sign"
+   },
+   {
+    "t": "Resultados 2T26 y la apuesta por Helix",
+    "src": "TIKR",
+    "u": "https://www.tikr.com/blog/what-vistras-q2-earnings-reveal-about-its-1-billion-helix-bet"
+   },
+   {
+    "t": "Contratos con Meta, Cogentrix y Lotus",
+    "src": "24/7 Wall St.",
+    "u": "https://247wallst.com/investing/2026/09/10/beyond-meta-and-nuclear-inside-vistras-real-power-play/"
+   }
+  ]
+ },
+ "social": {
+  "pulse": [
+   {
+    "p": "Reddit",
+    "s": 1,
+    "note": "Y mejorando (SentiSense, 25-oct): préstamo del DOE de 4.200 M$ para ampliar las nucleares (+11% en la sesión)."
+   },
+   {
+    "p": "X",
+    "s": 1,
+    "note": "Se la ve como valor clave del «tema energía para la IA», junto a Constellation y NRG."
+   },
+   {
+    "p": "YouTube",
+    "s": 1,
+    "note": "Vídeos sobre el contrato con Meta, la compra de Cogentrix y la demanda eléctrica de los centros de datos."
+   }
+  ],
+  "videos": [
+   {
+    "t": "Is $VST a Sell? The Bear Case Against Vistra at $148",
+    "u": "https://www.youtube.com/watch?v=32PJliCNO-8"
+   },
+   {
+    "t": "Vistra (VST) Stock Analysis: $4B Boost & Nuclear Power Catalyst",
+    "u": "https://www.youtube.com/watch?v=eJmt9mdo8f4"
+   },
+   {
+    "t": "Is $VST a Sell? (Aug '26) 100% of 2026 Is Already Sold Forward",
+    "u": "https://www.youtube.com/watch?v=l-n-bvzLXD0"
+   },
+   {
+    "t": "VST Stock Price Prediction 2026: Why This AI Utility Giant Fell",
+    "u": "https://www.youtube.com/watch?v=lbhuv2yBa8s"
+   },
+   {
+    "t": "Vistra Stock (VST): Deep Dive into a Potential 40% Upside?",
+    "u": "https://www.youtube.com/watch?v=rVaN6lZo0Ys"
+   }
+  ],
+  "pulseFuente": "Lectura del 1-nov-2026 con SentiSense, LunarCrush y Stocktwits (agregadores de redes sociales) y búsquedas propias."
+ },
+ "fin_manual": {
+  "nota": "Series que la SEC no publica (por segmento). Las etiquetas de trimestre deben coincidir con las de la SEC (p. ej. 3T26).",
+  "q": {
+   "labels": [
+    "1T25",
+    "2T25",
+    "3T25",
+    "4T25",
+    "1T26",
+    "2T26"
+   ],
+   "series": []
+  },
+  "nota_antigua": "Ingresos y beneficio neto según StockAnalysis: muy volátiles por la contabilidad de coberturas (por ejemplo, −808 M$ no realizados en 2025). Por eso se usa el EBITDA ajustado de operaciones continuadas de la empresa. 2026e: punto medio de la guía (EBITDA) y consenso (ingresos, beneficio y FCF). El crecimiento trimestral de ingresos no es representativo por las coberturas."
+ },
+ "peers": [
+  "CEG",
+  "NRG",
+  "TLN",
+  "AES",
+  "NEE"
+ ]
 }
