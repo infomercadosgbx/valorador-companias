@@ -6,12 +6,12 @@
     "hq": "Palo Alto, California",
     "founded": "1961 (como división de HP; Broadcom actual desde 2016)",
     "employees": "33.000",
-    "asOf": "1-nov-2026",
+    "asOf": "6-nov-2026",
     "nextEarnings": "9-dic-2026",
     "fav": false
   },
   "overview": {
-    "thesis": "Diseña los chips de IA a medida de Google, Anthropic, OpenAI y Meta y las redes que los conectan, y prevé duplicar cada año sus ventas de IA: ~115.000 M$ en FY27 y ~230.000 M$ en FY28. A ~326 $ el mercado descuenta dudas sobre la financiación de sus clientes y la concentración; con un recorte prudente a esa guía, el modelo da ~430 $.",
+    "thesis": "Diseña los chips de IA a medida de Google, Anthropic, OpenAI y Meta y las redes que los conectan, y prevé duplicar cada año sus ventas de IA: ~115.000 M$ en FY27 y ~230.000 M$ en FY28. Tras el desplome de las tecnológicas del 5-nov (Congreso demócrata y miedo a frenar los centros de datos), a ~292 $ el precio solo descuenta un crecimiento del ~15% anual; con un recorte prudente a esa guía y más peso al escenario bajista, el modelo da ~410 $.",
     "summary": "Broadcom tiene dos negocios. Semiconductores: chips aceleradores de IA diseñados a medida para cada gran cliente (XPU, como los TPU de Google), chips de red Ethernet para conectar miles de aceleradores, y chips para móviles, banda ancha y almacenamiento. Software de infraestructura: VMware, que compró en 2023, y otras herramientas para centros de datos de empresas.\nLa IA ya supone el 56% de sus ventas: 16.700 M$ en el 3T de su ejercicio 2026, un 221% más que un año antes; los XPU son el 73% de esa cifra y las redes, el resto.\nEn septiembre fijó por primera vez objetivos a largo plazo: unos 115.000 M$ de ingresos de IA en FY27, con el suministro ya asegurado, y unos 230.000 M$ en FY28, con un BPA ajustado de más de 30 $.",
     "keyFacts": [
       {
@@ -44,21 +44,25 @@
       },
       {
         "k": "Analistas",
-        "v": "47 de 50 recomiendan comprar; objetivo medio 530 $"
+        "v": "54 de 57 recomiendan comprar (Finnhub, nov-26); objetivo medio 530 $ (manual)"
       },
       {
         "k": "Dividendo",
-        "v": "2,60 $ por acción (0,8%)"
+        "v": "2,60 $ por acción (0,9%)"
       }
     ],
     "catalysts": [
       {
         "d": "9-dic-26",
-        "t": "Resultados del 4T FY26: guía de 34.800 M$ y 21.700 M$ de IA."
+        "t": "Resultados del 4T FY26: guía de 34.800 M$ y 21.700 M$ de IA, y primera guía del FY27."
       },
       {
         "d": "nov-26",
-        "t": "Salida a bolsa de Anthropic (podría cotizar a mediados de noviembre): despeja dudas sobre la financiación de su mayor cliente de 2027."
+        "t": "Salida a bolsa de Anthropic (ticker ANT): la ronda con inversores estaba prevista desde el 9-nov, pero tras el desplome del 5-nov se habla de valorar ~1 billón $ en vez de 1,5 o de retrasarla. De ella depende la financiación de su mayor cliente de 2027."
+      },
+      {
+        "d": "ene-27",
+        "t": "Entra el nuevo Congreso con mayoría demócrata en ambas cámaras: posibles límites a permisos, energía y construcción de centros de datos (el presidente conserva el veto)."
       },
       {
         "d": "2027",
@@ -454,14 +458,21 @@
       "cat": "Mercado",
       "p": 3,
       "i": 5,
-      "note": "Si los hiperescaladores recortan inversión, la IA cae rápido"
+      "note": "Si hiperescaladores y laboratorios recortan inversión, la IA cae rápido; el 5-nov el ETF de semiconductores cayó ~11%, su peor día desde marzo de 2020"
+    },
+    {
+      "n": "Regulación de la IA y de los centros de datos",
+      "cat": "Regulatorio",
+      "p": 3,
+      "i": 4,
+      "note": "Los demócratas ganaron ambas cámaras el 3-nov; el mercado teme más control sobre permisos, energía y construcción de centros de datos. Aún no hay ninguna ley concreta"
     },
     {
       "n": "Garantías a la financiación de clientes",
       "cat": "Financiero",
       "p": 3,
       "i": 4,
-      "note": "Respalda la financiación de racks para Anthropic (vehículo de 63.000 M$): pasivo potencial máximo de unos 43.000 M$"
+      "note": "8-K del 27-oct: garantía de valor residual sobre racks de IA arrendados a Anthropic (vehículo de 63.000 M$); pasivo potencial máximo de ~43.000 M$ si el cliente impaga y los racks valen menos del 72,5% de lo pendiente"
     },
     {
       "n": "Geopolítica y Taiwán",
@@ -532,7 +543,7 @@
         "n": "Bajista",
         "dg": -15,
         "dm": -6,
-        "p": 25
+        "p": 30
       },
       {
         "n": "Base",
@@ -544,7 +555,7 @@
         "n": "Alcista",
         "dg": 8,
         "dm": 2,
-        "p": 25
+        "p": 20
       }
     ]
   },
@@ -553,27 +564,27 @@
     "conviction": 3.5,
     "buyBelow": 340,
     "horizon": "12–24 meses",
-    "summary": "Probablemente el mejor posicionado para el crecimiento de la IA después de Nvidia, con márgenes y caja excepcionales y un equipo muy disciplinado. Tras caer un 34% desde máximos, a ~326 $ cotiza muy por debajo de lo que valdría si cumple aunque sea parte de su objetivo para FY28: con un recorte prudente, el modelo da ~430 $. Los riesgos son reales (pocos clientes, laboratorios de IA que aún pierden dinero y garantías a su financiación). Comprar por debajo de ~340 $, con tamaño moderado.",
+    "summary": "Probablemente el mejor posicionado para el crecimiento de la IA después de Nvidia, con márgenes y caja excepcionales y un equipo muy disciplinado. Cae un 41% desde máximos y ronda el mínimo del año (~292 $) sin noticias propias: el desplome del 5-nov fue de todo el sector, por miedo a que el nuevo Congreso demócrata frene los centros de datos. A este precio el mercado solo descuenta ~15% de crecimiento anual frente a una guía de duplicar la IA. He subido la probabilidad del escenario bajista (25% → 30%) por la regulación y por las dudas sobre la salida a bolsa de Anthropic; el modelo da ~410 $. Comprar por debajo de ~340 $, con tamaño moderado y por tramos: la volatilidad puede seguir hasta los resultados del 9-dic.",
     "bull": [
       "Objetivo de IA: ~115.000 M$ en FY27 y ~230.000 M$ en FY28",
       "FCF del 46% de las ventas",
       "Seis clientes de XPU y redes creciendo al mismo ritmo",
-      "47 de 50 analistas recomiendan comprar"
+      "El precio solo descuenta ~15% de crecimiento anual"
     ],
     "bear": [
-      "Anthropic y OpenAI, sus mayores clientes futuros, pierden dinero",
-      "Garantías a la financiación de clientes sin cifrar",
-      "MediaTek entra en las TPU de Google",
+      "Anthropic y OpenAI, sus mayores clientes futuros, pierden dinero; la salida a bolsa de Anthropic se complica",
+      "Garantía de hasta ~43.000 M$ sobre los racks de Anthropic",
+      "Congreso demócrata: riesgo de límites a los centros de datos",
       "Margen bruto a la baja por la IA y la memoria"
     ],
     "watch": [
-      "Resultados del 9-dic: guía del 1T FY27",
-      "Salida a bolsa de Anthropic",
-      "Exposición a garantías de financiación",
+      "Salida a bolsa de Anthropic: fecha y valoración",
+      "Resultados del 9-dic: guía del 1T FY27 y de IA en FY27",
+      "Propuestas del nuevo Congreso sobre centros de datos y energía",
       "Suministro de láseres, sustratos y HBM"
     ]
   },
-  "notes": "Supuestos del DCF (1-nov-2026): crecimiento de ingresos del 58% en FY27, en línea con el objetivo de IA de ~115.000 M$, y del 40% en FY28, por debajo del ~+70% que implicaría el objetivo de ~230.000 M$. Antes: 55% y 25%. Precio de mercado: Finnhub.",
+  "notes": "Revisión del 6-nov-2026: sin nuevas presentaciones a la SEC desde el 8-K del 27-oct (ya recogido). Escenarios de 25/50/25 a 30/50/20 por el riesgo regulatorio tras las elecciones del 3-nov y las dudas sobre la salida a bolsa de Anthropic; valor ponderado de ~431 $ a ~411 $. Supuestos del DCF (1-nov-2026): crecimiento de ingresos del 58% en FY27, en línea con el objetivo de IA de ~115.000 M$, y del 40% en FY28, por debajo del ~+70% que implicaría el objetivo de ~230.000 M$. Antes: 55% y 25%. Precio de mercado: Finnhub.",
   "sources": {
     "web": "https://www.broadcom.com",
     "ir": "https://investors.broadcom.com",
@@ -604,6 +615,36 @@
       }
     ],
     "news": [
+      {
+        "t": "8-K: garantía de valor residual de hasta ~43.000 M$ sobre racks de IA de un cliente",
+        "src": "SEC EDGAR · 27-oct-2026",
+        "u": "https://www.sec.gov/Archives/edgar/data/1730168/000119312526434271/d148323d8k.htm"
+      },
+      {
+        "t": "Broadcom cae un 9% por el miedo a la regulación de la IA tras las elecciones",
+        "src": "TIKR · 5-nov-2026",
+        "u": "https://www.tikr.com/blog/broadcom-sinks-9-as-ai-regulation-fears-deepen-chip-rout"
+      },
+      {
+        "t": "Los chips sufren su peor día desde marzo de 2020 tras la victoria demócrata",
+        "src": "CNBC · 5-nov-2026",
+        "u": "https://www.cnbc.com/2026/11/04/stock-market-today-live-updates.html"
+      },
+      {
+        "t": "IA y centros de datos caen por la victoria demócrata (Reuters)",
+        "src": "MarketScreener · 5-nov-2026",
+        "u": "https://www.marketscreener.com/news/ai-data-center-stocks-slip-as-democratic-sweep-clouds-expansion-plans-ce785fdcdc8ff72c"
+      },
+      {
+        "t": "La salida a bolsa de Anthropic choca con un Wall Street castigado",
+        "src": "Yahoo Finance · 5-nov-2026",
+        "u": "https://finance.yahoo.com/technology/article/anthropics-ipo-plans-run-up-against-a-battered-wall-street-192138177.html"
+      },
+      {
+        "t": "Inversores piden valorar Anthropic cerca de 1 billón $ en vez de 1,5 (WSJ)",
+        "src": "Benzinga · 6-nov-2026",
+        "u": "https://www.benzinga.com/markets/ipos/26/11/62965664/anthropic-ipo-valuation-1-trillion-delay-stock-market-selloff"
+      },
       {
         "t": "Broadcom respalda a Anthropic y OpenAI con hasta 92.000 M$",
         "src": "Motley Fool",
@@ -727,5 +768,79 @@
     "MRVL",
     "TXN",
     "ADI"
+  ],
+  "avisos_aprobados": [
+    {
+      "id": "etiqueta_obsoleta.Beneficio neto: se descarta «NetIncomeLoss», su último dato (#-#-#) va más de # ",
+      "fecha": "2026-11-06",
+      "nivel": "info",
+      "mensaje": "Beneficio neto: se descarta «NetIncomeLoss», su último dato (2024-11-03) va más de 60 días por detrás de los ingresos (2026-08-02)."
+    },
+    {
+      "id": "etiqueta_obsoleta.Amortizaciones (D&A): «DepreciationDepletionAndAmortization» termina el #-#-#; s",
+      "fecha": "2026-11-06",
+      "nivel": "info",
+      "mensaje": "Amortizaciones (D&A): «DepreciationDepletionAndAmortization» termina el 2018-05-06; solo se usa para años antiguos."
+    },
+    {
+      "id": "etiqueta_obsoleta.Beneficio antes de impuestos: «IncomeLossFromContinuingOperationsBeforeIncomeTax",
+      "fecha": "2026-11-06",
+      "nivel": "info",
+      "mensaje": "Beneficio antes de impuestos: «IncomeLossFromContinuingOperationsBeforeIncomeTaxesDomestic» termina el 2025-11-02; solo se usa para años antiguos."
+    },
+    {
+      "id": "etiqueta_obsoleta.Coste de ventas: «CostOfGoodsAndServicesSold» termina el #-#-#; solo se usa para",
+      "fecha": "2026-11-06",
+      "nivel": "info",
+      "mensaje": "Coste de ventas: «CostOfGoodsAndServicesSold» termina el 2018-11-04; solo se usa para años antiguos."
+    },
+    {
+      "id": "etiqueta_obsoleta.Coste de ventas: «CostOfGoodsSold» termina el #-#-#; solo se usa para años antig",
+      "fecha": "2026-11-06",
+      "nivel": "info",
+      "mensaje": "Coste de ventas: «CostOfGoodsSold» termina el 2018-05-06; solo se usa para años antiguos."
+    },
+    {
+      "id": "etiqueta_obsoleta.Gastos por intereses: «InterestExpenseNonoperating» termina el #-#-#; solo se us",
+      "fecha": "2026-11-06",
+      "nivel": "info",
+      "mensaje": "Gastos por intereses: «InterestExpenseNonoperating» termina el 2025-11-02; solo se usa para años antiguos."
+    },
+    {
+      "id": "amortizacion_incompleta.Amortizaciones (D&A) # # #: la amortización de intangibles de esos años no está ",
+      "fecha": "2026-11-06",
+      "nivel": "aviso",
+      "mensaje": "Amortizaciones (D&A) 2020, 2021, 2022: la amortización de intangibles de esos años no está en una etiqueta estándar de la SEC; se dejan vacíos (y el EBITDA de esos años) en lugar de mostrar solo la depreciación."
+    },
+    {
+      "id": "amortizacion_por_componentes.Amortizaciones (D&A): la compañía no usa la etiqueta combinada; se suman depreci",
+      "fecha": "2026-11-06",
+      "nivel": "info",
+      "mensaje": "Amortizaciones (D&A): la compañía no usa la etiqueta combinada; se suman depreciación (us-gaap:Depreciation) y amortización de intangibles (us-gaap:AmortizationOfIntangibleAssets)."
+    },
+    {
+      "id": "componente_no_etiquetado.Caja e inversiones a corto a #-#-#: no hay dato de ShortTermInvestments / Market",
+      "fecha": "2026-11-06",
+      "nivel": "info",
+      "mensaje": "Caja e inversiones a corto a 2026-08-02: no hay dato de ShortTermInvestments / MarketableSecuritiesCurrent / AvailableForSaleSecuritiesDebtSecuritiesCurrent; cuenta como 0."
+    },
+    {
+      "id": "etiqueta_obsoleta.Patrimonio neto: se descarta «StockholdersEquity» (último dato #-#-# ingresos ha",
+      "fecha": "2026-11-06",
+      "nivel": "info",
+      "mensaje": "Patrimonio neto: se descarta «StockholdersEquity» (último dato 2019-11-03, ingresos hasta 2026-08-02)."
+    },
+    {
+      "id": "anio_52_53_semanas.Año fiscal de #/# semanas (duraciones: # # días); los trimestres se etiquetan po",
+      "fecha": "2026-11-06",
+      "nivel": "info",
+      "mensaje": "Año fiscal de 52/53 semanas (duraciones: 363, 370 días); los trimestres se etiquetan por su fecha de cierre."
+    },
+    {
+      "id": "split.Split de #×# detectado en #: las acciones y el BPA de los años anteriores se aju",
+      "fecha": "2026-11-06",
+      "nivel": "info",
+      "mensaje": "Split de 10×1 detectado en 2024: las acciones y el BPA de los años anteriores se ajustan para que sean comparables."
+    }
   ]
 }
