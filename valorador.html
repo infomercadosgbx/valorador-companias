@@ -1699,8 +1699,20 @@ async function mkLoad(){
   try{ const [d,m]=await Promise.all([getJSON("data/_mercado_hoy.json").catch(()=>null),getJSON("manual/_mercado.json").catch(()=>({}))]);
     MKH.d=d; MKH.man=(m&&m.mercado_hoy)||{}; MKH.err=d?null:"Aún no hay datos: lanza el Action «Mercado hoy» (ver README).";
   }catch(e){ MKH.err=e.message; }
-  MKH.cargado=true; if(WATCH&&WVIEW==="inicio") renderWatch();
+  MKH.cargado=true; MKH.leido=Date.now(); if(WATCH&&WVIEW==="inicio") renderWatch();
 }
+/* Con la página abierta muchas horas, los indicadores se quedaban con la versión de la carga inicial.
+   Se vuelve a leer data/_mercado_hoy.json cada 15 min (y al volver a la pestaña); los valores manuales
+   no se recargan para no pisar lo que acabas de guardar desde la web mientras GitHub Pages publica. */
+async function mkRefresh(){
+  if(document.hidden||MKH.editar||!MKH.cargado) return;
+  MKH.leido=Date.now();
+  try{ const d=await getJSON("data/_mercado_hoy.json");
+    if(d&&(!MKH.d||String(d.generado||"")>String(MKH.d.generado||""))){ MKH.d=d; MKH.err=null; if(WATCH&&WVIEW==="inicio") renderWatch(); }
+  }catch(e){}
+}
+setInterval(mkRefresh,15*60*1000);
+document.addEventListener("visibilitychange",()=>{ if(!document.hidden&&Date.now()-(MKH.leido||0)>10*60*1000) mkRefresh(); });
 /* Fichas (i) de «Mercado hoy»: qué es cada indicador y cómo leerlo */
 const MKINFO={
   fg:{t:"Miedo y codicia (índice propio)",q:"Resume en un número de 0 a 100 el ánimo del mercado de acciones de EE. UU. Combina cinco señales: la tendencia del S&P 500, la volatilidad (VIX), la demanda de bonos basura, la preferencia por bolsa o bonos y el uso de opciones de cobertura (put/call).",

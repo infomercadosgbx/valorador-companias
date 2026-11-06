@@ -5,7 +5,9 @@ on:
   push:
     branches: [main]
   workflow_run:
-    workflows: ["Actualizar datos", "Añadir compañía", "Rehacer informes"]
+    # «Mercado hoy» hace commit con GITHUB_TOKEN, que no dispara el evento push: sin esta línea,
+    # el cierre de las 23:47 UTC no llegaba a la web hasta la actualización del día siguiente.
+    workflows: ["Actualizar datos", "Añadir compañía", "Rehacer informes", "Mercado hoy"]
     types: [completed]
   workflow_dispatch:
 
