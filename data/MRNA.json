@@ -6824,17 +6824,51 @@
   "deuda": {
    "nombre": "Deuda financiera",
    "unidad": "USD",
-   "asumido": true,
-   "historico": [],
    "ultimo": {
-    "valor": 0,
-    "fuente": "Asumido (sin deuda etiquetada en XBRL)",
-    "url": null,
-    "fecha_presentacion": null,
-    "etiqueta": null,
+    "valor": 3549000000,
+    "fuente": "SEC EDGAR · 10-Q (derivado)",
+    "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000197/0001682852-26-000197-index.htm",
+    "fecha_presentacion": "2026-11-06",
+    "etiqueta": "us-gaap:ConvertibleLongTermNotesPayable + us-gaap:LongTermLineOfCredit",
     "periodo_fin": "2026-09-30",
-    "asumido": true
+    "formulario": "10-Q",
+    "accn": "0001682852-26-000197",
+    "derivado": "Suma: ConvertibleLongTermNotesPayable + LongTermLineOfCredit",
+    "componentes_no_etiquetados": [
+     "ConvertibleNotesPayableCurrent / LongTermDebtCurrent / DebtCurrent"
+    ]
    },
+   "historico": [
+    {
+     "valor": 590000000,
+     "fuente": "SEC EDGAR · 10-Q (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000197/0001682852-26-000197-index.htm",
+     "fecha_presentacion": "2026-11-06",
+     "etiqueta": "us-gaap:ConvertibleLongTermNotesPayable + us-gaap:LongTermLineOfCredit",
+     "periodo_fin": "2025-12-31",
+     "formulario": "10-Q",
+     "accn": "0001682852-26-000197",
+     "derivado": "Suma: ConvertibleLongTermNotesPayable + LongTermLineOfCredit",
+     "componentes_no_etiquetados": [
+      "ConvertibleNotesPayableCurrent / LongTermDebtCurrent / DebtCurrent"
+     ]
+    },
+    {
+     "valor": 3549000000,
+     "fuente": "SEC EDGAR · 10-Q (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000197/0001682852-26-000197-index.htm",
+     "fecha_presentacion": "2026-11-06",
+     "etiqueta": "us-gaap:ConvertibleLongTermNotesPayable + us-gaap:LongTermLineOfCredit",
+     "periodo_fin": "2026-09-30",
+     "formulario": "10-Q",
+     "accn": "0001682852-26-000197",
+     "derivado": "Suma: ConvertibleLongTermNotesPayable + LongTermLineOfCredit",
+     "componentes_no_etiquetados": [
+      "ConvertibleNotesPayableCurrent / LongTermDebtCurrent / DebtCurrent"
+     ]
+    }
+   ],
+   "asumido": false,
    "anual": [
     {
      "valor": 0,
@@ -8314,9 +8348,9 @@
    "etiqueta": "LongTermDebtNoncurrent"
   },
   {
-   "nivel": "aviso",
-   "codigo": "deuda_asumida_cero",
-   "mensaje": "Deuda financiera: no hay ninguna etiqueta vigente; se asume 0.",
+   "nivel": "info",
+   "codigo": "componente_no_etiquetado",
+   "mensaje": "Deuda financiera a 2026-09-30: no hay dato de ConvertibleNotesPayableCurrent / LongTermDebtCurrent / DebtCurrent; cuenta como 0.",
    "concepto": "deuda"
   },
   {
@@ -12487,7 +12521,7 @@
    },
    "Marketaux": {
     "ok": true,
-    "titulares": 3
+    "titulares": 2
    },
    "RSS de medios": {
     "ok": true,
@@ -17775,7 +17809,7 @@
    ],
    [
     "2026-11-06",
-    254.27
+    254.19
    ]
   ],
   "fuente": "Twelve Data (API oficial, plan gratuito)",
@@ -17783,7 +17817,7 @@
   "fecha": "2026-11-06",
   "ajuste": "splits"
  },
- "generado": "2026-11-06T22:22:38+00:00",
+ "generado": "2026-11-06T23:23:57+00:00",
  "peers": {
   "fuente_lista": "Finnhub (misma industria)",
   "fuente_cifras": "SEC EDGAR (companyfacts, UDM) · precio Finnhub",
@@ -17799,7 +17833,7 @@
    "ebitda": -2691000000,
    "fcf": -1970000000,
    "caja": 5171000000,
-   "deuda": 0,
+   "deuda": 3549000000,
    "acciones": 404620975,
    "periodo_fin": "2026-09-30",
    "informe": "10-Q",
@@ -17807,7 +17841,7 @@
    "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000197/0001682852-26-000197-index.htm",
    "precio": 254.19,
    "capitalizacion": 102850605635.25,
-   "ev": 97679605635.25,
+   "ev": 101228605635.25,
    "per": null,
    "precio_ventas": 40.73,
    "ev_ebitda": null,
