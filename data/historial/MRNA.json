@@ -57,6 +57,66 @@
      }
     ]
    }
+  },
+  {
+   "fecha_commit": "2026-11-06",
+   "commit": "874e9fa4c6",
+   "analisis_a": "6-nov-2026",
+   "recomendacion": "Reducir",
+   "conviccion": 2.5,
+   "comprar_por_debajo": 50,
+   "horizonte": "12–24 meses",
+   "resumen": "Muy buen 2026 (fase 3 de intismeran, aprobación de la vacuna de gripe, beneficio en el 3T26 y más caja), pero el precio va muy por delante. Con supuestos generosos (ventas de ~7.900 M$ en 2031 y margen EBITDA del 35%), el DCF ponderado da ~55 $ por acción frente a 258 $; para justificar el precio harían falta crecimientos de más del 70% anual durante cinco años. El DCF a 5 años no recoge todo el v",
+   "supuestos": {
+    "rev0": 2333,
+    "year0": 2026,
+    "g": [
+     10,
+     30,
+     40,
+     35,
+     25
+    ],
+    "m1": -43,
+    "m5": 35,
+    "da": 10,
+    "da5": 5,
+    "sbc": 12,
+    "capex": 8,
+    "capex5": 4,
+    "nwc": 5,
+    "tax": 15,
+    "wacc": 10,
+    "tg": 3,
+    "exit": 18,
+    "method": "blend",
+    "eps": -4.8,
+    "pe": 25,
+    "evm": 18,
+    "shares": 430,
+    "cash": 7976,
+    "debt": 3549,
+    "scn": [
+     {
+      "n": "Bajista",
+      "dg": -12,
+      "dm": -15,
+      "p": 30
+     },
+     {
+      "n": "Base",
+      "dg": 0,
+      "dm": 0,
+      "p": 50
+     },
+     {
+      "n": "Alcista",
+      "dg": 15,
+      "dm": 10,
+      "p": 20
+     }
+    ]
+   }
   }
  ],
  "fuente": "Historial de git de analysis/MRNA.json"

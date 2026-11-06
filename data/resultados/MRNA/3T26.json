@@ -7,10 +7,10 @@
  "monograma": "MO",
  "logo": "logos/MRNA.png",
  "periodo": "3T26",
- "periodo_fin": "2026-09-29",
+ "periodo_fin": "2026-09-30",
  "fecha_resultados": "2026-11-06",
- "estado": "provisional",
- "fuente_cifras": "Nota de resultados (8-K, Exhibit 99.1), provisional hasta el 10-Q",
+ "estado": "definitivo",
+ "fuente_cifras": "SEC EDGAR · 10-Q (XBRL)",
  "informe": {
   "accn_8k": "0001682852-26-000194",
   "url_8k": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000194/0001682852-26-000194-index.htm",
@@ -22,37 +22,73 @@
     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000194/exhibit9912026q3pressrelea.htm"
    }
   ],
-  "periodico": null
+  "periodico": {
+   "formulario": "10-Q",
+   "fecha_presentacion": "2026-11-06",
+   "url_indice": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000197/0001682852-26-000197-index.htm",
+   "url_documento": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000197/mrna-20260930.htm"
+  }
  },
  "tabla": [
   {
    "concepto": "ingresos",
    "nombre": "Ingresos",
    "tipo": "total",
-   "reportado": null,
+   "reportado": {
+    "valor": 1313000000,
+    "fuente": "SEC EDGAR · 10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000197/0001682852-26-000197-index.htm",
+    "fecha_presentacion": "2026-11-06",
+    "etiqueta": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+    "periodo": "3T26",
+    "periodo_inicio": "2026-07-01",
+    "periodo_fin": "2026-09-30",
+    "formulario": "10-Q"
+   },
    "estimado": {
     "valor": 892410000.0,
     "fuente": "manual · Investing",
     "manual": true,
     "fecha": "6-nov-2026"
    },
+   "dif_pct": 47.13,
+   "resultado": "Beat",
+   "anio_anterior": 1016000000,
+   "interanual_pct": 29.23
+  },
+  {
+   "concepto": "segmento",
+   "nombre": "COVID-19",
+   "tipo": "segmento",
+   "reportado": {
+    "valor": 1244000000.0,
+    "fuente": "SEC EDGAR · 10-Q (XBRL, segmentos)",
+    "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000197/0001682852-26-000197-index.htm",
+    "fecha_presentacion": "2026-11-06",
+    "periodo": "3T26",
+    "etiqueta": "mrna:COVID19Member"
+   },
+   "estimado": null,
    "dif_pct": null,
    "resultado": null,
-   "anio_anterior": 1016000000,
-   "interanual_pct": null
+   "anio_anterior": 971000000.0,
+   "interanual_pct": 28.12,
+   "pendiente": null
   },
   {
    "concepto": "beneficio_operativo",
    "nombre": "Beneficio operativo (EBIT)",
    "tipo": "total",
    "reportado": {
-    "fuente": "SEC EDGAR · 8-K, Exhibit 99.1 (provisional)",
-    "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000194/exhibit9912026q3pressrelea.htm",
+    "valor": 130000000,
+    "fuente": "SEC EDGAR · 10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000197/0001682852-26-000197-index.htm",
     "fecha_presentacion": "2026-11-06",
+    "etiqueta": "us-gaap:OperatingIncomeLoss",
     "periodo": "3T26",
-    "provisional": true,
-    "valor": 130000000.0,
-    "etiqueta": "Nota de resultados: fila «Income (loss) from operations»"
+    "periodo_inicio": "2026-07-01",
+    "periodo_fin": "2026-09-30",
+    "formulario": "10-Q"
    },
    "estimado": null,
    "dif_pct": null,
@@ -65,13 +101,15 @@
    "nombre": "Beneficio neto",
    "tipo": "total",
    "reportado": {
-    "fuente": "SEC EDGAR · 8-K, Exhibit 99.1 (provisional)",
-    "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000194/exhibit9912026q3pressrelea.htm",
+    "valor": 162000000,
+    "fuente": "SEC EDGAR · 10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000197/0001682852-26-000197-index.htm",
     "fecha_presentacion": "2026-11-06",
+    "etiqueta": "us-gaap:NetIncomeLoss",
     "periodo": "3T26",
-    "provisional": true,
-    "valor": 162000000.0,
-    "etiqueta": "Nota de resultados: fila «Net income (loss)»"
+    "periodo_inicio": "2026-07-01",
+    "periodo_fin": "2026-09-30",
+    "formulario": "10-Q"
    },
    "estimado": null,
    "dif_pct": null,
@@ -84,13 +122,15 @@
    "nombre": "BPA diluido",
    "tipo": "total",
    "reportado": {
-    "fuente": "SEC EDGAR · 8-K, Exhibit 99.1 (provisional)",
-    "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000194/exhibit9912026q3pressrelea.htm",
-    "fecha_presentacion": "2026-11-06",
-    "periodo": "3T26",
-    "provisional": true,
     "valor": 0.38,
-    "etiqueta": "Nota de resultados: fila «Diluted»"
+    "fuente": "SEC EDGAR · 10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000197/0001682852-26-000197-index.htm",
+    "fecha_presentacion": "2026-11-06",
+    "etiqueta": "us-gaap:EarningsPerShareDiluted",
+    "periodo": "3T26",
+    "periodo_inicio": "2026-07-01",
+    "periodo_fin": "2026-09-30",
+    "formulario": "10-Q"
    },
    "estimado": {
     "valor": -1.09,
@@ -112,8 +152,8 @@
   "cierre_antes": 241.46,
   "fuente": "Twelve Data (API oficial, plan gratuito)",
   "fecha_despues": "2026-11-06",
-  "cierre_despues": 258.52,
-  "variacion_pct": 7.07,
+  "cierre_despues": 254.27,
+  "variacion_pct": 5.31,
   "provisional": false
  },
  "cotizacion": {
@@ -1124,28 +1164,199 @@
    ],
    [
     "2026-11-06",
-    258.52
+    254.27
    ]
   ],
-  "precio": 258.52,
+  "precio": 254.27,
   "fecha_precio": "2026-11-06",
-  "capitalizacion": 103210462024.28,
+  "capitalizacion": 102882975313.25,
   "minimo_12m": 22.36,
-  "maximo_12m": 258.52,
-  "variacion_12m_pct": 962.56,
+  "maximo_12m": 258.38,
+  "variacion_12m_pct": 945.09,
   "fuente": "Twelve Data (API oficial, plan gratuito)"
  },
  "desglose": {
-  "producto": [],
+  "producto": [
+   {
+    "nombre": "Product Sales",
+    "miembro": "mrna:ProductSalesMember",
+    "valor": 1273000000.0,
+    "anio_anterior": 973000000.0,
+    "interanual_pct": 30.83,
+    "peso_pct": 97.0,
+    "margen_operativo_pct": null,
+    "margen_operativo_ya_pct": null
+   },
+   {
+    "nombre": "COVID-19",
+    "miembro": "mrna:COVID19Member",
+    "valor": 1244000000.0,
+    "anio_anterior": 971000000.0,
+    "interanual_pct": 28.12,
+    "peso_pct": 94.7,
+    "margen_operativo_pct": null,
+    "margen_operativo_ya_pct": null
+   },
+   {
+    "nombre": "Product and Service, Other",
+    "miembro": "us-gaap:ProductAndServiceOtherMember",
+    "valor": 40000000.0,
+    "anio_anterior": 43000000.0,
+    "interanual_pct": -6.98,
+    "peso_pct": 3.0,
+    "margen_operativo_pct": null,
+    "margen_operativo_ya_pct": null
+   },
+   {
+    "nombre": "Stand-Ready Manufacturing",
+    "miembro": "mrna:StandReadyManufacturingMember",
+    "valor": 31000000.0,
+    "anio_anterior": 20000000.0,
+    "interanual_pct": 55.0,
+    "peso_pct": 2.4,
+    "margen_operativo_pct": null,
+    "margen_operativo_ya_pct": null
+   },
+   {
+    "nombre": "RSV",
+    "miembro": "mrna:RSVMember",
+    "valor": 29000000.0,
+    "anio_anterior": 2000000.0,
+    "interanual_pct": 1350.0,
+    "peso_pct": 2.2,
+    "margen_operativo_pct": null,
+    "margen_operativo_ya_pct": null
+   },
+   {
+    "nombre": "Collaboration Arrangement, Including Arrangements With Affiliate",
+    "miembro": "mrna:CollaborationArrangementIncludingArrangementsWithAffiliateMember",
+    "valor": 8000000.0,
+    "anio_anterior": 7000000.0,
+    "interanual_pct": 14.29,
+    "peso_pct": 0.6,
+    "margen_operativo_pct": null,
+    "margen_operativo_ya_pct": null
+   },
+   {
+    "nombre": "Grant",
+    "miembro": "us-gaap:GrantMember",
+    "valor": 1000000.0,
+    "anio_anterior": 14000000.0,
+    "interanual_pct": -92.86,
+    "peso_pct": 0.1,
+    "margen_operativo_pct": null,
+    "margen_operativo_ya_pct": null
+   },
+   {
+    "nombre": "License and Royalty",
+    "miembro": "mrna:LicenseAndRoyaltyMember",
+    "valor": 0.0,
+    "anio_anterior": 2000000.0,
+    "interanual_pct": -100.0,
+    "peso_pct": 0.0,
+    "margen_operativo_pct": null,
+    "margen_operativo_ya_pct": null
+   }
+  ],
   "segmento": []
  },
- "estrella": null,
+ "estrella": {
+  "nombre": "COVID-19",
+  "miembro": "mrna:COVID19Member",
+  "elegido": "automático",
+  "serie": [
+   {
+    "periodo": "1T24",
+    "periodo_fin": "2024-03-31",
+    "valor": 167000000.0,
+    "run_rate": 668000000.0,
+    "interanual_pct": null,
+    "margen_operativo_pct": null
+   },
+   {
+    "periodo": "2T24",
+    "periodo_fin": "2024-06-30",
+    "valor": 184000000.0,
+    "run_rate": 736000000.0,
+    "interanual_pct": null,
+    "margen_operativo_pct": null
+   },
+   {
+    "periodo": "3T24",
+    "periodo_fin": "2024-09-30",
+    "valor": 1810000000.0,
+    "run_rate": 7240000000.0,
+    "interanual_pct": 3.02,
+    "margen_operativo_pct": null
+   },
+   {
+    "periodo": "4T24",
+    "periodo_fin": "2024-12-31",
+    "valor": 923000000.0,
+    "run_rate": 3692000000.0,
+    "interanual_pct": null,
+    "margen_operativo_pct": null
+   },
+   {
+    "periodo": "1T25",
+    "periodo_fin": "2025-03-31",
+    "valor": 84000000.0,
+    "run_rate": 336000000.0,
+    "interanual_pct": -49.7,
+    "margen_operativo_pct": null
+   },
+   {
+    "periodo": "2T25",
+    "periodo_fin": "2025-06-30",
+    "valor": 114000000.0,
+    "run_rate": 456000000.0,
+    "interanual_pct": -38.04,
+    "margen_operativo_pct": null
+   },
+   {
+    "periodo": "3T25",
+    "periodo_fin": "2025-09-30",
+    "valor": 971000000.0,
+    "run_rate": 3884000000.0,
+    "interanual_pct": -46.35,
+    "margen_operativo_pct": null
+   },
+   {
+    "periodo": "4T25",
+    "periodo_fin": "2025-12-31",
+    "valor": 641000000.0,
+    "run_rate": 2564000000.0,
+    "interanual_pct": -30.55,
+    "margen_operativo_pct": null
+   },
+   {
+    "periodo": "1T26",
+    "periodo_fin": "2026-03-31",
+    "valor": 345000000.0,
+    "run_rate": 1380000000.0,
+    "interanual_pct": 310.71,
+    "margen_operativo_pct": null
+   },
+   {
+    "periodo": "2T26",
+    "periodo_fin": "2026-06-30",
+    "valor": 91000000.0,
+    "run_rate": 364000000.0,
+    "interanual_pct": -20.18,
+    "margen_operativo_pct": null
+   },
+   {
+    "periodo": "3T26",
+    "periodo_fin": "2026-09-30",
+    "valor": 1244000000.0,
+    "run_rate": 4976000000.0,
+    "interanual_pct": 28.12,
+    "margen_operativo_pct": null
+   }
+  ]
+ },
  "margenes": {
   "trimestral": [
-   {
-    "periodo": "3T23",
-    "margen_pct": -109.89
-   },
    {
     "periodo": "4T23",
     "margen_pct": 0.21
@@ -1189,17 +1400,16 @@
    {
     "periodo": "2T26",
     "margen_pct": -562.07
+   },
+   {
+    "periodo": "3T26",
+    "margen_pct": 9.9
    }
   ]
  },
  "dentro": {
-  "periodo": "2T26",
+  "periodo": "3T26",
   "ingresos": [
-   {
-    "periodo": "2T24",
-    "valor": 241000000,
-    "interanual_pct": -29.94
-   },
    {
     "periodo": "3T24",
     "valor": 1862000000,
@@ -1239,17 +1449,14 @@
     "periodo": "2T26",
     "valor": 145000000,
     "interanual_pct": 2.11
+   },
+   {
+    "periodo": "3T26",
+    "valor": 1313000000,
+    "interanual_pct": 29.23
    }
   ],
   "caja": [
-   {
-    "periodo": "2T25",
-    "beneficio_neto": -825000000,
-    "caja_operativa": -919000000,
-    "capex": 3000000,
-    "fcf": -922000000,
-    "conversion_pct": null
-   },
    {
     "periodo": "3T25",
     "beneficio_neto": -200000000,
@@ -1281,6 +1488,14 @@
     "capex": 37000000,
     "fcf": -563000000,
     "conversion_pct": null
+   },
+   {
+    "periodo": "3T26",
+    "beneficio_neto": 162000000,
+    "caja_operativa": -1559000000,
+    "capex": 47000000,
+    "fcf": -1606000000,
+    "conversion_pct": -962.0
    }
   ],
   "capex_solo_anual": false,
@@ -1288,30 +1503,30 @@
    {
     "clave": "coste_ventas",
     "nombre": "Coste de ventas",
-    "valor": 93000000,
-    "pct": 64.1,
-    "pct_ya": 83.8
+    "valor": 318000000,
+    "pct": 24.2,
+    "pct_ya": 20.4
    },
    {
     "clave": "investigacion_desarrollo",
     "nombre": "I+D",
-    "valor": 651000000,
-    "pct": 449.0,
-    "pct_ya": 493.0
+    "valor": 583000000,
+    "pct": 44.4,
+    "pct_ya": 78.8
    },
    {
-    "clave": "gastos_admin",
-    "nombre": "Generales y administración",
-    "valor": 216000000,
-    "pct": 149.0,
-    "pct_ya": 162.0
+    "clave": "gastos_generales",
+    "nombre": "Comerciales, generales y admin.",
+    "valor": 282000000,
+    "pct": 21.5,
+    "pct_ya": 26.4
    },
    {
     "clave": "remuneracion_acciones",
     "nombre": "Remuneración en acciones (incluida arriba)",
-    "valor": 120000000,
-    "pct": 82.8,
-    "pct_ya": 91.5
+    "valor": 127000000,
+    "pct": 9.7,
+    "pct_ya": 12.3
    }
   ],
   "accionista": {
@@ -1320,15 +1535,15 @@
    "recompras_12m": null,
    "dividendos": null,
    "dividendos_12m": null,
-   "acciones_diluidas": 398000000,
-   "acciones_diluidas_ya": 388000000,
-   "acciones_var_pct": 2.58,
-   "remuneracion_acciones": 120000000,
-   "remuneracion_pct_ingresos": 82.8
+   "acciones_diluidas": 430000000,
+   "acciones_diluidas_ya": 390000000,
+   "acciones_var_pct": 10.26,
+   "remuneracion_acciones": 127000000,
+   "remuneracion_pct_ingresos": 9.7
   },
   "fuente": "SEC EDGAR · XBRL (10-Q/10-K)",
-  "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000150/0001682852-26-000150-index.htm",
-  "fecha_presentacion": "2026-07-31"
+  "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000197/0001682852-26-000197-index.htm",
+  "fecha_presentacion": "2026-11-06"
  },
  "cita": {
   "cita": "We delivered 29% revenue growth in the third quarter, alongside the U.S. approval of mFLUSIVA, our fifth approved product globally, and positive Phase 3 results for intismeran in melanoma",
@@ -1393,35 +1608,7 @@
   "bpa_real": 0.38,
   "ingresos_reales": 1313000000
  },
- "_cifras_nota": {
-  "beneficio_operativo": {
-   "fuente": "SEC EDGAR · 8-K, Exhibit 99.1 (provisional)",
-   "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000194/exhibit9912026q3pressrelea.htm",
-   "fecha_presentacion": "2026-11-06",
-   "periodo": "3T26",
-   "provisional": true,
-   "valor": 130000000.0,
-   "etiqueta": "Nota de resultados: fila «Income (loss) from operations»"
-  },
-  "beneficio_neto": {
-   "fuente": "SEC EDGAR · 8-K, Exhibit 99.1 (provisional)",
-   "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000194/exhibit9912026q3pressrelea.htm",
-   "fecha_presentacion": "2026-11-06",
-   "periodo": "3T26",
-   "provisional": true,
-   "valor": 162000000.0,
-   "etiqueta": "Nota de resultados: fila «Net income (loss)»"
-  },
-  "bpa_diluido": {
-   "fuente": "SEC EDGAR · 8-K, Exhibit 99.1 (provisional)",
-   "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000194/exhibit9912026q3pressrelea.htm",
-   "fecha_presentacion": "2026-11-06",
-   "periodo": "3T26",
-   "provisional": true,
-   "valor": 0.38,
-   "etiqueta": "Nota de resultados: fila «Diluted»"
-  }
- },
+ "_cifras_nota": null,
  "traduccion": {
   "pendientes": 0,
   "completa": true,
