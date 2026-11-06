@@ -298,7 +298,7 @@ function barsSVG(pts,{val,label,fmt,color,hiIdx=[],h=150,aria,w=560}){
 /* ================= hojas ================= */
 function chip(r){ return r?`<span class="chip ${r==="En línea"?"line":r}">${r}</span>`:`<span class="chip na">sin estimación</span>`; }
 function valOf(row){ const r=row.reportado; if(!r) return null; return r.valor; }
-function fmtRow(row,v){ return row.concepto==="bpa_diluido"?usd(v):M$(v); }
+function fmtRow(row,v){ return /^bpa_/.test(row.concepto)?usd(v):M$(v); }
 function srcShort(c){ if(!c) return ""; return c.fuente||""; }
 
 function page1(R){
@@ -512,13 +512,14 @@ async function panelHtml(){
   const clave=(items.find(x=>x.segmento_clave)||{}).segmento_clave||"";
   const inp=(id,lab,val,hint,type="number",step="any")=>`<label>${lab}<input id="${id}" type="${type}" step="${step}" value="${val==null?"":esc(val)}">${hint?`<span class="hint">${hint}</span>`:""}</label>`;
   return `<section class="panel noprint" aria-labelledby="ph"><h2 id="ph">Estimaciones para el próximo informe</h2>
-   <p>Finnhub da gratis el consenso de ingresos y BPA, y se guarda solo los 30 días previos a los resultados. Aquí añades lo que no da gratis (beneficio operativo, segmentos y la guía esperada), por ejemplo desde Investing. Cifras en millones de dólares; el BPA es el ajustado (non-GAAP), en dólares por acción.</p>
+   <p>Finnhub da gratis el consenso de ingresos y BPA, y se guarda solo los 30 días previos a los resultados. Aquí añades lo que no da gratis (beneficio operativo, segmentos y la guía esperada), por ejemplo desde Investing. Cifras en millones de dólares; el BPA, en dólares por acción, en base ajustada (non-GAAP) y, si quieres, también contable (GAAP).</p>
    ${E&&E.fecha?`<div class="ref">Próximos resultados: <b>${esc(fechaLarga(E.fecha))}</b>${E.hora?` · ${esc(E.hora)}`:""} · consenso de Finnhub hoy: ingresos <b>${M$(E.ingresos_estimados)}</b>, BPA ajustado <b>${usd(E.bpa_estimado)}</b>.</div>`:""}
    <div class="form">
     ${inp("f_per","Trimestre",cur.periodo||per,"Como lo escribe la web, p. ej. "+(per||"4T26"),"text")}
     ${inp("f_src","Fuente",cur.fuente||"Investing","","text")}
     ${inp("f_rev","Ingresos (M$)",cur.ingresos_M,"Vacío = consenso de Finnhub")}
     ${inp("f_eps","BPA ajustado ($)",cur.bpa,"Non-GAAP, como el consenso. Vacío = consenso de Finnhub")}
+    ${inp("f_epsg","BPA GAAP ($)",cur.bpa_gaap,"Opcional. Si lo rellenas, el informe compara las dos bases")}
     ${inp("f_op","Beneficio operativo (M$)",cur.beneficio_operativo_M)}
     ${inp("f_ebitda","EBITDA ajustado (M$)",cur.ebitda_M,"Del trimestre; se compara con la nota de resultados")}
     ${inp("f_grev","Guía esperada: ventas (M$)",cur.guia_ingresos_M,"Del trimestre siguiente")}
@@ -537,7 +538,7 @@ function readForm(){
   names.forEach((n,i)=>{ const v=num("f_seg"+i); if(v!=null&&isFinite(v)) seg[n]=v; });
   const d=new Date();
   return {periodo:$("f_per").value.trim().toUpperCase(),fuente:$("f_src").value.trim(),fecha:`${d.getDate()}-${MES[d.getMonth()]}-${d.getFullYear()}`,
-    ingresos_M:num("f_rev"),bpa:num("f_eps"),beneficio_operativo_M:num("f_op"),ebitda_M:num("f_ebitda"),segmentos_M:seg,
+    ingresos_M:num("f_rev"),bpa:num("f_eps"),bpa_gaap:num("f_epsg"),beneficio_operativo_M:num("f_op"),ebitda_M:num("f_ebitda"),segmentos_M:seg,
     guia_ingresos_M:num("f_grev"),guia_beneficio_operativo_M:num("f_gop"),guia_ebitda_M:num("f_gebitda"),segmento_clave:$("f_clave").value};
 }
 async function saveEst(){

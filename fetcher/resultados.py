@@ -207,7 +207,8 @@ def estimates(root, ticker, rec, label, F, manual, provider=None, prev=None):
         return pe.get(k)
 
     est["ingresos"] = pick("ingresos", "ingresos_M", 1e6, "ingresos", "ingresos_estimados")
-    est["bpa_diluido"] = pick("bpa_diluido", "bpa", 1.0, "bpa", "bpa_estimado", sorp=True)
+    est["bpa_diluido"] = pick("bpa_diluido", "bpa", 1.0, "bpa", "bpa_estimado", sorp=True)   # ajustado
+    est["bpa_gaap"] = pick("bpa_gaap", "bpa_gaap", 1.0)                                         # solo manual
     est["beneficio_operativo"] = pick("beneficio_operativo", "beneficio_operativo_M", 1e6)
     est["beneficio_neto"] = pe.get("beneficio_neto")
     est["ebitda_ajustado"] = pick("ebitda_ajustado", "ebitda_M", 1e6)
@@ -238,6 +239,36 @@ def verdict(rep, est, tol=0.0005):
     if abs(dif) < tol * 100:
         return round(dif, 2), "En línea"
     return round(dif, 2), "Beat" if dif > 0 else "Miss"
+
+
+def eps_rows(tabla, est_gaap=None, real=None):
+    """Ajusta las filas de BPA de la tabla.
+
+    La fila «bpa_diluido» trae el BPA contable (GAAP) de la SEC y, como estimación, el consenso
+    ajustado (non-GAAP). Si hay estimación GAAP manual, se separan en dos filas que comparan
+    cada base con la suya. Si no, la fila única se compara en la base ajustada cuando el BPA
+    real ajustado (Finnhub) difiere del contable."""
+    i = next(n for n, r in enumerate(tabla) if r["concepto"] == "bpa_diluido")
+    row = tabla[i]
+    adj_est = row["estimado"]
+    gaap = (row["reportado"] or {}).get("valor")
+    if est_gaap:
+        row["nombre"] = "BPA diluido (GAAP)"
+        row["estimado"] = est_gaap
+        row["dif_pct"], row["resultado"] = verdict(gaap, est_gaap)
+        if adj_est or real:
+            rv = real["valor"] if real else None
+            dif, res = verdict(rv, adj_est)
+            tabla.insert(i + 1, {"concepto": "bpa_ajustado", "nombre": "BPA ajustado (non-GAAP)", "tipo": "total",
+                                 "reportado": real, "estimado": adj_est, "dif_pct": dif, "resultado": res,
+                                 "anio_anterior": None, "interanual_pct": None})
+        return tabla
+    if real and adj_est and gaap is not None and abs(real["valor"] - gaap) > max(0.02, abs(gaap) * 0.02):
+        row["comparable"] = real
+        row["dif_pct"], row["resultado"] = verdict(real["valor"], adj_est)
+        row["nota"] = (f"El consenso se refiere al BPA ajustado ({_es(real['valor'])} $ según Finnhub); "
+                       f"el contable (GAAP) es {_es(gaap)} $.")
+    return tabla
 
 
 # ---------------------------------------------------------------- segmentos
@@ -640,22 +671,14 @@ def build(root: Path, company: dict, rec: dict, analysis=None, manual=None, clie
                       "dif_pct": dif, "resultado": res, "anio_anterior": ya,
                       "interanual_pct": _pct(rv, ya) if k != "bpa_diluido" or (ya and ya > 0) else None})
 
-    # El consenso de BPA suele ser «ajustado» (non-GAAP). Si el BPA real que da Finnhub
-    # difiere del contable, la comparación se hace en la base del consenso y se explica.
-    eps_row = next(r for r in tabla if r["concepto"] == "bpa_diluido")
+    # BPA: el consenso suele ser «ajustado» (non-GAAP); el reportado de la SEC es el contable (GAAP).
     real = None
     for s_ in ((rec.get("resultados_previstos") or {}).get("sorpresas") or []):
         if s_.get("bpa_real") is not None and _d(s_.get("periodo")) and abs((_d(s_["periodo"]) - _d(end)).days) <= 20:
             real = {"valor": s_["bpa_real"], "fuente": "Finnhub · BPA real en la base del consenso", "url": "https://finnhub.io/docs/api/company-earnings"}
     if real is None and cal.get("bpa_real") is not None:
         real = {"valor": cal["bpa_real"], "fuente": "Finnhub · BPA real en la base del consenso", "url": "https://finnhub.io/docs/api/earnings-calendar"}
-    gaap = (eps_row["reportado"] or {}).get("valor")
-    if real and eps_row["estimado"] and gaap is not None and \
-            abs(real["valor"] - gaap) > max(0.02, abs(gaap) * 0.02):
-        eps_row["comparable"] = real
-        eps_row["dif_pct"], eps_row["resultado"] = verdict(real["valor"], eps_row["estimado"])
-        eps_row["nota"] = (f"El consenso se refiere al BPA ajustado ({_es(real['valor'])} $ según Finnhub); "
-                           f"el contable (GAAP) es {_es(gaap)} $.")
+    eps_rows(tabla, est.get("bpa_gaap"), real)
     rv_i = (next(r for r in tabla if r["concepto"] == "ingresos")["reportado"] or {}).get("valor")
     if rv_i and cal.get("ingresos_reales") and abs(cal["ingresos_reales"] / rv_i - 1) > 0.02:
         avisos.append("Los ingresos reales que da Finnhub difieren más de un 2% de los de la SEC; la tabla usa los de la SEC.")
