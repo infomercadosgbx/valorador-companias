@@ -565,9 +565,11 @@ table.mini2 td{padding:3px 6px;font-size:12px;border-bottom:1px solid var(--grid
 .agtab{overflow-x:auto;margin-top:12px;border:1px solid var(--line);border-radius:10px}
 .agtab table{width:100%;border-collapse:collapse;font-size:13px}
 .agtab th{text-align:left;font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink2);padding:8px 12px;background:var(--surface2);border-bottom:1px solid var(--line)}
-.agtab td{padding:8px 12px;border-top:1px solid var(--grid);vertical-align:middle;color:var(--ink)}.agtab tr:first-child td{border-top:0}
-.agtab td small{display:block;color:var(--muted);font-size:11.5px}.agd{white-space:nowrap;font-family:var(--f-num)}.agc,.agl{white-space:nowrap;text-align:right}
-.aggrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(330px,100%),1fr));gap:12px;margin-top:14px}
+.agtab td{padding:8px 12px;border-top:1px solid var(--grid);vertical-align:middle;color:var(--ink);text-align:left}.agtab tr:first-child td{border-top:0}
+.agtab td small{display:block;color:var(--muted);font-size:11.5px}.agd{white-space:nowrap;font-family:var(--f-num)}.agtab td.agc{white-space:nowrap}.agtab td.agl{white-space:nowrap;text-align:right}
+.aggrid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;margin-top:14px}.aggrid>*{grid-column:span 2}.aggrid>:nth-child(n+4){grid-column:span 3}
+@media (max-width:1100px){.aggrid{grid-template-columns:repeat(2,minmax(0,1fr))}.aggrid>*,.aggrid>:nth-child(n+4){grid-column:auto}.aggrid>:last-child:nth-child(odd){grid-column:1/-1}}
+@media (max-width:640px){.aggrid{grid-template-columns:1fr}}
 .agult{font-family:var(--f-num);font-weight:700;font-size:15px;color:var(--ink)}
 .agch{position:relative;height:170px}
 .agcal{margin-top:14px;border-top:1px solid var(--grid);padding-top:12px}
@@ -2153,7 +2155,7 @@ function agendaHtml(){
   return `<section class="card mk ag">
     <div class="mktop"><div><h2>Agenda macro · EE. UU. ${mkI("agenda")}</h2><p class="sub">Los datos que mueven las expectativas de tipos. Horas de Madrid; fechas oficiales del BLS, el BEA y la Fed.</p></div>
       ${G?`<a class="mkgo" href="${esc(G.url)}" target="_blank" rel="noopener noreferrer">Calendario de FRED ↗</a>`:""}</div>
-    <div class="agtab"><table><thead><tr><th>Fecha</th><th>Publicación</th><th></th><th>Fuente</th></tr></thead><tbody>${filas}</tbody></table></div>
+    <div class="agtab"><table><thead><tr><th>Fecha</th><th>Publicación y último dato</th><th>Cuándo</th><th style="text-align:right">Fuente</th></tr></thead><tbody>${filas}</tbody></table></div>
     ${cards?`<div class="aggrid">${cards}</div>`:""}
     <div class="agcal">
       <button type="button" class="mkmaph" data-agcal="toggle" aria-expanded="${AGCAL.abierto}" aria-controls="agcalBody"><span class="mkchev" aria-hidden="true">▸</span><span><b>Calendario con previsiones de los analistas</b><span class="note"> Widget de TradingView, con el consenso y el dato publicado</span></span></button>
