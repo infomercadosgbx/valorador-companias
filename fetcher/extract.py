@@ -210,6 +210,30 @@ def _merge_tagged(tagged):
     return out
 
 
+def _drop_mislabeled_quarters(m, spec, concept_key, fye_mmdd):
+    """Errores de etiquetado XBRL: algún 10-K presenta la cifra ANUAL con un
+    contexto de 3 meses (Oracle, «Revenues» en los 10-K de 2020 a 2022: el total
+    del año con inicio 1-mar). Un «trimestre» que repite el valor del año que
+    cierra en la misma fecha se descarta, y el 4T se deriva por la regla R5."""
+    if spec.get("no_sum"):
+        return []
+    annual_by_end = {d(e): f["val"] for (_s, e), (_t, f) in m["annual"].items()}
+    bad, tags = [], []
+    for key, (tag, f) in sorted(m["q"].items()):
+        a = find_near(annual_by_end, d(f["end"]))
+        if a and abs(f["val"] - a) <= 0.005 * abs(a):
+            del m["q"][key]
+            bad.append(quarter_label(d(f["end"]), fye_mmdd))
+            if tag not in tags:
+                tags.append(tag)
+    if not bad:
+        return []
+    return [warn("info", "trimestre_mal_etiquetado",
+        f"{spec['nombre']} {', '.join(bad)}: la compañía etiquetó en XBRL el total del año como si fuera "
+        f"un trimestre («{'», «'.join(tags)}»). Se descarta y el 4T se calcula como año − 1T − 2T − 3T.",
+        concepto=concept_key, etiqueta=tags[0], periodos=bad)]
+
+
 def build_flow(cf, cik, concept_key, ref_end, fye_mmdd, max_years=8, max_quarters=12, q4_state=None):
     """q4_state: dict compartido entre conceptos. Los ingresos deciden qué 4T son
     coherentes (regla del ratio); el resto de conceptos sigue esa decisión, porque
@@ -226,6 +250,7 @@ def build_flow(cf, cik, concept_key, ref_end, fye_mmdd, max_years=8, max_quarter
         return result, warnings
     m = _merge_tagged(tagged)
     no_sum = spec.get("no_sum", False)
+    warnings += _drop_mislabeled_quarters(m, spec, concept_key, fye_mmdd)
 
     # --- anual
     annual = sorted(m["annual"].values(), key=lambda tf: tf[1]["end"])
