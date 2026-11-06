@@ -234,6 +234,66 @@
     "cash": 37077,
     "debt": 135000
    }
+  },
+  {
+   "fecha_commit": "2026-11-06",
+   "commit": "61f9e48772",
+   "analisis_a": "6-nov-2026",
+   "recomendacion": "Mantener",
+   "conviccion": 2.5,
+   "comprar_por_debajo": 100,
+   "horizonte": "3–5 años",
+   "resumen": "Oracle ha pasado de empresa de software madura a constructor de centros de datos para IA. Los resultados del 1T FY27 son fuertes (ingresos +30%, infraestructura +121%, cartera de 664.000 M$ y guía al alza), pero la caja libre es negativa, la deuda llega a 135.000 M$ tras noviembre y los accionistas han absorbido 30.000 M$ en acciones nuevas desde junio. A ~126 $ (−52% desde máximos) el mercado ya ",
+   "supuestos": {
+    "rev0": 67357,
+    "year0": 2026,
+    "g": [
+     25,
+     30,
+     28,
+     22,
+     12
+    ],
+    "m1": 47,
+    "m5": 52,
+    "da": 16,
+    "da5": 20,
+    "sbc": 6.7,
+    "capex": 78,
+    "capex5": 30,
+    "nwc": 0,
+    "tax": 22,
+    "wacc": 10,
+    "tg": 3,
+    "exit": 12,
+    "method": "blend",
+    "eps": 8.1,
+    "pe": 20,
+    "evm": 12,
+    "scn": [
+     {
+      "n": "Bajista",
+      "dg": -10,
+      "dm": -5,
+      "p": 30
+     },
+     {
+      "n": "Base",
+      "dg": 0,
+      "dm": 0,
+      "p": 45
+     },
+     {
+      "n": "Alcista",
+      "dg": 6,
+      "dm": 3,
+      "p": 25
+     }
+    ],
+    "shares": 3110,
+    "cash": 37077,
+    "debt": 135000
+   }
   }
  ],
  "fuente": "Historial de git de analysis/ORCL.json"

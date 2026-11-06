@@ -15262,13 +15262,13 @@
   "motivo": "No se ha podido aislar el apartado de riesgos de forma fiable."
  },
  "precio": {
-  "minimo_52s": 114.5,
-  "maximo_52s": 255.28,
-  "beta": 1.8110611,
-  "valor": 115.16,
-  "cierre_anterior": 123.73,
+  "minimo_52s": 111.66,
+  "maximo_52s": 252.4,
+  "beta": 1.8360751,
+  "valor": 116.1,
+  "cierre_anterior": 115.16,
   "moneda": "USD",
-  "fecha": "2026-11-05",
+  "fecha": "2026-11-06",
   "fuente": "Finnhub (API oficial, plan gratuito)",
   "url": "https://finnhub.io/"
  },
@@ -15365,38 +15365,159 @@
  },
  "noticias": [
   {
-   "titular": "Meta Platforms Heads 3 Top Founder Led Stocks To Watch",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=994d1c95682d5f02b757bd6f894d5dc7a3b4e470e41197c13370619a94099685",
+   "titular": "Oracle leads big tech hyperscalers in valuation as AI stocks rebound premarket (SPX:) (SPX:) (SPX:)",
+   "url": "https://seekingalpha.com/news/4668038-oracle-leads-big-tech-hyperscalers-in-valuation-as-ai-stocks-rebound-premarket",
    "fecha": "2026-11-06",
-   "resumen": "AI related stocks just had their roughest day since 2025, as investors questioned how much future data centre build out is already priced in. When fast money backs away from hype, attention often shifts to leaders who built their business from the ground up and still run it. This",
+   "resumen": "Oracle leads hyperscaler valuation rankings with a B grade as AI tech stocks rebound.",
+   "medio": "Seeking Alpha",
+   "tipo": "prensa",
+   "via": "Marketaux",
+   "sentimiento": {
+    "puntuacion": 0.0,
+    "etiqueta": "Neutral"
+   }
+  },
+  {
+   "titular": "Here's Why I Bought Nvidia While The Market Cried In Fear (Rating Upgrade)",
+   "medio": "Seeking Alpha",
+   "url": "https://finnhub.io/api/news?id=60f955989e7f79108c112f01bb6ce4946df66cfc3a8bc9de68ff224f12292bef",
+   "fecha": "2026-11-06",
+   "resumen": "Nvidia Corporation is a Strong Buy after a 20% selloff, with current sentiment-driven declines presenting a compelling entry point. Discover more on NVDA here.",
    "tipo": "prensa",
    "via": "Finnhub"
   },
   {
-   "titular": "Oracle vs. Alphabet: Which Is the Better AI Cloud Stock to Own for the Next 5 Years?",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=64b094b945256128d78cb336b36c18fa1f4c4faf4e3f7048d3e2afbd12311540",
+   "titular": "Slower Builds, Scarcer Compute",
+   "medio": "Seeking Alpha",
+   "url": "https://finnhub.io/api/news?id=44294d80c7c71a3958c3670443c3bdf6b0f419b935a5a4b9f0122fe46269bf8c",
    "fecha": "2026-11-06",
-   "resumen": "Both companies are in the middle of an AI spending spree, but Alphabet's prominent position in cloud computing gives it the edge.",
+   "resumen": "Democrats won both chambers of Congress, along with governorships of Texas, Georgia & Ohio. Investors priced in the risk that many data centers never get built. The reality is more nuanced.",
    "tipo": "prensa",
    "via": "Finnhub"
   },
   {
-   "titular": "Our Pick Of The Best Cash Flow Stocks In November 2026",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=d6e97dc81b64fb977090d63cace259aacd89c270c5ee28212980ecf528672506",
+   "titular": "The AI ‘credit card’ is getting costlier as CoreWeave bond yield tops 16%",
+   "medio": "CNBC",
+   "url": "https://finnhub.io/api/news?id=e7d9d1552b0e69602474771fc2334499b10f4c2f34c6e1ba92ee0f901589a2fd",
    "fecha": "2026-11-06",
-   "resumen": "Interest rates in the UK now sit at 4% after the Bank of England’s first hike in more than three years. This puts pressure on highly valued, story driven stocks and shines a light on something quieter: cash. Investors paying closer attention to hard cash generation may find mispr",
+   "resumen": "Coreweave's steep yields reflect stress in the AI debt markets as investors worry about a data center slowdown. What comes next.",
    "tipo": "prensa",
    "via": "Finnhub"
   },
   {
-   "titular": "3 Value Stocks With Up To 38% Discount To Fair Value",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=96019fc11c42d7e881b85084b17b36dd29382235acf70e651f4a868f9eaab875",
+   "titular": "Elon Musk Claims SoftBank Is Defaulting on Turbine Orders",
+   "medio": "Benzinga",
+   "url": "https://finnhub.io/api/news?id=1600c396719fa8772d2ff0ab61265f9829bcef9f9c1b363e7145b53f6dab0901",
    "fecha": "2026-11-06",
-   "resumen": "Chip stocks recently faced heavy selling as investors questioned future data center and AI spending. When markets punish entire sectors in a rush, solid technology businesses can get marked down alongside weaker peers. That creates room for patient buyers who care about price pai",
+   "resumen": "Elon Musk claims SoftBank is defaulting on turbine orders as financing questions grow around its Stargate buildout",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Softbank In Discussions To Invest Hundreds Of Millions Of Dollars In Latest OpenAI Funding Round Of $20B Across Two Parts; Emirati Group Including MGX Expected To Be Largest Investor At Latest Valuation Of $1.25T - NY Times DealBook",
+   "medio": "Benzinga",
+   "url": "https://finnhub.io/api/news?id=4485a4148167438369815d06daddbbcc46aee14aa94ceea8daa4e8d68783b95e",
+   "fecha": "2026-11-06",
+   "resumen": "https://www.nytimes.com/2026/11/06/business/dealbook/tech-investors-ai-rout.html",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "AI debt concerns grow as ING reportedly seeks buyers for $500 million of data center loans",
+   "medio": "CNBC",
+   "url": "https://finnhub.io/api/news?id=80f84c85f21e0aa90ffc40f465fb0b67e98b4688e0d6252419cbf9ef5eb37c8f",
+   "fecha": "2026-11-06",
+   "resumen": "ING is reportedly seeking bids for about $500 million across 12 data center loans, including debt tied to a New Mexico Stargate site.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Microsoft and Oracle's AI ambitions are suddenly a lot more expensive",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=8bdc97966823b8f11d11c74f2238fe66663ff3fa5ab5978c33119b8760c39e3f",
+   "fecha": "2026-11-06",
+   "resumen": "The backlog at Microsoft and Oracle keeps growing. So does the bill to keep up with it.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "ORACLE'S ANNUAL MEETING OF STOCKHOLDERS TO BE HELD NOVEMBER 18, 2026",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=45ff8eb2b0020305320c2540dc7e1b728ca2b023aaeb73cdf0b35a1073d6eedb",
+   "fecha": "2026-11-06",
+   "resumen": "Oracle (NYSE: ORCL) will hold its 2026 Annual Meeting of Stockholders on Wednesday, November 18, 2026, at 9:00 a.m., Central Time. This year's meeting will be conducted virtually via a live audio webcast at www.virtualshareholdermeeting.com/ORCL2026. Stockholders as of the close ",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "How AI spending limits could help hyperscaler bonds but hurt stocks",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=a806c06390e4167ec3305444849f74fa70e83c95ece6ef079b4326755dc99918",
+   "fecha": "2026-11-06",
+   "resumen": "Investing.com -- A regulatory brake on AI data-center spending could be good for hyperscaler bonds and bad for their stocks. The two groups want different things from the same company.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Ezra Klein Floats “the End of Oracle” as OpenAI Weighs Smaller Data Center Plans",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=b1e1b75a0c82a535476567aebcd921f3a144e90ab33aa2c2631a4af4344bda3d",
+   "fecha": "2026-11-06",
+   "resumen": "Key TakeawaysAfter this week’s elections, OpenAI’s senior leaders discussed whether to reset next year’s data center capacity plans, the Wall Street Journal reported, and Ezra Klein raised “the end of Oracle” on the Hard Fork podcast. Klein’s line is hyperbole, but Oracle is the ",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Oracle Faces Major Wall Street Test After AI Selloff",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=25444a669b2412544d1c3292408538fad853afd125dfb2a901f7b30449673dd3",
+   "fecha": "2026-11-06",
+   "resumen": "Strong demand is masking an increasingly complicated financial equation.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Microsoft Won’t Renew Deal for Renting AI Cloud Capacity From Oracle: Report",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=335ad20dcd618fde235a7d4c0f9ca77456bbd807f3c8372bf914357d91ddecea",
+   "fecha": "2026-11-06",
+   "resumen": "Oracle stock is up slightly as a report says Microsoft is bringing an AI computing deal with Oracle to an end.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Update: Market Chatter: Microsoft to Conclude Deal With Oracle for Renting AI Compute",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=19c64cb07fc41b7a95e45038d50820a22fdba1a7452b0a5deac2f1b386ba34f1",
+   "fecha": "2026-11-06",
+   "resumen": "(Updates with statement from Oracle in the third paragraph.) Microsoft (MSFT) is concluding a dea",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Bloom Energy Rises 2%, AMD Up 8% as AI Stocks Rebound From Midterm Rout",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=e80c2718152d9d95a521e7cacafa6ba01144f7746695d8b6f95b1e9a55a10b41",
+   "fecha": "2026-11-06",
+   "resumen": "Key TakeawaysBloom Energy rose 2% today as AI stocks, AMD among them, bounced back from Thursday’s post-midterm selloff. Bloom had just landed a 900-megawatt NTT DATA deal and a 1-gigawatt plan with California Resources.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Oracle falls 4% as Microsoft reportedly winds down AI cloud capacity deal",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=27cd75d0d38118909e5c40f15da08c3efc77a226fcf38ad4b8f9d97a70f515a4",
+   "fecha": "2026-11-06",
+   "resumen": "Investing.com -- Oracle shares fell 4% Friday after Bloomberg reported that Microsoft is winding down an arrangement to rent AI computing capacity from the company, adding to investor concerns about the sustainability of AI infrastructure spending following Thursday’s sharp sello",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Microsoft Is Winding Down Oracle Deal to Rent AI Cloud Capacity",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=51a9e06ec4350cfd09f9bc9c2f5e327a00048f4ce765c74eb847187e01b1a260",
+   "fecha": "2026-11-06",
+   "resumen": "Microsoft Corp. is winding down an arrangement to rent AI computing from Oracle Corp., part of a larger reassessment of billions of dollars in cloud partnerships.",
    "tipo": "prensa",
    "via": "Finnhub"
   },
@@ -15445,11 +15566,38 @@
    "via": "Finnhub"
   },
   {
+   "titular": "Reported Earlier: Oracle’s $165B New Mexico Data Center Project Faces Potential Delay As Power Developer Extends Air Permit Review Timeline - Bloomberg News",
+   "medio": "Benzinga",
+   "url": "https://finnhub.io/api/news?id=ff06cb9eabbdd0dffc427c3fb86fffebb2f7d1ee9af692d7522fb1a6237100be",
+   "fecha": "2026-11-05",
+   "resumen": "https://www.bloomberg.com/news/articles/2026-11-05/oracle-data-center-developer-waives-key-air-permit-deadline?leadSource=uverify%20wall",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
    "titular": "AI Stocks Are Having The Sale Of The Year, But Avoid These",
    "medio": "Seeking Alpha",
    "url": "https://finnhub.io/api/news?id=3702e12efa426c0c127cc809ace6da2533a8bd8316c7095e4c3c3951f62658ea",
    "fecha": "2026-11-05",
    "resumen": "AI sector selloff looks overdone. See why Nvidia, TSMC, Broadcom, and Micron may be buys on this dip, and where political risks still matter.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Snowflake shares are trading lower. The company announced the appointment of Jonathan Beaulier as Chief Revenue Officer and reaffirmed its FY27 guidance.",
+   "medio": "Benzinga",
+   "url": "https://finnhub.io/api/news?id=32bf72c36bab6f5e4b49f08cd60e709fadc8a7b3ebe0aae6882cd8560ce7fb27",
+   "fecha": "2026-11-05",
+   "resumen": "",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Defensives Lead Sectors Thursday As Growth Sectors Trail",
+   "medio": "Benzinga",
+   "url": "https://finnhub.io/api/news?id=9ce4e9e86cb402377a38029a275831210efafdbabaf281d7c2af669242938dbf",
+   "fecha": "2026-11-05",
+   "resumen": "Four sectors are higher and seven are lower in Thursday’s regular session, with defensive sectors holding two of the top three positions. The leaders are separated rather than clustered, with no single gap clearly standing apart from the other breaks across the table.",
    "tipo": "prensa",
    "via": "Finnhub"
   },
@@ -15463,114 +15611,6 @@
    "via": "Finnhub"
   },
   {
-   "titular": "What Is Going On With Nvidia Stock on Thursday?",
-   "medio": "Benzinga",
-   "url": "https://finnhub.io/api/news?id=e76542cde7600eb7d2770432fc28daeb7a969239991dfc4d2d2f51bb3d415237",
-   "fecha": "2026-11-05",
-   "resumen": "NVIDIA stock dropped below $200 in premarket trading as post-midterm tech rotation hits chipmakers. Here’s what analysts say ahead of November earnings.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Oracle: Playing With Leverage On The Endless AI CapEx Treadmill",
-   "medio": "Seeking Alpha",
-   "url": "https://finnhub.io/api/news?id=f162f860afee139a474b4da3a79def6a335365aa11d526d133821dc7ae1dca57",
-   "fecha": "2026-11-05",
-   "resumen": "",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Arm CEO Acknowledges AMD's Head Start in AI Chips, But Says 'We're Very, Very Serious' About Competing",
-   "medio": "Benzinga",
-   "url": "https://finnhub.io/api/news?id=a22bb49c3089896f95128e040c651ea75c49306f253822f432de9e61319727a4",
-   "fecha": "2026-11-05",
-   "resumen": "Arm CEO Rene Haas acknowledged AMD’s long lead in data center chips but said Arm is serious about competing with its first chip.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Oracle: More Capital Raised, Continued Questions",
-   "medio": "Seeking Alpha",
-   "url": "https://finnhub.io/api/news?id=641608bfb5f5dfd8a1b03ff91c0d5a7cb52f46ef08777ac83a2653b825918210",
-   "fecha": "2026-11-05",
-   "resumen": "",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Oracle Sinks 7%, Everpure Down 15% as Midterms Hit AI Build-Out: “Washington Is the New Worry”",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=d4c2f0f38e2a61453d3d34de292b8875ea40d9561b80a9232e679e420646a436",
-   "fecha": "2026-11-05",
-   "resumen": "Key TakeawaysOracle shares fell 7% today as Democrats’ sweep of Congress hit stocks tied to the AI build-out, Everpure included. Oracle just sold 86.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Is Oracle (ORCL) Reasonable After Its AI Cash Flow Targets?",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=7946400533be5a95997a2a900c871cc26af2133b2ce165194b68b7da80a331f4",
-   "fecha": "2026-11-05",
-   "resumen": "Oracle Corporation has been pulled sharply lower over the past year, even as management lays out an aggressive plan built around AI infrastructure and future free cash flow. That disconnect puts the focus squarely on one issue for investors who follow Oracle: whether the current ",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "$500M Mystery Seller: Who’s Dumping Data-Center Loans After AI Stock Crash?",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=93cc51fe60e1fe3cac89125362cbb7baaadb61e2f2d663ff3bbc4a5f90c925af",
-   "fecha": "2026-11-05",
-   "resumen": "A mystery seller is dumping $500M in data center loans, including Stargate debt, as AI stocks crash. Bids close Nov. 19.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Quantinuum Reports Third Quarter 2026 Results and Raises Full-Year Revenue Outlook",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=b75bd37a2a7d474425024e425c797118f6f115ee8dce3771ed25990c7946a3aa",
-   "fecha": "2026-11-05",
-   "resumen": "Quantinuum Inc. (Nasdaq: QNT) (the \"Company\"), a leading full-stack quantum computing company, today announced financial results for the third quarter ended September 30, 2026.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Credo Sinks Another 14% as Democratic Sweep Stokes “Left-Tail Event” Fears for AI",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=a0a9e542bf68bfb4535fcba1405402b6444b4ca25a26cf98531642d013147929",
-   "fecha": "2026-11-05",
-   "resumen": "Key TakeawaysCredo Technology fell 14% today as an AI hardware sell-off over Democrats’ midterm sweep entered a second day. The drop prices in a slower data center buildout that hasn’t shown up in Credo’s guidance or analysts’ estimates.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Oracle Stocks Fall 9.3% as Investors Weigh Cloud Growth Against Funding",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=beabcbb88c3f15e1250d439cc3eac1e9a71236ceece281d3e799452bf4a975a4",
-   "fecha": "2026-11-05",
-   "resumen": "A large contracted revenue base still requires infrastructure, financing and timely delivery.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Why Oracle Stock Is Sinking Today",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=b3e4700bb1d09fefe0ea9f29e82953c1a718c63fae83dc84882f5138c7dfa2ef",
-   "fecha": "2026-11-05",
-   "resumen": "Oracle stock is sinking as the post-election sell-off in AI infrastructure stocks deepens, with investors worried that Democratic wins in states like Texas could slow the data center build-out.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Don’t Underestimate the Ultrarich—or How Fast They Can Leave California",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=488ee4255ea0137029ce17d692d5507cd13371d4f5a4c96ee1dcf0750f6b4a22",
-   "fecha": "2026-11-05",
-   "resumen": "The wealth tax proposal in California offers a lesson about the mobility of billionaires and could push advocates to find a different, more conciliatory approach.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
    "titular": "8-K a la SEC: Otros hechos relevantes",
    "medio": "SEC · 8-K (oficial)",
    "url": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526447507/d131790d8k.htm",
@@ -15578,19 +15618,6 @@
    "resumen": "Comunicación oficial de la compañía. Items: 8.01.",
    "oficial": true,
    "tipo": "prensa"
-  },
-  {
-   "titular": "Oracle: The Party Is Almost Over (NYSE:ORCL)",
-   "url": "https://seekingalpha.com/article/4962446-oracle-the-party-is-almost-over",
-   "fecha": "2026-11-04",
-   "resumen": "Oracle faces rising credit risk as debt, bond issuance, and capex surge amid higher rates and OpenAI exposure. Click here to read this ORCL stock update.",
-   "medio": "Seeking Alpha",
-   "tipo": "prensa",
-   "via": "Marketaux",
-   "sentimiento": {
-    "puntuacion": 0.402,
-    "etiqueta": "Alcista"
-   }
   },
   {
    "titular": "Most-Active S&P 500 Stocks for Nov. 4, 2026",
@@ -15611,24 +15638,6 @@
    "via": "Finnhub"
   },
   {
-   "titular": "CoreWeave, Peers Fall After Democrats Sweep Midterms; What it Means For Data Centers",
-   "medio": "Benzinga",
-   "url": "https://finnhub.io/api/news?id=e84220726b78a2df3cdc786d2589f38c26b31f99e8c455241defce05394fa5ec",
-   "fecha": "2026-11-04",
-   "resumen": "CoreWeave and other data center stocks are trading lower Wednesday after Democrats won control of Congress in the midterm elections.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Jim Cramer Sees These 'Non-Magnificent' Tech Stocks Emerging as Market Leaders While Nvidia, Microsoft Struggle: 'It's Just Not The Tech That's Led Us'",
-   "medio": "Benzinga",
-   "url": "https://finnhub.io/api/news?id=7d94642f16103932349ff0eb3b4d3e84f5115a7626b909caaf26e164201bb3d6",
-   "fecha": "2026-11-04",
-   "resumen": "Jim Cramer sees &#39;non-Magnificent&#39; tech stocks gaining leadership as AMD, Broadcom and Micron outperform Magnificent Seven peers.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
    "titular": "8-K a la SEC: Comunicación al mercado (Reg FD)",
    "medio": "SEC · 8-K (oficial)",
    "url": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526435853/d75538d8k.htm",
@@ -15636,20 +15645,11 @@
    "resumen": "Comunicación oficial de la compañía. Items: 7.01.",
    "oficial": true,
    "tipo": "prensa"
-  },
-  {
-   "titular": "Oracle Is Expanding The Accelerator Options In OCI For Enterprises",
-   "url": "https://www.nextplatform.com/ai/2026/10/27/oracle-is-expanding-the-accelerator-options-in-oci-for-enterprises/5305815",
-   "fecha": "2026-10-27",
-   "resumen": "",
-   "medio": "The Next Platform",
-   "tipo": "sectorial",
-   "via": "RSS del medio"
   }
  ],
  "noticias_sentimiento": {
-  "puntuacion": 0.164,
-  "etiqueta": "Algo alcista",
+  "puntuacion": 0.03,
+  "etiqueta": "Neutral",
   "noticias": 3,
   "fuente": "Alpha Vantage / Marketaux (puntuación media de las noticias del último mes)"
  },
@@ -15681,10 +15681,6 @@
  },
  "historico_precio": {
   "serie": [
-   [
-    "2021-08-05",
-    89.43
-   ],
    [
     "2021-08-06",
     89.52
@@ -20960,14 +20956,18 @@
    [
     "2026-11-05",
     115.16
+   ],
+   [
+    "2026-11-06",
+    116.1
    ]
   ],
   "fuente": "Twelve Data (API oficial, plan gratuito)",
   "url": "https://twelvedata.com/",
-  "fecha": "2026-11-05",
+  "fecha": "2026-11-06",
   "ajuste": "splits"
  },
- "generado": "2026-11-06T09:16:50+00:00",
+ "generado": "2026-11-06T23:49:26+00:00",
  "peers": {
   "fuente_lista": "manual",
   "fuente_cifras": "SEC EDGAR (companyfacts, UDM) · precio Finnhub",
@@ -20989,13 +20989,13 @@
    "informe": "10-Q",
    "informe_fecha": "2026-09-11",
    "url": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526389274/0001193125-26-389274-index.htm",
-   "precio": 115.16,
-   "capitalizacion": 348213437760.0,
-   "ev": 436473437760.0,
-   "per": 18.4,
-   "precio_ventas": 4.85,
-   "ev_ebitda": 12.86,
-   "rentabilidad_fcf": -8.25,
+   "precio": 116.1,
+   "capitalizacion": 351055749600.0,
+   "ev": 439315749600.0,
+   "per": 18.55,
+   "precio_ventas": 4.89,
+   "ev_ebitda": 12.94,
+   "rentabilidad_fcf": -8.18,
    "deuda_neta_ebitda": 2.6,
    "ticker": "ORCL",
    "nombre": "Oracle",
@@ -21029,13 +21029,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-28",
     "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526436133/0001193125-26-436133-index.htm",
-    "precio": 535.93,
-    "capitalizacion": 3979920446253.36,
-    "ev": 3950892446253.36,
-    "per": 27.9,
-    "precio_ventas": 11.49,
-    "ev_ebitda": 19.21,
-    "rentabilidad_fcf": 1.51,
+    "precio": 530.61,
+    "capitalizacion": 3940413091236.72,
+    "ev": 3911385091236.72,
+    "per": 27.63,
+    "precio_ventas": 11.37,
+    "ev_ebitda": 19.02,
+    "rentabilidad_fcf": 1.52,
     "deuda_neta_ebitda": -0.14
    },
    {
@@ -21065,12 +21065,12 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-30",
     "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/0001018724-26-000040-index.htm",
-    "precio": 260.21,
-    "capitalizacion": 2813686718604.26,
-    "ev": 2879412718604.26,
-    "per": 20.88,
-    "precio_ventas": 3.53,
-    "ev_ebitda": 15.67,
+    "precio": 259.3,
+    "capitalizacion": 2803846762745.8003,
+    "ev": 2869572762745.8003,
+    "per": 20.8,
+    "precio_ventas": 3.52,
+    "ev_ebitda": 15.62,
     "rentabilidad_fcf": -1.67,
     "deuda_neta_ebitda": 0.36
    },
@@ -21101,13 +21101,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-29",
     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/0001652044-26-000084-index.htm",
-    "precio": 282.57,
-    "capitalizacion": 3494825760000.0,
-    "ev": 3355845760000.0,
-    "per": 14.83,
-    "precio_ventas": 7.42,
-    "ev_ebitda": 18.14,
-    "rentabilidad_fcf": 0.57,
+    "precio": 284.78,
+    "capitalizacion": 3522159039999.9995,
+    "ev": 3383179039999.9995,
+    "per": 14.94,
+    "precio_ventas": 7.48,
+    "ev_ebitda": 18.29,
+    "rentabilidad_fcf": 0.56,
     "deuda_neta_ebitda": -0.75
    },
    {
@@ -21150,13 +21150,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-08-27",
     "url": "https://www.sec.gov/Archives/edgar/data/1108524/000110852426000190/0001108524-26-000190-index.htm",
-    "precio": 222.41,
-    "capitalizacion": 183043430000.0,
-    "ev": 210928430000.0,
-    "per": 18.94,
-    "precio_ventas": 4.17,
-    "ev_ebitda": 16.66,
-    "rentabilidad_fcf": 8.28,
+    "precio": 213.65,
+    "capitalizacion": 175833950000.0,
+    "ev": 203718950000.0,
+    "per": 18.2,
+    "precio_ventas": 4.0,
+    "ev_ebitda": 16.1,
+    "rentabilidad_fcf": 8.62,
     "deuda_neta_ebitda": 2.2
    },
    {
@@ -21186,13 +21186,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-22",
     "url": "https://www.sec.gov/Archives/edgar/data/51143/000005114326000095/0000051143-26-000095-index.htm",
-    "precio": 247.11,
-    "capitalizacion": 233548802123.55002,
-    "ev": 281119802123.55005,
-    "per": 20.91,
-    "precio_ventas": 3.34,
-    "ev_ebitda": 15.85,
-    "rentabilidad_fcf": 6.28,
+    "precio": 245,
+    "capitalizacion": 231554597225,
+    "ev": 279125597225,
+    "per": 20.73,
+    "precio_ventas": 3.31,
+    "ev_ebitda": 15.74,
+    "rentabilidad_fcf": 6.33,
     "deuda_neta_ebitda": 2.68
    }
   ]
