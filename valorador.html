@@ -592,8 +592,6 @@ table.mini2 td{padding:3px 6px;font-size:12px;border-bottom:1px solid var(--grid
 .ajh{font-size:13px;margin:14px 0 6px;font-family:var(--f-body);font-weight:700}
 .ajlist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}.ajlist li{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:8px 10px;border:1px solid var(--line);border-radius:8px}
 .ajlist small{color:var(--muted)}
-.ajadv summary{cursor:pointer;list-style:none}.ajadv summary::-webkit-details-marker{display:none}.ajadv summary h2{display:inline}.ajadv summary::before{content:"▸ ";color:var(--muted)}.ajadv[open] summary::before{content:"▾ "}
-.ajadv textarea{width:100%;margin:8px 0;font-family:var(--f-num);font-size:12px}
 .menusep{display:block;height:1px;background:var(--line);margin:4px 0}
 .mkpop{position:fixed;z-index:80;width:min(380px,calc(100vw - 24px));max-height:min(70vh,520px);overflow:auto;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:12px;box-shadow:0 12px 32px rgba(0,0,0,.18),0 2px 6px rgba(0,0,0,.08);padding:12px 14px 14px;font-size:13px;line-height:1.5}
 .mkpop p{margin:6px 0 0}.mkpop p span{font-weight:700}
@@ -1422,15 +1420,6 @@ function downloadAnalysis(c){
   if(up) setTimeout(()=>window.open(up,"_blank","noopener"),600);
 }
 function discardDraft(){ lsSet(DRAFT(cur._t),null); const t=cur._t; const c=buildCompany(cur._co,cur._base,cur._data,cur._manual); store.companies[t]=c; cur=c; renderHeader(); renderTab(); toast("Borrador descartado"); }
-/* importar el JSON del valorador antiguo (botón «Datos» → «Copiar JSON» en la versión anterior) */
-function importOld(txt){
-  const p=JSON.parse(txt); if(!p||!p.companies) throw new Error("formato");
-  let n=0; Object.values(p.companies).forEach(old=>{ const sym=(((old.meta&&old.meta.ticker)||"").split(":").pop()||"").trim().toUpperCase(); const c=store.companies[sym]; if(!c) return;
-    const a=clone(old); delete a.fin; a.fin_manual=c.fin_manual; if(a.v) DATA_V.forEach(k=>delete a.v[k]); if(a.meta) ["name","ticker","brand","ccy","updatedAt"].forEach(k=>delete a.meta[k]);
-    if(a.sources) ["dataUrl","headlines","analysts","headlinesAt","headlinesSpam","secLatest","cik"].forEach(k=>delete a.sources[k]);
-    lsSet(DRAFT(sym),JSON.stringify(a)); store.companies[sym]=buildCompany(c._co,c._base,c._data,c._manual); n++; });
-  cur=store.companies[store.current]; return n;
-}
 const REFRESH={busy:false};
 function closeModal(){ $("overlay").hidden=true; $("modal").innerHTML=""; }
 
@@ -2249,13 +2238,7 @@ function ajustesHtml(){
      ${revs?`<div class="carbtns"><button type="button" data-revreset>Borrar las marcas antiguas de este navegador</button></div>`:""}</section>
 
    <section class="card"><h2>Datos y fuentes</h2><p class="sub">Cifras de la SEC (EDGAR, XBRL), cotización y perfil de Finnhub, histórico de Twelve Data, bono a 10 años del Tesoro de EE. UU. e indicadores de mercado de FRED, OFR, Cboe y AAII. El robot actualiza cada noche laborable tras el cierre de EE. UU.</p></section>
-
-   <details class="card ajadv"><summary><h2>Avanzado</h2></summary>
-     <h3 class="ajh">Traer cambios del valorador antiguo</h3>
-     <p class="note" style="margin:0">Solo si editaste algo en la primera versión de la web: allí «Datos» → «Copiar JSON» y pégalo aquí. Se convierte en borradores de cada compañía sin tocar las cifras de la SEC.</p>
-     <textarea id="jsonBox" rows="4" aria-label="JSON del valorador antiguo" spellcheck="false"></textarea>
-     <div class="carbtns"><button type="button" data-ajimport>Importar como borradores</button></div>
-   </details>`;
+`;
 }
 function carteraHtml(){
   const {C,rows,tot}=carRows(), cost=rows.reduce((a,r)=>a+r.cost,0), pl=tot-cost, plp=cost>0?(tot/cost-1)*100:NaN;
@@ -4578,7 +4561,6 @@ document.addEventListener("click",e=>{
   if(e.target.closest("[data-ajdl]")){ const c=store.companies[($("ajCo")||{}).value]; if(c) downloadAnalysis(c); return; }
   if(e.target.closest("[data-ajcopy]")){ const c=store.companies[($("ajCo")||{}).value]; if(!c) return; const t=JSON.stringify(exportAnalysis(c),null,1);
     if(navigator.clipboard&&navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(()=>toast("JSON copiado"),()=>toast("No se pudo copiar")); else toast("Este navegador no permite copiar"); return; }
-  if(e.target.closest("[data-ajimport]")){ try{ const n=importOld($("jsonBox").value); renderHeader(); renderWatch(); toast(n?`${n} ${n===1?"compañía importada":"compañías importadas"} como borrador`:"Ninguna compañía coincide por ticker"); }catch(err){ toast("El texto no es un JSON del valorador antiguo"); } return; }
   if(e.target.closest("#btnProp")){ propModal(); return; }
   if(e.target.closest("#btnPropApply")){ propApply(); return; }
   if(e.target.closest("#btnPropAll")){ const cbs=[...$("modal").querySelectorAll("[data-pi]")]; const all=cbs.every(x=>x.checked); cbs.forEach(x=>x.checked=!all); return; }
