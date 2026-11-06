@@ -296,21 +296,29 @@ def parse_release_dates(text):
     return sorted({r["date"] for r in j.get("release_dates") or [] if r.get("date")})
 
 
+MES_ES = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"]
+
+
+def mes_es(m):
+    """'2026-09' o '2026-09-01' -> 'sep-26'."""
+    return f"{MES_ES[int(m[5:7]) - 1]}-{m[2:4]}"
+
+
 def ultimo_dato(k, fred, infl):
     try:
         if k == "ipc" and infl and infl.get("ipc"):
             x = infl["ipc"]
-            return f"{x['interanual']:.1f}% interanual ({x['mes']})".replace(".", ",")
+            return f"{x['interanual']:.1f}% interanual ({mes_es(x['mes'])})".replace(".", ",")
         if k == "pce" and infl and infl.get("pce_sub"):
             x = infl["pce_sub"]
-            return f"subyacente {x['interanual']:.1f}% ({x['mes']})".replace(".", ",")
+            return f"subyacente {x['interanual']:.1f}% ({mes_es(x['mes'])})".replace(".", ",")
         if k == "empleo":
             p, u = fred("PAYEMS"), fred("UNRATE")
             dif = round(p[-1][1] - p[-2][1])
-            return f"{'+' if dif >= 0 else '−'}{abs(dif)} mil empleos · paro {u[-1][1]:.1f}% ({p[-1][0][:7]})".replace(".", ",")
+            return f"{'+' if dif >= 0 else '−'}{abs(dif)} mil empleos · paro {u[-1][1]:.1f}% ({mes_es(p[-1][0])})".replace(".", ",")
         if k == "ipp":
             r = interanual(fred("PPIFIS"))
-            return f"{r['interanual']:.1f}% interanual ({r['mes']})".replace(".", ",") if r else None
+            return f"{r['interanual']:.1f}% interanual ({mes_es(r['mes'])})".replace(".", ",") if r else None
         if k == "pib":
             g = fred("A191RL1Q225SBEA")
             t = int(g[-1][0][5:7]) // 3 + 1

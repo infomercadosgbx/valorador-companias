@@ -165,7 +165,7 @@ def test_agenda():
     assert ids == ["empleo", "ipc", "pib", "pce"]          # ordenadas por fecha; el IPP no cuadra y se avisa
     emp = a["items"][0]
     assert emp["fecha"] == "2026-11-06" and emp["anterior"] == "2026-10-02" and emp["hora_madrid"] == "14:30"
-    assert emp["ultimo"].startswith("+120 mil empleos · paro 4,3%")
+    assert emp["ultimo"] == "+120 mil empleos · paro 4,3% (oct-26)"
     assert a["items"][1]["siguiente"] == "2026-12-10" and "interanual" in a["items"][1]["ultimo"]
     assert any("IPP" in x or "46" in x for x in av)
 

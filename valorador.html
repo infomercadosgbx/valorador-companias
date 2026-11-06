@@ -548,8 +548,8 @@ table.mini2 td{padding:3px 6px;font-size:12px;border-bottom:1px solid var(--grid
 .tp{margin-bottom:18px}
 .tp .mksent{grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),1fr))}
 .tpag{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
-.tpag li{display:grid;grid-template-columns:62px 1fr auto;gap:8px;align-items:center;padding:6px 0;border-top:1px solid var(--grid);font-size:12.5px}
-.tpag li:first-child{border-top:0}.tpagd{display:flex;flex-direction:column;font-family:var(--f-num)}.tpagd small,.tpagn small{color:var(--muted);font-size:11px}
+.tpag li{display:grid;grid-template-columns:76px 1fr auto;gap:8px;align-items:center;padding:6px 0;border-top:1px solid var(--grid);font-size:12.5px}
+.tpag li:first-child{border-top:0}.tpagd{display:flex;flex-direction:column;font-family:var(--f-num);white-space:nowrap}.tpagd small,.tpagn small{color:var(--muted);font-size:11px}
 .tpagn{display:flex;flex-direction:column;min-width:0}.tpagn a{color:var(--ink);font-weight:600;text-decoration:none}.tpagn a:hover{text-decoration:underline}
 .tplinks{display:flex;flex-wrap:wrap;gap:4px 12px}
 .tpult{border-top:1px solid var(--grid);padding-top:8px;display:flex;flex-direction:column;gap:4px}
@@ -2079,13 +2079,14 @@ function tiposHtml(){
       <div>${mi("real_10a")}${mi("esperada_10a")}${mi("esperada_5a5a")}</div>
     </div>`:"";
   const dSem=["dom","lun","mar","mié","jue","vie","sáb"];
-  const ag=[...((G&&G.items)||[]).filter(x=>x.fecha).map(x=>({...x})),...(P?[{id:"fomc",nombre:"Decisión de la Fed",fecha:P.fin,hora_madrid:P.hora_madrid,url:C.url,ultimo:U&&U.decision?"última: "+U.decision.texto.toLowerCase():""}]:[])].sort((a,b)=>a.fecha<b.fecha?-1:1).slice(0,6);
-  const cuando=d=>{ const n=Math.round((new Date(d+"T12:00:00")-new Date(hoyIso+"T12:00:00"))/864e5); return n===0?`<span class="pill mid">hoy</span>`:n===1?`<span class="pill mid">mañana</span>`:n<=7?`<span class="pill neutral">en ${n} días</span>`:""; };
+  const ag=[...((G&&G.items)||[]).filter(x=>x.fecha).map(x=>({...x})),...(P?[{id:"fomc",nombre:"Decisión de la Fed",fecha:P.fin,hora_madrid:P.hora_madrid,url:C.url,ultimo:U&&U.decision?U.decision.texto.toLowerCase()+" ("+tpDias(U.inicio,U.fin)+")":""}]:[])].sort((a,b)=>a.fecha<b.fecha?-1:1).slice(0,6);
+  const ahoraHM=new Date().toLocaleTimeString("es-ES",{timeZone:"Europe/Madrid",hour:"2-digit",minute:"2-digit",hour12:false});
+  const cuando=(d,h)=>{ const n=Math.round((new Date(d+"T12:00:00")-new Date(hoyIso+"T12:00:00"))/864e5); return n===0&&h&&ahoraHM>=h?`<span class="pill neutral">publicado hoy</span>`:n===0?`<span class="pill mid">hoy</span>`:n===1?`<span class="pill mid">mañana</span>`:n<=7?`<span class="pill neutral">en ${n} días</span>`:""; };
   const cAg=ag.length?`<div class="mkcard">
       <div class="mkh"><span class="eyebrow">Agenda macro ${mkI("agenda")}</span>${G?`<a class="mkgo" href="${esc(G.url)}" target="_blank" rel="noopener noreferrer">Calendario ↗</a>`:""}</div>
       <ul class="tpag">${ag.map(x=>{ const d=new Date(x.fecha+"T12:00:00");
         return `<li><span class="tpagd"><b>${dSem[d.getDay()]} ${d.getDate()} ${MES[d.getMonth()]}</b><small>${esc(x.hora_madrid||"")}</small></span>
-          <span class="tpagn"><a href="${esc(x.url)}" target="_blank" rel="noopener noreferrer">${esc(x.nombre)}</a>${x.ultimo?`<small>Último: ${esc(x.ultimo)}</small>`:""}</span>${cuando(x.fecha)}</li>`; }).join("")}</ul>
+          <span class="tpagn"><a href="${esc(x.url)}" target="_blank" rel="noopener noreferrer">${esc(x.nombre)}</a>${x.ultimo?`<small>Último: ${esc(x.ultimo)}</small>`:""}</span>${cuando(x.fecha,x.hora_madrid)}</li>`; }).join("")}</ul>
       <p class="note tpsm">Horas de Madrid. Fechas oficiales del BLS, el BEA y la Fed.</p>
     </div>`:"";
   const pend=(k,l)=>K&&K[k]?`<div class="tprow"><span>${l}</span><span class="tpv">${tpPb(K[k].pb)}</span>${K[k].pb<0?`<span class="pill down">invertida</span>`:`<span class="pill neutral">positiva</span>`}</div>${fin(K[k].hace_1m)?`<p class="note tpsm">Hace un mes: ${tpPb(K[k].hace_1m)}</p>`:""}`:"";
@@ -4488,7 +4489,7 @@ $("btnCopy").addEventListener("click",()=>{const t=JSON.stringify(exportAnalysis
 $("btnImport").addEventListener("click",()=>{try{const n=importOld($("jsonBox").value); renderHeader(); renderTab(); toast(n?`${n} ${n===1?"compañía importada":"compañías importadas"} como borrador`:"Ninguna compañía coincide por ticker");}
   catch(e){toast("El texto no es un JSON exportado desde el valorador antiguo");}});
 document.addEventListener("pointerdown",e=>{ if($("mkpop")&&!e.target.closest("#mkpop")&&!e.target.closest("[data-mki]")) mkPopClose(); },true);
-addEventListener("resize",()=>mkPopClose()); addEventListener("scroll",e=>{ if($("mkpop")&&!(e.target&&e.target.closest&&e.target.closest("#mkpop"))) mkPopClose(); },true);
+addEventListener("resize",()=>mkPopClose()); addEventListener("scroll",e=>{ if(innerWidth>560&&$("mkpop")&&!(e.target&&e.target.closest&&e.target.closest("#mkpop"))) mkPopClose(); },true);
 try{ matchMedia("(prefers-color-scheme: dark)").addEventListener("change",()=>{ if(MAPA.abierto&&$("mkmapBox")) mapaCargar(); }); }catch(e){}
 document.addEventListener("toggle",e=>{ const d=e.target; if(d&&d.id==="peerCards") lsSet("valorador.peercards",d.open?"1":"0"); if(d&&d.id==="warnDet") lsSet("valorador.avisosabiertos",d.open?"1":"0"); if(d&&d.id==="keyAs") lsSet("valorador.supclave",d.open?"1":"0"); if(d&&d.id==="srcKeys") lsSet("valorador.srckeys",d.open?"1":"0"); if(d&&d.id==="srcWarn") lsSet("valorador.srcwarn",d.open?"1":"0"); if(d&&d.id==="socialBox") lsSet("valorador.social",d.open?"1":"0"); if(d&&d.id==="glossary"){ lsSet("valorador.glosario",d.open?"1":"0"); const n=d.querySelector(".glsum .note"); if(n) n.textContent=n.textContent.replace(/pulsa para (plegar|desplegar)/,d.open?"pulsa para plegar":"pulsa para desplegar"); } },true);
 window.addEventListener("hashchange",()=>{const h=location.hash.slice(1); const HV={seguimiento:"lista",cartera:"cartera",inicio:"inicio",favoritas:"favoritas",ajustes:"ajustes"}; if(HV[h]){ const v=HV[h]; if(!WATCH||WVIEW!==v){ WVIEW=v; WATCH=true; renderWatch(); } return; } if(WATCH) exitWatch(); if(h&&h!==TAB) goTab(h,false);});
