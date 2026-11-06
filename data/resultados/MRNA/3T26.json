@@ -111,32 +111,13 @@
   "fecha_antes": "2026-11-05",
   "cierre_antes": 241.46,
   "fuente": "Twelve Data (API oficial, plan gratuito)",
-  "provisional": true,
-  "fuera_de_hora": {
-   "fuente": "Alpaca Markets (API oficial, plan gratuito) · SIP con 15 min de retraso",
-   "url": "https://docs.alpaca.markets/docs/historical-stock-data-1",
-   "volumen": 3218131,
-   "ultimo": {
-    "precio": 245.05,
-    "hora_utc": "2026-11-06T14:15:00Z",
-    "hora_ny": "2026-11-06 09:15",
-    "sesion": "premercado",
-    "variacion_pct": 1.49
-   }
-  },
-  "variacion_pct": 1.49,
-  "cierre_despues": 245.05,
   "fecha_despues": "2026-11-06",
-  "fuente_despues": "Alpaca Markets (API oficial, plan gratuito) · SIP con 15 min de retraso",
-  "sesion_despues": "premercado",
-  "hora_despues_ny": "2026-11-06 09:15"
+  "cierre_despues": 258.52,
+  "variacion_pct": 7.07,
+  "provisional": false
  },
  "cotizacion": {
   "serie": [
-   [
-    "2025-11-05",
-    23.56
-   ],
    [
     "2025-11-06",
     24.33
@@ -1140,14 +1121,18 @@
    [
     "2026-11-05",
     241.46
+   ],
+   [
+    "2026-11-06",
+    258.52
    ]
   ],
-  "precio": 241.46,
-  "fecha_precio": "2026-11-05",
-  "capitalizacion": 96399497757.94,
+  "precio": 258.52,
+  "fecha_precio": "2026-11-06",
+  "capitalizacion": 103210462024.28,
   "minimo_12m": 22.36,
-  "maximo_12m": 258.38,
-  "variacion_12m_pct": 924.87,
+  "maximo_12m": 258.52,
+  "variacion_12m_pct": 962.56,
   "fuente": "Twelve Data (API oficial, plan gratuito)"
  },
  "desglose": {
