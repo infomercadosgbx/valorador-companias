@@ -197,15 +197,16 @@
      "periodo": "3T21"
     },
     {
-     "valor": 40479000000,
-     "fuente": "SEC EDGAR · 10-K",
-     "url": "https://www.sec.gov/Archives/edgar/data/1341439/000156459022023675/0001564590-22-023675-index.htm",
-     "fecha_presentacion": "2022-06-21",
-     "etiqueta": "us-gaap:Revenues",
+     "valor": 11227000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1341439/000095017023028914/0000950170-23-028914-index.htm",
+     "fecha_presentacion": "2023-06-20",
+     "etiqueta": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
      "periodo_fin": "2021-05-31",
      "formulario": "10-K",
-     "accn": "0001564590-22-023675",
+     "accn": "0000950170-23-028914",
      "periodo_inicio": "2021-03-01",
+     "derivado": "Año − 1T − 2T − 3T",
      "periodo": "4T21"
     },
     {
@@ -245,15 +246,16 @@
      "periodo": "3T22"
     },
     {
-     "valor": 42440000000,
-     "fuente": "SEC EDGAR · 10-K",
-     "url": "https://www.sec.gov/Archives/edgar/data/1341439/000156459022023675/0001564590-22-023675-index.htm",
-     "fecha_presentacion": "2022-06-21",
-     "etiqueta": "us-gaap:Revenues",
+     "valor": 11839000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1341439/000095017024075605/0000950170-24-075605-index.htm",
+     "fecha_presentacion": "2024-06-20",
+     "etiqueta": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
      "periodo_fin": "2022-05-31",
      "formulario": "10-K",
-     "accn": "0001564590-22-023675",
+     "accn": "0000950170-24-075605",
      "periodo_inicio": "2022-03-01",
+     "derivado": "Año − 1T − 2T − 3T",
      "periodo": "4T22"
     },
     {
@@ -476,8 +478,7 @@
     "derivado": "2T26 + 3T26 + 4T26 + 1T27"
    },
    "etiquetas_usadas": [
-    "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
-    "us-gaap:Revenues"
+    "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax"
    ]
   },
   "beneficio_bruto": {
@@ -10153,6 +10154,20 @@
  "avisos": [
   {
    "nivel": "info",
+   "codigo": "trimestre_mal_etiquetado",
+   "mensaje": "Ingresos 4T18, 4T19, 4T20, 4T21, 4T22: la compañía etiquetó en XBRL el total del año como si fuera un trimestre («Revenues»). Se descarta y el 4T se calcula como año − 1T − 2T − 3T.",
+   "concepto": "ingresos",
+   "etiqueta": "Revenues",
+   "periodos": [
+    "4T18",
+    "4T19",
+    "4T20",
+    "4T21",
+    "4T22"
+   ]
+  },
+  {
+   "nivel": "info",
    "codigo": "etiqueta_obsoleta",
    "mensaje": "Beneficio bruto: se descarta «GrossProfit», su último dato (2018-08-31) va más de 60 días por detrás de los ingresos (2026-08-31).",
    "concepto": "beneficio_bruto",
@@ -10233,41 +10248,6 @@
    "mensaje": "Existencias: se descarta «InventoryNet» (último dato 2025-05-31, ingresos hasta 2026-08-31).",
    "concepto": "existencias",
    "etiqueta": "InventoryNet"
-  },
-  {
-   "nivel": "aviso",
-   "codigo": "salto_raro",
-   "mensaje": "Ingresos 4T21: +293% frente a 3T21. Revisa el informe.",
-   "concepto": "ingresos",
-   "periodo": "4T21"
-  },
-  {
-   "nivel": "aviso",
-   "codigo": "salto_raro",
-   "mensaje": "Ingresos 1T22: -76% frente a 4T21. Revisa el informe.",
-   "concepto": "ingresos",
-   "periodo": "1T22"
-  },
-  {
-   "nivel": "aviso",
-   "codigo": "salto_raro",
-   "mensaje": "Ingresos 4T22: +295% frente a 3T22. Revisa el informe.",
-   "concepto": "ingresos",
-   "periodo": "4T22"
-  },
-  {
-   "nivel": "aviso",
-   "codigo": "salto_raro",
-   "mensaje": "Ingresos 1T23: -73% frente a 4T22. Revisa el informe.",
-   "concepto": "ingresos",
-   "periodo": "1T23"
-  },
-  {
-   "nivel": "aviso",
-   "codigo": "trimestres_no_suman",
-   "mensaje": "Ingresos 2022: los 4 trimestres suman 73,041 M y el anual es 42,440 M.",
-   "concepto": "ingresos",
-   "periodo": "2022"
   }
  ],
  "bonos": {
@@ -12961,7 +12941,7 @@
    "compradores": [
     "RUSCKOWSKI STEPHEN H"
    ],
-   "desde": "2026-05-06"
+   "desde": "2026-05-07"
   },
   "operaciones": [
    {
@@ -15385,6 +15365,42 @@
  },
  "noticias": [
   {
+   "titular": "Meta Platforms Heads 3 Top Founder Led Stocks To Watch",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=994d1c95682d5f02b757bd6f894d5dc7a3b4e470e41197c13370619a94099685",
+   "fecha": "2026-11-06",
+   "resumen": "AI related stocks just had their roughest day since 2025, as investors questioned how much future data centre build out is already priced in. When fast money backs away from hype, attention often shifts to leaders who built their business from the ground up and still run it. This",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Oracle vs. Alphabet: Which Is the Better AI Cloud Stock to Own for the Next 5 Years?",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=64b094b945256128d78cb336b36c18fa1f4c4faf4e3f7048d3e2afbd12311540",
+   "fecha": "2026-11-06",
+   "resumen": "Both companies are in the middle of an AI spending spree, but Alphabet's prominent position in cloud computing gives it the edge.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Our Pick Of The Best Cash Flow Stocks In November 2026",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=d6e97dc81b64fb977090d63cace259aacd89c270c5ee28212980ecf528672506",
+   "fecha": "2026-11-06",
+   "resumen": "Interest rates in the UK now sit at 4% after the Bank of England’s first hike in more than three years. This puts pressure on highly valued, story driven stocks and shines a light on something quieter: cash. Investors paying closer attention to hard cash generation may find mispr",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "3 Value Stocks With Up To 38% Discount To Fair Value",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=96019fc11c42d7e881b85084b17b36dd29382235acf70e651f4a868f9eaab875",
+   "fecha": "2026-11-06",
+   "resumen": "Chip stocks recently faced heavy selling as investors questioned future data center and AI spending. When markets punish entire sectors in a rush, solid technology businesses can get marked down alongside weaker peers. That creates room for patient buyers who care about price pai",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
    "titular": "Oracle Stock Faces Its $20 Billion Raise The Morning After",
    "url": "https://financefeeds.com/oracle-stock-faces-its-20-billion-raise/",
    "fecha": "2026-11-05",
@@ -15409,6 +15425,15 @@
     "puntuacion": 0.0,
     "etiqueta": "Neutral"
    }
+  },
+  {
+   "titular": "Most Active S&P 500 Stocks: Marvell, Oracle, Ford Lead Nov. 5 Trading",
+   "medio": "ChartMill",
+   "url": "https://finnhub.io/api/news?id=ccdee529daf98cebd042cc9c18710b9bf10bf1549adde12ec054ff3e77786a1a",
+   "fecha": "2026-11-05",
+   "resumen": "Marvell, Oracle and Ford topped the most-active S&P 500 list on Nov. 5 as heavy trading hit large-cap names. See volume, price moves and performance details.",
+   "tipo": "prensa",
+   "via": "Finnhub"
   },
   {
    "titular": "Micron: When A 3.8x Forward 2028 P/E Is Too Expensive",
@@ -15474,9 +15499,36 @@
    "via": "Finnhub"
   },
   {
+   "titular": "Oracle Sinks 7%, Everpure Down 15% as Midterms Hit AI Build-Out: “Washington Is the New Worry”",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=d4c2f0f38e2a61453d3d34de292b8875ea40d9561b80a9232e679e420646a436",
+   "fecha": "2026-11-05",
+   "resumen": "Key TakeawaysOracle shares fell 7% today as Democrats’ sweep of Congress hit stocks tied to the AI build-out, Everpure included. Oracle just sold 86.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Is Oracle (ORCL) Reasonable After Its AI Cash Flow Targets?",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=7946400533be5a95997a2a900c871cc26af2133b2ce165194b68b7da80a331f4",
+   "fecha": "2026-11-05",
+   "resumen": "Oracle Corporation has been pulled sharply lower over the past year, even as management lays out an aggressive plan built around AI infrastructure and future free cash flow. That disconnect puts the focus squarely on one issue for investors who follow Oracle: whether the current ",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "$500M Mystery Seller: Who’s Dumping Data-Center Loans After AI Stock Crash?",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=93cc51fe60e1fe3cac89125362cbb7baaadb61e2f2d663ff3bbc4a5f90c925af",
+   "fecha": "2026-11-05",
+   "resumen": "A mystery seller is dumping $500M in data center loans, including Stargate debt, as AI stocks crash. Bids close Nov. 19.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
    "titular": "Quantinuum Reports Third Quarter 2026 Results and Raises Full-Year Revenue Outlook",
    "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=b5cadc7466cbb48279cabda9c5d06dc8d77a947a1ad796cf660a8d439077b609",
+   "url": "https://finnhub.io/api/news?id=b75bd37a2a7d474425024e425c797118f6f115ee8dce3771ed25990c7946a3aa",
    "fecha": "2026-11-05",
    "resumen": "Quantinuum Inc. (Nasdaq: QNT) (the \"Company\"), a leading full-stack quantum computing company, today announced financial results for the third quarter ended September 30, 2026.",
    "tipo": "prensa",
@@ -15515,78 +15567,6 @@
    "url": "https://finnhub.io/api/news?id=488ee4255ea0137029ce17d692d5507cd13371d4f5a4c96ee1dcf0750f6b4a22",
    "fecha": "2026-11-05",
    "resumen": "The wealth tax proposal in California offers a lesson about the mobility of billionaires and could push advocates to find a different, more conciliatory approach.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Oracle's $7 billion AI deal collapses over an unexpected risk",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=5da56844cb48c00b53718703a560875c00764a3ef6c98ab1cec6116eb90d55f6",
-   "fecha": "2026-11-05",
-   "resumen": "Wedbush points to political considerations after Oracle reportedly canceled a major AI chip leasing agreement.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Palantir and CrowdStrike stocks tumble as Wall Street dumps software's AI winners",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=4bcb600406981224af0fa9ec5e6f66b89cf75a7f597f42456f27274628b2eb9b",
-   "fecha": "2026-11-05",
-   "resumen": "Investors are selling the software stocks that rode the AI boom and mostly sparing the ones that have been left behind.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Big Tech's massive AI spending is causing another problem for investors",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=f104ee6466eb22828a5800437986c917fcd27a1065d1ba3e70eaa05314cba86d",
-   "fecha": "2026-11-05",
-   "resumen": "The Big Tech buyback may be on ice for now.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Snowflake Soars 32% Year to Date: Buy, Sell, or Hold the Stock?",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=dfe1476ff7da83a4f4d9ce6bfe6cc75c22ddf28b85b1a44cd7b190a47323b5ad",
-   "fecha": "2026-11-05",
-   "resumen": "SNOW stock rallies 32.5% year-to-date, driven by strong AI adoption, customer growth, and raised revenue guidance despite a premium valuation.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Digital Transformation in BFSI - Global Strategic Business Report: Secure Your Share of US$220.2 Billion by 2030 as Accenture, AWS, IBM, Microsoft, and Oracle Accelerate AI-Led Disruption",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=451c6697f2ff519b811f893dd2a41491f032a31f8b0142184b35d07309a8e52e",
-   "fecha": "2026-11-05",
-   "resumen": "Cloud, AI, APIs and automation cut costs, strengthen compliance and accelerate personalized services, while fintech partnerships unlock new revenue opportunities.Dublin, Nov. 05, 2026 (GLOBE NEWSWIRE) -- \"Digital Transformation in BFSI - Global Strategic Business Report\" has been",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Oracle Has Incredible News for Intel Stock Investors",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=8887b51c1770c2489f9bc399423eb273e06332cd1e597b7340cc25d64656dc88",
-   "fecha": "2026-11-05",
-   "resumen": "Intel's AI chip business has gained impressive momentum, and its collaboration with Oracle should help sustain this segment's impressive growth.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "AI/R Compass UOL Wins 2026 Oracle Partner Award for Latin America",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=b25e92024ed526f0d3c1df598cc99aa517c5d276fceeed044397ce0ea5bafd96",
-   "fecha": "2026-11-05",
-   "resumen": "Cloud Certification Rising Star recognition reflects the company’s growing technical expertise in Oracle CloudSAN FRANCISCO, Nov. 05, 2026 (GLOBE NEWSWIRE) -- AI/R Compass UOL, a subsidiary of AI/R—a technology company specialized in Agentic AI, has been named a winner of the 202",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Data Center Construction Starts Lag 6 Months Behind, Report Says",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=388cb3c6938661357fed982ec7513f8e653cab8b192e88b09f8d170ecf88506f",
-   "fecha": "2026-11-05",
-   "resumen": "Data center construction starts are slowing, a report from GlobalData finds. Here's why.",
    "tipo": "prensa",
    "via": "Finnhub"
   },
@@ -20987,11 +20967,11 @@
   "fecha": "2026-11-05",
   "ajuste": "splits"
  },
- "generado": "2026-11-05T23:54:05+00:00",
+ "generado": "2026-11-06T09:16:50+00:00",
  "peers": {
   "fuente_lista": "manual",
   "fuente_cifras": "SEC EDGAR (companyfacts, UDM) · precio Finnhub",
-  "actualizado": "2026-11-05",
+  "actualizado": "2026-11-06",
   "propia": {
    "ingresos": 71776000000,
    "crecimiento": 21.62,
