@@ -546,7 +546,11 @@ table.mini2 td{padding:3px 6px;font-size:12px;border-bottom:1px solid var(--grid
 @media (max-width:640px){.mkfrow{grid-template-columns:1fr}}
 .mkform{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:10px 0}.mkform label{display:flex;flex-direction:column;gap:4px;font-size:12px;font-weight:600;color:var(--ink2)}
 .tp{margin-bottom:18px}
-.tp .mksent{grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),1fr))}
+.tpcols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;align-items:start;margin-top:14px}
+.tpcol{display:flex;flex-direction:column;gap:12px;min-width:0}.tpcol>div:empty{display:none}
+@media (max-width:1100px){.tpcols{grid-template-columns:repeat(2,minmax(0,1fr))}.tpcol:nth-child(3){grid-column:1/-1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}}
+@media (max-width:720px){.tpcols{display:flex;flex-direction:column}.tpcol,.tpcol:nth-child(3){display:contents}
+  .tpcols .o1{order:1}.tpcols .o2{order:2}.tpcols .o3{order:3}.tpcols .o4{order:4}.tpcols .o5{order:5}.tpcols .o6{order:6}.tpcols .o7{order:7}.tpcols .o8{order:8}}
 .tpag{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
 .tpag li{display:grid;grid-template-columns:76px 1fr auto;gap:8px;align-items:center;padding:6px 0;border-top:1px solid var(--grid);font-size:12.5px}
 .tpag li:first-child{border-top:0}.tpagd{display:flex;flex-direction:column;font-family:var(--f-num);white-space:nowrap}.tpagd small,.tpagn small{color:var(--muted);font-size:11px}
@@ -1944,7 +1948,7 @@ function mkEditHtml(){ const m=MKH.man, v=(k,f="valor")=>m[k]&&m[k][f]!=null?esc
       ${fila("naaim","NAAIM","Semanal. Fecha: el miércoles de la encuesta (la web gratuita va 13 semanas por detrás).",inp("mk_naaim",v("naaim"),"p. ej. 72,4","Exposición (de −200 a 200)"),mkDue("naaim").disp)}
       ${fila("cnn","Miedo y codicia de CNN","Diario. Fecha: el día que lo consultas.",inp("mk_cnn",v("cnn"),"0–100","Valor (0–100)"),mkDue("cnn").disp)}
       ${fila("move","MOVE","Diario, con un día de retraso en Investing. Fecha: la de la sesión del dato (normalmente, el día de sesión anterior).",inp("mk_move",v("move"),"p. ej. 93,9","Valor"),mkDue("move").disp)}
-      ${fila("fedwatch","CME FedWatch","Probabilidades para la próxima reunión de la Fed. Fecha: el día que lo consultas.",inp("mk_fw_m",v("fedwatch","mantener"),"p. ej. 70","Mantener %")+inp("mk_fw_b",v("fedwatch","bajar"),"p. ej. 25","Bajar %")+inp("mk_fw_s",v("fedwatch","subir"),"p. ej. 5","Subir %"),hoy)}
+      ${fila("fedwatch","CME FedWatch","Probabilidades para la próxima reunión de la Fed. Fecha: el día que lo consultas.",inp("mk_fw_m",v("fedwatch","mantener"),"p. ej. 70","Mantener %")+inp("mk_fw_b",v("fedwatch","bajar"),"p. ej. 25","Bajar %")+inp("mk_fw_s",v("fedwatch","subir"),"p. ej. 5","Subir %"),(d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`)(new Date()))}
       ${fila("aaii","Encuesta AAII","Semanal (sale los jueves). Fecha: la de «week ending», un miércoles.",inp("mk_aaii_b",v("aaii","alcistas"),"p. ej. 34,1","Alcistas %")+inp("mk_aaii_r",v("aaii","bajistas"),"p. ej. 48,4","Bajistas %"),mkDue("aaii").disp)}
     </div>
     <p class="note">Las neutrales de la AAII se calculan solas (100 − alcistas − bajistas). El formato de la fecha depende del idioma del navegador: en inglés se ve mes/día/año.</p>
@@ -2096,7 +2100,11 @@ function tiposHtml(){
     </div>`:"";
   return `<section class="card mk tp">
     <div class="mktop"><div><h2>Tipos de interés e inflación · EE. UU.</h2><p class="sub">Tipos de la Fed y su calendario, lo que esperan el mercado y la propia Fed, inflación y los datos que vienen.</p></div></div>
-    <div class="mksent">${cFed}${cFomc}${cExp}${cAg}${cInfl}${cReal}${cPuntos}${cCurva}</div>
+    <div class="tpcols">
+      <div class="tpcol"><div class="o1">${cFed}</div><div class="o2">${cFomc}</div><div class="o7">${cPuntos}</div></div>
+      <div class="tpcol"><div class="o3">${cExp}</div><div class="o6">${cReal}</div><div class="o8">${cCurva}</div></div>
+      <div class="tpcol"><div class="o5">${cInfl}</div><div class="o4">${cAg}</div></div>
+    </div>
   </section>`;
 }
 function favoritasHtml(){
