@@ -545,6 +545,15 @@ table.mini2 td{padding:3px 6px;font-size:12px;border-bottom:1px solid var(--grid
 .mkfv{display:flex;gap:10px}.mkfv label,.mkff{display:flex;flex-direction:column;gap:3px;flex:1;font-size:11.5px;font-weight:600;color:var(--ink2)}
 @media (max-width:640px){.mkfrow{grid-template-columns:1fr}}
 .mkform{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:10px 0}.mkform label{display:flex;flex-direction:column;gap:4px;font-size:12px;font-weight:600;color:var(--ink2)}
+.mkmap{margin-bottom:18px;padding-top:14px;padding-bottom:14px}
+.mkmaph{all:unset;box-sizing:border-box;display:flex;align-items:baseline;gap:10px;width:100%;cursor:pointer;font-size:15px;color:var(--ink)}
+.mkmaph .note{font-size:12.5px}.mkmaph:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:6px}
+.mkchev{display:inline-block;transition:transform .15s;color:var(--muted)}.mkmaph[aria-expanded="true"] .mkchev{transform:rotate(90deg)}
+.mkmapbar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin:12px 0 10px}
+.mkmapbox{position:relative;height:clamp(420px,62vh,680px);border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--surface2)}
+.mkmapload{position:absolute;inset:auto 0 0 0;margin:0;padding:10px 12px;text-align:center}
+.mkmapsrc{margin:8px 0 0;font-size:11.5px}
+@media (max-width:640px){.mkmapbox{height:460px}.mkmaph .note{display:block}}
 .mki{all:unset;box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;border-radius:50%;border:1px solid var(--muted);color:var(--muted);font:italic 700 10.5px/1 Georgia,serif;cursor:pointer;vertical-align:1px;margin-left:5px;text-transform:none;letter-spacing:0;flex:none}
 .mki:hover,.mki:focus-visible,.mki[aria-expanded="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
 .mknt{display:block}.mknt .mki{vertical-align:2px}
@@ -1678,13 +1687,51 @@ function inicioHtml(){
   const W=watchRows(), favs=W.filter(r=>r.fav), below=W.filter(r=>fin(r.toBuy)&&r.toBuy<=0), soon=W.filter(r=>fin(r.eDays)&&r.eDays>=0&&r.eDays<=14).sort((a,b)=>a.eDays-b.eDays);
   const {rows,tot}=carRows(), cost=rows.reduce((a,r)=>a+r.cost,0);
   const tile=(k,ic,t,d,stat)=>`<button type="button" class="htile" data-home="${k}"><span class="hic">${ic}</span><span class="ht">${t}</span><span class="hd">${d}</span>${stat?`<span class="hs">${stat}</span>`:""}</button>`;
-  return homeHead("Menú principal","Elige qué quieres ver. Para volver a una compañía, ábrela desde el selector de arriba o desde cualquier lista.")+mercadoHtml()+`
-   <div class="htiles">
+  return homeHead("Menú principal","Elige qué quieres ver. Para volver a una compañía, ábrela desde el selector de arriba o desde cualquier lista.")+`<div id="mkWrap">${mercadoHtml()}</div>`+mapaHtml()+`
+   <div class="htiles" id="inicioTiles">
     ${tile("favoritas","★","Favoritas","Tus compañías marcadas, a un clic.",favs.length?`${favs.length} favorita${favs.length>1?"s":""}: ${favs.map(r=>esc(r.name)).join(", ")}`:"Aún no tienes favoritas")}
     ${tile("lista","📋","Lista de seguimiento","Precio, valor de tu modelo, puntuación y lo que toca vigilar de todas las compañías.",`${W.length} compañías · ${below.length} en zona de compra${soon.length?` · resultados: ${soon.slice(0,2).map(r=>`${esc(r.name)} ${esc(fecha(r.eDate))}`).join(", ")}`:""}`)}
     ${tile("cartera","💼","Cartera","Tus posiciones con el precio actual y tu valoración.",rows.length?`${nf(tot,0)} $ · ${tot>=cost?"+":"−"}${nf(Math.abs(cost>0?(tot/cost-1)*100:0),1)}% · ${rows.length} posiciones`:"Sin posiciones todavía")}
     ${tile("ajustes","⚙","Ajustes","Tema, favoritas, guardado en GitHub, copia de la cartera y avisos revisados.","")}
    </div>`;
+}
+/* ================= MAPA DEL MERCADO (widget oficial de TradingView) =================
+   Contenido de un tercero, solo se muestra: no entra en /data ni se mezcla con las cifras oficiales.
+   Plegado por defecto y cargado al abrirlo; la web recuerda si lo dejaste abierto y qué índice. */
+const MAPA_FUENTES=[["SPX500","S&P 500"],["NASDAQ100","Nasdaq 100"],["DJDJI","Dow Jones"],["AllUSA","Todo EE. UU."]];
+const MAPA={abierto:lsGet("valorador.mapa.abierto")==="1",fuente:lsGet("valorador.mapa.fuente")||"SPX500",tema:null};
+if(!MAPA_FUENTES.some(f=>f[0]===MAPA.fuente)) MAPA.fuente="SPX500";
+function mapaOscuro(){ const t=document.documentElement.getAttribute("data-theme"); return t?t==="dark":!!(window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches); }
+function mapaHtml(){
+  return `<section class="card mkmap" id="mkmap">
+    <button type="button" class="mkmaph" data-mapa="toggle" aria-expanded="${MAPA.abierto}" aria-controls="mkmapBody"><span class="mkchev" aria-hidden="true">▸</span><span><b>Mapa del mercado</b><span class="note"> Sectores y compañías por capitalización, en color la variación del día</span></span></button>
+    <div id="mkmapBody"${MAPA.abierto?"":" hidden"}>
+      <div class="mkmapbar"><div class="seg" role="group" aria-label="Índice del mapa">${MAPA_FUENTES.map(([k,l])=>`<button type="button" data-mapafuente="${k}" aria-pressed="${MAPA.fuente===k}">${l}</button>`).join("")}</div>
+        <a class="mkgo" href="https://finviz.com/map?t=sec_all" target="_blank" rel="noopener noreferrer">Ver en Finviz ↗</a></div>
+      <div class="mkmapbox" id="mkmapBox"></div>
+      <p class="note mkmapsrc">Mapa de <a href="https://www.tradingview.com/" target="_blank" rel="noopener noreferrer">TradingView</a> (widget gratuito, no son datos oficiales; puede ir con unos minutos de retraso). Tamaño: capitalización. Color: variación del día. Pasa el ratón por encima para ver cada compañía y usa la rueda para acercar.</p>
+    </div>
+  </section>`;
+}
+function mapaCargar(forzar){
+  const box=$("mkmapBox"); if(!box) return;
+  const tema=mapaOscuro()?"dark":"light";
+  if(!forzar&&box.dataset.fuente===MAPA.fuente&&box.dataset.tema===tema&&box.firstChild) return;
+  box.dataset.fuente=MAPA.fuente; box.dataset.tema=tema;
+  box.innerHTML=`<div class="tradingview-widget-container" style="height:100%;width:100%"><div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div></div><p class="note mkmapload">Cargando el mapa…</p>`;
+  const sc=document.createElement("script");
+  sc.src="https://s3.tradingview.com/external-embedding/embed-widget-stock-heatmap.js"; sc.async=true;
+  sc.textContent=JSON.stringify({exchanges:[],dataSource:MAPA.fuente,grouping:"sector",blockSize:"market_cap_basic",blockColor:"change",
+    locale:"es",symbolUrl:"",colorTheme:tema,hasTopBar:false,isDataSetEnabled:false,isZoomEnabled:true,hasSymbolTooltip:true,
+    isMonoSize:false,width:"100%",height:"100%"});
+  sc.onerror=()=>{ box.innerHTML=`<p class="note mkmapload">No se ha podido cargar el mapa de TradingView (bloqueador de anuncios o sin conexión). <a class="mkgo" href="https://finviz.com/map?t=sec_all" target="_blank" rel="noopener noreferrer">Abrir el de Finviz ↗</a></p>`; };
+  box.querySelector(".tradingview-widget-container").appendChild(sc);
+  setTimeout(()=>{ const l=box.querySelector(".mkmapload"); if(l&&box.querySelector("iframe")) l.remove(); },6000);
+}
+function mapaToggle(){
+  MAPA.abierto=!MAPA.abierto; lsSet("valorador.mapa.abierto",MAPA.abierto?"1":"0");
+  const b=$("mkmapBody"), h=document.querySelector("[data-mapa=toggle]"); if(!b) return;
+  b.hidden=!MAPA.abierto; if(h) h.setAttribute("aria-expanded",MAPA.abierto); if(MAPA.abierto) mapaCargar();
 }
 /* ================= MERCADO HOY (menú principal) =================
    data/_mercado_hoy.json lo escribe cada día el Action «Mercado hoy» (FRED, Tesoro, Finnhub, Twelve Data,
@@ -2038,7 +2085,12 @@ function renderWatch(){
   killCharts(); document.body.classList.add("watch"); $("btnHome").setAttribute("aria-pressed","true");
   const m=$("main"); m.style.setProperty("--tc","var(--tcx)");
   if(WVIEW==="cartera"){ m.innerHTML=carteraHtml(); requestAnimationFrame(()=>{ setDefaults(); drawCartera(); }); return; }
-  if(WVIEW==="inicio"){ m.innerHTML=inicioHtml(); return; }
+  if(WVIEW==="inicio"){
+    /* Si ya estamos en Inicio, se repintan solo «Mercado hoy» y las tarjetas: así el mapa de TradingView
+       no se recarga cada minuto con el precio en vivo. */
+    const w=$("mkWrap"), t=$("inicioTiles");
+    if(w&&t&&$("mkmap")&&m.contains(w)){ w.innerHTML=mercadoHtml(); const tmp=document.createElement("div"); tmp.innerHTML=inicioHtml(); const nt=tmp.querySelector("#inicioTiles"); if(nt) t.innerHTML=nt.innerHTML; return; }
+    m.innerHTML=inicioHtml(); if(MAPA.abierto) mapaCargar(); return; }
   if(WVIEW==="favoritas"){ m.innerHTML=favoritasHtml(); return; }
   if(WVIEW==="ajustes"){ m.innerHTML=ajustesHtml(); return; }
   m.innerHTML=watchHtml();
@@ -4199,6 +4251,9 @@ document.addEventListener("change",e=>{const t=e.target; const p=t.dataset&&t.da
   if(t.type==="number"||t.type==="range"||t.type==="text") {rebuildCharts(); renderHeader(); if(TAB==="verdict") drawLevels();}
 });
 document.addEventListener("click",e=>{
+  if(e.target.closest("[data-mapa=toggle]")){ mapaToggle(); return; }
+  const mf=e.target.closest("[data-mapafuente]"); if(mf){ MAPA.fuente=mf.dataset.mapafuente; lsSet("valorador.mapa.fuente",MAPA.fuente);
+    document.querySelectorAll("[data-mapafuente]").forEach(b=>b.setAttribute("aria-pressed",b===mf)); mapaCargar(); return; }
   const mki=e.target.closest("[data-mki]"); if(mki){ MKH.info=MKH.info===mki.dataset.mki?null:mki.dataset.mki; renderWatch(); return; }
   const mkb=e.target.closest("[data-mk]"); if(mkb){ const a=mkb.dataset.mk;
     if(a==="editar"||a==="cerrar"){ MKH.editar=a==="editar"&&!MKH.editar; renderWatch(); } else if(a==="guardar") mkGuardar(); return; }
@@ -4290,6 +4345,7 @@ $("btnCopy").addEventListener("click",()=>{const t=JSON.stringify(exportAnalysis
   if(navigator.clipboard&&navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(()=>toast("JSON copiado"),()=>toast("No se pudo copiar")); else toast("Este navegador no permite copiar");});
 $("btnImport").addEventListener("click",()=>{try{const n=importOld($("jsonBox").value); renderHeader(); renderTab(); toast(n?`${n} ${n===1?"compañía importada":"compañías importadas"} como borrador`:"Ninguna compañía coincide por ticker");}
   catch(e){toast("El texto no es un JSON exportado desde el valorador antiguo");}});
+try{ matchMedia("(prefers-color-scheme: dark)").addEventListener("change",()=>{ if(MAPA.abierto&&$("mkmapBox")) mapaCargar(); }); }catch(e){}
 document.addEventListener("toggle",e=>{ const d=e.target; if(d&&d.id==="peerCards") lsSet("valorador.peercards",d.open?"1":"0"); if(d&&d.id==="warnDet") lsSet("valorador.avisosabiertos",d.open?"1":"0"); if(d&&d.id==="keyAs") lsSet("valorador.supclave",d.open?"1":"0"); if(d&&d.id==="srcKeys") lsSet("valorador.srckeys",d.open?"1":"0"); if(d&&d.id==="srcWarn") lsSet("valorador.srcwarn",d.open?"1":"0"); if(d&&d.id==="socialBox") lsSet("valorador.social",d.open?"1":"0"); if(d&&d.id==="glossary"){ lsSet("valorador.glosario",d.open?"1":"0"); const n=d.querySelector(".glsum .note"); if(n) n.textContent=n.textContent.replace(/pulsa para (plegar|desplegar)/,d.open?"pulsa para plegar":"pulsa para desplegar"); } },true);
 window.addEventListener("hashchange",()=>{const h=location.hash.slice(1); const HV={seguimiento:"lista",cartera:"cartera",inicio:"inicio",favoritas:"favoritas",ajustes:"ajustes"}; if(HV[h]){ const v=HV[h]; if(!WATCH||WVIEW!==v){ WVIEW=v; WATCH=true; renderWatch(); } return; } if(WATCH) exitWatch(); if(h&&h!==TAB) goTab(h,false);});
 try{const mq=matchMedia("(prefers-color-scheme: dark)"); mq.addEventListener("change",()=>rebuildCharts());}catch(e){}
