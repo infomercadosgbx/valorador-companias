@@ -545,6 +545,13 @@ table.mini2 td{padding:3px 6px;font-size:12px;border-bottom:1px solid var(--grid
 .mkfv{display:flex;gap:10px}.mkfv label,.mkff{display:flex;flex-direction:column;gap:3px;flex:1;font-size:11.5px;font-weight:600;color:var(--ink2)}
 @media (max-width:640px){.mkfrow{grid-template-columns:1fr}}
 .mkform{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:10px 0}.mkform label{display:flex;flex-direction:column;gap:4px;font-size:12px;font-weight:600;color:var(--ink2)}
+.tp{margin-bottom:18px}
+.tplinks{display:flex;flex-wrap:wrap;gap:4px 12px}
+.tpult{border-top:1px solid var(--grid);padding-top:8px;display:flex;flex-direction:column;gap:4px}
+.tpsub{border-top:1px solid var(--grid);padding-top:8px;display:flex;flex-direction:column;gap:2px}
+.tprow{display:grid;grid-template-columns:1fr auto auto;gap:8px;align-items:center;font-size:12.5px;padding:3px 0;color:var(--ink)}
+.tprow .tpv{font-family:var(--f-num);font-weight:700;text-align:right}.tprow .tpv small{font-weight:500;color:var(--muted);margin-left:4px}
+.tprow .note{font-size:11.5px;text-align:right}.tpsm{margin:-2px 0 4px!important;font-size:11.5px!important}
 .mkmap{margin-bottom:18px;padding-top:14px;padding-bottom:14px}
 .mkmaph{all:unset;box-sizing:border-box;display:flex;align-items:baseline;gap:10px;width:100%;cursor:pointer;font-size:15px;color:var(--ink)}
 .mkmaph .note{font-size:12.5px}.mkmaph:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:6px}
@@ -1687,7 +1694,7 @@ function inicioHtml(){
   const W=watchRows(), favs=W.filter(r=>r.fav), below=W.filter(r=>fin(r.toBuy)&&r.toBuy<=0), soon=W.filter(r=>fin(r.eDays)&&r.eDays>=0&&r.eDays<=14).sort((a,b)=>a.eDays-b.eDays);
   const {rows,tot}=carRows(), cost=rows.reduce((a,r)=>a+r.cost,0);
   const tile=(k,ic,t,d,stat)=>`<button type="button" class="htile" data-home="${k}"><span class="hic">${ic}</span><span class="ht">${t}</span><span class="hd">${d}</span>${stat?`<span class="hs">${stat}</span>`:""}</button>`;
-  return homeHead("Menú principal","Elige qué quieres ver. Para volver a una compañía, ábrela desde el selector de arriba o desde cualquier lista.")+`<div id="mkWrap">${mercadoHtml()}</div>`+mapaHtml()+`
+  return homeHead("Menú principal","Elige qué quieres ver. Para volver a una compañía, ábrela desde el selector de arriba o desde cualquier lista.")+`<div id="mkWrap">${mercadoHtml()}</div>`+mapaHtml()+`<div id="tipWrap">${tiposHtml()}</div>`+`
    <div class="htiles" id="inicioTiles">
     ${tile("favoritas","★","Favoritas","Tus compañías marcadas, a un clic.",favs.length?`${favs.length} favorita${favs.length>1?"s":""}: ${favs.map(r=>esc(r.name)).join(", ")}`:"Aún no tienes favoritas")}
     ${tile("lista","📋","Lista de seguimiento","Precio, valor de tu modelo, puntuación y lo que toca vigilar de todas las compañías.",`${W.length} compañías · ${below.length} en zona de compra${soon.length?` · resultados: ${soon.slice(0,2).map(r=>`${esc(r.name)} ${esc(fecha(r.eDate))}`).join(", ")}`:""}`)}
@@ -1916,6 +1923,7 @@ function mkEditHtml(){ const m=MKH.man, v=(k,f="valor")=>m[k]&&m[k][f]!=null?esc
       ${fila("naaim","NAAIM","Semanal. Fecha: el miércoles de la encuesta (la web gratuita va 13 semanas por detrás).",inp("mk_naaim",v("naaim"),"p. ej. 72,4","Exposición (de −200 a 200)"),mkDue("naaim").disp)}
       ${fila("cnn","Miedo y codicia de CNN","Diario. Fecha: el día que lo consultas.",inp("mk_cnn",v("cnn"),"0–100","Valor (0–100)"),mkDue("cnn").disp)}
       ${fila("move","MOVE","Diario, con un día de retraso en Investing. Fecha: la de la sesión del dato (normalmente, el día de sesión anterior).",inp("mk_move",v("move"),"p. ej. 93,9","Valor"),mkDue("move").disp)}
+      ${fila("fedwatch","CME FedWatch","Probabilidades para la próxima reunión de la Fed. Fecha: el día que lo consultas.",inp("mk_fw_m",v("fedwatch","mantener"),"p. ej. 70","Mantener %")+inp("mk_fw_b",v("fedwatch","bajar"),"p. ej. 25","Bajar %")+inp("mk_fw_s",v("fedwatch","subir"),"p. ej. 5","Subir %"),hoy)}
       ${fila("aaii","Encuesta AAII","Semanal (sale los jueves). Fecha: la de «week ending», un miércoles.",inp("mk_aaii_b",v("aaii","alcistas"),"p. ej. 34,1","Alcistas %")+inp("mk_aaii_r",v("aaii","bajistas"),"p. ej. 48,4","Bajistas %"),mkDue("aaii").disp)}
     </div>
     <p class="note">Las neutrales de la AAII se calculan solas (100 − alcistas − bajistas). El formato de la fecha depende del idioma del navegador: en inglés se ve mes/día/año.</p>
@@ -1925,7 +1933,12 @@ async function mkGuardar(){
   const R=ghRepo(), msg=$("mkMsg"); if(!R) return;
   const num=id=>{ const s=($(id).value||"").trim().replace(",","."); return s===""?null:+s; }, f=id=>$(id).value||null;
   const nuevo={naaim:{valor:num("mk_naaim"),fecha:f("mk_naaim_f")},cnn:{valor:num("mk_cnn"),fecha:f("mk_cnn_f")},move:{valor:num("mk_move"),fecha:f("mk_move_f")},
-    aaii:{alcistas:num("mk_aaii_b"),bajistas:num("mk_aaii_r"),fecha:f("mk_aaii_f")}};
+    aaii:{alcistas:num("mk_aaii_b"),bajistas:num("mk_aaii_r"),fecha:f("mk_aaii_f")},
+    fedwatch:{mantener:num("mk_fw_m"),bajar:num("mk_fw_b"),subir:num("mk_fw_s"),fecha:f("mk_fedwatch_f"),
+      reunion:(((MKH.d||{}).tipos||{}).calendario||{proximas:[]}).proximas.map(r=>r.fin)[0]||null}};
+  { const w=nuevo.fedwatch, t=[w.mantener,w.bajar,w.subir].filter(fin).reduce((a,b)=>a+b,0);
+    if(t>101){ msg.textContent="Las probabilidades de FedWatch suman más de 100%."; return; }
+    if(!t){ w.fecha=null; w.reunion=null; } }
   if(fin(nuevo.aaii.alcistas)&&fin(nuevo.aaii.bajistas)) nuevo.aaii.neutrales=+(100-nuevo.aaii.alcistas-nuevo.aaii.bajistas).toFixed(1);
   for(const k of ["naaim","cnn","move"]) if(nuevo[k].valor==null) nuevo[k].fecha=null;
   if(fin(nuevo.cnn.valor)&&(nuevo.cnn.valor<0||nuevo.cnn.valor>100)){ msg.textContent="El índice de CNN va de 0 a 100."; return; }
@@ -1955,6 +1968,82 @@ function mercadoHtml(){
     ${MKH.editar?mkEditHtml():""}
     ${D?mkSentHtml():""}
     ${grupos?`<div class="mkgrid">${grupos}</div>`:""}
+  </section>`;
+}
+/* ================= TIPOS DE INTERÉS (Reserva Federal) =================
+   Datos en data/_mercado_hoy.json → «tipos» (FRED, Tesoro y calendario oficial del FOMC).
+   Las probabilidades de CME FedWatch se apuntan a mano (manual/_mercado.json → mercado_hoy.fedwatch). */
+Object.assign(MKINFO,{
+  fed:{t:"Tipos oficiales de la Reserva Federal",q:"El rango objetivo de los fondos federales es el tipo al que se prestan los bancos de EE. UU. a un día y lo fija el Comité de Mercado Abierto (FOMC) en sus ocho reuniones al año. El tipo efectivo es la media a la que se cierran realmente esas operaciones y siempre cae dentro del rango.",
+    l:"Es la base de todos los demás tipos: letras, hipotecas, crédito a empresas y la tasa de descuento con la que se valoran las acciones. Subidas: dinero más caro, frenan la inflación y presionan las valoraciones. Bajadas: lo contrario.",u:"Los cambios suelen ser de 25 pb (0,25 puntos). 50 pb o más indica urgencia."},
+  fomc:{t:"Reuniones del FOMC",q:"El comité de la Fed se reúne ocho veces al año, dos días seguidos. El segundo día a las 14:00 de Nueva York publica el comunicado con la decisión y media hora después el presidente da una rueda de prensa. Las actas salen tres semanas más tarde.",
+    l:"En cuatro de las ocho (marzo, junio, septiembre y diciembre) publica además las proyecciones económicas y el diagrama de puntos, por eso suelen mover más el mercado. Lo que más pesa no es la decisión (normalmente ya descontada) sino el tono del comunicado y de la rueda de prensa sobre las siguientes reuniones.",u:""},
+  fedwatch:{t:"CME FedWatch",q:"Herramienta de CME Group que traduce los precios de los futuros sobre los fondos federales en probabilidades de cada decisión en la próxima reunión.",
+    l:"Es la referencia que usan los medios cuando dicen «el mercado da un 80% a una bajada». Cambia a diario con los datos de inflación y empleo y con lo que dicen los miembros de la Fed. Cuando la Fed decide algo con menos del 60% de probabilidad, suele haber sorpresa y movimiento fuerte.",u:"Se apunta a mano: CME no tiene una API gratuita."},
+  expectativas:{t:"Lo que descuentan las letras del Tesoro",q:"Compara la rentabilidad de las letras y bonos del Tesoro a 3 y 6 meses, 1 y 2 años con el tipo efectivo de la Fed. Si las letras rinden menos que el tipo actual, el mercado espera bajadas en ese plazo; si rinden más, subidas.",
+    l:"Es una aproximación gratuita y oficial a lo que da FedWatch, y muestra el camino a más largo plazo. No es exacta: las letras incluyen una pequeña prima y les afecta la oferta del Tesoro, así que diferencias de menos de 15 pb se leen como «sin cambios».",u:"−25 pb ≈ una bajada descontada en ese plazo · +25 pb ≈ una subida."},
+  puntos:{t:"Diagrama de puntos de la Fed",q:"Cada miembro del FOMC pone un punto donde cree que deberían estar los tipos a final de cada año. Aquí se muestra la mediana. Se publica en las reuniones de marzo, junio, septiembre y diciembre.",
+    l:"Es el plan de la propia Fed, no una promesa. Compáralo con lo que descuenta el mercado: si el mercado espera más bajadas que la Fed, cualquier dato de inflación alto puede provocar correcciones. El «largo plazo» es el tipo neutral, el que ni frena ni estimula la economía.",u:""},
+  curva:{t:"Pendiente de la curva de tipos",q:"Diferencia entre la rentabilidad del bono a 10 años y la de los plazos cortos (2 años y 3 meses), en puntos básicos.",
+    l:"Normalmente es positiva: prestar a más plazo exige más rentabilidad. Cuando se invierte (negativa), el mercado espera bajadas de tipos por una economía más débil; ha precedido a casi todas las recesiones de EE. UU. desde los años setenta, con un margen de 6 a 24 meses. La señal de peligro suele llegar cuando vuelve a positiva tras una inversión larga.",u:"10a−3m es la que sigue la Fed de Nueva York para su modelo de probabilidad de recesión."},
+});
+MKLINK.fedwatch=["CME FedWatch","https://www.cmegroup.com/markets/interest-rates/cme-fedwatch-tool.html"];
+const MES3=["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"];
+function tpDias(ini,fin){ const a=new Date(ini+"T12:00:00"), b=new Date(fin+"T12:00:00");
+  return a.getMonth()===b.getMonth()?`${a.getDate()}–${b.getDate()} ${MES3[b.getMonth()]}`:`${a.getDate()} ${MES3[a.getMonth()]}–${b.getDate()} ${MES3[b.getMonth()]}`; }
+function tpPct(v,d=2){ return fin(v)?nf(v,d)+"%":"–"; }
+function tpPb(v){ return fin(v)?`${v>0?"+":v<0?"−":""}${nf(Math.abs(v),0)} pb`:"–"; }
+function tpLect(l){ return l==="bajadas"?`<span class="pill up">bajadas</span>`:l==="subidas"?`<span class="pill down">subidas</span>`:l?`<span class="pill neutral">sin cambios</span>`:""; }
+function tpEnlaces(r,prox){ const hoy=new Date().toISOString().slice(0,10), L=[];
+  if(!prox||r.fin<=hoy) L.push(`<a class="mkgo" href="${esc(r.comunicado)}" target="_blank" rel="noopener noreferrer">Comunicado ↗</a>`,`<a class="mkgo" href="${esc(r.rueda_prensa)}" target="_blank" rel="noopener noreferrer">Rueda de prensa ↗</a>`);
+  if(r.diagrama&&(!prox||r.fin<=hoy)) L.push(`<a class="mkgo" href="${esc(r.diagrama)}" target="_blank" rel="noopener noreferrer">Proyecciones ↗</a>`);
+  if(!prox) L.push(r.actas?`<a class="mkgo" href="${esc(r.actas)}" target="_blank" rel="noopener noreferrer">Actas ↗</a>`:`<span class="note">Actas el ${esc(fecha(r.actas_fecha))}</span>`);
+  return L.join(""); }
+function tiposHtml(){
+  const T=MKH.d&&MKH.d.tipos; if(!MKH.cargado) return "";
+  if(!T||!T.calendario) return `<section class="card mk tp"><h2>Tipos de interés · Reserva Federal</h2><p class="note">Sin datos todavía: se rellenan en la próxima ejecución del Action «Mercado hoy».</p></section>`;
+  const F=T.fed, C=T.calendario, P=(C.proximas||[])[0], U=C.ultima, D=T.diagrama, M=T.mercado, K=T.pendiente;
+  const fw=MKH.man.fedwatch||{}, fwOk=fin(fw.mantener)||fin(fw.bajar)||fin(fw.subir), fwVieja=fwOk&&P&&fw.reunion&&fw.reunion!==P.fin;
+  const hoyIso=new Date().toISOString().slice(0,10), dias=P?Math.round((new Date(P.fin+"T12:00:00")-new Date(hoyIso+"T12:00:00"))/864e5):null;
+  const cFed=F?`<div class="mkcard">
+      <div class="mkh"><span class="eyebrow">Tipos oficiales de la Fed ${mkI("fed")}</span>${F.desactualizado?`<span class="src warn">sin actualizar</span>`:srcTag({fuente:"Fed vía FRED",fecha:F.fecha,url:F.url})}</div>${mkInfoPanel("fed")}
+      <div class="mkbig"><b>${nf(F.inferior,2)}–${nf(F.superior,2)}%</b></div>
+      ${U&&U.decision?`<div><span class="pill ${U.decision.pb>0?"down":U.decision.pb<0?"up":"neutral"}">${esc(U.decision.texto)}</span> <span class="note">en la reunión del ${esc(tpDias(U.inicio,U.fin))}</span></div>`:""}
+      <div class="mkprev">${F.efectivo?`<span><small>tipo efectivo</small> ${tpPct(F.efectivo.valor)}</span>`:""}${F.ultimo_cambio?`<span><small>último cambio</small> ${tpPb(F.ultimo_cambio.pb)} · ${esc(fecha(F.ultimo_cambio.fecha))}</span>`:""}</div>
+    </div>`:"";
+  const cFomc=P?`<div class="mkcard">
+      <div class="mkh"><span class="eyebrow">Próxima reunión de la Fed ${mkI("fomc")}</span><a class="mkgo" href="${esc(C.url)}" target="_blank" rel="noopener noreferrer">Calendario ↗</a></div>${mkInfoPanel("fomc")}
+      <div class="mkbig"><b>${esc(tpDias(P.inicio,P.fin))}</b><span class="pill ${dias<=7?"mid":"neutral"}">${dias===0?"hoy":dias===1?"mañana":"en "+dias+" días"}</span></div>
+      <p class="note">Decisión el ${esc(fecha(P.fin))} a las <b>${esc(P.hora_madrid)}</b> (hora de Madrid)${P.proyecciones?" · con proyecciones y diagrama de puntos":""}.</p>
+      ${dias===0?`<div class="tplinks">${tpEnlaces(P,true)}</div>`:""}
+      ${U?`<div class="tpult"><span class="note">Última: ${esc(tpDias(U.inicio,U.fin))}${U.decision?" · "+esc(U.decision.texto.toLowerCase()):""}</span><div class="tplinks">${tpEnlaces(U,false)}</div></div>`:""}
+      ${(C.proximas||[]).length>1?`<p class="note">Siguientes: ${C.proximas.slice(1).map(r=>esc(tpDias(r.inicio,r.fin))+(r.proyecciones?"*":"")).join(" · ")} <span title="Con proyecciones y diagrama de puntos">(* con diagrama)</span></p>`:""}
+    </div>`:"";
+  const fwBar=fwOk?`<div class="mkbar3" role="img" aria-label="Mantener ${tpPct(fw.mantener,1)}, bajar ${tpPct(fw.bajar,1)}, subir ${tpPct(fw.subir,1)}"><span class="n" style="width:${+fw.mantener||0}%"></span><span class="b" style="width:${+fw.bajar||0}%"></span><span class="r" style="width:${+fw.subir||0}%"></span></div>
+      <div class="mk3"><span><i class="n"></i>Mantener <b>${tpPct(fw.mantener,1)}</b></span><span><i class="b"></i>Bajar <b>${tpPct(fw.bajar,1)}</b></span><span><i class="r"></i>Subir <b>${tpPct(fw.subir,1)}</b></span></div>`:"";
+  const cExp=`<div class="mkcard">
+      <div class="mkh"><span class="eyebrow">¿Qué espera el mercado? ${mkI("fedwatch")}</span>${fwOk?srcTag({manual:true,fecha:fecha(fw.fecha),fuente:"CME FedWatch · introducido a mano"}):`<span class="src off">manual</span>`}</div>${mkInfoPanel("fedwatch")}
+      ${fwOk?`<p class="note" style="margin:0">Probabilidades para la reunión del ${esc(P?tpDias(P.inicio,P.fin):"")}${fwVieja?` <span class="src warn">son de otra reunión: actualízalas</span>`:""}</p>${fwBar}`:`<p class="note">Apunta las probabilidades de FedWatch con «✎ Apuntar valores» (arriba, en Mercado hoy).</p>`}
+      ${mkA("fedwatch","Consultar CME FedWatch")}
+      ${M?`<div class="tpsub"><span class="eyebrow">Letras del Tesoro frente al tipo efectivo ${mkI("expectativas")}</span>${mkInfoPanel("expectativas")}
+        ${M.plazos.map(p=>`<div class="tprow"><span>${esc(p.plazo)}</span><span class="tpv">${tpPct(p.valor)} <small>${tpPb(p.dif_pb)}</small></span>${tpLect(p.lectura)}</div>`).join("")}
+        ${srcTag({fuente:M.fuente,fecha:M.plazos[0].fecha,url:M.url})}</div>`:""}
+    </div>`;
+  const cPuntos=D?`<div class="mkcard">
+      <div class="mkh"><span class="eyebrow">Lo que prevé la Fed ${mkI("puntos")}</span>${srcTag({fuente:"FOMC vía FRED",fecha:D.reunion,url:D.url})}</div>${mkInfoPanel("puntos")}
+      <p class="note" style="margin:0">Mediana del diagrama de puntos${D.reunion?` (reunión del ${esc(fecha(D.reunion))})`:""}: tipo a final de cada año.</p>
+      ${D.anios.map(a=>{ const dif=F?(a.mediana-(F.inferior+F.superior)/2)*100:NaN, n=fin(dif)?Math.round(dif/25):0;
+        return `<div class="tprow"><span>Final de ${a.anio}</span><span class="tpv">${tpPct(a.mediana,2)}</span>${fin(dif)?`<span class="note">${n===0?"como ahora":`${Math.abs(n)} ${n<0?"bajada":"subida"}${Math.abs(n)>1?"s":""} de 25 pb`}</span>`:""}</div>`; }).join("")}
+      ${fin(D.largo_plazo)?`<div class="tprow"><span>Largo plazo (neutral)</span><span class="tpv">${tpPct(D.largo_plazo,2)}</span><span></span></div>`:""}
+    </div>`:"";
+  const pend=(k,l)=>K&&K[k]?`<div class="tprow"><span>${l}</span><span class="tpv">${tpPb(K[k].pb)}</span>${K[k].pb<0?`<span class="pill down">invertida</span>`:`<span class="pill neutral">positiva</span>`}</div>${fin(K[k].hace_1m)?`<p class="note tpsm">Hace un mes: ${tpPb(K[k].hace_1m)}</p>`:""}`:"";
+  const cCurva=K?`<div class="mkcard">
+      <div class="mkh"><span class="eyebrow">Pendiente de la curva ${mkI("curva")}</span>${srcTag({fuente:K.fuente,fecha:(K["10a_2a"]||K["10a_3m"]).fecha,url:K.url})}</div>${mkInfoPanel("curva")}
+      ${pend("10a_2a","10 años − 2 años")}${pend("10a_3m","10 años − 3 meses")}
+    </div>`:"";
+  return `<section class="card mk tp">
+    <div class="mktop"><div><h2>Tipos de interés · Reserva Federal</h2><p class="sub">Tipos oficiales, calendario de reuniones y lo que esperan el mercado y la propia Fed.</p></div></div>
+    <div class="mksent">${cFed}${cFomc}${cExp}${cPuntos}${cCurva}</div>
   </section>`;
 }
 function favoritasHtml(){
@@ -2089,7 +2178,7 @@ function renderWatch(){
     /* Si ya estamos en Inicio, se repintan solo «Mercado hoy» y las tarjetas: así el mapa de TradingView
        no se recarga cada minuto con el precio en vivo. */
     const w=$("mkWrap"), t=$("inicioTiles");
-    if(w&&t&&$("mkmap")&&m.contains(w)){ w.innerHTML=mercadoHtml(); const tmp=document.createElement("div"); tmp.innerHTML=inicioHtml(); const nt=tmp.querySelector("#inicioTiles"); if(nt) t.innerHTML=nt.innerHTML; return; }
+    if(w&&t&&$("mkmap")&&m.contains(w)){ w.innerHTML=mercadoHtml(); if($("tipWrap")) $("tipWrap").innerHTML=tiposHtml(); const tmp=document.createElement("div"); tmp.innerHTML=inicioHtml(); const nt=tmp.querySelector("#inicioTiles"); if(nt) t.innerHTML=nt.innerHTML; return; }
     m.innerHTML=inicioHtml(); if(MAPA.abierto) mapaCargar(); return; }
   if(WVIEW==="favoritas"){ m.innerHTML=favoritasHtml(); return; }
   if(WVIEW==="ajustes"){ m.innerHTML=ajustesHtml(); return; }

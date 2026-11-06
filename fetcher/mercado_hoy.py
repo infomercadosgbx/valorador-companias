@@ -374,13 +374,20 @@ class Fuentes:
             raise RuntimeError(self.fred_caido) from None
 
     def tesoro(self, col):
+        """Una columna de la curva diaria del Tesoro; el CSV de cada año se descarga una sola vez."""
+        cache = self.__dict__.setdefault("_tesoro", {})
         pts = []
         for y in (self.hoy.year - 1, self.hoy.year):
-            try:
-                pts += parse_treasury(self.http(TREASURY_CSV.format(y=y)), col)
-            except RuntimeError:
+            if y not in cache:
+                try:
+                    cache[y] = self.http(TREASURY_CSV.format(y=y))
+                except RuntimeError as e:
+                    cache[y] = e
+            if isinstance(cache[y], Exception):
                 if y == self.hoy.year and not pts:
-                    raise
+                    raise cache[y]
+                continue
+            pts += parse_treasury(cache[y], col)
         return sorted(set(pts))
 
     def finnhub(self, sym):
@@ -534,11 +541,20 @@ def build(f: Fuentes, old=None):
     except (RuntimeError, ValueError) as e:
         avisos.append(f"Miedo y codicia: no se ha podido calcular ({e}).")
 
+    # tipos de interés: la Reserva Federal
+    from . import tipos as T
+    try:
+        tip = T.build(f, fred, avisos, old.get("tipos"))
+    except Exception as e:          # un fallo aquí nunca debe tumbar el resto del mercado
+        avisos.append(f"Tipos de interés: error inesperado ({e}).")
+        tip = old.get("tipos") or {}
+
     return {"esquema": 1,
             "generado": datetime.now(timezone.utc).isoformat(timespec="seconds"),
             "grupos": GRUPOS,
             "indicadores": ind,
             "sentimiento": sent,
+            "tipos": tip,
             "avisos": avisos,
             "_series": {"put_call": pc}}
 

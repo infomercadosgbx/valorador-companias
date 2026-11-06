@@ -180,6 +180,8 @@ El S&P 500 y el Nasdaq se muestran con sus ETF (SPY y QQQ) porque FRED publica l
 
 **Valores manuales.** El dato actual de la NAAIM es de pago (la web pública lo da con tres meses de retraso), CNN no tiene API y el MOVE es de ICE. Se apuntan con el botón **✎ Apuntar valores** de la franja (guarda en `manual/_mercado.json` si tienes GitHub conectado en ⚙ Ajustes) o editando ese archivo. Si un día no se puede leer la AAII, también se apunta ahí y la web usa el dato más reciente.
 
+**Tipos de interés · Reserva Federal.** Debajo del mapa: rango oficial de la Fed y tipo efectivo (FRED), qué decidió en la última reunión y cuándo es la siguiente (calendario oficial del FOMC en `fetcher/tipos.py`, con la hora de la decisión en Madrid y enlaces al comunicado, la rueda de prensa, las proyecciones y las actas), lo que descuentan las letras del Tesoro a 3 y 6 meses, 1 y 2 años frente al tipo efectivo, la mediana del diagrama de puntos de la Fed (FRED) y la pendiente de la curva (10a−2a y 10a−3m). Las probabilidades de CME FedWatch no tienen fuente gratuita: se apuntan con «✎ Apuntar valores». Cuando la Fed publique el calendario de 2028, hay que añadirlo a la lista `FOMC` (la web avisa cuando quedan menos de dos reuniones).
+
 **Mapa del mercado.** Debajo de «Mercado hoy» hay un mapa de calor plegado (S&P 500, Nasdaq 100, Dow Jones o todo EE. UU., por sectores). Es el widget gratuito oficial de TradingView: solo se muestra, no entra en `/data` ni se mezcla con las cifras oficiales, y se carga únicamente al abrirlo. Finviz no permite incrustar su mapa, así que queda como enlace. Si un bloqueador de anuncios impide cargarlo, la web lo indica y ofrece el enlace a Finviz.
 
 ### Puesta en marcha (2 minutos)
