@@ -578,7 +578,7 @@ function errTxt(st,j){ return st===401?"GitHub no acepta el token (caducado o ma
 /* ================= botón «Actualizar resultados» ================= */
 async function runUpdate(){
   const msg=$("msg"), R=ghRepo(), wf=`${repoUrl()}/actions/workflows/actualizar-datos.yml`;
-  if(!ghToken()){ msg.innerHTML=`Para lanzarlo desde aquí, guarda tu token en <a href="valorador.html">el valorador</a> (Más → Mi análisis y guardado) con el permiso <b>Actions: Read and write</b> además de Contents. Mientras tanto: abre <a href="${wf}" target="_blank" rel="noopener">el workflow «Actualizar datos»</a> → <b>Run workflow</b> y escribe <b>${esc(CO.ticker)}</b> en «Tickers».`; return; }
+  if(!ghToken()){ msg.innerHTML=`Para lanzarlo desde aquí, guarda tu token en <a href="valorador.html#ajustes">el valorador</a> (⋯ → Ajustes → Tu análisis y guardado en GitHub) con el permiso <b>Actions: Read and write</b> además de Contents. Mientras tanto: abre <a href="${wf}" target="_blank" rel="noopener">el workflow «Actualizar datos»</a> → <b>Run workflow</b> y escribe <b>${esc(CO.ticker)}</b> en «Tickers».`; return; }
   $("btnRun").disabled=true; msg.textContent=`Lanzando la actualización de ${CO.ticker}…`;
   const since=new Date(Date.now()-60e3).toISOString();
   const r=await gh(`/repos/${R.o}/${R.r}/actions/workflows/actualizar-datos.yml/dispatches`,{method:"POST",body:JSON.stringify({ref:"main",inputs:{tickers:CO.ticker}})});

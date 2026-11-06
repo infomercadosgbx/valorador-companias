@@ -584,6 +584,17 @@ table.mini2 td{padding:3px 6px;font-size:12px;border-bottom:1px solid var(--grid
 .mkmapload{position:absolute;inset:auto 0 0 0;margin:0;padding:10px 12px;text-align:center}
 .mkmapsrc{margin:8px 0 0;font-size:11.5px}
 @media (max-width:640px){.mkmapbox{height:460px}.mkmaph .note{display:block}}
+.ajexp{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(230px,100%),1fr));gap:10px;margin:4px 0 12px}
+.ajexp>div{background:var(--surface2);border:1px solid var(--line);border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;gap:3px}
+.ajexp .note{font-size:12.5px}
+.ajrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.ajst{font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:999px}.ajst.ok{background:color-mix(in srgb,var(--good) 16%,var(--surface));color:var(--goodText)}.ajst.no{background:var(--surface2);color:var(--ink2);border:1px solid var(--line)}
+.ajh{font-size:13px;margin:14px 0 6px;font-family:var(--f-body);font-weight:700}
+.ajlist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}.ajlist li{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:8px 10px;border:1px solid var(--line);border-radius:8px}
+.ajlist small{color:var(--muted)}
+.ajadv summary{cursor:pointer;list-style:none}.ajadv summary::-webkit-details-marker{display:none}.ajadv summary h2{display:inline}.ajadv summary::before{content:"▸ ";color:var(--muted)}.ajadv[open] summary::before{content:"▾ "}
+.ajadv textarea{width:100%;margin:8px 0;font-family:var(--f-num);font-size:12px}
+.menusep{display:block;height:1px;background:var(--line);margin:4px 0}
 .mkpop{position:fixed;z-index:80;width:min(380px,calc(100vw - 24px));max-height:min(70vh,520px);overflow:auto;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:12px;box-shadow:0 12px 32px rgba(0,0,0,.18),0 2px 6px rgba(0,0,0,.08);padding:12px 14px 14px;font-size:13px;line-height:1.5}
 .mkpop p{margin:6px 0 0}.mkpop p span{font-weight:700}
 .mkpoph{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}.mkpoph b{font-size:14px}
@@ -970,7 +981,8 @@ h1,h2,h3{font-family:var(--f-display);letter-spacing:-.01em}
           <button type="button" role="menuitem" id="btnEdit" aria-pressed="false">✎ Editar</button>
           <button type="button" role="menuitem" id="btnReport">⎙ Informe PDF</button>
           <button type="button" role="menuitem" id="btnResults">▤ Informe de resultados</button>
-          <button type="button" role="menuitem" id="btnData" aria-expanded="false">⚙ Mi análisis y guardado</button>
+          <span class="menusep" role="separator"></span>
+          <button type="button" role="menuitem" id="btnAjustes" data-home="ajustes">⚙ Ajustes</button>
         </div></div>
     </div>
   </div>
@@ -999,17 +1011,6 @@ h1,h2,h3{font-family:var(--f-display);letter-spacing:-.01em}
   <div class="draft" id="draftBar" hidden></div>
   <div class="stale" id="staleBox" hidden></div>
   <div id="warnBox" hidden></div>
-  <div class="datapanel" id="dataPanel" hidden>
-    <div class="eyebrow">Tu análisis</div>
-    <p class="note" style="margin:0">Las cifras financieras y la cotización llegan solas cada noche y no se editan. Tus textos y supuestos viven en <code>analysis/&lt;TICKER&gt;.json</code> del repositorio. Lo que cambies con «Editar» se guarda como borrador en este navegador hasta que lo guardes en GitHub: con un clic si conectas la web (abajo) o descargando el archivo y subiéndolo a la carpeta <code>analysis/</code>.</p>
-    <div class="toolbar"><button type="button" id="btnDl2">Descargar el análisis de esta compañía</button><button type="button" id="btnCopy">Copiar JSON</button><span class="saved" id="savedMsg"></span></div>
-    <div class="eyebrow" style="margin-top:6px">Guardar directamente en GitHub</div>
-    <div id="ghBox"></div>
-    <div class="eyebrow" style="margin-top:6px">Traer cambios del valorador antiguo</div>
-    <p class="note" style="margin:0">Si editaste algo en la versión anterior: allí pulsa «Datos» → «Copiar JSON» y pégalo aquí. Se convierte en borradores de cada compañía sin tocar las cifras de la SEC.</p>
-    <textarea id="jsonBox" rows="4" aria-label="JSON del valorador antiguo" spellcheck="false"></textarea>
-    <div class="toolbar"><button type="button" id="btnImport">Importar como borradores</button></div>
-  </div>
   <nav class="tabs" id="tabs" role="tablist" aria-label="Secciones del análisis"></nav>
   <div class="rp-bar" id="rpBar"><span><b>Vista de informe</b> · elige «Guardar como PDF» como impresora</span><span style="display:flex;gap:8px"><button type="button" id="btnPrint">Imprimir / Guardar PDF</button><button type="button" class="ghost" id="btnReportExit">Volver</button></span></div>
   <main id="main"></main>
@@ -1715,7 +1716,7 @@ function carRows(){
   rows.forEach(r=>{ r.peso=tot>0&&fin(r.val)?r.val/tot*100:NaN; });
   return {C,rows,tot};
 }
-const HOMEV=[["inicio","Inicio","⌂"],["favoritas","Favoritas","★"],["lista","Lista de seguimiento","📋"],["cartera","Cartera","💼"],["ajustes","Ajustes","⚙"]];
+const HOMEV=[["inicio","Inicio","⌂"],["favoritas","Favoritas","★"],["lista","Lista de seguimiento","📋"],["cartera","Cartera","💼"]];
 function homeNav(){ return `<div class="homenav" role="tablist">${HOMEV.map(([k,l,i])=>`<button type="button" role="tab" data-home="${k}" aria-selected="${WVIEW===k}">${i} ${l}</button>`).join("")}</div>`; }
 function homeHead(t,p){ return `<div class="tabhead"><div><div class="eyebrow">Valorador</div><h2>${t}</h2>${p?`<p>${p}</p>`:""}</div></div>${homeNav()}`; }
 function inicioHtml(){
@@ -1727,7 +1728,6 @@ function inicioHtml(){
     ${tile("favoritas","★","Favoritas","Tus compañías marcadas, a un clic.",favs.length?`${favs.length} favorita${favs.length>1?"s":""}: ${favs.map(r=>esc(r.name)).join(", ")}`:"Aún no tienes favoritas")}
     ${tile("lista","📋","Lista de seguimiento","Precio, valor de tu modelo, puntuación y lo que toca vigilar de todas las compañías.",`${W.length} compañías · ${below.length} en zona de compra${soon.length?` · resultados: ${soon.slice(0,2).map(r=>`${esc(r.name)} ${esc(fecha(r.eDate))}`).join(", ")}`:""}`)}
     ${tile("cartera","💼","Cartera","Tus posiciones con el precio actual y tu valoración.",rows.length?`${nf(tot,0)} $ · ${tot>=cost?"+":"−"}${nf(Math.abs(cost>0?(tot/cost-1)*100:0),1)}% · ${rows.length} posiciones`:"Sin posiciones todavía")}
-    ${tile("ajustes","⚙","Ajustes","Tema, favoritas, guardado en GitHub, copia de la cartera y avisos revisados.","")}
    </div>`;
 }
 /* ================= MAPA DEL MERCADO (widget oficial de TradingView) =================
@@ -2212,20 +2212,50 @@ function favoritasHtml(){
    <section class="card"><h2>Todas las compañías</h2><div class="fgrid">${W.filter(r=>!r.fav).map(card).join("")||'<p class="note">Todas son favoritas.</p>'}</div></section>`;
 }
 function ajustesHtml(){
-  const t=lsGet("valorador.tema")||"auto", tok=!!lsGet("valorador.ghtoken");
+  const t=lsGet("valorador.tema")||"auto", tok=ghToken(), R=ghRepo();
   const revs=(()=>{ let n=0; try{ for(let i=0;i<localStorage.length;i++){ if((localStorage.key(i)||"").startsWith("valorador.avisorev.")) n++; } }catch(e){} return n; })();
-  const C=carLoad();
-  return homeHead("Ajustes","Preferencias de esta web. Todo se guarda en este navegador salvo lo que guardes en GitHub.")+`
-   <section class="card"><h2>Tema</h2><p class="sub">Automático sigue el modo claro u oscuro de tu dispositivo.</p>
+  const C=carLoad(), cos=Object.entries(store.companies).sort((a,b)=>a[1].meta.name.localeCompare(b[1].meta.name));
+  const borr=cos.filter(([k,c])=>c._draft);
+  const sel=(cur&&cur._t)||(cos[0]&&cos[0][0]);
+  return homeHead("Ajustes","Preferencias de esta web y cómo se guarda tu análisis.")+`
+   <section class="card"><h2>Apariencia</h2><p class="sub">Automático sigue el modo claro u oscuro de tu dispositivo.</p>
      <div class="seg" role="group" aria-label="Tema" style="align-self:flex-start">${THEMES.map(([k,l])=>`<button type="button" data-themeset="${k}" aria-pressed="${t===k}">${l.charAt(0).toUpperCase()+l.slice(1)}</button>`).join("")}</div></section>
+
+   <section class="card" id="ajGh"><h2>Tu análisis y guardado en GitHub</h2>
+     <div class="ajexp">
+       <div><b>Cifras automáticas</b><span class="note">Resultados de la SEC, cotización y mercado. Las trae el robot cada noche y no se editan.</span></div>
+       <div><b>Tu análisis</b><span class="note">Tus supuestos del DCF, puntuación, tesis, riesgos, veredicto… Uno por compañía, en <code>analysis/&lt;TICKER&gt;.json</code> del repositorio.</span></div>
+       <div><b>Cómo se cambia</b><span class="note">Con «⋯ → ✎ Editar» dentro de una compañía. Los cambios quedan como <b>borrador en este navegador</b> hasta que pulses «Guardar en GitHub» en la franja amarilla. Hasta entonces no los ves en otro dispositivo.</span></div>
+     </div>
+     <div class="ajrow"><span class="ajst ${tok?"ok":"no"}">${tok?"Conectado":"Sin conectar"}</span><span class="note">${tok?`Este navegador puede guardar en <b>${esc(R?R.o+"/"+R.r:"")}</b>.`:"Sin conexión, los cambios se guardan solo aquí; puedes descargarlos y subirlos a mano."}</span></div>
+     <div id="ghBox">${ghBoxHtml()}</div>
+     <h3 class="ajh">Borradores sin guardar</h3>
+     ${borr.length?`<ul class="ajlist">${borr.map(([k,c])=>`<li><span><b>${esc(c.meta.name)}</b> <small>${esc(k)}</small></span><button type="button" data-wopen="${esc(k)}">Abrir y guardar</button></li>`).join("")}</ul>`:`<p class="note" style="margin:0">Ninguno: todo tu análisis está guardado en GitHub.</p>`}
+   </section>
+
+   <section class="card"><h2>Copias de seguridad</h2>
+     <p class="sub">Para guardar una copia en tu ordenador o pasarla a otro dispositivo.</p>
+     <h3 class="ajh">Análisis de una compañía</h3>
+     <div class="carbtns"><select id="ajCo" aria-label="Compañía">${cos.map(([k,c])=>`<option value="${esc(k)}"${k===sel?" selected":""}>${esc(c.meta.name)} (${esc(k)})</option>`).join("")}</select>
+       <button type="button" data-ajdl>⬇ Descargar .json</button><button type="button" data-ajcopy>Copiar JSON</button></div>
+     <h3 class="ajh">Cartera</h3>
+     <p class="note" style="margin:0 0 6px">${C.posiciones.length} posiciones guardadas solo en este navegador.</p>
+     <div class="carbtns"><button type="button" data-cexp>⬇ Exportar cartera</button><label class="btnlike">⬆ Importar cartera<input type="file" accept="application/json,.json" id="carImp" hidden></label></div>
+   </section>
+
    <section class="card"><h2>Favoritas</h2><p class="sub">Tienes ${watchRows().filter(r=>r.fav).length} favoritas.</p><div class="carbtns"><button type="button" data-home="favoritas">★ Gestionar favoritas</button></div></section>
-   <section class="card"><h2>Guardar tu análisis en GitHub</h2><p class="sub">${tok?"Conexión configurada en este navegador: puedes guardar desde «Más → Mi análisis y guardado».":"Sin configurar en este navegador: los cambios que hagas con «Editar» se quedan como borrador local."}</p>
-     <div class="carbtns"><button type="button" data-gosetup>⚙ ${tok?"Revisar la conexión":"Configurar la conexión"}</button></div></section>
-   <section class="card"><h2>Copia de la cartera</h2><p class="sub">${C.posiciones.length} posiciones guardadas en este navegador. Exporta el archivo para llevarla a otro dispositivo.</p>
-     <div class="carbtns"><button type="button" data-cexp>⬇ Exportar cartera</button><label class="btnlike">⬆ Importar cartera<input type="file" accept="application/json,.json" id="carImp" hidden></label></div></section>
-   <section class="card"><h2>Avisos aprobados</h2><p class="sub">Los avisos y notas técnicas que apruebas se guardan en el análisis de cada compañía y se ven en Fuentes → Cifras clave y calidad del dato, donde puedes devolverlos a la cabecera. ${revs?`Además quedan ${revs} marca${revs>1?"s":""} antigua${revs>1?"s":""} de «revisado» en este navegador.`:""}</p>
+
+   <section class="card"><h2>Avisos aprobados</h2><p class="sub">Los avisos y notas técnicas que apruebas se guardan en el análisis de cada compañía y se ven en Fuentes → Cifras clave y calidad del dato, donde puedes devolverlos a la cabecera.${revs?` Además hay ${revs} marcas antiguas guardadas solo en este navegador.`:""}</p>
      ${revs?`<div class="carbtns"><button type="button" data-revreset>Borrar las marcas antiguas de este navegador</button></div>`:""}</section>
-   <section class="card"><h2>Datos</h2><p class="sub">Cifras de la SEC (EDGAR, XBRL), cotización y perfil de Finnhub, histórico de Twelve Data y bono a 10 años del Tesoro de EE. UU. El robot actualiza cada noche laborable tras el cierre de EE. UU.</p></section>`;
+
+   <section class="card"><h2>Datos y fuentes</h2><p class="sub">Cifras de la SEC (EDGAR, XBRL), cotización y perfil de Finnhub, histórico de Twelve Data, bono a 10 años del Tesoro de EE. UU. e indicadores de mercado de FRED, OFR, Cboe y AAII. El robot actualiza cada noche laborable tras el cierre de EE. UU.</p></section>
+
+   <details class="card ajadv"><summary><h2>Avanzado</h2></summary>
+     <h3 class="ajh">Traer cambios del valorador antiguo</h3>
+     <p class="note" style="margin:0">Solo si editaste algo en la primera versión de la web: allí «Datos» → «Copiar JSON» y pégalo aquí. Se convierte en borradores de cada compañía sin tocar las cifras de la SEC.</p>
+     <textarea id="jsonBox" rows="4" aria-label="JSON del valorador antiguo" spellcheck="false"></textarea>
+     <div class="carbtns"><button type="button" data-ajimport>Importar como borradores</button></div>
+   </details>`;
 }
 function carteraHtml(){
   const {C,rows,tot}=carRows(), cost=rows.reduce((a,r)=>a+r.cost,0), pl=tot-cost, plp=cost>0?(tot/cost-1)*100:NaN;
@@ -4515,10 +4545,11 @@ document.addEventListener("click",e=>{
   const sn=e.target.closest("[data-sens]"); if(sn){SENSMODE=sn.dataset.sens; lsSet("valorador.sens",SENSMODE); renderValOut(); return;}
   const px=e.target.closest("[data-peerx]"); if(px){PEERX=px.dataset.peerx; lsSet("valorador.peerx",PEERX); if(TAB==="valuation") renderValOut(); else renderTab(); return;}
   const hm=e.target.closest("[data-home]"); if(hm){ const v=hm.dataset.home; if(v==="salir"){ exitWatch(); renderTab(); try{history.replaceState(null,"","#"+TAB);}catch(_){} return; }
+    { const mm=$("moreMenu"); if(mm&&!mm.hidden){ mm.hidden=true; $("btnMore").setAttribute("aria-expanded","false"); } }
     WVIEW=v; WATCH=true; CEDIT=null; renderWatch(); try{history.replaceState(null,"","#"+(v==="lista"?"seguimiento":v));}catch(_){} window.scrollTo(0,0); return; }
   const ts=e.target.closest("[data-themeset]"); if(ts){ lsSet("valorador.tema",ts.dataset.themeset); applyTheme(ts.dataset.themeset); renderWatch(); return; }
   const ft=e.target.closest("[data-favt]"); if(ft){ const c=store.companies[ft.dataset.favt]; if(c){ c.meta.fav=!c.meta.fav; saveFavs(); renderHeader(); renderWatch(); } return; }
-  if(e.target.closest("[data-gosetup]")){ exitWatch(); renderTab(); try{history.replaceState(null,"","#"+TAB);}catch(_){} const pnl=$("dataPanel"); if(pnl){ pnl.hidden=false; $("btnData").setAttribute("aria-expanded","true"); renderGhBox(); setTimeout(()=>pnl.scrollIntoView({behavior:"smooth",block:"start"}),50); } return; }
+  if(e.target.closest("[data-gosetup]")){ const g=$("ajGh"); if(g){ g.scrollIntoView({behavior:"smooth",block:"start"}); setTimeout(()=>{const i=$("ghTok"); if(i) i.focus();},300); } return; }
   if(e.target.closest("[data-revreset]")){ try{ const ks=[]; for(let i=0;i<localStorage.length;i++){ const k=localStorage.key(i)||""; if(k.startsWith("valorador.avisorev.")) ks.push(k); } ks.forEach(k=>localStorage.removeItem(k)); }catch(_){} renderHeader(); renderWatch(); return; }
   const ce=e.target.closest("[data-cedit]"); if(ce){ CEDIT=+ce.dataset.cedit; renderWatch(); setTimeout(()=>{ const f=$("carEdit"); if(f) f.scrollIntoView({behavior:"smooth",block:"center"}); },50); return; }
   const cd=e.target.closest("[data-cdel]"); if(cd){ const C=carLoad(), p=C.posiciones[+cd.dataset.cdel]; if(p&&confirmLite(`¿Eliminar la posición en ${p.t}?`)){ C.posiciones.splice(+cd.dataset.cdel,1); carSave(C); CEDIT=null; renderWatch(); } return; }
@@ -4544,11 +4575,15 @@ document.addEventListener("click",e=>{
   const fm=e.target.closest("[data-fmode]"); if(fm){FINMODE=fm.dataset.fmode; lsSet("valorador.finmode",FINMODE); renderTab(); return;}
   if(e.target.closest("#btnDl")){downloadAnalysis(cur);return;}
   if(e.target.closest("#btnGhSave")){ ghSave(); return; }
+  if(e.target.closest("[data-ajdl]")){ const c=store.companies[($("ajCo")||{}).value]; if(c) downloadAnalysis(c); return; }
+  if(e.target.closest("[data-ajcopy]")){ const c=store.companies[($("ajCo")||{}).value]; if(!c) return; const t=JSON.stringify(exportAnalysis(c),null,1);
+    if(navigator.clipboard&&navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(()=>toast("JSON copiado"),()=>toast("No se pudo copiar")); else toast("Este navegador no permite copiar"); return; }
+  if(e.target.closest("[data-ajimport]")){ try{ const n=importOld($("jsonBox").value); renderHeader(); renderWatch(); toast(n?`${n} ${n===1?"compañía importada":"compañías importadas"} como borrador`:"Ninguna compañía coincide por ticker"); }catch(err){ toast("El texto no es un JSON del valorador antiguo"); } return; }
   if(e.target.closest("#btnProp")){ propModal(); return; }
   if(e.target.closest("#btnPropApply")){ propApply(); return; }
   if(e.target.closest("#btnPropAll")){ const cbs=[...$("modal").querySelectorAll("[data-pi]")]; const all=cbs.every(x=>x.checked); cbs.forEach(x=>x.checked=!all); return; }
   if(e.target.closest("#btnPropDrop")){ propDrop(); return; }
-  if(e.target.closest("#btnGhSetup")){ const pnl=$("dataPanel"); if(pnl){ pnl.hidden=false; $("btnData").setAttribute("aria-expanded","true"); renderGhBox(); pnl.scrollIntoView({behavior:"smooth",block:"start"}); setTimeout(()=>{const i=$("ghTok"); if(i) i.focus();},300);} return; }
+  if(e.target.closest("#btnGhSetup")){ WVIEW="ajustes"; WATCH=true; renderWatch(); try{history.replaceState(null,"","#ajustes");}catch(_){} setTimeout(()=>{ const g=$("ajGh"); if(g) g.scrollIntoView({behavior:"smooth",block:"start"}); const i=$("ghTok"); if(i) i.focus({preventScroll:true}); },80); return; }
   if(e.target.closest("#btnGhSaveTok")){ const v=($("ghTok").value||"").trim(); if(!/^(github_pat_|ghp_)/.test(v)){ $("ghMsg").textContent="El token debe empezar por github_pat_"; return; } lsSet("valorador.ghtoken",v); renderGhBox(); ghTest().then(()=>renderDraft()); return; }
   if(e.target.closest("#btnGhTest")){ ghTest(); return; }
   if(e.target.closest("#btnGhForget")){ lsSet("valorador.ghtoken",null); renderGhBox(); renderDraft(); toast("Token olvidado en este navegador"); return; }
@@ -4586,12 +4621,6 @@ $("btnMore").addEventListener("click",ev=>{ ev.stopPropagation(); const m=$("mor
   if(!m.hidden){ const r=$("btnMore").getBoundingClientRect(); const w=m.offsetWidth||230; m.style.top=(r.bottom+6)+"px"; m.style.left=Math.max(8,Math.min(r.right-w,window.innerWidth-w-8))+"px"; } $("btnMore").setAttribute("aria-expanded",!m.hidden); });
 document.addEventListener("click",ev=>{ const m=$("moreMenu"); if(m&&!m.hidden&&(!ev.target.closest(".menuwrap,#moreMenu")||ev.target.closest(".menu button"))){ m.hidden=true; $("btnMore").setAttribute("aria-expanded","false"); } });
 document.addEventListener("keydown",ev=>{ if(ev.key==="Escape"&&$("mkpop")){ mkPopClose(true); return; } if(ev.key==="Escape"){ const m=$("moreMenu"); if(m&&!m.hidden){ m.hidden=true; $("btnMore").setAttribute("aria-expanded","false"); $("btnMore").focus(); } } });
-$("btnData").addEventListener("click",()=>{const p=$("dataPanel"); p.hidden=!p.hidden; $("btnData").setAttribute("aria-expanded",!p.hidden); if(!p.hidden) renderGhBox();});
-$("btnDl2").addEventListener("click",()=>downloadAnalysis(cur));
-$("btnCopy").addEventListener("click",()=>{const t=JSON.stringify(exportAnalysis(cur),null,1);
-  if(navigator.clipboard&&navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(()=>toast("JSON copiado"),()=>toast("No se pudo copiar")); else toast("Este navegador no permite copiar");});
-$("btnImport").addEventListener("click",()=>{try{const n=importOld($("jsonBox").value); renderHeader(); renderTab(); toast(n?`${n} ${n===1?"compañía importada":"compañías importadas"} como borrador`:"Ninguna compañía coincide por ticker");}
-  catch(e){toast("El texto no es un JSON exportado desde el valorador antiguo");}});
 document.addEventListener("pointerdown",e=>{ if($("mkpop")&&!e.target.closest("#mkpop")&&!e.target.closest("[data-mki]")) mkPopClose(); },true);
 addEventListener("resize",()=>mkPopClose()); addEventListener("scroll",e=>{ if(innerWidth>560&&$("mkpop")&&!(e.target&&e.target.closest&&e.target.closest("#mkpop"))) mkPopClose(); },true);
 try{ matchMedia("(prefers-color-scheme: dark)").addEventListener("change",()=>{ if(MAPA.abierto&&$("mkmapBox")) mapaCargar(); }); }catch(e){}
