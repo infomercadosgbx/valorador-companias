@@ -31,9 +31,10 @@
    "tipo": "total",
    "reportado": null,
    "estimado": {
-    "valor": 902751816,
-    "fuente": "Finnhub · consenso del 2026-11-06",
-    "url": "https://finnhub.io/docs/api/earnings-calendar"
+    "valor": 892410000.0,
+    "fuente": "manual · Investing",
+    "manual": true,
+    "fecha": "6-nov-2026"
    },
    "dif_pct": null,
    "resultado": null,
@@ -92,9 +93,10 @@
     "etiqueta": "Nota de resultados: fila «Diluted»"
    },
    "estimado": {
-    "valor": -1.2755,
-    "fuente": "Finnhub · consenso del 2026-11-06",
-    "url": "https://finnhub.io/docs/api/earnings-calendar"
+    "valor": -1.09,
+    "fuente": "manual · Investing",
+    "manual": true,
+    "fecha": "6-nov-2026"
    },
    "dif_pct": null,
    "resultado": null,
@@ -113,21 +115,21 @@
   "fuera_de_hora": {
    "fuente": "Alpaca Markets (API oficial, plan gratuito) · SIP con 15 min de retraso",
    "url": "https://docs.alpaca.markets/docs/historical-stock-data-1",
-   "volumen": 2302199,
+   "volumen": 2356791,
    "ultimo": {
-    "precio": 249.91,
-    "hora_utc": "2026-11-06T12:30:00Z",
-    "hora_ny": "2026-11-06 07:30",
+    "precio": 252.0,
+    "hora_utc": "2026-11-06T12:35:00Z",
+    "hora_ny": "2026-11-06 07:35",
     "sesion": "premercado",
-    "variacion_pct": 3.5
+    "variacion_pct": 4.37
    }
   },
-  "variacion_pct": 3.5,
-  "cierre_despues": 249.91,
+  "variacion_pct": 4.37,
+  "cierre_despues": 252.0,
   "fecha_despues": "2026-11-06",
   "fuente_despues": "Alpaca Markets (API oficial, plan gratuito) · SIP con 15 min de retraso",
   "sesion_despues": "premercado",
-  "hora_despues_ny": "2026-11-06 07:30"
+  "hora_despues_ny": "2026-11-06 07:35"
  },
  "cotizacion": {
   "serie": [
@@ -1361,7 +1363,7 @@
     }
    ]
   },
-  "manual": false
+  "manual": true
  },
  "avisos": [],
  "_calendario_finnhub": {
