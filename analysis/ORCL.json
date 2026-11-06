@@ -6,7 +6,7 @@
   "hq": "Austin, Texas",
   "founded": "1977",
   "employees": "~160.000",
-  "asOf": "4-nov-2026",
+  "asOf": "6-nov-2026",
   "fav": false,
   "autogenerado": "2026-11-02",
   "nextEarnings": "8-dic-2026 (Finnhub)"
@@ -705,5 +705,79 @@
   "SAP",
   "CRM",
   "IBM"
+ ],
+ "avisos_aprobados": [
+  {
+   "id": "trimestre_mal_etiquetado.Ingresos #T# #T# #T# #T# #T#: la compañía etiquetó en XBRL el total del año como",
+   "fecha": "2026-11-06",
+   "nivel": "info",
+   "mensaje": "Ingresos 4T18, 4T19, 4T20, 4T21, 4T22: la compañía etiquetó en XBRL el total del año como si fuera un trimestre («Revenues»). Se descarta y el 4T se calcula como año − 1T − 2T − 3T."
+  },
+  {
+   "id": "etiqueta_obsoleta.Beneficio bruto: se descarta «GrossProfit», su último dato (#-#-#) va más de # d",
+   "fecha": "2026-11-06",
+   "nivel": "info",
+   "mensaje": "Beneficio bruto: se descarta «GrossProfit», su último dato (2018-08-31) va más de 60 días por detrás de los ingresos (2026-08-31)."
+  },
+  {
+   "id": "etiqueta_obsoleta.Beneficio neto: se descarta «ProfitLoss», su último dato (#-#-#) va más de # día",
+   "fecha": "2026-11-06",
+   "nivel": "info",
+   "mensaje": "Beneficio neto: se descarta «ProfitLoss», su último dato (2026-05-31) va más de 60 días por detrás de los ingresos (2026-08-31)."
+  },
+  {
+   "id": "etiqueta_obsoleta.Flujo de caja operativo: «NetCashProvidedByUsedInOperatingActivitiesContinuingOp",
+   "fecha": "2026-11-06",
+   "nivel": "info",
+   "mensaje": "Flujo de caja operativo: «NetCashProvidedByUsedInOperatingActivitiesContinuingOperations» termina el 2018-02-28; solo se usa para años antiguos."
+  },
+  {
+   "id": "etiqueta_obsoleta.Beneficio antes de impuestos: «IncomeLossFromContinuingOperationsBeforeIncomeTax",
+   "fecha": "2026-11-06",
+   "nivel": "info",
+   "mensaje": "Beneficio antes de impuestos: «IncomeLossFromContinuingOperationsBeforeIncomeTaxesDomestic» termina el 2026-05-31; solo se usa para años antiguos."
+  },
+  {
+   "id": "etiqueta_obsoleta.Otros ingresos (gastos) no operativos: «NonoperatingIncomeExpense» termina el #-",
+   "fecha": "2026-11-06",
+   "nivel": "info",
+   "mensaje": "Otros ingresos (gastos) no operativos: «NonoperatingIncomeExpense» termina el 2018-08-31; solo se usa para años antiguos."
+  },
+  {
+   "id": "etiqueta_obsoleta.Coste de ventas: «CostOfRevenue» termina el #-#-#; solo se usa para años antiguo",
+   "fecha": "2026-11-06",
+   "nivel": "info",
+   "mensaje": "Coste de ventas: «CostOfRevenue» termina el 2011-05-31; solo se usa para años antiguos."
+  },
+  {
+   "id": "etiqueta_obsoleta.Investigación y desarrollo (I+D): «ResearchAndDevelopmentExpenseSoftwareExcludin",
+   "fecha": "2026-11-06",
+   "nivel": "info",
+   "mensaje": "Investigación y desarrollo (I+D): «ResearchAndDevelopmentExpenseSoftwareExcludingAcquiredInProcessCost» termina el 2011-02-28; solo se usa para años antiguos."
+  },
+  {
+   "id": "etiqueta_obsoleta.Recompras de acciones: «PaymentsForRepurchaseOfCommonStock» termina el #-#-#; so",
+   "fecha": "2026-11-06",
+   "nivel": "info",
+   "mensaje": "Recompras de acciones: «PaymentsForRepurchaseOfCommonStock» termina el 2026-05-31; solo se usa para años antiguos."
+  },
+  {
+   "id": "amortizacion_por_componentes.Amortizaciones (D&A): la compañía no usa la etiqueta combinada; se suman depreci",
+   "fecha": "2026-11-06",
+   "nivel": "info",
+   "mensaje": "Amortizaciones (D&A): la compañía no usa la etiqueta combinada; se suman depreciación (us-gaap:Depreciation) y amortización de intangibles (us-gaap:AmortizationOfIntangibleAssets)."
+  },
+  {
+   "id": "etiqueta_obsoleta.Deuda financiera: se descarta «LongTermDebt» (último dato #-#-# ingresos hasta #",
+   "fecha": "2026-11-06",
+   "nivel": "info",
+   "mensaje": "Deuda financiera: se descarta «LongTermDebt» (último dato 2022-05-31, ingresos hasta 2026-08-31)."
+  },
+  {
+   "id": "etiqueta_obsoleta.Existencias: se descarta «InventoryNet» (último dato #-#-# ingresos hasta #-#-#)",
+   "fecha": "2026-11-06",
+   "nivel": "info",
+   "mensaje": "Existencias: se descarta «InventoryNet» (último dato 2025-05-31, ingresos hasta 2026-08-31)."
+  }
  ]
 }
