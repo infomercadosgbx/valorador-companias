@@ -1,5 +1,5 @@
 {
-  "_nota": "Única lista de compañías. Para añadir una, lanza el workflow «Añadir compañía» en GitHub Actions (o el botón «＋ Añadir compañía» de la web). El CIK se comprueba en cada ejecución contra https://www.sec.gov/files/company_tickers.json. «medios»: feeds RSS sectoriales de los que salen noticias (ids en fetcher/news.py; las agencias de notas de prensa se leen siempre). «alias»: otros nombres con los que se busca la compañía en esos feeds.",
+  "_nota": "Única lista de compañías. Para añadir una, lanza el workflow «Añadir compañía» en GitHub Actions (o el botón «＋ Añadir compañía» de la web). El CIK se comprueba en cada ejecución contra https://www.sec.gov/files/company_tickers.json. «medios»: feeds RSS sectoriales de los que salen noticias (ids en fetcher/news.py; las agencias de notas de prensa se leen siempre). «alias»: otros nombres con los que se busca la compañía en esos feeds. «estacional»: true si las ventas se concentran en una época del año (Moderna); el 4T solo se contrasta con el 3T y los saltos se miden frente al mismo trimestre del año anterior.",
   "companies": [
     {"ticker": "APP", "slug": "applovin", "nombre": "AppLovin", "cik": "0001751008", "color": "#2D5BFF", "monograma": "AL", "medios": ["adexchanger", "digiday", "techcrunch"]},
     {"ticker": "GOOGL", "slug": "alphabet", "nombre": "Alphabet", "cik": "0001652044", "color": "#4285F4", "monograma": "G", "medios": ["nextplatform", "dcd", "adexchanger", "techcrunch"], "alias": ["Google", "YouTube", "Waymo", "DeepMind"]},
@@ -11,6 +11,6 @@
     {"ticker": "CVX", "slug": "chevron", "nombre": "Chevron", "cik": "0000093410", "color": "#0094DB", "monograma": "CH", "medios": ["ogj", "rigzone"]},
     {"ticker": "PATH", "slug": "uipath", "nombre": "UiPath", "cik": "0001734722", "color": "#FA4616", "monograma": "UI", "medios": ["ciodive", "techcrunch", "theregister"]},
     {"ticker": "ORCL", "slug": "oracle", "nombre": "Oracle", "cik": "0001341439", "color": "#C74634", "monograma": "OR", "medios": ["dcd", "nextplatform", "ciodive", "theregister"], "alias": ["Oracle Cloud", "OCI"]},
-    {"ticker": "MRNA", "slug": "moderna", "nombre": "Moderna", "cik": "0001682852", "color": "#E32842", "monograma": "MO", "medios": ["biopharmadive", "fiercebiotech"]}
+    {"ticker": "MRNA", "slug": "moderna", "nombre": "Moderna", "cik": "0001682852", "color": "#E32842", "monograma": "MO", "medios": ["biopharmadive", "fiercebiotech"], "estacional": true}
   ]
 }

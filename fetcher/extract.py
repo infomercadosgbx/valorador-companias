@@ -23,6 +23,7 @@ QUARTER_DAYS = (80, 100)
 H1_DAYS = (160, 195)   # 24 semanas (PepsiCo: trimestres de 12 semanas) = 168 días
 M9_DAYS = (245, 290)   # 36 semanas = 252 días
 Q4_RATIO = (0.6, 1.9)
+Q4_RATIO_ESTACIONAL = (0.25, 4.0)   # compañías marcadas "estacional" en companies.json (Moderna)
 BALANCE_WINDOW_DAYS = 487  # ~16 meses
 DATE_TOL = 4               # días de tolerancia al casar fechas (años de 52/53 semanas)
 
@@ -234,8 +235,10 @@ def _drop_mislabeled_quarters(m, spec, concept_key, fye_mmdd):
         concepto=concept_key, etiqueta=tags[0], periodos=bad)]
 
 
-def build_flow(cf, cik, concept_key, ref_end, fye_mmdd, max_years=8, max_quarters=12, q4_state=None):
-    """q4_state: dict compartido entre conceptos. Los ingresos deciden qué 4T son
+def build_flow(cf, cik, concept_key, ref_end, fye_mmdd, max_years=8, max_quarters=12, q4_state=None, estacional=False):
+    """estacional: el 4T se compara solo con el 3T y con un rango más amplio (ventas
+    concentradas en otoño-invierno: vacunas de Moderna); el 1T siguiente no sirve de referencia.
+    q4_state: dict compartido entre conceptos. Los ingresos deciden qué 4T son
     coherentes (regla del ratio); el resto de conceptos sigue esa decisión, porque
     el ratio no sirve para magnitudes estacionales o con extraordinarios (caja de
     Amazon, beneficio neto con ganancias en participaciones)."""
@@ -306,7 +309,7 @@ def build_flow(cf, cik, concept_key, ref_end, fye_mmdd, max_years=8, max_quarter
                         q4 = point(fa, cik, tag, value=val, derived="Año − 1T − 2T − 3T")
                         q4["periodo_inicio"] = (inside[-1][0] + timedelta(days=1)).isoformat()
                         if concept_key == "ingresos":
-                            ok, motivo = _q4_fits(val, inside[-1][1]["valor"], q_by_end, a_end, spec)
+                            ok, motivo = _q4_fits(val, inside[-1][1]["valor"], q_by_end, a_end, spec, estacional)
                             q4_state["aceptados" if ok else "rechazados"].add(a_end)
                         else:
                             ok = not any(abs((a_end - e).days) <= DATE_TOL for e in q4_state["rechazados"])
@@ -349,15 +352,17 @@ def build_flow(cf, cik, concept_key, ref_end, fye_mmdd, max_years=8, max_quarter
     return result, warnings
 
 
-def _q4_fits(q4, q3, q_by_end, a_end, spec):
-    """R5: el 4T derivado se compara con 3T y con el 1T siguiente."""
+def _q4_fits(q4, q3, q_by_end, a_end, spec, estacional=False):
+    """R5: el 4T derivado se compara con 3T y con el 1T siguiente (ratio 0,6–1,9).
+    Compañías estacionales: solo con el 3T y ratio 0,25–4."""
     neighbors = [q3]
     nxt = [p for e, p in q_by_end.items() if a_end < e <= a_end + timedelta(days=110)]
-    if nxt:
+    if nxt and not estacional:
         neighbors.append(nxt[0]["valor"])
+    lo, hi = Q4_RATIO_ESTACIONAL if estacional else Q4_RATIO
     if q4 > 0 and all(n > 0 for n in neighbors):
         ratios = [q4 / n for n in neighbors]
-        bad = [r for r in ratios if not (Q4_RATIO[0] <= r <= Q4_RATIO[1])]
+        bad = [r for r in ratios if not (lo <= r <= hi)]
         if bad:
             return False, "ratio " + ", ".join(f"{r:.2f}" for r in ratios)
         return True, ""

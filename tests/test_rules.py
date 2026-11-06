@@ -275,3 +275,30 @@ def test_vencimientos_del_ultimo_informe():
     })
     v = X.debt_maturities(cf, "1")
     assert v["fecha"] == "2025-12-31" and [(t["tramo"], t["valor"]) for t in v["tramos"]] == [("Año 1", 5), ("Después del año 5", 40)]
+
+
+# ------------------------------------------------------- compañías estacionales
+def test_4t_estacional_se_acepta_aunque_el_1t_siguiente_sea_pequeno():
+    # Moderna: casi todo en 3T y 4T; el 1T siguiente es mínimo (4T23 = 2.811 M frente a 1T24 = 167 M)
+    facts = cal_year(2025, [100, 50, 1800], annual=4750) + cal_year(2026, [170, 60, 1300])  # 4T=2800
+    flow, w = X.build_flow(rev_cf(facts), "1", "ingresos", date(2026, 9, 30), "1231")
+    assert "4T25" not in {p["periodo"] for p in flow["trimestral"]}
+    flow, w = X.build_flow(rev_cf(facts), "1", "ingresos", date(2026, 9, 30), "1231", estacional=True)
+    q = {p["periodo"]: p for p in flow["trimestral"]}
+    assert q["4T25"]["valor"] == 2800 and not [x for x in w if x["codigo"] == "4t_descartado"]
+
+
+def test_4t_estacional_sigue_descartando_reclasificaciones():
+    facts = cal_year(2023, [100, 110, 1200], annual=1420) + cal_year(2024, [90, 95, 100])  # 4T=10; 10/1200
+    flow, w = X.build_flow(rev_cf(facts), "1", "ingresos", date(2024, 9, 30), "1231", estacional=True)
+    assert "4T23" not in {p["periodo"] for p in flow["trimestral"]}
+
+
+def test_saltos_estacionales_frente_al_mismo_trimestre_del_anio_anterior():
+    from fetcher import validate as V
+    q = [{"periodo": p, "valor": v} for p, v in
+         (("1T25", 100), ("2T25", 50), ("3T25", 1000), ("4T25", 700), ("1T26", 110), ("2T26", 15), ("3T26", 1300))]
+    w = V.check_jumps({"trimestral": q}, estacional=True)
+    saltos = [x["periodo"] for x in w if x["codigo"] == "salto_raro"]
+    assert saltos == ["2T26"]                      # −70 % frente al 2T25; 3T26 +30 % no avisa
+    assert any(x["codigo"] == "estacional" for x in w)

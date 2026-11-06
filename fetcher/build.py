@@ -174,7 +174,8 @@ def build_from_sec(company, cf, subs):
     rec["resultados"] = {}
     q4_state = {"aceptados": set(), "rechazados": set()}
     for key in C.FLOW_CONCEPTS:  # «ingresos» va primero: decide qué 4T son coherentes
-        flow, w = X.build_flow(cf, cik, key, ref_end, fye, max_quarters=24, q4_state=q4_state)
+        flow, w = X.build_flow(cf, cik, key, ref_end, fye, max_quarters=24, q4_state=q4_state,
+                                estacional=bool(company.get("estacional")))
         rec["resultados"][key] = flow
         avisos += w
 
@@ -221,7 +222,7 @@ def build_from_sec(company, cf, subs):
     if corte:
         rec["reexpresion"] = corte
     avisos += drops
-    avisos += V.check_jumps(rev)
+    avisos += V.check_jumps(rev, estacional=bool(company.get("estacional")))
     avisos += V.check_fiscal_calendar(rev)
     for key in ("ingresos", "beneficio_operativo", "beneficio_neto"):
         avisos += V.check_quarters_vs_annual(rec["resultados"][key], key)

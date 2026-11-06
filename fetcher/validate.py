@@ -8,6 +8,7 @@ from .extract import warn
 SUM_TOLERANCE = 0.01   # 1 %
 DROP_THRESHOLD = 0.25  # caída anual de ingresos que hace sospechar de discontinuadas
 QOQ_UP, QOQ_DOWN = 0.60, -0.35
+YOY_UP, YOY_DOWN = 1.50, -0.60   # compañías estacionales: mismo trimestre del año anterior
 
 
 def _d(s):
@@ -46,7 +47,9 @@ def check_revenue_drop(flow):
     return out
 
 
-def check_jumps(flow):
+def check_jumps(flow, estacional=False):
+    if estacional:
+        return _check_jumps_yoy(flow)
     out = []
     q = flow.get("trimestral", [])
     def per_day(p):   # trimestres de distinta duración (PepsiCo: 12 y 16 semanas) se comparan por día
@@ -62,6 +65,27 @@ def check_jumps(flow):
                 out.append(warn("aviso", "salto_raro",
                     f"Ingresos {cur['periodo']}: {ch:+.0%} frente a {prev['periodo']}. Revisa el informe.",
                     concepto="ingresos", periodo=cur["periodo"]))
+    return out
+
+
+def _check_jumps_yoy(flow):
+    """Estacionales: un trimestre se compara con el mismo trimestre del año anterior, no con el anterior."""
+    out = []
+    q = {p["periodo"]: p for p in flow.get("trimestral", []) if p.get("periodo")}
+    for per, cur in q.items():
+        try:
+            prev = q.get(f"{per[:2]}{int(per[2:]) - 1:02d}")
+        except ValueError:
+            continue
+        if prev and prev["valor"] and prev["valor"] > 0:
+            ch = cur["valor"] / prev["valor"] - 1
+            if ch > YOY_UP or ch < YOY_DOWN:
+                out.append(warn("aviso", "salto_raro",
+                    f"Ingresos {per}: {ch:+.0%} frente a {prev['periodo']} (mismo trimestre del año anterior; "
+                    f"compañía estacional). Revisa el informe.", concepto="ingresos", periodo=per))
+    out.append(warn("info", "estacional",
+        "Compañía estacional: los saltos de ingresos se comparan con el mismo trimestre del año anterior "
+        "y el 4T derivado solo se contrasta con el 3T (ratio 0,25–4)."))
     return out
 
 
