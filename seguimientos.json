@@ -1,0 +1,21 @@
+{
+ "_nota": "Asuntos concretos que el robot vigila cada noche en los 8-K, 10-Q y 10-K de la compañía (documento principal y anexos 99) y en sus noticias. Se edita a mano. «terminos»: lo que identifica el asunto; «contexto»: al menos una de estas palabras debe aparecer cerca; «desde»: primera fecha de presentación que se revisa. El resultado está en data/<T>.json → seguimientos y en la pestaña Riesgos; las señales de cierre, cancelación o riesgo salen como aviso en la web y por email.",
+ "seguimientos": {
+  "VST": [
+   {
+    "id": "prestamo_doe",
+    "titulo": "Préstamo del DOE (4.200 M$)",
+    "descripcion": "Compromiso condicional de hasta 4.200 M$ de la oficina de préstamos del Departamento de Energía (Energy Dominance Financing, antigua Loan Programs Office) para ampliar potencia y modernizar Beaver Valley, Davis-Besse y Perry (433 MW), anunciado el 5-oct-2026. No es definitivo: Vistra debe cumplir condiciones técnicas, legales, medioambientales y financieras antes de firmar y cobrar. Se vigila si se firma, se desembolsa, se cancela o entra en revisión.",
+    "estado_inicial": "Compromiso condicional (5-oct-2026), sin cierre definitivo",
+    "desde": "2026-10-01",
+    "terminos": ["Department of Energy", "\\bDOE\\b", "Energy Dominance Financing", "Loan Programs Office", "\\bLPO\\b", "Title XVII"],
+    "contexto": ["loan", "guarantee", "financing", "conditional commitment", "uprate", "Beaver Valley", "Perry", "Davis-Besse", "Comanche Peak"],
+    "fuentes_oficiales": [
+     {"t": "World Nuclear News: el DOE ofrece el préstamo, 6-oct-2026", "u": "https://world-nuclear-news.org/articles/doe-offers-vistra-loan-for-reactor-upgrades-and-uprates"},
+     {"t": "Utility Dive, 6-oct-2026", "u": "https://www.utilitydive.com/news/doe-intends-to-loan-vistra-42b-for-nuclear-fleet-improvements/832236/"},
+     {"t": "Precedente: DOE cancela el compromiso condicional de Grain Belt Express (23-jul-2025)", "u": "https://www.energy.gov/articles/department-energy-terminates-taxpayer-funded-financial-assistance-grain-belt-express"}
+    ]
+   }
+  ]
+ }
+}

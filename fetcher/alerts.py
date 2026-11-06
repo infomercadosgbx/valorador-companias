@@ -9,7 +9,8 @@ el estado guardado en data/_avisos_estado.json, para no repetir avisos:
   - un directivo o consejero compra acciones en mercado;
   - movimiento fuerte de la cotización en el día (±8%);
   - resultados en los próximos 2 días;
-  - tu análisis tiene más de 90 días.
+  - tu análisis tiene más de 90 días;
+  - un seguimiento (seguimientos.json) encuentra una novedad en un 8-K/10-Q/10-K o en las noticias.
 Si no hay nada nuevo no escribe el archivo y el workflow no abre ningún Issue.
 """
 from __future__ import annotations
@@ -18,7 +19,7 @@ import argparse
 import json
 import re
 import subprocess
-from datetime import date
+from datetime import date, timedelta
 from pathlib import Path
 
 from .main import ROOT, load_companies
@@ -137,6 +138,23 @@ def company_alerts(c, data, prev, analysis, state, today):
         k = f"{t}:antiguo:{as_of.isoformat()}"
         if not state.get(k):
             out.append(("⏱️", f"**Tu análisis de {name} ({t}) tiene {(today - as_of).days} días** (del {fecha(as_of.isoformat())}). Toca revisarlo."))
+            state[k] = today.isoformat()
+    # 7. seguimientos: cada hallazgo nuevo (oficial siempre; prensa solo con señal)
+    SEN = {"cierre": ("✅", "posible cierre definitivo"), "cancelacion": ("⛔", "posible cancelación"),
+           "riesgo": ("⚠️", "señal de riesgo"), "mencion": ("🔎", "nueva mención")}
+    for sg in data.get("seguimientos") or []:
+        for h in sg.get("hallazgos") or []:
+            if h.get("senal") == "mencion" and not h.get("oficial"):
+                continue
+            if (h.get("detectado") or "") < (today - timedelta(days=7)).isoformat():
+                continue   # ya avisado (o anterior al seguimiento); evita repetir al limpiar el estado
+            k = f"{t}:seguimiento:{sg.get('id')}:{h.get('accn') or h.get('url')}:{h.get('senal')}"
+            if state.get(k):
+                continue
+            e, lab = SEN.get(h.get("senal"), SEN["mencion"])
+            txt = (h.get("texto") or "")[:400]
+            out.append((e, f"**{name} ({t}) · {sg.get('titulo')}: {lab}** en {h.get('fuente')} del {fecha(h.get('fecha'))}"
+                           + (f" · [ver documento]({h['url']})" if h.get("url") else "") + f".\n\n> {txt}"))
             state[k] = today.isoformat()
     return out
 

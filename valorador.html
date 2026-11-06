@@ -1198,6 +1198,8 @@ function allWarnings(c){ return [...contradictions(c),...((c._data&&c._data.avis
 /* avisos en lenguaje claro: qué significa y si afecta a las cifras */
 const WEXP={
   deuda_asumida_cero:"La compañía no declara deuda financiera en sus informes (ni préstamos ni bonos): se toma 0. Si de verdad no tiene deuda (Reddit, UiPath), es correcto y puedes aprobarlo. Los arrendamientos no cuentan como deuda financiera.",
+  seguimiento:"El robot ha encontrado una novedad en un asunto que sigues (seguimientos.json). Lee el fragmento en Riesgos → Seguimientos y confirma en el documento antes de cambiar el análisis.",
+  seguimiento_error:"No se han podido leer los documentos nuevos de la SEC para un seguimiento; se reintentará la próxima noche.",
   contradiccion:"Tu modelo usa una cifra distinta de la última de la SEC. Revísala en Valoración → «Ajustar acciones, caja o deuda» o pulsa «Usar dato SEC».",
   salto_raro:"Un trimestre cambia mucho frente al anterior. Puede ser estacionalidad, una compra o una reclasificación: compruébalo en el informe.",
   posible_discontinuada:"Los ingresos caen más de un 25% en un año: suele deberse a la venta de un negocio (operaciones discontinuadas). Compara años con cuidado.",
@@ -3383,6 +3385,18 @@ function risk10kHtml(){
     <div class="g2"><div><h3>Nuevos en el último 10-K</h3>${li(K.nuevos||[])}</div><div><h3>Ya no aparecen (o se han reescrito)</h3>${li(K.eliminados||[])}</div></div>
     <p class="note">Titulares traducidos al español; pasa el ratón por encima para ver el original en inglés. Si alguno nuevo es relevante, añádelo al registro de abajo.</p></section>`;
 }
+function seguimientosHtml(){
+  const S=cur._data&&cur._data.seguimientos; if(!S||!S.length) return "";
+  const PILL={cierre:["up","Posible cierre"],cancelacion:["down","Posible cancelación"],riesgo:["down","Señal de riesgo"],mencion:["","Mención"],sin_cambios:["","Sin cambios"]};
+  const pill=k=>{const [c,t]=PILL[k]||PILL.mencion; return `<span class="pill ${c}">${t}</span>`;};
+  return S.map(s=>{ const H=s.hallazgos||[], e=s.estado||{};
+    const rows=H.slice(0,12).map(h=>`<tr><td><a href="${esc(h.url||"#")}" target="_blank" rel="noopener" style="color:inherit">${esc(fecha(h.fecha))}</a></td><td style="text-align:left;font-family:var(--f-body)">${esc(h.fuente||"")}</td><td style="text-align:left">${pill(h.senal)}</td><td style="text-align:left;font-family:var(--f-body);white-space:normal;min-width:260px" lang="en">${esc((h.texto||"").slice(0,420))}</td></tr>`).join("");
+    const fo=(s.fuentes_oficiales||[]).map(f=>`<a href="${esc(f.u)}" target="_blank" rel="noopener">${esc(f.t)}</a>`).join(" · ");
+    return `<section class="card"><h2>Seguimiento · ${esc(s.titulo)}</h2><p class="sub">${esc(s.descripcion||"")}</p>
+    <div class="kpis">${kpi("Estado",esc(e.texto||"–"),pill(e.codigo))}${kpi("Menciones encontradas",String(H.length),`<span class="note">desde ${esc(fecha(s.desde))}</span>`)}${kpi("Documentos SEC leídos",String((s.documentos_leidos||[]).length),`<span class="note">revisado ${esc(fecha(s.revisado))}</span>`)}</div>
+    ${H.length?`<div class="scroll"><table><thead><tr><th>Fecha</th><th style="text-align:left">Fuente</th><th style="text-align:left">Señal</th><th style="text-align:left">Fragmento (original)</th></tr></thead><tbody>${rows}</tbody></table></div>`:`<p class="empty">Aún no hay menciones en los documentos de la SEC ni en las noticias desde ${esc(fecha(s.desde))}.</p>`}
+    <p class="note">El robot lee cada noche los 8-K, 10-Q y 10-K nuevos y las noticias de la compañía. La señal es automática y orientativa: confirma siempre en el documento.${fo?" Referencias: "+fo+".":""}</p></section>`; }).join("");
+}
 R.risk=()=>{
   const rs=cur.risks.map((r,i)=>({...r,i0:i,sv:(+r.p)*(+r.i)})); const s=scorecard(cur);
   const sorted=rs.slice().sort((a,b)=>b.sv-a.sv);
@@ -3408,6 +3422,7 @@ R.risk=()=>{
     <section class="card"><h2>Riesgos por categoría</h2><p class="sub">Severidad acumulada (probabilidad × impacto).</p><div class="cv h240"><canvas id="ch_rk_cat" role="img" aria-label="Severidad por categoría"></canvas></div>
       <h3>Riesgos por nivel de severidad</h3><div class="cv h200"><canvas id="ch_rk_sev" role="img" aria-label="Número de riesgos por severidad"></canvas></div></section>
   </div>
+  ${seguimientosHtml()}
   ${risk10kHtml()}
   <section class="card"><h2>Registro de riesgos</h2><p class="sub">Ordenados de mayor a menor severidad.</p>
     <div class="scroll"><table><thead><tr><th>#</th><th style="text-align:left">Riesgo</th><th style="text-align:left">Categoría</th><th>Prob.</th><th>Impacto</th><th>Severidad</th><th style="text-align:left">Evidencia</th>${EDIT?"<th></th>":""}</tr></thead><tbody>

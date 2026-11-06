@@ -3,7 +3,7 @@
  "creada": "2026-11-06",
  "motivo": "Resultados del 3T26 (8-K del 6-nov-2026)",
  "informe_accn": "0001692819-26-000023",
- "resumen": "Trimestre muy fuerte: EBITDA ajustado de 2.378 M$ (+50%) por mejores precios de energía y capacidad, las plantas de Lotus y la vuelta de Martin Lake 1. Sube el punto medio de 2026 (7.100–7.500 M$) y da por primera vez guía formal de 2027: 7.700–8.500 M$ de EBITDA (punto medio 8.100 M$, en la parte alta del rango de oportunidad que tenía el modelo) y 4.300–5.100 M$ de FCF antes de crecimiento. Cogentrix ya está cerrada y amplía la recompra en 1.500 M$. Con la acción en 112,89 $ (cierre 5-nov), por debajo del precio de compra del modelo, propongo mantener Acumular y subir la convicción. Pendiente: el 10-Q todavía no está en EDGAR, así que caja, deuda total y el aviso de deuda del modelo frente a la SEC se revisan cuando llegue; la llamada con analistas es hoy a las 16:00 de Madrid y no está incluida.",
+ "resumen": "Trimestre muy fuerte: EBITDA ajustado de 2.378 M$ (+50%) por mejores precios de energía y capacidad, las plantas de Lotus y la vuelta de Martin Lake 1. Sube el punto medio de 2026 (7.100–7.500 M$) y da por primera vez guía formal de 2027: 7.700–8.500 M$ de EBITDA (punto medio 8.100 M$, en la parte alta del rango de oportunidad que tenía el modelo) y 4.300–5.100 M$ de FCF antes de crecimiento. Cogentrix ya está cerrada y amplía la recompra en 1.500 M$. Con la acción en 112,89 $ (cierre 5-nov), por debajo del precio de compra del modelo, propongo mantener Acumular y subir la convicción. Pendiente: el 10-Q todavía no está en EDGAR, así que caja, deuda total y el aviso de deuda del modelo frente a la SEC se revisan cuando llegue; la llamada con analistas es hoy a las 16:00 de Madrid y no está incluida. Se añade el seguimiento del préstamo del DOE, que sigue siendo condicional.",
  "fuentes": [
   {
    "t": "Nota de resultados 3T26 (8-K, Ex. 99.1), 6-nov-2026",
@@ -20,6 +20,14 @@
   {
    "t": "Cotización: Finnhub, cierre 5-nov-2026 (data/VST.json)",
    "u": "https://finnhub.io/"
+  },
+  {
+   "t": "Utility Dive: el DOE ofrece a Vistra 4.200 M$ condicionales, 6-oct-2026",
+   "u": "https://www.utilitydive.com/news/doe-intends-to-loan-vistra-42b-for-nuclear-fleet-improvements/832236/"
+  },
+  {
+   "t": "DOE: cancelación del compromiso condicional de Grain Belt Express, 23-jul-2025",
+   "u": "https://www.energy.gov/articles/department-energy-terminates-taxpayer-funded-financial-assistance-grain-belt-express"
   }
  ],
  "cambios": [
@@ -94,11 +102,11 @@
      "t": "Contrato de 207 MW con New Era Energy and Digital en la central de gas de Odessa (Texas)."
     },
     {
-     "d": "En curso",
-     "t": "Préstamo condicional del Departamento de Energía de 4.200 M$ para ampliar potencia nuclear (433 MW)."
+     "d": "Sin fecha",
+     "t": "Préstamo del DOE de hasta 4.200 M$ (433 MW nucleares): solo compromiso condicional desde el 5-oct-26; falta firmar los documentos definitivos y puede cancelarse. El robot lo vigila cada noche (Riesgos → Seguimientos)."
     }
    ],
-   "porque": "El 6-nov ya ha pasado; se añaden el 10-Q, la nueva autorización de recompra y el contrato de Odessa. Se mantienen los hitos de Amazon, Meta y DOE (no hay novedades en la nota)."
+   "porque": "El 6-nov ya ha pasado; se añaden el 10-Q, la nueva autorización de recompra y el contrato de Odessa. Se mantienen los hitos de Amazon, Meta y DOE (no hay novedades en la nota). El hito del DOE se aclara: es condicional, sin fecha de cierre."
   },
   {
    "campo": "growth.guidance",
@@ -203,9 +211,16 @@
      "p": 2,
      "i": 2,
      "note": "Hasta 1.000 M$ en un negocio fuera de su núcleo"
+    },
+    {
+     "n": "Préstamo del DOE no se cierra",
+     "cat": "Financiero",
+     "p": 2,
+     "i": 2,
+     "note": "Compromiso condicional de hasta 4.200 M$, no firmado. El DOE ya canceló otro compromiso condicional (Grain Belt Express, 4.900 M$, jul-2025). Con la Cámara demócrata desde ene-2027 puede haber más supervisión del programa, pero la decisión es del DOE. Si se cayera, la ampliación seguiría con deuda privada, más cara."
     }
    ],
-   "porque": "Baja la probabilidad del riesgo de precios en Texas por la cobertura del 98% de 2027; se actualizan deuda, Cogentrix (ya cerrada) y coberturas."
+   "porque": "Baja la probabilidad del riesgo de precios en Texas por la cobertura del 98% de 2027; se actualizan deuda, Cogentrix (ya cerrada) y coberturas. Nuevo riesgo: el préstamo del DOE todavía no es definitivo."
   },
   {
    "campo": "v.shares",
@@ -248,7 +263,7 @@
     "Deuda total y caja en el 10-Q del 3T26",
     "Comentarios de la llamada del 6-nov sobre nuevos contratos con centros de datos",
     "Precios a plazo en ERCOT para 2028",
-    "Desembolso del préstamo del DOE"
+    "Cierre definitivo o cancelación del préstamo del DOE (seguimiento automático)"
    ],
    "porque": "La guía de 2027 ya está publicada; lo pendiente pasa a ser la deuda y nuevos contratos."
   },

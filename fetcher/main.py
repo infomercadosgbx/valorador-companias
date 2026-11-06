@@ -22,6 +22,7 @@ from . import estimaciones as EST
 from . import logos, prices
 from . import resultados as RES
 from . import peers as PEERS
+from . import seguimientos as SEG
 from . import news as NEWS
 from .build import NoSecData, build_company
 from .extract import warn
@@ -210,6 +211,13 @@ def run(only=None, report=None, root=ROOT, client=None, provider=None, price_war
                 except Exception as e:  # noqa: BLE001
                     rec["peers"] = (previous or {}).get("peers")
                     rec["avisos"].append(warn("info", "peers_no_disponible", f"Comparativa con competidores no disponible: {e}"))
+            if rec.get("soportada", True):
+                try:
+                    SEG.actualizar(client, c, rec, previous, root)
+                except Exception as e:  # noqa: BLE001  el seguimiento es secundario
+                    if (previous or {}).get("seguimientos"):
+                        rec["seguimientos"] = previous["seguimientos"]
+                    print(f"Seguimientos de {c['ticker']} no disponibles: {e}", file=sys.stderr)
             perfil, logo_changed = logos.update(provider, c, root)
             if perfil:
                 rec["perfil"] = perfil
