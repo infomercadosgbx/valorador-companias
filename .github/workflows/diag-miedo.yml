@@ -1,0 +1,15 @@
+name: Diagnóstico miedo y codicia (temporal)
+on: workflow_dispatch
+permissions:
+  contents: read
+jobs:
+  diag:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m tools.diag_miedo
+        env:
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
