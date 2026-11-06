@@ -1,6 +1,6 @@
 {
  "esquema": 1,
- "generado": "2026-11-06T00:24:05+00:00",
+ "generado": "2026-11-06T15:51:35+00:00",
  "grupos": {
   "bolsa": "Bolsa",
   "riesgo": "Volatilidad y crédito",
@@ -32,13 +32,13 @@
    "grupo": "bolsa",
    "simbolo": "NASDAQCOM",
    "unidad": "pts",
-   "valor": 25736.51,
-   "anterior": 25372.01,
-   "fecha": "2026-11-04",
+   "valor": 24315.0,
+   "anterior": 25736.51,
+   "fecha": "2026-11-05",
    "fuente": "FRED (Nasdaq)",
    "url": "https://fred.stlouisfed.org/series/NASDAQCOM",
-   "var": 364.5,
-   "var_pct": 1.44,
+   "var": -1421.51,
+   "var_pct": -5.52,
    "vivo": {
     "ticker": "QQQ",
     "modo": "ref"
@@ -50,13 +50,13 @@
    "grupo": "bolsa",
    "simbolo": "URTH",
    "unidad": "$",
-   "valor": 199.63,
-   "anterior": 207.87,
-   "fecha": "2026-11-05",
+   "valor": 200.65,
+   "anterior": 199.63,
+   "fecha": "2026-11-06",
    "fuente": "Finnhub",
    "url": "https://finnhub.io/",
-   "var": -8.24,
-   "var_pct": -3.96,
+   "var": 1.02,
+   "var_pct": 0.51,
    "vivo": {
     "ticker": "URTH",
     "modo": "directo"
@@ -69,13 +69,13 @@
    "grupo": "bolsa",
    "simbolo": "EWY",
    "unidad": "$",
-   "valor": 131.65,
-   "anterior": 152.12,
-   "fecha": "2026-11-05",
+   "valor": 137.77,
+   "anterior": 131.65,
+   "fecha": "2026-11-06",
    "fuente": "Finnhub",
    "url": "https://finnhub.io/",
-   "var": -20.47,
-   "var_pct": -13.46,
+   "var": 6.12,
+   "var_pct": 4.65,
    "vivo": {
     "ticker": "EWY",
     "modo": "directo"
@@ -88,13 +88,13 @@
    "grupo": "riesgo",
    "simbolo": "VIXCLS",
    "unidad": "pts",
-   "valor": 16.61,
-   "anterior": 20.83,
-   "fecha": "2026-11-04",
+   "valor": 28.18,
+   "anterior": 16.61,
+   "fecha": "2026-11-05",
    "fuente": "FRED (Cboe)",
    "url": "https://fred.stlouisfed.org/series/VIXCLS",
-   "var": -4.22,
-   "var_pct": -20.26
+   "var": 11.57,
+   "var_pct": 69.66
   },
   {
    "id": "hyg",
@@ -102,13 +102,13 @@
    "grupo": "riesgo",
    "simbolo": "HYG",
    "unidad": "$",
-   "valor": 77.28,
-   "anterior": 77.52,
-   "fecha": "2026-11-05",
+   "valor": 77.32,
+   "anterior": 77.28,
+   "fecha": "2026-11-06",
    "fuente": "Finnhub",
    "url": "https://finnhub.io/",
-   "var": -0.24,
-   "var_pct": -0.31,
+   "var": 0.04,
+   "var_pct": 0.05,
    "vivo": {
     "ticker": "HYG",
     "modo": "directo"
@@ -120,13 +120,13 @@
    "grupo": "riesgo",
    "simbolo": "LQD",
    "unidad": "$",
-   "valor": 104.66,
-   "anterior": 104.5,
-   "fecha": "2026-11-05",
+   "valor": 104.53,
+   "anterior": 104.66,
+   "fecha": "2026-11-06",
    "fuente": "Finnhub",
    "url": "https://finnhub.io/",
-   "var": 0.16,
-   "var_pct": 0.15,
+   "var": -0.13,
+   "var_pct": -0.12,
    "vivo": {
     "ticker": "LQD",
     "modo": "directo"
@@ -138,12 +138,12 @@
    "grupo": "riesgo",
    "simbolo": "BAMLH0A0HYM2",
    "unidad": "%",
-   "valor": 3.32,
-   "anterior": 3.4,
-   "fecha": "2026-11-04",
+   "valor": 3.48,
+   "anterior": 3.32,
+   "fecha": "2026-11-05",
    "fuente": "FRED (ICE BofA)",
    "url": "https://fred.stlouisfed.org/series/BAMLH0A0HYM2",
-   "var": -0.08
+   "var": 0.16
   },
   {
    "id": "kre",
@@ -151,13 +151,13 @@
    "grupo": "riesgo",
    "simbolo": "KRE",
    "unidad": "$",
-   "valor": 72.31,
-   "anterior": 74.13,
-   "fecha": "2026-11-05",
+   "valor": 72.52,
+   "anterior": 72.31,
+   "fecha": "2026-11-06",
    "fuente": "Finnhub",
    "url": "https://finnhub.io/",
-   "var": -1.82,
-   "var_pct": -2.46,
+   "var": 0.21,
+   "var_pct": 0.29,
    "vivo": {
     "ticker": "KRE",
     "modo": "directo"
@@ -195,13 +195,13 @@
    "grupo": "tipos",
    "simbolo": "EUR/USD",
    "unidad": "",
-   "valor": 1.1228,
+   "valor": 1.115,
    "anterior": 1.1224,
    "fecha": "2026-11-06",
    "fuente": "Twelve Data",
    "url": "https://twelvedata.com/",
-   "var": 0.0005,
-   "var_pct": 0.04
+   "var": -0.0073,
+   "var_pct": -0.65
   },
   {
    "id": "oro",
@@ -209,13 +209,13 @@
    "grupo": "materias",
    "simbolo": "XAU/USD",
    "unidad": "$",
-   "valor": 4101.9473,
+   "valor": 4048.1066,
    "anterior": 4114.3956,
    "fecha": "2026-11-06",
    "fuente": "Twelve Data",
    "url": "https://twelvedata.com/",
-   "var": -12.4483,
-   "var_pct": -0.3
+   "var": -66.2889,
+   "var_pct": -1.61
   },
   {
    "id": "wti",
@@ -237,21 +237,21 @@
    "grupo": "materias",
    "simbolo": "BTC/USD",
    "unidad": "$",
-   "valor": 76168.0,
+   "valor": 75800.98,
    "anterior": 76088.01,
    "fecha": "2026-11-06",
    "fuente": "Twelve Data",
    "url": "https://twelvedata.com/",
-   "var": 79.99,
-   "var_pct": 0.11
+   "var": -287.03,
+   "var_pct": -0.38
   }
  ],
  "sentimiento": {
   "estres_ofr": {
-   "valor": -1.484,
-   "anterior": -1.472,
-   "hace_1s": -1.913,
-   "fecha": "2026-11-03",
+   "valor": -2.162,
+   "anterior": -1.484,
+   "hace_1s": -1.829,
+   "fecha": "2026-11-04",
    "maximo_1a": 0.204,
    "fuente": "OFR · Oficina de Investigación Financiera del Tesoro de EE. UU.",
    "url": "https://www.financialresearch.gov/financial-stress-index/"
@@ -602,6 +602,10 @@
    [
     "2026-11-04",
     0.8
+   ],
+   [
+    "2026-11-05",
+    1.06
    ]
   ]
  }
