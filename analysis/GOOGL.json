@@ -783,5 +783,49 @@
     "RDDT",
     "PINS",
     "SNAP"
+  ],
+  "avisos_aprobados": [
+    {
+      "id": "etiqueta_obsoleta.Beneficio antes de impuestos: «IncomeLossFromContinuingOperationsBeforeIncomeTax",
+      "fecha": "2026-11-06",
+      "nivel": "info",
+      "mensaje": "Beneficio antes de impuestos: «IncomeLossFromContinuingOperationsBeforeIncomeTaxesDomestic» termina el 2025-12-31; solo se usa para años antiguos."
+    },
+    {
+      "id": "etiqueta_obsoleta.Gastos por intereses: «InterestExpense» termina el #-#-#; solo se usa para años ",
+      "fecha": "2026-11-06",
+      "nivel": "info",
+      "mensaje": "Gastos por intereses: «InterestExpense» termina el 2024-03-31; solo se usa para años antiguos."
+    },
+    {
+      "id": "etiqueta_obsoleta.Dividendos pagados: «PaymentsOfDividends» termina el #-#-#; solo se usa para año",
+      "fecha": "2026-11-06",
+      "nivel": "info",
+      "mensaje": "Dividendos pagados: «PaymentsOfDividends» termina el 2026-03-31; solo se usa para años antiguos."
+    },
+    {
+      "id": "etiqueta_obsoleta.Ventas y marketing: «MarketingAndAdvertisingExpense» termina el #-#-#; solo se u",
+      "fecha": "2026-11-06",
+      "nivel": "info",
+      "mensaje": "Ventas y marketing: «MarketingAndAdvertisingExpense» termina el 2025-12-31; solo se usa para años antiguos."
+    },
+    {
+      "id": "amortizacion_por_componentes.Amortizaciones (D&A): la compañía no usa la etiqueta combinada; se suman depreci",
+      "fecha": "2026-11-06",
+      "nivel": "info",
+      "mensaje": "Amortizaciones (D&A): la compañía no usa la etiqueta combinada; se suman depreciación (us-gaap:Depreciation) y amortización de intangibles (us-gaap:AmortizationOfIntangibleAssets)."
+    },
+    {
+      "id": "etiqueta_obsoleta.Inmovilizado material neto: se descarta «PropertyPlantAndEquipmentNet» (último d",
+      "fecha": "2026-11-06",
+      "nivel": "info",
+      "mensaje": "Inmovilizado material neto: se descarta «PropertyPlantAndEquipmentNet» (último dato 2025-03-31, ingresos hasta 2026-09-30)."
+    },
+    {
+      "id": "acciones_diluidas.Acciones: se usan las diluidas medias del #T# (# M).",
+      "fecha": "2026-11-06",
+      "nivel": "info",
+      "mensaje": "Acciones: se usan las diluidas medias del 3T26 (12,368 M)."
+    }
   ]
 }
