@@ -48,6 +48,8 @@ FEEDS = {
     "fooddive": ("Food Dive", "https://www.fooddive.com/feeds/news/", "sectorial"),
     "retaildive": ("Retail Dive", "https://www.retaildive.com/feeds/news/", "sectorial"),
     "supplychaindive": ("Supply Chain Dive", "https://www.supplychaindive.com/feeds/news/", "sectorial"),
+    "biopharmadive": ("BioPharma Dive", "https://www.biopharmadive.com/feeds/news/", "sectorial"),
+    "fiercebiotech": ("Fierce Biotech", "https://www.fiercebiotech.com/rss/xml", "sectorial"),
     "businesswire": ("Business Wire", "https://feed.businesswire.com/rss/home/?rss=G1QFDERJXkJeEFtRWQ==", "nota_prensa"),
     "prnewswire": ("PR Newswire", "https://www.prnewswire.com/rss/news-releases-list.rss", "nota_prensa"),
 }
@@ -63,6 +65,7 @@ SIC_MEDIOS = [
     (("2000", "2011", "2020", "2030", "2040", "2050", "2060", "2070", "2080", "2086", "2090"), ["fooddive"]),
     (("5311", "5331", "5399", "5411", "5900", "5961", "5990"), ["retaildive", "supplychaindive"]),
     (("4210", "4213", "4512", "4513", "4731"), ["supplychaindive"]),
+    (("2833", "2834", "2835", "2836", "8731"), ["biopharmadive", "fiercebiotech"]),
 ]
 
 
