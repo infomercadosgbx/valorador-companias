@@ -189,6 +189,16 @@ table.rt{width:100%;border-collapse:collapse}
 .form input,.form select{font:500 13px var(--f-num);padding:7px 8px;border:1px solid var(--line);border-radius:6px;background:#fff;color:var(--ink)}
 .form input[type=text]{font-family:var(--f-body)}
 .form .hint{font:400 10.5px var(--f-body);color:var(--muted)}
+.form label{position:relative}
+.ib{display:inline-flex;align-items:center;justify-content:center;width:15px;height:15px;margin-left:5px;padding:0;border:1px solid var(--muted);border-radius:50%;background:#fff;color:var(--ink2);font:italic 700 10px Georgia,serif;cursor:pointer;vertical-align:1px}
+.ib:hover,.ib[aria-expanded=true]{background:var(--night);border-color:var(--night);color:#fff}
+.ibox{position:absolute;z-index:20;top:22px;left:0;width:min(380px,86vw);background:#fff;border:1px solid var(--line);border-left:3px solid var(--night);border-radius:0 8px 8px 0;box-shadow:0 6px 20px rgba(0,0,0,.14);padding:10px 12px;font:400 12px/1.5 var(--f-body);color:var(--ink)}
+.ibox[hidden]{display:none}
+.ibox b{font-weight:700}.ibox p{margin:0 0 6px;font-size:12px;color:var(--ink)}
+.ibox .fx{display:flex;align-items:center;justify-content:center;gap:6px;margin:4px 0 8px;padding:8px;background:var(--soft);border-radius:6px;font:400 13px/1.3 Georgia,"Times New Roman",serif}
+.ibox .frac{display:inline-flex;flex-direction:column;text-align:center}.ibox .frac>span:first-child{border-bottom:1px solid currentColor;padding:0 4px 2px}.ibox .frac>span:last-child{padding:2px 4px 0}.ibox sub{font-size:9px}
+.ibox ul{margin:2px 0 6px;padding-left:16px}.ibox li{margin:1px 0}
+.ibox .ref2{font-size:10.5px;color:var(--muted);margin:0}
 .actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:12px}
 .actions button{font:600 13px var(--f-body);background:var(--night);color:#fff;border:0;border-radius:6px;padding:8px 14px;cursor:pointer}
 .actions button.alt{background:#fff;color:var(--night);border:1px solid var(--line)}
@@ -518,7 +528,7 @@ async function panelHtml(){
     ${inp("f_per","Trimestre",cur.periodo||per,"Como lo escribe la web, p. ej. "+(per||"4T26"),"text")}
     ${inp("f_src","Fuente",cur.fuente||"Investing","","text")}
     ${inp("f_rev","Ingresos (M$)",cur.ingresos_M,"Vacío = consenso de Finnhub")}
-    ${inp("f_eps","BPA ajustado ($)",cur.bpa,"Non-GAAP, como el consenso. Vacío = consenso de Finnhub")}
+    ${inp("f_eps",`<span>BPA ajustado ($)<button type="button" class="ib" aria-expanded="false" aria-controls="epsInfo" aria-label="Cómo se calcula el BPA ajustado">i</button></span><span class="ibox" id="epsInfo" role="note" hidden>${EPS_INFO}</span>`,cur.bpa,"Non-GAAP, como el consenso. Vacío = consenso de Finnhub")}
     ${inp("f_op","Beneficio operativo (M$)",cur.beneficio_operativo_M)}
     ${inp("f_ebitda","EBITDA ajustado (M$)",cur.ebitda_M,"Del trimestre; se compara con la nota de resultados")}
     ${inp("f_grev","Guía esperada: ventas (M$)",cur.guia_ingresos_M,"Del trimestre siguiente")}
@@ -531,6 +541,14 @@ async function panelHtml(){
    <script type="application/json" id="segNames">${JSON.stringify(segNames).replace(/</g,"\\u003c")}<\/script>
   </section>`;
 }
+const EPS_INFO=`<p><b>BPA ajustado (non-GAAP) diluido</b></p>
+<span class="fx"><i>BPA</i><sub>ajust.</sub> = <span class="frac"><span>Beneficio neto<sub>GAAP</sub> + Σ ajustes<sub>i</sub> · (1 − <i>t</i>)</span><span>Acciones diluidas medias</span></span></span>
+<p>Parte del beneficio contable (US GAAP) y suma o resta partidas que la compañía considera no recurrentes o sin efecto en caja, netas de su efecto fiscal (t):</p>
+<ul><li>Remuneración en acciones (SBC)</li><li>Amortización de intangibles adquiridos en compras</li><li>Reestructuración, litigios y costes de adquisiciones</li><li>Ganancias o pérdidas de inversiones y partidas fiscales puntuales</li></ul>
+<p><b>Diluido:</b> el denominador es la media ponderada de acciones del trimestre más las que crearían opciones, RSU y convertibles (método de la acción propia, ASC 260).</p>
+<p><b>Por qué este:</b> es la base en la que los analistas publican el consenso (Finnhub, Investing, LSEG I/B/E/S). Comparar un BPA GAAP con un consenso ajustado mezclaría bases.</p>
+<p><b>Cautela:</b> no lo define ninguna norma contable y cada compañía elige sus ajustes. La SBC es un coste real que diluye al accionista; en software el ajustado puede doblar al GAAP.</p>
+<p class="ref2">La SEC (Regulation G e Item 10(e) de Regulation S-K) obliga a conciliarlo con la cifra GAAP; la conciliación está en el Exhibit 99.1 del 8-K de resultados.</p>`;
 function readForm(){
   const num=id=>{ const v=$(id)&&$(id).value.trim().replace(",","."); return v===""?null:Number(v); };
   const names=JSON.parse(($("segNames")||{}).textContent||"[]"); const seg={};
@@ -628,7 +646,13 @@ $("selT").addEventListener("change",e=>{ const u=new URL(location.href); u.searc
 $("selP").addEventListener("change",e=>{ const u=new URL(location.href); u.searchParams.set("p",e.target.value); location.href=u.toString(); });
 $("btnPrint").addEventListener("click",()=>window.print());
 $("btnRun").addEventListener("click",runUpdate);
-document.addEventListener("click",e=>{ if(e.target.closest("#btnEst")) saveEst(); });
+document.addEventListener("click",e=>{ if(e.target.closest("#btnEst")) saveEst();
+  const ib=e.target.closest(".ib");
+  document.querySelectorAll(".ib").forEach(b=>{ const box=$(b.getAttribute("aria-controls")); if(!box) return;
+    const open=b===ib?box.hidden:(box.contains(e.target)&&!box.hidden);
+    box.hidden=!open; b.setAttribute("aria-expanded",String(open)); });
+  if(ib||e.target.closest(".ibox")) e.preventDefault(); });
+document.addEventListener("keydown",e=>{ if(e.key==="Escape") document.querySelectorAll(".ib[aria-expanded=true]").forEach(b=>{ $(b.getAttribute("aria-controls")).hidden=true; b.setAttribute("aria-expanded","false"); b.focus(); }); });
 window.addEventListener("resize",fitZoom);
 window.addEventListener("beforeprint",()=>document.querySelectorAll(".sheet").forEach(el=>el.style.zoom=""));
 window.addEventListener("afterprint",fitZoom);
