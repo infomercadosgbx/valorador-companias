@@ -1,6 +1,6 @@
 {
  "esquema": 1,
- "generado": "2026-11-06T15:51:35+00:00",
+ "generado": "2026-11-06T21:12:57+00:00",
  "grupos": {
   "bolsa": "Bolsa",
   "riesgo": "Volatilidad y crédito",
@@ -10,38 +10,38 @@
  "indicadores": [
   {
    "id": "sp500",
-   "nombre": "S&P 500",
+   "nombre": "S&P 500 (ETF SPY)",
    "grupo": "bolsa",
-   "simbolo": "SP500",
-   "unidad": "pts",
-   "valor": 7688.62,
-   "anterior": 7568.92,
-   "fecha": "2026-11-04",
-   "fuente": "FRED (S&P Dow Jones Indices)",
-   "url": "https://fred.stlouisfed.org/series/SP500",
-   "var": 119.7,
-   "var_pct": 1.58,
+   "simbolo": "SPY",
+   "unidad": "$",
+   "valor": 735.29,
+   "anterior": 733,
+   "fecha": "2026-11-06",
+   "fuente": "Finnhub",
+   "url": "https://finnhub.io/",
+   "var": 2.29,
+   "var_pct": 0.31,
    "vivo": {
     "ticker": "SPY",
-    "modo": "ref"
+    "modo": "directo"
    }
   },
   {
    "id": "nasdaq",
-   "nombre": "Nasdaq Composite",
+   "nombre": "Nasdaq-100 (ETF QQQ)",
    "grupo": "bolsa",
-   "simbolo": "NASDAQCOM",
-   "unidad": "pts",
-   "valor": 24315.0,
-   "anterior": 25736.51,
-   "fecha": "2026-11-05",
-   "fuente": "FRED (Nasdaq)",
-   "url": "https://fred.stlouisfed.org/series/NASDAQCOM",
-   "var": -1421.51,
-   "var_pct": -5.52,
+   "simbolo": "QQQ",
+   "unidad": "$",
+   "valor": 656.1,
+   "anterior": 647.05,
+   "fecha": "2026-11-06",
+   "fuente": "Finnhub",
+   "url": "https://finnhub.io/",
+   "var": 9.05,
+   "var_pct": 1.4,
    "vivo": {
     "ticker": "QQQ",
-    "modo": "ref"
+    "modo": "directo"
    }
   },
   {
@@ -50,13 +50,13 @@
    "grupo": "bolsa",
    "simbolo": "URTH",
    "unidad": "$",
-   "valor": 200.65,
+   "valor": 199.67,
    "anterior": 199.63,
    "fecha": "2026-11-06",
    "fuente": "Finnhub",
    "url": "https://finnhub.io/",
-   "var": 1.02,
-   "var_pct": 0.51,
+   "var": 0.04,
+   "var_pct": 0.02,
    "vivo": {
     "ticker": "URTH",
     "modo": "directo"
@@ -69,13 +69,13 @@
    "grupo": "bolsa",
    "simbolo": "EWY",
    "unidad": "$",
-   "valor": 137.77,
+   "valor": 137.01,
    "anterior": 131.65,
    "fecha": "2026-11-06",
    "fuente": "Finnhub",
    "url": "https://finnhub.io/",
-   "var": 6.12,
-   "var_pct": 4.65,
+   "var": 5.36,
+   "var_pct": 4.07,
    "vivo": {
     "ticker": "EWY",
     "modo": "directo"
@@ -102,13 +102,13 @@
    "grupo": "riesgo",
    "simbolo": "HYG",
    "unidad": "$",
-   "valor": 77.32,
+   "valor": 77.23,
    "anterior": 77.28,
    "fecha": "2026-11-06",
    "fuente": "Finnhub",
    "url": "https://finnhub.io/",
-   "var": 0.04,
-   "var_pct": 0.05,
+   "var": -0.05,
+   "var_pct": -0.06,
    "vivo": {
     "ticker": "HYG",
     "modo": "directo"
@@ -151,13 +151,13 @@
    "grupo": "riesgo",
    "simbolo": "KRE",
    "unidad": "$",
-   "valor": 72.52,
+   "valor": 72.2,
    "anterior": 72.31,
    "fecha": "2026-11-06",
    "fuente": "Finnhub",
    "url": "https://finnhub.io/",
-   "var": 0.21,
-   "var_pct": 0.29,
+   "var": -0.11,
+   "var_pct": -0.15,
    "vivo": {
     "ticker": "KRE",
     "modo": "directo"
@@ -169,12 +169,12 @@
    "grupo": "tipos",
    "simbolo": "5 Yr",
    "unidad": "%",
-   "valor": 4.59,
-   "anterior": 4.69,
-   "fecha": "2026-11-05",
+   "valor": 4.64,
+   "anterior": 4.59,
+   "fecha": "2026-11-06",
    "fuente": "Tesoro de EE. UU.",
    "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve",
-   "var": -0.1
+   "var": 0.05
   },
   {
    "id": "us10y",
@@ -182,12 +182,12 @@
    "grupo": "tipos",
    "simbolo": "10 Yr",
    "unidad": "%",
-   "valor": 4.84,
-   "anterior": 4.9,
-   "fecha": "2026-11-05",
+   "valor": 4.86,
+   "anterior": 4.84,
+   "fecha": "2026-11-06",
    "fuente": "Tesoro de EE. UU.",
    "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve",
-   "var": -0.06
+   "var": 0.02
   },
   {
    "id": "eurusd",
@@ -195,13 +195,13 @@
    "grupo": "tipos",
    "simbolo": "EUR/USD",
    "unidad": "",
-   "valor": 1.115,
-   "anterior": 1.1224,
-   "fecha": "2026-11-06",
+   "valor": 1.1141,
+   "anterior": 1.114,
+   "fecha": "2026-11-07",
    "fuente": "Twelve Data",
    "url": "https://twelvedata.com/",
-   "var": -0.0073,
-   "var_pct": -0.65
+   "var": 0.0001,
+   "var_pct": 0.01
   },
   {
    "id": "oro",
@@ -209,13 +209,13 @@
    "grupo": "materias",
    "simbolo": "XAU/USD",
    "unidad": "$",
-   "valor": 4048.1066,
-   "anterior": 4114.3956,
-   "fecha": "2026-11-06",
+   "valor": 4066.5562,
+   "anterior": 4063.3273,
+   "fecha": "2026-11-07",
    "fuente": "Twelve Data",
    "url": "https://twelvedata.com/",
-   "var": -66.2889,
-   "var_pct": -1.61
+   "var": 3.2289,
+   "var_pct": 0.08
   },
   {
    "id": "wti",
@@ -237,13 +237,13 @@
    "grupo": "materias",
    "simbolo": "BTC/USD",
    "unidad": "$",
-   "valor": 75800.98,
+   "valor": 75896.9,
    "anterior": 76088.01,
    "fecha": "2026-11-06",
    "fuente": "Twelve Data",
    "url": "https://twelvedata.com/",
-   "var": -287.03,
-   "var_pct": -0.38
+   "var": -191.11,
+   "var_pct": -0.25
   }
  ],
  "sentimiento": {
@@ -257,30 +257,30 @@
    "url": "https://www.financialresearch.gov/financial-stress-index/"
   },
   "miedo_codicia": {
-   "valor": 29.3,
-   "etiqueta": "Miedo",
-   "fecha": "2026-11-04",
+   "valor": 16.1,
+   "etiqueta": "Miedo extremo",
+   "fecha": "2026-11-05",
    "n_componentes": 5,
    "anterior": {
-    "valor": 20.9,
-    "fecha": "2026-11-03"
+    "valor": 29.3,
+    "fecha": "2026-11-04"
    },
    "hace_1s": {
-    "valor": 23.9,
-    "fecha": "2026-10-28"
+    "valor": 19.7,
+    "fecha": "2026-10-29"
    },
    "hace_1m": {
-    "valor": 51.3,
-    "fecha": "2026-10-06"
+    "valor": 47.9,
+    "fecha": "2026-10-07"
    },
    "componentes": [
     {
      "id": "impulso",
      "nombre": "Impulso del mercado",
      "descripcion": "S&P 500 frente a su media de 125 sesiones. Por encima, codicia.",
-     "puntuacion": 19.6,
+     "puntuacion": 9.7,
      "etiqueta": "Miedo extremo",
-     "bruto": 0.0131,
+     "bruto": -0.031,
      "fuente": "S&P 500 vía FRED",
      "url": "https://fred.stlouisfed.org/series/SP500"
     },
@@ -288,9 +288,9 @@
      "id": "volatilidad",
      "nombre": "Volatilidad",
      "descripcion": "VIX frente a su media de 50 sesiones. Si sube por encima, miedo.",
-     "puntuacion": 38.5,
-     "etiqueta": "Miedo",
-     "bruto": 0.0113,
+     "puntuacion": 0.8,
+     "etiqueta": "Miedo extremo",
+     "bruto": 0.6876,
      "fuente": "VIX (Cboe) vía FRED",
      "url": "https://fred.stlouisfed.org/series/VIXCLS"
     },
@@ -298,9 +298,9 @@
      "id": "bonos_basura",
      "nombre": "Demanda de bonos basura",
      "descripcion": "Diferencial high yield menos el de grado de inversión. Si se abre, miedo.",
-     "puntuacion": 8.5,
+     "puntuacion": 4.6,
      "etiqueta": "Miedo extremo",
-     "bruto": 2.41,
+     "bruto": 2.55,
      "fuente": "FRED (ICE BofA)",
      "url": "https://fred.stlouisfed.org/series/BAMLH0A0HYM2"
     },
@@ -308,9 +308,9 @@
      "id": "refugio",
      "nombre": "Demanda de refugio",
      "descripcion": "Rentabilidad a 20 sesiones de la bolsa menos la del bono a 10 años. Si ganan los bonos, miedo.",
-     "puntuacion": 6.2,
+     "puntuacion": 2.6,
      "etiqueta": "Miedo extremo",
-     "bruto": -5.0994,
+     "bruto": -8.4351,
      "fuente": "S&P 500 y bono a 10 años vía FRED",
      "url": "https://fred.stlouisfed.org/series/DGS10"
     },
@@ -318,18 +318,14 @@
      "id": "put_call",
      "nombre": "Ratio put/call",
      "descripcion": "Media de 5 sesiones del ratio put/call total del Cboe. Muchas puts, miedo.",
-     "puntuacion": 73.5,
+     "puntuacion": 63.0,
      "etiqueta": "Codicia",
-     "bruto": 0.856,
+     "bruto": 0.898,
      "fuente": "Cboe · estadísticas diarias",
      "url": "https://www.cboe.com/us/options/market_statistics/daily/"
     }
    ],
    "serie": [
-    [
-     "2026-08-12",
-     80.4
-    ],
     [
      "2026-08-13",
      82.7
@@ -565,6 +561,10 @@
     [
      "2026-11-04",
      29.3
+    ],
+    [
+     "2026-11-05",
+     16.1
     ]
    ],
    "metodo": "Media de los componentes disponibles, cada uno puntuado de 0 a 100 según su percentil frente a los dos últimos años de sesiones (el put/call, por tramos fijos). Misma receta que el índice de CNN, sin los dos componentes de amplitud de la NYSE, que no tienen fuente gratuita."
