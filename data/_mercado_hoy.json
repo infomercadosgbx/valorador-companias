@@ -1,6 +1,6 @@
 {
  "esquema": 1,
- "generado": "2026-11-06T21:12:57+00:00",
+ "generado": "2026-11-06T21:32:48+00:00",
  "grupos": {
   "bolsa": "Bolsa",
   "riesgo": "Volatilidad y crédito",
@@ -195,13 +195,13 @@
    "grupo": "tipos",
    "simbolo": "EUR/USD",
    "unidad": "",
-   "valor": 1.1141,
+   "valor": 1.1142,
    "anterior": 1.114,
    "fecha": "2026-11-07",
    "fuente": "Twelve Data",
    "url": "https://twelvedata.com/",
-   "var": 0.0001,
-   "var_pct": 0.01
+   "var": 0.0003,
+   "var_pct": 0.02
   },
   {
    "id": "oro",
@@ -209,13 +209,13 @@
    "grupo": "materias",
    "simbolo": "XAU/USD",
    "unidad": "$",
-   "valor": 4066.5562,
+   "valor": 4063.6559,
    "anterior": 4063.3273,
    "fecha": "2026-11-07",
    "fuente": "Twelve Data",
    "url": "https://twelvedata.com/",
-   "var": 3.2289,
-   "var_pct": 0.08
+   "var": 0.3286,
+   "var_pct": 0.01
   },
   {
    "id": "wti",
@@ -237,13 +237,13 @@
    "grupo": "materias",
    "simbolo": "BTC/USD",
    "unidad": "$",
-   "valor": 75896.9,
+   "valor": 75740.01,
    "anterior": 76088.01,
    "fecha": "2026-11-06",
    "fuente": "Twelve Data",
    "url": "https://twelvedata.com/",
-   "var": -191.11,
-   "var_pct": -0.25
+   "var": -348.0,
+   "var_pct": -0.46
   }
  ],
  "sentimiento": {
@@ -568,6 +568,159 @@
     ]
    ],
    "metodo": "Media de los componentes disponibles, cada uno puntuado de 0 a 100 según su percentil frente a los dos últimos años de sesiones (el put/call, por tramos fijos). Misma receta que el índice de CNN, sin los dos componentes de amplitud de la NYSE, que no tienen fuente gratuita."
+  }
+ },
+ "tipos": {
+  "calendario": {
+   "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
+   "proximas": [
+    {
+     "inicio": "2026-12-08",
+     "fin": "2026-12-09",
+     "proyecciones": true,
+     "hora_madrid": "20:00",
+     "dias": 33,
+     "comunicado": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261209a.htm",
+     "rueda_prensa": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20261209.htm",
+     "actas_fecha": "2026-12-30",
+     "diagrama": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20261209.htm"
+    },
+    {
+     "inicio": "2027-01-26",
+     "fin": "2027-01-27",
+     "proyecciones": false,
+     "hora_madrid": "20:00",
+     "dias": 82,
+     "comunicado": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20270127a.htm",
+     "rueda_prensa": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20270127.htm",
+     "actas_fecha": "2027-02-17"
+    },
+    {
+     "inicio": "2027-03-16",
+     "fin": "2027-03-17",
+     "proyecciones": true,
+     "hora_madrid": "19:00",
+     "dias": 131,
+     "comunicado": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20270317a.htm",
+     "rueda_prensa": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20270317.htm",
+     "actas_fecha": "2027-04-07",
+     "diagrama": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20270317.htm"
+    },
+    {
+     "inicio": "2027-04-27",
+     "fin": "2027-04-28",
+     "proyecciones": false,
+     "hora_madrid": "20:00",
+     "dias": 173,
+     "comunicado": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20270428a.htm",
+     "rueda_prensa": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20270428.htm",
+     "actas_fecha": "2027-05-19"
+    }
+   ],
+   "ultima": {
+    "inicio": "2026-10-27",
+    "fin": "2026-10-28",
+    "proyecciones": false,
+    "hora_madrid": "19:00",
+    "dias": -9,
+    "comunicado": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261028a.htm",
+    "rueda_prensa": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20261028.htm",
+    "actas_fecha": "2026-11-18",
+    "decision": {
+     "pb": 0,
+     "texto": "Mantuvo los tipos"
+    }
+   },
+   "ultima_proyeccion": "2026-09-16"
+  },
+  "fed": {
+   "inferior": 3.75,
+   "superior": 4.0,
+   "fecha": "2026-11-06",
+   "fuente": "Reserva Federal vía FRED",
+   "url": "https://fred.stlouisfed.org/series/DFEDTARU",
+   "efectivo": {
+    "valor": 3.88,
+    "fecha": "2026-11-05",
+    "url": "https://fred.stlouisfed.org/series/EFFR"
+   },
+   "ultimo_cambio": {
+    "fecha": "2026-09-17",
+    "pb": 25
+   }
+  },
+  "diagrama": {
+   "anios": [
+    {
+     "anio": 2026,
+     "mediana": 4.1
+    },
+    {
+     "anio": 2027,
+     "mediana": 4.1
+    },
+    {
+     "anio": 2028,
+     "mediana": 3.9
+    },
+    {
+     "anio": 2029,
+     "mediana": 3.6
+    }
+   ],
+   "fuente": "Reserva Federal (proyecciones del FOMC) vía FRED",
+   "url": "https://fred.stlouisfed.org/series/FEDTARMD",
+   "reunion": "2026-09-16",
+   "largo_plazo": 3.2
+  },
+  "mercado": {
+   "plazos": [
+    {
+     "plazo": "3 meses",
+     "valor": 4.19,
+     "fecha": "2026-11-06",
+     "dif_pb": 31,
+     "lectura": "subidas"
+    },
+    {
+     "plazo": "6 meses",
+     "valor": 4.23,
+     "fecha": "2026-11-06",
+     "dif_pb": 35,
+     "lectura": "subidas"
+    },
+    {
+     "plazo": "1 año",
+     "valor": 4.33,
+     "fecha": "2026-11-06",
+     "dif_pb": 45,
+     "lectura": "subidas"
+    },
+    {
+     "plazo": "2 años",
+     "valor": 4.51,
+     "fecha": "2026-11-06",
+     "dif_pb": 63,
+     "lectura": "subidas"
+    }
+   ],
+   "base": 3.88,
+   "fuente": "Tesoro de EE. UU.",
+   "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve"
+  },
+  "pendiente": {
+   "10a_2a": {
+    "pb": 35,
+    "hace_1m": 51,
+    "fecha": "2026-11-06"
+   },
+   "10a_3m": {
+    "pb": 67,
+    "hace_1m": 106,
+    "fecha": "2026-11-06"
+   },
+   "fuente": "Tesoro de EE. UU.",
+   "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve"
   }
  },
  "avisos": [
