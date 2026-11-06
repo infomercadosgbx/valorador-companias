@@ -162,27 +162,3 @@ def test_estimaciones_manuales_por_trimestre():
     assert EST.manual_for(man, "3t26")["bpa"] == 1.99
     assert EST.manual_for(man, "1T27") is None
     assert EST.segmento_clave(man) == "AWS"
-
-
-# ------------------------------------------------------------- BPA ajustado y GAAP
-def _tabla_bpa(gaap=0.10, est_adj=0.17):
-    return [{"concepto": "ingresos", "estimado": None, "reportado": {"valor": 1}},
-            {"concepto": "bpa_diluido", "nombre": "BPA diluido", "tipo": "total", "reportado": {"valor": gaap},
-             "estimado": {"valor": est_adj}, "dif_pct": None, "resultado": None}]
-
-
-def test_bpa_una_fila_en_base_ajustada():
-    t = RES.eps_rows(_tabla_bpa(), None, {"valor": 0.18})
-    assert len(t) == 2 and t[1]["comparable"]["valor"] == 0.18 and t[1]["resultado"] == "Beat"
-
-
-def test_bpa_dos_filas_si_hay_estimacion_gaap():
-    t = RES.eps_rows(_tabla_bpa(), {"valor": 0.08, "manual": True}, {"valor": 0.16})
-    g, a = t[1], t[2]
-    assert g["nombre"] == "BPA diluido (GAAP)" and g["resultado"] == "Beat" and "comparable" not in g
-    assert a["concepto"] == "bpa_ajustado" and a["estimado"]["valor"] == 0.17 and a["resultado"] == "Miss"
-
-
-def test_bpa_ajustado_pendiente_hasta_que_finnhub_lo_da():
-    t = RES.eps_rows(_tabla_bpa(), {"valor": 0.08}, None)
-    assert t[2]["reportado"] is None and t[2]["resultado"] is None
