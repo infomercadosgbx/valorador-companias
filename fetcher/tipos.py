@@ -7,9 +7,14 @@ Se guarda dentro de data/_mercado_hoy.json (clave «tipos»). Fuentes oficiales:
   y la pendiente de la curva.
 - Calendario de reuniones del FOMC publicado por la Fed (lista de abajo; la Fed lo publica con
   más de un año de antelación).
+- FRED: inflación (IPC y PCE, general y subyacente), inflación esperada (T10YIE, T5YIFR), tipo real
+  a 10 años (DFII10) y fechas oficiales de publicación de IPC, empleo, PCE, IPP y PIB (API de FRED).
 Las probabilidades de CME FedWatch no tienen fuente gratuita: se apuntan a mano en manual/_mercado.json.
 """
 from __future__ import annotations
+
+import json
+import urllib.parse
 
 from datetime import date, datetime, time as dtime, timedelta
 from zoneinfo import ZoneInfo
@@ -196,4 +201,159 @@ def build(f, fred, avisos, old=None):
         for k in ("mercado", "pendiente"):
             if old.get(k):
                 out[k] = old[k]
+
+    try:
+        out["inflacion"] = inflacion(fred, out.get("fed"), out.get("diagrama"), avisos) or old.get("inflacion")
+    except Exception as e:      # noqa: BLE001 — nunca debe tumbar el resto
+        avisos.append(f"Inflación: error inesperado ({e}).")
+        out["inflacion"] = old.get("inflacion")
+    try:
+        out["agenda"] = agenda(f, fred, out.get("inflacion"), avisos, old.get("agenda"))
+    except Exception as e:      # noqa: BLE001
+        avisos.append(f"Agenda macro: error inesperado ({e}).")
+        out["agenda"] = old.get("agenda")
     return out
+
+
+# ---------------------------------------------------------------- inflación y tipo real
+INFLACION = [("ipc", "CPIAUCSL", "IPC general"), ("ipc_sub", "CPILFESL", "IPC subyacente"),
+             ("pce", "PCEPI", "PCE general"), ("pce_sub", "PCEPILFE", "PCE subyacente")]
+MERCADO_INFL = [("esperada_10a", "T10YIE", "Inflación esperada a 10 años"),
+                ("esperada_5a5a", "T5YIFR", "Inflación esperada de dentro de 5 a 10 años"),
+                ("real_10a", "DFII10", "Tipo real a 10 años (TIPS)")]
+
+
+def _mes_antes(iso, n):
+    y, m = int(iso[:4]), int(iso[5:7]) - n
+    while m < 1:
+        m += 12
+        y -= 1
+    return f"{y}-{m:02d}-01"
+
+
+def interanual(serie):
+    """Serie mensual de un índice de precios: tasa interanual y mensual del último mes y la interanual del anterior."""
+    if len(serie) < 14:
+        return None
+    d = dict(serie)
+    ult = serie[-1][0]
+
+    def ia(mes):
+        a, b = d.get(mes), d.get(_mes_antes(mes, 12))
+        return round((a / b - 1) * 100, 2) if a and b else None
+    prev = _mes_antes(ult, 1)
+    mm = round((d[ult] / d[prev] - 1) * 100, 2) if d.get(prev) else None
+    return {"mes": ult[:7], "interanual": ia(ult), "anterior": ia(prev), "mensual": mm}
+
+
+def inflacion(fred, fed, diagrama, avisos):
+    out = {}
+    for k, sid, nom in INFLACION:
+        try:
+            r = interanual(fred(sid))
+            if r:
+                out[k] = dict(r, nombre=nom, url=FRED_PAGE.format(sid))
+        except RuntimeError as e:
+            avisos.append(f"{nom}: no disponible ({e}).")
+    for k, sid, nom in MERCADO_INFL:
+        try:
+            s = fred(sid)
+            ref = (date.fromisoformat(s[-1][0]) - timedelta(days=30)).isoformat()
+            out[k] = {"valor": s[-1][1], "fecha": s[-1][0], "hace_1m": _en(s, ref), "nombre": nom, "url": FRED_PAGE.format(sid)}
+        except (RuntimeError, IndexError) as e:
+            avisos.append(f"{nom}: no disponible ({e}).")
+    if fed and out.get("pce_sub", {}).get("interanual") is not None:
+        medio = (fed["inferior"] + fed["superior"]) / 2
+        real = round(medio - out["pce_sub"]["interanual"], 2)
+        r = {"valor": real, "base": medio, "inflacion": out["pce_sub"]["interanual"]}
+        if diagrama and diagrama.get("largo_plazo") is not None:
+            neutral = round(diagrama["largo_plazo"] - 2.0, 2)        # tipo neutral nominal de la Fed menos su objetivo del 2%
+            r["neutral"] = neutral
+            r["lectura"] = "restrictiva" if real > neutral + 0.25 else "expansiva" if real < neutral - 0.25 else "neutral"
+        out["real_corto"] = r
+    return out or None
+
+
+# ---------------------------------------------------------------- agenda macro (fechas oficiales vía API de FRED)
+FRED_REL = "https://api.stlouisfed.org/fred/release"
+# id, release de FRED, palabra que debe aparecer en su nombre, nombre, fuente, enlace
+PUBLICACIONES = [
+    ("ipc", 10, "Consumer Price", "IPC (inflación)", "BLS", "https://www.bls.gov/cpi/"),
+    ("empleo", 50, "Employment Situation", "Informe de empleo", "BLS", "https://www.bls.gov/news.release/empsit.nr0.htm"),
+    ("pce", 54, "Personal Income", "PCE (la inflación que mira la Fed)", "BEA", "https://www.bea.gov/data/income-saving/personal-income"),
+    ("ipp", 46, "Producer Price", "Precios de producción (IPP)", "BLS", "https://www.bls.gov/ppi/"),
+    ("pib", 53, "Gross Domestic Product", "PIB", "BEA", "https://www.bea.gov/data/gdp/gross-domestic-product"),
+]
+
+
+def hora_dato(d: str, hh=8, mm=30) -> str:
+    ny = datetime.combine(date.fromisoformat(d), dtime(hh, mm), tzinfo=ZoneInfo("America/New_York"))
+    return ny.astimezone(ZoneInfo("Europe/Madrid")).strftime("%H:%M")
+
+
+def parse_release_dates(text):
+    j = json.loads(text)
+    return sorted({r["date"] for r in j.get("release_dates") or [] if r.get("date")})
+
+
+def ultimo_dato(k, fred, infl):
+    try:
+        if k == "ipc" and infl and infl.get("ipc"):
+            x = infl["ipc"]
+            return f"{x['interanual']:.1f}% interanual ({x['mes']})".replace(".", ",")
+        if k == "pce" and infl and infl.get("pce_sub"):
+            x = infl["pce_sub"]
+            return f"subyacente {x['interanual']:.1f}% ({x['mes']})".replace(".", ",")
+        if k == "empleo":
+            p, u = fred("PAYEMS"), fred("UNRATE")
+            dif = round(p[-1][1] - p[-2][1])
+            return f"{'+' if dif >= 0 else '−'}{abs(dif)} mil empleos · paro {u[-1][1]:.1f}% ({p[-1][0][:7]})".replace(".", ",")
+        if k == "ipp":
+            r = interanual(fred("PPIFIS"))
+            return f"{r['interanual']:.1f}% interanual ({r['mes']})".replace(".", ",") if r else None
+        if k == "pib":
+            g = fred("A191RL1Q225SBEA")
+            t = int(g[-1][0][5:7]) // 3 + 1
+            return f"{g[-1][1]:+.1f}% anualizado ({t}T{g[-1][0][2:4]})".replace(".", ",")
+    except (RuntimeError, IndexError, KeyError, TypeError):
+        return None
+    return None
+
+
+def agenda(f, fred, infl, avisos, old=None):
+    if not getattr(f, "fred_key", ""):
+        avisos.append("Agenda macro: necesita el secret FRED_API_KEY.")
+        return old
+    hoy = f.hoy.isoformat()
+    desde = (f.hoy - timedelta(days=70)).isoformat()
+    items = []
+    for k, rid, clave, nom, fuente, url in PUBLICACIONES:
+        try:
+            q = urllib.parse.urlencode({"release_id": rid, "api_key": f.fred_key, "file_type": "json"})
+            info = json.loads(f.http(f"{FRED_REL}?{q}"))
+            nombre_fred = ((info.get("releases") or [{}])[0]).get("name", "")
+            if clave.lower() not in nombre_fred.lower():
+                avisos.append(f"Agenda macro: la publicación {rid} de FRED es «{nombre_fred}», no {clave}; revisa fetcher/tipos.py.")
+                continue
+            q = urllib.parse.urlencode({"release_id": rid, "api_key": f.fred_key, "file_type": "json",
+                                        "include_release_dates_with_no_data": "true", "realtime_start": desde,
+                                        "sort_order": "asc", "limit": 1000})
+            fechas = parse_release_dates(f.http(f"{FRED_REL}/dates?{q}"))
+        except (RuntimeError, ValueError) as e:
+            avisos.append(f"Agenda macro ({nom}): no disponible ({e}).")
+            continue
+        prox = [d for d in fechas if d >= hoy]
+        pas = [d for d in fechas if d < hoy]
+        it = {"id": k, "nombre": nom, "fuente": fuente, "url": url, "ultimo": ultimo_dato(k, fred, infl)}
+        if prox:
+            it["fecha"] = prox[0]
+            it["hora_madrid"] = hora_dato(prox[0])
+            if len(prox) > 1:
+                it["siguiente"] = prox[1]
+        if pas:
+            it["anterior"] = pas[-1]
+        items.append(it)
+    if not items:
+        return old
+    items.sort(key=lambda x: x.get("fecha") or "9999")
+    return {"items": items, "fuente": "Fechas oficiales del BLS y el BEA vía FRED", "url": "https://fred.stlouisfed.org/releases/calendar"}

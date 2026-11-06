@@ -547,6 +547,10 @@ table.mini2 td{padding:3px 6px;font-size:12px;border-bottom:1px solid var(--grid
 .mkform{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:10px 0}.mkform label{display:flex;flex-direction:column;gap:4px;font-size:12px;font-weight:600;color:var(--ink2)}
 .tp{margin-bottom:18px}
 .tp .mksent{grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),1fr))}
+.tpag{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.tpag li{display:grid;grid-template-columns:62px 1fr auto;gap:8px;align-items:center;padding:6px 0;border-top:1px solid var(--grid);font-size:12.5px}
+.tpag li:first-child{border-top:0}.tpagd{display:flex;flex-direction:column;font-family:var(--f-num)}.tpagd small,.tpagn small{color:var(--muted);font-size:11px}
+.tpagn{display:flex;flex-direction:column;min-width:0}.tpagn a{color:var(--ink);font-weight:600;text-decoration:none}.tpagn a:hover{text-decoration:underline}
 .tplinks{display:flex;flex-wrap:wrap;gap:4px 12px}
 .tpult{border-top:1px solid var(--grid);padding-top:8px;display:flex;flex-direction:column;gap:4px}
 .tpsub{border-top:1px solid var(--grid);padding-top:8px;display:flex;flex-direction:column;gap:2px}
@@ -562,6 +566,11 @@ table.mini2 td{padding:3px 6px;font-size:12px;border-bottom:1px solid var(--grid
 .mkmapload{position:absolute;inset:auto 0 0 0;margin:0;padding:10px 12px;text-align:center}
 .mkmapsrc{margin:8px 0 0;font-size:11.5px}
 @media (max-width:640px){.mkmapbox{height:460px}.mkmaph .note{display:block}}
+.mkpop{position:fixed;z-index:80;width:min(380px,calc(100vw - 24px));max-height:min(70vh,520px);overflow:auto;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:12px;box-shadow:0 12px 32px rgba(0,0,0,.18),0 2px 6px rgba(0,0,0,.08);padding:12px 14px 14px;font-size:13px;line-height:1.5}
+.mkpop p{margin:6px 0 0}.mkpop p span{font-weight:700}
+.mkpoph{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}.mkpoph b{font-size:14px}
+.mkpopx{all:unset;cursor:pointer;font-size:20px;line-height:1;padding:0 4px;color:var(--muted);border-radius:6px}.mkpopx:hover,.mkpopx:focus-visible{color:var(--ink);background:var(--surface2)}
+@media (max-width:560px){.mkpop{left:8px;right:8px;bottom:8px;top:auto;width:auto;max-height:65vh;border-radius:14px}}
 .mki{all:unset;box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;border-radius:50%;border:1px solid var(--muted);color:var(--muted);font:italic 700 10.5px/1 Georgia,serif;cursor:pointer;vertical-align:1px;margin-left:5px;text-transform:none;letter-spacing:0;flex:none}
 .mki:hover,.mki:focus-visible,.mki[aria-expanded="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
 .mknt{display:block}.mknt .mki{vertical-align:2px}
@@ -1820,8 +1829,19 @@ const MKINFO={
     l:"Muy sensible a la liquidez y al apetito por el riesgo especulativo: a menudo se mueve antes que la bolsa en los cambios de sentimiento.",u:""},
 };
 function mkI(k){ return MKINFO[k]?`<button type="button" class="mki" data-mki="${k}" aria-expanded="${MKH.info===k}" aria-label="Qué es ${esc(MKINFO[k].t)}" title="Qué es y cómo leerlo">i</button>`:""; }
-function mkInfoPanel(k){ const x=MKINFO[k]; if(!x||MKH.info!==k) return "";
-  return `<div class="mkinfo"><b>${esc(x.t)}</b><p><span>Qué es.</span> ${esc(x.q)}</p><p><span>Cómo leerlo.</span> ${esc(x.l)}</p>${x.u?`<p><span>Referencias.</span> ${esc(x.u)}</p>`:""}</div>`; }
+function mkInfoPanel(){ return ""; }   /* las fichas se abren como ventana emergente (mkPopOpen) */
+function mkPopClose(volver){ const p=$("mkpop"); if(!p) return; const k=MKH.info; p.remove(); MKH.info=null;
+  document.querySelectorAll('.mki[aria-expanded="true"]').forEach(b=>b.setAttribute("aria-expanded","false"));
+  if(volver){ const b=document.querySelector(`.mki[data-mki="${k}"]`); if(b) b.focus(); } }
+function mkPopOpen(btn,k){ const x=MKINFO[k]; if(!x) return; mkPopClose(); MKH.info=k; btn.setAttribute("aria-expanded","true");
+  const p=document.createElement("div"); p.id="mkpop"; p.className="mkpop"; p.setAttribute("role","dialog"); p.setAttribute("aria-label",x.t);
+  p.innerHTML=`<div class="mkpoph"><b>${esc(x.t)}</b><button type="button" class="mkpopx" data-mkpopx aria-label="Cerrar">×</button></div>
+    <p><span>Qué es.</span> ${esc(x.q)}</p><p><span>Cómo leerlo.</span> ${esc(x.l)}</p>${x.u?`<p><span>Referencias.</span> ${esc(x.u)}</p>`:""}`;
+  document.body.appendChild(p);
+  if(innerWidth>560){ const r=btn.getBoundingClientRect(), w=p.offsetWidth, h=p.offsetHeight;
+    const left=Math.max(12,Math.min(r.left-16,innerWidth-w-12)); let top=r.bottom+8; if(top+h>innerHeight-12) top=Math.max(12,r.top-h-8);
+    p.style.left=left+"px"; p.style.top=top+"px"; }
+  p.querySelector("[data-mkpopx]").focus({preventScroll:true}); }
 function mkLiveTickers(){ return ((MKH.d&&MKH.d.indicadores)||[]).map(i=>i.vivo&&i.vivo.ticker).filter(Boolean); }
 function mkFmt(i,v){ if(!fin(v)) return "–";
   if(i.unidad==="%") return nf(v,i.id==="dif_hy"?2:3)+"%";
@@ -1975,6 +1995,12 @@ function mercadoHtml(){
    Datos en data/_mercado_hoy.json → «tipos» (FRED, Tesoro y calendario oficial del FOMC).
    Las probabilidades de CME FedWatch se apuntan a mano (manual/_mercado.json → mercado_hoy.fedwatch). */
 Object.assign(MKINFO,{
+  inflacion:{t:"Inflación de EE. UU.",q:"IPC: precios al consumo que publica el BLS (Oficina de Estadísticas Laborales). PCE: precios del gasto de los hogares que publica el BEA. La subyacente quita energía y alimentos, que son muy volátiles.",
+    l:"La Fed tiene un objetivo del 2% medido con el PCE, y en la práctica mira el PCE subyacente. Mientras esté claramente por encima del 2%, es difícil que baje tipos; si se acerca o baja del 2%, se abre la puerta a bajadas. El IPC sale unas dos semanas antes que el PCE y por eso mueve más el mercado.",u:"Objetivo de la Fed: 2% (PCE). Dato mensual: 0,2% al mes equivale a unos 2,4% al año."},
+  tipo_real:{t:"Tipo real",q:"El tipo de interés descontada la inflación. A corto plazo: el tipo de la Fed menos el PCE subyacente. A largo plazo: el tipo real de los bonos del Tesoro protegidos contra la inflación (TIPS) a 10 años. La inflación esperada sale de comparar el bono normal con el TIPS.",
+    l:"Es lo que de verdad frena o anima la economía. Si el tipo real a corto está por encima del neutral (el tipo neutral de la Fed menos su objetivo del 2%), la política es restrictiva. Un tipo real a 10 años alto encarece la financiación a largo plazo y presiona las valoraciones de las compañías de crecimiento.",u:"Inflación esperada a 10 años en torno al 2–2,5%: expectativas ancladas. Por encima del 2,5–3%, el mercado duda de que la Fed controle la inflación."},
+  agenda:{t:"Agenda macro",q:"Próximas publicaciones de los datos que más mueven las expectativas de tipos: IPC, informe de empleo, PCE, precios de producción y PIB. Fechas oficiales del BLS y del BEA.",
+    l:"Salen a las 8:30 de Nueva York (14:30 en Madrid, 13:30 en las semanas en que los cambios de horario no coinciden). El día del IPC o del empleo, la bolsa y los bonos pueden moverse mucho en minutos. Lo que mueve el precio no es el dato en sí sino la diferencia con lo que esperaban los analistas.",u:"Informe de empleo: suele salir el primer viernes de cada mes. IPC: a mediados de mes. PCE: a final de mes."},
   fed:{t:"Tipos oficiales de la Reserva Federal",q:"El rango objetivo de los fondos federales es el tipo al que se prestan los bancos de EE. UU. a un día y lo fija el Comité de Mercado Abierto (FOMC) en sus ocho reuniones al año. El tipo efectivo es la media a la que se cierran realmente esas operaciones y siempre cae dentro del rango.",
     l:"Es la base de todos los demás tipos: letras, hipotecas, crédito a empresas y la tasa de descuento con la que se valoran las acciones. Subidas: dinero más caro, frenan la inflación y presionan las valoraciones. Bajadas: lo contrario.",u:"Los cambios suelen ser de 25 pb (0,25 puntos). 50 pb o más indica urgencia."},
   fomc:{t:"Reuniones del FOMC",q:"El comité de la Fed se reúne ocho veces al año, dos días seguidos. El segundo día a las 14:00 de Nueva York publica el comunicado con la decisión y media hora después el presidente da una rueda de prensa. Las actas salen tres semanas más tarde.",
@@ -2002,7 +2028,7 @@ function tpEnlaces(r,prox){ const hoy=new Date().toISOString().slice(0,10), L=[]
   return L.join(""); }
 function tiposHtml(){
   const T=MKH.d&&MKH.d.tipos; if(!MKH.cargado) return "";
-  if(!T||!T.calendario) return `<section class="card mk tp"><h2>Tipos de interés · Reserva Federal</h2><p class="note">Sin datos todavía: se rellenan en la próxima ejecución del Action «Mercado hoy».</p></section>`;
+  if(!T||!T.calendario) return `<section class="card mk tp"><h2>Tipos de interés e inflación · EE. UU.</h2><p class="note">Sin datos todavía: se rellenan en la próxima ejecución del Action «Mercado hoy».</p></section>`;
   const F=T.fed, C=T.calendario, P=(C.proximas||[])[0], U=C.ultima, D=T.diagrama, M=T.mercado, K=T.pendiente;
   const fw=MKH.man.fedwatch||{}, fwOk=fin(fw.mantener)||fin(fw.bajar)||fin(fw.subir), fwVieja=fwOk&&P&&fw.reunion&&fw.reunion!==P.fin;
   const hoyIso=new Date().toISOString().slice(0,10), dias=P?Math.round((new Date(P.fin+"T12:00:00")-new Date(hoyIso+"T12:00:00"))/864e5):null;
@@ -2037,14 +2063,39 @@ function tiposHtml(){
         return `<div class="tprow"><span>Final de ${a.anio}</span><span class="tpv">${tpPct(a.mediana,2)}</span>${fin(dif)?`<span class="note">${n===0?"como ahora":`${Math.abs(n)} ${n<0?"bajada":"subida"}${Math.abs(n)>1?"s":""} de 25 pb`}</span>`:""}</div>`; }).join("")}
       ${fin(D.largo_plazo)?`<div class="tprow"><span>Largo plazo (neutral)</span><span class="tpv">${tpPct(D.largo_plazo,2)}</span><span></span></div>`:""}
     </div>`:"";
+  const I=T.inflacion, G=T.agenda, MES=["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"], mesTxt=m=>m?`${MES[+m.slice(5,7)-1]}-${m.slice(2,4)}`:"";
+  const infRow=(x,obj)=>x&&fin(x.interanual)?`<div class="tprow"><span>${esc(x.nombre)}</span><span class="tpv">${tpPct(x.interanual,1)} <small>${fin(x.anterior)?"ant. "+nf(x.anterior,1)+"%":""}</small></span><span class="note">${esc(mesTxt(x.mes))}</span></div>`:"";
+  const cInfl=I&&(I.ipc||I.pce_sub)?`<div class="mkcard">
+      <div class="mkh"><span class="eyebrow">Inflación ${mkI("inflacion")}</span>${srcTag({fuente:"BLS y BEA vía FRED",fecha:(I.pce_sub||I.ipc).mes+"-01",url:(I.pce_sub||I.ipc).url})}</div>
+      ${I.pce_sub&&fin(I.pce_sub.interanual)?`<div class="mkbig"><b>${tpPct(I.pce_sub.interanual,1)}</b><span class="pill ${I.pce_sub.interanual>2.5?"down":I.pce_sub.interanual>2.1?"mid":"up"}">${I.pce_sub.interanual>2.5?"lejos del 2%":I.pce_sub.interanual>2.1?"cerca del 2%":"en el objetivo"}</span></div><p class="note" style="margin:0">PCE subyacente, la que mira la Fed (objetivo 2%).</p>`:""}
+      <div>${infRow(I.ipc)}${infRow(I.ipc_sub)}${infRow(I.pce)}${infRow(I.pce_sub)}</div>
+      ${I.ipc&&fin(I.ipc.mensual)?`<p class="note tpsm">IPC general en el mes: ${mkSign(I.ipc.mensual,1)}</p>`:""}
+    </div>`:"";
+  const R=I&&I.real_corto, mi=k=>I&&I[k]?`<div class="tprow"><span>${esc(I[k].nombre)}</span><span class="tpv">${tpPct(I[k].valor)} <small>${fin(I[k].hace_1m)?"hace 1 mes "+nf(I[k].hace_1m,2)+"%":""}</small></span><span></span></div>`:"";
+  const cReal=I&&(R||I.real_10a)?`<div class="mkcard">
+      <div class="mkh"><span class="eyebrow">Tipo real ${mkI("tipo_real")}</span>${I.real_10a?srcTag({fuente:"Fed y Tesoro vía FRED",fecha:I.real_10a.fecha,url:I.real_10a.url}):""}</div>
+      ${R?`<div class="mkbig"><b>${tpPct(R.valor)}</b>${R.lectura?`<span class="pill ${R.lectura==="restrictiva"?"down":R.lectura==="expansiva"?"up":"neutral"}">política ${esc(R.lectura)}</span>`:""}</div>
+        <p class="note" style="margin:0">Tipo de la Fed (${tpPct(R.base,3)}) menos PCE subyacente (${tpPct(R.inflacion,1)})${fin(R.neutral)?`. Neutral según la Fed: ${tpPct(R.neutral,1)}`:""}.</p>`:""}
+      <div>${mi("real_10a")}${mi("esperada_10a")}${mi("esperada_5a5a")}</div>
+    </div>`:"";
+  const dSem=["dom","lun","mar","mié","jue","vie","sáb"];
+  const ag=[...((G&&G.items)||[]).filter(x=>x.fecha).map(x=>({...x})),...(P?[{id:"fomc",nombre:"Decisión de la Fed",fecha:P.fin,hora_madrid:P.hora_madrid,url:C.url,ultimo:U&&U.decision?"última: "+U.decision.texto.toLowerCase():""}]:[])].sort((a,b)=>a.fecha<b.fecha?-1:1).slice(0,6);
+  const cuando=d=>{ const n=Math.round((new Date(d+"T12:00:00")-new Date(hoyIso+"T12:00:00"))/864e5); return n===0?`<span class="pill mid">hoy</span>`:n===1?`<span class="pill mid">mañana</span>`:n<=7?`<span class="pill neutral">en ${n} días</span>`:""; };
+  const cAg=ag.length?`<div class="mkcard">
+      <div class="mkh"><span class="eyebrow">Agenda macro ${mkI("agenda")}</span>${G?`<a class="mkgo" href="${esc(G.url)}" target="_blank" rel="noopener noreferrer">Calendario ↗</a>`:""}</div>
+      <ul class="tpag">${ag.map(x=>{ const d=new Date(x.fecha+"T12:00:00");
+        return `<li><span class="tpagd"><b>${dSem[d.getDay()]} ${d.getDate()} ${MES[d.getMonth()]}</b><small>${esc(x.hora_madrid||"")}</small></span>
+          <span class="tpagn"><a href="${esc(x.url)}" target="_blank" rel="noopener noreferrer">${esc(x.nombre)}</a>${x.ultimo?`<small>Último: ${esc(x.ultimo)}</small>`:""}</span>${cuando(x.fecha)}</li>`; }).join("")}</ul>
+      <p class="note tpsm">Horas de Madrid. Fechas oficiales del BLS, el BEA y la Fed.</p>
+    </div>`:"";
   const pend=(k,l)=>K&&K[k]?`<div class="tprow"><span>${l}</span><span class="tpv">${tpPb(K[k].pb)}</span>${K[k].pb<0?`<span class="pill down">invertida</span>`:`<span class="pill neutral">positiva</span>`}</div>${fin(K[k].hace_1m)?`<p class="note tpsm">Hace un mes: ${tpPb(K[k].hace_1m)}</p>`:""}`:"";
   const cCurva=K?`<div class="mkcard">
       <div class="mkh"><span class="eyebrow">Pendiente de la curva ${mkI("curva")}</span>${srcTag({fuente:K.fuente,fecha:(K["10a_2a"]||K["10a_3m"]).fecha,url:K.url})}</div>${mkInfoPanel("curva")}
       ${pend("10a_2a","10 años − 2 años")}${pend("10a_3m","10 años − 3 meses")}
     </div>`:"";
   return `<section class="card mk tp">
-    <div class="mktop"><div><h2>Tipos de interés · Reserva Federal</h2><p class="sub">Tipos oficiales, calendario de reuniones y lo que esperan el mercado y la propia Fed.</p></div></div>
-    <div class="mksent">${cFed}${cFomc}${cExp}${cPuntos}${cCurva}</div>
+    <div class="mktop"><div><h2>Tipos de interés e inflación · EE. UU.</h2><p class="sub">Tipos de la Fed y su calendario, lo que esperan el mercado y la propia Fed, inflación y los datos que vienen.</p></div></div>
+    <div class="mksent">${cFed}${cFomc}${cExp}${cAg}${cInfl}${cReal}${cPuntos}${cCurva}</div>
   </section>`;
 }
 function favoritasHtml(){
@@ -4344,7 +4395,8 @@ document.addEventListener("click",e=>{
   if(e.target.closest("[data-mapa=toggle]")){ mapaToggle(); return; }
   const mf=e.target.closest("[data-mapafuente]"); if(mf){ MAPA.fuente=mf.dataset.mapafuente; lsSet("valorador.mapa.fuente",MAPA.fuente);
     document.querySelectorAll("[data-mapafuente]").forEach(b=>b.setAttribute("aria-pressed",b===mf)); mapaCargar(); return; }
-  const mki=e.target.closest("[data-mki]"); if(mki){ MKH.info=MKH.info===mki.dataset.mki?null:mki.dataset.mki; renderWatch(); return; }
+  if(e.target.closest("[data-mkpopx]")){ mkPopClose(true); return; }
+  const mki=e.target.closest("[data-mki]"); if(mki){ if(MKH.info===mki.dataset.mki) mkPopClose(); else mkPopOpen(mki,mki.dataset.mki); return; }
   const mkb=e.target.closest("[data-mk]"); if(mkb){ const a=mkb.dataset.mk;
     if(a==="editar"||a==="cerrar"){ MKH.editar=a==="editar"&&!MKH.editar; renderWatch(); } else if(a==="guardar") mkGuardar(); return; }
   const mi=e.target.closest("[data-metric]"); if(mi){e.preventDefault(); metricModal(mi.dataset.metric); return;}
@@ -4428,13 +4480,15 @@ document.addEventListener("change",ev=>{ if(ev.target.id!=="carImp"||!ev.target.
 $("btnMore").addEventListener("click",ev=>{ ev.stopPropagation(); const m=$("moreMenu"); m.hidden=!m.hidden;
   if(!m.hidden){ const r=$("btnMore").getBoundingClientRect(); const w=m.offsetWidth||230; m.style.top=(r.bottom+6)+"px"; m.style.left=Math.max(8,Math.min(r.right-w,window.innerWidth-w-8))+"px"; } $("btnMore").setAttribute("aria-expanded",!m.hidden); });
 document.addEventListener("click",ev=>{ const m=$("moreMenu"); if(m&&!m.hidden&&(!ev.target.closest(".menuwrap,#moreMenu")||ev.target.closest(".menu button"))){ m.hidden=true; $("btnMore").setAttribute("aria-expanded","false"); } });
-document.addEventListener("keydown",ev=>{ if(ev.key==="Escape"){ const m=$("moreMenu"); if(m&&!m.hidden){ m.hidden=true; $("btnMore").setAttribute("aria-expanded","false"); $("btnMore").focus(); } } });
+document.addEventListener("keydown",ev=>{ if(ev.key==="Escape"&&$("mkpop")){ mkPopClose(true); return; } if(ev.key==="Escape"){ const m=$("moreMenu"); if(m&&!m.hidden){ m.hidden=true; $("btnMore").setAttribute("aria-expanded","false"); $("btnMore").focus(); } } });
 $("btnData").addEventListener("click",()=>{const p=$("dataPanel"); p.hidden=!p.hidden; $("btnData").setAttribute("aria-expanded",!p.hidden); if(!p.hidden) renderGhBox();});
 $("btnDl2").addEventListener("click",()=>downloadAnalysis(cur));
 $("btnCopy").addEventListener("click",()=>{const t=JSON.stringify(exportAnalysis(cur),null,1);
   if(navigator.clipboard&&navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(()=>toast("JSON copiado"),()=>toast("No se pudo copiar")); else toast("Este navegador no permite copiar");});
 $("btnImport").addEventListener("click",()=>{try{const n=importOld($("jsonBox").value); renderHeader(); renderTab(); toast(n?`${n} ${n===1?"compañía importada":"compañías importadas"} como borrador`:"Ninguna compañía coincide por ticker");}
   catch(e){toast("El texto no es un JSON exportado desde el valorador antiguo");}});
+document.addEventListener("pointerdown",e=>{ if($("mkpop")&&!e.target.closest("#mkpop")&&!e.target.closest("[data-mki]")) mkPopClose(); },true);
+addEventListener("resize",()=>mkPopClose()); addEventListener("scroll",e=>{ if($("mkpop")&&!(e.target&&e.target.closest&&e.target.closest("#mkpop"))) mkPopClose(); },true);
 try{ matchMedia("(prefers-color-scheme: dark)").addEventListener("change",()=>{ if(MAPA.abierto&&$("mkmapBox")) mapaCargar(); }); }catch(e){}
 document.addEventListener("toggle",e=>{ const d=e.target; if(d&&d.id==="peerCards") lsSet("valorador.peercards",d.open?"1":"0"); if(d&&d.id==="warnDet") lsSet("valorador.avisosabiertos",d.open?"1":"0"); if(d&&d.id==="keyAs") lsSet("valorador.supclave",d.open?"1":"0"); if(d&&d.id==="srcKeys") lsSet("valorador.srckeys",d.open?"1":"0"); if(d&&d.id==="srcWarn") lsSet("valorador.srcwarn",d.open?"1":"0"); if(d&&d.id==="socialBox") lsSet("valorador.social",d.open?"1":"0"); if(d&&d.id==="glossary"){ lsSet("valorador.glosario",d.open?"1":"0"); const n=d.querySelector(".glsum .note"); if(n) n.textContent=n.textContent.replace(/pulsa para (plegar|desplegar)/,d.open?"pulsa para plegar":"pulsa para desplegar"); } },true);
 window.addEventListener("hashchange",()=>{const h=location.hash.slice(1); const HV={seguimiento:"lista",cartera:"cartera",inicio:"inicio",favoritas:"favoritas",ajustes:"ajustes"}; if(HV[h]){ const v=HV[h]; if(!WATCH||WVIEW!==v){ WVIEW=v; WATCH=true; renderWatch(); } return; } if(WATCH) exitWatch(); if(h&&h!==TAB) goTab(h,false);});
