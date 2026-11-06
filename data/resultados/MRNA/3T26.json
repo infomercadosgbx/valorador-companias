@@ -3,7 +3,7 @@
  "esquema": 1,
  "ticker": "MRNA",
  "nombre": "Moderna",
- "color": null,
+ "color": "#E32842",
  "monograma": "MO",
  "logo": "logos/MRNA.png",
  "periodo": "3T26",
@@ -109,7 +109,25 @@
   "fecha_antes": "2026-11-05",
   "cierre_antes": 241.46,
   "fuente": "Twelve Data (API oficial, plan gratuito)",
-  "provisional": true
+  "provisional": true,
+  "fuera_de_hora": {
+   "fuente": "Alpaca Markets (API oficial, plan gratuito) · SIP con 15 min de retraso",
+   "url": "https://docs.alpaca.markets/docs/historical-stock-data-1",
+   "volumen": 2302199,
+   "ultimo": {
+    "precio": 249.91,
+    "hora_utc": "2026-11-06T12:30:00Z",
+    "hora_ny": "2026-11-06 07:30",
+    "sesion": "premercado",
+    "variacion_pct": 3.5
+   }
+  },
+  "variacion_pct": 3.5,
+  "cierre_despues": 249.91,
+  "fecha_despues": "2026-11-06",
+  "fuente_despues": "Alpaca Markets (API oficial, plan gratuito) · SIP con 15 min de retraso",
+  "sesion_despues": "premercado",
+  "hora_despues_ny": "2026-11-06 07:30"
  },
  "cotizacion": {
   "serie": [
@@ -1138,16 +1156,12 @@
  "margenes": {
   "trimestral": [
    {
-    "periodo": "1T23",
-    "margen_pct": -19.66
-   },
-   {
-    "periodo": "2T23",
-    "margen_pct": -542.73
-   },
-   {
     "periodo": "3T23",
     "margen_pct": -109.89
+   },
+   {
+    "periodo": "4T23",
+    "margen_pct": 0.21
    },
    {
     "periodo": "1T24",
@@ -1160,6 +1174,10 @@
    {
     "periodo": "3T24",
     "margen_pct": -3.76
+   },
+   {
+    "periodo": "4T24",
+    "margen_pct": -128.99
    },
    {
     "periodo": "1T25",
@@ -1191,11 +1209,6 @@
   "periodo": "2T26",
   "ingresos": [
    {
-    "periodo": "1T24",
-    "valor": 167000000,
-    "interanual_pct": -91.03
-   },
-   {
     "periodo": "2T24",
     "valor": 241000000,
     "interanual_pct": -29.94
@@ -1204,6 +1217,11 @@
     "periodo": "3T24",
     "valor": 1862000000,
     "interanual_pct": 1.69
+   },
+   {
+    "periodo": "4T24",
+    "valor": 966000000,
+    "interanual_pct": -65.64
    },
    {
     "periodo": "1T25",
@@ -1223,7 +1241,7 @@
    {
     "periodo": "4T25",
     "valor": 678000000,
-    "interanual_pct": null
+    "interanual_pct": -29.81
    },
    {
     "periodo": "1T26",
@@ -1345,9 +1363,7 @@
   },
   "manual": false
  },
- "avisos": [
-  "No se encontró en la nota: ingresos. Llegará con el 10-Q."
- ],
+ "avisos": [],
  "_calendario_finnhub": {
   "fecha": "2026-11-06",
   "hora": "bmo",

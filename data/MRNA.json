@@ -3,7 +3,7 @@
  "ticker": "MRNA",
  "nombre": "Moderna",
  "cik": "0001682852",
- "color": null,
+ "color": "#E32842",
  "monograma": "MO",
  "unidades": "USD salvo BPA (USD/acción) y acciones (número)",
  "sec": {
@@ -169,54 +169,6 @@
    ],
    "trimestral": [
     {
-     "valor": 17046000,
-     "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285219000036/0001682852-19-000036-index.htm",
-     "fecha_presentacion": "2019-11-06",
-     "etiqueta": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
-     "periodo_fin": "2019-09-30",
-     "formulario": "10-Q",
-     "accn": "0001682852-19-000036",
-     "periodo_inicio": "2019-07-01",
-     "periodo": "3T19"
-    },
-    {
-     "valor": 14055000,
-     "fuente": "SEC EDGAR · 10-K",
-     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285220000006/0001682852-20-000006-index.htm",
-     "fecha_presentacion": "2020-02-27",
-     "etiqueta": "us-gaap:Revenues",
-     "periodo_fin": "2019-12-31",
-     "formulario": "10-K",
-     "accn": "0001682852-20-000006",
-     "periodo_inicio": "2019-10-01",
-     "periodo": "4T19"
-    },
-    {
-     "valor": 8000000,
-     "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285221000017/0001682852-21-000017-index.htm",
-     "fecha_presentacion": "2021-05-06",
-     "etiqueta": "us-gaap:Revenues",
-     "periodo_fin": "2020-03-31",
-     "formulario": "10-Q",
-     "accn": "0001682852-21-000017",
-     "periodo_inicio": "2020-01-01",
-     "periodo": "1T20"
-    },
-    {
-     "valor": 67000000,
-     "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285221000022/0001682852-21-000022-index.htm",
-     "fecha_presentacion": "2021-08-05",
-     "etiqueta": "us-gaap:Revenues",
-     "periodo_fin": "2020-06-30",
-     "formulario": "10-Q",
-     "accn": "0001682852-21-000022",
-     "periodo_inicio": "2020-04-01",
-     "periodo": "2T20"
-    },
-    {
      "valor": 157000000,
      "fuente": "SEC EDGAR · 10-Q",
      "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285221000027/0001682852-21-000027-index.htm",
@@ -227,6 +179,19 @@
      "accn": "0001682852-21-000027",
      "periodo_inicio": "2020-07-01",
      "periodo": "3T20"
+    },
+    {
+     "valor": 571000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285223000011/0001682852-23-000011-index.htm",
+     "fecha_presentacion": "2023-02-24",
+     "etiqueta": "us-gaap:Revenues",
+     "periodo_fin": "2020-12-31",
+     "formulario": "10-K",
+     "accn": "0001682852-23-000011",
+     "periodo_inicio": "2020-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T20"
     },
     {
      "valor": 1937000000,
@@ -314,6 +279,19 @@
      "periodo": "3T22"
     },
     {
+     "valor": 5084000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285225000022/0001682852-25-000022-index.htm",
+     "fecha_presentacion": "2025-02-21",
+     "etiqueta": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+     "periodo_fin": "2022-12-31",
+     "formulario": "10-K",
+     "accn": "0001682852-25-000022",
+     "periodo_inicio": "2022-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T22"
+    },
+    {
      "valor": 1862000000,
      "fuente": "SEC EDGAR · 10-Q",
      "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285224000027/0001682852-24-000027-index.htm",
@@ -350,6 +328,19 @@
      "periodo": "3T23"
     },
     {
+     "valor": 2811000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000033/0001682852-26-000033-index.htm",
+     "fecha_presentacion": "2026-02-20",
+     "etiqueta": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+     "periodo_fin": "2023-12-31",
+     "formulario": "10-K",
+     "accn": "0001682852-26-000033",
+     "periodo_inicio": "2023-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T23"
+    },
+    {
      "valor": 167000000,
      "fuente": "SEC EDGAR · 10-Q",
      "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285225000034/0001682852-25-000034-index.htm",
@@ -384,6 +375,19 @@
      "accn": "0001682852-25-000075",
      "periodo_inicio": "2024-07-01",
      "periodo": "3T24"
+    },
+    {
+     "valor": 966000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000033/0001682852-26-000033-index.htm",
+     "fecha_presentacion": "2026-02-20",
+     "etiqueta": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+     "periodo_fin": "2024-12-31",
+     "formulario": "10-K",
+     "accn": "0001682852-26-000033",
+     "periodo_inicio": "2024-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T24"
     },
     {
      "valor": 108000000,
@@ -593,54 +597,6 @@
    ],
    "trimestral": [
     {
-     "valor": -130764000,
-     "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285220000023/0001682852-20-000023-index.htm",
-     "fecha_presentacion": "2020-10-30",
-     "etiqueta": "us-gaap:OperatingIncomeLoss",
-     "periodo_fin": "2019-09-30",
-     "formulario": "10-Q",
-     "accn": "0001682852-20-000023",
-     "periodo_inicio": "2019-07-01",
-     "periodo": "3T19"
-    },
-    {
-     "valor": -130556000,
-     "fuente": "SEC EDGAR · 10-K",
-     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285220000006/0001682852-20-000006-index.htm",
-     "fecha_presentacion": "2020-02-27",
-     "etiqueta": "us-gaap:OperatingIncomeLoss",
-     "periodo_fin": "2019-12-31",
-     "formulario": "10-K",
-     "accn": "0001682852-20-000006",
-     "periodo_inicio": "2019-10-01",
-     "periodo": "4T19"
-    },
-    {
-     "valor": -131000000,
-     "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285221000017/0001682852-21-000017-index.htm",
-     "fecha_presentacion": "2021-05-06",
-     "etiqueta": "us-gaap:OperatingIncomeLoss",
-     "periodo_fin": "2020-03-31",
-     "formulario": "10-Q",
-     "accn": "0001682852-21-000017",
-     "periodo_inicio": "2020-01-01",
-     "periodo": "1T20"
-    },
-    {
-     "valor": -122000000,
-     "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285221000022/0001682852-21-000022-index.htm",
-     "fecha_presentacion": "2021-08-05",
-     "etiqueta": "us-gaap:OperatingIncomeLoss",
-     "periodo_fin": "2020-06-30",
-     "formulario": "10-Q",
-     "accn": "0001682852-21-000022",
-     "periodo_inicio": "2020-04-01",
-     "periodo": "2T20"
-    },
-    {
      "valor": -235000000,
      "fuente": "SEC EDGAR · 10-Q",
      "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285221000027/0001682852-21-000027-index.htm",
@@ -651,6 +607,19 @@
      "accn": "0001682852-21-000027",
      "periodo_inicio": "2020-07-01",
      "periodo": "3T20"
+    },
+    {
+     "valor": -275000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285223000011/0001682852-23-000011-index.htm",
+     "fecha_presentacion": "2023-02-24",
+     "etiqueta": "us-gaap:OperatingIncomeLoss",
+     "periodo_fin": "2020-12-31",
+     "formulario": "10-K",
+     "accn": "0001682852-23-000011",
+     "periodo_inicio": "2020-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T20"
     },
     {
      "valor": 1266000000,
@@ -738,6 +707,19 @@
      "periodo": "3T22"
     },
     {
+     "valor": 1580000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285225000022/0001682852-25-000022-index.htm",
+     "fecha_presentacion": "2025-02-21",
+     "etiqueta": "us-gaap:OperatingIncomeLoss",
+     "periodo_fin": "2022-12-31",
+     "formulario": "10-K",
+     "accn": "0001682852-25-000022",
+     "periodo_inicio": "2022-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T22"
+    },
+    {
      "valor": -366000000,
      "fuente": "SEC EDGAR · 10-Q",
      "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285224000027/0001682852-24-000027-index.htm",
@@ -774,6 +756,19 @@
      "periodo": "3T23"
     },
     {
+     "valor": 6000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000033/0001682852-26-000033-index.htm",
+     "fecha_presentacion": "2026-02-20",
+     "etiqueta": "us-gaap:OperatingIncomeLoss",
+     "periodo_fin": "2023-12-31",
+     "formulario": "10-K",
+     "accn": "0001682852-26-000033",
+     "periodo_inicio": "2023-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T23"
+    },
+    {
      "valor": -1266000000,
      "fuente": "SEC EDGAR · 10-Q",
      "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285225000034/0001682852-25-000034-index.htm",
@@ -808,6 +803,19 @@
      "accn": "0001682852-25-000075",
      "periodo_inicio": "2024-07-01",
      "periodo": "3T24"
+    },
+    {
+     "valor": -1246000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000033/0001682852-26-000033-index.htm",
+     "fecha_presentacion": "2026-02-20",
+     "etiqueta": "us-gaap:OperatingIncomeLoss",
+     "periodo_fin": "2024-12-31",
+     "formulario": "10-K",
+     "accn": "0001682852-26-000033",
+     "periodo_inicio": "2024-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T24"
     },
     {
      "valor": -1050000000,
@@ -1008,55 +1016,6 @@
    ],
    "trimestral": [
     {
-     "valor": -123215000,
-     "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285220000023/0001682852-20-000023-index.htm",
-     "fecha_presentacion": "2020-10-30",
-     "etiqueta": "us-gaap:NetIncomeLoss",
-     "periodo_fin": "2019-09-30",
-     "formulario": "10-Q",
-     "accn": "0001682852-20-000023",
-     "periodo_inicio": "2019-07-01",
-     "periodo": "3T19"
-    },
-    {
-     "valor": -123269000,
-     "fuente": "SEC EDGAR · 10-K (derivado)",
-     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285222000012/0001682852-22-000012-index.htm",
-     "fecha_presentacion": "2022-02-25",
-     "etiqueta": "us-gaap:NetIncomeLoss",
-     "periodo_fin": "2019-12-31",
-     "formulario": "10-K",
-     "accn": "0001682852-22-000012",
-     "periodo_inicio": "2019-10-01",
-     "derivado": "Año − 1T − 2T − 3T",
-     "periodo": "4T19"
-    },
-    {
-     "valor": -124000000,
-     "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285221000017/0001682852-21-000017-index.htm",
-     "fecha_presentacion": "2021-05-06",
-     "etiqueta": "us-gaap:NetIncomeLoss",
-     "periodo_fin": "2020-03-31",
-     "formulario": "10-Q",
-     "accn": "0001682852-21-000017",
-     "periodo_inicio": "2020-01-01",
-     "periodo": "1T20"
-    },
-    {
-     "valor": -117000000,
-     "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285221000022/0001682852-21-000022-index.htm",
-     "fecha_presentacion": "2021-08-05",
-     "etiqueta": "us-gaap:NetIncomeLoss",
-     "periodo_fin": "2020-06-30",
-     "formulario": "10-Q",
-     "accn": "0001682852-21-000022",
-     "periodo_inicio": "2020-04-01",
-     "periodo": "2T20"
-    },
-    {
      "valor": -233000000,
      "fuente": "SEC EDGAR · 10-Q",
      "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285221000027/0001682852-21-000027-index.htm",
@@ -1067,6 +1026,19 @@
      "accn": "0001682852-21-000027",
      "periodo_inicio": "2020-07-01",
      "periodo": "3T20"
+    },
+    {
+     "valor": -273000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285223000011/0001682852-23-000011-index.htm",
+     "fecha_presentacion": "2023-02-24",
+     "etiqueta": "us-gaap:NetIncomeLoss",
+     "periodo_fin": "2020-12-31",
+     "formulario": "10-K",
+     "accn": "0001682852-23-000011",
+     "periodo_inicio": "2020-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T20"
     },
     {
      "valor": 1221000000,
@@ -1154,6 +1126,19 @@
      "periodo": "3T22"
     },
     {
+     "valor": 1465000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285225000022/0001682852-25-000022-index.htm",
+     "fecha_presentacion": "2025-02-21",
+     "etiqueta": "us-gaap:NetIncomeLoss",
+     "periodo_fin": "2022-12-31",
+     "formulario": "10-K",
+     "accn": "0001682852-25-000022",
+     "periodo_inicio": "2022-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T22"
+    },
+    {
      "valor": 79000000,
      "fuente": "SEC EDGAR · 10-Q",
      "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285224000027/0001682852-24-000027-index.htm",
@@ -1190,6 +1175,19 @@
      "periodo": "3T23"
     },
     {
+     "valor": 217000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000033/0001682852-26-000033-index.htm",
+     "fecha_presentacion": "2026-02-20",
+     "etiqueta": "us-gaap:NetIncomeLoss",
+     "periodo_fin": "2023-12-31",
+     "formulario": "10-K",
+     "accn": "0001682852-26-000033",
+     "periodo_inicio": "2023-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T23"
+    },
+    {
      "valor": -1175000000,
      "fuente": "SEC EDGAR · 10-Q",
      "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285225000034/0001682852-25-000034-index.htm",
@@ -1224,6 +1222,19 @@
      "accn": "0001682852-25-000075",
      "periodo_inicio": "2024-07-01",
      "periodo": "3T24"
+    },
+    {
+     "valor": -1120000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000033/0001682852-26-000033-index.htm",
+     "fecha_presentacion": "2026-02-20",
+     "etiqueta": "us-gaap:NetIncomeLoss",
+     "periodo_fin": "2024-12-31",
+     "formulario": "10-K",
+     "accn": "0001682852-26-000033",
+     "periodo_inicio": "2024-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T24"
     },
     {
      "valor": -971000000,
@@ -2110,57 +2121,6 @@
    ],
    "trimestral": [
     {
-     "valor": -107093000,
-     "fuente": "SEC EDGAR · 10-Q (derivado)",
-     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285220000023/0001682852-20-000023-index.htm",
-     "fecha_presentacion": "2020-10-30",
-     "etiqueta": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
-     "periodo_fin": "2019-09-30",
-     "formulario": "10-Q",
-     "accn": "0001682852-20-000023",
-     "periodo_inicio": "2019-07-01",
-     "derivado": "Acumulado 9 meses − acumulado 6 meses",
-     "periodo": "3T19"
-    },
-    {
-     "valor": -99054000,
-     "fuente": "SEC EDGAR · 10-K (derivado)",
-     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285222000012/0001682852-22-000012-index.htm",
-     "fecha_presentacion": "2022-02-25",
-     "etiqueta": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
-     "periodo_fin": "2019-12-31",
-     "formulario": "10-K",
-     "accn": "0001682852-22-000012",
-     "periodo_inicio": "2019-10-01",
-     "derivado": "Año − 1T − 2T − 3T",
-     "periodo": "4T19"
-    },
-    {
-     "valor": -106000000,
-     "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285221000017/0001682852-21-000017-index.htm",
-     "fecha_presentacion": "2021-05-06",
-     "etiqueta": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
-     "periodo_fin": "2020-03-31",
-     "formulario": "10-Q",
-     "accn": "0001682852-21-000017",
-     "periodo_inicio": "2020-01-01",
-     "periodo": "1T20"
-    },
-    {
-     "valor": -24000000,
-     "fuente": "SEC EDGAR · 10-Q (derivado)",
-     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285221000022/0001682852-21-000022-index.htm",
-     "fecha_presentacion": "2021-08-05",
-     "etiqueta": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
-     "periodo_fin": "2020-06-30",
-     "formulario": "10-Q",
-     "accn": "0001682852-21-000022",
-     "periodo_inicio": "2020-04-01",
-     "derivado": "Acumulado 6 meses − acumulado 3 meses",
-     "periodo": "2T20"
-    },
-    {
      "valor": 893000000,
      "fuente": "SEC EDGAR · 10-Q (derivado)",
      "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285221000027/0001682852-21-000027-index.htm",
@@ -2172,6 +2132,19 @@
      "periodo_inicio": "2020-07-01",
      "derivado": "Acumulado 9 meses − acumulado 6 meses",
      "periodo": "3T20"
+    },
+    {
+     "valor": 1264000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285223000011/0001682852-23-000011-index.htm",
+     "fecha_presentacion": "2023-02-24",
+     "etiqueta": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+     "periodo_fin": "2020-12-31",
+     "formulario": "10-K",
+     "accn": "0001682852-23-000011",
+     "periodo_inicio": "2020-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T20"
     },
     {
      "valor": 2971000000,
@@ -2263,6 +2236,19 @@
      "periodo": "3T22"
     },
     {
+     "valor": 1662000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285225000022/0001682852-25-000022-index.htm",
+     "fecha_presentacion": "2025-02-21",
+     "etiqueta": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+     "periodo_fin": "2022-12-31",
+     "formulario": "10-K",
+     "accn": "0001682852-25-000022",
+     "periodo_inicio": "2022-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T22"
+    },
+    {
      "valor": -1225000000,
      "fuente": "SEC EDGAR · 10-Q",
      "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285224000027/0001682852-24-000027-index.htm",
@@ -2301,6 +2287,19 @@
      "periodo": "3T23"
     },
     {
+     "valor": 622000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000033/0001682852-26-000033-index.htm",
+     "fecha_presentacion": "2026-02-20",
+     "etiqueta": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+     "periodo_fin": "2023-12-31",
+     "formulario": "10-K",
+     "accn": "0001682852-26-000033",
+     "periodo_inicio": "2023-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T23"
+    },
+    {
      "valor": -989000000,
      "fuente": "SEC EDGAR · 10-Q",
      "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285225000034/0001682852-25-000034-index.htm",
@@ -2337,6 +2336,19 @@
      "periodo_inicio": "2024-07-01",
      "derivado": "Acumulado 9 meses − acumulado 6 meses",
      "periodo": "3T24"
+    },
+    {
+     "valor": 825000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000033/0001682852-26-000033-index.htm",
+     "fecha_presentacion": "2026-02-20",
+     "etiqueta": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+     "periodo_fin": "2024-12-31",
+     "formulario": "10-K",
+     "accn": "0001682852-26-000033",
+     "periodo_inicio": "2024-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T24"
     },
     {
      "valor": -1037000000,
@@ -2540,57 +2552,6 @@
    ],
    "trimestral": [
     {
-     "valor": 6711000,
-     "fuente": "SEC EDGAR · 10-Q (derivado)",
-     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285220000023/0001682852-20-000023-index.htm",
-     "fecha_presentacion": "2020-10-30",
-     "etiqueta": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
-     "periodo_fin": "2019-09-30",
-     "formulario": "10-Q",
-     "accn": "0001682852-20-000023",
-     "periodo_inicio": "2019-07-01",
-     "derivado": "Acumulado 9 meses − acumulado 6 meses",
-     "periodo": "3T19"
-    },
-    {
-     "valor": 7108000,
-     "fuente": "SEC EDGAR · 10-K (derivado)",
-     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285222000012/0001682852-22-000012-index.htm",
-     "fecha_presentacion": "2022-02-25",
-     "etiqueta": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
-     "periodo_fin": "2019-12-31",
-     "formulario": "10-K",
-     "accn": "0001682852-22-000012",
-     "periodo_inicio": "2019-10-01",
-     "derivado": "Año − 1T − 2T − 3T",
-     "periodo": "4T19"
-    },
-    {
-     "valor": 6000000,
-     "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285221000017/0001682852-21-000017-index.htm",
-     "fecha_presentacion": "2021-05-06",
-     "etiqueta": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
-     "periodo_fin": "2020-03-31",
-     "formulario": "10-Q",
-     "accn": "0001682852-21-000017",
-     "periodo_inicio": "2020-01-01",
-     "periodo": "1T20"
-    },
-    {
-     "valor": 19000000,
-     "fuente": "SEC EDGAR · 10-Q (derivado)",
-     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285221000022/0001682852-21-000022-index.htm",
-     "fecha_presentacion": "2021-08-05",
-     "etiqueta": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
-     "periodo_fin": "2020-06-30",
-     "formulario": "10-Q",
-     "accn": "0001682852-21-000022",
-     "periodo_inicio": "2020-04-01",
-     "derivado": "Acumulado 6 meses − acumulado 3 meses",
-     "periodo": "2T20"
-    },
-    {
      "valor": 19000000,
      "fuente": "SEC EDGAR · 10-Q (derivado)",
      "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285221000027/0001682852-21-000027-index.htm",
@@ -2602,6 +2563,19 @@
      "periodo_inicio": "2020-07-01",
      "derivado": "Acumulado 9 meses − acumulado 6 meses",
      "periodo": "3T20"
+    },
+    {
+     "valor": 24000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285223000011/0001682852-23-000011-index.htm",
+     "fecha_presentacion": "2023-02-24",
+     "etiqueta": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+     "periodo_fin": "2020-12-31",
+     "formulario": "10-K",
+     "accn": "0001682852-23-000011",
+     "periodo_inicio": "2020-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T20"
     },
     {
      "valor": 35000000,
@@ -2693,6 +2667,19 @@
      "periodo": "3T22"
     },
     {
+     "valor": 92000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285225000022/0001682852-25-000022-index.htm",
+     "fecha_presentacion": "2025-02-21",
+     "etiqueta": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+     "periodo_fin": "2022-12-31",
+     "formulario": "10-K",
+     "accn": "0001682852-25-000022",
+     "periodo_inicio": "2022-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T22"
+    },
+    {
      "valor": 113000000,
      "fuente": "SEC EDGAR · 10-Q",
      "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285224000027/0001682852-24-000027-index.htm",
@@ -2731,6 +2718,19 @@
      "periodo": "3T23"
     },
     {
+     "valor": 220000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000033/0001682852-26-000033-index.htm",
+     "fecha_presentacion": "2026-02-20",
+     "etiqueta": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+     "periodo_fin": "2023-12-31",
+     "formulario": "10-K",
+     "accn": "0001682852-26-000033",
+     "periodo_inicio": "2023-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T23"
+    },
+    {
      "valor": 196000000,
      "fuente": "SEC EDGAR · 10-Q",
      "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285225000034/0001682852-25-000034-index.htm",
@@ -2767,6 +2767,19 @@
      "periodo_inicio": "2024-07-01",
      "derivado": "Acumulado 9 meses − acumulado 6 meses",
      "periodo": "3T24"
+    },
+    {
+     "valor": 522000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000033/0001682852-26-000033-index.htm",
+     "fecha_presentacion": "2026-02-20",
+     "etiqueta": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+     "periodo_fin": "2024-12-31",
+     "formulario": "10-K",
+     "accn": "0001682852-26-000033",
+     "periodo_inicio": "2024-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T24"
     },
     {
      "valor": 117000000,
@@ -2970,55 +2983,6 @@
    ],
    "trimestral": [
     {
-     "valor": 7300000,
-     "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285220000023/0001682852-20-000023-index.htm",
-     "fecha_presentacion": "2020-10-30",
-     "etiqueta": "us-gaap:DepreciationDepletionAndAmortization",
-     "periodo_fin": "2019-09-30",
-     "formulario": "10-Q",
-     "accn": "0001682852-20-000023",
-     "periodo_inicio": "2019-07-01",
-     "periodo": "3T19"
-    },
-    {
-     "valor": 8884000,
-     "fuente": "SEC EDGAR · 10-K (derivado)",
-     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285222000012/0001682852-22-000012-index.htm",
-     "fecha_presentacion": "2022-02-25",
-     "etiqueta": "us-gaap:DepreciationDepletionAndAmortization",
-     "periodo_fin": "2019-12-31",
-     "formulario": "10-K",
-     "accn": "0001682852-22-000012",
-     "periodo_inicio": "2019-10-01",
-     "derivado": "Año − 1T − 2T − 3T",
-     "periodo": "4T19"
-    },
-    {
-     "valor": 7000000,
-     "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285221000017/0001682852-21-000017-index.htm",
-     "fecha_presentacion": "2021-05-06",
-     "etiqueta": "us-gaap:DepreciationDepletionAndAmortization",
-     "periodo_fin": "2020-03-31",
-     "formulario": "10-Q",
-     "accn": "0001682852-21-000017",
-     "periodo_inicio": "2020-01-01",
-     "periodo": "1T20"
-    },
-    {
-     "valor": 8000000,
-     "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285221000022/0001682852-21-000022-index.htm",
-     "fecha_presentacion": "2021-08-05",
-     "etiqueta": "us-gaap:DepreciationDepletionAndAmortization",
-     "periodo_fin": "2020-06-30",
-     "formulario": "10-Q",
-     "accn": "0001682852-21-000022",
-     "periodo_inicio": "2020-04-01",
-     "periodo": "2T20"
-    },
-    {
      "valor": 8000000,
      "fuente": "SEC EDGAR · 10-Q",
      "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285221000027/0001682852-21-000027-index.htm",
@@ -3029,6 +2993,19 @@
      "accn": "0001682852-21-000027",
      "periodo_inicio": "2020-07-01",
      "periodo": "3T20"
+    },
+    {
+     "valor": 8000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285223000011/0001682852-23-000011-index.htm",
+     "fecha_presentacion": "2023-02-24",
+     "etiqueta": "us-gaap:DepreciationDepletionAndAmortization",
+     "periodo_fin": "2020-12-31",
+     "formulario": "10-K",
+     "accn": "0001682852-23-000011",
+     "periodo_inicio": "2020-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T20"
     },
     {
      "valor": 15000000,
@@ -3116,6 +3093,19 @@
      "periodo": "3T22"
     },
     {
+     "valor": 80000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285225000022/0001682852-25-000022-index.htm",
+     "fecha_presentacion": "2025-02-21",
+     "etiqueta": "us-gaap:DepreciationDepletionAndAmortization",
+     "periodo_fin": "2022-12-31",
+     "formulario": "10-K",
+     "accn": "0001682852-25-000022",
+     "periodo_inicio": "2022-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T22"
+    },
+    {
      "valor": 78000000,
      "fuente": "SEC EDGAR · 10-Q",
      "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285224000027/0001682852-24-000027-index.htm",
@@ -3152,6 +3142,19 @@
      "periodo": "3T23"
     },
     {
+     "valor": 203000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000033/0001682852-26-000033-index.htm",
+     "fecha_presentacion": "2026-02-20",
+     "etiqueta": "us-gaap:DepreciationDepletionAndAmortization",
+     "periodo_fin": "2023-12-31",
+     "formulario": "10-K",
+     "accn": "0001682852-26-000033",
+     "periodo_inicio": "2023-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T23"
+    },
+    {
      "valor": 35000000,
      "fuente": "SEC EDGAR · 10-Q",
      "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285225000034/0001682852-25-000034-index.htm",
@@ -3186,6 +3189,19 @@
      "accn": "0001682852-25-000075",
      "periodo_inicio": "2024-07-01",
      "periodo": "3T24"
+    },
+    {
+     "valor": 59000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000033/0001682852-26-000033-index.htm",
+     "fecha_presentacion": "2026-02-20",
+     "etiqueta": "us-gaap:DepreciationDepletionAndAmortization",
+     "periodo_fin": "2024-12-31",
+     "formulario": "10-K",
+     "accn": "0001682852-26-000033",
+     "periodo_inicio": "2024-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T24"
     },
     {
      "valor": 38000000,
@@ -3386,55 +3402,6 @@
    ],
    "trimestral": [
     {
-     "valor": 20804000,
-     "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285220000023/0001682852-20-000023-index.htm",
-     "fecha_presentacion": "2020-10-30",
-     "etiqueta": "us-gaap:AllocatedShareBasedCompensationExpense",
-     "periodo_fin": "2019-09-30",
-     "formulario": "10-Q",
-     "accn": "0001682852-20-000023",
-     "periodo_inicio": "2019-07-01",
-     "periodo": "3T19"
-    },
-    {
-     "valor": 20204000,
-     "fuente": "SEC EDGAR · 10-K (derivado)",
-     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285222000012/0001682852-22-000012-index.htm",
-     "fecha_presentacion": "2022-02-25",
-     "etiqueta": "us-gaap:ShareBasedCompensation",
-     "periodo_fin": "2019-12-31",
-     "formulario": "10-K",
-     "accn": "0001682852-22-000012",
-     "periodo_inicio": "2019-10-01",
-     "derivado": "Año − 1T − 2T − 3T",
-     "periodo": "4T19"
-    },
-    {
-     "valor": 20000000,
-     "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285221000017/0001682852-21-000017-index.htm",
-     "fecha_presentacion": "2021-05-06",
-     "etiqueta": "us-gaap:ShareBasedCompensation",
-     "periodo_fin": "2020-03-31",
-     "formulario": "10-Q",
-     "accn": "0001682852-21-000017",
-     "periodo_inicio": "2020-01-01",
-     "periodo": "1T20"
-    },
-    {
-     "valor": 25000000,
-     "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285221000022/0001682852-21-000022-index.htm",
-     "fecha_presentacion": "2021-08-05",
-     "etiqueta": "us-gaap:AllocatedShareBasedCompensationExpense",
-     "periodo_fin": "2020-06-30",
-     "formulario": "10-Q",
-     "accn": "0001682852-21-000022",
-     "periodo_inicio": "2020-04-01",
-     "periodo": "2T20"
-    },
-    {
      "valor": 22000000,
      "fuente": "SEC EDGAR · 10-Q",
      "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285221000027/0001682852-21-000027-index.htm",
@@ -3445,6 +3412,19 @@
      "accn": "0001682852-21-000027",
      "periodo_inicio": "2020-07-01",
      "periodo": "3T20"
+    },
+    {
+     "valor": 26000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285223000011/0001682852-23-000011-index.htm",
+     "fecha_presentacion": "2023-02-24",
+     "etiqueta": "us-gaap:ShareBasedCompensation",
+     "periodo_fin": "2020-12-31",
+     "formulario": "10-K",
+     "accn": "0001682852-23-000011",
+     "periodo_inicio": "2020-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T20"
     },
     {
      "valor": 30000000,
@@ -3532,6 +3512,19 @@
      "periodo": "3T22"
     },
     {
+     "valor": 62000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285225000022/0001682852-25-000022-index.htm",
+     "fecha_presentacion": "2025-02-21",
+     "etiqueta": "us-gaap:ShareBasedCompensation",
+     "periodo_fin": "2022-12-31",
+     "formulario": "10-K",
+     "accn": "0001682852-25-000022",
+     "periodo_inicio": "2022-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T22"
+    },
+    {
      "valor": 75000000,
      "fuente": "SEC EDGAR · 10-Q",
      "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285224000027/0001682852-24-000027-index.htm",
@@ -3568,6 +3561,19 @@
      "periodo": "3T23"
     },
     {
+     "valor": 79000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000033/0001682852-26-000033-index.htm",
+     "fecha_presentacion": "2026-02-20",
+     "etiqueta": "us-gaap:ShareBasedCompensation",
+     "periodo_fin": "2023-12-31",
+     "formulario": "10-K",
+     "accn": "0001682852-26-000033",
+     "periodo_inicio": "2023-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T23"
+    },
+    {
      "valor": 101000000,
      "fuente": "SEC EDGAR · 10-Q",
      "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285225000034/0001682852-25-000034-index.htm",
@@ -3602,6 +3608,19 @@
      "accn": "0001682852-25-000075",
      "periodo_inicio": "2024-07-01",
      "periodo": "3T24"
+    },
+    {
+     "valor": 104000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000033/0001682852-26-000033-index.htm",
+     "fecha_presentacion": "2026-02-20",
+     "etiqueta": "us-gaap:ShareBasedCompensation",
+     "periodo_fin": "2024-12-31",
+     "formulario": "10-K",
+     "accn": "0001682852-26-000033",
+     "periodo_inicio": "2024-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T24"
     },
     {
      "valor": 115000000,
@@ -3819,55 +3838,6 @@
    ],
    "trimestral": [
     {
-     "valor": -178000,
-     "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285220000023/0001682852-20-000023-index.htm",
-     "fecha_presentacion": "2020-10-30",
-     "etiqueta": "us-gaap:IncomeTaxExpenseBenefit",
-     "periodo_fin": "2019-09-30",
-     "formulario": "10-Q",
-     "accn": "0001682852-20-000023",
-     "periodo_inicio": "2019-07-01",
-     "periodo": "3T19"
-    },
-    {
-     "valor": -474000,
-     "fuente": "SEC EDGAR · 10-K (derivado)",
-     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285222000012/0001682852-22-000012-index.htm",
-     "fecha_presentacion": "2022-02-25",
-     "etiqueta": "us-gaap:IncomeTaxExpenseBenefit",
-     "periodo_fin": "2019-12-31",
-     "formulario": "10-K",
-     "accn": "0001682852-22-000012",
-     "periodo_inicio": "2019-10-01",
-     "derivado": "Año − 1T − 2T − 3T",
-     "periodo": "4T19"
-    },
-    {
-     "valor": 0,
-     "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285221000017/0001682852-21-000017-index.htm",
-     "fecha_presentacion": "2021-05-06",
-     "etiqueta": "us-gaap:IncomeTaxExpenseBenefit",
-     "periodo_fin": "2020-03-31",
-     "formulario": "10-Q",
-     "accn": "0001682852-21-000017",
-     "periodo_inicio": "2020-01-01",
-     "periodo": "1T20"
-    },
-    {
-     "valor": 0,
-     "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285221000022/0001682852-21-000022-index.htm",
-     "fecha_presentacion": "2021-08-05",
-     "etiqueta": "us-gaap:IncomeTaxExpenseBenefit",
-     "periodo_fin": "2020-06-30",
-     "formulario": "10-Q",
-     "accn": "0001682852-21-000022",
-     "periodo_inicio": "2020-04-01",
-     "periodo": "2T20"
-    },
-    {
      "valor": 1000000,
      "fuente": "SEC EDGAR · 10-Q",
      "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285221000027/0001682852-21-000027-index.htm",
@@ -3878,6 +3848,19 @@
      "accn": "0001682852-21-000027",
      "periodo_inicio": "2020-07-01",
      "periodo": "3T20"
+    },
+    {
+     "valor": 2000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285223000011/0001682852-23-000011-index.htm",
+     "fecha_presentacion": "2023-02-24",
+     "etiqueta": "us-gaap:IncomeTaxExpenseBenefit",
+     "periodo_fin": "2020-12-31",
+     "formulario": "10-K",
+     "accn": "0001682852-23-000011",
+     "periodo_inicio": "2020-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T20"
     },
     {
      "valor": 39000000,
@@ -3965,6 +3948,19 @@
      "periodo": "3T22"
     },
     {
+     "valor": 190000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285225000022/0001682852-25-000022-index.htm",
+     "fecha_presentacion": "2025-02-21",
+     "etiqueta": "us-gaap:IncomeTaxExpenseBenefit",
+     "periodo_fin": "2022-12-31",
+     "formulario": "10-K",
+     "accn": "0001682852-25-000022",
+     "periodo_inicio": "2022-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T22"
+    },
+    {
      "valor": -384000000,
      "fuente": "SEC EDGAR · 10-Q",
      "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285224000027/0001682852-24-000027-index.htm",
@@ -4001,6 +3997,19 @@
      "periodo": "3T23"
     },
     {
+     "valor": -147000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000033/0001682852-26-000033-index.htm",
+     "fecha_presentacion": "2026-02-20",
+     "etiqueta": "us-gaap:IncomeTaxExpenseBenefit",
+     "periodo_fin": "2023-12-31",
+     "formulario": "10-K",
+     "accn": "0001682852-26-000033",
+     "periodo_inicio": "2023-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T23"
+    },
+    {
      "valor": 10000000,
      "fuente": "SEC EDGAR · 10-Q",
      "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285225000034/0001682852-25-000034-index.htm",
@@ -4035,6 +4044,19 @@
      "accn": "0001682852-25-000075",
      "periodo_inicio": "2024-07-01",
      "periodo": "3T24"
+    },
+    {
+     "valor": -64000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000033/0001682852-26-000033-index.htm",
+     "fecha_presentacion": "2026-02-20",
+     "etiqueta": "us-gaap:IncomeTaxExpenseBenefit",
+     "periodo_fin": "2024-12-31",
+     "formulario": "10-K",
+     "accn": "0001682852-26-000033",
+     "periodo_inicio": "2024-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T24"
     },
     {
      "valor": 7000000,
@@ -4235,55 +4257,6 @@
    ],
    "trimestral": [
     {
-     "valor": -123393000,
-     "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285220000023/0001682852-20-000023-index.htm",
-     "fecha_presentacion": "2020-10-30",
-     "etiqueta": "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
-     "periodo_fin": "2019-09-30",
-     "formulario": "10-Q",
-     "accn": "0001682852-20-000023",
-     "periodo_inicio": "2019-07-01",
-     "periodo": "3T19"
-    },
-    {
-     "valor": -123743000,
-     "fuente": "SEC EDGAR · 10-K (derivado)",
-     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285222000012/0001682852-22-000012-index.htm",
-     "fecha_presentacion": "2022-02-25",
-     "etiqueta": "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
-     "periodo_fin": "2019-12-31",
-     "formulario": "10-K",
-     "accn": "0001682852-22-000012",
-     "periodo_inicio": "2019-10-01",
-     "derivado": "Año − 1T − 2T − 3T",
-     "periodo": "4T19"
-    },
-    {
-     "valor": -124000000,
-     "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285221000017/0001682852-21-000017-index.htm",
-     "fecha_presentacion": "2021-05-06",
-     "etiqueta": "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
-     "periodo_fin": "2020-03-31",
-     "formulario": "10-Q",
-     "accn": "0001682852-21-000017",
-     "periodo_inicio": "2020-01-01",
-     "periodo": "1T20"
-    },
-    {
-     "valor": -117000000,
-     "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285221000022/0001682852-21-000022-index.htm",
-     "fecha_presentacion": "2021-08-05",
-     "etiqueta": "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments",
-     "periodo_fin": "2020-06-30",
-     "formulario": "10-Q",
-     "accn": "0001682852-21-000022",
-     "periodo_inicio": "2020-04-01",
-     "periodo": "2T20"
-    },
-    {
      "valor": -232000000,
      "fuente": "SEC EDGAR · 10-Q",
      "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285221000027/0001682852-21-000027-index.htm",
@@ -4294,6 +4267,19 @@
      "accn": "0001682852-21-000027",
      "periodo_inicio": "2020-07-01",
      "periodo": "3T20"
+    },
+    {
+     "valor": -271000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285223000011/0001682852-23-000011-index.htm",
+     "fecha_presentacion": "2023-02-24",
+     "etiqueta": "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+     "periodo_fin": "2020-12-31",
+     "formulario": "10-K",
+     "accn": "0001682852-23-000011",
+     "periodo_inicio": "2020-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T20"
     },
     {
      "valor": 1260000000,
@@ -4381,6 +4367,19 @@
      "periodo": "3T22"
     },
     {
+     "valor": 1655000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285225000022/0001682852-25-000022-index.htm",
+     "fecha_presentacion": "2025-02-21",
+     "etiqueta": "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+     "periodo_fin": "2022-12-31",
+     "formulario": "10-K",
+     "accn": "0001682852-25-000022",
+     "periodo_inicio": "2022-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T22"
+    },
+    {
      "valor": -305000000,
      "fuente": "SEC EDGAR · 10-Q",
      "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285224000027/0001682852-24-000027-index.htm",
@@ -4417,6 +4416,19 @@
      "periodo": "3T23"
     },
     {
+     "valor": 70000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000033/0001682852-26-000033-index.htm",
+     "fecha_presentacion": "2026-02-20",
+     "etiqueta": "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+     "periodo_fin": "2023-12-31",
+     "formulario": "10-K",
+     "accn": "0001682852-26-000033",
+     "periodo_inicio": "2023-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T23"
+    },
+    {
      "valor": -1165000000,
      "fuente": "SEC EDGAR · 10-Q",
      "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285225000034/0001682852-25-000034-index.htm",
@@ -4451,6 +4463,19 @@
      "accn": "0001682852-25-000075",
      "periodo_inicio": "2024-07-01",
      "periodo": "3T24"
+    },
+    {
+     "valor": -1184000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000033/0001682852-26-000033-index.htm",
+     "fecha_presentacion": "2026-02-20",
+     "etiqueta": "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+     "periodo_fin": "2024-12-31",
+     "formulario": "10-K",
+     "accn": "0001682852-26-000033",
+     "periodo_inicio": "2024-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T24"
     },
     {
      "valor": -964000000,
@@ -4538,8 +4563,7 @@
    },
    "etiquetas_usadas": [
     "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesDomestic",
-    "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
-    "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments"
+    "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest"
    ]
   },
   "otros_no_operativos": {
@@ -4653,55 +4677,6 @@
    ],
    "trimestral": [
     {
-     "valor": -1881000,
-     "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285220000023/0001682852-20-000023-index.htm",
-     "fecha_presentacion": "2020-10-30",
-     "etiqueta": "us-gaap:OtherNonoperatingIncomeExpense",
-     "periodo_fin": "2019-09-30",
-     "formulario": "10-Q",
-     "accn": "0001682852-20-000023",
-     "periodo_inicio": "2019-07-01",
-     "periodo": "3T19"
-    },
-    {
-     "valor": -2311000,
-     "fuente": "SEC EDGAR · 10-K (derivado)",
-     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285222000012/0001682852-22-000012-index.htm",
-     "fecha_presentacion": "2022-02-25",
-     "etiqueta": "us-gaap:OtherNonoperatingIncomeExpense",
-     "periodo_fin": "2019-12-31",
-     "formulario": "10-K",
-     "accn": "0001682852-22-000012",
-     "periodo_inicio": "2019-10-01",
-     "derivado": "Año − 1T − 2T − 3T",
-     "periodo": "4T19"
-    },
-    {
-     "valor": -1000000,
-     "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285221000017/0001682852-21-000017-index.htm",
-     "fecha_presentacion": "2021-05-06",
-     "etiqueta": "us-gaap:OtherNonoperatingIncomeExpense",
-     "periodo_fin": "2020-03-31",
-     "formulario": "10-Q",
-     "accn": "0001682852-21-000017",
-     "periodo_inicio": "2020-01-01",
-     "periodo": "1T20"
-    },
-    {
-     "valor": -2000000,
-     "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285221000022/0001682852-21-000022-index.htm",
-     "fecha_presentacion": "2021-08-05",
-     "etiqueta": "us-gaap:OtherNonoperatingIncomeExpense",
-     "periodo_fin": "2020-06-30",
-     "formulario": "10-Q",
-     "accn": "0001682852-21-000022",
-     "periodo_inicio": "2020-04-01",
-     "periodo": "2T20"
-    },
-    {
      "valor": -3000000,
      "fuente": "SEC EDGAR · 10-Q",
      "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285221000027/0001682852-21-000027-index.htm",
@@ -4712,6 +4687,19 @@
      "accn": "0001682852-21-000027",
      "periodo_inicio": "2020-07-01",
      "periodo": "3T20"
+    },
+    {
+     "valor": 0,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285223000011/0001682852-23-000011-index.htm",
+     "fecha_presentacion": "2023-02-24",
+     "etiqueta": "us-gaap:OtherNonoperatingIncomeExpense",
+     "periodo_fin": "2020-12-31",
+     "formulario": "10-K",
+     "accn": "0001682852-23-000011",
+     "periodo_inicio": "2020-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T20"
     },
     {
      "valor": -10000000,
@@ -4799,6 +4787,19 @@
      "periodo": "3T22"
     },
     {
+     "valor": -12000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285225000022/0001682852-25-000022-index.htm",
+     "fecha_presentacion": "2025-02-21",
+     "etiqueta": "us-gaap:OtherNonoperatingIncomeExpense",
+     "periodo_fin": "2022-12-31",
+     "formulario": "10-K",
+     "accn": "0001682852-25-000022",
+     "periodo_inicio": "2022-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T22"
+    },
+    {
      "valor": -48000000,
      "fuente": "SEC EDGAR · 10-Q",
      "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285224000027/0001682852-24-000027-index.htm",
@@ -4835,6 +4836,19 @@
      "periodo": "3T23"
     },
     {
+     "valor": -39000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000033/0001682852-26-000033-index.htm",
+     "fecha_presentacion": "2026-02-20",
+     "etiqueta": "us-gaap:OtherNonoperatingIncomeExpense",
+     "periodo_fin": "2023-12-31",
+     "formulario": "10-K",
+     "accn": "0001682852-26-000033",
+     "periodo_inicio": "2023-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T23"
+    },
+    {
      "valor": -19000000,
      "fuente": "SEC EDGAR · 10-Q",
      "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285225000034/0001682852-25-000034-index.htm",
@@ -4869,6 +4883,19 @@
      "accn": "0001682852-25-000075",
      "periodo_inicio": "2024-07-01",
      "periodo": "3T24"
+    },
+    {
+     "valor": -29000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000033/0001682852-26-000033-index.htm",
+     "fecha_presentacion": "2026-02-20",
+     "etiqueta": "us-gaap:OtherNonoperatingIncomeExpense",
+     "periodo_fin": "2024-12-31",
+     "formulario": "10-K",
+     "accn": "0001682852-26-000033",
+     "periodo_inicio": "2024-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T24"
     },
     {
      "valor": -4000000,
@@ -5079,30 +5106,6 @@
     {
      "valor": 0,
      "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285221000017/0001682852-21-000017-index.htm",
-     "fecha_presentacion": "2021-05-06",
-     "etiqueta": "us-gaap:CostOfGoodsAndServicesSold",
-     "periodo_fin": "2020-03-31",
-     "formulario": "10-Q",
-     "accn": "0001682852-21-000017",
-     "periodo_inicio": "2020-01-01",
-     "periodo": "1T20"
-    },
-    {
-     "valor": 0,
-     "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285221000022/0001682852-21-000022-index.htm",
-     "fecha_presentacion": "2021-08-05",
-     "etiqueta": "us-gaap:CostOfGoodsAndServicesSold",
-     "periodo_fin": "2020-06-30",
-     "formulario": "10-Q",
-     "accn": "0001682852-21-000022",
-     "periodo_inicio": "2020-04-01",
-     "periodo": "2T20"
-    },
-    {
-     "valor": 0,
-     "fuente": "SEC EDGAR · 10-Q",
      "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285221000027/0001682852-21-000027-index.htm",
      "fecha_presentacion": "2021-11-04",
      "etiqueta": "us-gaap:CostOfGoodsAndServicesSold",
@@ -5111,6 +5114,19 @@
      "accn": "0001682852-21-000027",
      "periodo_inicio": "2020-07-01",
      "periodo": "3T20"
+    },
+    {
+     "valor": 8000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285223000011/0001682852-23-000011-index.htm",
+     "fecha_presentacion": "2023-02-24",
+     "etiqueta": "us-gaap:CostOfGoodsAndServicesSold",
+     "periodo_fin": "2020-12-31",
+     "formulario": "10-K",
+     "accn": "0001682852-23-000011",
+     "periodo_inicio": "2020-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T20"
     },
     {
      "valor": 193000000,
@@ -5198,6 +5214,19 @@
      "periodo": "3T22"
     },
     {
+     "valor": 1918000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285225000022/0001682852-25-000022-index.htm",
+     "fecha_presentacion": "2025-02-21",
+     "etiqueta": "us-gaap:CostOfGoodsAndServicesSold",
+     "periodo_fin": "2022-12-31",
+     "formulario": "10-K",
+     "accn": "0001682852-25-000022",
+     "periodo_inicio": "2022-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T22"
+    },
+    {
      "valor": 792000000,
      "fuente": "SEC EDGAR · 10-Q",
      "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285224000027/0001682852-24-000027-index.htm",
@@ -5234,6 +5263,19 @@
      "periodo": "3T23"
     },
     {
+     "valor": 929000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000033/0001682852-26-000033-index.htm",
+     "fecha_presentacion": "2026-02-20",
+     "etiqueta": "us-gaap:CostOfGoodsAndServicesSold",
+     "periodo_fin": "2023-12-31",
+     "formulario": "10-K",
+     "accn": "0001682852-26-000033",
+     "periodo_inicio": "2023-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T23"
+    },
+    {
      "valor": 96000000,
      "fuente": "SEC EDGAR · 10-Q",
      "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285225000034/0001682852-25-000034-index.htm",
@@ -5268,6 +5310,19 @@
      "accn": "0001682852-25-000075",
      "periodo_inicio": "2024-07-01",
      "periodo": "3T24"
+    },
+    {
+     "valor": 739000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000033/0001682852-26-000033-index.htm",
+     "fecha_presentacion": "2026-02-20",
+     "etiqueta": "us-gaap:CostOfGoodsAndServicesSold",
+     "periodo_fin": "2024-12-31",
+     "formulario": "10-K",
+     "accn": "0001682852-26-000033",
+     "periodo_inicio": "2024-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T24"
     },
     {
      "valor": 90000000,
@@ -5484,55 +5539,6 @@
    ],
    "trimestral": [
     {
-     "valor": 119637000,
-     "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285220000023/0001682852-20-000023-index.htm",
-     "fecha_presentacion": "2020-10-30",
-     "etiqueta": "us-gaap:ResearchAndDevelopmentExpense",
-     "periodo_fin": "2019-09-30",
-     "formulario": "10-Q",
-     "accn": "0001682852-20-000023",
-     "periodo_inicio": "2019-07-01",
-     "periodo": "3T19"
-    },
-    {
-     "valor": 117645000,
-     "fuente": "SEC EDGAR · 10-K (derivado)",
-     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285222000012/0001682852-22-000012-index.htm",
-     "fecha_presentacion": "2022-02-25",
-     "etiqueta": "us-gaap:ResearchAndDevelopmentExpense",
-     "periodo_fin": "2019-12-31",
-     "formulario": "10-K",
-     "accn": "0001682852-22-000012",
-     "periodo_inicio": "2019-10-01",
-     "derivado": "Año − 1T − 2T − 3T",
-     "periodo": "4T19"
-    },
-    {
-     "valor": 115000000,
-     "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285221000017/0001682852-21-000017-index.htm",
-     "fecha_presentacion": "2021-05-06",
-     "etiqueta": "us-gaap:ResearchAndDevelopmentExpense",
-     "periodo_fin": "2020-03-31",
-     "formulario": "10-Q",
-     "accn": "0001682852-21-000017",
-     "periodo_inicio": "2020-01-01",
-     "periodo": "1T20"
-    },
-    {
-     "valor": 152000000,
-     "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285221000022/0001682852-21-000022-index.htm",
-     "fecha_presentacion": "2021-08-05",
-     "etiqueta": "us-gaap:ResearchAndDevelopmentExpense",
-     "periodo_fin": "2020-06-30",
-     "formulario": "10-Q",
-     "accn": "0001682852-21-000022",
-     "periodo_inicio": "2020-04-01",
-     "periodo": "2T20"
-    },
-    {
      "valor": 344000000,
      "fuente": "SEC EDGAR · 10-Q",
      "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285221000027/0001682852-21-000027-index.htm",
@@ -5543,6 +5549,19 @@
      "accn": "0001682852-21-000027",
      "periodo_inicio": "2020-07-01",
      "periodo": "3T20"
+    },
+    {
+     "valor": 759000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285223000011/0001682852-23-000011-index.htm",
+     "fecha_presentacion": "2023-02-24",
+     "etiqueta": "us-gaap:ResearchAndDevelopmentExpense",
+     "periodo_fin": "2020-12-31",
+     "formulario": "10-K",
+     "accn": "0001682852-23-000011",
+     "periodo_inicio": "2020-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T20"
     },
     {
      "valor": 401000000,
@@ -5630,6 +5649,19 @@
      "periodo": "3T22"
     },
     {
+     "valor": 1211000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285225000022/0001682852-25-000022-index.htm",
+     "fecha_presentacion": "2025-02-21",
+     "etiqueta": "us-gaap:ResearchAndDevelopmentExpense",
+     "periodo_fin": "2022-12-31",
+     "formulario": "10-K",
+     "accn": "0001682852-25-000022",
+     "periodo_inicio": "2022-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T22"
+    },
+    {
      "valor": 1131000000,
      "fuente": "SEC EDGAR · 10-Q",
      "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285224000027/0001682852-24-000027-index.htm",
@@ -5666,6 +5698,19 @@
      "periodo": "3T23"
     },
     {
+     "valor": 1406000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000033/0001682852-26-000033-index.htm",
+     "fecha_presentacion": "2026-02-20",
+     "etiqueta": "us-gaap:ResearchAndDevelopmentExpense",
+     "periodo_fin": "2023-12-31",
+     "formulario": "10-K",
+     "accn": "0001682852-26-000033",
+     "periodo_inicio": "2023-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T23"
+    },
+    {
      "valor": 1063000000,
      "fuente": "SEC EDGAR · 10-Q",
      "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285225000034/0001682852-25-000034-index.htm",
@@ -5700,6 +5745,19 @@
      "accn": "0001682852-25-000075",
      "periodo_inicio": "2024-07-01",
      "periodo": "3T24"
+    },
+    {
+     "valor": 1122000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000033/0001682852-26-000033-index.htm",
+     "fecha_presentacion": "2026-02-20",
+     "etiqueta": "us-gaap:ResearchAndDevelopmentExpense",
+     "periodo_fin": "2024-12-31",
+     "formulario": "10-K",
+     "accn": "0001682852-26-000033",
+     "periodo_inicio": "2024-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T24"
     },
     {
      "valor": 856000000,
@@ -5916,55 +5974,6 @@
    ],
    "trimestral": [
     {
-     "valor": 28173000,
-     "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285220000023/0001682852-20-000023-index.htm",
-     "fecha_presentacion": "2020-10-30",
-     "etiqueta": "us-gaap:GeneralAndAdministrativeExpense",
-     "periodo_fin": "2019-09-30",
-     "formulario": "10-Q",
-     "accn": "0001682852-20-000023",
-     "periodo_inicio": "2019-07-01",
-     "periodo": "3T19"
-    },
-    {
-     "valor": 26087000,
-     "fuente": "SEC EDGAR · 10-K (derivado)",
-     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285222000012/0001682852-22-000012-index.htm",
-     "fecha_presentacion": "2022-02-25",
-     "etiqueta": "us-gaap:GeneralAndAdministrativeExpense",
-     "periodo_fin": "2019-12-31",
-     "formulario": "10-K",
-     "accn": "0001682852-22-000012",
-     "periodo_inicio": "2019-10-01",
-     "derivado": "Año − 1T − 2T − 3T",
-     "periodo": "4T19"
-    },
-    {
-     "valor": 24000000,
-     "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285221000017/0001682852-21-000017-index.htm",
-     "fecha_presentacion": "2021-05-06",
-     "etiqueta": "us-gaap:GeneralAndAdministrativeExpense",
-     "periodo_fin": "2020-03-31",
-     "formulario": "10-Q",
-     "accn": "0001682852-21-000017",
-     "periodo_inicio": "2020-01-01",
-     "periodo": "1T20"
-    },
-    {
-     "valor": 37000000,
-     "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285221000022/0001682852-21-000022-index.htm",
-     "fecha_presentacion": "2021-08-05",
-     "etiqueta": "us-gaap:GeneralAndAdministrativeExpense",
-     "periodo_fin": "2020-06-30",
-     "formulario": "10-Q",
-     "accn": "0001682852-21-000022",
-     "periodo_inicio": "2020-04-01",
-     "periodo": "2T20"
-    },
-    {
      "valor": 48000000,
      "fuente": "SEC EDGAR · 10-Q",
      "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285221000027/0001682852-21-000027-index.htm",
@@ -5975,6 +5984,19 @@
      "accn": "0001682852-21-000027",
      "periodo_inicio": "2020-07-01",
      "periodo": "3T20"
+    },
+    {
+     "valor": 79000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285223000011/0001682852-23-000011-index.htm",
+     "fecha_presentacion": "2023-02-24",
+     "etiqueta": "us-gaap:GeneralAndAdministrativeExpense",
+     "periodo_fin": "2020-12-31",
+     "formulario": "10-K",
+     "accn": "0001682852-23-000011",
+     "periodo_inicio": "2020-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T20"
     },
     {
      "valor": 77000000,
@@ -6062,6 +6084,19 @@
      "periodo": "3T22"
     },
     {
+     "valor": 375000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285225000022/0001682852-25-000022-index.htm",
+     "fecha_presentacion": "2025-02-21",
+     "etiqueta": "us-gaap:GeneralAndAdministrativeExpense",
+     "periodo_fin": "2022-12-31",
+     "formulario": "10-K",
+     "accn": "0001682852-25-000022",
+     "periodo_inicio": "2022-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T22"
+    },
+    {
      "valor": 305000000,
      "fuente": "SEC EDGAR · 10-Q",
      "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285224000027/0001682852-24-000027-index.htm",
@@ -6098,6 +6133,19 @@
      "periodo": "3T23"
     },
     {
+     "valor": 470000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000033/0001682852-26-000033-index.htm",
+     "fecha_presentacion": "2026-02-20",
+     "etiqueta": "us-gaap:GeneralAndAdministrativeExpense",
+     "periodo_fin": "2023-12-31",
+     "formulario": "10-K",
+     "accn": "0001682852-26-000033",
+     "periodo_inicio": "2023-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T23"
+    },
+    {
      "valor": 274000000,
      "fuente": "SEC EDGAR · 10-Q",
      "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285225000034/0001682852-25-000034-index.htm",
@@ -6132,6 +6180,19 @@
      "accn": "0001682852-25-000075",
      "periodo_inicio": "2024-07-01",
      "periodo": "3T24"
+    },
+    {
+     "valor": 351000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000033/0001682852-26-000033-index.htm",
+     "fecha_presentacion": "2026-02-20",
+     "etiqueta": "us-gaap:GeneralAndAdministrativeExpense",
+     "periodo_fin": "2024-12-31",
+     "formulario": "10-K",
+     "accn": "0001682852-26-000033",
+     "periodo_inicio": "2024-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T24"
     },
     {
      "valor": 212000000,
@@ -6408,6 +6469,19 @@
      "periodo": "3T22"
     },
     {
+     "valor": 402000000,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285225000022/0001682852-25-000022-index.htm",
+     "fecha_presentacion": "2025-02-21",
+     "etiqueta": "us-gaap:PaymentsForRepurchaseOfCommonStock",
+     "periodo_fin": "2022-12-31",
+     "formulario": "10-K",
+     "accn": "0001682852-25-000022",
+     "periodo_inicio": "2022-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T22"
+    },
+    {
      "valor": 526000000,
      "fuente": "SEC EDGAR · 10-Q",
      "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285224000027/0001682852-24-000027-index.htm",
@@ -6447,6 +6521,19 @@
     },
     {
      "valor": 0,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000033/0001682852-26-000033-index.htm",
+     "fecha_presentacion": "2026-02-20",
+     "etiqueta": "us-gaap:PaymentsForRepurchaseOfCommonStock",
+     "periodo_fin": "2023-12-31",
+     "formulario": "10-K",
+     "accn": "0001682852-26-000033",
+     "periodo_inicio": "2023-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T23"
+    },
+    {
+     "valor": 0,
      "fuente": "SEC EDGAR · 10-Q",
      "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285224000027/0001682852-24-000027-index.htm",
      "fecha_presentacion": "2024-05-02",
@@ -6482,9 +6569,31 @@
      "periodo_inicio": "2024-07-01",
      "derivado": "Acumulado 9 meses − acumulado 6 meses",
      "periodo": "3T24"
+    },
+    {
+     "valor": 0,
+     "fuente": "SEC EDGAR · 10-K (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000033/0001682852-26-000033-index.htm",
+     "fecha_presentacion": "2026-02-20",
+     "etiqueta": "us-gaap:PaymentsForRepurchaseOfCommonStock",
+     "periodo_fin": "2024-12-31",
+     "formulario": "10-K",
+     "accn": "0001682852-26-000033",
+     "periodo_inicio": "2024-10-01",
+     "derivado": "Año − 1T − 2T − 3T",
+     "periodo": "4T24"
     }
    ],
-   "ttm": null,
+   "ttm": {
+    "valor": 0,
+    "fuente": "SEC EDGAR (suma de 4 trimestres)",
+    "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000033/0001682852-26-000033-index.htm",
+    "fecha_presentacion": "2026-02-20",
+    "etiqueta": "us-gaap:PaymentsForRepurchaseOfCommonStock",
+    "periodo_inicio": "2024-01-01",
+    "periodo_fin": "2024-12-31",
+    "derivado": "1T24 + 2T24 + 3T24 + 4T24"
+   },
    "etiquetas_usadas": [
     "us-gaap:PaymentsForRepurchaseOfCommonStock"
    ]
@@ -8163,20 +8272,6 @@
  },
  "avisos": [
   {
-   "nivel": "aviso",
-   "codigo": "4t_descartado",
-   "mensaje": "Ingresos 4T23: el 4T derivado (2,811 M) no encaja con los trimestres vecinos (ratio 1.54, 16.83); se descarta, y con él el 4T del resto de conceptos de ese año.",
-   "concepto": "ingresos",
-   "periodo": "4T23"
-  },
-  {
-   "nivel": "aviso",
-   "codigo": "4t_descartado",
-   "mensaje": "Ingresos 4T24: el 4T derivado (966 M) no encaja con los trimestres vecinos (ratio 0.52, 8.94); se descarta, y con él el 4T del resto de conceptos de ese año.",
-   "concepto": "ingresos",
-   "periodo": "4T24"
-  },
-  {
    "nivel": "info",
    "codigo": "etiqueta_obsoleta",
    "mensaje": "Beneficio antes de impuestos: «IncomeLossFromContinuingOperationsBeforeIncomeTaxesDomestic» termina el 2025-12-31; solo se usa para años antiguos.",
@@ -8241,100 +8336,63 @@
   {
    "nivel": "aviso",
    "codigo": "salto_raro",
-   "mensaje": "Ingresos 1T20: -42% frente a 4T19. Revisa el informe.",
+   "mensaje": "Ingresos 3T21: +3065% frente a 3T20 (mismo trimestre del año anterior; compañía estacional). Revisa el informe.",
    "concepto": "ingresos",
-   "periodo": "1T20"
+   "periodo": "3T21"
   },
   {
    "nivel": "aviso",
    "codigo": "salto_raro",
-   "mensaje": "Ingresos 2T20: +738% frente a 1T20. Revisa el informe.",
+   "mensaje": "Ingresos 4T21: +1163% frente a 4T20 (mismo trimestre del año anterior; compañía estacional). Revisa el informe.",
    "concepto": "ingresos",
-   "periodo": "2T20"
+   "periodo": "4T21"
   },
   {
    "nivel": "aviso",
    "codigo": "salto_raro",
-   "mensaje": "Ingresos 3T20: +132% frente a 2T20. Revisa el informe.",
+   "mensaje": "Ingresos 1T22: +213% frente a 1T21 (mismo trimestre del año anterior; compañía estacional). Revisa el informe.",
    "concepto": "ingresos",
-   "periodo": "3T20"
+   "periodo": "1T22"
   },
   {
    "nivel": "aviso",
    "codigo": "salto_raro",
-   "mensaje": "Ingresos 1T21: +1161% frente a 3T20. Revisa el informe.",
-   "concepto": "ingresos",
-   "periodo": "1T21"
-  },
-  {
-   "nivel": "aviso",
-   "codigo": "salto_raro",
-   "mensaje": "Ingresos 2T21: +122% frente a 1T21. Revisa el informe.",
-   "concepto": "ingresos",
-   "periodo": "2T21"
-  },
-  {
-   "nivel": "aviso",
-   "codigo": "salto_raro",
-   "mensaje": "Ingresos 1T23: -43% frente a 3T22. Revisa el informe.",
+   "mensaje": "Ingresos 1T23: -69% frente a 1T22 (mismo trimestre del año anterior; compañía estacional). Revisa el informe.",
    "concepto": "ingresos",
    "periodo": "1T23"
   },
   {
    "nivel": "aviso",
    "codigo": "salto_raro",
-   "mensaje": "Ingresos 2T23: -82% frente a 1T23. Revisa el informe.",
+   "mensaje": "Ingresos 2T23: -93% frente a 2T22 (mismo trimestre del año anterior; compañía estacional). Revisa el informe.",
    "concepto": "ingresos",
    "periodo": "2T23"
   },
   {
    "nivel": "aviso",
    "codigo": "salto_raro",
-   "mensaje": "Ingresos 3T23: +426% frente a 2T23. Revisa el informe.",
-   "concepto": "ingresos",
-   "periodo": "3T23"
-  },
-  {
-   "nivel": "aviso",
-   "codigo": "salto_raro",
-   "mensaje": "Ingresos 1T24: -91% frente a 3T23. Revisa el informe.",
+   "mensaje": "Ingresos 1T24: -91% frente a 1T23 (mismo trimestre del año anterior; compañía estacional). Revisa el informe.",
    "concepto": "ingresos",
    "periodo": "1T24"
   },
   {
    "nivel": "aviso",
    "codigo": "salto_raro",
-   "mensaje": "Ingresos 3T24: +664% frente a 2T24. Revisa el informe.",
+   "mensaje": "Ingresos 4T24: -66% frente a 4T23 (mismo trimestre del año anterior; compañía estacional). Revisa el informe.",
    "concepto": "ingresos",
-   "periodo": "3T24"
+   "periodo": "4T24"
   },
   {
    "nivel": "aviso",
    "codigo": "salto_raro",
-   "mensaje": "Ingresos 1T25: -94% frente a 3T24. Revisa el informe.",
-   "concepto": "ingresos",
-   "periodo": "1T25"
-  },
-  {
-   "nivel": "aviso",
-   "codigo": "salto_raro",
-   "mensaje": "Ingresos 3T25: +608% frente a 2T25. Revisa el informe.",
-   "concepto": "ingresos",
-   "periodo": "3T25"
-  },
-  {
-   "nivel": "aviso",
-   "codigo": "salto_raro",
-   "mensaje": "Ingresos 1T26: -41% frente a 4T25. Revisa el informe.",
+   "mensaje": "Ingresos 1T26: +260% frente a 1T25 (mismo trimestre del año anterior; compañía estacional). Revisa el informe.",
    "concepto": "ingresos",
    "periodo": "1T26"
   },
   {
-   "nivel": "aviso",
-   "codigo": "salto_raro",
-   "mensaje": "Ingresos 2T26: -63% frente a 1T26. Revisa el informe.",
-   "concepto": "ingresos",
-   "periodo": "2T26"
+   "nivel": "info",
+   "codigo": "estacional",
+   "mensaje": "Compañía estacional: los saltos de ingresos se comparan con el mismo trimestre del año anterior y el 4T derivado solo se contrasta con el 3T (ratio 0,25–4)."
   }
  ],
  "bonos": {
@@ -11918,6 +11976,267 @@
    "resumen": "Comunicación oficial de la compañía. Items: 2.02.",
    "oficial": true,
    "tipo": "prensa"
+  },
+  {
+   "titular": "Moderna (NASDAQ:MRNA) Q3 Earnings Beat and Raised Guidance Fuel Stock Rally",
+   "medio": "ChartMill",
+   "url": "https://finnhub.io/api/news?id=44f0fdcfa627338f82c211b9f2488c8bacdddfb75e63ee789f29c28ee56b952f",
+   "fecha": "2026-11-06",
+   "resumen": "Moderna Q3 revenue and EPS beat consensus, swung to profit, raised 2026 revenue guidance, and shares rose 7.9% premarket on strong results.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Moderna: Q3 Earnings Snapshot",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=526d5159c04812f2ecc2298aff13eb71f3e5e83ea2323f81c07bab2ac8bdbff8",
+   "fecha": "2026-11-06",
+   "resumen": "(MRNA) on Friday reported third-quarter profit of $162 million.On a per-share basis, the Cambridge, Massachusetts-based company said it had profit of 38 cents.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Moderna Reports Third Quarter 2026 Financial Results and Provides Business Updates",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=340447f5dff23208f01d532339634d09cc078857b5492d22a53ab559707fe463",
+   "fecha": "2026-11-06",
+   "resumen": "Reports third quarter revenue of $1.3 billion, GAAP net income of $0.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Invesco S&P 500 Equal Weight (RSP) Adds Okta and Moderna on Nov. 4",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=27658733d4f4c4c46c2195333471ab042f3e55c76ff1b52ffcc425c42b840fee",
+   "fecha": "2026-11-06",
+   "resumen": "The fund bought $585.6 million more than it sold, with Okta Inc. its largest new position at $224.7 million.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "While biotech bets swing on trial data, this dividend payer gained 72% since 2024",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=2a84f05fa2744c0b7f57db64eb6c2a96dbb186752b357cb71916c6dd601de0f8",
+   "fecha": "2026-11-06",
+   "resumen": "Investing.com and Yahoo Finance LLC may earn commission or revenue on some items through the links below.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Scottish Mortgage NAV total return rises 31.5% as SpaceX listing and Moderna trial success lift performance",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=9944682cf707d4b93a424aa0149aff3c59ecaadf05e85f4303235ecc45df5fe1",
+   "fecha": "2026-11-06",
+   "resumen": "Scottish Mortgage Investment Trust PLC (LSE:SMT), managed by Baillie Gifford, delivered a net asset value (NAV) total return of 31.5% in the six months to 30 September, against 16.0% for the FTSE All-World Index. The share price total return was 33.8%, and shareholders’ funds, th",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "October jobs report and earnings from Moderna and Humana: What to Watch",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=4db425e3e9a0c01ab5670d1645f253f4a5f9ac8359e0f8419c4933d41b0162c6",
+   "fecha": "2026-11-06",
+   "resumen": "Yahoo Finance’s Brooke DiPalma takes a closer look at the top stories for investors to watch on Friday, Nov. 6, including third quarter earnings from Moderna (MRNA) and Humana (HUM), and the October jobs report being released.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Prothena (PRTA) Reports Q3 Loss, Misses Revenue Estimates",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=87b5f73d904384fe72f89826e769208fa70f27c9686bd95d659480d548e204e9",
+   "fecha": "2026-11-06",
+   "resumen": "Prothena (PRTA) delivered earnings and revenue surprises of +15.79% and -39.81%, respectively, for the quarter ended September 2026. Do the numbers hold clues to what lies ahead for the stock?",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "S&P 500 After-Hours Movers: ABNB and SNDK Gain, AXON and SOLV Fall",
+   "medio": "ChartMill",
+   "url": "https://finnhub.io/api/news?id=c8baf959ed6ac7e6a8a6c13e13dd7b2a5e7d98ce47ba0c504559205276777cab",
+   "fecha": "2026-11-05",
+   "resumen": "S&P 500 after-hours movers after today's U.S. session included ABNB up 10.68%, SNDK up 3.17%, AXON down 12.14% and SOLV down 7.03%.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Democrats Sweep Midterms: What It Means For Pharma And Biotech Holdings (Stocks To Watch)",
+   "medio": "Seeking Alpha",
+   "url": "https://finnhub.io/api/news?id=c1da7a8476779e29657306debfffc135f72492072e93a751ca557769982577ed",
+   "fecha": "2026-11-05",
+   "resumen": "Blue Wave election results could reshape healthcare policy. Click to discover stocks that need to be watched in the Big Pharma and biotech sectors.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Moderna Earnings Preview: The Melanoma Breakthrough Is Real, But $221 Is Way Too Much",
+   "medio": "Seeking Alpha",
+   "url": "https://finnhub.io/api/news?id=8e8e525bea759126b25d496ace3221fc2682a0ad30d786b863726c3645dec40e",
+   "fecha": "2026-11-05",
+   "resumen": "Moderna's cancer vaccine shows real promise, but vaccine cash burn and uncertain oncology profits don't justify its $221 share price. Read more on MRNA stock here.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Health Canada Authorizes Moderna's mRNA Influenza and Combination Influenza and COVID-19 Vaccines",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=a0d831b42bafe34a431a879c3ef2653c969b5cbbd8dfa2f1fcd75a4b9ce0ee35",
+   "fecha": "2026-11-05",
+   "resumen": "Canada becomes the first country to authorize both Moderna's mRNA seasonal influenza vaccine, mFLUSIVA®, and combination influenza and COVID-19 vaccine, mCOFLU®CAMBRIDGE, MA / ACCESS Newswire / November 5, 2026 / (NASDAQ:MRNA) today announced that Health Canada has authorized mFL",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Ahead of Moderna Earnings, Here's What Barchart Data Says Comes Next for MRNA Stock",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=f9a4f68079f047fba0775bbfdfd94162dd47862640cf6ba87ecc23ed75bb2c29",
+   "fecha": "2026-11-05",
+   "resumen": "Moderna is set to report its fiscal Q3 earnings on Nov. 6. Options data suggests MRNA shares could tumble after the quarterly update.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Moderna Soared 8% on Cancer Data. Friday’s Report Shows Whether It Can Afford the Pipeline",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=74cb67858032af1398cb1bb162739fc436950bc2206e2852b972d9bfa81751bf",
+   "fecha": "2026-11-05",
+   "resumen": "Key TakeawaysModerna stock jumped 13% on Wednesday to a new 52-week high on early multiple myeloma data and an Ebola vaccine recommendation, then gave back 5% on Thursday ahead of Friday’s report. Pfizer’s Comirnaty sales fell 29% operationally in the third quarter, and BioNTech’",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Moderna, Humana and Elanco Earnings Previews: What Investors Should Watch",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=c9debc1a91640480ca0bd490ba513f9f4a73b24bdade5958e630b6df0b639296",
+   "fecha": "2026-11-05",
+   "resumen": "One stock has soared more than sevenfold this year, another just lost a quarter of its value on leaked data, and a third carries the fate of millions of retirees. Friday's earnings could test each rally in very different ways.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "12 S&P 500 Stocks Gain The Most From The 'Blue Wave'",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=9b1324cf76eb871cd9f66296c2c4a651b989b3b63b147af3850a42106d1a057a",
+   "fecha": "2026-11-05",
+   "resumen": "Voters made no mystery of how they're feeling about the direction the U.S. is in. And some S&P 500 stocks were clear winners, too.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Invesco S&P 500 Equal Weight (RSP) Adds Kimberly-Clark and Moderna on Nov. 3",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=54ca81bc6b666bddfd699db4caabe201364dbaa466b71534ad8e88f609b6b8e0",
+   "fecha": "2026-11-05",
+   "resumen": "The fund bought $608.1 million of stock and sold nothing, lifting 500 positions.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Moderna (MRNA) After WHO Vaccine Backing Looks Pricey Despite The Rally",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=f5ce3426fc62907a85de5cfd87fc9ac3083db2c3c2d4ab9ec145268bb7601fbe",
+   "fecha": "2026-11-05",
+   "resumen": "Moderna (MRNA) moved back into focus after the World Health Organization’s technical advisory group backed its Bundibugyo ebolavirus vaccine candidate, mRNA-1469, to progress into a Phase 2/3 efficacy study in the Democratic Republic of the Congo. The mRNA-1469 update landed on a",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Human Genome Sciences Announces Rejects Offer from GlaxoSmithKline; HGS Board of Directors Authorizes Exploration of Strategic Alternatives",
+   "medio": "Benzinga",
+   "url": "https://finnhub.io/api/news?id=767034aa492baf2d4eabfc6e27c7e418c0ed1536957fecf956e1cf8d1747ddfc",
+   "fecha": "2026-11-04",
+   "resumen": "",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "World Health Organization Announces Two New Candidate Vaccines To Join Ebola Trial; Two Vaccine Candidates Are Chadox1, Developed By The University Of Oxford With The Serum Institute Of India, And Moderna’s MRNA-1469; Recommended Adding Two New Ebola Vaccine Candidates To Ongoing Tumaini Clinical Trial In Democratic Republic Of Congo; Initial Findings From Treatment Trials Are Expected In Coming Months, With Results From Vaccine Trial Expected In Early 2027",
+   "medio": "Benzinga",
+   "url": "https://finnhub.io/api/news?id=83322ed80c570d17b63d6b5fe70ad5f7206e95416381bf91565ec794c4724904",
+   "fecha": "2026-11-04",
+   "resumen": "https://www.who.int/philippines/news/detail-global/04-11-2026-two-new-candidate-vaccines-to-join-ebola-trial-as-treatment-research-advances",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Moderna's Data From Its Current Phase 1/2 Trial Of mRNA-2808 Selected For Oral Presentation At 68th American Society Of Hematology Annual Meeting",
+   "medio": "Benzinga",
+   "url": "https://finnhub.io/api/news?id=846dcd6f14f7ed1ad47ffe91b68fc99618d8b1cc33ef6460e23469da67748655",
+   "fecha": "2026-11-04",
+   "resumen": "Moderna, Inc. (NASDAQ:MRNA) today announced that initial clinical data from its ongoing Phase 1/2 study of mRNA-2808 have been selected for oral presentation at the 68th American Society of Hematology (ASH) Annual",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Wayfair, Lendingtree, Bruker, Zimmer Biomet And Other Big Stocks Moving Higher On Wednesday",
+   "medio": "Benzinga",
+   "url": "https://finnhub.io/api/news?id=50d2e64ce11cb977255941d20536f44a3447579d0f7913e7eafd2387e6b1eecd",
+   "fecha": "2026-11-04",
+   "resumen": "U.S. stocks surged, led by Wayfair after strong results; Cricut, Array Technologies, Clear Secure and others also posted double-digit gains.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Which Dates Could Move Moderna Stock Most?",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=09e5d815f6d4d1181cbcaa906a0079d0e0fbca5328232092853f7fd7eae3cdd9",
+   "fecha": "2026-11-04",
+   "resumen": "For questions about this article or underlying research, email help@trefis.com.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Tempus AI Earnings Ahead: Is TEM Set Up To Pop or Drop?",
+   "medio": "Benzinga",
+   "url": "https://finnhub.io/api/news?id=dbd0cdd1f528b2d069a99613f415baa3295efdf1938ea54c4a6edb5914f6d4f6",
+   "fecha": "2026-11-01",
+   "resumen": "Tempus AI, a company that Cathie Wood has invested in, will publish its financial results this week as its volatility continues.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Earnings Volatility Watch: 10 Stocks Are Set to Swing More Than 10% This Week",
+   "medio": "Benzinga",
+   "url": "https://finnhub.io/api/news?id=11580ea46adbde2a6243b452b62d658eeaae614850c1595b883ece0ea213f70f",
+   "fecha": "2026-11-01",
+   "resumen": "Ten stocks carry implied earnings moves above 10% next week, led by Moderna and AppLovin. Five are tech names hit in Friday&#39;s chip rout.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Wall Street Week Ahead",
+   "medio": "Seeking Alpha",
+   "url": "https://finnhub.io/api/news?id=5e8a66c2ae9627fb2b37b602e1abc9cb2514651b3b144ae478cdac85043c7610",
+   "fecha": "2026-11-01",
+   "resumen": "Wall Streetâs big week: midterm elections, October jobs report and key earnings from Apple, AMD and Uber.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "The 1-Minute Market Report October 31, 2026",
+   "medio": "Seeking Alpha",
+   "url": "https://finnhub.io/api/news?id=a66ddb1a988fc98501e719ccfc8af16f03b3b44dd42ba3c745527dc9de0d2810",
+   "fecha": "2026-10-31",
+   "resumen": "The S&P 500 declined 0.6% last week, with AI and mega-cap growth stocks under heavy selling pressure. Discover more in this market report.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Apple Leads Packed Earnings Calendar As Investors Eye Tech, Pharma Results",
+   "medio": "Seeking Alpha",
+   "url": "https://finnhub.io/api/news?id=830af5c87daf35a8f602c2ec6680ca3553df23bdc7beabc0bcac73d5ef2dce14",
+   "fecha": "2026-10-31",
+   "resumen": "Preview next weekâs market movers: jobs data, PMI reports, major earnings from Apple and AMD, and IPO buzz. Read here for more details.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Moderna Bought Time Not Earnings",
+   "medio": "Seeking Alpha",
+   "url": "https://finnhub.io/api/news?id=568e5c08de221bd10d1b7d441e865f07a58f2cc610a12796b59d57cac053690b",
+   "fecha": "2026-10-29",
+   "resumen": "Modernaâs cancer vaccine data cut recurrence risk 42%, but valuation looks full. Click for more on MRNA stock.",
+   "tipo": "prensa",
+   "via": "Finnhub"
   }
  ],
  "noticias_sentimiento": null,
@@ -11930,7 +12249,7 @@
   "proveedores": {
    "Finnhub": {
     "ok": true,
-    "titulares": 0
+    "titulares": 80
    },
    "Marketaux": {
     "ok": true,
@@ -17230,14 +17549,14 @@
   "fecha": "2026-11-05",
   "ajuste": "splits"
  },
- "generado": "2026-11-06T12:45:11+00:00",
+ "generado": "2026-11-06T12:50:40+00:00",
  "peers": {
   "fuente_lista": "Finnhub (misma industria)",
   "fuente_cifras": "SEC EDGAR (companyfacts, UDM) · precio Finnhub",
   "actualizado": "2026-11-06",
   "propia": {
    "ingresos": 2228000000,
-   "crecimiento": -5.31,
+   "crecimiento": -27.62,
    "margen_bruto": 23.38,
    "margen_operativo": -149.01,
    "margen_neto": -141.43,
