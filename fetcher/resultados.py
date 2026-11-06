@@ -650,7 +650,7 @@ def build(root: Path, company: dict, rec: dict, analysis=None, manual=None, clie
     if real is None and cal.get("bpa_real") is not None:
         real = {"valor": cal["bpa_real"], "fuente": "Finnhub · BPA real en la base del consenso", "url": "https://finnhub.io/docs/api/earnings-calendar"}
     gaap = (eps_row["reportado"] or {}).get("valor")
-    if real and eps_row["estimado"] and not eps_row["estimado"].get("manual") and gaap is not None and \
+    if real and eps_row["estimado"] and gaap is not None and \
             abs(real["valor"] - gaap) > max(0.02, abs(gaap) * 0.02):
         eps_row["comparable"] = real
         eps_row["dif_pct"], eps_row["resultado"] = verdict(real["valor"], eps_row["estimado"])

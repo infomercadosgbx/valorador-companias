@@ -312,7 +312,7 @@ function page1(R){
       <td class="d ${fin(row.dif_pct)?(row.dif_pct>=0?"up":"dn"):""}">${fin(row.dif_pct)?pct(row.dif_pct,1):"–"}</td>
       <td>${chip(row.resultado)}</td>
       <td class="d ${fin(row.interanual_pct)?(row.interanual_pct>=0?"up":"dn"):""}">${pct(row.interanual_pct,1)}</td></tr>`; };
-  const gl={ingresos:"Ventas",beneficio_operativo:"Beneficio operativo (EBIT)",bpa:"BPA",ebitda:"EBITDA ajustado"};
+  const gl={ingresos:"Ventas",beneficio_operativo:"Beneficio operativo (EBIT)",bpa:"BPA ajustado",ebitda:"EBITDA ajustado"};
   const gtr=g=>{ const isB=g.concepto==="bpa", f=v=>isB?usd(v):M$(v);
     return `<tr class="main"><td>${esc(gl[g.concepto]||g.concepto)}<span class="sub">${g.min!==g.max?`horquilla ${f(g.min)} – ${f(g.max)}`:"aproximadamente"}</span></td>
       <td class="v">${f(g.medio)}</td><td class="e">${g.estimado?f(g.estimado.valor):"–"}${g.estimado?`<span class="sub">${esc(g.estimado.manual?"manual":"Finnhub")}</span>`:""}</td>
@@ -512,13 +512,13 @@ async function panelHtml(){
   const clave=(items.find(x=>x.segmento_clave)||{}).segmento_clave||"";
   const inp=(id,lab,val,hint,type="number",step="any")=>`<label>${lab}<input id="${id}" type="${type}" step="${step}" value="${val==null?"":esc(val)}">${hint?`<span class="hint">${hint}</span>`:""}</label>`;
   return `<section class="panel noprint" aria-labelledby="ph"><h2 id="ph">Estimaciones para el próximo informe</h2>
-   <p>Finnhub da gratis el consenso de ingresos y BPA, y se guarda solo los 30 días previos a los resultados. Aquí añades lo que no da gratis (beneficio operativo, segmentos y la guía esperada), por ejemplo desde Investing. Cifras en millones de dólares; el BPA en dólares por acción.</p>
-   ${E&&E.fecha?`<div class="ref">Próximos resultados: <b>${esc(fechaLarga(E.fecha))}</b>${E.hora?` · ${esc(E.hora)}`:""} · consenso de Finnhub hoy: ingresos <b>${M$(E.ingresos_estimados)}</b>, BPA <b>${usd(E.bpa_estimado)}</b>.</div>`:""}
+   <p>Finnhub da gratis el consenso de ingresos y BPA, y se guarda solo los 30 días previos a los resultados. Aquí añades lo que no da gratis (beneficio operativo, segmentos y la guía esperada), por ejemplo desde Investing. Cifras en millones de dólares; el BPA es el ajustado (non-GAAP), en dólares por acción.</p>
+   ${E&&E.fecha?`<div class="ref">Próximos resultados: <b>${esc(fechaLarga(E.fecha))}</b>${E.hora?` · ${esc(E.hora)}`:""} · consenso de Finnhub hoy: ingresos <b>${M$(E.ingresos_estimados)}</b>, BPA ajustado <b>${usd(E.bpa_estimado)}</b>.</div>`:""}
    <div class="form">
     ${inp("f_per","Trimestre",cur.periodo||per,"Como lo escribe la web, p. ej. "+(per||"4T26"),"text")}
     ${inp("f_src","Fuente",cur.fuente||"Investing","","text")}
     ${inp("f_rev","Ingresos (M$)",cur.ingresos_M,"Vacío = consenso de Finnhub")}
-    ${inp("f_eps","BPA ($)",cur.bpa,"Vacío = consenso de Finnhub")}
+    ${inp("f_eps","BPA ajustado ($)",cur.bpa,"Non-GAAP, como el consenso. Vacío = consenso de Finnhub")}
     ${inp("f_op","Beneficio operativo (M$)",cur.beneficio_operativo_M)}
     ${inp("f_ebitda","EBITDA ajustado (M$)",cur.ebitda_M,"Del trimestre; se compara con la nota de resultados")}
     ${inp("f_grev","Guía esperada: ventas (M$)",cur.guia_ingresos_M,"Del trimestre siguiente")}
