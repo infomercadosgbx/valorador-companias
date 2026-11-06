@@ -328,5 +328,28 @@
   },
   "nota_antigua": ""
  },
- "peers": []
+ "peers": [],
+ "avisos_aprobados": [
+  {
+   "id": "posible_discontinuada.Ingresos #: caen un #% frente a # Posible operación discontinuada o reclasificac",
+   "fecha": "2026-11-06",
+   "nivel": "aviso",
+   "mensaje": "Ingresos 2019: caen un 55% frente a 2018. Posible operación discontinuada o reclasificación (como AppLovin 2023); compara años con cuidado.",
+   "comprobacion": "Comprobado con los 10-K de la SEC: la caída es real (fin de la venta de la vacuna COVID tras 2022; 2019 sin contratos de colaboración). Moderna no tiene operaciones discontinuadas ni reexpresiones: los años son comparables."
+  },
+  {
+   "id": "salto_raro.Ingresos #T#: +#% frente a #T# (mismo trimestre del año anterior; compañía estac",
+   "fecha": "2026-11-06",
+   "nivel": "aviso",
+   "mensaje": "Ingresos 3T21: +3065% frente a 3T20 (mismo trimestre del año anterior; compañía estacional). Revisa el informe.",
+   "comprobacion": "Comprobado con los 10-Q/10-K de la SEC: cifras correctas. Es el ciclo de la vacuna COVID (despegue en 2021, caída en 2023–2024) y, en el 1T26, las entregas al Reino Unido por el acuerdo a largo plazo."
+  },
+  {
+   "id": "salto_raro.Ingresos #T#: -#% frente a #T# (mismo trimestre del año anterior; compañía estac",
+   "fecha": "2026-11-06",
+   "nivel": "aviso",
+   "mensaje": "Ingresos 1T23: -69% frente a 1T22 (mismo trimestre del año anterior; compañía estacional). Revisa el informe.",
+   "comprobacion": "Comprobado con los 10-Q/10-K de la SEC: cifras correctas. Es el ciclo de la vacuna COVID (despegue en 2021, caída en 2023–2024) y, en el 1T26, las entregas al Reino Unido por el acuerdo a largo plazo."
+  }
+ ]
 }
