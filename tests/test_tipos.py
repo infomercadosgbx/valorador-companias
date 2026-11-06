@@ -173,3 +173,13 @@ def test_agenda():
 def test_agenda_sin_clave():
     av = []
     assert T.agenda(ConTipos(), None, None, av, old={"items": []}) == {"items": []} and "FRED_API_KEY" in av[0]
+
+
+def test_graficos():
+    s = {"CPIAUCSL": _mensual(300, 0.0025, n=40), "PAYEMS": [("2026-08-01", 100), ("2026-09-01", 150), ("2026-10-01", 120)],
+         "UNRATE": [("2026-10-01", 4.3)]}
+    fred = lambda k: s[k] if k in s else (_ for _ in ()).throw(RuntimeError("no"))
+    g = T.graficos("ipc", fred)
+    assert len(g) == 1 and len(g[0]["puntos"]) == 24 and g[0]["puntos"][-1][0] == "2026-09"
+    e = T.graficos("empleo", fred)
+    assert e[0]["puntos"] == [["2026-09", 50], ["2026-10", -30]] and e[1]["puntos"] == [["2026-10", 4.3]]

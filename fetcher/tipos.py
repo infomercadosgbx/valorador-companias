@@ -328,6 +328,45 @@ def ultimo_dato(k, fred, infl):
     return None
 
 
+def serie_interanual(serie, n=24):
+    """[[«AAAA-MM», tasa interanual], …] de los últimos n meses."""
+    d = dict(serie)
+    out = []
+    for f, v in serie[-n:]:
+        b = d.get(_mes_antes(f, 12))
+        if b:
+            out.append([f[:7], round((v / b - 1) * 100, 2)])
+    return out
+
+
+# Para cada publicación: series que se dibujan en la web (id FRED, nombre, tipo de cálculo)
+GRAFICOS = {
+    "ipc": [("CPIAUCSL", "IPC general", "ia"), ("CPILFESL", "IPC subyacente", "ia")],
+    "empleo": [("PAYEMS", "Empleos creados (miles)", "dif"), ("UNRATE", "Tasa de paro", "nivel")],
+    "pce": [("PCEPILFE", "PCE subyacente", "ia"), ("PCEPI", "PCE general", "ia")],
+    "ipp": [("PPIFIS", "IPP demanda final", "ia")],
+    "pib": [("A191RL1Q225SBEA", "PIB (% anualizado)", "nivel")],
+}
+
+
+def graficos(k, fred):
+    out = []
+    for sid, nom, modo in GRAFICOS.get(k, []):
+        try:
+            s = fred(sid)
+        except RuntimeError:
+            continue
+        if modo == "ia":
+            pts = serie_interanual(s)
+        elif modo == "dif":
+            pts = [[s[i][0][:7], round(s[i][1] - s[i - 1][1])] for i in range(max(1, len(s) - 24), len(s))]
+        else:
+            pts = [[f[:7], v] for f, v in s[-(12 if k == "pib" else 24):]]
+        if pts:
+            out.append({"id": sid, "nombre": nom, "modo": modo, "puntos": pts, "url": FRED_PAGE.format(sid)})
+    return out
+
+
 def agenda(f, fred, infl, avisos, old=None):
     if not getattr(f, "fred_key", ""):
         avisos.append("Agenda macro: necesita el secret FRED_API_KEY.")
@@ -352,7 +391,8 @@ def agenda(f, fred, infl, avisos, old=None):
             continue
         prox = [d for d in fechas if d >= hoy]
         pas = [d for d in fechas if d < hoy]
-        it = {"id": k, "nombre": nom, "fuente": fuente, "url": url, "ultimo": ultimo_dato(k, fred, infl)}
+        it = {"id": k, "nombre": nom, "fuente": fuente, "url": url, "ultimo": ultimo_dato(k, fred, infl),
+              "graficos": graficos(k, fred)}
         if prox:
             it["fecha"] = prox[0]
             it["hora_madrid"] = hora_dato(prox[0])

@@ -561,6 +561,18 @@ table.mini2 td{padding:3px 6px;font-size:12px;border-bottom:1px solid var(--grid
 .tprow{display:grid;grid-template-columns:1fr auto auto;gap:8px;align-items:center;font-size:12.5px;padding:3px 0;color:var(--ink)}
 .tprow .tpv{font-family:var(--f-num);font-weight:700;text-align:right}.tprow .tpv small{font-weight:500;color:var(--muted);margin-left:4px}
 .tprow .note{font-size:11.5px;text-align:right}.tpsm{margin:-2px 0 4px!important;font-size:11.5px!important}
+.ag{margin-bottom:18px}.ag h2{display:flex;align-items:center;gap:4px}
+.agtab{overflow-x:auto;margin-top:12px;border:1px solid var(--line);border-radius:10px}
+.agtab table{width:100%;border-collapse:collapse;font-size:13px}
+.agtab th{text-align:left;font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink2);padding:8px 12px;background:var(--surface2);border-bottom:1px solid var(--line)}
+.agtab td{padding:8px 12px;border-top:1px solid var(--grid);vertical-align:middle;color:var(--ink)}.agtab tr:first-child td{border-top:0}
+.agtab td small{display:block;color:var(--muted);font-size:11.5px}.agd{white-space:nowrap;font-family:var(--f-num)}.agc,.agl{white-space:nowrap;text-align:right}
+.aggrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(330px,100%),1fr));gap:12px;margin-top:14px}
+.agult{font-family:var(--f-num);font-weight:700;font-size:15px;color:var(--ink)}
+.agch{position:relative;height:170px}
+.agcal{margin-top:14px;border-top:1px solid var(--grid);padding-top:12px}
+.agcalbox{position:relative;height:clamp(420px,60vh,600px);border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--surface2);margin-top:10px}
+@media (max-width:640px){.agtab th:nth-child(3),.agtab td.agc{display:none}}
 .mkmap{margin-bottom:18px;padding-top:14px;padding-bottom:14px}
 .mkmaph{all:unset;box-sizing:border-box;display:flex;align-items:baseline;gap:10px;width:100%;cursor:pointer;font-size:15px;color:var(--ink)}
 .mkmaph .note{font-size:12.5px}.mkmaph:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:6px}
@@ -1708,7 +1720,7 @@ function inicioHtml(){
   const W=watchRows(), favs=W.filter(r=>r.fav), below=W.filter(r=>fin(r.toBuy)&&r.toBuy<=0), soon=W.filter(r=>fin(r.eDays)&&r.eDays>=0&&r.eDays<=14).sort((a,b)=>a.eDays-b.eDays);
   const {rows,tot}=carRows(), cost=rows.reduce((a,r)=>a+r.cost,0);
   const tile=(k,ic,t,d,stat)=>`<button type="button" class="htile" data-home="${k}"><span class="hic">${ic}</span><span class="ht">${t}</span><span class="hd">${d}</span>${stat?`<span class="hs">${stat}</span>`:""}</button>`;
-  return homeHead("Menú principal","Elige qué quieres ver. Para volver a una compañía, ábrela desde el selector de arriba o desde cualquier lista.")+`<div id="mkWrap">${mercadoHtml()}</div>`+mapaHtml()+`<div id="tipWrap">${tiposHtml()}</div>`+`
+  return homeHead("Menú principal","Elige qué quieres ver. Para volver a una compañía, ábrela desde el selector de arriba o desde cualquier lista.")+`<div id="mkWrap">${mercadoHtml()}</div>`+mapaHtml()+`<div id="tipWrap">${tiposHtml()}</div><div id="agWrap">${agendaHtml()}</div>`+`
    <div class="htiles" id="inicioTiles">
     ${tile("favoritas","★","Favoritas","Tus compañías marcadas, a un clic.",favs.length?`${favs.length} favorita${favs.length>1?"s":""}: ${favs.map(r=>esc(r.name)).join(", ")}`:"Aún no tienes favoritas")}
     ${tile("lista","📋","Lista de seguimiento","Precio, valor de tu modelo, puntuación y lo que toca vigilar de todas las compañías.",`${W.length} compañías · ${below.length} en zona de compra${soon.length?` · resultados: ${soon.slice(0,2).map(r=>`${esc(r.name)} ${esc(fecha(r.eDate))}`).join(", ")}`:""}`)}
@@ -2030,6 +2042,12 @@ function tpEnlaces(r,prox){ const hoy=new Date().toISOString().slice(0,10), L=[]
   if(r.diagrama&&(!prox||r.fin<=hoy)) L.push(`<a class="mkgo" href="${esc(r.diagrama)}" target="_blank" rel="noopener noreferrer">Proyecciones ↗</a>`);
   if(!prox) L.push(r.actas?`<a class="mkgo" href="${esc(r.actas)}" target="_blank" rel="noopener noreferrer">Actas ↗</a>`:`<span class="note">Actas el ${esc(fecha(r.actas_fecha))}</span>`);
   return L.join(""); }
+function tpPrevision(D,F){ if(!D||!D.anios) return "";
+  const y=new Date().getFullYear(), sel=D.anios.filter(a=>a.anio===y||a.anio===y+1); if(!sel.length) return "";
+  const mid=(F.inferior+F.superior)/2, txt=v=>{ const n=Math.round((v-mid)*4); return n===0?"como ahora":`${Math.abs(n)} ${n<0?"bajada":"subida"}${Math.abs(n)>1?"s":""} más`; };
+  return `<div class="tpsub"><span class="eyebrow">Lo que prevé la Fed ${mkI("puntos")}</span>
+    ${sel.map(a=>`<div class="tprow"><span>Final de ${a.anio}</span><span class="tpv">${tpPct(a.mediana,2)}</span><span class="note">${txt(a.mediana)}</span></div>`).join("")}
+    <p class="note tpsm">Mediana del diagrama de puntos${D.reunion?` (${esc(fecha(D.reunion))})`:""}${fin(D.largo_plazo)?` · largo plazo ${tpPct(D.largo_plazo,2)}`:""}. <a class="mkgo" href="${esc(D.url)}" target="_blank" rel="noopener noreferrer">FRED ↗</a></p></div>`; }
 function tiposHtml(){
   const T=MKH.d&&MKH.d.tipos; if(!MKH.cargado) return "";
   if(!T||!T.calendario) return `<section class="card mk tp"><h2>Tipos de interés e inflación · EE. UU.</h2><p class="note">Sin datos todavía: se rellenan en la próxima ejecución del Action «Mercado hoy».</p></section>`;
@@ -2041,6 +2059,7 @@ function tiposHtml(){
       <div class="mkbig"><b>${nf(F.inferior,2)}–${nf(F.superior,2)}%</b></div>
       ${U&&U.decision?`<div><span class="pill ${U.decision.pb>0?"down":U.decision.pb<0?"up":"neutral"}">${esc(U.decision.texto)}</span> <span class="note">en la reunión del ${esc(tpDias(U.inicio,U.fin))}</span></div>`:""}
       <div class="mkprev">${F.efectivo?`<span><small>tipo efectivo</small> ${tpPct(F.efectivo.valor)}</span>`:""}${F.ultimo_cambio?`<span><small>último cambio</small> ${tpPb(F.ultimo_cambio.pb)} · ${esc(fecha(F.ultimo_cambio.fecha))}</span>`:""}</div>
+      ${tpPrevision(D,F)}
     </div>`:"";
   const cFomc=P?`<div class="mkcard">
       <div class="mkh"><span class="eyebrow">Próxima reunión de la Fed ${mkI("fomc")}</span><a class="mkgo" href="${esc(C.url)}" target="_blank" rel="noopener noreferrer">Calendario ↗</a></div>${mkInfoPanel("fomc")}
@@ -2060,13 +2079,6 @@ function tiposHtml(){
         ${M.plazos.map(p=>`<div class="tprow"><span>${esc(p.plazo)}</span><span class="tpv">${tpPct(p.valor)} <small>${tpPb(p.dif_pb)}</small></span>${tpLect(p.lectura)}</div>`).join("")}
         ${srcTag({fuente:M.fuente,fecha:M.plazos[0].fecha,url:M.url})}</div>`:""}
     </div>`;
-  const cPuntos=D?`<div class="mkcard">
-      <div class="mkh"><span class="eyebrow">Lo que prevé la Fed ${mkI("puntos")}</span>${srcTag({fuente:"FOMC vía FRED",fecha:D.reunion,url:D.url})}</div>${mkInfoPanel("puntos")}
-      <p class="note" style="margin:0">Mediana del diagrama de puntos${D.reunion?` (reunión del ${esc(fecha(D.reunion))})`:""}: tipo a final de cada año.</p>
-      ${D.anios.map(a=>{ const dif=F?(a.mediana-(F.inferior+F.superior)/2)*100:NaN, n=fin(dif)?Math.round(dif/25):0;
-        return `<div class="tprow"><span>Final de ${a.anio}</span><span class="tpv">${tpPct(a.mediana,2)}</span>${fin(dif)?`<span class="note">${n===0?"como ahora":`${Math.abs(n)} ${n<0?"bajada":"subida"}${Math.abs(n)>1?"s":""} de 25 pb`}</span>`:""}</div>`; }).join("")}
-      ${fin(D.largo_plazo)?`<div class="tprow"><span>Largo plazo (neutral)</span><span class="tpv">${tpPct(D.largo_plazo,2)}</span><span></span></div>`:""}
-    </div>`:"";
   const I=T.inflacion, G=T.agenda, MES=["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"], mesTxt=m=>m?`${MES[+m.slice(5,7)-1]}-${m.slice(2,4)}`:"";
   const infRow=(x,obj)=>x&&fin(x.interanual)?`<div class="tprow"><span>${esc(x.nombre)}</span><span class="tpv">${tpPct(x.interanual,1)} <small>${fin(x.anterior)?"ant. "+nf(x.anterior,1)+"%":""}</small></span><span class="note">${esc(mesTxt(x.mes))}</span></div>`:"";
   const cInfl=I&&(I.ipc||I.pce_sub)?`<div class="mkcard">
@@ -2082,30 +2094,109 @@ function tiposHtml(){
         <p class="note" style="margin:0">Tipo de la Fed (${tpPct(R.base,3)}) menos PCE subyacente (${tpPct(R.inflacion,1)})${fin(R.neutral)?`. Neutral según la Fed: ${tpPct(R.neutral,1)}`:""}.</p>`:""}
       <div>${mi("real_10a")}${mi("esperada_10a")}${mi("esperada_5a5a")}</div>
     </div>`:"";
-  const dSem=["dom","lun","mar","mié","jue","vie","sáb"];
-  const ag=[...((G&&G.items)||[]).filter(x=>x.fecha).map(x=>({...x})),...(P?[{id:"fomc",nombre:"Decisión de la Fed",fecha:P.fin,hora_madrid:P.hora_madrid,url:C.url,ultimo:U&&U.decision?U.decision.texto.toLowerCase()+" ("+tpDias(U.inicio,U.fin)+")":""}]:[])].sort((a,b)=>a.fecha<b.fecha?-1:1).slice(0,6);
-  const ahoraHM=new Date().toLocaleTimeString("es-ES",{timeZone:"Europe/Madrid",hour:"2-digit",minute:"2-digit",hour12:false});
-  const cuando=(d,h)=>{ const n=Math.round((new Date(d+"T12:00:00")-new Date(hoyIso+"T12:00:00"))/864e5); return n===0&&h&&ahoraHM>=h?`<span class="pill neutral">publicado hoy</span>`:n===0?`<span class="pill mid">hoy</span>`:n===1?`<span class="pill mid">mañana</span>`:n<=7?`<span class="pill neutral">en ${n} días</span>`:""; };
-  const cAg=ag.length?`<div class="mkcard">
-      <div class="mkh"><span class="eyebrow">Agenda macro ${mkI("agenda")}</span>${G?`<a class="mkgo" href="${esc(G.url)}" target="_blank" rel="noopener noreferrer">Calendario ↗</a>`:""}</div>
-      <ul class="tpag">${ag.map(x=>{ const d=new Date(x.fecha+"T12:00:00");
-        return `<li><span class="tpagd"><b>${dSem[d.getDay()]} ${d.getDate()} ${MES[d.getMonth()]}</b><small>${esc(x.hora_madrid||"")}</small></span>
-          <span class="tpagn"><a href="${esc(x.url)}" target="_blank" rel="noopener noreferrer">${esc(x.nombre)}</a>${x.ultimo?`<small>Último: ${esc(x.ultimo)}</small>`:""}</span>${cuando(x.fecha,x.hora_madrid)}</li>`; }).join("")}</ul>
-      <p class="note tpsm">Horas de Madrid. Fechas oficiales del BLS, el BEA y la Fed.</p>
-    </div>`:"";
   const pend=(k,l)=>K&&K[k]?`<div class="tprow"><span>${l}</span><span class="tpv">${tpPb(K[k].pb)}</span>${K[k].pb<0?`<span class="pill down">invertida</span>`:`<span class="pill neutral">positiva</span>`}</div>${fin(K[k].hace_1m)?`<p class="note tpsm">Hace un mes: ${tpPb(K[k].hace_1m)}</p>`:""}`:"";
   const cCurva=K?`<div class="mkcard">
       <div class="mkh"><span class="eyebrow">Pendiente de la curva ${mkI("curva")}</span>${srcTag({fuente:K.fuente,fecha:(K["10a_2a"]||K["10a_3m"]).fecha,url:K.url})}</div>${mkInfoPanel("curva")}
       ${pend("10a_2a","10 años − 2 años")}${pend("10a_3m","10 años − 3 meses")}
     </div>`:"";
   return `<section class="card mk tp">
-    <div class="mktop"><div><h2>Tipos de interés e inflación · EE. UU.</h2><p class="sub">Tipos de la Fed y su calendario, lo que esperan el mercado y la propia Fed, inflación y los datos que vienen.</p></div></div>
+    <div class="mktop"><div><h2>Tipos de interés e inflación · EE. UU.</h2><p class="sub">Tipos de la Fed y su calendario, lo que esperan el mercado y la propia Fed, e inflación.</p></div></div>
     <div class="tpcols">
-      <div class="tpcol"><div class="o1">${cFed}</div><div class="o2">${cFomc}</div><div class="o7">${cPuntos}</div></div>
-      <div class="tpcol"><div class="o3">${cExp}</div><div class="o6">${cReal}</div><div class="o8">${cCurva}</div></div>
-      <div class="tpcol"><div class="o5">${cInfl}</div><div class="o4">${cAg}</div></div>
+      <div class="tpcol"><div class="o1">${cFed}</div><div class="o2">${cFomc}</div></div>
+      <div class="tpcol"><div class="o3">${cExp}</div><div class="o6">${cCurva}</div></div>
+      <div class="tpcol"><div class="o4">${cInfl}</div><div class="o5">${cReal}</div></div>
     </div>
   </section>`;
+}
+/* ================= AGENDA MACRO (sección propia del menú principal) =================
+   Fechas oficiales (BLS, BEA y Fed vía FRED) y gráficos propios con las series oficiales de FRED.
+   El calendario con previsiones de los analistas es el widget de TradingView: plegado y cargado al abrirlo. */
+const AGCH=[]; const AGCAL={abierto:lsGet("valorador.agcal.abierto")==="1"};
+const AG_OFICIAL={ipc:["BLS","https://www.bls.gov/cpi/"],empleo:["BLS","https://www.bls.gov/news.release/empsit.nr0.htm"],
+  pce:["BEA","https://www.bea.gov/data/personal-consumption-expenditures-price-index"],ipp:["BLS","https://www.bls.gov/ppi/"],
+  pib:["BEA","https://www.bea.gov/data/gdp/gross-domestic-product"],fomc:["Fed","https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm"]};
+const AG_TEXTO={ipc:"Precios al consumo. Es el dato de inflación que más mueve al mercado porque sale antes que el PCE.",
+  empleo:"Empleos creados fuera del sector agrario y tasa de paro. Un mercado laboral fuerte da margen a la Fed para mantener o subir tipos.",
+  pce:"La inflación que usa la Fed para su objetivo del 2%. Sale con el dato de renta y gasto de los hogares.",
+  ipp:"Precios que cobran los productores. Suele anticipar parte de lo que llegará al IPC.",
+  pib:"Crecimiento de la economía, en tasa trimestral anualizada. La primera estimación es la que más mueve."};
+function agEventos(){ const T=MKH.d&&MKH.d.tipos; if(!T) return [];
+  const G=T.agenda, C=T.calendario||{}, P=(C.proximas||[])[0], U=C.ultima;
+  return [...((G&&G.items)||[]).filter(x=>x.fecha).map(x=>({...x})),
+    ...(P?[{id:"fomc",nombre:"Decisión de tipos de la Fed",fecha:P.fin,hora_madrid:P.hora_madrid,url:C.url,ultimo:U&&U.decision?U.decision.texto.toLowerCase()+" ("+tpDias(U.inicio,U.fin)+")":""}]:[])]
+    .sort((a,b)=>a.fecha<b.fecha?-1:a.fecha>b.fecha?1:0); }
+function agCuando(d,h){ const hoy=new Date(), hi=`${hoy.getFullYear()}-${String(hoy.getMonth()+1).padStart(2,"0")}-${String(hoy.getDate()).padStart(2,"0")}`;
+  const n=Math.round((new Date(d+"T12:00:00")-new Date(hi+"T12:00:00"))/864e5);
+  const hm=hoy.toLocaleTimeString("es-ES",{timeZone:"Europe/Madrid",hour:"2-digit",minute:"2-digit",hour12:false});
+  return n===0&&h&&hm>=h?`<span class="pill neutral">publicado hoy</span>`:n===0?`<span class="pill mid">hoy</span>`:n===1?`<span class="pill mid">mañana</span>`:n<=7?`<span class="pill neutral">en ${n} días</span>`:`<span class="note">en ${n} días</span>`; }
+function agFechaTxt(d){ const x=new Date(d+"T12:00:00"); return `${["dom","lun","mar","mié","jue","vie","sáb"][x.getDay()]} ${x.getDate()} ${MES3[x.getMonth()]}`; }
+function agendaHtml(){
+  const T=MKH.d&&MKH.d.tipos; if(!MKH.cargado||!T) return "";
+  const G=T.agenda, ev=agEventos();
+  if(!ev.length) return `<section class="card mk ag"><h2>Agenda macro · EE. UU.</h2><p class="note">Sin fechas todavía: se rellenan en la próxima ejecución del Action «Mercado hoy».</p></section>`;
+  const filas=ev.slice(0,8).map(x=>{ const of=AG_OFICIAL[x.id]||["",x.url];
+    return `<tr><td class="agd"><b>${esc(agFechaTxt(x.fecha))}</b><small>${esc(x.hora_madrid||"")}</small></td>
+      <td><b>${esc(x.nombre)}</b>${x.ultimo?`<small>Último: ${esc(x.ultimo)}</small>`:""}</td>
+      <td class="agc">${agCuando(x.fecha,x.hora_madrid)}</td>
+      <td class="agl"><a class="mkgo" href="${esc(of[1])}" target="_blank" rel="noopener noreferrer">${esc(of[0])} ↗</a></td></tr>`; }).join("");
+  const items=((G&&G.items)||[]).filter(x=>x.graficos&&x.graficos.length);
+  const orden=["ipc","empleo","pce","ipp","pib"];
+  items.sort((a,b)=>orden.indexOf(a.id)-orden.indexOf(b.id));
+  const cards=items.map(x=>{ const of=AG_OFICIAL[x.id]||["",x.url];
+    return `<div class="mkcard agcard">
+      <div class="mkh"><span class="eyebrow">${esc(x.nombre)}</span>${x.fecha?`<span class="note">próximo: <b>${esc(agFechaTxt(x.fecha))}</b> ${esc(x.hora_madrid||"")}</span>`:""}</div>
+      ${x.ultimo?`<div class="agult">${esc(x.ultimo)}</div>`:""}
+      <div class="agch"><canvas id="agch_${esc(x.id)}" aria-label="Gráfico de ${esc(x.nombre)}"></canvas></div>
+      <p class="note tpsm">${esc(AG_TEXTO[x.id]||"")}</p>
+      <div class="tplinks"><a class="mkgo" href="${esc(of[1])}" target="_blank" rel="noopener noreferrer">Fuente oficial (${esc(of[0])}) ↗</a>${x.graficos.map(g=>`<a class="mkgo" href="${esc(g.url)}" target="_blank" rel="noopener noreferrer">${esc(g.id)} en FRED ↗</a>`).join("")}</div>
+    </div>`; }).join("");
+  return `<section class="card mk ag">
+    <div class="mktop"><div><h2>Agenda macro · EE. UU. ${mkI("agenda")}</h2><p class="sub">Los datos que mueven las expectativas de tipos. Horas de Madrid; fechas oficiales del BLS, el BEA y la Fed.</p></div>
+      ${G?`<a class="mkgo" href="${esc(G.url)}" target="_blank" rel="noopener noreferrer">Calendario de FRED ↗</a>`:""}</div>
+    <div class="agtab"><table><thead><tr><th>Fecha</th><th>Publicación</th><th></th><th>Fuente</th></tr></thead><tbody>${filas}</tbody></table></div>
+    ${cards?`<div class="aggrid">${cards}</div>`:""}
+    <div class="agcal">
+      <button type="button" class="mkmaph" data-agcal="toggle" aria-expanded="${AGCAL.abierto}" aria-controls="agcalBody"><span class="mkchev" aria-hidden="true">▸</span><span><b>Calendario con previsiones de los analistas</b><span class="note"> Widget de TradingView, con el consenso y el dato publicado</span></span></button>
+      <div id="agcalBody"${AGCAL.abierto?"":" hidden"}><div class="agcalbox" id="agcalBox"></div>
+        <p class="note mkmapsrc">Calendario de <a href="https://www.tradingview.com/" target="_blank" rel="noopener noreferrer">TradingView</a> (no son datos oficiales). Solo EE. UU., importancia media y alta.</p></div>
+    </div>
+  </section>`;
+}
+function agCalCargar(){ const box=$("agcalBox"); if(!box) return; const tema=mapaOscuro()?"dark":"light";
+  if(box.dataset.tema===tema&&box.firstChild) return; box.dataset.tema=tema;
+  box.innerHTML=`<div class="tradingview-widget-container" style="height:100%;width:100%"><div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div></div>`;
+  const sc=document.createElement("script"); sc.src="https://s3.tradingview.com/external-embedding/embed-widget-events.js"; sc.async=true;
+  sc.textContent=JSON.stringify({colorTheme:tema,isTransparent:false,width:"100%",height:"100%",locale:"es",importanceFilter:"0,1",countryFilter:"us"});
+  sc.onerror=()=>{ box.innerHTML=`<p class="note mkmapload">No se ha podido cargar el calendario de TradingView (bloqueador de anuncios o sin conexión).</p>`; };
+  box.querySelector(".tradingview-widget-container").appendChild(sc); }
+function agCalToggle(){ AGCAL.abierto=!AGCAL.abierto; lsSet("valorador.agcal.abierto",AGCAL.abierto?"1":"0");
+  const b=$("agcalBody"), h=document.querySelector("[data-agcal=toggle]"); if(!b) return; b.hidden=!AGCAL.abierto; if(h) h.setAttribute("aria-expanded",AGCAL.abierto); if(AGCAL.abierto) agCalCargar(); }
+function agDibujar(){
+  AGCH.splice(0).forEach(c=>{ try{c.destroy();}catch(e){} });
+  const G=MKH.d&&MKH.d.tipos&&MKH.d.tipos.agenda; if(!G||!window.Chart) return; setDefaults();
+  const MES=["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"], lab=m=>`${MES[+m.slice(5,7)-1]} ${m.slice(2,4)}`;
+  const c1=V("--accent")||"#2563eb", c2=V("--muted")||"#888", good=V("--good"), crit=V("--crit");
+  for(const x of G.items||[]){ const el=$("agch_"+x.id); if(!el||!x.graficos||!x.graficos.length) continue;
+    const g0=x.graficos[0], labels=g0.puntos.map(p=>x.id==="pib"?`${Math.floor((+p[0].slice(5,7)-1)/3)+1}T${p[0].slice(2,4)}`:lab(p[0]));
+    let cfg;
+    if(x.id==="empleo"){ const u=x.graficos[1], um=u?Object.fromEntries(u.puntos):{};
+      cfg={type:"bar",data:{labels,datasets:[{type:"bar",label:g0.nombre,data:g0.puntos.map(p=>p[1]),backgroundColor:g0.puntos.map(p=>p[1]>=0?alpha(good,.75)||good:alpha(crit,.75)||crit),yAxisID:"y",order:2},
+        ...(u?[{type:"line",label:"Tasa de paro (%)",data:g0.puntos.map(p=>um[p[0]]??null),borderColor:c2,backgroundColor:c2,pointRadius:0,borderWidth:1.8,yAxisID:"y2",order:1,spanGaps:true}]:[])]},
+        options:{maintainAspectRatio:false,plugins:{legend:{display:true,position:"top",align:"start",labels:{boxWidth:10}},tooltip:{callbacks:{label:c=>c.dataset.yAxisID==="y2"?` paro ${nf(c.parsed.y,1)}%`:` ${c.parsed.y>=0?"+":""}${nf(c.parsed.y,0)} mil empleos`}}},
+          scales:{x:{...axisX,ticks:{maxTicksLimit:6}},y:{...axisY({}),position:"left"},y2:{...axisY({zero:false,d:1,suf:"%"}),position:"right",grid:{display:false}}}}};
+    } else if(x.id==="pib"){
+      cfg={type:"bar",data:{labels,datasets:[{label:g0.nombre,data:g0.puntos.map(p=>p[1]),backgroundColor:g0.puntos.map(p=>p[1]>=0?alpha(c1,.75)||c1:alpha(crit,.75)||crit)}]},
+        options:{maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` ${c.parsed.y>=0?"+":""}${nf(c.parsed.y,1)}% anualizado`}}},scales:{x:{...axisX,ticks:{maxTicksLimit:6}},y:axisY({d:1,suf:"%"})}}};
+    } else {
+      const obj=x.id==="ipc"||x.id==="pce";
+      const ds=x.graficos.map((g,i)=>({label:g.nombre,data:g.puntos.map(p=>p[1]),borderColor:i?c2:c1,backgroundColor:i?c2:c1,borderWidth:i?1.5:2.2,pointRadius:0,tension:.25,borderDash:i?[4,3]:undefined}));
+      if(obj) ds.push({label:"Objetivo de la Fed (2%)",data:labels.map(()=>2),borderColor:alpha(good,.7)||good,borderWidth:1,borderDash:[2,3],pointRadius:0});
+      cfg={type:"line",data:{labels,datasets:ds},options:{maintainAspectRatio:false,interaction:{mode:"index",intersect:false},
+        plugins:{legend:{display:true,position:"top",align:"start",labels:{boxWidth:10}},tooltip:{callbacks:{label:c=>` ${c.dataset.label}: ${nf(c.parsed.y,1)}%`}}},
+        scales:{x:{...axisX,ticks:{maxTicksLimit:6}},y:axisY({zero:false,d:1,suf:"%"})}}};
+    }
+    try{ AGCH.push(new Chart(el,cfg)); }catch(e){ console.error(e); }
+  }
 }
 function favoritasHtml(){
   const W=watchRows().sort((a,b)=>(b.fav-a.fav)||a.name.localeCompare(b.name)), F=W.filter(r=>r.fav);
@@ -2239,8 +2330,10 @@ function renderWatch(){
     /* Si ya estamos en Inicio, se repintan solo «Mercado hoy» y las tarjetas: así el mapa de TradingView
        no se recarga cada minuto con el precio en vivo. */
     const w=$("mkWrap"), t=$("inicioTiles");
-    if(w&&t&&$("mkmap")&&m.contains(w)){ w.innerHTML=mercadoHtml(); if($("tipWrap")) $("tipWrap").innerHTML=tiposHtml(); const tmp=document.createElement("div"); tmp.innerHTML=inicioHtml(); const nt=tmp.querySelector("#inicioTiles"); if(nt) t.innerHTML=nt.innerHTML; return; }
-    m.innerHTML=inicioHtml(); if(MAPA.abierto) mapaCargar(); return; }
+    if(w&&t&&$("mkmap")&&m.contains(w)){ w.innerHTML=mercadoHtml(); if($("tipWrap")) $("tipWrap").innerHTML=tiposHtml();
+      const ag=$("agWrap"), gen=(MKH.d&&MKH.d.generado)||""; if(ag&&ag.dataset.gen!==gen){ ag.innerHTML=agendaHtml(); ag.dataset.gen=gen; requestAnimationFrame(agDibujar); if(AGCAL.abierto) agCalCargar(); }
+      const tmp=document.createElement("div"); tmp.innerHTML=inicioHtml(); const nt=tmp.querySelector("#inicioTiles"); if(nt) t.innerHTML=nt.innerHTML; return; }
+    m.innerHTML=inicioHtml(); if(MAPA.abierto) mapaCargar(); if($("agWrap")) $("agWrap").dataset.gen=(MKH.d&&MKH.d.generado)||""; requestAnimationFrame(agDibujar); if(AGCAL.abierto) agCalCargar(); return; }
   if(WVIEW==="favoritas"){ m.innerHTML=favoritasHtml(); return; }
   if(WVIEW==="ajustes"){ m.innerHTML=ajustesHtml(); return; }
   m.innerHTML=watchHtml();
@@ -4402,6 +4495,7 @@ document.addEventListener("change",e=>{const t=e.target; const p=t.dataset&&t.da
 });
 document.addEventListener("click",e=>{
   if(e.target.closest("[data-mapa=toggle]")){ mapaToggle(); return; }
+  if(e.target.closest("[data-agcal=toggle]")){ agCalToggle(); return; }
   const mf=e.target.closest("[data-mapafuente]"); if(mf){ MAPA.fuente=mf.dataset.mapafuente; lsSet("valorador.mapa.fuente",MAPA.fuente);
     document.querySelectorAll("[data-mapafuente]").forEach(b=>b.setAttribute("aria-pressed",b===mf)); mapaCargar(); return; }
   if(e.target.closest("[data-mkpopx]")){ mkPopClose(true); return; }
