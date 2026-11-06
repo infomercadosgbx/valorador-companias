@@ -1,0 +1,491 @@
+{
+ "_nota": "Histórico de ingresos y beneficio operativo por segmento (SEC, XBRL con dimensiones). Lo mantiene el Action.",
+ "miembros": {
+  "mrna:ProductSalesMember": {
+   "nombre": "Product Sales",
+   "tipo": "producto",
+   "trimestral": {
+    "2022-09-30": {
+     "periodo": "3T22",
+     "valor": 3120000000.0
+    },
+    "2023-03-31": {
+     "periodo": "1T23",
+     "valor": 1828000000.0
+    },
+    "2023-06-30": {
+     "periodo": "2T23",
+     "valor": 293000000.0
+    },
+    "2023-09-30": {
+     "periodo": "3T23",
+     "valor": 1757000000.0
+    },
+    "2023-12-31": {
+     "periodo": "4T23",
+     "valor": 2793000000.0
+    },
+    "2024-03-31": {
+     "periodo": "1T24",
+     "valor": 167000000.0
+    },
+    "2024-06-30": {
+     "periodo": "2T24",
+     "valor": 184000000.0
+    },
+    "2024-09-30": {
+     "periodo": "3T24",
+     "valor": 1820000000.0
+    },
+    "2024-12-31": {
+     "periodo": "4T24",
+     "valor": 938000000.0
+    },
+    "2025-03-31": {
+     "periodo": "1T25",
+     "valor": 86000000.0
+    },
+    "2025-06-30": {
+     "periodo": "2T25",
+     "valor": 114000000.0
+    },
+    "2025-09-30": {
+     "periodo": "3T25",
+     "valor": 973000000.0
+    },
+    "2025-12-31": {
+     "periodo": "4T25",
+     "valor": 645000000.0
+    },
+    "2026-03-31": {
+     "periodo": "1T26",
+     "valor": 352000000.0
+    },
+    "2026-06-30": {
+     "periodo": "2T26",
+     "valor": 94000000.0
+    }
+   },
+   "operativo": {}
+  },
+  "us-gaap:ProductAndServiceOtherMember": {
+   "nombre": "Product and Service, Other",
+   "tipo": "producto",
+   "trimestral": {
+    "2022-09-30": {
+     "periodo": "3T22",
+     "valor": 244000000.0
+    },
+    "2023-03-31": {
+     "periodo": "1T23",
+     "valor": 34000000.0
+    },
+    "2023-06-30": {
+     "periodo": "2T23",
+     "valor": 51000000.0
+    },
+    "2023-09-30": {
+     "periodo": "3T23",
+     "valor": 74000000.0
+    },
+    "2023-12-31": {
+     "periodo": "4T23",
+     "valor": 18000000.0
+    },
+    "2024-03-31": {
+     "periodo": "1T24",
+     "valor": 0.0
+    },
+    "2024-06-30": {
+     "periodo": "2T24",
+     "valor": 57000000.0
+    },
+    "2024-09-30": {
+     "periodo": "3T24",
+     "valor": 42000000.0
+    },
+    "2024-12-31": {
+     "periodo": "4T24",
+     "valor": 28000000.0
+    },
+    "2025-03-31": {
+     "periodo": "1T25",
+     "valor": 22000000.0
+    },
+    "2025-06-30": {
+     "periodo": "2T25",
+     "valor": 28000000.0
+    },
+    "2025-09-30": {
+     "periodo": "3T25",
+     "valor": 43000000.0
+    },
+    "2025-12-31": {
+     "periodo": "4T25",
+     "valor": 33000000.0
+    },
+    "2026-03-31": {
+     "periodo": "1T26",
+     "valor": 37000000.0
+    },
+    "2026-06-30": {
+     "periodo": "2T26",
+     "valor": 51000000.0
+    }
+   },
+   "operativo": {}
+  },
+  "us-gaap:GrantMember": {
+   "nombre": "Grant",
+   "tipo": "producto",
+   "trimestral": {
+    "2022-09-30": {
+     "periodo": "3T22",
+     "valor": 144000000.0
+    },
+    "2023-03-31": {
+     "periodo": "1T23",
+     "valor": 24000000.0
+    },
+    "2023-06-30": {
+     "periodo": "2T23",
+     "valor": 28000000.0
+    },
+    "2023-09-30": {
+     "periodo": "3T23",
+     "valor": 44000000.0
+    },
+    "2023-12-31": {
+     "periodo": "4T23",
+     "valor": -2000000.0
+    },
+    "2024-03-31": {
+     "periodo": "1T24",
+     "valor": 0.0
+    },
+    "2024-06-30": {
+     "periodo": "2T24",
+     "valor": 20000000.0
+    },
+    "2024-09-30": {
+     "periodo": "3T24",
+     "valor": 7000000.0
+    },
+    "2024-12-31": {
+     "periodo": "4T24",
+     "valor": 10000000.0
+    },
+    "2025-03-31": {
+     "periodo": "1T25",
+     "valor": 1000000.0
+    },
+    "2025-06-30": {
+     "periodo": "2T25",
+     "valor": 5000000.0
+    },
+    "2025-09-30": {
+     "periodo": "3T25",
+     "valor": 14000000.0
+    },
+    "2025-12-31": {
+     "periodo": "4T25",
+     "valor": 2000000.0
+    },
+    "2026-03-31": {
+     "periodo": "1T26",
+     "valor": 0.0
+    },
+    "2026-06-30": {
+     "periodo": "2T26",
+     "valor": 2000000.0
+    }
+   },
+   "operativo": {}
+  },
+  "mrna:CollaborationArrangementIncludingArrangementsWithAffiliateMember": {
+   "nombre": "Collaboration Arrangement, Including Arrangements With Affiliate",
+   "tipo": "producto",
+   "trimestral": {
+    "2022-09-30": {
+     "periodo": "3T22",
+     "valor": 100000000.0
+    },
+    "2023-03-31": {
+     "periodo": "1T23",
+     "valor": 10000000.0
+    },
+    "2023-06-30": {
+     "periodo": "2T23",
+     "valor": 23000000.0
+    },
+    "2023-09-30": {
+     "periodo": "3T23",
+     "valor": 30000000.0
+    },
+    "2023-12-31": {
+     "periodo": "4T23",
+     "valor": 20000000.0
+    },
+    "2024-03-31": {
+     "periodo": "1T24",
+     "valor": 0.0
+    },
+    "2024-06-30": {
+     "periodo": "2T24",
+     "valor": 7000000.0
+    },
+    "2024-09-30": {
+     "periodo": "3T24",
+     "valor": 28000000.0
+    },
+    "2024-12-31": {
+     "periodo": "4T24",
+     "valor": 13000000.0
+    },
+    "2025-03-31": {
+     "periodo": "1T25",
+     "valor": 1000000.0
+    },
+    "2025-06-30": {
+     "periodo": "2T25",
+     "valor": 4000000.0
+    },
+    "2025-09-30": {
+     "periodo": "3T25",
+     "valor": 7000000.0
+    },
+    "2025-12-31": {
+     "periodo": "4T25",
+     "valor": 1000000.0
+    },
+    "2026-03-31": {
+     "periodo": "1T26",
+     "valor": 5000000.0
+    },
+    "2026-06-30": {
+     "periodo": "2T26",
+     "valor": 15000000.0
+    }
+   },
+   "operativo": {}
+  },
+  "mrna:LicenseAndRoyaltyMember": {
+   "nombre": "License and Royalty",
+   "tipo": "producto",
+   "trimestral": {
+    "2023-06-30": {
+     "periodo": "2T23",
+     "valor": 0.0
+    },
+    "2023-09-30": {
+     "periodo": "3T23",
+     "valor": 0.0
+    },
+    "2024-03-31": {
+     "periodo": "1T24",
+     "valor": 0.0
+    },
+    "2024-06-30": {
+     "periodo": "2T24",
+     "valor": 30000000.0
+    },
+    "2024-09-30": {
+     "periodo": "3T24",
+     "valor": 7000000.0
+    },
+    "2024-12-31": {
+     "periodo": "4T24",
+     "valor": 5000000.0
+    },
+    "2025-03-31": {
+     "periodo": "1T25",
+     "valor": 8000000.0
+    },
+    "2025-06-30": {
+     "periodo": "2T25",
+     "valor": 2000000.0
+    },
+    "2025-09-30": {
+     "periodo": "3T25",
+     "valor": 2000000.0
+    },
+    "2025-12-31": {
+     "periodo": "4T25",
+     "valor": -1000000.0
+    },
+    "2026-03-31": {
+     "periodo": "1T26",
+     "valor": 0.0
+    },
+    "2026-06-30": {
+     "periodo": "2T26",
+     "valor": 3000000.0
+    }
+   },
+   "operativo": {}
+  },
+  "mrna:COVID19Member": {
+   "nombre": "COVID-19",
+   "tipo": "producto",
+   "trimestral": {
+    "2023-09-30": {
+     "periodo": "3T23",
+     "valor": 1757000000.0
+    },
+    "2024-03-31": {
+     "periodo": "1T24",
+     "valor": 167000000.0
+    },
+    "2024-06-30": {
+     "periodo": "2T24",
+     "valor": 184000000.0
+    },
+    "2024-09-30": {
+     "periodo": "3T24",
+     "valor": 1810000000.0
+    },
+    "2024-12-31": {
+     "periodo": "4T24",
+     "valor": 923000000.0
+    },
+    "2025-03-31": {
+     "periodo": "1T25",
+     "valor": 84000000.0
+    },
+    "2025-06-30": {
+     "periodo": "2T25",
+     "valor": 114000000.0
+    },
+    "2025-09-30": {
+     "periodo": "3T25",
+     "valor": 971000000.0
+    },
+    "2025-12-31": {
+     "periodo": "4T25",
+     "valor": 641000000.0
+    },
+    "2026-03-31": {
+     "periodo": "1T26",
+     "valor": 345000000.0
+    },
+    "2026-06-30": {
+     "periodo": "2T26",
+     "valor": 91000000.0
+    }
+   },
+   "operativo": {}
+  },
+  "mrna:RSVMember": {
+   "nombre": "RSV",
+   "tipo": "producto",
+   "trimestral": {
+    "2023-09-30": {
+     "periodo": "3T23",
+     "valor": 0.0
+    },
+    "2024-03-31": {
+     "periodo": "1T24",
+     "valor": 0.0
+    },
+    "2024-06-30": {
+     "periodo": "2T24",
+     "valor": 0.0
+    },
+    "2024-09-30": {
+     "periodo": "3T24",
+     "valor": 10000000.0
+    },
+    "2024-12-31": {
+     "periodo": "4T24",
+     "valor": 15000000.0
+    },
+    "2025-03-31": {
+     "periodo": "1T25",
+     "valor": 2000000.0
+    },
+    "2025-06-30": {
+     "periodo": "2T25",
+     "valor": 0.0
+    },
+    "2025-09-30": {
+     "periodo": "3T25",
+     "valor": 2000000.0
+    },
+    "2025-12-31": {
+     "periodo": "4T25",
+     "valor": 4000000.0
+    },
+    "2026-03-31": {
+     "periodo": "1T26",
+     "valor": 7000000.0
+    },
+    "2026-06-30": {
+     "periodo": "2T26",
+     "valor": 3000000.0
+    }
+   },
+   "operativo": {}
+  },
+  "mrna:OtherRevenueMember": {
+   "nombre": "Other Revenue",
+   "tipo": "producto",
+   "trimestral": {
+    "2024-03-31": {
+     "periodo": "1T24",
+     "valor": 0.0
+    },
+    "2024-06-30": {
+     "periodo": "2T24",
+     "valor": 0.0
+    },
+    "2024-09-30": {
+     "periodo": "3T24",
+     "valor": 0.0
+    },
+    "2025-03-31": {
+     "periodo": "1T25",
+     "valor": 12000000.0
+    },
+    "2025-06-30": {
+     "periodo": "2T25",
+     "valor": 17000000.0
+    },
+    "2025-09-30": {
+     "periodo": "3T25",
+     "valor": 20000000.0
+    }
+   },
+   "operativo": {}
+  },
+  "mrna:StandReadyManufacturingMember": {
+   "nombre": "Stand-Ready Manufacturing",
+   "tipo": "producto",
+   "trimestral": {
+    "2025-03-31": {
+     "periodo": "1T25",
+     "valor": 12000000.0
+    },
+    "2025-06-30": {
+     "periodo": "2T25",
+     "valor": 17000000.0
+    },
+    "2026-03-31": {
+     "periodo": "1T26",
+     "valor": 32000000.0
+    },
+    "2026-06-30": {
+     "periodo": "2T26",
+     "valor": 31000000.0
+    }
+   },
+   "operativo": {}
+  },
+  "mrna:StandReadyManufacturingRevenueMember": {
+   "nombre": "Stand-Ready Manufacturing Revenue",
+   "tipo": "producto",
+   "trimestral": {},
+   "operativo": {}
+  }
+ },
+ "historico_leido": "2026-11-06"
+}
