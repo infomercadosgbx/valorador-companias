@@ -165,16 +165,16 @@ Encima de las tarjetas del menú principal hay una franja con indicadores básic
 
 | Indicador | Fuente | Frecuencia |
 |---|---|---|
-| S&P 500, Nasdaq, VIX, petróleo WTI, diferencial high yield | FRED (Reserva Federal de St. Louis) | Cierre diario, con un día de retraso; el WTI, con dos o tres |
+| VIX, petróleo WTI, diferencial high yield | FRED (Reserva Federal de St. Louis) | Cierre diario, con un día de retraso; el WTI, con dos o tres |
 | Bono de EE. UU. a 5 y 10 años | Departamento del Tesoro (curva diaria) | Cierre diario |
-| HYG, LQD, KRE, MSCI World (ETF URTH), Corea (ETF EWY) | Finnhub | Cierre diario y **en vivo** durante la sesión con el Worker |
+| S&P 500 (ETF SPY), Nasdaq-100 (ETF QQQ), HYG, LQD, KRE, MSCI World (ETF URTH), Corea (ETF EWY) | Finnhub | Cierre diario y **en vivo** durante la sesión con el Worker |
 | EUR/USD, oro, bitcoin | Twelve Data | Diario |
 | Estrés financiero | OFR (Oficina de Investigación Financiera del Tesoro) | Diario, con dos días hábiles de retraso |
 | Encuesta AAII | aaii.com (el propio emisor) | Semanal (jueves) |
 | Miedo y codicia (índice propio) | Calculado con FRED y el Cboe | Diario |
-| NAAIM, miedo y codicia de CNN, MOVE | **Manual** (no tienen fuente gratuita) | Cuando los apuntes |
+| NAAIM, miedo y codicia de CNN, MOVE | **Manual** (no tienen fuente gratuita) | Cuando los apuntes (el MOVE de Investing va con un día de retraso) |
 
-Durante la sesión, el S&P 500 y el Nasdaq muestran además la variación en vivo de SPY y QQQ al lado del cierre oficial. No hace falta tocar el Worker: ya acepta cualquier ticker.
+El S&P 500 y el Nasdaq se muestran con sus ETF (SPY y QQQ) porque FRED publica los índices con uno o dos días de retraso; el ETF da el cierre del mismo día y, durante la sesión, el precio en vivo con el Worker. El índice de miedo y codicia sigue usando la serie oficial SP500 de FRED.
 
 **Miedo y codicia propio.** Sigue la receta del índice de CNN con los componentes que tienen fuente oficial: impulso (S&P 500 frente a su media de 125 sesiones), volatilidad (VIX frente a su media de 50), demanda de bonos basura (diferencial high yield menos el de grado de inversión), demanda de refugio (bolsa frente al bono a 10 años en 20 sesiones) y ratio put/call del Cboe (media de 5 sesiones). Cada componente se puntúa de 0 a 100 según su percentil en los dos últimos años (el put/call, por tramos fijos: 1,15 o más = 0; 0,75 o menos = 100) y el índice es la media. Faltan los dos componentes de amplitud de la NYSE, que no tienen fuente gratuita, así que el número no coincide exactamente con el de CNN. Tramos: menos de 25 miedo extremo, 25–45 miedo, 45–55 neutral, 55–75 codicia, más de 75 codicia extrema.
 

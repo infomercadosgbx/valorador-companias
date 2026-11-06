@@ -1729,10 +1729,10 @@ const MKINFO={
   naaim:{t:"NAAIM Exposure Index",q:"NAAIM son las siglas de National Association of Active Investment Managers (Asociación Nacional de Gestores de Inversión Activa de EE. UU.). El índice es la exposición media a la bolsa de EE. UU. que declaran sus gestores cada miércoles. Va de −200 (cortos apalancados al doble) a +200 (largos apalancados al doble); 100 = totalmente invertidos.",
     l:"Muestra qué hacen los profesionales con su dinero, no lo que opinan. Lecturas muy altas indican que ya han comprado casi todo (poco combustible para seguir subiendo); muy bajas, que han vendido mucho y pueden volver a comprar.",
     u:"Más de 90: muy invertidos, complacencia. 40–80: zona habitual. Menos de 40: exposición baja, a menudo cerca de suelos."},
-  sp500:{t:"S&P 500",q:"Las 500 mayores compañías de EE. UU., ponderadas por capitalización. Es la referencia de la bolsa mundial.",
-    l:"El valor es el cierre oficial (FRED lo publica con un día de retraso). Durante la sesión, al lado se ve la variación en vivo del ETF SPY, que lo replica.",u:"Caída del 10% desde máximos: corrección. Del 20%: mercado bajista."},
-  nasdaq:{t:"Nasdaq Composite",q:"Todas las acciones del Nasdaq, con mucho peso de tecnología y crecimiento.",
-    l:"Más sensible que el S&P 500 a los tipos de interés y a las expectativas de crecimiento: sube más en los buenos momentos y cae más en los malos. En sesión se muestra QQQ (Nasdaq-100) en vivo.",u:""},
+  sp500:{t:"S&P 500 (ETF SPY)",q:"Las 500 mayores compañías de EE. UU., ponderadas por capitalización. Es la referencia de la bolsa mundial.",
+    l:"Se muestra el ETF SPY, que lo replica: su variación diaria es prácticamente la del índice (el precio es unas 10 veces menor que los puntos). El índice oficial llega por FRED con uno o dos días de retraso; el ETF da el cierre del mismo día y, durante la sesión, el precio en vivo.",u:"Caída del 10% desde máximos: corrección. Del 20%: mercado bajista."},
+  nasdaq:{t:"Nasdaq-100 (ETF QQQ)",q:"Las 100 mayores compañías no financieras del Nasdaq, con mucho peso de tecnología y crecimiento.",
+    l:"Más sensible que el S&P 500 a los tipos de interés y a las expectativas de crecimiento: sube más en los buenos momentos y cae más en los malos. Se muestra el ETF QQQ, que replica el Nasdaq-100 (no el Composite, aunque se mueven de forma muy parecida).",u:""},
   msci_world:{t:"MSCI World (ETF URTH)",q:"Bolsas de 23 países desarrollados, unas 1.400 compañías; EE. UU. pesa en torno al 70%.",
     l:"Se muestra el ETF URTH porque el índice no tiene fuente gratuita: su variación diaria es prácticamente la del índice, pero el precio es el del ETF, no los puntos del índice.",u:""},
   corea:{t:"Corea del Sur (ETF EWY)",q:"Bolsa de Corea del Sur, con mucho peso de Samsung y SK Hynix.",
@@ -1741,7 +1741,7 @@ const MKINFO={
     l:"Sube cuando la bolsa cae y los inversores pagan por protegerse. Un salto brusco indica pánico; si se mantiene alto varios días, la tensión es de fondo.",
     u:"Menos de 15: calma · 15–20: normal · 20–30: tensión · más de 30: miedo · más de 40: pánico (2008, 2020)."},
   move:{t:"MOVE",q:"Lo mismo que el VIX pero para los bonos del Tesoro de EE. UU.: volatilidad esperada de los tipos de interés a un mes.",
-    l:"Si los tipos se mueven mucho, sufren las valoraciones de todo lo demás. Un MOVE alto con el VIX bajo suele anticipar contagio a la bolsa.",u:"En torno a 100 es la media histórica. Menos de 80: calma. Más de 120: tensión en bonos (en 2022 superó 150)."},
+    l:"Si los tipos se mueven mucho, sufren las valoraciones de todo lo demás. Un MOVE alto con el VIX bajo suele anticipar contagio a la bolsa. Investing lo da con un día de retraso: la fecha es la de la sesión del dato.",u:"En torno a 100 es la media histórica. Menos de 80: calma. Más de 120: tensión en bonos (en 2022 superó 150)."},
   hyg:{t:"Bonos high yield (HYG)",q:"ETF de bonos corporativos de EE. UU. de baja calidad crediticia («bonos basura»).",
     l:"Se comporta como un activo de riesgo. Si cae a la vez que la bolsa, los inversores dudan de la capacidad de pago de las empresas. Si la bolsa sube y HYG cae, es una divergencia a vigilar.",u:"Compáralo con LQD: HYG baja y LQD sube = huida hacia la calidad."},
   lqd:{t:"Bonos grado de inversión (LQD)",q:"ETF de bonos corporativos de EE. UU. de buena calidad crediticia.",
@@ -1789,7 +1789,7 @@ function mkRow(i){
 }
 /* Calendario de los valores manuales: cuándo sale un dato nuevo (hora de Nueva York; no tiene en cuenta festivos de EE. UU.) */
 const MKCAL={cnn:{tipo:"diario",hora:570,txt:"cada día de sesión, desde la apertura (15:30 en España)"},
-  move:{tipo:"diario",hora:570,txt:"cada día de sesión, desde la apertura (15:30 en España)"},
+  move:{tipo:"diario",hora:570,lag:1,txt:"con un día de retraso en Investing: cada día de sesión, desde la apertura (15:30 en España), sale el cierre de la sesión anterior"},
   aaii:{tipo:"semanal",hora:540,lag:0,txt:"los jueves, con la encuesta cerrada el miércoles"},
   naaim:{tipo:"semanal",hora:540,lag:91,txt:"los jueves; la web gratuita da el dato con 13 semanas de retraso"}};
 function mkNY(){ const p={}; new Intl.DateTimeFormat("en-CA",{timeZone:"America/New_York",year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",hourCycle:"h23"}).formatToParts(new Date()).forEach(x=>p[x.type]=x.value);
@@ -1797,6 +1797,7 @@ function mkNY(){ const p={}; new Intl.DateTimeFormat("en-CA",{timeZone:"America/
 function mkDue(k,f){ const R=MKCAL[k]; if(!R) return null;
   const add=(d,n)=>new Date(d.getTime()+n*864e5), iso=d=>d.toISOString().slice(0,10), lab=d=>d.getUTCDay()%6!==0, {d:hoy,m}=mkNY(); let disp,sig;
   if(R.tipo==="diario"){ disp=hoy; if(!lab(disp)||m<R.hora){ disp=add(disp,-1); while(!lab(disp)) disp=add(disp,-1); }
+    for(let k=0;k<(R.lag||0);k++){ disp=add(disp,-1); while(!lab(disp)) disp=add(disp,-1); }   /* fuente con días de retraso (MOVE) */
     sig=add(disp,1); while(!lab(sig)) sig=add(sig,1); }
   else{ const ref=add(hoy,-R.lag); let ju=add(ref,-((ref.getUTCDay()+3)%7)); if(iso(ju)===iso(ref)&&m<R.hora) ju=add(ju,-7);
     disp=add(ju,-1); sig=add(ju,7+R.lag); }
@@ -1859,7 +1860,7 @@ function mkEditHtml(){ const m=MKH.man, v=(k,f="valor")=>m[k]&&m[k][f]!=null?esc
   const fila=(k,nombre,ayuda,valor,fdef)=>`<div class="mkfrow">
       <div class="mkfn"><b>${nombre}</b> ${mkA(k,"consultar")}<span class="note">${ayuda}</span>${mkDueTag(k,m[k]&&(m[k].valor!=null||m[k].alcistas!=null)?m[k].fecha:null)}</div>
       <div class="mkfv">${valor}</div>
-      <label class="mkff"><span>Fecha del dato</span><input type="date" id="mk_${k}_f" value="${v(k,"fecha")||fdef}"></label></div>`;
+      <label class="mkff"><span>Fecha del dato</span><input type="date" id="mk_${k}_f" value="${v(k,"fecha")&&v(k,"fecha")>=fdef?v(k,"fecha"):fdef}"></label></div>`;
   const inp=(id,val,ph,lab)=>`<label><span>${lab}</span><input type="number" step="any" inputmode="decimal" id="${id}" value="${val}" placeholder="${ph}"></label>`;
   return `<div class="mkedit card" style="margin:0 0 14px">
     <h3 style="margin-top:0">Apuntar valores manuales</h3>
@@ -1867,7 +1868,7 @@ function mkEditHtml(){ const m=MKH.man, v=(k,f="valor")=>m[k]&&m[k][f]!=null?esc
     <div class="mkform2">
       ${fila("naaim","NAAIM","Semanal. Fecha: el miércoles de la encuesta (la web gratuita va 13 semanas por detrás).",inp("mk_naaim",v("naaim"),"p. ej. 72,4","Exposición (de −200 a 200)"),mkDue("naaim").disp)}
       ${fila("cnn","Miedo y codicia de CNN","Diario. Fecha: el día que lo consultas.",inp("mk_cnn",v("cnn"),"0–100","Valor (0–100)"),mkDue("cnn").disp)}
-      ${fila("move","MOVE","Diario. Fecha: la del último cierre.",inp("mk_move",v("move"),"p. ej. 93,9","Valor"),mkDue("move").disp)}
+      ${fila("move","MOVE","Diario, con un día de retraso en Investing. Fecha: la de la sesión del dato (normalmente, el día de sesión anterior).",inp("mk_move",v("move"),"p. ej. 93,9","Valor"),mkDue("move").disp)}
       ${fila("aaii","Encuesta AAII","Semanal (sale los jueves). Fecha: la de «week ending», un miércoles.",inp("mk_aaii_b",v("aaii","alcistas"),"p. ej. 34,1","Alcistas %")+inp("mk_aaii_r",v("aaii","bajistas"),"p. ej. 48,4","Bajistas %"),mkDue("aaii").disp)}
     </div>
     <p class="note">Las neutrales de la AAII se calculan solas (100 − alcistas − bajistas). El formato de la fecha depende del idioma del navegador: en inglés se ve mes/día/año.</p>

@@ -52,8 +52,11 @@ CBOE_PAGE = "https://www.cboe.com/us/options/market_statistics/daily/"
 
 # id, nombre, grupo, origen, símbolo, unidad, fuente, precio en vivo (ticker, modo)
 INDICADORES = [
-    ("sp500", "S&P 500", "bolsa", "fred", "SP500", "pts", "FRED (S&P Dow Jones Indices)", ("SPY", "ref")),
-    ("nasdaq", "Nasdaq Composite", "bolsa", "fred", "NASDAQCOM", "pts", "FRED (Nasdaq)", ("QQQ", "ref")),
+    # S&P 500 y Nasdaq con sus ETF: FRED publica los índices con uno o dos días de retraso y el ETF
+    # da el cierre del mismo día (y el precio en vivo durante la sesión). El índice de miedo y codicia
+    # sigue usando la serie SP500 de FRED, que tiene el histórico largo que necesita.
+    ("sp500", "S&P 500 (ETF SPY)", "bolsa", "finnhub", "SPY", "$", "Finnhub", ("SPY", "directo")),
+    ("nasdaq", "Nasdaq-100 (ETF QQQ)", "bolsa", "finnhub", "QQQ", "$", "Finnhub", ("QQQ", "directo")),
     ("msci_world", "MSCI World (ETF URTH)", "bolsa", "finnhub", "URTH", "$", "Finnhub", ("URTH", "directo")),
     ("corea", "Corea del Sur (ETF EWY)", "bolsa", "finnhub", "EWY", "$", "Finnhub", ("EWY", "directo")),
     ("vix", "VIX", "riesgo", "fred", "VIXCLS", "pts", "FRED (Cboe)", None),
