@@ -165,14 +165,14 @@
   "fuente": "SEC EDGAR · 8-K, Exhibit 99.1 (texto original)",
   "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000023/vistra-20260930xearningsre.htm",
   "texto_es": [
-   null,
-   null,
+   "Rangos estrechados: 2026",
+   "Rangos de guía iniciados: 2027",
    "EBITDA ajustado de operaciones continuadas: 7.100–7.500 M$",
    "Caja libre ajustada antes de crecimiento (FCFbG) de operaciones continuadas: 4.300–4.700 M$",
-   null,
-   null,
-   null,
-   null
+   "A 30 de octubre de 2026, Vistra tenía cubierto aproximadamente el 100% de su generación prevista para 2026, alrededor del 98% para 2027 y alrededor del 78% para 2028.",
+   "A 2 de noviembre de 2026:",
+   "Vistra ha ejecutado ~6.700 M$ en recompras de acciones desde noviembre de 2021.",
+   "Vistra tenía ~339 millones de acciones en circulación, una reducción de ~30% frente a las acciones en circulación a 2 de noviembre de 2021."
   ]
  },
  "reaccion": {
@@ -185,21 +185,21 @@
   "fuera_de_hora": {
    "fuente": "Alpaca Markets (API oficial, plan gratuito) · SIP con 15 min de retraso",
    "url": "https://docs.alpaca.markets/docs/historical-stock-data-1",
-   "volumen": 1536211,
+   "volumen": 1602335,
    "ultimo": {
-    "precio": 119.46,
-    "hora_utc": "2026-11-06T13:30:00Z",
-    "hora_ny": "2026-11-06 08:30",
+    "precio": 119.37,
+    "hora_utc": "2026-11-06T14:15:00Z",
+    "hora_ny": "2026-11-06 09:15",
     "sesion": "premercado",
-    "variacion_pct": 5.82
+    "variacion_pct": 5.74
    }
   },
-  "variacion_pct": 5.82,
-  "cierre_despues": 119.46,
+  "variacion_pct": 5.74,
+  "cierre_despues": 119.37,
   "fecha_despues": "2026-11-06",
   "fuente_despues": "Alpaca Markets (API oficial, plan gratuito) · SIP con 15 min de retraso",
   "sesion_despues": "premercado",
-  "hora_despues_ny": "2026-11-06 08:30"
+  "hora_despues_ny": "2026-11-06 09:15"
  },
  "cotizacion": {
   "serie": [
@@ -1407,7 +1407,7 @@
  "cita": {
   "cita": "I am proud of the results the Vistra team delivered this quarter",
   "quien": "Jim Burke, president and CEO of Vistra",
-  "cita_es": null
+  "cita_es": "Estoy orgulloso de los resultados que el equipo de Vistra ha logrado este trimestre"
  },
  "destacados": {
   "titulo": "Earnings Release Highlights",
@@ -1422,18 +1422,49 @@
    "Announced a 20-year 207 MW power purchase agreement with New Era Energy and Digital at our Odessa combined cycle gas plant in Texas."
   ],
   "texto_es": [
-   null,
-   null,
-   null,
-   null,
-   null,
-   null,
-   null,
-   null
+   "Beneficio neto GAAP del 3T26 de 1.140 M$, que incluye una ganancia no realizada de 559 M$ por coberturas que se liquidarán en años futuros.",
+   "Crecimiento de más del 50% del EBITDA ajustado de operaciones continuadas (1), hasta 2.378 M$ en el trimestre, frente al 3T25.",
+   "Elevado el punto medio y estrechado el rango de 2026 del EBITDA ajustado de operaciones continuadas (1) a 7.100–7.500 M$ y del FCF ajustado antes de crecimiento (1) a 4.300–4.700 M$.",
+   "Iniciada la guía de 2027 del EBITDA ajustado de operaciones continuadas (1) y del FCF ajustado antes de crecimiento (1): 7.700–8.500 M$ y 4.300–5.100 M$, respectivamente.",
+   "El consejo ha autorizado 1.500 M$ adicionales de recompra de acciones, que se prevé utilizar antes del final de 2028.",
+   "En octubre de 2026 se cerró la compra de Cogentrix Energy, con unos 5.500 MW de capacidad de generación con gas natural.",
+   "Entrada en operación de la planta solar Pulaski, de 405 MW, en Illinois, con un contrato de compra de energía con Microsoft, y de la planta solar y de almacenamiento Deer Creek, de 100 MW, en California.",
+   "Anunciado un contrato de compra de energía de 207 MW a 20 años con New Era Energy and Digital en la central de ciclo combinado de gas de Odessa, en Texas."
   ],
   "cabecera_es": null
  },
- "lectura": null,
+ "lectura": {
+  "estado": "propuesta",
+  "fuente": "Propuesta pendiente de revisar (Claude, tras los resultados)",
+  "q": "3T 2026",
+  "date": "6-nov-2026",
+  "doc": "Nota de resultados (8-K, Ex. 99.1)",
+  "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000023/vistra-20260930xearningsre.htm",
+  "nota": "Resumen de la nota de prensa. La llamada con analistas es el 6-nov a las 10:00 ET (16:00 de Madrid); falta añadir sus comentarios.",
+  "dir": [
+   "Jim Burke destaca un verano de récords de demanda en ERCOT y PJM (julio) con disponibilidad comercial de la flota de casi el 95%.",
+   "Cogentrix cerrada en octubre: ~5.500 MW de gas nuevos en la cartera.",
+   "Entran en operación Pulaski Solar (405 MW, Illinois, contrato con Microsoft) y Deer Creek Solar y almacenamiento (100 MW, California).",
+   "Contrato de 20 años y 207 MW con New Era Energy and Digital en la central de gas de Odessa; la dirección dice ver más oportunidades de este tipo."
+  ],
+  "ret": [
+   "El beneficio neto de 1.140 M$ incluye 559 M$ de ganancias no realizadas por coberturas de años futuros.",
+   "Más amortización por las plantas de Lotus y deterioro parcial de Moss Landing 350.",
+   "Retail baja a 939 M$ de EBITDA en 9M26 (977 M$ en 9M25).",
+   "La liquidez cae de 8.923 M$ a ~5.400 M$ pro forma tras pagar Cogentrix y amortizar preferentes."
+  ],
+  "guia": [
+   "2026: EBITDA ajustado 7.100–7.500 M$ y FCF antes de crecimiento 4.300–4.700 M$ (punto medio al alza y rango más estrecho).",
+   "2027 (primera guía formal): EBITDA ajustado 7.700–8.500 M$ y FCF antes de crecimiento 4.300–5.100 M$.",
+   "Cobertura a 30-oct: ~100% de la generación de 2026, ~98% de 2027 y ~78% de 2028."
+  ],
+  "cap": [
+   "~6.700 M$ recomprados desde nov-2021; ~339 M de acciones (−30%).",
+   "Nueva autorización de 1.500 M$: quedan ~2.500 M$, que espera usar antes de final de 2028.",
+   "Amortizadas las preferentes de la Serie A (1.000 M$); 2.200 M$ en efectivo por Cogentrix y repago de ~1.700 M$ de su deuda.",
+   "9M26: emisiones de deuda de 7.985 M$, recompras de 917 M$ y dividendos ordinarios de 231 M$."
+  ]
+ },
  "estimaciones": {
   "foto": {
    "fecha_resultados": "2026-11-06",
@@ -1447,9 +1478,7 @@
   },
   "manual": true
  },
- "avisos": [
-  "No se encontró en la nota: bpa diluido. Llegará con el 10-Q."
- ],
+ "avisos": [],
  "_calendario_finnhub": {
   "fecha": "2026-11-06",
   "hora": "bmo",
@@ -1490,8 +1519,8 @@
   }
  },
  "traduccion": {
-  "pendientes": 15,
-  "completa": false,
+  "pendientes": 0,
+  "completa": true,
   "fuente": "Glosario automático y i18n/notas_es.json (revisión tras resultados)"
  }
 }
