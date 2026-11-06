@@ -169,12 +169,17 @@ INSTANT_CONCEPTS = {
              "optional": [["ShortTermBorrowings", "CommercialPaper"]]},
             {"required": ["ConvertibleNotesPayable"],
              "optional": [["ConvertibleNotesPayableCurrent"]]},
+            # Moderna (3T26): convertibles + préstamo dispuesto de la línea de crédito, sin etiqueta de deuda total
+            {"required": ["ConvertibleLongTermNotesPayable"],
+             "optional": [["LongTermLineOfCredit", "LongTermDebtNoncurrent", "LongTermLoansPayable"],
+                          ["ConvertibleNotesPayableCurrent", "LongTermDebtCurrent", "DebtCurrent"]]},
             {"required": ["SeniorLongTermNotes"], "optional": []},
             # Oracle: pagarés y préstamos a largo + pagarés corrientes (10-Q); en el 10-K, LongTermNotesPayable
             {"required": ["LongTermNotesAndLoans"],
              "optional": [["NotesPayableCurrent", "DebtCurrent"]]},
             {"required": ["LongTermNotesPayable"],
              "optional": [["NotesPayableCurrent", "DebtCurrent"]]},
+            {"required": ["LongTermLineOfCredit"], "optional": [["LineOfCredit", "DebtCurrent"]]},
         ],
         "assume_zero_if_missing": True,
     },

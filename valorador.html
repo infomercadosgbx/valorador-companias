@@ -1240,6 +1240,7 @@ function contradictions(c){
 function allWarnings(c){ return [...contradictions(c),...((c._data&&c._data.avisos)||[]).filter(w=>!(w.codigo==="sin_precio"&&!fin(c.v.price)))]; }
 /* avisos en lenguaje claro: qué significa y si afecta a las cifras */
 const WEXP={
+  deuda_no_encontrada:"La compañía tenía deuda en informes anteriores, pero en el último no aparece ninguna de las etiquetas de deuda que reconoce el robot. Casi siempre es un cambio de etiquetas (por ejemplo, al emitir convertibles), no que haya devuelto la deuda. Mira el balance del informe y avisa para añadir la etiqueta nueva.",
   deuda_asumida_cero:"La compañía no declara deuda financiera en sus informes (ni préstamos ni bonos): se toma 0. Si de verdad no tiene deuda (Reddit, UiPath), es correcto y puedes aprobarlo. Los arrendamientos no cuentan como deuda financiera.",
   seguimiento:"El robot ha encontrado una novedad en un asunto que sigues (seguimientos.json). Lee el fragmento en Riesgos → Seguimientos y confirma en el documento antes de cambiar el análisis.",
   seguimiento_error:"No se han podido leer los documentos nuevos de la SEC para un seguimiento; se reintentará la próxima noche.",

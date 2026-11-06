@@ -446,6 +446,7 @@ def debt_maturities(cf, cik):
 def build_instant(cf, cik, concept_key, ref_end):
     spec = C.INSTANT_CONCEPTS[concept_key]
     warnings = []
+    obsoletas_con_saldo = []   # etiquetas descartadas por antiguas que aún tenían saldo
     for strat in spec["strategies"]:
         req = strat["required"][0]
         facts = raw_facts(cf, req, "USD")
@@ -453,6 +454,9 @@ def build_instant(cf, cik, concept_key, ref_end):
             continue
         le = last_end(facts)
         if is_stale(le, ref_end):
+            ult = latest_by(facts, lambda f: f["end"]).get(le.isoformat())
+            if ult and ult.get("val"):
+                obsoletas_con_saldo.append((req, le, ult["val"]))
             warnings.append(warn("info", "etiqueta_obsoleta",
                 f"{spec['nombre']}: se descarta «{req}» (último dato {le}, ingresos hasta {ref_end}).",
                 concepto=concept_key, etiqueta=req))
@@ -508,6 +512,19 @@ def build_instant(cf, cik, concept_key, ref_end):
         return {"nombre": spec["nombre"], "unidad": "USD", "ultimo": latest,
                 "historico": hist, "asumido": False}, warnings
 
+    if spec.get("assume_zero_if_missing") and obsoletas_con_saldo:
+        # Había deuda y la etiqueta ha desaparecido: no es «sin deuda», es un cambio de etiquetas.
+        tag, le, val = max(obsoletas_con_saldo, key=lambda x: x[1])
+        warnings.append(warn("aviso", "deuda_no_encontrada",
+            f"{spec['nombre']}: el último informe no trae ninguna etiqueta de deuda reconocida, pero el "
+            f"{le.isoformat()} había {val / 1e6:,.0f} M$ en «{tag}». Probable cambio de etiquetas; se asume 0 "
+            f"hasta revisarlo. Comprueba el balance del informe.".replace(",", "."),
+            concepto=concept_key, etiqueta=tag))
+        return {"nombre": spec["nombre"], "unidad": "USD", "asumido": True, "historico": [],
+                "ultimo": {"valor": 0, "fuente": "Asumido (etiqueta de deuda no reconocida en el último informe)",
+                           "url": None, "fecha_presentacion": None, "etiqueta": None,
+                           "periodo_fin": ref_end.isoformat() if ref_end else None,
+                           "asumido": True, "revisar": True}}, warnings
     if spec.get("assume_zero_if_missing"):
         warnings.append(warn("aviso", "deuda_asumida_cero",
             f"{spec['nombre']}: no hay ninguna etiqueta vigente; se asume 0.",

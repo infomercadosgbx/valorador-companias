@@ -302,3 +302,27 @@ def test_saltos_estacionales_frente_al_mismo_trimestre_del_anio_anterior():
     saltos = [x["periodo"] for x in w if x["codigo"] == "salto_raro"]
     assert saltos == ["2T26"]                      # −70 % frente al 2T25; 3T26 +30 % no avisa
     assert any(x["codigo"] == "estacional" for x in w)
+
+
+def test_deuda_convertibles_y_linea_de_credito_moderna():
+    """Moderna 3T26: deja de usar LongTermDebtNoncurrent y declara convertibles + línea de crédito."""
+    from datetime import date
+    from fetcher.extract import build_instant
+    from tests.conftest import companyfacts, fact
+    cf = companyfacts({
+        "LongTermDebtNoncurrent": [fact("2026-03-31", 590e6), fact("2026-06-30", 591e6)],
+        "ConvertibleLongTermNotesPayable": [fact("2025-12-31", 0), fact("2026-09-30", 2958e6)],
+        "LongTermLineOfCredit": [fact("2026-09-30", 591e6)],
+    })
+    b, _ = build_instant(cf, "1", "deuda", date(2026, 9, 30))
+    assert b["ultimo"]["valor"] == 3549e6 and not b["asumido"]
+
+
+def test_deuda_etiqueta_desaparecida_avisa_no_encontrada():
+    from datetime import date
+    from fetcher.extract import build_instant
+    from tests.conftest import companyfacts, fact
+    cf = companyfacts({"LongTermDebtNoncurrent": [fact("2026-06-30", 591e6)]})
+    b, w = build_instant(cf, "1", "deuda", date(2026, 12, 31))
+    assert b["asumido"] and b["ultimo"]["revisar"]
+    assert [x["codigo"] for x in w if x["nivel"] == "aviso"] == ["deuda_no_encontrada"]
