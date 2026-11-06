@@ -1,6 +1,6 @@
 {
  "esquema": 1,
- "generado": "2026-11-06T21:32:48+00:00",
+ "generado": "2026-11-06T21:41:14+00:00",
  "grupos": {
   "bolsa": "Bolsa",
   "riesgo": "Volatilidad y crédito",
@@ -195,13 +195,13 @@
    "grupo": "tipos",
    "simbolo": "EUR/USD",
    "unidad": "",
-   "valor": 1.1142,
+   "valor": 1.114,
    "anterior": 1.114,
    "fecha": "2026-11-07",
    "fuente": "Twelve Data",
    "url": "https://twelvedata.com/",
-   "var": 0.0003,
-   "var_pct": 0.02
+   "var": 0.0,
+   "var_pct": 0.0
   },
   {
    "id": "oro",
@@ -209,13 +209,13 @@
    "grupo": "materias",
    "simbolo": "XAU/USD",
    "unidad": "$",
-   "valor": 4063.6559,
+   "valor": 4065.4497,
    "anterior": 4063.3273,
    "fecha": "2026-11-07",
    "fuente": "Twelve Data",
    "url": "https://twelvedata.com/",
-   "var": 0.3286,
-   "var_pct": 0.01
+   "var": 2.1224,
+   "var_pct": 0.05
   },
   {
    "id": "wti",
@@ -237,13 +237,13 @@
    "grupo": "materias",
    "simbolo": "BTC/USD",
    "unidad": "$",
-   "valor": 75740.01,
+   "valor": 75792.95,
    "anterior": 76088.01,
    "fecha": "2026-11-06",
    "fuente": "Twelve Data",
    "url": "https://twelvedata.com/",
-   "var": -348.0,
-   "var_pct": -0.46
+   "var": -295.06,
+   "var_pct": -0.39
   }
  ],
  "sentimiento": {
@@ -721,6 +721,129 @@
    },
    "fuente": "Tesoro de EE. UU.",
    "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve"
+  },
+  "inflacion": {
+   "ipc": {
+    "mes": "2026-09",
+    "interanual": 3.72,
+    "anterior": 3.35,
+    "mensual": 0.65,
+    "nombre": "IPC general",
+    "url": "https://fred.stlouisfed.org/series/CPIAUCSL"
+   },
+   "ipc_sub": {
+    "mes": "2026-09",
+    "interanual": 2.57,
+    "anterior": 2.45,
+    "mensual": 0.33,
+    "nombre": "IPC subyacente",
+    "url": "https://fred.stlouisfed.org/series/CPILFESL"
+   },
+   "pce": {
+    "mes": "2026-09",
+    "interanual": 3.65,
+    "anterior": 3.44,
+    "mensual": 0.49,
+    "nombre": "PCE general",
+    "url": "https://fred.stlouisfed.org/series/PCEPI"
+   },
+   "pce_sub": {
+    "mes": "2026-09",
+    "interanual": 3.12,
+    "anterior": 3.03,
+    "mensual": 0.32,
+    "nombre": "PCE subyacente",
+    "url": "https://fred.stlouisfed.org/series/PCEPILFE"
+   },
+   "esperada_10a": {
+    "valor": 2.24,
+    "fecha": "2026-11-05",
+    "hace_1m": 2.36,
+    "nombre": "Inflación esperada a 10 años",
+    "url": "https://fred.stlouisfed.org/series/T10YIE"
+   },
+   "esperada_5a5a": {
+    "valor": 2.22,
+    "fecha": "2026-11-05",
+    "hace_1m": 2.35,
+    "nombre": "Inflación esperada de dentro de 5 a 10 años",
+    "url": "https://fred.stlouisfed.org/series/T5YIFR"
+   },
+   "real_10a": {
+    "valor": 2.64,
+    "fecha": "2026-11-04",
+    "hace_1m": 2.95,
+    "nombre": "Tipo real a 10 años (TIPS)",
+    "url": "https://fred.stlouisfed.org/series/DFII10"
+   },
+   "real_corto": {
+    "valor": 0.75,
+    "base": 3.875,
+    "inflacion": 3.12,
+    "neutral": 1.2,
+    "lectura": "expansiva"
+   }
+  },
+  "agenda": {
+   "items": [
+    {
+     "id": "empleo",
+     "nombre": "Informe de empleo",
+     "fuente": "BLS",
+     "url": "https://www.bls.gov/news.release/empsit.nr0.htm",
+     "ultimo": "+165 mil empleos · paro 4,1% (2026-10)",
+     "fecha": "2026-11-06",
+     "hora_madrid": "14:30",
+     "siguiente": "2026-12-04",
+     "anterior": "2026-10-02"
+    },
+    {
+     "id": "ipc",
+     "nombre": "IPC (inflación)",
+     "fuente": "BLS",
+     "url": "https://www.bls.gov/cpi/",
+     "ultimo": "3,7% interanual (2026-09)",
+     "fecha": "2026-11-10",
+     "hora_madrid": "14:30",
+     "siguiente": "2026-12-10",
+     "anterior": "2026-10-14"
+    },
+    {
+     "id": "ipp",
+     "nombre": "Precios de producción (IPP)",
+     "fuente": "BLS",
+     "url": "https://www.bls.gov/ppi/",
+     "ultimo": "6,3% interanual (2026-09)",
+     "fecha": "2026-11-13",
+     "hora_madrid": "14:30",
+     "siguiente": "2026-12-15",
+     "anterior": "2026-10-15"
+    },
+    {
+     "id": "pce",
+     "nombre": "PCE (la inflación que mira la Fed)",
+     "fuente": "BEA",
+     "url": "https://www.bea.gov/data/income-saving/personal-income",
+     "ultimo": "subyacente 3,1% (2026-09)",
+     "fecha": "2026-11-25",
+     "hora_madrid": "14:30",
+     "siguiente": "2026-12-23",
+     "anterior": "2026-10-29"
+    },
+    {
+     "id": "pib",
+     "nombre": "PIB",
+     "fuente": "BEA",
+     "url": "https://www.bea.gov/data/gdp/gross-domestic-product",
+     "ultimo": "+3,4% anualizado (3T26)",
+     "fecha": "2026-11-25",
+     "hora_madrid": "14:30",
+     "siguiente": "2026-12-23",
+     "anterior": "2026-10-29"
+    }
+   ],
+   "fuente": "Fechas oficiales del BLS y el BEA vía FRED",
+   "url": "https://fred.stlouisfed.org/releases/calendar"
   }
  },
  "avisos": [
