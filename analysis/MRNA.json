@@ -820,6 +820,54 @@
    "nivel": "aviso",
    "mensaje": "Ingresos 1T23: -69% frente a 1T22 (mismo trimestre del año anterior; compañía estacional). Revisa el informe.",
    "comprobacion": "Comprobado con los 10-Q/10-K de la SEC: cifras correctas. Es el ciclo de la vacuna COVID (despegue en 2021, caída en 2023–2024) y, en el 1T26, las entregas al Reino Unido por el acuerdo a largo plazo."
+  },
+  {
+   "id": "contradiccion.Caja del modelo (# M) difiere un #% del dato de la SEC (# M a #-sep-#).",
+   "fecha": "2026-11-07",
+   "nivel": "aviso",
+   "mensaje": "Caja del modelo (7.976 M) difiere un 54% del dato de la SEC (5.171 M a 30-sep-26)."
+  },
+  {
+   "id": "etiqueta_obsoleta.Beneficio antes de impuestos: «IncomeLossFromContinuingOperationsBeforeIncomeTax",
+   "fecha": "2026-11-07",
+   "nivel": "info",
+   "mensaje": "Beneficio antes de impuestos: «IncomeLossFromContinuingOperationsBeforeIncomeTaxesDomestic» termina el 2025-12-31; solo se usa para años antiguos."
+  },
+  {
+   "id": "etiqueta_obsoleta.Gastos generales y de administración: «GeneralAndAdministrativeExpense» termina ",
+   "fecha": "2026-11-07",
+   "nivel": "info",
+   "mensaje": "Gastos generales y de administración: «GeneralAndAdministrativeExpense» termina el 2026-06-30; solo se usa para años antiguos."
+  },
+  {
+   "id": "etiqueta_obsoleta.Recompras de acciones: «PaymentsForRepurchaseOfCommonStock» termina el #-#-#; so",
+   "fecha": "2026-11-07",
+   "nivel": "info",
+   "mensaje": "Recompras de acciones: «PaymentsForRepurchaseOfCommonStock» termina el 2025-12-31; solo se usa para años antiguos."
+  },
+  {
+   "id": "etiqueta_obsoleta.Deuda financiera: se descarta «LongTermDebtNoncurrent» (último dato #-#-# ingres",
+   "fecha": "2026-11-07",
+   "nivel": "info",
+   "mensaje": "Deuda financiera: se descarta «LongTermDebtNoncurrent» (último dato 2026-06-30, ingresos hasta 2026-09-30)."
+  },
+  {
+   "id": "componente_no_etiquetado.Deuda financiera a #-#-#: no hay dato de ConvertibleNotesPayableCurrent / LongTe",
+   "fecha": "2026-11-07",
+   "nivel": "info",
+   "mensaje": "Deuda financiera a 2026-09-30: no hay dato de ConvertibleNotesPayableCurrent / LongTermDebtCurrent / DebtCurrent; cuenta como 0."
+  },
+  {
+   "id": "etiqueta_obsoleta.Inmovilizado material neto: se descarta «PropertyPlantAndEquipmentNet» (último d",
+   "fecha": "2026-11-07",
+   "nivel": "info",
+   "mensaje": "Inmovilizado material neto: se descarta «PropertyPlantAndEquipmentNet» (último dato 2019-09-30, ingresos hasta 2026-09-30)."
+  },
+  {
+   "id": "estacional.Compañía estacional: los saltos de ingresos se comparan con el mismo trimestre d",
+   "fecha": "2026-11-07",
+   "nivel": "info",
+   "mensaje": "Compañía estacional: los saltos de ingresos se comparan con el mismo trimestre del año anterior y el 4T derivado solo se contrasta con el 3T (ratio 0,25–4)."
   }
  ]
 }
