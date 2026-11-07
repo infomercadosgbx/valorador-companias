@@ -1,6 +1,6 @@
 {
  "esquema": 1,
- "generado": "2026-11-06T22:05:37+00:00",
+ "generado": "2026-11-07T00:20:38+00:00",
  "grupos": {
   "bolsa": "Bolsa",
   "riesgo": "Volatilidad y crédito",
@@ -195,13 +195,13 @@
    "grupo": "tipos",
    "simbolo": "EUR/USD",
    "unidad": "",
-   "valor": 1.1144,
+   "valor": 1.114,
    "anterior": 1.114,
    "fecha": "2026-11-07",
    "fuente": "Twelve Data",
    "url": "https://twelvedata.com/",
-   "var": 0.0005,
-   "var_pct": 0.04
+   "var": 0.0001,
+   "var_pct": 0.01
   },
   {
    "id": "oro",
@@ -209,13 +209,13 @@
    "grupo": "materias",
    "simbolo": "XAU/USD",
    "unidad": "$",
-   "valor": 4067.1429,
+   "valor": 4065.9644,
    "anterior": 4063.3273,
    "fecha": "2026-11-07",
    "fuente": "Twelve Data",
    "url": "https://twelvedata.com/",
-   "var": 3.8156,
-   "var_pct": 0.09
+   "var": 2.6371,
+   "var_pct": 0.06
   },
   {
    "id": "wti",
@@ -237,13 +237,13 @@
    "grupo": "materias",
    "simbolo": "BTC/USD",
    "unidad": "$",
-   "valor": 76102.13,
-   "anterior": 76088.01,
-   "fecha": "2026-11-06",
+   "valor": 75966.32,
+   "anterior": 75844.0,
+   "fecha": "2026-11-07",
    "fuente": "Twelve Data",
    "url": "https://twelvedata.com/",
-   "var": 14.12,
-   "var_pct": 0.02
+   "var": 122.32,
+   "var_pct": 0.16
   }
  ],
  "sentimiento": {
@@ -308,9 +308,9 @@
      "id": "refugio",
      "nombre": "Demanda de refugio",
      "descripcion": "Rentabilidad a 20 sesiones de la bolsa menos la del bono a 10 años. Si ganan los bonos, miedo.",
-     "puntuacion": 2.6,
+     "puntuacion": 2.4,
      "etiqueta": "Miedo extremo",
-     "bruto": -8.4351,
+     "bruto": -8.9451,
      "fuente": "S&P 500 y bono a 10 años vía FRED",
      "url": "https://fred.stlouisfed.org/series/DGS10"
     },
@@ -579,7 +579,7 @@
      "fin": "2026-12-09",
      "proyecciones": true,
      "hora_madrid": "20:00",
-     "dias": 33,
+     "dias": 32,
      "comunicado": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261209a.htm",
      "rueda_prensa": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20261209.htm",
      "actas_fecha": "2026-12-30",
@@ -590,7 +590,7 @@
      "fin": "2027-01-27",
      "proyecciones": false,
      "hora_madrid": "20:00",
-     "dias": 82,
+     "dias": 81,
      "comunicado": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20270127a.htm",
      "rueda_prensa": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20270127.htm",
      "actas_fecha": "2027-02-17"
@@ -600,7 +600,7 @@
      "fin": "2027-03-17",
      "proyecciones": true,
      "hora_madrid": "19:00",
-     "dias": 131,
+     "dias": 130,
      "comunicado": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20270317a.htm",
      "rueda_prensa": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20270317.htm",
      "actas_fecha": "2027-04-07",
@@ -611,7 +611,7 @@
      "fin": "2027-04-28",
      "proyecciones": false,
      "hora_madrid": "20:00",
-     "dias": 173,
+     "dias": 172,
      "comunicado": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20270428a.htm",
      "rueda_prensa": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20270428.htm",
      "actas_fecha": "2027-05-19"
@@ -622,7 +622,7 @@
     "fin": "2026-10-28",
     "proyecciones": false,
     "hora_madrid": "19:00",
-    "dias": -9,
+    "dias": -10,
     "comunicado": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261028a.htm",
     "rueda_prensa": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20261028.htm",
     "actas_fecha": "2026-11-18",
@@ -770,9 +770,9 @@
     "url": "https://fred.stlouisfed.org/series/T5YIFR"
    },
    "real_10a": {
-    "valor": 2.64,
-    "fecha": "2026-11-04",
-    "hace_1m": 2.95,
+    "valor": 2.6,
+    "fecha": "2026-11-05",
+    "hace_1m": 2.91,
     "nombre": "Tipo real a 10 años (TIPS)",
     "url": "https://fred.stlouisfed.org/series/DFII10"
    },
@@ -786,227 +786,6 @@
   },
   "agenda": {
    "items": [
-    {
-     "id": "empleo",
-     "nombre": "Informe de empleo",
-     "fuente": "BLS",
-     "url": "https://www.bls.gov/news.release/empsit.nr0.htm",
-     "ultimo": "+165 mil empleos · paro 4,1% (oct-26)",
-     "graficos": [
-      {
-       "id": "PAYEMS",
-       "nombre": "Empleos creados (miles)",
-       "modo": "dif",
-       "puntos": [
-        [
-         "2024-11",
-         134
-        ],
-        [
-         "2024-12",
-         237
-        ],
-        [
-         "2025-01",
-         -48
-        ],
-        [
-         "2025-02",
-         42
-        ],
-        [
-         "2025-03",
-         67
-        ],
-        [
-         "2025-04",
-         108
-        ],
-        [
-         "2025-05",
-         13
-        ],
-        [
-         "2025-06",
-         -20
-        ],
-        [
-         "2025-07",
-         64
-        ],
-        [
-         "2025-08",
-         -70
-        ],
-        [
-         "2025-09",
-         76
-        ],
-        [
-         "2025-10",
-         -140
-        ],
-        [
-         "2025-11",
-         41
-        ],
-        [
-         "2025-12",
-         -17
-        ],
-        [
-         "2026-01",
-         160
-        ],
-        [
-         "2026-02",
-         -156
-        ],
-        [
-         "2026-03",
-         214
-        ],
-        [
-         "2026-04",
-         148
-        ],
-        [
-         "2026-05",
-         63
-        ],
-        [
-         "2026-06",
-         31
-        ],
-        [
-         "2026-07",
-         -10
-        ],
-        [
-         "2026-08",
-         186
-        ],
-        [
-         "2026-09",
-         60
-        ],
-        [
-         "2026-10",
-         165
-        ]
-       ],
-       "url": "https://fred.stlouisfed.org/series/PAYEMS"
-      },
-      {
-       "id": "UNRATE",
-       "nombre": "Tasa de paro",
-       "modo": "nivel",
-       "puntos": [
-        [
-         "2024-10",
-         4.1
-        ],
-        [
-         "2024-11",
-         4.2
-        ],
-        [
-         "2024-12",
-         4.1
-        ],
-        [
-         "2025-01",
-         4.0
-        ],
-        [
-         "2025-02",
-         4.2
-        ],
-        [
-         "2025-03",
-         4.2
-        ],
-        [
-         "2025-04",
-         4.2
-        ],
-        [
-         "2025-05",
-         4.3
-        ],
-        [
-         "2025-06",
-         4.1
-        ],
-        [
-         "2025-07",
-         4.3
-        ],
-        [
-         "2025-08",
-         4.3
-        ],
-        [
-         "2025-09",
-         4.4
-        ],
-        [
-         "2025-11",
-         4.5
-        ],
-        [
-         "2025-12",
-         4.4
-        ],
-        [
-         "2026-01",
-         4.3
-        ],
-        [
-         "2026-02",
-         4.4
-        ],
-        [
-         "2026-03",
-         4.3
-        ],
-        [
-         "2026-04",
-         4.3
-        ],
-        [
-         "2026-05",
-         4.3
-        ],
-        [
-         "2026-06",
-         4.2
-        ],
-        [
-         "2026-07",
-         4.1
-        ],
-        [
-         "2026-08",
-         4.1
-        ],
-        [
-         "2026-09",
-         4.2
-        ],
-        [
-         "2026-10",
-         4.1
-        ]
-       ],
-       "url": "https://fred.stlouisfed.org/series/UNRATE"
-      }
-     ],
-     "fecha": "2026-11-06",
-     "hora_madrid": "14:30",
-     "siguiente": "2026-12-04",
-     "anterior": "2026-10-02"
-    },
     {
      "id": "ipc",
      "nombre": "IPC (inflación)",
@@ -1634,6 +1413,226 @@
      "hora_madrid": "14:30",
      "siguiente": "2026-12-23",
      "anterior": "2026-10-29"
+    },
+    {
+     "id": "empleo",
+     "nombre": "Informe de empleo",
+     "fuente": "BLS",
+     "url": "https://www.bls.gov/news.release/empsit.nr0.htm",
+     "ultimo": "+165 mil empleos · paro 4,1% (oct-26)",
+     "graficos": [
+      {
+       "id": "PAYEMS",
+       "nombre": "Empleos creados (miles)",
+       "modo": "dif",
+       "puntos": [
+        [
+         "2024-11",
+         134
+        ],
+        [
+         "2024-12",
+         237
+        ],
+        [
+         "2025-01",
+         -48
+        ],
+        [
+         "2025-02",
+         42
+        ],
+        [
+         "2025-03",
+         67
+        ],
+        [
+         "2025-04",
+         108
+        ],
+        [
+         "2025-05",
+         13
+        ],
+        [
+         "2025-06",
+         -20
+        ],
+        [
+         "2025-07",
+         64
+        ],
+        [
+         "2025-08",
+         -70
+        ],
+        [
+         "2025-09",
+         76
+        ],
+        [
+         "2025-10",
+         -140
+        ],
+        [
+         "2025-11",
+         41
+        ],
+        [
+         "2025-12",
+         -17
+        ],
+        [
+         "2026-01",
+         160
+        ],
+        [
+         "2026-02",
+         -156
+        ],
+        [
+         "2026-03",
+         214
+        ],
+        [
+         "2026-04",
+         148
+        ],
+        [
+         "2026-05",
+         63
+        ],
+        [
+         "2026-06",
+         31
+        ],
+        [
+         "2026-07",
+         -10
+        ],
+        [
+         "2026-08",
+         186
+        ],
+        [
+         "2026-09",
+         60
+        ],
+        [
+         "2026-10",
+         165
+        ]
+       ],
+       "url": "https://fred.stlouisfed.org/series/PAYEMS"
+      },
+      {
+       "id": "UNRATE",
+       "nombre": "Tasa de paro",
+       "modo": "nivel",
+       "puntos": [
+        [
+         "2024-10",
+         4.1
+        ],
+        [
+         "2024-11",
+         4.2
+        ],
+        [
+         "2024-12",
+         4.1
+        ],
+        [
+         "2025-01",
+         4.0
+        ],
+        [
+         "2025-02",
+         4.2
+        ],
+        [
+         "2025-03",
+         4.2
+        ],
+        [
+         "2025-04",
+         4.2
+        ],
+        [
+         "2025-05",
+         4.3
+        ],
+        [
+         "2025-06",
+         4.1
+        ],
+        [
+         "2025-07",
+         4.3
+        ],
+        [
+         "2025-08",
+         4.3
+        ],
+        [
+         "2025-09",
+         4.4
+        ],
+        [
+         "2025-11",
+         4.5
+        ],
+        [
+         "2025-12",
+         4.4
+        ],
+        [
+         "2026-01",
+         4.3
+        ],
+        [
+         "2026-02",
+         4.4
+        ],
+        [
+         "2026-03",
+         4.3
+        ],
+        [
+         "2026-04",
+         4.3
+        ],
+        [
+         "2026-05",
+         4.3
+        ],
+        [
+         "2026-06",
+         4.2
+        ],
+        [
+         "2026-07",
+         4.1
+        ],
+        [
+         "2026-08",
+         4.1
+        ],
+        [
+         "2026-09",
+         4.2
+        ],
+        [
+         "2026-10",
+         4.1
+        ]
+       ],
+       "url": "https://fred.stlouisfed.org/series/UNRATE"
+      }
+     ],
+     "fecha": "2026-12-04",
+     "hora_madrid": "14:30",
+     "anterior": "2026-11-06"
     }
    ],
    "fuente": "Fechas oficiales del BLS y el BEA vía FRED",
