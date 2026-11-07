@@ -232,9 +232,9 @@ def estimates(root, ticker, rec, label, F, manual, provider=None, prev=None):
 def verdict(rep, est, tol=0.0005):
     if rep is None or est is None or not est.get("valor"):
         return None, None
-    dif = (rep / est["valor"] - 1) * 100 if est["valor"] > 0 else None
-    if dif is None:
-        return None, None
+    # Diferencia sobre el valor absoluto de la estimación: con estimaciones negativas
+    # (pérdidas esperadas, p. ej. BPA de −1,09 $) un dato mayor también es «Beat».
+    dif = (rep - est["valor"]) / abs(est["valor"]) * 100
     if abs(dif) < tol * 100:
         return round(dif, 2), "En línea"
     return round(dif, 2), "Beat" if dif > 0 else "Miss"

@@ -326,3 +326,11 @@ def test_deuda_etiqueta_desaparecida_avisa_no_encontrada():
     b, w = build_instant(cf, "1", "deuda", date(2026, 12, 31))
     assert b["asumido"] and b["ultimo"]["revisar"]
     assert [x["codigo"] for x in w if x["nivel"] == "aviso"] == ["deuda_no_encontrada"]
+
+
+def test_verdict_con_estimacion_negativa():
+    """Moderna 3T26: BPA de 0,38 $ frente a −1,09 $ esperado es «Beat» (+134,9%)."""
+    from fetcher.resultados import verdict
+    assert verdict(0.38, {"valor": -1.09}) == (134.86, "Beat")
+    assert verdict(-1.5, {"valor": -1.09})[1] == "Miss"
+    assert verdict(1313, {"valor": 892.41}) == (47.13, "Beat")
