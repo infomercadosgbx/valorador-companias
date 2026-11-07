@@ -86,22 +86,27 @@ El mismo que la revisión tras resultados, con `alcance: "completa"` y una `fuen
 - `informe_accn`: el de `data/<T>.json → ultimo_8k_resultados.accn`.
 - Ordena `cambios` por pestaña, en el orden de la tabla del apartado 2.
 
-## 5. Modo nocturno (tarea programada, de martes a sábado)
+## 5. Revisión de internet (tarea programada: lunes, miércoles y viernes)
 
-La tarea programada de cada mañana lanza esta orden para **todas** las compañías, después de la revisión tras resultados. Para no repetir trabajo ni llenar la web de propuestas, de noche funciona así:
+La tarea programada de cada mañana se reparte así:
 
-1. **Ventana corta:** desde la ejecución anterior: las últimas 24 h; el martes, 72 h (desde el sábado).
-2. **Criba primero, barata:** por compañía, mira solo lo nuevo de la ventana: `data/<T>.json` (8-K, 10-Q, 10-K, formularios 4, `riesgos_10k`, `noticias`, movimiento del precio), `seguimientos.json` y una o dos búsquedas web de noticias de la compañía.
-3. **¿Hay una novedad material?** Cuenta como material: un contrato o cliente relevante, un cambio de guía, una compra o venta de negocio, una alta o baja en la dirección, una demanda o decisión regulatoria, un producto importante, un cambio de recomendación de varios analistas, compras o ventas fuertes de directivos, o un movimiento del precio de más del 8% en un día con causa conocida. Si la novedad ya está recogida en `analysis/<T>.json` o en la propuesta pendiente, no cuenta.
-4. **Sin novedad material, no se hace nada** con esa compañía: ni propuesta ni commit.
-5. **Con novedad material:** propón solo los campos afectados (no la pestaña entera), con el procedimiento y las reglas de los apartados 1–4. `motivo`: «Novedades del <fecha>: <titular corto>».
-6. **Pulso en redes y vídeos** (`social.*`): solo en la ejecución del sábado, para todas las compañías, como resumen de la semana.
-7. **Propuesta pendiente:** si ya existe `propuestas/<T>.json`, añade los cambios nuevos sin quitar los que ya había (si un campo se repite, gana el más reciente), une las `fuentes`, amplía el `resumen` y pon `creada` con la fecha de hoy para que llegue el aviso.
-8. **Un solo commit** al final para todas las compañías con cambios: `Propuestas nocturnas: <T1>, <T2>`. Si ninguna tiene novedades, termina sin commit.
+- **Cada mañana de martes a sábado, lo oficial** (SEC y la compañía): 8-K de resultados, 10-Q y 10-K (MD&A, notas a los estados financieros, factores de riesgo), otros 8-K y notas de prensa de la compañía, llamadas con analistas y comentarios de la dirección. Se hace con `INSTRUCCIONES.md` (apartados 1–7), no con este documento.
+- **Lunes, miércoles y viernes, lo que se dice en internet**, para **todas** las compañías, con este apartado: prensa financiera, prensa sectorial y redes sociales (fuentes 3–5 del apartado 1).
+
+Cómo se hace la revisión de internet:
+
+1. **Ventana:** desde la revisión de internet anterior: el lunes, 72 h (desde el viernes); el miércoles y el viernes, 48 h.
+2. **Criba primero, barata:** por compañía, mira `data/<T>.json → noticias` (titulares de la ventana, con sentimiento), `seguimientos.json` y una o dos búsquedas web de noticias de la compañía; añade los medios sectoriales de `companies.json → medios` si los titulares no bastan.
+3. **¿Hay una novedad material?** Cuenta como material: un contrato o cliente relevante, un cambio de guía, una compra o venta de negocio, una alta o baja en la dirección, una demanda o decisión regulatoria, un producto importante, un movimiento de un competidor que cambie el MOAT, un cambio de recomendación de varios analistas, o un movimiento del precio de más del 8% en un día con causa conocida. Si la novedad ya está recogida en `analysis/<T>.json` o en la propuesta pendiente, no cuenta. Si el hecho es oficial (8-K, nota de prensa de la compañía), cítalo con su fuente oficial.
+4. **Sin novedad material, no se hace nada** con esa compañía en esta parte (salvo el pulso en redes del punto 6).
+5. **Con novedad material:** propón solo los campos afectados (no la pestaña entera), con el procedimiento y las reglas de los apartados 1–4. `motivo`: «Novedades del <fecha>: <titular corto>». Añade las mejores noticias a `sources.news`.
+6. **Pulso en redes y vídeos** (`social.pulse`, `social.videos`, `social.pulseFuente`): en cada revisión de internet, para todas las compañías, proponlo solo si el tono o los temas han cambiado frente a lo que hay. Las redes solo sirven para el tono: nunca para cifras ni hechos.
+7. **Propuesta pendiente:** si ya existe `propuestas/<T>.json` (también la creada esa misma mañana con lo oficial), añade los cambios nuevos sin quitar los que ya había (si un campo se repite, gana el más reciente), une las `fuentes`, amplía el `resumen` y pon `creada` con la fecha de hoy para que llegue el aviso.
+8. **Un solo commit** al final para todas las compañías con cambios: `Propuestas de internet: <T1>, <T2>`. Si ninguna tiene novedades, termina sin commit.
 
 ## 6. Guardar
 
 1. Si la ventana incluye unos resultados nuevos, traduce también la nota al español (apartado 5 de `INSTRUCCIONES.md`) y actualiza `propuestas/_estado.json → revisado.<T> = {accn, fecha}` para que la revisión de la mañana no repita el trabajo.
 2. Valida los JSON (`python -m json.tool propuestas/<T>.json`).
-3. Commit en `main`: `Propuesta: <T> actualización completa <fecha>` (en modo nocturno, el del apartado 5) y push. La web muestra el aviso «Propuesta de actualización» y llega el email.
+3. Commit en `main`: `Propuesta: <T> actualización completa <fecha>` (en la revisión de internet, el del apartado 5) y push. La web muestra el aviso «Propuesta de actualización» y llega el email.
 4. Al terminar, informa al usuario por compañía: número de cambios por pestaña, lo más importante que cambia en la tesis y qué fuentes no se pudieron leer.

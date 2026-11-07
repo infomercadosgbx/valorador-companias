@@ -87,7 +87,7 @@ Cuando una compañía presenta resultados, una tarea programada de Claude (cada 
 
 Pídele a Claude «Actualiza todo de AMZN» (o «de todas las compañías»). Repasa las 10 pestañas con todo lo publicado desde «Análisis a»: 10-K, 10-Q, 8-K, proxy, llamada de resultados, prensa financiera y sectorial, y redes sociales (estas solo para el tono). Deja una propuesta igual que la revisión tras resultados, pero agrupada por pestañas y con la fuente de cada cambio. El procedimiento está en `propuestas/ACTUALIZACION_COMPLETA.md`.
 
-Cada mañana de martes a sábado (7:41 h, tras el robot nocturno) la tarea programada de Claude hace primero la revisión tras resultados y después esta orden en **modo nocturno** para todas las compañías: busca novedades materiales del último día (72 h el martes) y solo propone los campos afectados; si no hay nada, no toca nada. El sábado añade además el pulso semanal de redes y vídeos.
+La tarea programada de Claude (7:41 h) lo reparte así: **de martes a sábado**, tras el robot nocturno, revisa lo oficial de la SEC y de la compañía (resultados, 10-Q y 10-K con MD&A, notas y riesgos, otros 8-K y notas de prensa, llamadas con analistas y comentarios de la dirección; ver `propuestas/INSTRUCCIONES.md`). **Lunes, miércoles y viernes** revisa además lo que se dice en internet (prensa financiera y sectorial, y redes sociales; apartado 5 de `ACTUALIZACION_COMPLETA.md`). En los dos casos solo propone los campos afectados por novedades materiales; si no hay nada, no toca nada.
 
 ## Informe de resultados (PDF por presentación)
 

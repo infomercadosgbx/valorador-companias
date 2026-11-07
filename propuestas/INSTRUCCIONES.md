@@ -89,14 +89,14 @@ La revisión no se limita al 8-K de resultados. En cada ejecución, y para cada 
   - **Notas a los estados financieros** (*footnotes*): deuda y vencimientos, segmentos, ingresos pendientes de reconocer (RPO o *backlog*), compromisos y contingencias, litigios, impuestos, remuneración en acciones, adquisiciones o desinversiones y hechos posteriores al cierre.
   - **Factores de riesgo** (Item 1A): riesgos nuevos o cambiados frente al informe anterior.
   - Las cifras definitivas: si difieren de la nota de prensa, dilo.
-- `motivo`: «10-Q del 3T26 (presentado el 9-nov-2026)» o el equivalente. Campos típicos: `overview.keyFacts`, `finance.*`, `risks`, `mgmt.call.cap`, `v.debt`, `v.cash`, `v.shares` y los supuestos del DCF que cambien.
+- `motivo`: «10-Q del 3T26 (presentado el 9-nov-2026)» o el equivalente. Campos típicos: `overview.keyFacts`, `fin_manual.q` (solo series que la SEC no publica; el resto de Finanzas lo pone el robot), `business.clients`, `risks`, `mgmt.call.cap`, `v.debt`, `v.cash`, `v.shares` y los supuestos del DCF que cambien.
 - Al terminar, guarda `informe.<T> = {accn, fecha, formulario}` en `propuestas/_estado.json`.
 
 ### 7.2 Notas de prensa y otros 8-K
 
 - En `https://data.sec.gov/submissions/CIK<10 dígitos>.json` (cabecera User-Agent «Valorador smaosviviendas@gmail.com»), busca los 8-K presentados dentro de la ventana (las últimas 24 h; el martes, 72 h) que no sean el de resultados ya revisado: Item 1.01 (contratos), 2.01 (compras y ventas), 2.03 (deuda nueva), 5.02 (cambios en la dirección), 7.01 y 8.01 (notas de prensa y otros hechos), etc.
 - Mira también la sala de prensa de la web de inversores de la compañía en la misma ventana.
-- Solo cuenta si es material, con el criterio de `ACTUALIZACION_COMPLETA.md`, apartado 5.3. `motivo`: «Nota de prensa del <fecha>: <titular corto>».
+- Solo cuenta si es material, con el criterio de `ACTUALIZACION_COMPLETA.md`, apartado 5, punto 3. `motivo`: «Nota de prensa del <fecha>: <titular corto>».
 
 ### 7.3 Llamada con analistas (*earnings call*)
 
