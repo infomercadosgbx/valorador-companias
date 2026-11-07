@@ -173,7 +173,7 @@ def run(root=ROOT, out=None, today=None, owner=None, site=None):
         lines += company_alerts(c, data, prev, analysis, state, today)
         prop = read(root / "propuestas" / f"{t}.json")
         if prop and prop.get("cambios"):
-            k = f"{t}:propuesta:{prop.get('creada')}|{prop.get('informe_accn', '')}"
+            k = f"{t}:propuesta:{prop.get('creada')}|{prop.get('informe_accn', '')}" + (f"|{prop['alcance']}" if prop.get("alcance") else "")
             if not state.get(k):
                 lines.append(("📝", f"**Propuesta de actualización de {c['nombre']} ({t})**: {prop.get('motivo', '')} · "
                                     f"{len(prop['cambios'])} cambios para revisar en la web."))

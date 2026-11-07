@@ -83,6 +83,10 @@ Cuando una compañía presenta resultados, una tarea programada de Claude (cada 
 - Te llega también un aviso por email («Propuesta de actualización de …»).
 - `propuestas/_estado.json` guarda el último 8-K de resultados revisado por compañía, para no repetir propuestas.
 
+### Actualización completa (orden «Actualizar todo»)
+
+Pídele a Claude «Actualiza todo de AMZN» (o «de todas las compañías»). Repasa las 10 pestañas con todo lo publicado desde «Análisis a»: 10-K, 10-Q, 8-K, proxy, llamada de resultados, prensa financiera y sectorial, y redes sociales (estas solo para el tono). Deja una propuesta igual que la revisión tras resultados, pero agrupada por pestañas y con la fuente de cada cambio. El procedimiento está en `propuestas/ACTUALIZACION_COMPLETA.md`.
+
 ## Informe de resultados (PDF por presentación)
 
 Cada vez que una compañía presenta resultados se genera un informe de 3 páginas A4 en `resultados.html` y su PDF en `data/resultados/<TICKER>/<periodo>.pdf`:
