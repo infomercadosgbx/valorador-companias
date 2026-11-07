@@ -704,5 +704,21 @@
   "TLN",
   "AES",
   "NEE"
+ ],
+ "avisos_aprobados": [
+  {
+   "id": "salto_raro.Ingresos #T#: -#% frente a #T# Revisa el informe.",
+   "fecha": "2026-11-07",
+   "nivel": "aviso",
+   "mensaje": "Ingresos 2T22: -50% frente a 1T22. Revisa el informe.",
+   "comprobacion": "Comprobado con los 10-Q/10-K de la SEC (nota 4, «Hedging and other revenues»): cifras correctas. Vistra incluye en ingresos la valoración a mercado de sus coberturas. 1T22 −334 M y 2T22 −1.735 M (pérdidas no realizadas de 2.088 M por la subida del gas); 3T22 +307 M; 2T24 +245 M, 3T24 +1.943 M (ganancias no realizadas de 1.960 M); 4T24 +375 M. Los ingresos por contratos con clientes se mueven mucho menos: 3.461 / 3.326 / 4.838 M en 2022 y 3.599 / 4.341 / 3.662 M en 2T–4T24."
+  },
+  {
+   "id": "salto_raro.Ingresos #T#: +#% frente a #T# Revisa el informe.",
+   "fecha": "2026-11-07",
+   "nivel": "aviso",
+   "mensaje": "Ingresos 3T22: +221% frente a 2T22. Revisa el informe.",
+   "comprobacion": "Comprobado con los 10-Q/10-K de la SEC (nota 4, «Hedging and other revenues»): cifras correctas. Vistra incluye en ingresos la valoración a mercado de sus coberturas. 1T22 −334 M y 2T22 −1.735 M (pérdidas no realizadas de 2.088 M por la subida del gas); 3T22 +307 M; 2T24 +245 M, 3T24 +1.943 M (ganancias no realizadas de 1.960 M); 4T24 +375 M. Los ingresos por contratos con clientes se mueven mucho menos: 3.461 / 3.326 / 4.838 M en 2022 y 3.599 / 4.341 / 3.662 M en 2T–4T24."
+  }
  ]
 }
