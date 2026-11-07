@@ -86,9 +86,22 @@ El mismo que la revisión tras resultados, con `alcance: "completa"` y una `fuen
 - `informe_accn`: el de `data/<T>.json → ultimo_8k_resultados.accn`.
 - Ordena `cambios` por pestaña, en el orden de la tabla del apartado 2.
 
-## 5. Guardar
+## 5. Modo nocturno (tarea programada, de martes a sábado)
+
+La tarea programada de cada mañana lanza esta orden para **todas** las compañías, después de la revisión tras resultados. Para no repetir trabajo ni llenar la web de propuestas, de noche funciona así:
+
+1. **Ventana corta:** desde la ejecución anterior: las últimas 24 h; el martes, 72 h (desde el sábado).
+2. **Criba primero, barata:** por compañía, mira solo lo nuevo de la ventana: `data/<T>.json` (8-K, 10-Q, 10-K, formularios 4, `riesgos_10k`, `noticias`, movimiento del precio), `seguimientos.json` y una o dos búsquedas web de noticias de la compañía.
+3. **¿Hay una novedad material?** Cuenta como material: un contrato o cliente relevante, un cambio de guía, una compra o venta de negocio, una alta o baja en la dirección, una demanda o decisión regulatoria, un producto importante, un cambio de recomendación de varios analistas, compras o ventas fuertes de directivos, o un movimiento del precio de más del 8% en un día con causa conocida. Si la novedad ya está recogida en `analysis/<T>.json` o en la propuesta pendiente, no cuenta.
+4. **Sin novedad material, no se hace nada** con esa compañía: ni propuesta ni commit.
+5. **Con novedad material:** propón solo los campos afectados (no la pestaña entera), con el procedimiento y las reglas de los apartados 1–4. `motivo`: «Novedades del <fecha>: <titular corto>».
+6. **Pulso en redes y vídeos** (`social.*`): solo en la ejecución del sábado, para todas las compañías, como resumen de la semana.
+7. **Propuesta pendiente:** si ya existe `propuestas/<T>.json`, añade los cambios nuevos sin quitar los que ya había (si un campo se repite, gana el más reciente), une las `fuentes`, amplía el `resumen` y pon `creada` con la fecha de hoy para que llegue el aviso.
+8. **Un solo commit** al final para todas las compañías con cambios: `Propuestas nocturnas: <T1>, <T2>`. Si ninguna tiene novedades, termina sin commit.
+
+## 6. Guardar
 
 1. Si la ventana incluye unos resultados nuevos, traduce también la nota al español (apartado 5 de `INSTRUCCIONES.md`) y actualiza `propuestas/_estado.json → revisado.<T> = {accn, fecha}` para que la revisión de la mañana no repita el trabajo.
 2. Valida los JSON (`python -m json.tool propuestas/<T>.json`).
-3. Commit en `main`: `Propuesta: <T> actualización completa <fecha>` y push. La web muestra el aviso «Propuesta de actualización» y llega el email.
+3. Commit en `main`: `Propuesta: <T> actualización completa <fecha>` (en modo nocturno, el del apartado 5) y push. La web muestra el aviso «Propuesta de actualización» y llega el email.
 4. Al terminar, informa al usuario por compañía: número de cambios por pestaña, lo más importante que cambia en la tesis y qué fuentes no se pudieron leer.
