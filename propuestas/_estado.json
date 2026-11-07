@@ -1,5 +1,5 @@
 {
- "_nota": "Último 8-K de resultados (Item 2.02) ya revisado por compañía. La tarea programada «Revisión tras resultados» prepara una propuesta cuando data/<T>.json trae uno distinto.",
+ "_nota": "revisado.<T>: último 8-K de resultados (Item 2.02) ya revisado. informe.<T>: último 10-Q/10-K ya revisado (MD&A, notas, riesgos). llamada_pendiente.<T>: resultados revisados cuya transcripción de la llamada aún no se había publicado. Ver propuestas/INSTRUCCIONES.md, apartado 7.",
  "revisado": {
   "APP": {
    "accn": "0001751008-26-000068",
@@ -47,5 +47,63 @@
    "accn": "0001682852-26-000194",
    "fecha": "2026-11-07"
   }
- }
+ },
+ "informe": {
+  "APP": {
+   "accn": "0001751008-26-000069",
+   "fecha": "2026-11-04",
+   "formulario": "10-Q"
+  },
+  "GOOGL": {
+   "accn": "0001652044-26-000084",
+   "fecha": "2026-10-29",
+   "formulario": "10-Q"
+  },
+  "RDDT": {
+   "accn": "0001713445-26-000116",
+   "fecha": "2026-10-30",
+   "formulario": "10-Q"
+  },
+  "AMZN": {
+   "accn": "0001018724-26-000040",
+   "fecha": "2026-10-30",
+   "formulario": "10-Q"
+  },
+  "VST": {
+   "accn": "0001692819-26-000019",
+   "fecha": "2026-08-10",
+   "formulario": "10-Q"
+  },
+  "AVGO": {
+   "accn": "0001730168-26-000080",
+   "fecha": "2026-09-10",
+   "formulario": "10-Q"
+  },
+  "PEP": {
+   "accn": "0000077476-26-000048",
+   "fecha": "2026-10-08",
+   "formulario": "10-Q"
+  },
+  "CVX": {
+   "accn": "0000093410-26-000200",
+   "fecha": "2026-11-05",
+   "formulario": "10-Q"
+  },
+  "PATH": {
+   "accn": "0001734722-26-000050",
+   "fecha": "2026-09-08",
+   "formulario": "10-Q"
+  },
+  "ORCL": {
+   "accn": "0001193125-26-389274",
+   "fecha": "2026-09-11",
+   "formulario": "10-Q"
+  },
+  "MRNA": {
+   "accn": "0001682852-26-000197",
+   "fecha": "2026-11-06",
+   "formulario": "10-Q"
+  }
+ },
+ "llamada_pendiente": {}
 }

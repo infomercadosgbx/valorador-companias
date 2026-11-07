@@ -76,3 +76,36 @@ Al hacer push, el workflow «Rehacer informes» regenera los informes y sus PDF 
 1. Escribe `propuestas/<T>.json` y actualiza `propuestas/_estado.json` → `revisado.<T> = {accn, fecha}`.
 2. Valida que los JSON son correctos (`python -m json.tool`), también `i18n/notas_es.json` si lo tocaste.
 3. Commit en `main` (propuesta y traducciones juntas): `Propuesta: <T> tras resultados <periodo>` y push. La web y el aviso por email se actualizan solos.
+
+## 7. Otras presentaciones: 10-Q, 10-K, notas de prensa y llamadas
+
+La revisión no se limita al 8-K de resultados. En cada ejecución, y para cada compañía, mira también estas cuatro cosas. Si hay algo nuevo y material, añade los cambios a `propuestas/<T>.json`; si ya existe, súmalos sin quitar los que había (si un campo se repite, gana el más reciente), une las `fuentes` y amplía el `resumen`.
+
+### 7.1 Nuevo 10-Q o 10-K
+
+- Compara `data/<T>.json → ultimo_informe.accn` con `propuestas/_estado.json → informe.<T>.accn`. Si son distintos, es un informe periódico nuevo sin revisar.
+- Lee el documento (`ultimo_informe.url_documento`), sobre todo:
+  - **MD&A** (*Management's Discussion and Analysis*, Item 2 del 10-Q y Item 7 del 10-K): explicación de la dirección sobre ingresos, márgenes y segmentos, tendencias, liquidez y fuentes de capital, capex previsto, recompras y dividendos, compromisos y cualquier previsión.
+  - **Notas a los estados financieros** (*footnotes*): deuda y vencimientos, segmentos, ingresos pendientes de reconocer (RPO o *backlog*), compromisos y contingencias, litigios, impuestos, remuneración en acciones, adquisiciones o desinversiones y hechos posteriores al cierre.
+  - **Factores de riesgo** (Item 1A): riesgos nuevos o cambiados frente al informe anterior.
+  - Las cifras definitivas: si difieren de la nota de prensa, dilo.
+- `motivo`: «10-Q del 3T26 (presentado el 9-nov-2026)» o el equivalente. Campos típicos: `overview.keyFacts`, `finance.*`, `risks`, `mgmt.call.cap`, `v.debt`, `v.cash`, `v.shares` y los supuestos del DCF que cambien.
+- Al terminar, guarda `informe.<T> = {accn, fecha, formulario}` en `propuestas/_estado.json`.
+
+### 7.2 Notas de prensa y otros 8-K
+
+- En `https://data.sec.gov/submissions/CIK<10 dígitos>.json` (cabecera User-Agent «Valorador smaosviviendas@gmail.com»), busca los 8-K presentados dentro de la ventana (las últimas 24 h; el martes, 72 h) que no sean el de resultados ya revisado: Item 1.01 (contratos), 2.01 (compras y ventas), 2.03 (deuda nueva), 5.02 (cambios en la dirección), 7.01 y 8.01 (notas de prensa y otros hechos), etc.
+- Mira también la sala de prensa de la web de inversores de la compañía en la misma ventana.
+- Solo cuenta si es material, con el criterio de `ACTUALIZACION_COMPLETA.md`, apartado 5.3. `motivo`: «Nota de prensa del <fecha>: <titular corto>».
+
+### 7.3 Llamada con analistas (*earnings call*)
+
+- Si al revisar los resultados aún no estaba publicada la transcripción, anótalo en `propuestas/_estado.json → llamada_pendiente.<T> = {accn, desde}`.
+- En cada ejecución, busca la transcripción de las compañías en `llamada_pendiente` (web de inversores, The Motley Fool u otras fuentes de `claude/fuentes-de-prensa.md`). Cuando la encuentres, completa `mgmt.call` (`dir`, `ret`, `guia`, `cap`, `nota`), con las respuestas a los analistas que cambien la lectura, y si hace falta `growth.guidance` y `verdict.watch`. Después quita la entrada de `llamada_pendiente`.
+- Si en 7 días no aparece, quítala igualmente y dilo en el resumen.
+
+### 7.4 Comentarios de la dirección fuera de resultados
+
+Presentaciones en conferencias de inversores, *investor day* y cartas a accionistas dentro de la ventana: solo si cambian la guía, la estrategia o la asignación de capital. Van en `mgmt.*` y `growth.guidance`, con enlace y fecha.
+
+Si no hay nada nuevo en ninguna de las cuatro, no se hace nada con esa compañía. Commit: `Propuesta: <T> tras <10-Q 3T26 | nota de prensa | llamada 3T26>`.
