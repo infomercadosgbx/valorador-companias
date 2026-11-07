@@ -166,8 +166,9 @@ def _classify(facts):
             (("annual", annual), ("q", quarters), ("h1", h1), ("m9", m9))}
 
 
-def choose_tags(cf, spec, ref_end, concept_key):
+def choose_tags(cf, spec, ref_end, concept_key, preferida=None):
     """Ordena las etiquetas por recencia (R1) y aplica la regla de frescura (R2).
+    preferida: etiqueta que manda si está al día (companies.json «etiqueta_ingresos»).
     Devuelve (lista ordenada de (tag, facts), avisos)."""
     warnings = []
     cands = []
@@ -181,6 +182,18 @@ def choose_tags(cf, spec, ref_end, concept_key):
     cands.sort(key=lambda c: (-c[0].toordinal(), c[1]))
     if not cands:
         return [], warnings
+    if preferida:
+        pref = [c for c in cands if c[2] == preferida and not is_stale(c[0], ref_end)]
+        if pref:
+            cands = pref + [c for c in cands if c is not pref[0]]
+            warnings.append(warn("info", "etiqueta_preferida",
+                f"{spec['nombre']}: se usa «{preferida}» por ajuste de la compañía (companies.json), "
+                "porque es el total de su cuenta de resultados; las demás etiquetas solo rellenan huecos.",
+                concepto=concept_key, etiqueta=preferida))
+        else:
+            warnings.append(warn("aviso", "etiqueta_preferida_no_disponible",
+                f"{spec['nombre']}: companies.json pide «{preferida}», pero no existe o está obsoleta; "
+                "se usa la regla general.", concepto=concept_key, etiqueta=preferida))
     if spec.get("combine"):
         # Las obsoletas solo rellenan periodos antiguos que no cubren las frescas.
         for le, _, tag, _ in cands:
@@ -235,7 +248,8 @@ def _drop_mislabeled_quarters(m, spec, concept_key, fye_mmdd):
         concepto=concept_key, etiqueta=tags[0], periodos=bad)]
 
 
-def build_flow(cf, cik, concept_key, ref_end, fye_mmdd, max_years=8, max_quarters=12, q4_state=None, estacional=False):
+def build_flow(cf, cik, concept_key, ref_end, fye_mmdd, max_years=8, max_quarters=12, q4_state=None, estacional=False,
+               preferida=None):
     """estacional: el 4T se compara solo con el 3T y con un rango más amplio (ventas
     concentradas en otoño-invierno: vacunas de Moderna); el 1T siguiente no sirve de referencia.
     q4_state: dict compartido entre conceptos. Los ingresos deciden qué 4T son
@@ -246,7 +260,7 @@ def build_flow(cf, cik, concept_key, ref_end, fye_mmdd, max_years=8, max_quarter
     if q4_state is None:
         q4_state = {"aceptados": set(), "rechazados": set()}
     warn_from = ref_end - timedelta(days=3 * 366) if ref_end else date.min
-    tagged, warnings = choose_tags(cf, spec, ref_end, concept_key)
+    tagged, warnings = choose_tags(cf, spec, ref_end, concept_key, preferida)
     result = {"nombre": spec["nombre"], "unidad": spec["unit"], "anual": [],
               "trimestral": [], "ttm": None, "etiquetas_usadas": []}
     if not tagged:

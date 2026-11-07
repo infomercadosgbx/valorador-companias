@@ -334,3 +334,29 @@ def test_verdict_con_estimacion_negativa():
     assert verdict(0.38, {"valor": -1.09}) == (134.86, "Beat")
     assert verdict(-1.5, {"valor": -1.09})[1] == "Miss"
     assert verdict(1313, {"valor": 892.41}) == (47.13, "Beat")
+
+
+def test_etiqueta_ingresos_preferida():
+    """Vistra: «Revenues» (total con coberturas) y «RevenueFromContract...» (solo
+    contratos) igual de al día. Por defecto manda la primera del catálogo; con
+    etiqueta_ingresos en companies.json manda «Revenues»."""
+    contratos = cal_year(2023, [3107, 3027, 4789], annual=13804)
+    total = cal_year(2023, [4425, 3189, 4086], annual=14779)
+    cf = rev_cf(contratos, extra={"Revenues": total})
+    ref = X.revenue_reference_end(cf)
+    base, _ = X.build_flow(cf, 1, "ingresos", ref, "1231")
+    assert base["anual"][-1]["valor"] == 13804
+    flow, w = X.build_flow(cf, 1, "ingresos", ref, "1231", preferida="Revenues")
+    assert flow["anual"][-1]["valor"] == 14779
+    assert flow["anual"][-1]["etiqueta"].endswith("Revenues")
+    assert any(x["codigo"] == "etiqueta_preferida" for x in w)
+
+
+def test_etiqueta_ingresos_preferida_obsoleta():
+    """Si la etiqueta pedida no está al día, se avisa y se usa la regla general."""
+    contratos = cal_year(2023, [3107, 3027, 4789], annual=13804)
+    viejo = cal_year(2021, [1, 2, 3], annual=10)
+    cf = rev_cf(contratos, extra={"Revenues": viejo})
+    flow, w = X.build_flow(cf, 1, "ingresos", X.revenue_reference_end(cf), "1231", preferida="Revenues")
+    assert flow["anual"][-1]["valor"] == 13804
+    assert any(x["codigo"] == "etiqueta_preferida_no_disponible" for x in w)

@@ -175,7 +175,8 @@ def build_from_sec(company, cf, subs):
     q4_state = {"aceptados": set(), "rechazados": set()}
     for key in C.FLOW_CONCEPTS:  # «ingresos» va primero: decide qué 4T son coherentes
         flow, w = X.build_flow(cf, cik, key, ref_end, fye, max_quarters=24, q4_state=q4_state,
-                                estacional=bool(company.get("estacional")))
+                                estacional=bool(company.get("estacional")),
+                                preferida=company.get("etiqueta_ingresos") if key == "ingresos" else None)
         rec["resultados"][key] = flow
         avisos += w
 
