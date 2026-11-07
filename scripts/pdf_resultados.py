@@ -21,7 +21,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 BASE = ROOT / "data" / "resultados"
 # Súbelo al cambiar el diseño de resultados.html: así se rehacen todos los PDF.
-VERSION_DISENO = 1
+VERSION_DISENO = 2
 
 
 def huella(path: Path) -> str:
