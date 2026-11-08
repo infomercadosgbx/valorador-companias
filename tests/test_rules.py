@@ -179,6 +179,16 @@ def test_acciones_varias_clases_se_suman():
     assert p["valor"] == 10 and p["clases"] == 3
 
 
+
+def test_acciones_del_balance_si_la_portada_va_por_clases():
+    # AppLovin: dei solo por clase (no está en la API); el balance da el total.
+    cf = companyfacts({"CommonStockSharesOutstanding": [fact("2026-06-30", 335), fact("2026-09-30", 331)]},
+                      units={"CommonStockSharesOutstanding": "shares"})
+    assert X.shares_outstanding(cf, "1") is None
+    p = X.shares_outstanding_balance(cf, "1", ref=335)
+    assert p["valor"] == 331 and p["periodo_fin"] == "2026-09-30"
+    assert X.shares_outstanding_balance(cf, "1", ref=500) is None   # incoherente con las diluidas
+
 # ---------------------------------------------------------- ensamblado
 def test_extranjera_ifrs_no_soportada():
     cf = {"cik": 1, "facts": {"ifrs-full": {"Revenue": {"units": {"EUR": []}}}}}

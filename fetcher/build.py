@@ -198,7 +198,13 @@ def build_from_sec(company, cf, subs):
     rec["acciones_en_circulacion"] = X.shares_outstanding(cf, cik)
     if rec["acciones_en_circulacion"] is None:
         dil = rec["resultados"]["acciones_diluidas_media"]["trimestral"]
-        if dil:
+        bal = X.shares_outstanding_balance(cf, cik, dil[-1]["valor"] if dil else None)
+        if bal and (not dil or bal["periodo_fin"] >= dil[-1]["periodo_fin"]):
+            rec["acciones_en_circulacion"] = bal
+            avisos.append(X.warn("info", "acciones_balance",
+                f"Acciones: la portada las da por clase de acción; se usan las del balance a {bal['periodo_fin']} "
+                f"({bal['valor']/1e6:,.0f} M), que suman todas las clases."))
+        elif dil:
             p = dict(dil[-1])
             p["derivado"] = (f"Acciones diluidas medias del {p['periodo']}: la portada da el número "
                              f"por clase de acción y la API de la SEC no lo publica")

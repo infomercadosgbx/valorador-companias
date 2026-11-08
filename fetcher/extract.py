@@ -572,3 +572,19 @@ def shares_outstanding(cf, cik):
               derived=f"Suma de {len(group)} clases" if len(group) > 1 else None)
     p["clases"] = len(group)
     return p
+
+
+def shares_outstanding_balance(cf, cik, ref=None):
+    """Acciones en circulación del balance (us-gaap:CommonStockSharesOutstanding).
+    Respaldo cuando la portada (dei) solo da el número por clase y la API no lo publica
+    (p. ej. AppLovin, clases A y B). Se usa solo el dato más reciente y, si hay
+    referencia (diluidas medias), solo si está entre 0,8 y 1,2 veces esa cifra."""
+    facts = [f for f in raw_facts(cf, "CommonStockSharesOutstanding", "shares")
+             if f.get("form", "").startswith(("10-Q", "10-K")) and f.get("val")]
+    if not facts:
+        return None
+    end = max(f["end"] for f in facts)
+    f = max((x for x in facts if x["end"] == end), key=lambda x: x["filed"])
+    if ref and not (0.8 <= f["val"] / ref <= 1.2):
+        return None
+    return point(f, cik, "CommonStockSharesOutstanding")
