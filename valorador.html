@@ -854,14 +854,11 @@ body.report .g2,body.report .g3{align-items:start}
 .prv{font-size:12.5px;line-height:1.45;padding:6px 8px;border-radius:6px;overflow-wrap:break-word} .prv.old{background:var(--surface2);color:var(--ink2)} .prv.new{background:color-mix(in srgb,var(--good) 9%,var(--surface))}
 .pred textarea.pe-txt,.pred input.pe-num{width:100%;box-sizing:border-box;font:inherit;font-size:12.5px;line-height:1.45;color:var(--ink);background:transparent;border:1px dashed color-mix(in srgb,var(--good) 45%,var(--line));border-radius:5px;padding:3px 6px;resize:vertical;cursor:text}
 .pred textarea.pe-txt:focus,.pred input.pe-num:focus{outline:2px solid color-mix(in srgb,var(--good) 55%,transparent);background:var(--surface);border-style:solid}
-.pred input.pe-num{max-width:120px} .pe-list{display:flex;flex-direction:column;gap:6px} .pe-item+.pe-item{border-top:1px solid var(--line);padding-top:6px}
+.pred input.pe-num{max-width:120px}
 .pe-obj{display:flex;flex-direction:column;gap:3px}
 .pred textarea.pe-txt{resize:none;overflow:hidden}
 .prc>div:first-child{position:sticky;top:0;align-self:start;max-height:80vh;overflow:auto}
-.pe-item{position:relative} .pe-tools{display:flex;gap:4px;align-items:center;margin-bottom:3px}
-.pe-tools .pe-num-i{font-size:11px;color:var(--ink2);min-width:16px}
-.pe-tools button{font-size:12px;line-height:1;padding:3px 7px;border-radius:5px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
-.pe-tools button:hover:not(:disabled){border-color:var(--good)} .pe-tools button:disabled{opacity:.35;cursor:default} .pe-f{display:grid;grid-template-columns:86px minmax(0,1fr);gap:6px;align-items:start} .pe-k{font-size:11px;color:var(--ink2);padding-top:5px}
+.pe-fmt{font-size:11px;color:var(--ink2);margin-bottom:3px} .pred textarea.pe-lines{white-space:pre-wrap} .pe-f{display:grid;grid-template-columns:86px minmax(0,1fr);gap:6px;align-items:start} .pe-k{font-size:11px;color:var(--ink2);padding-top:5px}
 .pl{margin:2px 0 0;padding-left:16px} .pl li{margin:2px 0}
 
 .wrow{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:4px 10px;align-items:start;padding:6px 0;border-bottom:1px solid color-mix(in srgb,var(--line) 60%,transparent)}
@@ -1375,34 +1372,43 @@ function propShow(v){
 /* Editor de la columna «Propuesta»: cada texto y número se puede corregir antes de aplicar.
    data-pe = ruta JSON [índice del cambio, …claves dentro del valor]. */
 const PEK={n:"Nombre",role:"Cargo",since:"Desde",note:"Nota",t:"Texto",d:"Fecha / detalle",u:"Enlace",src:"Medio",k:"Dato",v:"Valor",s:"Puntos",p:"Prob. / red",i:"Impacto",cat:"Categoría",impact:"Impacto",h:"Horizonte",st:"Estado",peso:"Peso",ev:"Cómo seguirlo",r:"Riesgo",threat:"Amenaza",dg:"Δ crecimiento",dm:"Δ margen",sector:"Sector",cifra:"Cifra",f:"Fecha",nota:"Nota",dir:"Hacia dónde va",ret:"Retos",guia:"Guía",cap:"Capital",q:"Trimestre",date:"Fecha",doc:"Documento",url:"Enlace",periodEnd:"Fin del periodo",label:"Título",items:"Partidas",kpis:"Indicadores",conocidos:"Clientes conocidos"};
+/* Un recuadro por cambio. Las listas son texto: una línea por elemento y, si el elemento
+   tiene varios campos, separados por « | » (se pueden cortar, pegar y reordenar líneas). */
+function peTxt(x){ return x==null?"":typeof x==="object"?JSON.stringify(x):String(x).replace(/\s*\n\s*/g," "); }
+function peKeys(arr){ const ks=[]; arr.forEach(o=>o&&typeof o==="object"&&!Array.isArray(o)&&Object.keys(o).forEach(k=>{ if(!ks.includes(k)&&typeof o[k]!=="boolean") ks.push(k); })); return ks; }
 function propEd(v,path){
   const pe=esc(JSON.stringify(path));
   if(typeof v==="number") return `<input type="number" step="any" class="pe-num" data-pe="${pe}" value="${v}">`;
-  if(typeof v==="string") return `<textarea class="pe-txt" rows="1" data-pe="${pe}">${esc(v)}</textarea>`;
-  if(v==null) return `<textarea class="pe-txt" rows="1" data-pe="${pe}"></textarea>`;
-  if(Array.isArray(v)) return v.length?`<div class="pe-list">${v.map((x,j)=>{const pj=esc(JSON.stringify(path.concat(j)));
-      return `<div class="pe-item"><div class="pe-tools"><span class="pe-num-i">${j+1}</span><button type="button" data-pmv="${pj}" data-dir="-1" title="Subir" aria-label="Subir" ${j===0?"disabled":""}>↑</button><button type="button" data-pmv="${pj}" data-dir="1" title="Bajar" aria-label="Bajar" ${j===v.length-1?"disabled":""}>↓</button><button type="button" data-pmv="${pj}" data-dir="0" title="Quitar de la propuesta" aria-label="Quitar">✕</button></div>${propEd(x,path.concat(j))}</div>`;}).join("")}</div>`:'<span class="note">vacío</span>';
-  if(typeof v==="object") return `<div class="pe-obj">${Object.keys(v).filter(k=>typeof v[k]!=="boolean").map(k=>`<div class="pe-f"><span class="pe-k">${esc(PEK[k]||k)}</span>${propEd(v[k],path.concat(k))}</div>`).join("")}</div>`;
+  if(v==null||typeof v==="string") return `<textarea class="pe-txt" rows="1" data-pe="${pe}">${esc(v||"")}</textarea>`;
+  if(Array.isArray(v)){
+    const objs=v.some(x=>x&&typeof x==="object"&&!Array.isArray(x)), ks=objs?peKeys(v):[];
+    const tipos={}; ks.forEach(k=>{ const o=v.find(x=>x&&x[k]!=null); tipos[k]=o?(typeof o[k]==="number"?"n":typeof o[k]==="object"?"j":"s"):"s"; });
+    const txt=v.map(x=>objs?ks.map(k=>peTxt(x&&x[k])).join(" | "):peTxt(x)).join("\n");
+    return `${objs?`<div class="pe-fmt">Una línea por elemento: ${ks.map(k=>esc(PEK[k]||k)).join(" | ")}</div>`:`<div class="pe-fmt">Una línea por elemento</div>`}
+      <textarea class="pe-txt pe-lines" rows="1" data-pl="${pe}" data-keys="${esc(JSON.stringify(ks))}" data-tipos="${esc(JSON.stringify(tipos))}" data-num="${v.length&&v.every(x=>typeof x==="number")?1:""}">${esc(txt)}</textarea>`;
+  }
+  if(typeof v==="object") return `<div class="pe-obj">${Object.keys(v).filter(k=>typeof v[k]!=="boolean").map(k=>`<div class="pe-f"><span class="pe-k">${esc(PEK[k]||k)}</span><div>${propEd(v[k],path.concat(k))}</div></div>`).join("")}</div>`;
   return esc(String(v));
 }
 function propFit(root){ (root||document).querySelectorAll("textarea.pe-txt").forEach(t=>{ t.style.height="auto"; t.style.height=(t.scrollHeight+2)+"px"; }); }
-function propMove(b){
-  const PR=cur&&cur._prop; if(!PR) return; let path; try{ path=JSON.parse(b.dataset.pmv); }catch(e){ return; }
-  const i=path[0], c=PR.cambios[i]; if(!c) return; const ks=path.slice(1), j=ks.pop();
-  const arr=ks.reduce((x,k)=>x[k],c.valor); if(!Array.isArray(arr)) return; const d=+b.dataset.dir;
-  if(d===0) arr.splice(j,1); else { const k=j+d; if(k<0||k>=arr.length) return; [arr[j],arr[k]]=[arr[k],arr[j]]; }
-  c._editado=true; const cb=$("modal").querySelector(`[data-pi="${i}"]`); if(cb) cb.checked=true;
-  const cell=$("pred-"+i); if(cell){ cell.innerHTML=propEd(c.valor,[i]); propFit(cell);
-    const np=JSON.stringify([i].concat(ks,d===0?Math.min(j,arr.length-1):j+d));
-    const nb=[...cell.querySelectorAll("[data-pmv]")].find(x=>x.dataset.pmv===np&&x.dataset.dir===String(d||1)); if(nb&&!nb.disabled) nb.focus(); }
+function peLines(el){
+  const ks=JSON.parse(el.dataset.keys||"[]"), tipos=JSON.parse(el.dataset.tipos||"{}");
+  const ls=el.value.split("\n").map(l=>l.trim()).filter(Boolean);
+  if(!ks.length) return ls.map(l=>el.dataset.num&&isFinite(+l.replace(",","."))?+l.replace(",","."):l);
+  return ls.map(l=>{ const ps=l.split(/\s*\|\s*/); if(ps.length>ks.length) ps.splice(ks.length-1,ps.length,ps.slice(ks.length-1).join(" | "));
+    const o={}; ks.forEach((k,j)=>{ const s=(ps[j]??"").trim(); if(s===""&&tipos[k]!=="s") return;
+      if(tipos[k]==="n"){ const n=+s.replace(",","."); o[k]=isFinite(n)?n:s; }
+      else if(tipos[k]==="j"){ try{ o[k]=JSON.parse(s); }catch(e){ o[k]=s; } }
+      else o[k]=s; });
+    return o; });
 }
 function propEdit(el){
-  const PR=cur&&cur._prop; if(!PR) return; let path; try{ path=JSON.parse(el.dataset.pe); }catch(e){ return; }
+  const PR=cur&&cur._prop; if(!PR) return; let path; try{ path=JSON.parse(el.dataset.pe||el.dataset.pl); }catch(e){ return; }
   const c=PR.cambios[path[0]]; if(!c) return; const ks=path.slice(1);
-  const val=el.type==="number"?(el.value===""?null:+el.value):el.value;
+  const val=el.dataset.pl?peLines(el):el.type==="number"?(el.value===""?null:+el.value):el.value;
   if(!ks.length) c.valor=val; else { let x=c.valor; for(let j=0;j<ks.length-1;j++) x=x[ks[j]]; x[ks[ks.length-1]]=val; }
   c._editado=true; const cb=$("modal").querySelector(`[data-pi="${path[0]}"]`); if(cb) cb.checked=true;
-  if(el.tagName==="TEXTAREA"){ el.style.height="auto"; el.style.height=el.scrollHeight+"px"; }
+  if(el.tagName==="TEXTAREA"){ el.style.height="auto"; el.style.height=(el.scrollHeight+2)+"px"; }
 }
 /* Agrupa los cambios por pestaña, en el orden de la web (las propuestas completas traen muchos). */
 const PTAB={meta:"Resumen",overview:"Resumen",business:"Negocio",fin_manual:"Finanzas",moat:"Ventaja competitiva",growth:"Crecimiento",mgmt:"Directiva",risks:"Riesgos",v:"Valoración",peers:"Valoración",verdict:"Veredicto",sources:"Fuentes",social:"Fuentes",notes:"Fuentes"};
@@ -4565,7 +4571,7 @@ C.verdict=()=>{
 };
 
 /* ================= EVENTOS ================= */
-document.addEventListener("input",e=>{ if(e.target.dataset&&e.target.dataset.pe) propEdit(e.target); });
+document.addEventListener("input",e=>{ if(e.target.dataset&&(e.target.dataset.pe||e.target.dataset.pl)) propEdit(e.target); });
 document.addEventListener("input",e=>{const t=e.target; const p=t.dataset&&t.dataset.p; if(!p) return;
   let v=t.value; const k=t.dataset.k; if(k==="num") v=v===""||isNaN(parseFloat(v))?null:parseFloat(v); else if(k==="list") v=v.split("\n").map(x=>x.trim()).filter(Boolean);
   setPath(cur,p,v); if(/^v\.(shares|cash|debt)$/.test(p)) delete cur._auto[p.slice(2)]; save();
@@ -4632,7 +4638,6 @@ document.addEventListener("click",e=>{
   if(e.target.closest("[data-ajcopy]")){ const c=store.companies[($("ajCo")||{}).value]; if(!c) return; const t=JSON.stringify(exportAnalysis(c),null,1);
     if(navigator.clipboard&&navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(()=>toast("JSON copiado"),()=>toast("No se pudo copiar")); else toast("Este navegador no permite copiar"); return; }
   if(e.target.closest("#btnProp")){ propModal(); return; }
-  { const mv=e.target.closest("[data-pmv]"); if(mv){ e.preventDefault(); propMove(mv); return; } }
   if(e.target.closest("#btnPropApply")){ propApply(); return; }
   if(e.target.closest("#btnPropAll")){ const cbs=[...$("modal").querySelectorAll("[data-pi]")]; const all=cbs.every(x=>x.checked); cbs.forEach(x=>x.checked=!all); return; }
   if(e.target.closest("#btnPropDrop")){ propDrop(); return; }
