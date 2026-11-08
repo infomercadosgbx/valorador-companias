@@ -852,6 +852,10 @@ body.report .g2,body.report .g3{align-items:start}
 .prlist .pr input{margin-top:3px} .prh{display:flex;flex-direction:column;gap:2px;margin-bottom:6px}
 .prc{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px} @media (max-width:640px){.prc{grid-template-columns:minmax(0,1fr)}}
 .prv{font-size:12.5px;line-height:1.45;padding:6px 8px;border-radius:6px;overflow-wrap:break-word} .prv.old{background:var(--surface2);color:var(--ink2)} .prv.new{background:color-mix(in srgb,var(--good) 9%,var(--surface))}
+.pred textarea.pe-txt,.pred input.pe-num{width:100%;box-sizing:border-box;font:inherit;font-size:12.5px;line-height:1.45;color:var(--ink);background:transparent;border:1px dashed color-mix(in srgb,var(--good) 45%,var(--line));border-radius:5px;padding:3px 6px;resize:vertical;cursor:text}
+.pred textarea.pe-txt:focus,.pred input.pe-num:focus{outline:2px solid color-mix(in srgb,var(--good) 55%,transparent);background:var(--surface);border-style:solid}
+.pred input.pe-num{max-width:120px} .pe-list{display:flex;flex-direction:column;gap:6px} .pe-item+.pe-item{border-top:1px solid var(--line);padding-top:6px}
+.pe-obj{display:flex;flex-direction:column;gap:3px} .pe-f{display:grid;grid-template-columns:86px minmax(0,1fr);gap:6px;align-items:start} .pe-k{font-size:11px;color:var(--ink2);padding-top:5px}
 .pl{margin:2px 0 0;padding-left:16px} .pl li{margin:2px 0}
 
 .wrow{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:4px 10px;align-items:start;padding:6px 0;border-bottom:1px solid color-mix(in srgb,var(--line) 60%,transparent)}
@@ -1361,6 +1365,26 @@ function propShow(v){
     return esc(JSON.stringify(v)); }
   return esc(String(v));
 }
+/* Editor de la columna «Propuesta»: cada texto y número se puede corregir antes de aplicar.
+   data-pe = ruta JSON [índice del cambio, …claves dentro del valor]. */
+const PEK={n:"Nombre",role:"Cargo",since:"Desde",note:"Nota",t:"Texto",d:"Fecha / detalle",u:"Enlace",src:"Medio",k:"Dato",v:"Valor",s:"Puntos",p:"Prob. / red",i:"Impacto",cat:"Categoría",impact:"Impacto",h:"Horizonte",st:"Estado",peso:"Peso",ev:"Cómo seguirlo",r:"Riesgo",threat:"Amenaza",dg:"Δ crecimiento",dm:"Δ margen",sector:"Sector",cifra:"Cifra",f:"Fecha",nota:"Nota",dir:"Hacia dónde va",ret:"Retos",guia:"Guía",cap:"Capital",q:"Trimestre",date:"Fecha",doc:"Documento",url:"Enlace",periodEnd:"Fin del periodo",label:"Título",items:"Partidas",kpis:"Indicadores",conocidos:"Clientes conocidos"};
+function propEd(v,path){
+  const pe=esc(JSON.stringify(path));
+  if(typeof v==="number") return `<input type="number" step="any" class="pe-num" data-pe="${pe}" value="${v}">`;
+  if(typeof v==="string"){ const r=Math.min(10,Math.max(1,Math.ceil(v.length/60)+(v.split("\n").length-1))); return `<textarea class="pe-txt" rows="${r}" data-pe="${pe}">${esc(v)}</textarea>`; }
+  if(v==null) return `<textarea class="pe-txt" rows="1" data-pe="${pe}"></textarea>`;
+  if(Array.isArray(v)) return v.length?`<div class="pe-list">${v.map((x,j)=>`<div class="pe-item">${propEd(x,path.concat(j))}</div>`).join("")}</div>`:'<span class="note">vacío</span>';
+  if(typeof v==="object") return `<div class="pe-obj">${Object.keys(v).filter(k=>typeof v[k]!=="boolean").map(k=>`<div class="pe-f"><span class="pe-k">${esc(PEK[k]||k)}</span>${propEd(v[k],path.concat(k))}</div>`).join("")}</div>`;
+  return esc(String(v));
+}
+function propEdit(el){
+  const PR=cur&&cur._prop; if(!PR) return; let path; try{ path=JSON.parse(el.dataset.pe); }catch(e){ return; }
+  const c=PR.cambios[path[0]]; if(!c) return; const ks=path.slice(1);
+  const val=el.type==="number"?(el.value===""?null:+el.value):el.value;
+  if(!ks.length) c.valor=val; else { let x=c.valor; for(let j=0;j<ks.length-1;j++) x=x[ks[j]]; x[ks[ks.length-1]]=val; }
+  c._editado=true; const cb=$("modal").querySelector(`[data-pi="${path[0]}"]`); if(cb) cb.checked=true;
+  if(el.tagName==="TEXTAREA"){ el.style.height="auto"; el.style.height=el.scrollHeight+"px"; }
+}
 /* Agrupa los cambios por pestaña, en el orden de la web (las propuestas completas traen muchos). */
 const PTAB={meta:"Resumen",overview:"Resumen",business:"Negocio",fin_manual:"Finanzas",moat:"Ventaja competitiva",growth:"Crecimiento",mgmt:"Directiva",risks:"Riesgos",v:"Valoración",peers:"Valoración",verdict:"Veredicto",sources:"Fuentes",social:"Fuentes",notes:"Fuentes"};
 function propGroups(cs){ const ord=TABS.map(t=>t.label), g={};
@@ -1370,10 +1394,10 @@ function propModal(){
   const PR=cur._prop; if(!PR) return;
   $("modal").innerHTML=`<div style="display:flex;justify-content:space-between;gap:12px;align-items:flex-start"><div><div class="eyebrow">${esc(cur.meta.name)} · propuesta del ${esc(fecha(PR.creada))}</div><h2 id="mTitle">${esc(PR.motivo||"Propuesta de actualización")}</h2></div><button type="button" class="x" data-close aria-label="Cerrar">×</button></div>
     ${PR.resumen?`<div class="alert" style="background:var(--surface2);border-color:var(--line)">${esc(PR.resumen)}</div>`:""}
-    <p class="note" style="margin:0">Marca los cambios que quieras. Se aplican como borrador: los verás en la web, podrás retocarlos con «Editar» y después los guardas con «Guardar en GitHub».</p>
+    <p class="note" style="margin:0">Marca los cambios que quieras y corrige directamente cualquier texto o número de la columna «Propuesta». Se aplican como borrador: los verás en la web, podrás retocarlos con «Editar» y después los guardas con «Guardar en GitHub».</p>
     <div class="prlist">${propGroups(PR.cambios).map(([tab,items])=>`${PR.cambios.length>6?`<div class="eyebrow" style="margin-top:6px">${esc(tab)} · ${items.length}</div>`:""}${items.map(([c,i])=>`<label class="pr"><input type="checkbox" data-pi="${i}" checked>
       <div><div class="prh"><b>${esc(propLabel(c.campo))}</b>${c.porque?`<span class="note">${esc(c.porque)}</span>`:""}${c.fuente&&c.fuente.u?`<span class="note">Fuente: <a href="${esc(c.fuente.u)}" target="_blank" rel="noopener">${esc(c.fuente.t||c.fuente.u)}</a>${c.fuente.d?` · ${esc(c.fuente.d)}`:""}</span>`:""}</div>
-      <div class="prc"><div><span class="eyebrow">Ahora</span><div class="prv old">${propShow(getPath(cur,c.campo))}</div></div><div><span class="eyebrow">Propuesta</span><div class="prv new">${propShow(c.valor)}</div></div></div></div></label>`).join("")}`).join("")}</div>
+      <div class="prc"><div><span class="eyebrow">Ahora</span><div class="prv old">${propShow(getPath(cur,c.campo))}</div></div><div><span class="eyebrow">Propuesta · puedes corregirla aquí</span><div class="prv new pred">${propEd(c.valor,[i])}</div></div></div></div></label>`).join("")}`).join("")}</div>
     ${(PR.fuentes||[]).length?`<div class="note">Fuentes: ${PR.fuentes.map(f=>`<a href="${esc(f.u)}" target="_blank" rel="noopener">${esc(f.t)}</a>`).join(" · ")}</div>`:""}
     <div class="toolbar"><button type="button" class="btn-acc" id="btnPropApply">Aplicar los marcados como borrador</button><button type="button" id="btnPropAll">Marcar / desmarcar todos</button><button type="button" id="btnPropDrop">Descartar la propuesta</button><span class="saved" id="propMsg"></span></div>`;
   $("overlay").hidden=false;
@@ -4522,6 +4546,7 @@ C.verdict=()=>{
 };
 
 /* ================= EVENTOS ================= */
+document.addEventListener("input",e=>{ if(e.target.dataset&&e.target.dataset.pe) propEdit(e.target); });
 document.addEventListener("input",e=>{const t=e.target; const p=t.dataset&&t.dataset.p; if(!p) return;
   let v=t.value; const k=t.dataset.k; if(k==="num") v=v===""||isNaN(parseFloat(v))?null:parseFloat(v); else if(k==="list") v=v.split("\n").map(x=>x.trim()).filter(Boolean);
   setPath(cur,p,v); if(/^v\.(shares|cash|debt)$/.test(p)) delete cur._auto[p.slice(2)]; save();
