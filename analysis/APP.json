@@ -6,7 +6,7 @@
   "hq": "Palo Alto, California",
   "founded": "2012",
   "employees": "898 (dic-25)",
-  "asOf": "5-nov-2026",
+  "asOf": "8-nov-2026",
   "nextEarnings": "feb-2027 (por confirmar)",
   "fav": true
  },
@@ -722,5 +722,91 @@
   "DV",
   "MGNI",
   "PUBM"
+ ],
+ "avisos_aprobados": [
+  {
+   "id": "capex_asumido.Capex de # UDM sep-#: la compañía ya no lo etiqueta en XBRL y antes era menos de",
+   "fecha": "2026-11-08",
+   "nivel": "info",
+   "mensaje": "Capex de 2025, UDM sep-26: la compañía ya no lo etiqueta en XBRL y antes era menos del 2% de su caja operativa; se asume 0 para calcular el FCF."
+  },
+  {
+   "id": "4t_descartado.Ingresos #T#: el #T derivado (-# M) no encaja con los trimestres vecinos (magnit",
+   "fecha": "2026-11-08",
+   "nivel": "info",
+   "mensaje": "Ingresos 4T23: el 4T derivado (-488 M) no encaja con los trimestres vecinos (magnitud o signo incoherente); se descarta, y con él el 4T del resto de conceptos de ese año. Es consecuencia de la reexpresión: ese periodo queda fuera de la serie comparable."
+  },
+  {
+   "id": "4t_descartado.Ingresos #T#: el #T derivado (# M) no encaja con los trimestres vecinos (ratio #",
+   "fecha": "2026-11-08",
+   "nivel": "info",
+   "mensaje": "Ingresos 4T24: el 4T derivado (620 M) no encaja con los trimestres vecinos (ratio 0.74, 0.53); se descarta, y con él el 4T del resto de conceptos de ese año. Es consecuencia de la reexpresión: ese periodo queda fuera de la serie comparable."
+  },
+  {
+   "id": "etiqueta_obsoleta.Beneficio neto: se descarta «ProfitLoss», su último dato (#-#-#) va más de # día",
+   "fecha": "2026-11-08",
+   "nivel": "info",
+   "mensaje": "Beneficio neto: se descarta «ProfitLoss», su último dato (2025-03-31) va más de 60 días por detrás de los ingresos (2026-09-30)."
+  },
+  {
+   "id": "etiqueta_obsoleta.Capex: «PaymentsToAcquirePropertyPlantAndEquipment» termina el #-#-#; solo se us",
+   "fecha": "2026-11-08",
+   "nivel": "info",
+   "mensaje": "Capex: «PaymentsToAcquirePropertyPlantAndEquipment» termina el 2024-12-31; solo se usa para años antiguos."
+  },
+  {
+   "id": "etiqueta_obsoleta.Depreciación: «Depreciation» termina el #-#-#; solo se usa para años antiguos.",
+   "fecha": "2026-11-08",
+   "nivel": "info",
+   "mensaje": "Depreciación: «Depreciation» termina el 2025-12-31; solo se usa para años antiguos."
+  },
+  {
+   "id": "etiqueta_obsoleta.Beneficio antes de impuestos: «IncomeLossFromContinuingOperationsBeforeIncomeTax",
+   "fecha": "2026-11-08",
+   "nivel": "info",
+   "mensaje": "Beneficio antes de impuestos: «IncomeLossFromContinuingOperationsBeforeIncomeTaxesDomestic» termina el 2025-12-31; solo se usa para años antiguos."
+  },
+  {
+   "id": "etiqueta_obsoleta.Gastos por intereses: «InterestExpenseDebt» termina el #-#-#; solo se usa para a",
+   "fecha": "2026-11-08",
+   "nivel": "info",
+   "mensaje": "Gastos por intereses: «InterestExpenseDebt» termina el 2025-12-31; solo se usa para años antiguos."
+  },
+  {
+   "id": "componente_no_etiquetado.Caja e inversiones a corto a #-#-#: no hay dato de ShortTermInvestments / Market",
+   "fecha": "2026-11-08",
+   "nivel": "info",
+   "mensaje": "Caja e inversiones a corto a 2026-09-30: no hay dato de ShortTermInvestments / MarketableSecuritiesCurrent / AvailableForSaleSecuritiesDebtSecuritiesCurrent; cuenta como 0."
+  },
+  {
+   "id": "componente_no_etiquetado.Deuda financiera a #-#-#: no hay dato de LongTermDebtCurrent / DebtCurrent; cuen",
+   "fecha": "2026-11-08",
+   "nivel": "info",
+   "mensaje": "Deuda financiera a 2026-09-30: no hay dato de LongTermDebtCurrent / DebtCurrent; cuenta como 0."
+  },
+  {
+   "id": "etiqueta_obsoleta.Inmovilizado material neto: se descarta «PropertyPlantAndEquipmentNet» (último d",
+   "fecha": "2026-11-08",
+   "nivel": "info",
+   "mensaje": "Inmovilizado material neto: se descarta «PropertyPlantAndEquipmentNet» (último dato 2022-09-30, ingresos hasta 2026-09-30)."
+  },
+  {
+   "id": "acciones_balance.Acciones: la portada las da por clase de acción; se usan las del balance a #-#-#",
+   "fecha": "2026-11-08",
+   "nivel": "info",
+   "mensaje": "Acciones: la portada las da por clase de acción; se usan las del balance a 2026-09-30 (331 M), que suman todas las clases."
+  },
+  {
+   "id": "reexpresion.Cuentas reexpresadas: serie anual comparable desde # y trimestral desde #T# Los ",
+   "fecha": "2026-11-08",
+   "nivel": "info",
+   "mensaje": "Cuentas reexpresadas: serie anual comparable desde 2023 y trimestral desde 2T24. Los periodos anteriores incluyen negocios que ya no forman parte de la compañía y se guardan aparte («no comparable»)."
+  },
+  {
+   "id": "posible_discontinuada.Ingresos #: la caída frente al año anterior no es real. La compañía reexpresó su",
+   "fecha": "2026-11-08",
+   "nivel": "info",
+   "mensaje": "Ingresos 2023: la caída frente al año anterior no es real. La compañía reexpresó sus cuentas (operaciones discontinuadas) desde 2023 y los años anteriores incluyen el negocio vendido: no son comparables y la web los deja fuera de gráficos y crecimientos."
+  }
  ]
 }
