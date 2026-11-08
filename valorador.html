@@ -1298,7 +1298,7 @@ function renderWarnings(){
     <div class="wfoot"><button type="button" class="wok wall" data-wall="1">Aprobar todo y pasarlo a Fuentes</button>
     <p class="note" style="margin:0">Los genera el robot al validar los datos de la SEC y la web al comparar tu modelo con ellos; ninguna cifra se corrige en silencio. Lo aprobado se guarda en tu análisis (publícalo para que valga en otros dispositivos) y pasa a Fuentes → Cifras clave y calidad del dato. Si aparece un aviso nuevo, vuelve aquí.</p></div></details>`;
 }
-const DLAB={"v.wacc":"WACC","v.tg":"Crecimiento perpetuo","v.exit":"Múltiplo de salida","v.method":"Método del valor terminal","v.m1":"Margen EBITDA año 1","v.m5":"Margen EBITDA año 5",
+const DLAB={"v.comentario":"Comentario de los supuestos","v.wacc":"WACC","v.tg":"Crecimiento perpetuo","v.exit":"Múltiplo de salida","v.method":"Método del valor terminal","v.m1":"Margen EBITDA año 1","v.m5":"Margen EBITDA año 5",
   "v.da":"Amortizaciones año 1","v.da5":"Amortizaciones año 5","v.sbc":"Pago en acciones","v.capex":"Capex año 1","v.capex5":"Capex año 5","v.nwc":"Circulante","v.tax":"Tipo impositivo",
   "v.rev0":"Ingresos año base","v.year0":"Año base","v.eps":"BPA próximos 12 meses","v.pe":"PER objetivo","v.evm":"EV/EBITDA objetivo","v.shares":"Acciones","v.cash":"Caja","v.debt":"Deuda","avisos_aprobados":"Avisos aprobados"};
 function draftLabel(p){ if(DLAB[p]) return DLAB[p]; if(typeof PLAB!=="undefined"&&PLAB[p]) return PLAB[p]; let m=/^v\.g\.(\d)$/.exec(p); if(m) return `Crecimiento año ${+m[1]+1}`;
@@ -3829,6 +3829,8 @@ R.valuation=()=>{
         <details${ovr?" open":""}><summary class="note" style="cursor:pointer">Ajustar acciones, caja o deuda</summary><div class="fields detgrid" style="padding:6px 0 0">${F("shares","Acciones diluidas","M",0.1)}${F("cash","Caja","M",1)}${F("debt","Deuda financiera","M",1)}</div></details>
       </div>
     </details>
+    <div class="ascomment" style="margin-top:14px"><label for="v_comentario"><b>Comentario de los supuestos</b> <span class="note" style="font-weight:400">· por qué pusiste cada supuesto y qué dato te haría cambiarlo. Se guarda con el análisis y queda en el historial de versiones.</span></label>
+      <textarea id="v_comentario" data-p="v.comentario" rows="6" style="margin-top:6px" placeholder="Ej.: Margen final 31% por la robótica y el peso de AWS; revisar con el margen de Norteamérica de cada 10-Q. Capex 13% en 2031: pendiente de la guía de capex 2027 (4T, febrero).">${esc(v.comentario||"")}</textarea></div>
   </section>`;
 };
 function valOutHtml(){
@@ -4524,7 +4526,7 @@ document.addEventListener("input",e=>{const t=e.target; const p=t.dataset&&t.dat
   let v=t.value; const k=t.dataset.k; if(k==="num") v=v===""||isNaN(parseFloat(v))?null:parseFloat(v); else if(k==="list") v=v.split("\n").map(x=>x.trim()).filter(Boolean);
   setPath(cur,p,v); if(/^v\.(shares|cash|debt)$/.test(p)) delete cur._auto[p.slice(2)]; save();
   if(t.type==="range"&&t.nextElementSibling) t.nextElementSibling.textContent=nf(v,1);
-  if(p.startsWith("v.")) scheduleVal();
+  if(p.startsWith("v.")&&p!=="v.comentario") scheduleVal();
   if(p.startsWith("meta.")) renderHeader();
 });
 document.addEventListener("change",e=>{const t=e.target; const p=t.dataset&&t.dataset.p; if(!p||p.startsWith("v.")||p==="notes") return;
