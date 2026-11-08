@@ -245,6 +245,16 @@
    }
   },
   {
+   "campo": "v.shares",
+   "valor": 331,
+   "porque": "Acciones en circulación a 30-sep-26 según el balance de la SEC (331 M, clases A y B); el modelo usaba 335 M (diluidas medias)",
+   "fuente": {
+    "t": "10-Q 3T26 (CommonStockSharesOutstanding)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000069/0001751008-26-000069-index.htm",
+    "d": "4-nov-2026"
+   }
+  },
+  {
    "campo": "verdict.rating",
    "valor": "Mantener",
    "porque": "El precio (391 $) está casi en el valor del DCF del propio modelo (~405 $; ~399 $ ponderado) y muy por encima del precio de compra (300 $): «Comprar» ya no es coherente",
