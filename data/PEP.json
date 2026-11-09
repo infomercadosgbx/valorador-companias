@@ -11258,7 +11258,7 @@
    "compradores": [
     "POHLAD ROBERT C"
    ],
-   "desde": "2026-05-07"
+   "desde": "2026-05-10"
   },
   "operaciones": [
    {
@@ -11996,38 +11996,6 @@
     "plan_10b5_1": false,
     "fecha_presentacion": "2026-06-03",
     "url": "https://www.sec.gov/Archives/edgar/data/77476/000162828026040413/0001628280-26-040413-index.htm"
-   },
-   {
-    "fecha": "2026-05-06",
-    "codigo": "A",
-    "tipo": "Concesión (sueldo en acciones)",
-    "acciones": 1000.0,
-    "precio": 0.0,
-    "importe": null,
-    "sentido": "compra",
-    "tras_operacion": 1000.0,
-    "clase": "PepsiCo, Inc. Common Stock",
-    "persona": "Gibbs David W",
-    "cargo": "Consejero",
-    "plan_10b5_1": false,
-    "fecha_presentacion": "2026-05-08",
-    "url": "https://www.sec.gov/Archives/edgar/data/77476/000162828026032951/0001628280-26-032951-index.htm"
-   },
-   {
-    "fecha": "2026-05-06",
-    "codigo": "A",
-    "tipo": "Concesión (sueldo en acciones)",
-    "acciones": 534.325,
-    "precio": 0.0,
-    "importe": null,
-    "sentido": "compra",
-    "tras_operacion": 1534.325,
-    "clase": "PepsiCo, Inc. Common Stock",
-    "persona": "Gibbs David W",
-    "cargo": "Consejero",
-    "plan_10b5_1": false,
-    "fecha_presentacion": "2026-05-08",
-    "url": "https://www.sec.gov/Archives/edgar/data/77476/000162828026032951/0001628280-26-032951-index.htm"
    }
   ],
   "operaciones_por_filing": [
@@ -12844,45 +12812,9 @@
       "clase": "PepsiCo, Inc. Common Stock"
      }
     ]
-   },
-   {
-    "accn": "0001628280-26-032951",
-    "fecha_presentacion": "2026-05-08",
-    "url": "https://www.sec.gov/Archives/edgar/data/77476/000162828026032951/0001628280-26-032951-index.htm",
-    "personas": [
-     {
-      "nombre": "Gibbs David W",
-      "cargo": "Consejero"
-     }
-    ],
-    "plan_10b5_1": false,
-    "operaciones": [
-     {
-      "fecha": "2026-05-06",
-      "codigo": "A",
-      "tipo": "Concesión (sueldo en acciones)",
-      "acciones": 1000.0,
-      "precio": 0.0,
-      "importe": null,
-      "sentido": "compra",
-      "tras_operacion": 1000.0,
-      "clase": "PepsiCo, Inc. Common Stock"
-     },
-     {
-      "fecha": "2026-05-06",
-      "codigo": "A",
-      "tipo": "Concesión (sueldo en acciones)",
-      "acciones": 534.325,
-      "precio": 0.0,
-      "importe": null,
-      "sentido": "compra",
-      "tras_operacion": 1534.325,
-      "clase": "PepsiCo, Inc. Common Stock"
-     }
-    ]
    }
   ],
-  "n_formularios": 23
+  "n_formularios": 22
  },
  "riesgos_10k": {
   "version": 4,
@@ -12918,11 +12850,11 @@
  "precio": {
   "minimo_52s": 123.47,
   "maximo_52s": 171.48,
-  "beta": 0.29012865,
-  "valor": 141.34,
-  "cierre_anterior": 142.71,
+  "beta": 0.2947662,
+  "valor": 141.88,
+  "cierre_anterior": 141.34,
   "moneda": "USD",
-  "fecha": "2026-11-06",
+  "fecha": "2026-11-09",
   "fuente": "Finnhub (API oficial, plan gratuito)",
   "url": "https://finnhub.io/"
  },
@@ -13019,6 +12951,176 @@
  },
  "noticias": [
   {
+   "titular": "PepsiCo (PEP) Announces 1,000 Job Cuts in North America Amid Efficiency Drive",
+   "url": "https://www.gurufocus.com/news/9185823/pepsico-pep-announces-1000-job-cuts-in-north-america-amid-efficiency-drive",
+   "fecha": "2026-11-09",
+   "resumen": "On November 09, 2026, PepsiCo Inc (NASDAQ: PEP) revealed plans to reduce its North American workforce by approximately 1,000 positions as part of a broader init",
+   "medio": "gurufocus.com",
+   "tipo": "prensa",
+   "via": "Marketaux",
+   "sentimiento": {
+    "puntuacion": 0.555,
+    "etiqueta": "Alcista"
+   }
+  },
+  {
+   "titular": "Sector Update: Consumer Stocks Rise Late Afternoon",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=ba938903fcd3498e130a233f299beb0b31142091be5e907f8ba7a7a731063fab",
+   "fecha": "2026-11-09",
+   "resumen": "Consumer stocks were higher late Monday afternoon, with the State Street Consumer Staples Select Sec",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Is PepsiCo (PEP) Undervalued Even After a 12% Rally?",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=07344615ab4820295708c9c65b29ad7f6b95996fdf219360967685dabddc1069",
+   "fecha": "2026-11-09",
+   "resumen": "PepsiCo shares have climbed 12.2% over the past month, which puts fresh attention on a simple question for anyone looking at the stock today. Is the current price broadly in line with the cash the business is expected to generate over time, or has sentiment moved ahead of the und",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "3 Magnificent High-Yield Dividend Stocks to Buy Near Their 52-Week Lows",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=bf6f46cb749f9905b093d54661041f2110bac72c59500c1717a93b7997844f62",
+   "fecha": "2026-11-09",
+   "resumen": "High-yield dividend stocks can burn your portfolio, but these blue chip stocks stand out.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Can PepsiCo's Zero-Sugar Strategy Strengthen Beverage Demand?",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=18bcecca6e0ef1da54b060fe5f1675b5a577386ba5443940440e028a0d519f67",
+   "fecha": "2026-11-09",
+   "resumen": "PEP's zero-sugar beverages are gaining traction, supported by innovation and market share gains, but can the strategy revive broader beverage demand?",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Pepsi’s holiday push includes bigger retail presence, soda for Santa",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=f19a2e817ef8420bb97dd5b126a57e7ca9ff0d20fbe9d6fca96518fda54053b8",
+   "fecha": "2026-11-09",
+   "resumen": "The beverage brand is also increasing its marketing efforts around the football season for efforts that build on its “Food Deserves Pepsi” platform.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Poppi founders launch hydration brand",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=f10ab3bc300f3e0fb1e29171ef647ff13ac6a141fc7dc31ac851d17b6588388b",
+   "fecha": "2026-11-09",
+   "resumen": "Jetty is a line of electrolyte powders and ready-to-drink offerings that looks to stand out by targeting everyday consumers.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "5 Best Value Stocks Legendary Investor Donald Yacktman Was Buying Before AI Crash",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=e76b6c8c6b28ea8892c0f71ee97bbfdef9fb1ed34eaf7305421d47bb8eeb372a",
+   "fecha": "2026-11-09",
+   "resumen": "The AI stock crash on November 5 has once again reminded investors to stop chasing the hype and go back to the basics. The Nasdaq entered a correction. AI stocks fell on fears that Democrats will limit new data centers, after the midterm elections. For months, wise investors kept",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Poppi Founders Launch jetty Hydration Drinks, Set to Disrupt a $13 Billion Category",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=f797782f107e814028f4217ecc253e116ab201b373620a8d1cb3d86451a6e493",
+   "fecha": "2026-11-09",
+   "resumen": "AUSTIN, Texas, November 09, 2026--Allison and Stephen Ellsworth, the founders behind the viral, cult-favorite prebiotic soda brand Poppi, today launched jetty (drinkjetty.com), a hydration brand built for the modern consumer and real everyday life. Following the sale of Poppi to ",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "3 Dividend Aristocrats Yielding More Than the 2027 COLA",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=d4294fb43bbe1c2e52efa3bb96ab577fead86bd9ab55592c5fb2f99599671943",
+   "fecha": "2026-11-09",
+   "resumen": "Social Security benefits rise 3.6% under the 2027 cost-of-living adjustment, and that figure is the bar for this list. The two numbers measure different things. A COLA is a percentage raise applied to a benefit you already collect. A dividend yield is the annual cash a stock pays",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "PepsiCo renews overseas KFC contracts after US blow",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=4653413e92c91f3739e8545f9f4a0892f4608e5ddc94b1ba9b5739c37556bdc2",
+   "fecha": "2026-11-09",
+   "resumen": "The agreement retains PepsiCo as KFC’s beverage supplier in Australia, India, the UK, Spain, Germany, France, the Netherlands and Belgium.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "KFC International renews Pepsi partnership",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=21c84983374cad8644bdb3c59038932714780f54fe68c779a2c1dbda8362577d",
+   "fecha": "2026-11-09",
+   "resumen": "The agreement comes less than a month after the U.S. business made the switch to Coca-Cola after 40 years.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Former Paraguayan President Impeached Amid Banking Crisis; PepsiCo (PEP) Dividend Sustainability Remains Strong",
+   "url": "https://www.gurufocus.com/news/9184094/former-paraguayan-president-impeached-amid-banking-crisis-pepsico-pep-dividend-sustainability-remains-strong",
+   "fecha": "2026-11-07",
+   "resumen": "On November 07, 2026, former Paraguayan President Santiago Peña was impeached by Congress following a banking crisis linked to Ueno Bank that disrupted access",
+   "medio": "gurufocus.com",
+   "tipo": "prensa",
+   "via": "Marketaux",
+   "sentimiento": {
+    "puntuacion": 0.541,
+    "etiqueta": "Alcista"
+   }
+  },
+  {
+   "titular": "AI Stock Meltdown: Why This May Not Be The Bubble Burst",
+   "medio": "Seeking Alpha",
+   "url": "https://finnhub.io/api/news?id=998a82e544672e7c1cecd86bf05b7241771189ef61249f64ce289c741a3a1b1a",
+   "fecha": "2026-11-07",
+   "resumen": "Nasdaq 100 and AI stocks are plunging as semiconductors sink deeper into a bear market. Read here for a detailed analysis.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "2 Stocks Down 25% and 50% to Buy Now and Hold for the Next Decade.",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=b2529ece4081a49db4499dc96403b995e1ba6e307faf2e8ba47b480aa01d5dc5",
+   "fecha": "2026-11-07",
+   "resumen": "Investors have punished PepsiCo and Hormel despite both being high-yield Dividend Kings.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "3 Dividend Stocks I'd Buy With $5,000 Before the End of November",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=23a8d5b242513aacf3e8dbcc9abf04712f14cef1db3681a048510d2ac62f5713",
+   "fecha": "2026-11-07",
+   "resumen": "Splitting $5,000 equally across these stocks would pay a blended dividend yield of about 3.5%.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Pepsi-Cola Drivers At Atlanta, Georgia Sites Authorize Strike, Teamsters Union Says",
+   "medio": "Benzinga",
+   "url": "https://finnhub.io/api/news?id=c866fbaaf2eeaa6922ff6538aa09b32be4b1fe6077c1989b3a26473dab95a45e",
+   "fecha": "2026-11-06",
+   "resumen": "More than 100 Pepsi-Cola drivers at facilities in Atlanta and Lithonia, Georgia, have voted unanimously to authorize a strike. The members of Teamsters Local 528 organized in January 2026 for respect on the job, a",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Growth Lead Sectors In Friday Trading As Defensives Trail",
+   "medio": "Benzinga",
+   "url": "https://finnhub.io/api/news?id=5bb4a5e8fbdb544544381ce7241945d6bf9b7d382581108c387f732b631ed40f",
+   "fecha": "2026-11-06",
+   "resumen": "Seven sectors are higher and four are lower in Friday’s regular session, with growth sectors holding the top three positions. The leaders are separated rather than clustered, with no single gap clearly standing apart from the other breaks across the table.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
    "titular": "I'm Buying Dividend Aristocrat Bargains For Resilient Income",
    "medio": "Seeking Alpha",
    "url": "https://finnhub.io/api/news?id=5a91507ddb7c29ac901beece37791085fb0690816ed6212ed5057d81eff19b61",
@@ -13033,69 +13135,6 @@
    "url": "https://finnhub.io/api/news?id=cb18d876bec0bce314707a3a4ec8ed2ad7218e7896b081167c42dec2cfd0da77",
    "fecha": "2026-11-06",
    "resumen": "This renewal builds on a decades-long global partnership with KFC across the Middle East, Europe, Asia-Pacific, Latin America and other markets already serving PepsiCo brands and products.KFC and PepsiCo work together",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "PepsiCo (PEP) Could Be 29% Undervalued Following Its KFC Deal Renewal",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=f3d86e68aa7ed4559e9ae71a255c5f09bbb1fa9ae1ece8bd88295eff9680846d",
-   "fecha": "2026-11-06",
-   "resumen": "PepsiCo (PEP) just renewed its beverage supply deal with KFC across eight international markets, extending a decades long partnership and keeping its drink portfolio embedded in one of the largest global fast food chains. PepsiCo shares have picked up speed recently, with a 30 da",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "If You Invested $1,000 in PepsiCo 10 Years Ago, Here’s What You’d Have Now",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=c28bb7a5a675f4538a908b89be2fb7edda1b0cd45e84b4798299928f714e0a6b",
-   "fecha": "2026-11-06",
-   "resumen": "PepsiCo sells snacks and sodas in more than 200 countries, yet its home market is wobbling and the S&P 500 left it far behind. One part of the return kept quietly carrying the load, and retirees should care which one.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "KFC makes surprising Pepsi decision after Coca-Cola switch",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=1aa5592b4ed4d21ce9bd5d1e68039b9bf6157ed43724ab3da92cf2a47397cc76",
-   "fecha": "2026-11-06",
-   "resumen": "The agreement covers Australia, India, Spain, Germany, France, the Netherlands, Belgium and the United Kingdom.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Pop Profit From PepsiCo Stock With A Short Strangle Strategy",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=f9f9568bd35883d1848ce0092e439bfab501e1b9304ed7e9c86afde84192fa0e",
-   "fecha": "2026-11-06",
-   "resumen": "PepsiCo stock is showing high implied volatility. Aim for a profit if the stock price can stay in a particular range.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "If You Invested $300,000 in Coca-Cola, PepsiCo and Keurig Dr Pepper, Here’s What They’d Pay",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=dea8c384451d1880ced6ef4cbbcd586f438cdacab645aced2b304fe688760941",
-   "fecha": "2026-11-06",
-   "resumen": "Three soda giants promise retirees steady checks, but one has frozen its payout, another has the thinnest cushion, and all three share the same weak spot. Which one carries the biggest share of the income, and what could knock them all down together?",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "PepsiCo Extends KFC Beverage Partnership Across Eight International Markets",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=3faac3ede00787519c9239a2de7a15bd92cf7ed96b52bbb0da54fb4908c48059",
-   "fecha": "2026-11-06",
-   "resumen": "PepsiCo (NASDAQ:PEP) has renewed its beverage supply agreement with KFC across eight international markets, extending a longstanding commercial relationship between the food and beverage companies. The agreement covers Australia, India, the United Kingdom, Spain, Germany, France,",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "PepsiCo Secures Renewal Across Select KFC International Markets",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=758587056a26fe2d3bbf23c1668eec409616bb532bff35671c83e6a1be7ce790",
-   "fecha": "2026-11-06",
-   "resumen": "PepsiCo (NASDAQ: PEP) has been selected as the continued beverage partner of choice for KFC locations across Australia, India, UK, Spain, Germany, France, the Netherlands, and Belgium. This renewal builds on a decades-long global partnership with KFC across the Middle East, Europ",
    "tipo": "prensa",
    "via": "Finnhub"
   },
@@ -13123,69 +13162,6 @@
    "url": "https://finnhub.io/api/news?id=9ce4e9e86cb402377a38029a275831210efafdbabaf281d7c2af669242938dbf",
    "fecha": "2026-11-05",
    "resumen": "Four sectors are higher and seven are lower in Thursday’s regular session, with defensive sectors holding two of the top three positions. The leaders are separated rather than clustered, with no single gap clearly standing apart from the other breaks across the table.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Celsius Holdings earnings analysis: questions answered and next catalysts",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=3e811245e0681dc9d2d28a46c4153ff4b67078be5ff22d1cc561c52017e7ec22",
-   "fecha": "2026-11-05",
-   "resumen": "Investing.com -- Celsius Holdings Inc (CELH) beat on both lines, yet the stock gave back its premarket pop. Shares were $30.02 (-2.39%) as of Nov 5, 1:24 PM EST. They had opened at $32.84 and traded as high as $33.69. Premarket had been up roughly 5–10%. The market is separating ",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Energy-Drinks Are Exploding. Why Is Celsius Stock Fizzling?",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=3f81074af9ff700137925fbcbc0752e27bf506a4e24af7c0b781d90c12eb8dee",
-   "fecha": "2026-11-05",
-   "resumen": "The energy-drink industry is growing sales at 15% a year, the fastest in the beverage aisle. But competition is fierce, with each brand staking a claim to niche consumers.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Is PepsiCo a Buy or a Wait as Value Clashes With Slower EPS Growth?",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=10e3751646f93fdefe8f4ff7a8f5c18244ebaa866a5fab229279905c302f9621",
-   "fecha": "2026-11-05",
-   "resumen": "PEP's discounted valuation and strong international growth attract attention, but sluggish EPS growth, debt and North American margin pressures favor caution.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "PepsiCo Jumps 15.1% in a Month as Investors Weigh What Comes Next",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=416bbcb5bbd8ddda6b4aeaa7a9f0d523cc4db3b53f306eeb03388c19a33cedc4",
-   "fecha": "2026-11-05",
-   "resumen": "PEP shares surge 15.1% in a month as strong international growth and a valuation discount face North American margin pressures and a weaker earnings outlook.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "PepsiCo Lowers 2026 EPS Outlook as North America Pressures Margins",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=20242c0032905209fbaabd072390169e6a0de02c62f5fee6175ce3598f5912a2",
-   "fecha": "2026-11-05",
-   "resumen": "PEP cuts its 2026 EPS growth outlook as North American margin pressures persist, while strong international growth and productivity savings offer support.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Can Coca-Cola Keep Expanding Margins While Investing More?",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=b18e8f447fa43449a7e2719e562dacbc6709f27689e70c1997e08151cfec5773",
-   "fecha": "2026-11-05",
-   "resumen": "KO's margin expansion continues despite higher marketing spending, aided by productivity gains, disciplined pricing and strategic investments for growth.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "3 Dependable Dividend Stocks for a $250,000 Passive Income Strategy",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=bce9dbcb07568ff002b6a8e57fb5ca52a55a9a8f0b4f5d736474f9cb3d1bd0b5",
-   "fecha": "2026-11-05",
-   "resumen": "One of these dividend payers slashed its quarterly check in 2022, and another has a stock that has gone nowhere in five years. Why would a retiree still trust them with a third of a $250,000 income plan?",
    "tipo": "prensa",
    "via": "Finnhub"
   },
@@ -13243,38 +13219,11 @@
    }
   },
   {
-   "titular": "Growth And Cyclical Lead Sectors Tuesday",
-   "medio": "Benzinga",
-   "url": "https://finnhub.io/api/news?id=f31307d10340c293b7a7e1a4fb2252a8f24ce9ee6cffc07d0a47495574a7a9e2",
-   "fecha": "2026-11-03",
-   "resumen": "Four sectors are higher and six are lower among those with available change data in Tuesday&#39;s regular session, with growth and cyclical sectors splitting the top of the table. The leaders are separated rather than clustered, with no single gap clearly standing apart from the ",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
    "titular": "Coca-Cola: Investors Are Buying Shelter, Not Growth",
    "medio": "Seeking Alpha",
    "url": "https://finnhub.io/api/news?id=f38fc8df7cbae1a7e696680322df41c27b10480ef8e29cad768bc251e9659acf",
    "fecha": "2026-11-03",
    "resumen": "Coca-Cola stock analysis: strong Q3 growth, rising margins, and dividend strength, but rich valuation caps upside. Read the latest analysis on the stock here.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "$80 Billion Hedge Fund Braces for Bear Market",
-   "medio": "Benzinga",
-   "url": "https://finnhub.io/api/news?id=d41f37bce1f653f8d0d2a89312f77ddb104c0b84aa0f1b723a061c6918cad4cc",
-   "fecha": "2026-11-03",
-   "resumen": "Paul Singer&#39;s Elliott warns a massive bear market looms. See how the $80B fund is hedging against AI hype and market excess.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Dividend Income Report: +15.25% And A Listener's Portfolio Roast",
-   "medio": "Seeking Alpha",
-   "url": "https://finnhub.io/api/news?id=29195c7330c6a0345435d337c4b578d80e75f3cb148875a665c17671faede09d",
-   "fecha": "2026-10-31",
-   "resumen": "This month I tried something different on the podcast - a listener sent me one of his portfolios and asked me to roast it. Read more here.",
    "tipo": "prensa",
    "via": "Finnhub"
   },
@@ -13286,18 +13235,14 @@
    "resumen": "Comunicación oficial de la compañía. Items: 8.01.",
    "oficial": true,
    "tipo": "prensa"
-  },
-  {
-   "titular": "8-K a la SEC: Resultados",
-   "medio": "SEC · 8-K (oficial)",
-   "url": "https://www.sec.gov/Archives/edgar/data/77476/000007747626000050/pep-20261008.htm",
-   "fecha": "2026-10-08",
-   "resumen": "Comunicación oficial de la compañía. Items: 2.02.",
-   "oficial": true,
-   "tipo": "prensa"
   }
  ],
- "noticias_sentimiento": null,
+ "noticias_sentimiento": {
+  "puntuacion": 0.462,
+  "etiqueta": "Alcista",
+  "noticias": 4,
+  "fuente": "Alpha Vantage / Marketaux (puntuación media de las noticias del último mes)"
+ },
  "noticias_fuentes": {
   "medios_sectoriales": [
    "Food Dive"
@@ -13314,7 +13259,7 @@
    },
    "Marketaux": {
     "ok": true,
-    "titulares": 2
+    "titulares": 3
    },
    "RSS de medios": {
     "ok": true,
@@ -13324,10 +13269,6 @@
  },
  "historico_precio": {
   "serie": [
-   [
-    "2021-08-06",
-    154.33
-   ],
    [
     "2021-08-09",
     154.35
@@ -18603,18 +18544,22 @@
    [
     "2026-11-06",
     141.34
+   ],
+   [
+    "2026-11-09",
+    141.88
    ]
   ],
   "fuente": "Twelve Data (API oficial, plan gratuito)",
   "url": "https://twelvedata.com/",
-  "fecha": "2026-11-06",
+  "fecha": "2026-11-09",
   "ajuste": "splits"
  },
- "generado": "2026-11-06T23:48:25+00:00",
+ "generado": "2026-11-09T23:51:44+00:00",
  "peers": {
   "fuente_lista": "manual",
   "fuente_cifras": "SEC EDGAR (companyfacts, UDM) · precio Finnhub",
-  "actualizado": "2026-11-06",
+  "actualizado": "2026-11-09",
   "propia": {
    "ingresos": 98241000000,
    "crecimiento": 6.36,
@@ -18632,13 +18577,13 @@
    "informe": "10-Q",
    "informe_fecha": "2026-10-08",
    "url": "https://www.sec.gov/Archives/edgar/data/77476/000007747626000048/0000077476-26-000048-index.htm",
-   "precio": 141.34,
-   "capitalizacion": 192609825943.28,
-   "ev": 233327825943.28,
-   "per": 17.68,
-   "precio_ventas": 1.96,
-   "ev_ebitda": 12.46,
-   "rentabilidad_fcf": 5.44,
+   "precio": 141.88,
+   "capitalizacion": 193345706132.96,
+   "ev": 234063706132.96,
+   "per": 17.74,
+   "precio_ventas": 1.97,
+   "ev_ebitda": 12.5,
+   "rentabilidad_fcf": 5.42,
    "deuda_neta_ebitda": 2.18,
    "ticker": "PEP",
    "nombre": "PepsiCo",
@@ -18649,7 +18594,7 @@
     "ticker": "KO",
     "nombre": "Coca Cola Co",
     "cik": "0000021344",
-    "calculado": "2026-11-01",
+    "calculado": "2026-11-09",
     "soportada": true,
     "version": 3,
     "logo": "logos/KO.png",
@@ -18672,56 +18617,56 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-28",
     "url": "https://www.sec.gov/Archives/edgar/data/21344/000162828026067844/0001628280-26-067844-index.htm",
-    "precio": 95.67,
-    "capitalizacion": 411562996389.45,
-    "ev": 439423996389.45,
-    "per": 28.13,
-    "precio_ventas": 8.06,
-    "ev_ebitda": 26.87,
-    "rentabilidad_fcf": 3.47,
+    "precio": 96.03,
+    "capitalizacion": 413111681230.05,
+    "ev": 440972681230.05,
+    "per": 28.24,
+    "precio_ventas": 8.09,
+    "ev_ebitda": 26.96,
+    "rentabilidad_fcf": 3.46,
     "deuda_neta_ebitda": 1.7
    },
    {
     "ticker": "KDP",
     "nombre": "Keurig Dr Pepper",
     "cik": "0001418135",
-    "calculado": "2026-11-01",
+    "calculado": "2026-11-09",
     "soportada": true,
     "version": 3,
     "logo": "logos/KDP.png",
     "industria": "Beverages",
     "web": "https://www.keurigdrpepper.com/",
     "pais": "US",
-    "ingresos": 20090000000,
-    "crecimiento": 27.48,
-    "margen_bruto": 49.39,
-    "margen_operativo": 16.23,
-    "margen_neto": 7.1,
-    "margen_fcf": 9.81,
-    "beneficio_neto": 1427000000,
-    "ebitda": 4051000000,
-    "fcf": 1970000000,
-    "caja": 1517000000,
-    "deuda": 24817000000,
-    "acciones": 1360826038,
-    "periodo_fin": "2026-06-30",
+    "ingresos": 23128000000,
+    "crecimiento": 42.99,
+    "margen_bruto": 48.03,
+    "margen_operativo": 15.56,
+    "margen_neto": 7.12,
+    "margen_fcf": 10.06,
+    "beneficio_neto": 1647000000,
+    "ebitda": 4566000000,
+    "fcf": 2327000000,
+    "caja": 1290000000,
+    "deuda": 24435000000,
+    "acciones": 1360948350,
+    "periodo_fin": "2026-09-30",
     "informe": "10-Q",
-    "informe_fecha": "2026-08-10",
-    "url": "https://www.sec.gov/Archives/edgar/data/1418135/000141813526000051/0001418135-26-000051-index.htm",
-    "precio": 36.63,
-    "capitalizacion": 49847057771.94,
-    "ev": 73147057771.94,
-    "per": 34.93,
-    "precio_ventas": 2.48,
-    "ev_ebitda": 18.06,
-    "rentabilidad_fcf": 3.95,
-    "deuda_neta_ebitda": 5.75
+    "informe_fecha": "2026-11-09",
+    "url": "https://www.sec.gov/Archives/edgar/data/1418135/000141813526000066/0001418135-26-000066-index.htm",
+    "precio": 36.94,
+    "capitalizacion": 50273432049.0,
+    "ev": 73418432049.0,
+    "per": 30.52,
+    "precio_ventas": 2.17,
+    "ev_ebitda": 16.08,
+    "rentabilidad_fcf": 4.63,
+    "deuda_neta_ebitda": 5.07
    },
    {
     "ticker": "MDLZ",
     "nombre": "Mondelez International",
     "cik": "0001103982",
-    "calculado": "2026-11-01",
+    "calculado": "2026-11-09",
     "soportada": true,
     "version": 3,
     "logo": "logos/MDLZ.png",
@@ -18744,92 +18689,92 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-29",
     "url": "https://www.sec.gov/Archives/edgar/data/1103982/000162828026068256/0001628280-26-068256-index.htm",
-    "precio": 66.02,
-    "capitalizacion": 83570649781.58,
-    "ev": 99994649781.58,
-    "per": 20.49,
-    "precio_ventas": 2.09,
-    "ev_ebitda": 14.58,
-    "rentabilidad_fcf": 4.38,
+    "precio": 66.44,
+    "capitalizacion": 84102301900.76,
+    "ev": 100526301900.76,
+    "per": 20.62,
+    "precio_ventas": 2.11,
+    "ev_ebitda": 14.66,
+    "rentabilidad_fcf": 4.35,
     "deuda_neta_ebitda": 2.4
    },
    {
     "ticker": "MNST",
     "nombre": "Monster Beverage",
     "cik": "0000865752",
-    "calculado": "2026-11-01",
+    "calculado": "2026-11-09",
     "soportada": true,
     "version": 3,
     "logo": "logos/MNST.png",
     "industria": "Beverages",
     "web": "https://monsterbevcorp.com/",
     "pais": "US",
-    "ingresos": 9218956000,
-    "crecimiento": 20.37,
-    "margen_bruto": 55.55,
-    "margen_operativo": 29.16,
-    "margen_neto": 23.08,
-    "margen_fcf": 22.76,
-    "beneficio_neto": 2127670000,
-    "ebitda": 2808607000,
-    "fcf": 2097916000,
-    "caja": 3419256000,
+    "ingresos": 9584870000,
+    "crecimiento": 20.18,
+    "margen_bruto": 55.26,
+    "margen_operativo": 28.5,
+    "margen_neto": 22.66,
+    "margen_fcf": 20.05,
+    "beneficio_neto": 2171642000,
+    "ebitda": 2854057000,
+    "fcf": 1921434000,
+    "caja": 3704252000,
     "deuda": 0,
-    "acciones": 979525882,
-    "periodo_fin": "2026-06-30",
+    "acciones": 1957511922,
+    "periodo_fin": "2026-09-30",
     "informe": "10-Q",
-    "informe_fecha": "2026-08-07",
-    "url": "https://www.sec.gov/Archives/edgar/data/865752/000110465926092193/0001104659-26-092193-index.htm",
-    "precio": 45.72,
-    "capitalizacion": 44783923325.04,
-    "ev": 41364667325.04,
-    "per": 21.05,
-    "precio_ventas": 4.86,
-    "ev_ebitda": 14.73,
-    "rentabilidad_fcf": 4.68,
-    "deuda_neta_ebitda": -1.22
+    "informe_fecha": "2026-11-06",
+    "url": "https://www.sec.gov/Archives/edgar/data/865752/000110465926123503/0001104659-26-123503-index.htm",
+    "precio": 45.64,
+    "capitalizacion": 89340844120.08,
+    "ev": 85636592120.08,
+    "per": 41.14,
+    "precio_ventas": 9.32,
+    "ev_ebitda": 30.01,
+    "rentabilidad_fcf": 2.15,
+    "deuda_neta_ebitda": -1.3
    },
    {
     "ticker": "CELH",
     "nombre": "Celsius Holdings",
     "cik": "0001341766",
-    "calculado": "2026-11-01",
+    "calculado": "2026-11-09",
     "soportada": true,
     "version": 3,
     "logo": "logos/CELH.png",
     "industria": "Beverages",
     "web": "https://www.celsiusholdingsinc.com/",
     "pais": "US",
-    "ingresos": 3047274000,
-    "crecimiento": 82.86,
-    "margen_bruto": 48.76,
-    "margen_operativo": 5.26,
-    "margen_neto": 4.24,
-    "margen_fcf": 15.19,
-    "beneficio_neto": 129117000,
-    "ebitda": 197273000,
-    "fcf": 462774000,
-    "caja": 631234000,
-    "deuda": 674850000,
-    "acciones": 253035047,
-    "periodo_fin": "2026-06-30",
+    "ingresos": 3169396000,
+    "crecimiento": 49.09,
+    "margen_bruto": 47.64,
+    "margen_operativo": 13.01,
+    "margen_neto": 10.0,
+    "margen_fcf": 8.49,
+    "beneficio_neto": 317087000,
+    "ebitda": 451169000,
+    "fcf": 269010000,
+    "caja": 700617000,
+    "deuda": 674703000,
+    "acciones": 250556309,
+    "periodo_fin": "2026-09-30",
     "informe": "10-Q",
-    "informe_fecha": "2026-08-06",
-    "url": "https://www.sec.gov/Archives/edgar/data/1341766/000134176626000050/0001341766-26-000050-index.htm",
-    "precio": 32.16,
-    "capitalizacion": 8137607111.5199995,
-    "ev": 8181223111.52,
-    "per": 63.03,
-    "precio_ventas": 2.67,
-    "ev_ebitda": 41.47,
-    "rentabilidad_fcf": 5.69,
-    "deuda_neta_ebitda": 0.22
+    "informe_fecha": "2026-11-05",
+    "url": "https://www.sec.gov/Archives/edgar/data/1341766/000134176626000062/0001341766-26-000062-index.htm",
+    "precio": 33.19,
+    "capitalizacion": 8315963895.709999,
+    "ev": 8290049895.709999,
+    "per": 26.23,
+    "precio_ventas": 2.62,
+    "ev_ebitda": 18.37,
+    "rentabilidad_fcf": 3.23,
+    "deuda_neta_ebitda": -0.06
    },
    {
     "ticker": "GIS",
     "nombre": "General Mills",
     "cik": "0000040704",
-    "calculado": "2026-11-01",
+    "calculado": "2026-11-09",
     "soportada": true,
     "version": 3,
     "logo": "logos/GIS.png",
@@ -18852,13 +18797,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-09-23",
     "url": "https://www.sec.gov/Archives/edgar/data/40704/000162828026063201/0001628280-26-063201-index.htm",
-    "precio": 35.51,
-    "capitalizacion": 18986740483.44,
-    "ev": 31967640483.44,
+    "precio": 34.88,
+    "capitalizacion": 18649887582.72,
+    "ev": 31630787582.72,
     "per": null,
-    "precio_ventas": 1.04,
-    "ev_ebitda": 91.36,
-    "rentabilidad_fcf": 8.14,
+    "precio_ventas": 1.02,
+    "ev_ebitda": 90.4,
+    "rentabilidad_fcf": 8.29,
     "deuda_neta_ebitda": 37.1
    }
   ]

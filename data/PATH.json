@@ -9927,7 +9927,7 @@
    "n_ventas": 13,
    "ventas_con_plan": 62049113.31,
    "compradores": [],
-   "desde": "2026-05-07"
+   "desde": "2026-05-10"
   },
   "operaciones": [
    {
@@ -11639,11 +11639,11 @@
  "precio": {
   "minimo_52s": 9.2,
   "maximo_52s": 19.84,
-  "beta": 1.0684522,
-  "valor": 13,
-  "cierre_anterior": 13.01,
+  "beta": 1.0814656,
+  "valor": 12.98,
+  "cierre_anterior": 13,
   "moneda": "USD",
-  "fecha": "2026-11-06",
+  "fecha": "2026-11-09",
   "fuente": "Finnhub (API oficial, plan gratuito)",
   "url": "https://finnhub.io/"
  },
@@ -11695,7 +11695,7 @@
   "fuente": "Finnhub · calendario de resultados y sorpresas",
   "url": "https://finnhub.io/docs/api/earnings-calendar",
   "proximos": {
-   "fecha": "2026-12-01",
+   "fecha": "2026-12-03",
    "hora": "tras el cierre",
    "hora_codigo": "amc",
    "trimestre": 3,
@@ -11739,6 +11739,37 @@
   ]
  },
  "noticias": [
+  {
+   "titular": "UiPath: Becoming A Better Business Only Brought It To Fair Value (NYSE:PATH)",
+   "url": "https://seekingalpha.com/article/4964988-uipath-becoming-a-better-business-only-brought-it-to-fair-value",
+   "fecha": "2026-11-09",
+   "resumen": "UiPath stock looks fairly valued with modest upside as ARR growth slows and AI support costs rise. Click for more on PATH stock.",
+   "medio": "Seeking Alpha",
+   "tipo": "prensa",
+   "via": "Marketaux",
+   "sentimiento": {
+    "puntuacion": 0.592,
+    "etiqueta": "Alcista"
+   }
+  },
+  {
+   "titular": "UiPath: Becoming A Better Business Only Brought It To Fair Value",
+   "medio": "Seeking Alpha",
+   "url": "https://finnhub.io/api/news?id=57b4c2b1e59cbc7bd6326563c303d556081f84ca0cde769cb3cb8ba24c07d01c",
+   "fecha": "2026-11-09",
+   "resumen": "UiPath stock looks fairly valued with modest upside as ARR growth slows and AI support costs rise. Click for more on PATH stock.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "UiPath: AI Potential Is Promising, But The Growth Needs To Accelerate",
+   "medio": "Seeking Alpha",
+   "url": "https://finnhub.io/api/news?id=54fc50cd6adb87a8f64754235a785112b788953a9791a3134d9bdd0f338ee111",
+   "fecha": "2026-11-09",
+   "resumen": "UiPath earns a hold rating as ARR growth, profitability, and AI product potential balance competitive risks.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
   {
    "titular": "UiPath Named a Leader in Everest Group's 2026 Agentic Process Automation Platform and Full Suite APAP PEAK Matrix® Assessments",
    "medio": "Yahoo Finance",
@@ -11948,21 +11979,12 @@
    "resumen": "Palantir Technologies has delivered accelerating revenue growth and expanding operating margins, driving a 29.37% stock surge since March. I rate the PLTR stock as a buy.",
    "tipo": "prensa",
    "via": "Finnhub"
-  },
-  {
-   "titular": "Robotics Stocks Diverge as AI and Semiconductor Automation Leaders Pull Ahead",
-   "medio": "ChartMill",
-   "url": "https://finnhub.io/api/news?id=27e8d3f00645503716d12005bb437ba0b6b20dbe570fc2a96917ce4cb616786e",
-   "fecha": "2026-10-09",
-   "resumen": "Robotics and automation stocks are splitting: AI, semiconductor, and healthcare robotics lead while traditional industrial and software automation lag.",
-   "tipo": "prensa",
-   "via": "Finnhub"
   }
  ],
  "noticias_sentimiento": {
-  "puntuacion": 0.044,
-  "etiqueta": "Neutral",
-  "noticias": 3,
+  "puntuacion": 0.181,
+  "etiqueta": "Algo alcista",
+  "noticias": 4,
   "fuente": "Alpha Vantage / Marketaux (puntuación media de las noticias del último mes)"
  },
  "noticias_fuentes": {
@@ -11975,7 +11997,7 @@
   "proveedores": {
    "Finnhub": {
     "ok": true,
-    "titulares": 44
+    "titulares": 39
    },
    "Marketaux": {
     "ok": true,
@@ -11989,10 +12011,6 @@
  },
  "historico_precio": {
   "serie": [
-   [
-    "2021-08-06",
-    63.06
-   ],
    [
     "2021-08-09",
     64.5
@@ -17268,18 +17286,22 @@
    [
     "2026-11-06",
     13.0
+   ],
+   [
+    "2026-11-09",
+    12.98
    ]
   ],
   "fuente": "Twelve Data (API oficial, plan gratuito)",
   "url": "https://twelvedata.com/",
-  "fecha": "2026-11-06",
+  "fecha": "2026-11-09",
   "ajuste": "splits"
  },
- "generado": "2026-11-06T23:49:07+00:00",
+ "generado": "2026-11-09T23:52:39+00:00",
  "peers": {
   "fuente_lista": "manual",
   "fuente_cifras": "SEC EDGAR (companyfacts, UDM) · precio Finnhub",
-  "actualizado": "2026-11-06",
+  "actualizado": "2026-11-09",
   "propia": {
    "ingresos": 1720858000,
    "crecimiento": 14.98,
@@ -17297,13 +17319,13 @@
    "informe": "10-Q",
    "informe_fecha": "2026-09-08",
    "url": "https://www.sec.gov/Archives/edgar/data/1734722/000173472226000050/0001734722-26-000050-index.htm",
-   "precio": 13,
-   "capitalizacion": 6799169000,
-   "ev": 5515179000,
-   "per": 18.79,
-   "precio_ventas": 3.95,
-   "ev_ebitda": 30.82,
-   "rentabilidad_fcf": 5.34,
+   "precio": 12.98,
+   "capitalizacion": 6788708740.0,
+   "ev": 5504718740.0,
+   "per": 18.76,
+   "precio_ventas": 3.94,
+   "ev_ebitda": 30.76,
+   "rentabilidad_fcf": 5.35,
    "deuda_neta_ebitda": -7.18,
    "ticker": "PATH",
    "nombre": "UiPath",
@@ -17314,7 +17336,7 @@
     "ticker": "NOW",
     "nombre": "ServiceNow",
     "cik": "0001373715",
-    "calculado": "2026-11-01",
+    "calculado": "2026-11-09",
     "soportada": true,
     "version": 3,
     "logo": "logos/NOW.png",
@@ -17337,20 +17359,20 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-28",
     "url": "https://www.sec.gov/Archives/edgar/data/1373715/000137371526000096/0001373715-26-000096-index.htm",
-    "precio": 101.97,
-    "capitalizacion": 105844860000.0,
-    "ev": 106675860000.0,
-    "per": 73.25,
-    "precio_ventas": 6.86,
-    "ev_ebitda": 38.65,
-    "rentabilidad_fcf": 4.49,
+    "precio": 102.76,
+    "capitalizacion": 106664880000.0,
+    "ev": 107495880000.0,
+    "per": 73.82,
+    "precio_ventas": 6.91,
+    "ev_ebitda": 38.95,
+    "rentabilidad_fcf": 4.45,
     "deuda_neta_ebitda": 0.3
    },
    {
     "ticker": "CRM",
     "nombre": "Salesforce",
     "cik": "0001108524",
-    "calculado": "2026-11-01",
+    "calculado": "2026-11-09",
     "soportada": true,
     "version": 3,
     "logo": "logos/CRM.png",
@@ -17373,20 +17395,20 @@
     "informe": "10-Q",
     "informe_fecha": "2026-08-27",
     "url": "https://www.sec.gov/Archives/edgar/data/1108524/000110852426000190/0001108524-26-000190-index.htm",
-    "precio": 213.65,
-    "capitalizacion": 175833950000.0,
-    "ev": 203718950000.0,
-    "per": 18.2,
-    "precio_ventas": 4.0,
-    "ev_ebitda": 16.1,
-    "rentabilidad_fcf": 8.62,
+    "precio": 214.94,
+    "capitalizacion": 176895620000.0,
+    "ev": 204780620000.0,
+    "per": 18.31,
+    "precio_ventas": 4.03,
+    "ev_ebitda": 16.18,
+    "rentabilidad_fcf": 8.57,
     "deuda_neta_ebitda": 2.2
    },
    {
     "ticker": "MSFT",
     "nombre": "Microsoft",
     "cik": "0000789019",
-    "calculado": "2026-11-01",
+    "calculado": "2026-11-09",
     "soportada": true,
     "version": 3,
     "logo": "logos/MSFT.png",
@@ -17409,20 +17431,20 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-28",
     "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526436133/0001193125-26-436133-index.htm",
-    "precio": 530.61,
-    "capitalizacion": 3940413091236.72,
-    "ev": 3911385091236.72,
-    "per": 27.63,
-    "precio_ventas": 11.37,
-    "ev_ebitda": 19.02,
-    "rentabilidad_fcf": 1.52,
+    "precio": 545.18,
+    "capitalizacion": 4048612745859.36,
+    "ev": 4019584745859.36,
+    "per": 28.39,
+    "precio_ventas": 11.69,
+    "ev_ebitda": 19.54,
+    "rentabilidad_fcf": 1.48,
     "deuda_neta_ebitda": -0.14
    },
    {
     "ticker": "PEGA",
     "nombre": "Pegasystems",
     "cik": "0001013857",
-    "calculado": "2026-11-01",
+    "calculado": "2026-11-09",
     "soportada": true,
     "version": 3,
     "logo": "logos/PEGA.png",
@@ -17445,56 +17467,56 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-20",
     "url": "https://www.sec.gov/Archives/edgar/data/1013857/000101385726000058/0001013857-26-000058-index.htm",
-    "precio": 32.4,
-    "capitalizacion": 5302698858.0,
-    "ev": 4992987858.0,
-    "per": 17.99,
-    "precio_ventas": 3.03,
-    "ev_ebitda": 26.76,
-    "rentabilidad_fcf": 8.34,
+    "precio": 31.13,
+    "capitalizacion": 5094846155.849999,
+    "ev": 4785135155.849999,
+    "per": 17.28,
+    "precio_ventas": 2.91,
+    "ev_ebitda": 25.64,
+    "rentabilidad_fcf": 8.68,
     "deuda_neta_ebitda": -1.66
    },
    {
     "ticker": "APPN",
     "nombre": "Appian",
     "cik": "0001441683",
-    "calculado": "2026-11-01",
+    "calculado": "2026-11-09",
     "soportada": true,
     "version": 3,
     "logo": "logos/APPN.png",
     "industria": "Technology",
     "web": "https://www.appian.com/",
     "pais": "US",
-    "ingresos": 795307000,
-    "crecimiento": 20.9,
-    "margen_bruto": 72.4,
-    "margen_operativo": 1.28,
-    "margen_neto": -1.34,
-    "margen_fcf": 9.65,
-    "beneficio_neto": -10620000,
-    "ebitda": 19659000,
-    "fcf": 76745000,
-    "caja": 167954000,
-    "deuda": 236027000,
-    "acciones": 72896000,
-    "periodo_fin": "2026-06-30",
+    "ingresos": 842935000,
+    "crecimiento": 22.03,
+    "margen_bruto": 72.44,
+    "margen_operativo": 2.17,
+    "margen_neto": -0.72,
+    "margen_fcf": 4.59,
+    "beneficio_neto": -6104000,
+    "ebitda": 28264000,
+    "fcf": 38682000,
+    "caja": 89032000,
+    "deuda": 199485000,
+    "acciones": 71500000,
+    "periodo_fin": "2026-09-30",
     "informe": "10-Q",
-    "informe_fecha": "2026-08-06",
-    "url": "https://www.sec.gov/Archives/edgar/data/1441683/000144168326000053/0001441683-26-000053-index.htm",
-    "precio": 51.6,
-    "capitalizacion": 3761433600.0,
-    "ev": 3829506600.0,
+    "informe_fecha": "2026-11-05",
+    "url": "https://www.sec.gov/Archives/edgar/data/1441683/000144168326000061/0001441683-26-000061-index.htm",
+    "precio": 51.15,
+    "capitalizacion": 3657225000.0,
+    "ev": 3767678000.0,
     "per": null,
-    "precio_ventas": 4.73,
-    "ev_ebitda": 194.8,
-    "rentabilidad_fcf": 2.04,
-    "deuda_neta_ebitda": 3.46
+    "precio_ventas": 4.34,
+    "ev_ebitda": 133.3,
+    "rentabilidad_fcf": 1.06,
+    "deuda_neta_ebitda": 3.91
    },
    {
     "ticker": "GTLB",
     "nombre": "Gitlab",
     "cik": "0001653482",
-    "calculado": "2026-11-01",
+    "calculado": "2026-11-09",
     "soportada": true,
     "version": 3,
     "logo": "logos/GTLB.png",
@@ -17517,13 +17539,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-09-02",
     "url": "https://www.sec.gov/Archives/edgar/data/1653482/000162828026059943/0001628280-26-059943-index.htm",
-    "precio": 48.09,
-    "capitalizacion": 8112927270.000001,
-    "ev": 7886436270.000001,
+    "precio": 47.12,
+    "capitalizacion": 7949285360.0,
+    "ev": 7722794360.0,
     "per": null,
-    "precio_ventas": 7.69,
+    "precio_ventas": 7.53,
     "ev_ebitda": null,
-    "rentabilidad_fcf": 2.63,
+    "rentabilidad_fcf": 2.69,
     "deuda_neta_ebitda": null
    }
   ]

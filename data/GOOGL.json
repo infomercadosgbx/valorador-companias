@@ -10114,17 +10114,14 @@
   ]
  },
  "acciones_en_circulacion": {
-  "valor": 12368000000,
+  "valor": 12294000000,
   "fuente": "SEC EDGAR · 10-Q",
   "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/0001652044-26-000084-index.htm",
   "fecha_presentacion": "2026-10-29",
-  "etiqueta": "us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding",
+  "etiqueta": "us-gaap:CommonStockSharesOutstanding",
   "periodo_fin": "2026-09-30",
   "formulario": "10-Q",
-  "accn": "0001652044-26-000084",
-  "periodo_inicio": "2026-07-01",
-  "periodo": "3T26",
-  "derivado": "Acciones diluidas medias del 3T26: la portada da el número por clase de acción y la API de la SEC no lo publica"
+  "accn": "0001652044-26-000084"
  },
  "avisos": [
   {
@@ -10177,8 +10174,8 @@
   },
   {
    "nivel": "info",
-   "codigo": "acciones_diluidas",
-   "mensaje": "Acciones: se usan las diluidas medias del 3T26 (12,368 M)."
+   "codigo": "acciones_balance",
+   "mensaje": "Acciones: la portada las da por clase de acción; se usan las del balance a 2026-09-30 (12,294 M), que suman todas las clases."
   }
  ],
  "bonos": {
@@ -11895,7 +11892,7 @@
    "n_ventas": 54,
    "ventas_con_plan": 4430718.77,
    "compradores": [],
-   "desde": "2026-05-07"
+   "desde": "2026-05-10"
   },
   "operaciones": [
    {
@@ -20959,11 +20956,11 @@
  "precio": {
   "minimo_52s": 270.7,
   "maximo_52s": 408.61,
-  "beta": 1.2318864,
-  "valor": 284.78,
-  "cierre_anterior": 282.57,
+  "beta": 1.2316586,
+  "valor": 288.15,
+  "cierre_anterior": 284.78,
   "moneda": "USD",
-  "fecha": "2026-11-06",
+  "fecha": "2026-11-09",
   "fuente": "Finnhub (API oficial, plan gratuito)",
   "url": "https://finnhub.io/"
  },
@@ -21020,8 +21017,8 @@
    "hora_codigo": "amc",
    "trimestre": 4,
    "anio": 2026,
-   "bpa_estimado": 3.3182,
-   "ingresos_estimados": 146849547486
+   "bpa_estimado": 3.2531,
+   "ingresos_estimados": 146508295889
   },
   "sorpresas": [
    {
@@ -21059,6 +21056,150 @@
   ]
  },
  "noticias": [
+  {
+   "titular": "Google Rejiggers TPU Accelerators For Broader AI Inference Work",
+   "url": "https://www.nextplatform.com/compute/2026/11/09/google-rejiggers-tpu-accelerators-for-broader-ai-inference-work/5308534",
+   "fecha": "2026-11-09",
+   "resumen": "",
+   "medio": "The Next Platform",
+   "tipo": "sectorial",
+   "via": "RSS del medio"
+  },
+  {
+   "titular": "The NYT Opens Pandora’s Letterboxd; Roku Joins The Skulk",
+   "url": "https://www.adexchanger.com/daily-news-roundup/the-nyt-opens-pandoras-letterboxd-roku-joins-the-skulk/",
+   "fecha": "2026-11-09",
+   "resumen": "Letterboxd’s AI training potential might be worth buying; The Fox-Roku acquisition is now complete; and Google is altering the eal. The post The NYT Opens Pandora’s Letterboxd; Roku Joins The Skulk appeared first on AdExchanger .",
+   "medio": "AdExchanger",
+   "tipo": "sectorial",
+   "via": "RSS del medio"
+  },
+  {
+   "titular": "YouTube streaming data returns to Billboard charts, ending major disagreement",
+   "url": "https://techcrunch.com/2026/11/09/youtube-streaming-data-returns-to-billboard-charts-ending-major-disagreement/",
+   "fecha": "2026-11-09",
+   "resumen": "YouTube will resume sharing streaming data with Billboard in 2027 after changes to the chart formula give more weight to free, ad-supported music streams.",
+   "medio": "TechCrunch",
+   "tipo": "sectorial",
+   "via": "RSS del medio"
+  },
+  {
+   "titular": "Waymo robotaxis kept illegally passing school buses after software fix, feds say",
+   "url": "https://techcrunch.com/2026/11/09/waymo-robotaxis-kept-illegally-passing-school-buses-after-software-fix-feds-say/",
+   "fecha": "2026-11-09",
+   "resumen": "The update to Waymo's self-driving system was rolled out nearly a year ago.",
+   "medio": "TechCrunch",
+   "tipo": "sectorial",
+   "via": "RSS del medio"
+  },
+  {
+   "titular": "Where To Buy The Dip",
+   "medio": "Seeking Alpha",
+   "url": "https://finnhub.io/api/news?id=1de6de4f66d69d15239bb692fe7ff113bf3716dc7fe15f652fa5dff1254b200e",
+   "fecha": "2026-11-09",
+   "resumen": "Gary Vaughan from Daily Stock PicksÂ argues that the recent market selloff presents buying opportunities.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "The Midterm Elections Are Not A Risk For Nvidia, But Huang's News Is",
+   "medio": "Seeking Alpha",
+   "url": "https://finnhub.io/api/news?id=f4c081c26d111fb28e82af73cba43697957d644cdfd4e150cc0e8b70ca7d9efb",
+   "fecha": "2026-11-09",
+   "resumen": "Nvidia Corporation may benefit from AI chip demand, global data center growth, and a cheaper valuation after its pullback. Click for more on NVDA stock.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Why Alphabet Stock Was Moving Higher Today",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=1678ad4fdf3a05760e3d4d811aaf665e3b7abb80d3da778d6def39ed545eae5a",
+   "fecha": "2026-11-09",
+   "resumen": "Alphabet introduced two new chips this morning.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Fervo now has $12B in orders for its geothermal power tech",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=23357df109baa0328aac1ac28eb477a23ace343b83d1c23a72959c35bfb3715c",
+   "fecha": "2026-11-09",
+   "resumen": "Geothermal company Fervo is targeting natural gas as it brings down geothermal drilling costs at its 8.4 GW resource in Utah.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Nvidia vs. Alphabet: The AI Revolution Is Big Enough for Both. Here's the Better Buy.",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=79894a5a16958a2ef9febc194edbaeb6c47f72a2fc83efe072bed2a52f055ed5",
+   "fecha": "2026-11-09",
+   "resumen": "Which part of the AI trade is more likely to better serve investors?",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "The Real Winner of Google’s $135 Billion Chip Forecast: Broadcom",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=a065a8051441fa680ca88a0ec2258e95c9f66aaa4b769a9737e929fd1099284b",
+   "fecha": "2026-11-09",
+   "resumen": "Key TakeawaysGoogle unveiled two new versions of its TPUs today, and Bloomberg Intelligence expects TPU sales to grow from about $12 billion this year to more than $135 billion by 2028. Broadcom helps design the TPUs and has a deal to supply them and their networking through as l",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Alphabet's Wing makes $125M manufacturing bet on drone delivery",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=dc8c990e20e4b83406008b83ba32100a796e88ac93a5de1a200bf48baaed4b8f",
+   "fecha": "2026-11-09",
+   "resumen": "Drone delivery is moving from novelty to everyday convenience, and Alphabet-owned Wing is preparing to manufacture tens of thousands of aircraft a year to meet growing demand.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Trump’s Former AI Czar Says “I Get Really Worried About 2028”: That’s a Big Problem for Nvidia",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=ea5b2a3315f2bb9b2f6293214de91dbf0ca5a535e56e733ab15edb072d3924e8",
+   "fecha": "2026-11-09",
+   "resumen": "Key TakeawaysOn the Nov. 7 episode of All-In, Trump’s former AI czar David Sacks said data center spending should still be meaningful in 2027, but he gets “really worried about 2028” because nobody will commit $50 billion to a gigawatt site under political uncertainty.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Jim Cramer Questions Berkshire’s “Ill-Advised Position” in Alphabet as Its Cash Flow Turns Negative",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=1652f5f76329e8ec72f2a80e119f1562e298ddb8801d335d2323b930d0328492",
+   "fecha": "2026-11-09",
+   "resumen": "Key TakeawaysJim Cramer questioned Berkshire Hathaway’s $10 billion stake in Alphabet on the day Berkshire reported its third-quarter results. Alphabet’s free cash flow was negative $9.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Reindeer Launches on Google Cloud Marketplace, Expanding Collaboration with Google Cloud to Help Enterprises Move Agentic AI into Core Operations",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=d48eb4757a6c7a8eca673606f68f92db9a257c4fbae6931ae942aa140a9de156",
+   "fecha": "2026-11-09",
+   "resumen": "Reindeer, an enterprise agentic AI company that builds and runs AI agents for complex core operations, today announced an expanded collaboration with Google Cloud. Reindeer has graduated from the Google Cloud ISV Startup Springboard program, and its platform is now available on G",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "ARK Invest Dumps These Shares While They're Hot, Buys Chips The Size Of Your Face",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=02876551d98b3d4690c25a26327bd0bffdadc841448ff577883e2c620e61ac1f",
+   "fecha": "2026-11-09",
+   "resumen": "Cathie Wood's ARK Invest bought and sold medtech shares Friday. She also bought shares of an unconventional AI chipmaker — an unpopular one at that.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "AMD Lands Key Role in Google's New AI Chip System as Nvidia Rivalry Intensifies",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=48133c41bdcf772830784977ba77a08ab1b1866a61cc0a4a2b67d958f2664951",
+   "fecha": "2026-11-09",
+   "resumen": "AMD (NASDAQ:AMD) is supplying processors for a new AI computing system unveiled Monday by Google (NASDAQ:GOOGL), as the search giant expands its challenge to Nvidia (NASDAQ:NVDA).Google’s new TPU 8tx combines its own AI chips with AMD’s EPYC processors to help...",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
   {
    "titular": "Google announces $17bn data center campus in Cheyenne, Wyoming",
    "url": "https://www.datacenterdynamics.com/en/news/google-announces-17bn-data-center-campus-in-cheyenne-wyoming/",
@@ -21114,24 +21255,6 @@
    "via": "Finnhub"
   },
   {
-   "titular": "Unity: Q3 Proved Me Wrong (Rating Upgrade)",
-   "medio": "Seeking Alpha",
-   "url": "https://finnhub.io/api/news?id=8e52e81a5b3368ac9f2570cb7db508ce7512c731f568433b3c6d122a41b1857b",
-   "fecha": "2026-11-06",
-   "resumen": "Unity Software's revenue jumps to $622M as AI boosts game development and margins. Click for this U stock earnings update amid takeover talk.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "BXSY: Low-Tech Exposure Positions This Fund To Outperform Following The Midterms",
-   "medio": "Seeking Alpha",
-   "url": "https://finnhub.io/api/news?id=3676a8ab948732c4bc9d45770734b37494632c7b0e576f81e50bae52b463d77e",
-   "fecha": "2026-11-06",
-   "resumen": "Bexil Investment Trust offers a 6.12% yield and trades at a 39.23% discount to NAV, enhancing income and value appeal. Explore more on BXSY here.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
    "titular": "Stock Market Today: Nasdaq Crashes 5.5% as Midterm Fallout Turns Into a Brutal AI Chip Selloff",
    "medio": "ChartMill",
    "url": "https://finnhub.io/api/news?id=865640e021ce729c1ab1a87f93ad8da3ffcb7ee10bce52465015433377e19fa9",
@@ -21177,96 +21300,6 @@
    "via": "Finnhub"
   },
   {
-   "titular": "Reddit’s (RDDT) Short-Term Pains May Lead to Long-Term Gains",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=1a92905ce41d80869458beb44ed94cd0167cd44c96e6ebb545e0cc881c30a697",
-   "fecha": "2026-11-06",
-   "resumen": "Reddit’s (RDDT) short-term pains may lead to long-term gains, in my view. The leading social media platform lost more than 25% of its market value soon after it reported Q3 earnings on October 30. This crash followed traffic headwinds from Google’s (GOOGL) AI Overviews and the ro",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "TeraWulf Inc (WULF) (Q3 2026) Earnings Call Highlights: Securing Hyperscaler Backstops and ...",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=ef823a850bbb679f602c559811ea9515e7f3b91eee073a5c1ba22b116fb3f8e0",
-   "fecha": "2026-11-06",
-   "resumen": "TeraWulf Inc (WULF) leverages investment-grade customer support and protected deal economics to drive long-term data center value while managing regulatory and execution challenges.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Data centers are unpopular — and a key motor of economic growth",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=1e199df333b74012ab43dc708804ccb88f4074ed78bc14eb805dfbed8b4f65bd",
-   "fecha": "2026-11-06",
-   "resumen": "The political backlash against data centers is intensifying, threatening to choke off a critical source of U.S. investment, according to economists.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Google buys Wyoming data center site as hyperscalers move to own AI capacity",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=a426300f1242ef4e86645f39e46a5b13f2ff979b5caa766baff29a562d8d2a92",
-   "fecha": "2026-11-06",
-   "resumen": "Investing.com -- Alphabet is buying the site it could have rented.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "What TeraWulf (WULF) Said on Its Q3 Earnings Call",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=ba69b5727a403266c9f5bbcb816f22a3bb700c792dda38a6e8e6ef3aee455f82",
-   "fecha": "2026-11-06",
-   "resumen": "TeraWulf (NASDAQ:WULF) reported higher third-quarter revenue as high-performance computing leases expanded, while executives outlined financing and construction plans for its data center projects in New York and Kentucky. Revenue rose to $76.2 million from $44.8 million in the se",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Anthropic’s “Down Quarter” Highlights Broadcom’s $161 Billion Risk",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=be1bcfde11b0b70cc4d2969045030264ef277982397ed1ff6eab6a8d2c58080a",
-   "fecha": "2026-11-06",
-   "resumen": "Key TakeawaysAnthropic’s amended S-1 shows third-quarter revenue up about 47% from the second quarter, while compute and infrastructure expenses rose about 78%. Jason Lemkin says Anthropic’s net new bookings fell in the third quarter, even though the company has committed $895 bi",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Warby Parker Sets Sights On Smart Glasses Launch",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=80bcd2a2da8ecd2b712e9a4c84833566d64085cda7e9e698e51d69c873a17ce7",
-   "fecha": "2026-11-06",
-   "resumen": "Designer eyewear firm Warby Parker will begin taking preorders on Nov. 12 for its first smart glasses, branded Intelligent Eyewear.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Microsoft and Google Face a New Bill as Data Centers “Have to Pay Their Own Costs”",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=2fd7129275681e6971a4303583f1b62e8f6df7d72e9a36b6f218846161727553",
-   "fecha": "2026-11-06",
-   "resumen": "Key TakeawaysVoters turned against new data centers in the Nov. 3 midterms, and Microsoft, Alphabet, Amazon and Meta now face rules that make them pay for their own power and grid.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Google Is Spending $17 Billion on a Wyoming Data Center and Says It Will Pay for 100% of Its Power",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=e7e79fff72bc352399da626e75c4b5c1a108dc905ec2eb8d68afb2d280c56293",
-   "fecha": "2026-11-06",
-   "resumen": "Google just answered the loudest objection to AI data centers, yet the market barely noticed and one key supplier tumbled. The fine print on who supplies the power, and what the pledge leaves out, may matter more than the headline.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Not Alphabet. Not Meta. This Is the Digital Advertising Stock I'd Buy Right Now.",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=ef965e8db54e8c5cba00452a057d983e5a9d09f79abc0b7d81ee992b72e4dfca",
-   "fecha": "2026-11-06",
-   "resumen": "Amazon's ad revenue grew 12% last quarter, and management expects high-teens growth next. Here's what's driving it and how the stock is valued.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
    "titular": "8-K a la SEC: Otros hechos relevantes",
    "medio": "SEC · 8-K (oficial)",
    "url": "https://www.sec.gov/Archives/edgar/data/1652044/000119312526449835/d174184d8k.htm",
@@ -21283,46 +21316,6 @@
    "medio": "Data Center Dynamics",
    "tipo": "sectorial",
    "via": "RSS del medio"
-  },
-  {
-   "titular": "Google Commits $17 Billion to Wyoming Data Center; Banxico Surprises with Rate Cut",
-   "url": "https://www2.stockmarketwatch.com/stock-market-news/google-commits-17-billion-to-wyoming-data-center-banxico-surprises-with-rate-cut/74221/",
-   "fecha": "2026-11-05",
-   "resumen": "Alphabet Inc.'s Google (GOOGL) is launching its first data center project in Laramie County, Wyoming, representing a long-term $17 billion investment.",
-   "medio": "thestockmarketwatch.com",
-   "tipo": "prensa",
-   "via": "Marketaux",
-   "sentimiento": {
-    "puntuacion": 0.247,
-    "etiqueta": "Algo alcista"
-   }
-  },
-  {
-   "titular": "Five Signals That Preceded Past Recessions Are Back — and AI Is at the Center",
-   "medio": "Benzinga",
-   "url": "https://finnhub.io/api/news?id=08ceb3d12e35c6492a291c48047101ae9618d18d196486c8eca3ab3351a1d06a",
-   "fecha": "2026-11-05",
-   "resumen": "Oxford Economics says five signals that preceded past recessions are back. Chip stocks sink 23% in a month as equal-weight stocks lead and bonds rally.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Google Created 5 Billionaires Worth $553B — Almost All That Wealth Belongs to 2 People",
-   "medio": "Benzinga",
-   "url": "https://finnhub.io/api/news?id=d2e44f67d36d35905f397f3633ae118ab8799fbb549f262ccdeca5789908695c",
-   "fecha": "2026-11-05",
-   "resumen": "Google has produced five billionaires worth $553 billion, but Larry Page and Sergey Brin account for roughly 93% of that wealth.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "The less water AI data centers use, the more power they consume. Here’s why.",
-   "medio": "CNBC",
-   "url": "https://finnhub.io/api/news?id=a407484879cfd6ac91ad8d5c877b0296a47f92f3c51fc6b71bddaff994dabdd5",
-   "fecha": "2026-11-05",
-   "resumen": "U.S. voters passed 40 ballot measures putting limits on AI data centers this week, as huge 1GW data centers from OpenAI, Meta, SpaceXAI, Amazon, Google and more push up water and power bills and put a strain on local resources. Closed-loop liquid cooling keeps water use low insid",
-   "tipo": "prensa",
-   "via": "Finnhub"
   },
   {
    "titular": "8-K a la SEC: Resultados",
@@ -21359,16 +21352,12 @@
    },
    "RSS de medios": {
     "ok": true,
-    "titulares": 7
+    "titulares": 9
    }
   }
  },
  "historico_precio": {
   "serie": [
-   [
-    "2021-08-06",
-    135.7385
-   ],
    [
     "2021-08-09",
     136.913
@@ -26644,18 +26633,22 @@
    [
     "2026-11-06",
     284.78
+   ],
+   [
+    "2026-11-09",
+    288.15
    ]
   ],
   "fuente": "Twelve Data (API oficial, plan gratuito)",
   "url": "https://twelvedata.com/",
-  "fecha": "2026-11-06",
+  "fecha": "2026-11-09",
   "ajuste": "splits"
  },
- "generado": "2026-11-06T23:47:00+00:00",
+ "generado": "2026-11-09T23:50:04+00:00",
  "peers": {
   "fuente_lista": "manual",
   "fuente_cifras": "SEC EDGAR (companyfacts, UDM) · precio Finnhub",
-  "actualizado": "2026-11-06",
+  "actualizado": "2026-11-09",
   "propia": {
    "ingresos": 471097000000,
    "crecimiento": 22.21,
@@ -26668,17 +26661,17 @@
    "fcf": 19747000000,
    "caja": 265098000000,
    "deuda": 126118000000,
-   "acciones": 12368000000,
+   "acciones": 12294000000,
    "periodo_fin": "2026-09-30",
    "informe": "10-Q",
    "informe_fecha": "2026-10-29",
    "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/0001652044-26-000084-index.htm",
-   "precio": 284.78,
-   "capitalizacion": 3522159039999.9995,
-   "ev": 3383179039999.9995,
-   "per": 14.94,
-   "precio_ventas": 7.48,
-   "ev_ebitda": 18.29,
+   "precio": 288.15,
+   "capitalizacion": 3542516099999.9995,
+   "ev": 3403536099999.9995,
+   "per": 15.03,
+   "precio_ventas": 7.52,
+   "ev_ebitda": 18.4,
    "rentabilidad_fcf": 0.56,
    "deuda_neta_ebitda": -0.75,
    "ticker": "GOOGL",
@@ -26690,7 +26683,7 @@
     "ticker": "META",
     "nombre": "Meta Platforms",
     "cik": "0001326801",
-    "calculado": "2026-11-01",
+    "calculado": "2026-11-08",
     "soportada": true,
     "version": 3,
     "logo": "logos/META.png",
@@ -26713,20 +26706,20 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-22",
     "url": "https://www.sec.gov/Archives/edgar/data/1326801/000162828026066773/0001628280-26-066773-index.htm",
-    "precio": 610.15,
-    "capitalizacion": 1569915950000.0,
-    "ev": 1571135950000.0,
-    "per": 20.86,
-    "precio_ventas": 6.5,
-    "ev_ebitda": 15.06,
-    "rentabilidad_fcf": 1.82,
+    "precio": 641.37,
+    "capitalizacion": 1650245010000.0,
+    "ev": 1651465010000.0,
+    "per": 21.93,
+    "precio_ventas": 6.83,
+    "ev_ebitda": 15.83,
+    "rentabilidad_fcf": 1.74,
     "deuda_neta_ebitda": 0.01
    },
    {
     "ticker": "MSFT",
     "nombre": "Microsoft",
     "cik": "0000789019",
-    "calculado": "2026-11-01",
+    "calculado": "2026-11-09",
     "soportada": true,
     "version": 3,
     "logo": "logos/MSFT.png",
@@ -26749,20 +26742,20 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-28",
     "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526436133/0001193125-26-436133-index.htm",
-    "precio": 530.61,
-    "capitalizacion": 3940413091236.72,
-    "ev": 3911385091236.72,
-    "per": 27.63,
-    "precio_ventas": 11.37,
-    "ev_ebitda": 19.02,
-    "rentabilidad_fcf": 1.52,
+    "precio": 545.18,
+    "capitalizacion": 4048612745859.36,
+    "ev": 4019584745859.36,
+    "per": 28.39,
+    "precio_ventas": 11.69,
+    "ev_ebitda": 19.54,
+    "rentabilidad_fcf": 1.48,
     "deuda_neta_ebitda": -0.14
    },
    {
     "ticker": "AMZN",
     "nombre": "Amazon Com",
     "cik": "0001018724",
-    "calculado": "2026-11-01",
+    "calculado": "2026-11-09",
     "soportada": true,
     "version": 3,
     "logo": "logos/AMZN.png",
@@ -26785,20 +26778,20 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-30",
     "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/0001018724-26-000040-index.htm",
-    "precio": 259.3,
-    "capitalizacion": 2803846762745.8003,
-    "ev": 2869572762745.8003,
-    "per": 20.8,
-    "precio_ventas": 3.52,
-    "ev_ebitda": 15.62,
-    "rentabilidad_fcf": -1.67,
+    "precio": 266.93,
+    "capitalizacion": 2886351008020.58,
+    "ev": 2952077008020.58,
+    "per": 21.42,
+    "precio_ventas": 3.62,
+    "ev_ebitda": 16.07,
+    "rentabilidad_fcf": -1.62,
     "deuda_neta_ebitda": 0.36
    },
    {
     "ticker": "RDDT",
     "nombre": "Reddit",
     "cik": "0001713445",
-    "calculado": "2026-11-01",
+    "calculado": "2026-11-09",
     "soportada": true,
     "version": 3,
     "logo": "logos/RDDT.png",
@@ -26821,20 +26814,20 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-30",
     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000116/0001713445-26-000116-index.htm",
-    "precio": 95.1,
-    "capitalizacion": 19196909299.5,
-    "ev": 16163477299.5,
-    "per": 19.36,
-    "precio_ventas": 6.21,
-    "ev_ebitda": 17.48,
-    "rentabilidad_fcf": 6.24,
+    "precio": 100.79,
+    "capitalizacion": 20345494093.550003,
+    "ev": 17312062093.550003,
+    "per": 20.52,
+    "precio_ventas": 6.59,
+    "ev_ebitda": 18.72,
+    "rentabilidad_fcf": 5.89,
     "deuda_neta_ebitda": -3.28
    },
    {
     "ticker": "PINS",
     "nombre": "Pinterest",
     "cik": "0001506293",
-    "calculado": "2026-11-01",
+    "calculado": "2026-11-09",
     "soportada": true,
     "version": 3,
     "logo": "logos/PINS.png",
@@ -26857,50 +26850,50 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-29",
     "url": "https://www.sec.gov/Archives/edgar/data/1506293/000150629326000153/0001506293-26-000153-index.htm",
-    "precio": 18.96,
-    "capitalizacion": 11047081920.0,
-    "ev": 9577060920.0,
-    "per": 61.95,
-    "precio_ventas": 2.36,
-    "ev_ebitda": 41.53,
-    "rentabilidad_fcf": 11.43,
+    "precio": 19.06,
+    "capitalizacion": 11105347120.0,
+    "ev": 9635326120.0,
+    "per": 62.27,
+    "precio_ventas": 2.37,
+    "ev_ebitda": 41.78,
+    "rentabilidad_fcf": 11.37,
     "deuda_neta_ebitda": -6.37
    },
    {
     "ticker": "SNAP",
     "nombre": "Snap",
     "cik": "0001564408",
-    "calculado": "2026-11-01",
+    "calculado": "2026-11-09",
     "soportada": true,
     "version": 3,
     "logo": "logos/SNAP.png",
     "industria": "Media",
     "web": "https://snap.com/",
     "pais": "US",
-    "ingresos": 6351084000,
-    "crecimiento": 12.65,
-    "margen_bruto": 57.33,
-    "margen_operativo": -5.1,
-    "margen_neto": -4.9,
-    "margen_fcf": 11.11,
-    "beneficio_neto": -311243000,
-    "ebitda": -146279000,
-    "fcf": 705545000,
-    "caja": 2659758000,
-    "deuda": 3381448000,
-    "acciones": 1663449000,
-    "periodo_fin": "2026-06-30",
+    "ingresos": 6566716000,
+    "crecimiento": 13.76,
+    "margen_bruto": 59.11,
+    "margen_operativo": -1.81,
+    "margen_neto": -2.3,
+    "margen_fcf": 11.83,
+    "beneficio_neto": -151204000,
+    "ebitda": 60910000,
+    "fcf": 776554000,
+    "caja": 2770647000,
+    "deuda": 3380216000,
+    "acciones": 1760238000,
+    "periodo_fin": "2026-09-30",
     "informe": "10-Q",
-    "informe_fecha": "2026-08-04",
-    "url": "https://www.sec.gov/Archives/edgar/data/1564408/000156440826000052/0001564408-26-000052-index.htm",
-    "precio": 4.96,
-    "capitalizacion": 8250707040.0,
-    "ev": 8972397040.0,
+    "informe_fecha": "2026-11-05",
+    "url": "https://www.sec.gov/Archives/edgar/data/1564408/000156440826000067/0001564408-26-000067-index.htm",
+    "precio": 5.05,
+    "capitalizacion": 8889201900.0,
+    "ev": 9498770900.0,
     "per": null,
-    "precio_ventas": 1.3,
-    "ev_ebitda": null,
-    "rentabilidad_fcf": 8.55,
-    "deuda_neta_ebitda": null
+    "precio_ventas": 1.35,
+    "ev_ebitda": 155.95,
+    "rentabilidad_fcf": 8.74,
+    "deuda_neta_ebitda": 10.01
    }
   ]
  },
