@@ -1,831 +1,841 @@
 {
-  "_nota": "Supuestos y textos propios. Se editan a mano (o desde el botón «Editar» de la web, que descarga este archivo) y se versionan en git. El Action nunca los toca.",
-  "esquema": 1,
-  "meta": {
-    "fav": true,
-    "sector": "Internet, publicidad y nube",
-    "hq": "Mountain View, California",
-    "founded": "1998",
-    "employees": "204.757",
-    "asOf": "6-nov-2026"
-  },
-  "overview": {
-    "thesis": "Gran negocio en plena fase de inversión: Cloud se duplica, pero el capex se come el flujo de caja y la búsqueda se frena. A ~283 $ sigue por encima de la zona de compra (255 $): mantener.",
-    "summary": "Matriz de Google. Gana dinero sobre todo con publicidad (Búsqueda, YouTube y webs de terceros) y cada vez más con la nube: Google Cloud vende infraestructura, chips TPU, modelos Gemini y Workspace.\nEs la empresa que más invierte en infraestructura de IA: entre 195.000 y 205.000 M$ de capex en 2026, y más en 2027.",
-    "keyFacts": [
-      {
-        "k": "Ingresos 3T26",
-        "v": "127.577 M$ (+25%)"
-      },
-      {
-        "k": "Google Cloud 3T26",
-        "v": "30.710 M$ (+103%), margen 36%"
-      },
-      {
-        "k": "Búsqueda 3T26",
-        "v": "63.350 M$ (+12%)"
-      },
-      {
-        "k": "Cartera de pedidos (sep-26)",
-        "v": "567.700 M$, de ellos 560.800 M$ de Cloud (10-Q)"
-      },
-      {
-        "k": "Capex 3T26 / guía 2026",
-        "v": "51.355 M$ / 195–205 mil M$"
-      },
-      {
-        "k": "FCF 3T26 / 12 meses",
-        "v": "−9.065 M$ / 19.747 M$ (73.550 M$ un año antes)"
-      },
-      {
-        "k": "Caja / deuda total (sep-26)",
-        "v": "265.098 / 126.118 M$ (SEC 10-Q)"
-      },
-      {
-        "k": "BPA 3T26",
-        "v": "2,12 $ (−0,55 $ por pérdidas en participaciones)"
-      }
-    ],
-    "catalysts": [
-      {
-        "d": "2-feb-27",
-        "t": "Resultados 4T26 (tras el cierre) y cifra de capex 2027 («aumentará significativamente»)."
-      },
-      {
-        "d": "4T26",
-        "t": "Flujo de caja libre sin la multa de la CE (5.200 M$ pagados en el 3T26) ni la acumulación de inventario de TPU."
-      },
-      {
-        "d": "2026–27",
-        "t": "Conversión de la cartera de Cloud: algo más del 55% de 567.700 M$ en 24 meses (10-Q)."
-      },
-      {
-        "d": "4T26",
-        "t": "Anuncios en AI Mode en 10 países más y anuncios multiturno en EE. UU."
-      },
-      {
-        "d": "En curso",
-        "t": "Apelación del caso de búsqueda (Mehta) y aplicación de los remedios de ad tech (Brinkema)."
-      }
-    ]
-  },
-  "business": {
-    "model": "Vende atención y cómputo. La atención, con anuncios en Búsqueda, YouTube y la red de webs de terceros. El cómputo, con Google Cloud: infraestructura, TPU, modelos Gemini y Workspace.\nSuscripciones (YouTube Premium, Google One) y dispositivos completan el resto.",
-    "customers": "Miles de millones de usuarios no pagan. Los que pagan son anunciantes (desde pymes hasta grandes marcas), empresas y gobiernos que contratan la nube, laboratorios de IA que compran TPU, y suscriptores.",
-    "segNote": "Ingresos del 3T26 por segmento, en M$.",
-    "segments": [
-      {
-        "n": "Búsqueda y otros",
-        "v": 63350
-      },
-      {
-        "n": "Google Cloud",
-        "v": 30710
-      },
-      {
-        "n": "Suscripciones y dispositivos",
-        "v": 14290
-      },
-      {
-        "n": "Anuncios de YouTube",
-        "v": 11210
-      },
-      {
-        "n": "Red de Google",
-        "v": 7460
-      },
-      {
-        "n": "Other Bets",
-        "v": 370
-      }
-    ],
-    "customerTypes": [
-      {
-        "n": "Anunciantes",
-        "d": "~82.000 M$ por trimestre en publicidad, creciendo ~11%."
-      },
-      {
-        "n": "Empresas en la nube",
-        "d": "Cartera de Cloud de 560.800 M$ (sep-26); algo más del 55% se convertirá en ingresos en 24 meses."
-      },
-      {
-        "n": "Laboratorios de IA",
-        "d": "Compran capacidad de TPU; la dirección lo llama un contribuidor «significativo»."
-      },
-      {
-        "n": "Suscriptores y usuarios",
-        "d": "Más de 150 M en YouTube Music/Premium; 1.000 M de usuarios en la app de Gemini."
-      }
-    ],
-    "quality": [
-      {
-        "n": "Márgenes",
-        "s": 4,
-        "note": "Margen operativo 31,8%; Cloud 36%"
-      },
-      {
-        "n": "Retorno sobre capital",
-        "s": 4,
-        "note": "Alto, pero diluyéndose por el capex"
-      },
-      {
-        "n": "Conversión en caja",
-        "s": 1,
-        "note": "FCF de −9.065 M$ en 3T26 (−3.900 M$ sin la multa de la CE)"
-      },
-      {
-        "n": "Recurrencia de ingresos",
-        "s": 4,
-        "note": "Hábito diario en Búsqueda; contratos plurianuales en Cloud"
-      },
-      {
-        "n": "Diversificación",
-        "s": 4,
-        "note": "Seis líneas; Cloud ya es el 24% de los ingresos"
-      },
-      {
-        "n": "Balance",
-        "s": 4,
-        "note": "Caja 265.098 M$ frente a deuda 126.118 M$ (sep-26)"
-      }
-    ],
-    "phase": 2,
-    "phaseNote": "Un negocio maduro (Búsqueda) financia una segunda fase de crecimiento (Cloud e IA). Crecer al 25% con 500.000 M$ de ingresos es inusual.",
-    "clients": {
-      "nota": "Millones de anunciantes de todos los tamaños (publicidad ~75% de los ingresos), usuarios de pago de YouTube, Google One y Workspace, y empresas en Google Cloud. En la nube aparecen ya clientes enormes de IA. Ningún cliente supera el 10%.",
-      "kpis": [
-        {
-          "k": "Publicidad",
-          "v": "~75% de los ingresos",
-          "d": "Búsqueda, YouTube y red de socios"
-        },
-        {
-          "k": "Cartera de Google Cloud",
-          "v": "560.800 M$",
-          "d": "sep-26 (10-Q); el total de Alphabet es 567.700 M$"
-        },
-        {
-          "k": "Anthropic en Google",
-          "v": "≥111.100 M$",
-          "d": "compromiso firme hasta jul-33 (folleto de salida a bolsa)"
-        },
-        {
-          "k": "Crux AI",
-          "v": "16.800 M$",
-          "d": "de la cartera es un contrato plurianual con Crux AI, sociedad conjunta participada (parte vinculada)"
-        }
-      ],
-      "conocidos": [
-        {
-          "n": "Anthropic",
-          "sector": "IA",
-          "cifra": "≥111.100 M$ hasta jul-33",
-          "d": "Según su folleto de salida a bolsa, debe a Alphabet al menos 111.100 M$ entre abr-26 y jul-33 en nube y TPU; si gasta menos, paga la diferencia. Espera más de 1 GW de cómputo en 2026.",
-          "u": "https://investmentnews.com/equities/anthropics-landmark-ipo-filing-shows-12-fold-revenue-jump-518b-compute-bill/268391",
-          "f": "sep-26",
-          "fu": "Folleto de Anthropic (InvestmentNews)"
-        },
-        {
-          "n": "Meta",
-          "t": "META",
-          "sector": "Redes sociales",
-          "cifra": ">10.000 M$ en 6 años",
-          "d": "Contrato de servicios de nube (Reuters, ago-25) y negociación para alquilar TPU y comprarlas desde 2027.",
-          "u": "https://www.bnnbloomberg.ca/business/2025/08/22/meta-signs-over-us10-billion-cloud-deal-with-google-source-says-2/",
-          "fu": "Reuters vía BNN Bloomberg",
-          "f": "ago-25"
-        },
-        {
-          "n": "Apple",
-          "t": "AAPL",
-          "sector": "Tecnología",
-          "cifra": "Buscador por defecto en Safari",
-          "d": "Google le paga por ser el buscador por defecto y negocia alojar Siri en Google Cloud.",
-          "u": "https://www.datacenterdynamics.com/en/news/apple-in-discussions-to-host-siri-on-google-cloud-report/",
-          "f": "2026"
-        },
-        {
-          "n": "Anunciantes de búsqueda y YouTube",
-          "sector": "Todos",
-          "cifra": "~75% de los ingresos",
-          "d": "Millones de anunciantes, desde pymes locales hasta grandes marcas, distribuidores y aplicaciones."
-        }
-      ]
-    }
-  },
-  "moat": {
-    "width": "Amplio",
-    "trend": "Estable",
-    "note": "La amenaza principal es que la IA generativa cambie cómo se busca: las consultas están en máximos de cinco años, pero las de AI Mode se monetizan peor. Las TPU propias le dan una ventaja de coste en IA que pocos rivales tienen.",
-    "sources": [
-      {
-        "n": "Efecto red",
-        "s": 4,
-        "note": "Más búsquedas → mejores resultados → más anunciantes; Android y YouTube"
-      },
-      {
-        "n": "Costes de cambio",
-        "s": 3,
-        "note": "Ecosistema Android, Chrome y Workspace; contratos de nube plurianuales"
-      },
-      {
-        "n": "Activos intangibles",
-        "s": 5,
-        "note": "Marca, datos, DeepMind y Gemini"
-      },
-      {
-        "n": "Ventaja de costes",
-        "s": 5,
-        "note": "TPU propias frente a rivales que dependen de Nvidia"
-      },
-      {
-        "n": "Escala eficiente",
-        "s": 4,
-        "note": "Red global de centros de datos"
-      }
-    ],
-    "comps": [
-      {
-        "n": "OpenAI (ChatGPT)",
-        "threat": 4,
-        "note": "Alternativa directa a la búsqueda"
-      },
-      {
-        "n": "Microsoft (Azure, Copilot)",
-        "threat": 3,
-        "note": "Rival en nube e IA empresarial"
-      },
-      {
-        "n": "Amazon (AWS, Amazon Ads)",
-        "threat": 3,
-        "note": "Líder en nube y en anuncios de comercio"
-      },
-      {
-        "n": "Meta",
-        "threat": 3,
-        "note": "Compite por el presupuesto publicitario"
-      }
-    ]
-  },
-  "growth": {
-    "score": 4,
-    "scoreNote": "Crece al 25% con más de 127.000 M$ por trimestre. Cloud tira con fuerza; la Búsqueda pierde ritmo.",
-    "tam": "Nube pública e IA empresarial, más la publicidad digital mundial.",
-    "guidance": "No da guía de ingresos. Capex 2026: 195.000–205.000 M$ (sin cambios); en 2027 «aumentará significativamente» (la prensa habla de unos 300.000 M$, sin cifra oficial). Prevé más presión en el FCF por el capex y el inventario de TPU, con caja operativa sólida, y un impacto de divisa algo mayor en el 4T26.",
-    "drivers": [
-      {
-        "n": "Google Cloud e IA",
-        "impact": 5,
-        "h": "2026–2028",
-        "st": "en marcha",
-        "k": "+103% en 3T26 · margen 36,2%",
-        "peso": "cartera de 560.800 M$ (sep-26)",
-        "d": "La nube es hoy el motor más rápido de Alphabet: 30.700 M$ en el 3T26 y 11.100 M$ de beneficio operativo. Laboratorios de IA (Anthropic, Meta, Apple) y empresas alquilan su cómputo y sus modelos Gemini; algo más del 55% de la cartera se reconoce en 24 meses.",
-        "ev": "Crecimiento y margen de Cloud cada trimestre; evolución de la cartera.",
-        "r": "Capex de ~200.000 M$ en 2026: si la demanda de IA se frena, la amortización hundiría el margen.",
-        "u": "https://www.fool.com/earnings/call-transcripts/2026/10/29/alphabet-googl-q3-2026-earnings-call-transcript/"
-      },
-      {
-        "n": "Venta de TPU a terceros",
-        "impact": 4,
-        "h": "2026–2027",
-        "st": "temprano",
-        "k": "Anthropic: ≥111.100 M$ comprometidos",
-        "peso": "incluido en la cartera de Cloud",
-        "d": "Google vende y alquila sus chips propios (TPU) fuera de casa, compitiendo con Nvidia. Las ventas de sistemas TPU ya aportan de forma significativa a Cloud y obligaron a acumular inventario en el 3T26. Meta negocia alquilarlos y comprarlos desde 2027.",
-        "ev": "Nuevos clientes de TPU y comentarios sobre su peso en Cloud.",
-        "r": "Dependencia de pocos clientes muy grandes: Anthropic pierde dinero (más de 8.000 M$ de pérdida operativa en 2025) y depende de seguir financiándose.",
-        "u": "https://www.datacenterdynamics.com/en/news/google-and-anthropic-confirm-massive-1gw-cloud-deal-with-up-to-one-million-google-tpus/"
-      },
-      {
-        "n": "Monetización de AI Mode y Gemini",
-        "impact": 3,
-        "h": "2027+",
-        "st": "temprano",
-        "k": "Búsqueda +12% en 3T26 (63.300 M$)",
-        "d": "Las consultas de búsqueda crecen al mayor ritmo en cinco años y las de AI Mode son unas tres veces más largas que una búsqueda clásica. El reto es cobrar lo mismo o más por cada consulta con respuestas de IA.",
-        "ev": "Ingresos de búsqueda y número de clics pagados; anuncios dentro de AI Mode.",
-        "r": "Canibalización de la búsqueda clásica por chatbots.",
-        "peso": "Gemini: 1.000 M de usuarios",
-        "u": "https://www.fool.com/earnings/call-transcripts/2026/10/29/alphabet-googl-q3-2026-earnings-call-transcript/"
-      },
-      {
-        "n": "YouTube y suscripciones",
-        "impact": 2,
-        "h": "Continuo",
-        "st": "maduro",
-        "k": "Anuncios de YouTube +9% (11.200 M$)",
-        "peso": "suscripciones y dispositivos +11% (14.300 M$)",
-        "d": "YouTube crece con la televisión conectada, que ya es más de un tercio de sus ingresos publicitarios, y con Shorts; las suscripciones (YouTube Premium, Google One) dan ingresos recurrentes.",
-        "ev": "Crecimiento de anuncios de YouTube y de suscripciones.",
-        "r": "Competencia de TikTok y del streaming."
-      },
-      {
-        "n": "Waymo y Other Bets",
-        "impact": 2,
-        "h": "2028+",
-        "st": "temprano",
-        "k": "300 M de millas autónomas",
-        "peso": "opcionalidad",
-        "d": "Coches autónomos (Waymo) y otros proyectos: pierden dinero, pero Waymo ya ha recorrido más de 300 millones de millas sin conductor y acaba de llegar a San Antonio, San Diego y Tampa.",
-        "ev": "Ciudades y viajes de pago de Waymo; pérdidas de Other Bets.",
-        "r": "Accidentes, regulación y años de pérdidas."
-      }
-    ]
-  },
-  "mgmt": {
-    "note": "Tres clases de acciones: A (1 voto), B (10 votos, en manos de los fundadores) y C (sin voto). En 2026 ha dejado de recomprar y financia el capex con deuda (28.700 M$ en bonos en el 3T26 y otros 6.000 M€ en euros en nov-26) y venta de acciones (12.400 M$ en el 3T26).",
-    "people": [
-      {
-        "n": "Sundar Pichai",
-        "role": "CEO de Alphabet y Google",
-        "since": "2015",
-        "note": "CEO de Google desde 2015 y de Alphabet desde 2019. Lidera la apuesta por Gemini."
-      },
-      {
-        "n": "Anat Ashkenazi",
-        "role": "Directora financiera",
-        "since": "2024",
-        "note": "Llegó de Eli Lilly."
-      },
-      {
-        "n": "Thomas Kurian",
-        "role": "CEO de Google Cloud",
-        "since": "2019",
-        "note": "Ha llevado Cloud a crecer al 103% con margen del 36%."
-      },
-      {
-        "n": "Demis Hassabis",
-        "role": "CEO de Google DeepMind",
-        "since": "",
-        "note": "Investigación y modelos Gemini."
-      },
-      {
-        "n": "Larry Page y Sergey Brin",
-        "role": "Cofundadores",
-        "since": "1998",
-        "note": "Controlan la mayoría del voto con las acciones de clase B."
-      }
-    ],
-    "scores": [
-      {
-        "n": "Alineación con el accionista",
-        "s": 3,
-        "note": "Fundadores con control; CEO no fundador"
-      },
-      {
-        "n": "Asignación de capital",
-        "s": 3,
-        "note": "Apuesta total por IA: capex duplicado, sin recompras, emite deuda y acciones"
-      },
-      {
-        "n": "Credibilidad y ejecución",
-        "s": 4,
-        "note": "Cloud y Gemini muy por encima de lo esperado"
-      },
-      {
-        "n": "Gobierno corporativo",
-        "s": 2,
-        "note": "Voto dual controlado por los fundadores"
-      },
-      {
-        "n": "Transparencia",
-        "s": 3,
-        "note": "Sin guía de ingresos ni cifra de capex 2027"
-      }
-    ],
-    "alloc": {
-      "label": "Uso de la caja, 9 meses 2026 (M$)",
-      "items": [
-        {
-          "n": "Capex",
-          "v": 131953
-        },
-        {
-          "n": "Dividendos (est.)",
-          "v": 7800
-        },
-        {
-          "n": "Recompras",
-          "v": 0
-        }
-      ]
-    },
-    "vote": {
-      "label": "Poder de voto (%, aprox.)",
-      "items": [
-        {
-          "n": "Page y Brin (clase B)",
-          "v": 51
-        },
-        {
-          "n": "Resto de accionistas",
-          "v": 49
-        }
-      ]
-    },
-    "call": {
-      "periodEnd": "2026-09-30",
-      "q": "3T 2026",
-      "date": "28-oct-2026",
-      "doc": "Nota de resultados (8-K, Exhibit 99.1), 10-Q del 3T26 y llamada con analistas",
-      "url": "https://www.sec.gov/Archives/edgar/data/0001652044/000165204426000080/googexhibit991q32026.htm",
-      "nota": "Revisado el 6-nov-2026 con la nota, el 10-Q (29-oct) y la cobertura de la llamada.",
-      "dir": [
-        "Pichai: ritmo anual de medio billón de dólares en ingresos; Cloud +103% «por la enorme demanda» de infraestructura y soluciones de IA, y fuerte demanda de sistemas TPU.",
-        "Cartera de pedidos de 567.700 M$ (560.800 M$ de Cloud); algo más del 55% se reconoce en 24 meses. Incluye 16.800 M$ de Crux AI, sociedad conjunta vinculada.",
-        "Gemini supera los 1.000 millones de usuarios y las consultas de búsqueda están en máximos de cinco años."
-      ],
-      "ret": [
-        "Primer fallo a la vez en ingresos y BPA en casi cuatro años: BPA 2,12 $ por las pérdidas en participaciones (SpaceX, entre otras).",
-        "La Búsqueda se frena (+12% frente a +19%) y AI Mode monetiza menos que la búsqueda clásica.",
-        "FCF de −9.065 M$: capex de 51.355 M$ frente a 42.290 M$ de caja operativa, con el pago de la multa de la CE de 2018 (5.200 M$) y el inventario de TPU.",
-        "Compromisos de compra de 924.000 M$ (dato de la CFO en la llamada), 1,65 veces la cartera de Cloud."
-      ],
-      "guia": [
-        "Capex 2026: 195.000–205.000 M$, sin cambios.",
-        "El capex de 2027 «aumentará significativamente»; sin cifra oficial.",
-        "El capex y el inventario de TPU seguirán presionando el FCF; la caja operativa seguirá siendo fuerte.",
-        "Impacto de divisa algo mayor en el 4T26."
-      ],
-      "cap": [
-        "Sin recompras en 2026.",
-        "Capex de 131.953 M$ en nueve meses, por encima de la caja operativa (127.149 M$).",
-        "Financia la inversión con deuda (28.700 M$ en el 3T26 y 6.000 M€ en bonos en euros, cerrados el 5-nov) y venta de acciones (12.400 M$ en el 3T26)."
-      ]
-    }
-  },
-  "risks": [
-    {
-      "n": "Capex sin retorno suficiente",
-      "cat": "Financiero",
-      "p": 3,
-      "i": 5,
-      "note": "~200.000 M$ en 2026 y más en 2027; FCF de −9.065 M$ en el 3T26 y 924.000 M$ en compromisos de compra"
-    },
-    {
-      "n": "La IA canibaliza la búsqueda",
-      "cat": "Competencia",
-      "p": 3,
-      "i": 5,
-      "note": "AI Mode monetiza menos; Búsqueda pasó de +19% a +12%"
-    },
-    {
-      "n": "Remedios antimonopolio",
-      "cat": "Regulatorio",
-      "p": 3,
-      "i": 3,
-      "note": "Búsqueda: fin de las exclusivas (en apelación). Ad tech: sin venta forzosa, pero con cambios de prácticas (sep-26)"
-    },
-    {
-      "n": "Dilución y más deuda",
-      "cat": "Financiero",
-      "p": 3,
-      "i": 3,
-      "note": "Sin recompras en 2026; bonos y acciones en el 3T26 y 6.000 M€ en bonos en nov-26"
-    },
-    {
-      "n": "Concentración en clientes de IA",
-      "cat": "Competencia",
-      "p": 2,
-      "i": 4,
-      "note": "Parte de la cartera depende de pocos laboratorios (Anthropic ≥111.100 M$; Crux AI 16.800 M$, parte vinculada)"
-    },
-    {
-      "n": "Divisa y ciclo publicitario",
-      "cat": "Mercado",
-      "p": 3,
-      "i": 2,
-      "note": "Mayor impacto de divisa previsto para el 4T26"
-    },
-    {
-      "n": "Pérdidas de Other Bets",
-      "cat": "Operativo",
-      "p": 4,
-      "i": 1,
-      "note": "−2.040 M$ en el 3T26"
-    }
+ "_nota": "Supuestos y textos propios. Se editan a mano (o desde el botón «Editar» de la web, que descarga este archivo) y se versionan en git. El Action nunca los toca.",
+ "esquema": 1,
+ "meta": {
+  "fav": true,
+  "sector": "Internet, publicidad y nube",
+  "hq": "Mountain View, California",
+  "founded": "1998",
+  "employees": "204.757",
+  "asOf": "9-nov-2026"
+ },
+ "overview": {
+  "thesis": "Gran negocio en plena fase de inversión: Cloud se duplica, pero el capex se come el flujo de caja y la búsqueda se frena. A ~283 $ sigue por encima de la zona de compra (255 $): mantener.",
+  "summary": "Matriz de Google. Gana dinero sobre todo con publicidad (Búsqueda, YouTube y webs de terceros) y cada vez más con la nube: Google Cloud vende infraestructura, chips TPU, modelos Gemini y Workspace.\nEs la empresa que más invierte en infraestructura de IA: entre 195.000 y 205.000 M$ de capex en 2026, y más en 2027.",
+  "keyFacts": [
+   {
+    "k": "Ingresos 3T26",
+    "v": "127.577 M$ (+25%)"
+   },
+   {
+    "k": "Google Cloud 3T26",
+    "v": "30.710 M$ (+103%), margen 36%"
+   },
+   {
+    "k": "Búsqueda 3T26",
+    "v": "63.350 M$ (+12%)"
+   },
+   {
+    "k": "Cartera de pedidos (sep-26)",
+    "v": "567.700 M$, de ellos 560.800 M$ de Cloud (10-Q)"
+   },
+   {
+    "k": "Capex 3T26 / guía 2026",
+    "v": "51.355 M$ / 195–205 mil M$"
+   },
+   {
+    "k": "FCF 3T26 / 12 meses",
+    "v": "−9.065 M$ / 19.747 M$ (73.550 M$ un año antes)"
+   },
+   {
+    "k": "Caja / deuda total (sep-26)",
+    "v": "265.098 / 126.118 M$ (SEC 10-Q)"
+   },
+   {
+    "k": "BPA 3T26",
+    "v": "2,12 $ (−0,55 $ por pérdidas en participaciones)"
+   }
   ],
-  "v": {
-    "rev0": 493000,
-    "year0": 2026,
-    "g": [
-      17,
-      14,
-      12,
-      10,
-      8
-    ],
-    "m1": 47,
-    "m5": 50,
-    "da": 9,
-    "da5": 13,
-    "sbc": 5.5,
-    "capex": 43,
-    "capex5": 16,
-    "nwc": 5,
-    "tax": 17,
-    "wacc": 9,
-    "tg": 3,
-    "exit": 15,
-    "method": "blend",
-    "eps": 12,
-    "pe": 24,
-    "evm": 16,
-    "scn": [
-      {
-        "n": "Bajista",
-        "dg": -6,
-        "dm": -5,
-        "p": 25
-      },
-      {
-        "n": "Base",
-        "dg": 0,
-        "dm": 0,
-        "p": 50
-      },
-      {
-        "n": "Alcista",
-        "dg": 4,
-        "dm": 2,
-        "p": 25
-      }
-    ]
-  },
-  "verdict": {
-    "rating": "Mantener",
-    "conviction": 3,
-    "buyBelow": 255,
-    "horizon": "12–24 meses",
-    "summary": "Uno de los mejores negocios del mundo en mitad de un ciclo de inversión enorme. Cloud crece al 103% con margen del 36% y una cartera de 560.800 M$, pero la Búsqueda se frena (+12%), el FCF es negativo y la empresa ha dejado de recomprar y emite deuda y acciones. Tras caer de 325 $ a ~283 $, el mercado ya descuenta parte del riesgo, pero aún no hay margen de seguridad: mantener y comprar por debajo de 255 $.",
-    "bull": [
-      "Cloud +103% con margen del 36% y cartera de 560.800 M$",
-      "Consultas en máximos de cinco años; Gemini con 1.000 M de usuarios",
-      "TPU propias: ventaja de coste en IA",
-      "265.098 M$ de caja e inversiones a corto"
-    ],
-    "bear": [
-      "El capex de 2027 será «significativamente» mayor: FCF negativo durante más tiempo",
-      "924.000 M$ en compromisos de compra",
-      "AI Mode monetiza menos que la búsqueda clásica",
-      "Sin recompras y con emisión de acciones y deuda",
-      "Remedios antimonopolio en búsqueda y ad tech"
-    ],
-    "watch": [
-      "Resultados del 4T26 (2-feb-27) y cifra de capex 2027",
-      "FCF sin multa ni inventario de TPU",
-      "Crecimiento de Búsqueda frente al de consultas",
-      "Margen de Cloud y conversión de la cartera",
-      "Vuelta de las recompras"
-    ]
-  },
-  "notes": "Precio de referencia: 282,57 $ (cierre del 5-nov-2026, Finnhub); tras los resultados cayó desde 324,89 $ (cierre del 28-oct). Acciones, caja y deuda del DCF siguen ahora al último dato de la SEC. La deuda del 10-Q (126.118 M$) aún no incluye los 6.000 M€ emitidos en noviembre. Consenso de precios objetivo actualizado tras los resultados (mediana 400 $).",
-  "sources": {
-    "web": "https://abc.xyz",
-    "ir": "https://abc.xyz/investor/",
-    "docs": [
-      {
-        "cat": "Resultados trimestrales",
-        "t": "Nota de prensa de resultados 3T26 (8-K, Exhibit 99.1)",
-        "d": "28-oct-2026",
-        "u": "https://www.sec.gov/Archives/edgar/data/0001652044/000165204426000080/googexhibit991q32026.htm"
-      },
-      {
-        "cat": "Formularios SEC",
-        "t": "10-Q tercer trimestre 2026",
-        "d": "29-oct-2026",
-        "u": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/goog-20260930.htm"
-      },
-      {
-        "cat": "Resultados trimestrales",
-        "t": "Nota de prensa de resultados 2T26",
-        "d": "22-jul-2026",
-        "u": "https://abc.xyz/investor/news/news-details/2026/Alphabet-Announces-Second-Quarter-2026-Results-2026-Y3uQ6H4ZJa/default.aspx"
-      },
-      {
-        "cat": "Resultados trimestrales",
-        "t": "Nota de prensa de resultados 4T25 (PDF)",
-        "d": "04-feb-2026",
-        "u": "https://s206.q4cdn.com/479360582/files/doc_financials/2025/q4/2025q4-alphabet-earnings-release.pdf"
-      },
-      {
-        "cat": "Formularios SEC",
-        "t": "10-Q segundo trimestre 2026",
-        "d": "jul-2026",
-        "u": "https://www.sec.gov/Archives/edgar/data/0001652044/000165204426000071/goog-20260630.htm"
-      },
-      {
-        "cat": "Formularios SEC",
-        "t": "10-Q segundo trimestre 2026 (PDF)",
-        "d": "jul-2026",
-        "u": "https://s206.q4cdn.com/479360582/files/doc_financials/2026/q2/GOOG-10-Q-Q2-2026.pdf"
-      },
-      {
-        "cat": "Formularios SEC",
-        "t": "10-Q primer trimestre 2026",
-        "d": "abr-2026",
-        "u": "https://www.sec.gov/Archives/edgar/data/0001652044/000165204426000048/goog-20260331.htm"
-      },
-      {
-        "cat": "Formularios SEC",
-        "t": "10-K ejercicio 2025",
-        "d": "feb-2026",
-        "u": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/goog-20251231.htm"
-      },
-      {
-        "cat": "Informe anual",
-        "t": "Informe anual a accionistas 2025 (PDF)",
-        "d": "2026",
-        "u": "https://www.sec.gov/Archives/edgar/data/0001652044/000130817926000344/goog014907-ars.pdf"
-      },
-      {
-        "cat": "Transcripciones",
-        "t": "Llamada de resultados 3T26 (The Motley Fool)",
-        "d": "29-oct-2026",
-        "u": "https://www.fool.com/earnings/call-transcripts/2026/10/29/alphabet-googl-q3-2026-earnings-call-transcript/"
-      }
-    ],
-    "news": [
-      {
-        "t": "Reacción de los analistas: fallo en BPA, recortes de precio objetivo y rebaja de Citizens",
-        "src": "CNBC",
-        "u": "https://www.cnbc.com/2026/10/29/alphabet-q3-earnings-analyst-reaction.html"
-      },
-      {
-        "t": "Morgan Stanley y Barclays recortan precio objetivo",
-        "src": "Investing.com",
-        "u": "https://www.investing.com/news/analyst-ratings/morgan-stanley-cuts-alphabet-stock-price-target-on-growth-concerns-93CH-4981845"
-      },
-      {
-        "t": "FCF sin la multa de la CE: unos −3.900 M$",
-        "src": "TheStreet Pro",
-        "u": "https://pro.thestreet.com/portfolio/were-trimming-our-alphabet-price-target-and-asking-this-big-question"
-      },
-      {
-        "t": "Compromisos de compra de 924.000 M$ frente a la cartera de Cloud",
-        "src": "FourWeekMBA",
-        "u": "https://fourweekmba.com/ai-googles-commitments-hit-924b-1-65x-its-cloud-backlog/"
-      },
-      {
-        "t": "Emisión de 6.000 M€ en bonos en euros (cierre 5-nov-26)",
-        "src": "Cleary Gottlieb",
-        "u": "https://www.clearygottlieb.com/news-and-insights/news-listing/alphabet-in-6-billion-eur-denominated-bonds-offering"
-      },
-      {
-        "t": "Qué ha cambiado para el accionista: menos caja y sin recompras",
-        "src": "Trefis",
-        "u": "https://trefis.com/stock/googl/articles/622620/what-has-changed-about-owning-alphabet-stock/2026-11-04"
-      },
-      {
-        "t": "Resultados 3T26: Cloud +103%, capex de 51.360 M$",
-        "src": "StockTitan",
-        "u": "https://www.stocktitan.net/articles/alphabet-q3-2026-earnings-google-cloud-doubles-search-slows"
-      },
-      {
-        "t": "La acción cae tras el FCF negativo",
-        "src": "FinanceFeeds",
-        "u": "https://financefeeds.com/alphabet-googl-stock-292-after-q3-profit-miss-negative-9-billion-free-cash-flow-bull-325-bear-266/"
-      },
-      {
-        "t": "Búsqueda +12% y monetización de AI Mode",
-        "src": "Relevant Audience",
-        "u": "https://www.relevantaudience.com/google-ads-en/alphabet-q3-2026-search-revenue-ai-mode-monetization/"
-      },
-      {
-        "t": "Fallo de ad tech: sin venta forzosa",
-        "src": "JOPR",
-        "u": "https://jopr.org/news/detail/google-keeps-adtech-business"
-      }
-    ]
-  },
-  "social": {
-    "pulse": [
-      {
-        "p": "Reddit",
-        "s": 0,
-        "note": "Según SentiSense, 26-oct: admiración por Cloud y Gemini, pero dudas por el capex de 2027 (más de 300.000 M$) y la amenaza a la búsqueda."
-      },
-      {
-        "p": "X",
-        "s": 1,
-        "note": "Tras el 3T26 (Cloud +103%, cartera de 561.000 M$) se la ve como la gran ganadora de la IA entre las grandes tecnológicas."
-      },
-      {
-        "p": "YouTube",
-        "s": 1,
-        "note": "Muchos vídeos la presentan como la «megacap» más barata frente a su crecimiento."
-      }
-    ],
-    "videos": [
-      {
-        "t": "Breaking Down Alphabet's Earnings and Spending Plans",
-        "u": "https://www.youtube.com/watch?v=PZySE08_AoY"
-      },
-      {
-        "t": "GOOGL “Best in Class” into Earnings, Bull Case for “Aggressive” AI CapEx",
-        "u": "https://www.youtube.com/watch?v=ziMqvAVQ0JE"
-      },
-      {
-        "t": "Alphabet Earnings Preview: Ad Growth, Cloud, and AI Costs",
-        "u": "https://www.youtube.com/watch?v=-jJGC_tjMU0"
-      },
-      {
-        "t": "What to watch in Microsoft and Alphabet earnings",
-        "u": "https://www.youtube.com/watch?v=BGndlXxLyEI"
-      },
-      {
-        "t": "Alphabet Stock Analysis: My Final Verdict",
-        "u": "https://www.youtube.com/watch?v=9-AUPTW_qV8"
-      }
-    ],
-    "pulseFuente": "Lectura del 1-nov-2026 con SentiSense, LunarCrush y Stocktwits (agregadores de redes sociales) y búsquedas propias."
-  },
-  "fin_manual": {
-    "nota": "Series que la SEC no publica (por segmento). Las etiquetas de trimestre deben coincidir con las de la SEC (p. ej. 3T26).",
-    "q": {
-      "labels": [
-        "3T25",
-        "4T25",
-        "1T26",
-        "2T26",
-        "3T26"
-      ],
-      "series": [
-        {
-          "n": "Google Cloud",
-          "values": [
-            34,
-            48,
-            63,
-            82,
-            103
-          ]
-        },
-        {
-          "n": "Búsqueda",
-          "values": [
-            15,
-            17,
-            19,
-            17,
-            12
-          ]
-        }
-      ]
-    },
-    "nota_antigua": "Se usa beneficio operativo en lugar de EBITDA. 2026e: nueve meses reales + 4T estimado. El beneficio neto de 2026 no se muestra porque lo distorsionan las ganancias y pérdidas en participaciones (+98.000 M$ en 2T26, −8.660 M$ en 3T26). Deuda = deuda financiera a largo plazo."
-  },
-  "peers": [
-    "META",
-    "MSFT",
-    "AMZN",
-    "RDDT",
-    "PINS",
-    "SNAP"
-  ],
-  "avisos_aprobados": [
-    {
-      "id": "etiqueta_obsoleta.Beneficio antes de impuestos: «IncomeLossFromContinuingOperationsBeforeIncomeTax",
-      "fecha": "2026-11-06",
-      "nivel": "info",
-      "mensaje": "Beneficio antes de impuestos: «IncomeLossFromContinuingOperationsBeforeIncomeTaxesDomestic» termina el 2025-12-31; solo se usa para años antiguos."
-    },
-    {
-      "id": "etiqueta_obsoleta.Gastos por intereses: «InterestExpense» termina el #-#-#; solo se usa para años ",
-      "fecha": "2026-11-06",
-      "nivel": "info",
-      "mensaje": "Gastos por intereses: «InterestExpense» termina el 2024-03-31; solo se usa para años antiguos."
-    },
-    {
-      "id": "etiqueta_obsoleta.Dividendos pagados: «PaymentsOfDividends» termina el #-#-#; solo se usa para año",
-      "fecha": "2026-11-06",
-      "nivel": "info",
-      "mensaje": "Dividendos pagados: «PaymentsOfDividends» termina el 2026-03-31; solo se usa para años antiguos."
-    },
-    {
-      "id": "etiqueta_obsoleta.Ventas y marketing: «MarketingAndAdvertisingExpense» termina el #-#-#; solo se u",
-      "fecha": "2026-11-06",
-      "nivel": "info",
-      "mensaje": "Ventas y marketing: «MarketingAndAdvertisingExpense» termina el 2025-12-31; solo se usa para años antiguos."
-    },
-    {
-      "id": "amortizacion_por_componentes.Amortizaciones (D&A): la compañía no usa la etiqueta combinada; se suman depreci",
-      "fecha": "2026-11-06",
-      "nivel": "info",
-      "mensaje": "Amortizaciones (D&A): la compañía no usa la etiqueta combinada; se suman depreciación (us-gaap:Depreciation) y amortización de intangibles (us-gaap:AmortizationOfIntangibleAssets)."
-    },
-    {
-      "id": "etiqueta_obsoleta.Inmovilizado material neto: se descarta «PropertyPlantAndEquipmentNet» (último d",
-      "fecha": "2026-11-06",
-      "nivel": "info",
-      "mensaje": "Inmovilizado material neto: se descarta «PropertyPlantAndEquipmentNet» (último dato 2025-03-31, ingresos hasta 2026-09-30)."
-    },
-    {
-      "id": "acciones_diluidas.Acciones: se usan las diluidas medias del #T# (# M).",
-      "fecha": "2026-11-06",
-      "nivel": "info",
-      "mensaje": "Acciones: se usan las diluidas medias del 3T26 (12,368 M)."
-    }
+  "catalysts": [
+   {
+    "d": "2-feb-27",
+    "t": "Resultados 4T26 (tras el cierre) y cifra de capex 2027 («aumentará significativamente»)."
+   },
+   {
+    "d": "4T26",
+    "t": "Flujo de caja libre sin la multa de la CE (5.200 M$ pagados en el 3T26) ni la acumulación de inventario de TPU."
+   },
+   {
+    "d": "2026–27",
+    "t": "Conversión de la cartera de Cloud: algo más del 55% de 567.700 M$ en 24 meses (10-Q)."
+   },
+   {
+    "d": "4T26",
+    "t": "Anuncios en AI Mode en 10 países más y anuncios multiturno en EE. UU."
+   },
+   {
+    "d": "En curso",
+    "t": "Apelación del caso de búsqueda (Mehta) y aplicación de los remedios de ad tech (Brinkema)."
+   }
   ]
+ },
+ "business": {
+  "model": "Vende atención y cómputo. La atención, con anuncios en Búsqueda, YouTube y la red de webs de terceros. El cómputo, con Google Cloud: infraestructura, TPU, modelos Gemini y Workspace.\nSuscripciones (YouTube Premium, Google One) y dispositivos completan el resto.",
+  "customers": "Miles de millones de usuarios no pagan. Los que pagan son anunciantes (desde pymes hasta grandes marcas), empresas y gobiernos que contratan la nube, laboratorios de IA que compran TPU, y suscriptores.",
+  "segNote": "Ingresos del 3T26 por segmento, en M$.",
+  "segments": [
+   {
+    "n": "Búsqueda y otros",
+    "v": 63350
+   },
+   {
+    "n": "Google Cloud",
+    "v": 30710
+   },
+   {
+    "n": "Suscripciones y dispositivos",
+    "v": 14290
+   },
+   {
+    "n": "Anuncios de YouTube",
+    "v": 11210
+   },
+   {
+    "n": "Red de Google",
+    "v": 7460
+   },
+   {
+    "n": "Other Bets",
+    "v": 370
+   }
+  ],
+  "customerTypes": [
+   {
+    "n": "Anunciantes",
+    "d": "~82.000 M$ por trimestre en publicidad, creciendo ~11%."
+   },
+   {
+    "n": "Empresas en la nube",
+    "d": "Cartera de Cloud de 560.800 M$ (sep-26); algo más del 55% se convertirá en ingresos en 24 meses."
+   },
+   {
+    "n": "Laboratorios de IA",
+    "d": "Compran capacidad de TPU; la dirección lo llama un contribuidor «significativo»."
+   },
+   {
+    "n": "Suscriptores y usuarios",
+    "d": "Más de 150 M en YouTube Music/Premium; 1.000 M de usuarios en la app de Gemini."
+   }
+  ],
+  "quality": [
+   {
+    "n": "Márgenes",
+    "s": 4,
+    "note": "Margen operativo 31,8%; Cloud 36%"
+   },
+   {
+    "n": "Retorno sobre capital",
+    "s": 4,
+    "note": "Alto, pero diluyéndose por el capex"
+   },
+   {
+    "n": "Conversión en caja",
+    "s": 1,
+    "note": "FCF de −9.065 M$ en 3T26 (−3.900 M$ sin la multa de la CE)"
+   },
+   {
+    "n": "Recurrencia de ingresos",
+    "s": 4,
+    "note": "Hábito diario en Búsqueda; contratos plurianuales en Cloud"
+   },
+   {
+    "n": "Diversificación",
+    "s": 4,
+    "note": "Seis líneas; Cloud ya es el 24% de los ingresos"
+   },
+   {
+    "n": "Balance",
+    "s": 4,
+    "note": "Caja 265.098 M$ frente a deuda 126.118 M$ (sep-26)"
+   }
+  ],
+  "phase": 2,
+  "phaseNote": "Un negocio maduro (Búsqueda) financia una segunda fase de crecimiento (Cloud e IA). Crecer al 25% con 500.000 M$ de ingresos es inusual.",
+  "clients": {
+   "nota": "Millones de anunciantes de todos los tamaños (publicidad ~75% de los ingresos), usuarios de pago de YouTube, Google One y Workspace, y empresas en Google Cloud. En la nube aparecen ya clientes enormes de IA. Ningún cliente supera el 10%.",
+   "kpis": [
+    {
+     "k": "Publicidad",
+     "v": "~75% de los ingresos",
+     "d": "Búsqueda, YouTube y red de socios"
+    },
+    {
+     "k": "Cartera de Google Cloud",
+     "v": "560.800 M$",
+     "d": "sep-26 (10-Q); el total de Alphabet es 567.700 M$"
+    },
+    {
+     "k": "Anthropic en Google",
+     "v": "≥111.100 M$",
+     "d": "compromiso firme hasta jul-33 (folleto de salida a bolsa)"
+    },
+    {
+     "k": "Crux AI",
+     "v": "16.800 M$",
+     "d": "de la cartera es un contrato plurianual con Crux AI, sociedad conjunta participada (parte vinculada)"
+    }
+   ],
+   "conocidos": [
+    {
+     "n": "Anthropic",
+     "sector": "IA",
+     "cifra": "≥111.100 M$ hasta jul-33",
+     "d": "Según su folleto de salida a bolsa, debe a Alphabet al menos 111.100 M$ entre abr-26 y jul-33 en nube y TPU; si gasta menos, paga la diferencia. Espera más de 1 GW de cómputo en 2026.",
+     "u": "https://investmentnews.com/equities/anthropics-landmark-ipo-filing-shows-12-fold-revenue-jump-518b-compute-bill/268391",
+     "f": "sep-26",
+     "fu": "Folleto de Anthropic (InvestmentNews)"
+    },
+    {
+     "n": "Meta",
+     "t": "META",
+     "sector": "Redes sociales",
+     "cifra": ">10.000 M$ en 6 años",
+     "d": "Contrato de servicios de nube (Reuters, ago-25) y negociación para alquilar TPU y comprarlas desde 2027.",
+     "u": "https://www.bnnbloomberg.ca/business/2025/08/22/meta-signs-over-us10-billion-cloud-deal-with-google-source-says-2/",
+     "fu": "Reuters vía BNN Bloomberg",
+     "f": "ago-25"
+    },
+    {
+     "n": "Apple",
+     "t": "AAPL",
+     "sector": "Tecnología",
+     "cifra": "Buscador por defecto en Safari",
+     "d": "Google le paga por ser el buscador por defecto y negocia alojar Siri en Google Cloud.",
+     "u": "https://www.datacenterdynamics.com/en/news/apple-in-discussions-to-host-siri-on-google-cloud-report/",
+     "f": "2026"
+    },
+    {
+     "n": "Anunciantes de búsqueda y YouTube",
+     "sector": "Todos",
+     "cifra": "~75% de los ingresos",
+     "d": "Millones de anunciantes, desde pymes locales hasta grandes marcas, distribuidores y aplicaciones."
+    }
+   ]
+  }
+ },
+ "moat": {
+  "width": "Amplio",
+  "trend": "Estable",
+  "note": "La amenaza principal es que la IA generativa cambie cómo se busca: las consultas están en máximos de cinco años, pero las de AI Mode se monetizan peor. Las TPU propias le dan una ventaja de coste en IA que pocos rivales tienen.",
+  "sources": [
+   {
+    "n": "Efecto red",
+    "s": 4,
+    "note": "Más búsquedas → mejores resultados → más anunciantes; Android y YouTube"
+   },
+   {
+    "n": "Costes de cambio",
+    "s": 3,
+    "note": "Ecosistema Android, Chrome y Workspace; contratos de nube plurianuales"
+   },
+   {
+    "n": "Activos intangibles",
+    "s": 5,
+    "note": "Marca, datos, DeepMind y Gemini"
+   },
+   {
+    "n": "Ventaja de costes",
+    "s": 5,
+    "note": "TPU propias frente a rivales que dependen de Nvidia"
+   },
+   {
+    "n": "Escala eficiente",
+    "s": 4,
+    "note": "Red global de centros de datos"
+   }
+  ],
+  "comps": [
+   {
+    "n": "OpenAI (ChatGPT)",
+    "threat": 4,
+    "note": "Alternativa directa a la búsqueda"
+   },
+   {
+    "n": "Microsoft (Azure, Copilot)",
+    "threat": 3,
+    "note": "Rival en nube e IA empresarial"
+   },
+   {
+    "n": "Amazon (AWS, Amazon Ads)",
+    "threat": 3,
+    "note": "Líder en nube y en anuncios de comercio"
+   },
+   {
+    "n": "Meta",
+    "threat": 3,
+    "note": "Compite por el presupuesto publicitario"
+   }
+  ]
+ },
+ "growth": {
+  "score": 4,
+  "scoreNote": "Crece al 25% con más de 127.000 M$ por trimestre. Cloud tira con fuerza; la Búsqueda pierde ritmo.",
+  "tam": "Nube pública e IA empresarial, más la publicidad digital mundial.",
+  "guidance": "No da guía de ingresos. Capex 2026: 195.000–205.000 M$ (sin cambios); en 2027 «aumentará significativamente» (la prensa habla de unos 300.000 M$, sin cifra oficial). Prevé más presión en el FCF por el capex y el inventario de TPU, con caja operativa sólida, y un impacto de divisa algo mayor en el 4T26.",
+  "drivers": [
+   {
+    "n": "Google Cloud e IA",
+    "impact": 5,
+    "h": "2026–2028",
+    "st": "en marcha",
+    "k": "+103% en 3T26 · margen 36,2%",
+    "peso": "cartera de 560.800 M$ (sep-26)",
+    "d": "La nube es hoy el motor más rápido de Alphabet: 30.700 M$ en el 3T26 y 11.100 M$ de beneficio operativo. Laboratorios de IA (Anthropic, Meta, Apple) y empresas alquilan su cómputo y sus modelos Gemini; algo más del 55% de la cartera se reconoce en 24 meses.",
+    "ev": "Crecimiento y margen de Cloud cada trimestre; evolución de la cartera.",
+    "r": "Capex de ~200.000 M$ en 2026: si la demanda de IA se frena, la amortización hundiría el margen.",
+    "u": "https://www.fool.com/earnings/call-transcripts/2026/10/29/alphabet-googl-q3-2026-earnings-call-transcript/"
+   },
+   {
+    "n": "Venta de TPU a terceros",
+    "impact": 4,
+    "h": "2026–2027",
+    "st": "temprano",
+    "k": "Anthropic: ≥111.100 M$ comprometidos",
+    "peso": "incluido en la cartera de Cloud",
+    "d": "Google vende y alquila sus chips propios (TPU) fuera de casa, compitiendo con Nvidia. Las ventas de sistemas TPU ya aportan de forma significativa a Cloud y obligaron a acumular inventario en el 3T26. Meta negocia alquilarlos y comprarlos desde 2027.",
+    "ev": "Nuevos clientes de TPU y comentarios sobre su peso en Cloud.",
+    "r": "Dependencia de pocos clientes muy grandes: Anthropic pierde dinero (más de 8.000 M$ de pérdida operativa en 2025) y depende de seguir financiándose.",
+    "u": "https://www.datacenterdynamics.com/en/news/google-and-anthropic-confirm-massive-1gw-cloud-deal-with-up-to-one-million-google-tpus/"
+   },
+   {
+    "n": "Monetización de AI Mode y Gemini",
+    "impact": 3,
+    "h": "2027+",
+    "st": "temprano",
+    "k": "Búsqueda +12% en 3T26 (63.300 M$)",
+    "d": "Las consultas de búsqueda crecen al mayor ritmo en cinco años y las de AI Mode son unas tres veces más largas que una búsqueda clásica. El reto es cobrar lo mismo o más por cada consulta con respuestas de IA.",
+    "ev": "Ingresos de búsqueda y número de clics pagados; anuncios dentro de AI Mode.",
+    "r": "Canibalización de la búsqueda clásica por chatbots.",
+    "peso": "Gemini: 1.000 M de usuarios",
+    "u": "https://www.fool.com/earnings/call-transcripts/2026/10/29/alphabet-googl-q3-2026-earnings-call-transcript/"
+   },
+   {
+    "n": "YouTube y suscripciones",
+    "impact": 2,
+    "h": "Continuo",
+    "st": "maduro",
+    "k": "Anuncios de YouTube +9% (11.200 M$)",
+    "peso": "suscripciones y dispositivos +11% (14.300 M$)",
+    "d": "YouTube crece con la televisión conectada, que ya es más de un tercio de sus ingresos publicitarios, y con Shorts; las suscripciones (YouTube Premium, Google One) dan ingresos recurrentes.",
+    "ev": "Crecimiento de anuncios de YouTube y de suscripciones.",
+    "r": "Competencia de TikTok y del streaming."
+   },
+   {
+    "n": "Waymo y Other Bets",
+    "impact": 2,
+    "h": "2028+",
+    "st": "temprano",
+    "k": "300 M de millas autónomas",
+    "peso": "opcionalidad",
+    "d": "Coches autónomos (Waymo) y otros proyectos: pierden dinero, pero Waymo ya ha recorrido más de 300 millones de millas sin conductor y acaba de llegar a San Antonio, San Diego y Tampa.",
+    "ev": "Ciudades y viajes de pago de Waymo; pérdidas de Other Bets.",
+    "r": "Accidentes, regulación y años de pérdidas."
+   }
+  ]
+ },
+ "mgmt": {
+  "note": "Tres clases de acciones: A (1 voto), B (10 votos, en manos de los fundadores) y C (sin voto). En 2026 ha dejado de recomprar y financia el capex con deuda (28.700 M$ en bonos en el 3T26 y otros 6.000 M€ en euros en nov-26) y venta de acciones (12.400 M$ en el 3T26).",
+  "people": [
+   {
+    "n": "Sundar Pichai",
+    "role": "CEO de Alphabet y Google",
+    "since": "2015",
+    "note": "CEO de Google desde 2015 y de Alphabet desde 2019. Lidera la apuesta por Gemini."
+   },
+   {
+    "n": "Anat Ashkenazi",
+    "role": "Directora financiera",
+    "since": "2024",
+    "note": "Llegó de Eli Lilly."
+   },
+   {
+    "n": "Thomas Kurian",
+    "role": "CEO de Google Cloud",
+    "since": "2019",
+    "note": "Ha llevado Cloud a crecer al 103% con margen del 36%."
+   },
+   {
+    "n": "Demis Hassabis",
+    "role": "CEO de Google DeepMind",
+    "since": "",
+    "note": "Investigación y modelos Gemini."
+   },
+   {
+    "n": "Larry Page y Sergey Brin",
+    "role": "Cofundadores",
+    "since": "1998",
+    "note": "Controlan la mayoría del voto con las acciones de clase B."
+   }
+  ],
+  "scores": [
+   {
+    "n": "Alineación con el accionista",
+    "s": 3,
+    "note": "Fundadores con control; CEO no fundador"
+   },
+   {
+    "n": "Asignación de capital",
+    "s": 3,
+    "note": "Apuesta total por IA: capex duplicado, sin recompras, emite deuda y acciones"
+   },
+   {
+    "n": "Credibilidad y ejecución",
+    "s": 4,
+    "note": "Cloud y Gemini muy por encima de lo esperado"
+   },
+   {
+    "n": "Gobierno corporativo",
+    "s": 2,
+    "note": "Voto dual controlado por los fundadores"
+   },
+   {
+    "n": "Transparencia",
+    "s": 3,
+    "note": "Sin guía de ingresos ni cifra de capex 2027"
+   }
+  ],
+  "alloc": {
+   "label": "Uso de la caja, 9 meses 2026 (M$)",
+   "items": [
+    {
+     "n": "Capex",
+     "v": 131953
+    },
+    {
+     "n": "Dividendos (est.)",
+     "v": 7800
+    },
+    {
+     "n": "Recompras",
+     "v": 0
+    }
+   ]
+  },
+  "vote": {
+   "label": "Poder de voto (%, aprox.)",
+   "items": [
+    {
+     "n": "Page y Brin (clase B)",
+     "v": 51
+    },
+    {
+     "n": "Resto de accionistas",
+     "v": 49
+    }
+   ]
+  },
+  "call": {
+   "periodEnd": "2026-09-30",
+   "q": "3T 2026",
+   "date": "28-oct-2026",
+   "doc": "Nota de resultados (8-K, Exhibit 99.1), 10-Q del 3T26 y llamada con analistas",
+   "url": "https://www.sec.gov/Archives/edgar/data/0001652044/000165204426000080/googexhibit991q32026.htm",
+   "nota": "Revisado el 6-nov-2026 con la nota, el 10-Q (29-oct) y la cobertura de la llamada.",
+   "dir": [
+    "Pichai: ritmo anual de medio billón de dólares en ingresos; Cloud +103% «por la enorme demanda» de infraestructura y soluciones de IA, y fuerte demanda de sistemas TPU.",
+    "Cartera de pedidos de 567.700 M$ (560.800 M$ de Cloud); algo más del 55% se reconoce en 24 meses. Incluye 16.800 M$ de Crux AI, sociedad conjunta vinculada.",
+    "Gemini supera los 1.000 millones de usuarios y las consultas de búsqueda están en máximos de cinco años."
+   ],
+   "ret": [
+    "Primer fallo a la vez en ingresos y BPA en casi cuatro años: BPA 2,12 $ por las pérdidas en participaciones (SpaceX, entre otras).",
+    "La Búsqueda se frena (+12% frente a +19%) y AI Mode monetiza menos que la búsqueda clásica.",
+    "FCF de −9.065 M$: capex de 51.355 M$ frente a 42.290 M$ de caja operativa, con el pago de la multa de la CE de 2018 (5.200 M$) y el inventario de TPU.",
+    "Compromisos de compra de 924.000 M$ (dato de la CFO en la llamada), 1,65 veces la cartera de Cloud."
+   ],
+   "guia": [
+    "Capex 2026: 195.000–205.000 M$, sin cambios.",
+    "El capex de 2027 «aumentará significativamente»; sin cifra oficial.",
+    "El capex y el inventario de TPU seguirán presionando el FCF; la caja operativa seguirá siendo fuerte.",
+    "Impacto de divisa algo mayor en el 4T26."
+   ],
+   "cap": [
+    "Sin recompras en 2026.",
+    "Capex de 131.953 M$ en nueve meses, por encima de la caja operativa (127.149 M$).",
+    "Financia la inversión con deuda (28.700 M$ en el 3T26 y 6.000 M€ en bonos en euros, cerrados el 5-nov) y venta de acciones (12.400 M$ en el 3T26)."
+   ]
+  }
+ },
+ "risks": [
+  {
+   "n": "Capex sin retorno suficiente",
+   "cat": "Financiero",
+   "p": 3,
+   "i": 5,
+   "note": "~200.000 M$ en 2026 y más en 2027; FCF de −9.065 M$ en el 3T26 y 924.000 M$ en compromisos de compra"
+  },
+  {
+   "n": "La IA canibaliza la búsqueda",
+   "cat": "Competencia",
+   "p": 3,
+   "i": 5,
+   "note": "AI Mode monetiza menos; Búsqueda pasó de +19% a +12%"
+  },
+  {
+   "n": "Remedios antimonopolio",
+   "cat": "Regulatorio",
+   "p": 3,
+   "i": 3,
+   "note": "Búsqueda: fin de las exclusivas (en apelación). Ad tech: sin venta forzosa, pero con cambios de prácticas (sep-26)"
+  },
+  {
+   "n": "Dilución y más deuda",
+   "cat": "Financiero",
+   "p": 3,
+   "i": 3,
+   "note": "Sin recompras en 2026; bonos y acciones en el 3T26 y 6.000 M€ en bonos en nov-26"
+  },
+  {
+   "n": "Concentración en clientes de IA",
+   "cat": "Competencia",
+   "p": 2,
+   "i": 4,
+   "note": "Parte de la cartera depende de pocos laboratorios (Anthropic ≥111.100 M$; Crux AI 16.800 M$, parte vinculada)"
+  },
+  {
+   "n": "Divisa y ciclo publicitario",
+   "cat": "Mercado",
+   "p": 3,
+   "i": 2,
+   "note": "Mayor impacto de divisa previsto para el 4T26"
+  },
+  {
+   "n": "Pérdidas de Other Bets",
+   "cat": "Operativo",
+   "p": 4,
+   "i": 1,
+   "note": "−2.040 M$ en el 3T26"
+  }
+ ],
+ "v": {
+  "rev0": 493000,
+  "year0": 2026,
+  "g": [
+   17,
+   14,
+   12,
+   10,
+   8
+  ],
+  "m1": 47,
+  "m5": 50,
+  "da": 9,
+  "da5": 13,
+  "sbc": 5.5,
+  "capex": 43,
+  "capex5": 16,
+  "nwc": 5,
+  "tax": 17,
+  "wacc": 9,
+  "tg": 3,
+  "exit": 15,
+  "method": "blend",
+  "eps": 12,
+  "pe": 24,
+  "evm": 16,
+  "scn": [
+   {
+    "n": "Bajista",
+    "dg": -6,
+    "dm": -5,
+    "p": 25
+   },
+   {
+    "n": "Base",
+    "dg": 0,
+    "dm": 0,
+    "p": 50
+   },
+   {
+    "n": "Alcista",
+    "dg": 4,
+    "dm": 2,
+    "p": 25
+   }
+  ]
+ },
+ "verdict": {
+  "rating": "Mantener",
+  "conviction": 3,
+  "buyBelow": 255,
+  "horizon": "12–24 meses",
+  "summary": "Uno de los mejores negocios del mundo en mitad de un ciclo de inversión enorme. Cloud crece al 103% con margen del 36% y una cartera de 560.800 M$, pero la Búsqueda se frena (+12%), el FCF es negativo y la empresa ha dejado de recomprar y emite deuda y acciones. Tras caer de 325 $ a ~283 $, el mercado ya descuenta parte del riesgo, pero aún no hay margen de seguridad: mantener y comprar por debajo de 255 $.",
+  "bull": [
+   "Cloud +103% con margen del 36% y cartera de 560.800 M$",
+   "Consultas en máximos de cinco años; Gemini con 1.000 M de usuarios",
+   "TPU propias: ventaja de coste en IA",
+   "265.098 M$ de caja e inversiones a corto"
+  ],
+  "bear": [
+   "El capex de 2027 será «significativamente» mayor: FCF negativo durante más tiempo",
+   "924.000 M$ en compromisos de compra",
+   "AI Mode monetiza menos que la búsqueda clásica",
+   "Sin recompras y con emisión de acciones y deuda",
+   "Remedios antimonopolio en búsqueda y ad tech"
+  ],
+  "watch": [
+   "Resultados del 4T26 (2-feb-27) y cifra de capex 2027",
+   "FCF sin multa ni inventario de TPU",
+   "Crecimiento de Búsqueda frente al de consultas",
+   "Margen de Cloud y conversión de la cartera",
+   "Vuelta de las recompras"
+  ]
+ },
+ "notes": "Precio de referencia: 282,57 $ (cierre del 5-nov-2026, Finnhub); tras los resultados cayó desde 324,89 $ (cierre del 28-oct). Acciones, caja y deuda del DCF siguen ahora al último dato de la SEC. La deuda del 10-Q (126.118 M$) aún no incluye los 6.000 M€ emitidos en noviembre. Consenso de precios objetivo actualizado tras los resultados (mediana 400 $).",
+ "sources": {
+  "web": "https://abc.xyz",
+  "ir": "https://abc.xyz/investor/",
+  "docs": [
+   {
+    "cat": "Resultados trimestrales",
+    "t": "Nota de prensa de resultados 3T26 (8-K, Exhibit 99.1)",
+    "d": "28-oct-2026",
+    "u": "https://www.sec.gov/Archives/edgar/data/0001652044/000165204426000080/googexhibit991q32026.htm"
+   },
+   {
+    "cat": "Formularios SEC",
+    "t": "10-Q tercer trimestre 2026",
+    "d": "29-oct-2026",
+    "u": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/goog-20260930.htm"
+   },
+   {
+    "cat": "Resultados trimestrales",
+    "t": "Nota de prensa de resultados 2T26",
+    "d": "22-jul-2026",
+    "u": "https://abc.xyz/investor/news/news-details/2026/Alphabet-Announces-Second-Quarter-2026-Results-2026-Y3uQ6H4ZJa/default.aspx"
+   },
+   {
+    "cat": "Resultados trimestrales",
+    "t": "Nota de prensa de resultados 4T25 (PDF)",
+    "d": "04-feb-2026",
+    "u": "https://s206.q4cdn.com/479360582/files/doc_financials/2025/q4/2025q4-alphabet-earnings-release.pdf"
+   },
+   {
+    "cat": "Formularios SEC",
+    "t": "10-Q segundo trimestre 2026",
+    "d": "jul-2026",
+    "u": "https://www.sec.gov/Archives/edgar/data/0001652044/000165204426000071/goog-20260630.htm"
+   },
+   {
+    "cat": "Formularios SEC",
+    "t": "10-Q segundo trimestre 2026 (PDF)",
+    "d": "jul-2026",
+    "u": "https://s206.q4cdn.com/479360582/files/doc_financials/2026/q2/GOOG-10-Q-Q2-2026.pdf"
+   },
+   {
+    "cat": "Formularios SEC",
+    "t": "10-Q primer trimestre 2026",
+    "d": "abr-2026",
+    "u": "https://www.sec.gov/Archives/edgar/data/0001652044/000165204426000048/goog-20260331.htm"
+   },
+   {
+    "cat": "Formularios SEC",
+    "t": "10-K ejercicio 2025",
+    "d": "feb-2026",
+    "u": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/goog-20251231.htm"
+   },
+   {
+    "cat": "Informe anual",
+    "t": "Informe anual a accionistas 2025 (PDF)",
+    "d": "2026",
+    "u": "https://www.sec.gov/Archives/edgar/data/0001652044/000130817926000344/goog014907-ars.pdf"
+   },
+   {
+    "cat": "Transcripciones",
+    "t": "Llamada de resultados 3T26 (The Motley Fool)",
+    "d": "29-oct-2026",
+    "u": "https://www.fool.com/earnings/call-transcripts/2026/10/29/alphabet-googl-q3-2026-earnings-call-transcript/"
+   }
+  ],
+  "news": [
+   {
+    "t": "Google invertirá 17.000 M$ en su primer centro de datos en Wyoming, con 702 MW de pilas de combustible de Bloom y captura de carbono, y pagará el 100% de su electricidad",
+    "src": "Blog de Google",
+    "u": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/wyoming-data-center/"
+   },
+   {
+    "t": "Google, Meta y TikTok demandan a California por su ley de redes sociales para menores",
+    "src": "TechCrunch",
+    "u": "https://techcrunch.com/2026/11/05/meta-google-and-tiktok-sue-california-ag-over-teen-social-media-law/"
+   },
+   {
+    "t": "Reacción de los analistas: fallo en BPA, recortes de precio objetivo y rebaja de Citizens",
+    "src": "CNBC",
+    "u": "https://www.cnbc.com/2026/10/29/alphabet-q3-earnings-analyst-reaction.html"
+   },
+   {
+    "t": "Morgan Stanley y Barclays recortan precio objetivo",
+    "src": "Investing.com",
+    "u": "https://www.investing.com/news/analyst-ratings/morgan-stanley-cuts-alphabet-stock-price-target-on-growth-concerns-93CH-4981845"
+   },
+   {
+    "t": "FCF sin la multa de la CE: unos −3.900 M$",
+    "src": "TheStreet Pro",
+    "u": "https://pro.thestreet.com/portfolio/were-trimming-our-alphabet-price-target-and-asking-this-big-question"
+   },
+   {
+    "t": "Compromisos de compra de 924.000 M$ frente a la cartera de Cloud",
+    "src": "FourWeekMBA",
+    "u": "https://fourweekmba.com/ai-googles-commitments-hit-924b-1-65x-its-cloud-backlog/"
+   },
+   {
+    "t": "Emisión de 6.000 M€ en bonos en euros (cierre 5-nov-26)",
+    "src": "Cleary Gottlieb",
+    "u": "https://www.clearygottlieb.com/news-and-insights/news-listing/alphabet-in-6-billion-eur-denominated-bonds-offering"
+   },
+   {
+    "t": "Qué ha cambiado para el accionista: menos caja y sin recompras",
+    "src": "Trefis",
+    "u": "https://trefis.com/stock/googl/articles/622620/what-has-changed-about-owning-alphabet-stock/2026-11-04"
+   },
+   {
+    "t": "Resultados 3T26: Cloud +103%, capex de 51.360 M$",
+    "src": "StockTitan",
+    "u": "https://www.stocktitan.net/articles/alphabet-q3-2026-earnings-google-cloud-doubles-search-slows"
+   },
+   {
+    "t": "La acción cae tras el FCF negativo",
+    "src": "FinanceFeeds",
+    "u": "https://financefeeds.com/alphabet-googl-stock-292-after-q3-profit-miss-negative-9-billion-free-cash-flow-bull-325-bear-266/"
+   },
+   {
+    "t": "Búsqueda +12% y monetización de AI Mode",
+    "src": "Relevant Audience",
+    "u": "https://www.relevantaudience.com/google-ads-en/alphabet-q3-2026-search-revenue-ai-mode-monetization/"
+   },
+   {
+    "t": "Fallo de ad tech: sin venta forzosa",
+    "src": "JOPR",
+    "u": "https://jopr.org/news/detail/google-keeps-adtech-business"
+   }
+  ]
+ },
+ "social": {
+  "pulse": [
+   {
+    "p": "Reddit",
+    "s": 0,
+    "note": "Según SentiSense, 26-oct: admiración por Cloud y Gemini, pero dudas por el capex de 2027 (más de 300.000 M$) y la amenaza a la búsqueda."
+   },
+   {
+    "p": "X",
+    "s": 1,
+    "note": "Tras el 3T26 (Cloud +103%, cartera de 561.000 M$) se la ve como la gran ganadora de la IA entre las grandes tecnológicas."
+   },
+   {
+    "p": "YouTube",
+    "s": 1,
+    "note": "Muchos vídeos la presentan como la «megacap» más barata frente a su crecimiento."
+   }
+  ],
+  "videos": [
+   {
+    "t": "Breaking Down Alphabet's Earnings and Spending Plans",
+    "u": "https://www.youtube.com/watch?v=PZySE08_AoY"
+   },
+   {
+    "t": "GOOGL “Best in Class” into Earnings, Bull Case for “Aggressive” AI CapEx",
+    "u": "https://www.youtube.com/watch?v=ziMqvAVQ0JE"
+   },
+   {
+    "t": "Alphabet Earnings Preview: Ad Growth, Cloud, and AI Costs",
+    "u": "https://www.youtube.com/watch?v=-jJGC_tjMU0"
+   },
+   {
+    "t": "What to watch in Microsoft and Alphabet earnings",
+    "u": "https://www.youtube.com/watch?v=BGndlXxLyEI"
+   },
+   {
+    "t": "Alphabet Stock Analysis: My Final Verdict",
+    "u": "https://www.youtube.com/watch?v=9-AUPTW_qV8"
+   }
+  ],
+  "pulseFuente": "Lectura del 1-nov-2026 con SentiSense, LunarCrush y Stocktwits (agregadores de redes sociales) y búsquedas propias."
+ },
+ "fin_manual": {
+  "nota": "Series que la SEC no publica (por segmento). Las etiquetas de trimestre deben coincidir con las de la SEC (p. ej. 3T26).",
+  "q": {
+   "labels": [
+    "3T25",
+    "4T25",
+    "1T26",
+    "2T26",
+    "3T26"
+   ],
+   "series": [
+    {
+     "n": "Google Cloud",
+     "values": [
+      34,
+      48,
+      63,
+      82,
+      103
+     ]
+    },
+    {
+     "n": "Búsqueda",
+     "values": [
+      15,
+      17,
+      19,
+      17,
+      12
+     ]
+    }
+   ]
+  },
+  "nota_antigua": "Se usa beneficio operativo en lugar de EBITDA. 2026e: nueve meses reales + 4T estimado. El beneficio neto de 2026 no se muestra porque lo distorsionan las ganancias y pérdidas en participaciones (+98.000 M$ en 2T26, −8.660 M$ en 3T26). Deuda = deuda financiera a largo plazo."
+ },
+ "peers": [
+  "META",
+  "MSFT",
+  "AMZN",
+  "RDDT",
+  "PINS",
+  "SNAP"
+ ],
+ "avisos_aprobados": [
+  {
+   "id": "etiqueta_obsoleta.Beneficio antes de impuestos: «IncomeLossFromContinuingOperationsBeforeIncomeTax",
+   "fecha": "2026-11-06",
+   "nivel": "info",
+   "mensaje": "Beneficio antes de impuestos: «IncomeLossFromContinuingOperationsBeforeIncomeTaxesDomestic» termina el 2025-12-31; solo se usa para años antiguos."
+  },
+  {
+   "id": "etiqueta_obsoleta.Gastos por intereses: «InterestExpense» termina el #-#-#; solo se usa para años ",
+   "fecha": "2026-11-06",
+   "nivel": "info",
+   "mensaje": "Gastos por intereses: «InterestExpense» termina el 2024-03-31; solo se usa para años antiguos."
+  },
+  {
+   "id": "etiqueta_obsoleta.Dividendos pagados: «PaymentsOfDividends» termina el #-#-#; solo se usa para año",
+   "fecha": "2026-11-06",
+   "nivel": "info",
+   "mensaje": "Dividendos pagados: «PaymentsOfDividends» termina el 2026-03-31; solo se usa para años antiguos."
+  },
+  {
+   "id": "etiqueta_obsoleta.Ventas y marketing: «MarketingAndAdvertisingExpense» termina el #-#-#; solo se u",
+   "fecha": "2026-11-06",
+   "nivel": "info",
+   "mensaje": "Ventas y marketing: «MarketingAndAdvertisingExpense» termina el 2025-12-31; solo se usa para años antiguos."
+  },
+  {
+   "id": "amortizacion_por_componentes.Amortizaciones (D&A): la compañía no usa la etiqueta combinada; se suman depreci",
+   "fecha": "2026-11-06",
+   "nivel": "info",
+   "mensaje": "Amortizaciones (D&A): la compañía no usa la etiqueta combinada; se suman depreciación (us-gaap:Depreciation) y amortización de intangibles (us-gaap:AmortizationOfIntangibleAssets)."
+  },
+  {
+   "id": "etiqueta_obsoleta.Inmovilizado material neto: se descarta «PropertyPlantAndEquipmentNet» (último d",
+   "fecha": "2026-11-06",
+   "nivel": "info",
+   "mensaje": "Inmovilizado material neto: se descarta «PropertyPlantAndEquipmentNet» (último dato 2025-03-31, ingresos hasta 2026-09-30)."
+  },
+  {
+   "id": "acciones_diluidas.Acciones: se usan las diluidas medias del #T# (# M).",
+   "fecha": "2026-11-06",
+   "nivel": "info",
+   "mensaje": "Acciones: se usan las diluidas medias del 3T26 (12,368 M)."
+  }
+ ]
 }
