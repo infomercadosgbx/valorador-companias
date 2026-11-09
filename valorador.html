@@ -922,6 +922,10 @@ body.report #ratioCard .seg{display:none}
 .clogo.img{background:#fff;border:1px solid var(--line);overflow:hidden} .clogo.img img{width:30px;height:30px;object-fit:contain}
 .ccf{font-size:17px;font-weight:700;color:var(--tcx);font-variant-numeric:tabular-nums;line-height:1.25}
 .ccd{margin:0;font-size:13.5px;color:var(--ink2);line-height:1.45}
+.ccard.clamp .ccd{display:-webkit-box;-webkit-line-clamp:4;line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.cmore{align-self:flex-start;background:none;border:0;padding:0;font:inherit;font-size:13px;font-weight:600;color:var(--tcx);cursor:pointer} .cmore:hover{text-decoration:underline}
+.cmtxt p{margin:0 0 10px;font-size:14px;line-height:1.55;color:var(--ink)} .cmtxt p:last-child{margin:0}
+@media print{.cmore{display:none}.ccard.clamp .ccd{display:block;-webkit-line-clamp:unset}}
 .ccs{margin-top:auto;display:flex;justify-content:space-between;gap:8px;font-size:12px;color:var(--ink3,var(--ink2));padding-top:6px;border-top:1px dashed var(--line)} .ccs a{color:inherit} .ccs span{white-space:nowrap}
 .ckpi{border-top:3px solid var(--tcx)!important}
 .ckpis{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:4px 0 10px} .ckpi{border:1px solid var(--line);border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;gap:2px;position:relative} .ckpi b{font-size:18px;font-variant-numeric:tabular-nums}
@@ -1084,7 +1088,7 @@ function deepMerge(t,x){Object.keys(x).forEach(k=>{if(x[k]&&typeof x[k]==="objec
 const clone=o=>JSON.parse(JSON.stringify(o));
 function fillMissing(t,src){Object.keys(src).forEach(k=>{ if(t[k]===undefined) t[k]=clone(src[k]); else if(src[k]&&typeof src[k]==="object"&&!Array.isArray(src[k])&&t[k]&&typeof t[k]==="object") fillMissing(t[k],src[k]); });}
 const TPL={
-  keyFacts:{k:"",v:""}, catalysts:{d:"",t:""}, segments:{n:"Nuevo segmento",v:0}, customerTypes:{n:"Nuevo cliente",d:""}, ckpis:{k:"Indicador",v:"",d:""}, cnamed:{n:"Cliente",t:"",sector:"",cifra:"",d:"",u:"",f:""},
+  keyFacts:{k:"",v:""}, catalysts:{d:"",t:""}, segments:{n:"Nuevo segmento",v:0}, customerTypes:{n:"Nuevo cliente",d:""}, ckpis:{k:"Indicador",v:"",d:""}, cnamed:{n:"Cliente",t:"",sector:"",cifra:"",d:"",mas:"",u:"",f:""},
   quality:{n:"Nuevo criterio",s:3,note:""}, sources:{n:"Nueva fuente",s:2,note:""}, comps:{n:"Nuevo competidor",threat:3,note:""},
   drivers:{n:"Nuevo motor",impact:3,h:"",st:"",k:"",peso:"",d:"",ev:"",r:"",u:""}, people:{n:"Nombre",role:"Cargo",since:"",note:""}, scores:{n:"Nuevo criterio",s:3,note:""},
   items:{n:"Nueva partida",v:0}, docs:{cat:"Formularios SEC",t:"Nuevo documento",d:"",u:"https://"}, videos:{t:"Nuevo vídeo",u:"https://www.youtube.com/watch?v="}, news:{t:"Nueva fuente",src:"",u:"https://"}, risks:{n:"Nuevo riesgo",cat:"Operativo",p:3,i:3,note:""}
@@ -2587,6 +2591,19 @@ function clientLogo(c){ const t=String(c.t||"").toUpperCase().replace(/[^A-Z0-9.
   const mono=`<span class="clogo" style="--h:${h}">${esc(ini)}</span>`;
   const known=t&&(t===String(cur.ticker).toUpperCase()?cur._data&&cur._data.perfil&&cur._data.perfil.logo:null);
   return t?`<span class="clogo img"><img src="${esc(known||"logos/"+t+".png")}" alt="" loading="lazy" onerror="this.parentNode.outerHTML='${mono.replace(/"/g,"&quot;").replace(/'/g,"\\'")}'"></span>`:mono; }
+/* «Leer más» de un cliente destacado: sale si hay texto ampliado (campo «mas») o si la descripción no cabe en la tarjeta */
+const cliMore=c=>!!(String(c.mas||"").trim()||String(c.d||"").length>170);
+const linkify=t=>esc(t).replace(/https?:\/\/[^\s<)]+/g,u=>`<a href="${u}" target="_blank" rel="noopener noreferrer">${u.replace(/^https?:\/\/(www\.)?/,"").split("/")[0]} ↗</a>`);
+function clientModal(i){
+  const c=(get("business.clients.conocidos")||[])[i]; if(!c) return;
+  const dom=okUrl(c.u)?String(c.u).replace(/^https?:\/\/(www\.)?/,"").split("/")[0]:"";
+  const paras=String(c.mas||"").split(/\n\s*\n/).map(x=>x.trim()).filter(Boolean);
+  $("modal").innerHTML=`<div style="display:flex;justify-content:space-between;gap:12px;align-items:flex-start"><div class="cch">${clientLogo(c)}<div class="cct"><div class="eyebrow">Cliente de ${esc(cur.meta.name)}</div><h2 id="mTitle">${esc(c.n||"Cliente")}</h2>${c.sector?`<span class="cs">${esc(c.sector)}</span>`:""}</div></div><button type="button" class="x" data-close aria-label="Cerrar">×</button></div>
+    ${c.cifra?`<div class="ccf">${esc(c.cifra)}</div>`:""}
+    <div class="cmtxt">${c.d?`<p>${linkify(c.d)}</p>`:""}${paras.map(x=>`<p>${linkify(x).replace(/\n/g,"<br>")}</p>`).join("")}</div>
+    ${(dom||c.f)?`<div class="ccs">${dom?`<a href="${esc(c.u)}" target="_blank" rel="noopener noreferrer">${esc(c.fu||dom)} ↗</a>`:"<span></span>"}${c.f?`<span>${esc(c.f)}</span>`:""}</div>`:""}`;
+  $("overlay").hidden=false; setTimeout(()=>{const b=$("modal").querySelector("[data-close]"); if(b) b.focus();},0);
+}
 function clientsHtml(){
   const B=cur.business, CL=B.clients||{}, S=cur._data&&cur._data.segmentos, conc=(S&&S.clientes_concentracion)||[], G=geoRows();
   const read=S&&(S.informes||[]).length;
@@ -2604,10 +2621,11 @@ function clientsHtml(){
   const kp=arr("business.clients.kpis"), nm=arr("business.clients.conocidos");
   const kpiHtml=kp.length||EDIT?`<div class="ckpis">${kp.map((k,i)=>`<div class="ckpi">${del("business.clients.kpis",i)}<span class="eyebrow">${ln(`business.clients.kpis.${i}.k`,{ph:"Indicador"})}</span><b>${ln(`business.clients.kpis.${i}.v`,{ph:"Valor"})}</b><span class="note">${ln(`business.clients.kpis.${i}.d`,{ph:"Detalle o evolución"})}</span></div>`).join("")}</div>${add("business.clients.kpis","ckpis","Añadir indicador")}`:"";
   const namedHtml=nm.length||EDIT?`<div class="cgrid">${nm.map((c,i)=>{ const dom=okUrl(c.u)?String(c.u).replace(/^https?:\/\/(www\.)?/,"").split("/")[0]:"";
-      return `<article class="ccard">${del("business.clients.conocidos",i)}
+      return `<article class="ccard${!EDIT&&cliMore(c)?" clamp":""}">${del("business.clients.conocidos",i)}
       <div class="cch">${clientLogo(c)}<div class="cct"><b>${ln(`business.clients.conocidos.${i}.n`,{ph:"Cliente"})}</b>${c.sector||EDIT?`<span class="cs">${ln(`business.clients.conocidos.${i}.sector`,{ph:"Sector"})}</span>`:""}</div></div>
       ${c.cifra||EDIT?`<div class="ccf">${ln(`business.clients.conocidos.${i}.cifra`,{ph:"Cifra clave (importe, MW, % de ingresos…)"})}</div>`:""}
       <p class="ccd">${ln(`business.clients.conocidos.${i}.d`,{ph:"Qué compra o para qué lo usa"})}</p>
+      ${EDIT?tx(`business.clients.conocidos.${i}.mas`,{rows:3,ph:"Más información (sale al pulsar «Leer más»). Separa párrafos con una línea en blanco; los enlaces se pueden pegar tal cual."}):cliMore(c)?`<button type="button" class="cmore" data-cli="${i}" aria-haspopup="dialog">Leer más →</button>`:""}
       ${EDIT?`<div class="note">Ticker (para el logo): ${ln(`business.clients.conocidos.${i}.t`,{ph:"p. ej. META"})} · Fecha: ${ln(`business.clients.conocidos.${i}.f`,{ph:"p. ej. sep-26"})}<br>Enlace: ${ln(`business.clients.conocidos.${i}.u`,{ph:"Enlace a la fuente"})}</div>`
         :(dom||c.f)?`<div class="ccs">${dom?`<a href="${esc(c.u)}" target="_blank" rel="noopener noreferrer">${esc(c.fu||dom)} ↗</a>`:""}${c.f?`<span>${esc(c.f)}</span>`:""}</div>`:""}
       </article>`; }).join("")}</div>${add("business.clients.conocidos","cnamed","Añadir cliente")}`:"";
@@ -4607,6 +4625,7 @@ document.addEventListener("click",e=>{
   const mkb=e.target.closest("[data-mk]"); if(mkb){ const a=mkb.dataset.mk;
     if(a==="editar"||a==="cerrar"){ MKH.editar=a==="editar"&&!MKH.editar; renderWatch(); } else if(a==="guardar") mkGuardar(); return; }
   const mi=e.target.closest("[data-metric]"); if(mi){e.preventDefault(); metricModal(mi.dataset.metric); return;}
+  const cl=e.target.closest("[data-cli]"); if(cl){e.preventDefault(); clientModal(+cl.dataset.cli); return;}
   if(e.target.closest("[data-close]")||e.target.id==="overlay"){closeModal(); return;}
   const tb=e.target.closest(".tab"); if(tb){goTab(tb.dataset.tab);return;}
   const nfl=e.target.closest("[data-newsfilt]"); if(nfl){ NEWSFILT=nfl.dataset.newsfilt; NEWSPAGE=0; lsSet("valorador.newsfilt",NEWSFILT); const c=$("newsCard"); if(c) c.outerHTML=newsHtml(); return; }
