@@ -16,11 +16,11 @@
  "ultimo_informe": {
   "tipo": "informe periódico",
   "formulario": "10-Q",
-  "fecha_presentacion": "2026-08-10",
-  "fecha_periodo": "2026-06-30",
-  "accn": "0001692819-26-000019",
-  "url_documento": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/vistra-20260630.htm",
-  "url_indice": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
+  "fecha_presentacion": "2026-11-09",
+  "fecha_periodo": "2026-09-30",
+  "accn": "0001692819-26-000025",
+  "url_documento": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/vistra-20260930.htm",
+  "url_indice": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
   "fuente": "SEC EDGAR · 10-Q"
  },
  "ultimo_8k_resultados": {
@@ -88,7 +88,7 @@
   }
  },
  "soportada": true,
- "referencia_fecha_datos": "2026-06-30",
+ "referencia_fecha_datos": "2026-09-30",
  "resultados": {
   "ingresos": {
    "nombre": "Ingresos",
@@ -200,18 +200,6 @@
     }
    ],
    "trimestral": [
-    {
-     "valor": 3552000000,
-     "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281921000015/0001692819-21-000015-index.htm",
-     "fecha_presentacion": "2021-11-05",
-     "etiqueta": "us-gaap:Revenues",
-     "periodo_fin": "2020-09-30",
-     "formulario": "10-Q",
-     "accn": "0001692819-21-000015",
-     "periodo_inicio": "2020-07-01",
-     "periodo": "3T20"
-    },
     {
      "valor": 2524000000,
      "fuente": "SEC EDGAR · 10-K (derivado)",
@@ -448,12 +436,12 @@
     {
      "valor": 4971000000,
      "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281925000094/0001692819-25-000094-index.htm",
-     "fecha_presentacion": "2025-11-07",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
      "etiqueta": "us-gaap:Revenues",
      "periodo_fin": "2025-09-30",
      "formulario": "10-Q",
-     "accn": "0001692819-25-000094",
+     "accn": "0001692819-26-000025",
      "periodo_inicio": "2025-07-01",
      "periodo": "3T25"
     },
@@ -493,17 +481,29 @@
      "accn": "0001692819-26-000019",
      "periodo_inicio": "2026-04-01",
      "periodo": "2T26"
+    },
+    {
+     "valor": 6347000000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "etiqueta": "us-gaap:Revenues",
+     "periodo_fin": "2026-09-30",
+     "formulario": "10-Q",
+     "accn": "0001692819-26-000025",
+     "periodo_inicio": "2026-07-01",
+     "periodo": "3T26"
     }
    ],
    "ttm": {
-    "valor": 19212000000,
+    "valor": 20588000000,
     "fuente": "SEC EDGAR (suma de 4 trimestres)",
-    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
-    "fecha_presentacion": "2026-08-10",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+    "fecha_presentacion": "2026-11-09",
     "etiqueta": "us-gaap:Revenues",
-    "periodo_inicio": "2025-07-01",
-    "periodo_fin": "2026-06-30",
-    "derivado": "3T25 + 4T25 + 1T26 + 2T26"
+    "periodo_inicio": "2025-10-01",
+    "periodo_fin": "2026-09-30",
+    "derivado": "4T25 + 1T26 + 2T26 + 3T26"
    },
    "etiquetas_usadas": [
     "us-gaap:Revenues"
@@ -627,18 +627,6 @@
     }
    ],
    "trimestral": [
-    {
-     "valor": 676000000,
-     "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281921000015/0001692819-21-000015-index.htm",
-     "fecha_presentacion": "2021-11-05",
-     "etiqueta": "us-gaap:OperatingIncomeLoss",
-     "periodo_fin": "2020-09-30",
-     "formulario": "10-Q",
-     "accn": "0001692819-21-000015",
-     "periodo_inicio": "2020-07-01",
-     "periodo": "3T20"
-    },
     {
      "valor": 75000000,
      "fuente": "SEC EDGAR · 10-K (derivado)",
@@ -875,12 +863,12 @@
     {
      "valor": 1037000000,
      "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281925000094/0001692819-25-000094-index.htm",
-     "fecha_presentacion": "2025-11-07",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
      "etiqueta": "us-gaap:OperatingIncomeLoss",
      "periodo_fin": "2025-09-30",
      "formulario": "10-Q",
-     "accn": "0001692819-25-000094",
+     "accn": "0001692819-26-000025",
      "periodo_inicio": "2025-07-01",
      "periodo": "3T25"
     },
@@ -920,17 +908,29 @@
      "accn": "0001692819-26-000019",
      "periodo_inicio": "2026-04-01",
      "periodo": "2T26"
+    },
+    {
+     "valor": 1706000000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "etiqueta": "us-gaap:OperatingIncomeLoss",
+     "periodo_fin": "2026-09-30",
+     "formulario": "10-Q",
+     "accn": "0001692819-26-000025",
+     "periodo_inicio": "2026-07-01",
+     "periodo": "3T26"
     }
    ],
    "ttm": {
-    "valor": 3563000000,
+    "valor": 4232000000,
     "fuente": "SEC EDGAR (suma de 4 trimestres)",
-    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
-    "fecha_presentacion": "2026-08-10",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+    "fecha_presentacion": "2026-11-09",
     "etiqueta": "us-gaap:OperatingIncomeLoss",
-    "periodo_inicio": "2025-07-01",
-    "periodo_fin": "2026-06-30",
-    "derivado": "3T25 + 4T25 + 1T26 + 2T26"
+    "periodo_inicio": "2025-10-01",
+    "periodo_fin": "2026-09-30",
+    "derivado": "4T25 + 1T26 + 2T26 + 3T26"
    },
    "etiquetas_usadas": [
     "us-gaap:OperatingIncomeLoss"
@@ -1046,18 +1046,6 @@
     }
    ],
    "trimestral": [
-    {
-     "valor": 443000000,
-     "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281921000015/0001692819-21-000015-index.htm",
-     "fecha_presentacion": "2021-11-05",
-     "etiqueta": "us-gaap:NetIncomeLoss",
-     "periodo_fin": "2020-09-30",
-     "formulario": "10-Q",
-     "accn": "0001692819-21-000015",
-     "periodo_inicio": "2020-07-01",
-     "periodo": "3T20"
-    },
     {
      "valor": -29000000,
      "fuente": "SEC EDGAR · 10-K (derivado)",
@@ -1294,12 +1282,12 @@
     {
      "valor": 652000000,
      "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281925000094/0001692819-25-000094-index.htm",
-     "fecha_presentacion": "2025-11-07",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
      "etiqueta": "us-gaap:NetIncomeLoss",
      "periodo_fin": "2025-09-30",
      "formulario": "10-Q",
-     "accn": "0001692819-25-000094",
+     "accn": "0001692819-26-000025",
      "periodo_inicio": "2025-07-01",
      "periodo": "3T25"
     },
@@ -1339,17 +1327,29 @@
      "accn": "0001692819-26-000019",
      "periodo_inicio": "2026-04-01",
      "periodo": "2T26"
+    },
+    {
+     "valor": 1140000000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "etiqueta": "us-gaap:NetIncomeLoss",
+     "periodo_fin": "2026-09-30",
+     "formulario": "10-Q",
+     "accn": "0001692819-26-000025",
+     "periodo_inicio": "2026-07-01",
+     "periodo": "3T26"
     }
    ],
    "ttm": {
-    "valor": 2219000000,
+    "valor": 2707000000,
     "fuente": "SEC EDGAR (suma de 4 trimestres)",
-    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
-    "fecha_presentacion": "2026-08-10",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+    "fecha_presentacion": "2026-11-09",
     "etiqueta": "us-gaap:NetIncomeLoss",
-    "periodo_inicio": "2025-07-01",
-    "periodo_fin": "2026-06-30",
-    "derivado": "3T25 + 4T25 + 1T26 + 2T26"
+    "periodo_inicio": "2025-10-01",
+    "periodo_fin": "2026-09-30",
+    "derivado": "4T25 + 1T26 + 2T26 + 3T26"
    },
    "etiquetas_usadas": [
     "us-gaap:NetIncomeLoss"
@@ -1465,18 +1465,6 @@
     }
    ],
    "trimestral": [
-    {
-     "valor": 0.44,
-     "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281920000010/0001692819-20-000010-index.htm",
-     "fecha_presentacion": "2020-05-05",
-     "etiqueta": "us-gaap:EarningsPerShareDiluted",
-     "periodo_fin": "2019-03-31",
-     "formulario": "10-Q",
-     "accn": "0001692819-20-000010",
-     "periodo_inicio": "2019-01-01",
-     "periodo": "1T19"
-    },
     {
      "valor": 0.7,
      "fuente": "SEC EDGAR · 10-Q",
@@ -1720,12 +1708,12 @@
     {
      "valor": 1.75,
      "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281925000094/0001692819-25-000094-index.htm",
-     "fecha_presentacion": "2025-11-07",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
      "etiqueta": "us-gaap:EarningsPerShareDiluted",
      "periodo_fin": "2025-09-30",
      "formulario": "10-Q",
-     "accn": "0001692819-25-000094",
+     "accn": "0001692819-26-000025",
      "periodo_inicio": "2025-07-01",
      "periodo": "3T25"
     },
@@ -1752,6 +1740,18 @@
      "accn": "0001692819-26-000019",
      "periodo_inicio": "2026-04-01",
      "periodo": "2T26"
+    },
+    {
+     "valor": 3.23,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "etiqueta": "us-gaap:EarningsPerShareDiluted",
+     "periodo_fin": "2026-09-30",
+     "formulario": "10-Q",
+     "accn": "0001692819-26-000025",
+     "periodo_inicio": "2026-07-01",
+     "periodo": "3T26"
     }
    ],
    "ttm": null,
@@ -1869,18 +1869,6 @@
     }
    ],
    "trimestral": [
-    {
-     "valor": 540972802,
-     "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281919000018/0001692819-19-000018-index.htm",
-     "fecha_presentacion": "2019-11-05",
-     "etiqueta": "us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding",
-     "periodo_fin": "2018-09-30",
-     "formulario": "10-Q",
-     "accn": "0001692819-19-000018",
-     "periodo_inicio": "2018-07-01",
-     "periodo": "3T18"
-    },
     {
      "valor": 509139988,
      "fuente": "SEC EDGAR · 10-Q",
@@ -2124,12 +2112,12 @@
     {
      "valor": 345035160,
      "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281925000094/0001692819-25-000094-index.htm",
-     "fecha_presentacion": "2025-11-07",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
      "etiqueta": "us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding",
      "periodo_fin": "2025-09-30",
      "formulario": "10-Q",
-     "accn": "0001692819-25-000094",
+     "accn": "0001692819-26-000025",
      "periodo_inicio": "2025-07-01",
      "periodo": "3T25"
     },
@@ -2156,6 +2144,18 @@
      "accn": "0001692819-26-000019",
      "periodo_inicio": "2026-04-01",
      "periodo": "2T26"
+    },
+    {
+     "valor": 337852657,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "etiqueta": "us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding",
+     "periodo_fin": "2026-09-30",
+     "formulario": "10-Q",
+     "accn": "0001692819-26-000025",
+     "periodo_inicio": "2026-07-01",
+     "periodo": "3T26"
     }
    ],
    "ttm": null,
@@ -2273,19 +2273,6 @@
     }
    ],
    "trimestral": [
-    {
-     "valor": 1041000000,
-     "fuente": "SEC EDGAR · 10-Q (derivado)",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281921000015/0001692819-21-000015-index.htm",
-     "fecha_presentacion": "2021-11-05",
-     "etiqueta": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
-     "periodo_fin": "2020-09-30",
-     "formulario": "10-Q",
-     "accn": "0001692819-21-000015",
-     "periodo_inicio": "2020-07-01",
-     "derivado": "Acumulado 9 meses − acumulado 6 meses",
-     "periodo": "3T20"
-    },
     {
      "valor": 987000000,
      "fuente": "SEC EDGAR · 10-K (derivado)",
@@ -2531,12 +2518,12 @@
     {
      "valor": 1467000000,
      "fuente": "SEC EDGAR · 10-Q (derivado)",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281925000094/0001692819-25-000094-index.htm",
-     "fecha_presentacion": "2025-11-07",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
      "etiqueta": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
      "periodo_fin": "2025-09-30",
      "formulario": "10-Q",
-     "accn": "0001692819-25-000094",
+     "accn": "0001692819-26-000025",
      "periodo_inicio": "2025-07-01",
      "derivado": "Acumulado 9 meses − acumulado 6 meses",
      "periodo": "3T25"
@@ -2578,17 +2565,30 @@
      "periodo_inicio": "2026-04-01",
      "derivado": "Acumulado 6 meses − acumulado 3 meses",
      "periodo": "2T26"
+    },
+    {
+     "valor": 2108000000,
+     "fuente": "SEC EDGAR · 10-Q (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "etiqueta": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+     "periodo_fin": "2026-09-30",
+     "formulario": "10-Q",
+     "accn": "0001692819-26-000025",
+     "periodo_inicio": "2026-07-01",
+     "derivado": "Acumulado 9 meses − acumulado 6 meses",
+     "periodo": "3T26"
     }
    ],
    "ttm": {
-    "valor": 5121000000,
+    "valor": 5762000000,
     "fuente": "SEC EDGAR (suma de 4 trimestres)",
-    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
-    "fecha_presentacion": "2026-08-10",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+    "fecha_presentacion": "2026-11-09",
     "etiqueta": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
-    "periodo_inicio": "2025-07-01",
-    "periodo_fin": "2026-06-30",
-    "derivado": "3T25 + 4T25 + 1T26 + 2T26"
+    "periodo_inicio": "2025-10-01",
+    "periodo_fin": "2026-09-30",
+    "derivado": "4T25 + 1T26 + 2T26 + 3T26"
    },
    "etiquetas_usadas": [
     "us-gaap:NetCashProvidedByUsedInOperatingActivities"
@@ -2704,19 +2704,6 @@
     }
    ],
    "trimestral": [
-    {
-     "valor": 250000000,
-     "fuente": "SEC EDGAR · 10-Q (derivado)",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281921000015/0001692819-21-000015-index.htm",
-     "fecha_presentacion": "2021-11-05",
-     "etiqueta": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
-     "periodo_fin": "2020-09-30",
-     "formulario": "10-Q",
-     "accn": "0001692819-21-000015",
-     "periodo_inicio": "2020-07-01",
-     "derivado": "Acumulado 9 meses − acumulado 6 meses",
-     "periodo": "3T20"
-    },
     {
      "valor": 421000000,
      "fuente": "SEC EDGAR · 10-K (derivado)",
@@ -2962,12 +2949,12 @@
     {
      "valor": 458000000,
      "fuente": "SEC EDGAR · 10-Q (derivado)",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281925000094/0001692819-25-000094-index.htm",
-     "fecha_presentacion": "2025-11-07",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
      "etiqueta": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
      "periodo_fin": "2025-09-30",
      "formulario": "10-Q",
-     "accn": "0001692819-25-000094",
+     "accn": "0001692819-26-000025",
      "periodo_inicio": "2025-07-01",
      "derivado": "Acumulado 9 meses − acumulado 6 meses",
      "periodo": "3T25"
@@ -3009,17 +2996,30 @@
      "periodo_inicio": "2026-04-01",
      "derivado": "Acumulado 6 meses − acumulado 3 meses",
      "periodo": "2T26"
+    },
+    {
+     "valor": 747000000,
+     "fuente": "SEC EDGAR · 10-Q (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "etiqueta": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+     "periodo_fin": "2026-09-30",
+     "formulario": "10-Q",
+     "accn": "0001692819-26-000025",
+     "periodo_inicio": "2026-07-01",
+     "derivado": "Acumulado 9 meses − acumulado 6 meses",
+     "periodo": "3T26"
     }
    ],
    "ttm": {
-    "valor": 2866000000,
+    "valor": 3155000000,
     "fuente": "SEC EDGAR (suma de 4 trimestres)",
-    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
-    "fecha_presentacion": "2026-08-10",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+    "fecha_presentacion": "2026-11-09",
     "etiqueta": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
-    "periodo_inicio": "2025-07-01",
-    "periodo_fin": "2026-06-30",
-    "derivado": "3T25 + 4T25 + 1T26 + 2T26"
+    "periodo_inicio": "2025-10-01",
+    "periodo_fin": "2026-09-30",
+    "derivado": "4T25 + 1T26 + 2T26 + 3T26"
    },
    "etiquetas_usadas": [
     "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment"
@@ -3135,18 +3135,6 @@
     }
    ],
    "trimestral": [
-    {
-     "valor": 410000000,
-     "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281921000015/0001692819-21-000015-index.htm",
-     "fecha_presentacion": "2021-11-05",
-     "etiqueta": "us-gaap:DepreciationDepletionAndAmortization",
-     "periodo_fin": "2020-09-30",
-     "formulario": "10-Q",
-     "accn": "0001692819-21-000015",
-     "periodo_inicio": "2020-07-01",
-     "periodo": "3T20"
-    },
     {
      "valor": 453000000,
      "fuente": "SEC EDGAR · 10-K (derivado)",
@@ -3383,12 +3371,12 @@
     {
      "valor": 460000000,
      "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281925000094/0001692819-25-000094-index.htm",
-     "fecha_presentacion": "2025-11-07",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
      "etiqueta": "us-gaap:DepreciationDepletionAndAmortization",
      "periodo_fin": "2025-09-30",
      "formulario": "10-Q",
-     "accn": "0001692819-25-000094",
+     "accn": "0001692819-26-000025",
      "periodo_inicio": "2025-07-01",
      "periodo": "3T25"
     },
@@ -3428,17 +3416,29 @@
      "accn": "0001692819-26-000019",
      "periodo_inicio": "2026-04-01",
      "periodo": "2T26"
+    },
+    {
+     "valor": 711000000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "etiqueta": "us-gaap:DepreciationDepletionAndAmortization",
+     "periodo_fin": "2026-09-30",
+     "formulario": "10-Q",
+     "accn": "0001692819-26-000025",
+     "periodo_inicio": "2026-07-01",
+     "periodo": "3T26"
     }
    ],
    "ttm": {
-    "valor": 1852000000,
+    "valor": 2103000000,
     "fuente": "SEC EDGAR (suma de 4 trimestres)",
-    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
-    "fecha_presentacion": "2026-08-10",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+    "fecha_presentacion": "2026-11-09",
     "etiqueta": "us-gaap:DepreciationDepletionAndAmortization",
-    "periodo_inicio": "2025-07-01",
-    "periodo_fin": "2026-06-30",
-    "derivado": "3T25 + 4T25 + 1T26 + 2T26"
+    "periodo_inicio": "2025-10-01",
+    "periodo_fin": "2026-09-30",
+    "derivado": "4T25 + 1T26 + 2T26 + 3T26"
    },
    "etiquetas_usadas": [
     "us-gaap:DepreciationDepletionAndAmortization"
@@ -3554,19 +3554,6 @@
     }
    ],
    "trimestral": [
-    {
-     "valor": 16000000,
-     "fuente": "SEC EDGAR · 10-Q (derivado)",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281921000015/0001692819-21-000015-index.htm",
-     "fecha_presentacion": "2021-11-05",
-     "etiqueta": "us-gaap:ShareBasedCompensation",
-     "periodo_fin": "2020-09-30",
-     "formulario": "10-Q",
-     "accn": "0001692819-21-000015",
-     "periodo_inicio": "2020-07-01",
-     "derivado": "Acumulado 9 meses − acumulado 6 meses",
-     "periodo": "3T20"
-    },
     {
      "valor": 19000000,
      "fuente": "SEC EDGAR · 10-K (derivado)",
@@ -3812,12 +3799,12 @@
     {
      "valor": 36000000,
      "fuente": "SEC EDGAR · 10-Q (derivado)",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281925000094/0001692819-25-000094-index.htm",
-     "fecha_presentacion": "2025-11-07",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
      "etiqueta": "us-gaap:ShareBasedCompensation",
      "periodo_fin": "2025-09-30",
      "formulario": "10-Q",
-     "accn": "0001692819-25-000094",
+     "accn": "0001692819-26-000025",
      "periodo_inicio": "2025-07-01",
      "derivado": "Acumulado 9 meses − acumulado 6 meses",
      "periodo": "3T25"
@@ -3859,17 +3846,30 @@
      "periodo_inicio": "2026-04-01",
      "derivado": "Acumulado 6 meses − acumulado 3 meses",
      "periodo": "2T26"
+    },
+    {
+     "valor": 29000000,
+     "fuente": "SEC EDGAR · 10-Q (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "etiqueta": "us-gaap:ShareBasedCompensation",
+     "periodo_fin": "2026-09-30",
+     "formulario": "10-Q",
+     "accn": "0001692819-26-000025",
+     "periodo_inicio": "2026-07-01",
+     "derivado": "Acumulado 9 meses − acumulado 6 meses",
+     "periodo": "3T26"
     }
    ],
    "ttm": {
-    "valor": 134000000,
+    "valor": 127000000,
     "fuente": "SEC EDGAR (suma de 4 trimestres)",
-    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
-    "fecha_presentacion": "2026-08-10",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+    "fecha_presentacion": "2026-11-09",
     "etiqueta": "us-gaap:ShareBasedCompensation",
-    "periodo_inicio": "2025-07-01",
-    "periodo_fin": "2026-06-30",
-    "derivado": "3T25 + 4T25 + 1T26 + 2T26"
+    "periodo_inicio": "2025-10-01",
+    "periodo_fin": "2026-09-30",
+    "derivado": "4T25 + 1T26 + 2T26 + 3T26"
    },
    "etiquetas_usadas": [
     "us-gaap:ShareBasedCompensation"
@@ -4440,18 +4440,6 @@
    ],
    "trimestral": [
     {
-     "valor": 199000000,
-     "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281921000015/0001692819-21-000015-index.htm",
-     "fecha_presentacion": "2021-11-05",
-     "etiqueta": "us-gaap:IncomeTaxExpenseBenefit",
-     "periodo_fin": "2020-09-30",
-     "formulario": "10-Q",
-     "accn": "0001692819-21-000015",
-     "periodo_inicio": "2020-07-01",
-     "periodo": "3T20"
-    },
-    {
      "valor": -18000000,
      "fuente": "SEC EDGAR · 10-K (derivado)",
      "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281923000005/0001692819-23-000005-index.htm",
@@ -4687,12 +4675,12 @@
     {
      "valor": 204000000,
      "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281925000094/0001692819-25-000094-index.htm",
-     "fecha_presentacion": "2025-11-07",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
      "etiqueta": "us-gaap:IncomeTaxExpenseBenefit",
      "periodo_fin": "2025-09-30",
      "formulario": "10-Q",
-     "accn": "0001692819-25-000094",
+     "accn": "0001692819-26-000025",
      "periodo_inicio": "2025-07-01",
      "periodo": "3T25"
     },
@@ -4732,17 +4720,29 @@
      "accn": "0001692819-26-000019",
      "periodo_inicio": "2026-04-01",
      "periodo": "2T26"
+    },
+    {
+     "valor": 356000000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "etiqueta": "us-gaap:IncomeTaxExpenseBenefit",
+     "periodo_fin": "2026-09-30",
+     "formulario": "10-Q",
+     "accn": "0001692819-26-000025",
+     "periodo_inicio": "2026-07-01",
+     "periodo": "3T26"
     }
    ],
    "ttm": {
-    "valor": 584000000,
+    "valor": 736000000,
     "fuente": "SEC EDGAR (suma de 4 trimestres)",
-    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
-    "fecha_presentacion": "2026-08-10",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+    "fecha_presentacion": "2026-11-09",
     "etiqueta": "us-gaap:IncomeTaxExpenseBenefit",
-    "periodo_inicio": "2025-07-01",
-    "periodo_fin": "2026-06-30",
-    "derivado": "3T25 + 4T25 + 1T26 + 2T26"
+    "periodo_inicio": "2025-10-01",
+    "periodo_fin": "2026-09-30",
+    "derivado": "4T25 + 1T26 + 2T26 + 3T26"
    },
    "etiquetas_usadas": [
     "us-gaap:IncomeTaxExpenseBenefit"
@@ -4858,18 +4858,6 @@
     }
    ],
    "trimestral": [
-    {
-     "valor": 641000000,
-     "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281921000015/0001692819-21-000015-index.htm",
-     "fecha_presentacion": "2021-11-05",
-     "etiqueta": "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
-     "periodo_fin": "2020-09-30",
-     "formulario": "10-Q",
-     "accn": "0001692819-21-000015",
-     "periodo_inicio": "2020-07-01",
-     "periodo": "3T20"
-    },
     {
      "valor": -45000000,
      "fuente": "SEC EDGAR · 10-K (derivado)",
@@ -5106,12 +5094,12 @@
     {
      "valor": 856000000,
      "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281925000094/0001692819-25-000094-index.htm",
-     "fecha_presentacion": "2025-11-07",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
      "etiqueta": "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
      "periodo_fin": "2025-09-30",
      "formulario": "10-Q",
-     "accn": "0001692819-25-000094",
+     "accn": "0001692819-26-000025",
      "periodo_inicio": "2025-07-01",
      "periodo": "3T25"
     },
@@ -5151,17 +5139,29 @@
      "accn": "0001692819-26-000019",
      "periodo_inicio": "2026-04-01",
      "periodo": "2T26"
+    },
+    {
+     "valor": 1496000000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "etiqueta": "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+     "periodo_fin": "2026-09-30",
+     "formulario": "10-Q",
+     "accn": "0001692819-26-000025",
+     "periodo_inicio": "2026-07-01",
+     "periodo": "3T26"
     }
    ],
    "ttm": {
-    "valor": 2803000000,
+    "valor": 3443000000,
     "fuente": "SEC EDGAR (suma de 4 trimestres)",
-    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
-    "fecha_presentacion": "2026-08-10",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+    "fecha_presentacion": "2026-11-09",
     "etiqueta": "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
-    "periodo_inicio": "2025-07-01",
-    "periodo_fin": "2026-06-30",
-    "derivado": "3T25 + 4T25 + 1T26 + 2T26"
+    "periodo_inicio": "2025-10-01",
+    "periodo_fin": "2026-09-30",
+    "derivado": "4T25 + 1T26 + 2T26 + 3T26"
    },
    "etiquetas_usadas": [
     "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest"
@@ -5221,6 +5221,18 @@
      "periodo": "2T25"
     },
     {
+     "valor": 105000000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "etiqueta": "us-gaap:OtherNonoperatingIncomeExpense",
+     "periodo_fin": "2025-09-30",
+     "formulario": "10-Q",
+     "accn": "0001692819-26-000025",
+     "periodo_inicio": "2025-07-01",
+     "periodo": "3T25"
+    },
+    {
      "valor": 186000000,
      "fuente": "SEC EDGAR · 10-Q",
      "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
@@ -5231,6 +5243,18 @@
      "accn": "0001692819-26-000019",
      "periodo_inicio": "2026-04-01",
      "periodo": "2T26"
+    },
+    {
+     "valor": 44000000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "etiqueta": "us-gaap:OtherNonoperatingIncomeExpense",
+     "periodo_fin": "2026-09-30",
+     "formulario": "10-Q",
+     "accn": "0001692819-26-000025",
+     "periodo_inicio": "2026-07-01",
+     "periodo": "3T26"
     }
    ],
    "ttm": null,
@@ -5364,18 +5388,6 @@
     }
    ],
    "trimestral": [
-    {
-     "valor": 101000000,
-     "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281921000015/0001692819-21-000015-index.htm",
-     "fecha_presentacion": "2021-11-05",
-     "etiqueta": "us-gaap:InterestExpense",
-     "periodo_fin": "2020-09-30",
-     "formulario": "10-Q",
-     "accn": "0001692819-21-000015",
-     "periodo_inicio": "2020-07-01",
-     "periodo": "3T20"
-    },
     {
      "valor": 88000000,
      "fuente": "SEC EDGAR · 10-K (derivado)",
@@ -5612,12 +5624,12 @@
     {
      "valor": 286000000,
      "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281925000094/0001692819-25-000094-index.htm",
-     "fecha_presentacion": "2025-11-07",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
      "etiqueta": "us-gaap:InterestExpenseNonoperating",
      "periodo_fin": "2025-09-30",
      "formulario": "10-Q",
-     "accn": "0001692819-25-000094",
+     "accn": "0001692819-26-000025",
      "periodo_inicio": "2025-07-01",
      "periodo": "3T25"
     },
@@ -5657,17 +5669,29 @@
      "accn": "0001692819-26-000019",
      "periodo_inicio": "2026-04-01",
      "periodo": "2T26"
+    },
+    {
+     "valor": 254000000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "etiqueta": "us-gaap:InterestExpenseNonoperating",
+     "periodo_fin": "2026-09-30",
+     "formulario": "10-Q",
+     "accn": "0001692819-26-000025",
+     "periodo_inicio": "2026-07-01",
+     "periodo": "3T26"
     }
    ],
    "ttm": {
-    "valor": 1132000000,
+    "valor": 1100000000,
     "fuente": "SEC EDGAR (suma de 4 trimestres)",
-    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
-    "fecha_presentacion": "2026-08-10",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+    "fecha_presentacion": "2026-11-09",
     "etiqueta": "us-gaap:InterestExpenseNonoperating",
-    "periodo_inicio": "2025-07-01",
-    "periodo_fin": "2026-06-30",
-    "derivado": "3T25 + 4T25 + 1T26 + 2T26"
+    "periodo_inicio": "2025-10-01",
+    "periodo_fin": "2026-09-30",
+    "derivado": "4T25 + 1T26 + 2T26 + 3T26"
    },
    "etiquetas_usadas": [
     "us-gaap:InterestExpense",
@@ -5784,19 +5808,6 @@
     }
    ],
    "trimestral": [
-    {
-     "valor": 66000000,
-     "fuente": "SEC EDGAR · 10-Q (derivado)",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281921000015/0001692819-21-000015-index.htm",
-     "fecha_presentacion": "2021-11-05",
-     "etiqueta": "us-gaap:PaymentsOfDividendsCommonStock",
-     "periodo_fin": "2020-09-30",
-     "formulario": "10-Q",
-     "accn": "0001692819-21-000015",
-     "periodo_inicio": "2020-07-01",
-     "derivado": "Acumulado 9 meses − acumulado 6 meses",
-     "periodo": "3T20"
-    },
     {
      "valor": 68000000,
      "fuente": "SEC EDGAR · 10-K (derivado)",
@@ -6042,12 +6053,12 @@
     {
      "valor": 77000000,
      "fuente": "SEC EDGAR · 10-Q (derivado)",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281925000094/0001692819-25-000094-index.htm",
-     "fecha_presentacion": "2025-11-07",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
      "etiqueta": "us-gaap:PaymentsOfDividendsCommonStock",
      "periodo_fin": "2025-09-30",
      "formulario": "10-Q",
-     "accn": "0001692819-25-000094",
+     "accn": "0001692819-26-000025",
      "periodo_inicio": "2025-07-01",
      "derivado": "Acumulado 9 meses − acumulado 6 meses",
      "periodo": "3T25"
@@ -6089,17 +6100,30 @@
      "periodo_inicio": "2026-04-01",
      "derivado": "Acumulado 6 meses − acumulado 3 meses",
      "periodo": "2T26"
+    },
+    {
+     "valor": 77000000,
+     "fuente": "SEC EDGAR · 10-Q (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "etiqueta": "us-gaap:PaymentsOfDividendsCommonStock",
+     "periodo_fin": "2026-09-30",
+     "formulario": "10-Q",
+     "accn": "0001692819-26-000025",
+     "periodo_inicio": "2026-07-01",
+     "derivado": "Acumulado 9 meses − acumulado 6 meses",
+     "periodo": "3T26"
     }
    ],
    "ttm": {
     "valor": 308000000,
     "fuente": "SEC EDGAR (suma de 4 trimestres)",
-    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
-    "fecha_presentacion": "2026-08-10",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+    "fecha_presentacion": "2026-11-09",
     "etiqueta": "us-gaap:PaymentsOfDividendsCommonStock",
-    "periodo_inicio": "2025-07-01",
-    "periodo_fin": "2026-06-30",
-    "derivado": "3T25 + 4T25 + 1T26 + 2T26"
+    "periodo_inicio": "2025-10-01",
+    "periodo_fin": "2026-09-30",
+    "derivado": "4T25 + 1T26 + 2T26 + 3T26"
    },
    "etiquetas_usadas": [
     "us-gaap:PaymentsOfDividendsCommonStock"
@@ -6223,18 +6247,6 @@
     }
    ],
    "trimestral": [
-    {
-     "valor": 268000000,
-     "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281921000015/0001692819-21-000015-index.htm",
-     "fecha_presentacion": "2021-11-05",
-     "etiqueta": "us-gaap:SellingGeneralAndAdministrativeExpense",
-     "periodo_fin": "2020-09-30",
-     "formulario": "10-Q",
-     "accn": "0001692819-21-000015",
-     "periodo_inicio": "2020-07-01",
-     "periodo": "3T20"
-    },
     {
      "valor": 279000000,
      "fuente": "SEC EDGAR · 10-K (derivado)",
@@ -6471,12 +6483,12 @@
     {
      "valor": 444000000,
      "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281925000094/0001692819-25-000094-index.htm",
-     "fecha_presentacion": "2025-11-07",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
      "etiqueta": "us-gaap:SellingGeneralAndAdministrativeExpense",
      "periodo_fin": "2025-09-30",
      "formulario": "10-Q",
-     "accn": "0001692819-25-000094",
+     "accn": "0001692819-26-000025",
      "periodo_inicio": "2025-07-01",
      "periodo": "3T25"
     },
@@ -6516,17 +6528,29 @@
      "accn": "0001692819-26-000019",
      "periodo_inicio": "2026-04-01",
      "periodo": "2T26"
+    },
+    {
+     "valor": 448000000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "etiqueta": "us-gaap:SellingGeneralAndAdministrativeExpense",
+     "periodo_fin": "2026-09-30",
+     "formulario": "10-Q",
+     "accn": "0001692819-26-000025",
+     "periodo_inicio": "2026-07-01",
+     "periodo": "3T26"
     }
    ],
    "ttm": {
-    "valor": 1723000000,
+    "valor": 1727000000,
     "fuente": "SEC EDGAR (suma de 4 trimestres)",
-    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
-    "fecha_presentacion": "2026-08-10",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+    "fecha_presentacion": "2026-11-09",
     "etiqueta": "us-gaap:SellingGeneralAndAdministrativeExpense",
-    "periodo_inicio": "2025-07-01",
-    "periodo_fin": "2026-06-30",
-    "derivado": "3T25 + 4T25 + 1T26 + 2T26"
+    "periodo_inicio": "2025-10-01",
+    "periodo_fin": "2026-09-30",
+    "derivado": "4T25 + 1T26 + 2T26 + 3T26"
    },
    "etiquetas_usadas": [
     "us-gaap:SellingGeneralAndAdministrativeExpense"
@@ -6658,19 +6682,6 @@
     }
    ],
    "trimestral": [
-    {
-     "valor": 0,
-     "fuente": "SEC EDGAR · 10-Q (derivado)",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281921000015/0001692819-21-000015-index.htm",
-     "fecha_presentacion": "2021-11-05",
-     "etiqueta": "us-gaap:PaymentsForRepurchaseOfCommonStock",
-     "periodo_fin": "2020-09-30",
-     "formulario": "10-Q",
-     "accn": "0001692819-21-000015",
-     "periodo_inicio": "2020-07-01",
-     "derivado": "Acumulado 9 meses − acumulado 6 meses",
-     "periodo": "3T20"
-    },
     {
      "valor": 0,
      "fuente": "SEC EDGAR · 10-K (derivado)",
@@ -6916,12 +6927,12 @@
     {
      "valor": 187000000,
      "fuente": "SEC EDGAR · 10-Q (derivado)",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281925000094/0001692819-25-000094-index.htm",
-     "fecha_presentacion": "2025-11-07",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
      "etiqueta": "us-gaap:PaymentsForRepurchaseOfCommonStock",
      "periodo_fin": "2025-09-30",
      "formulario": "10-Q",
-     "accn": "0001692819-25-000094",
+     "accn": "0001692819-26-000025",
      "periodo_inicio": "2025-07-01",
      "derivado": "Acumulado 9 meses − acumulado 6 meses",
      "periodo": "3T25"
@@ -6963,17 +6974,30 @@
      "periodo_inicio": "2026-04-01",
      "derivado": "Acumulado 6 meses − acumulado 3 meses",
      "periodo": "2T26"
+    },
+    {
+     "valor": 208000000,
+     "fuente": "SEC EDGAR · 10-Q (derivado)",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "etiqueta": "us-gaap:PaymentsForRepurchaseOfCommonStock",
+     "periodo_fin": "2026-09-30",
+     "formulario": "10-Q",
+     "accn": "0001692819-26-000025",
+     "periodo_inicio": "2026-07-01",
+     "derivado": "Acumulado 9 meses − acumulado 6 meses",
+     "periodo": "3T26"
     }
    ],
    "ttm": {
-    "valor": 1148000000,
+    "valor": 1169000000,
     "fuente": "SEC EDGAR (suma de 4 trimestres)",
-    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
-    "fecha_presentacion": "2026-08-10",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+    "fecha_presentacion": "2026-11-09",
     "etiqueta": "us-gaap:PaymentsForRepurchaseOfCommonStock",
-    "periodo_inicio": "2025-07-01",
-    "periodo_fin": "2026-06-30",
-    "derivado": "3T25 + 4T25 + 1T26 + 2T26"
+    "periodo_inicio": "2025-10-01",
+    "periodo_fin": "2026-09-30",
+    "derivado": "4T25 + 1T26 + 2T26 + 3T26"
    },
    "etiquetas_usadas": [
     "us-gaap:PaymentsForRepurchaseOfCommonStock"
@@ -6985,32 +7009,19 @@
    "nombre": "Caja e inversiones a corto",
    "unidad": "USD",
    "ultimo": {
-    "valor": 435000000,
+    "valor": 2743000000,
     "fuente": "SEC EDGAR · 10-Q",
-    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
-    "fecha_presentacion": "2026-08-10",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+    "fecha_presentacion": "2026-11-09",
     "etiqueta": "us-gaap:CashAndCashEquivalentsAtCarryingValue",
-    "periodo_fin": "2026-06-30",
+    "periodo_fin": "2026-09-30",
     "formulario": "10-Q",
-    "accn": "0001692819-26-000019",
+    "accn": "0001692819-26-000025",
     "componentes_no_etiquetados": [
      "ShortTermInvestments / MarketableSecuritiesCurrent / AvailableForSaleSecuritiesDebtSecuritiesCurrent"
     ]
    },
    "historico": [
-    {
-     "valor": 561000000,
-     "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281925000035/0001692819-25-000035-index.htm",
-     "fecha_presentacion": "2025-05-08",
-     "etiqueta": "us-gaap:CashAndCashEquivalentsAtCarryingValue",
-     "periodo_fin": "2025-03-31",
-     "formulario": "10-Q",
-     "accn": "0001692819-25-000035",
-     "componentes_no_etiquetados": [
-      "ShortTermInvestments / MarketableSecuritiesCurrent / AvailableForSaleSecuritiesDebtSecuritiesCurrent"
-     ]
-    },
     {
      "valor": 458000000,
      "fuente": "SEC EDGAR · 10-Q",
@@ -7040,12 +7051,12 @@
     {
      "valor": 785000000,
      "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
-     "fecha_presentacion": "2026-08-10",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
      "etiqueta": "us-gaap:CashAndCashEquivalentsAtCarryingValue",
      "periodo_fin": "2025-12-31",
      "formulario": "10-Q",
-     "accn": "0001692819-26-000019",
+     "accn": "0001692819-26-000025",
      "componentes_no_etiquetados": [
       "ShortTermInvestments / MarketableSecuritiesCurrent / AvailableForSaleSecuritiesDebtSecuritiesCurrent"
      ]
@@ -7072,6 +7083,19 @@
      "periodo_fin": "2026-06-30",
      "formulario": "10-Q",
      "accn": "0001692819-26-000019",
+     "componentes_no_etiquetados": [
+      "ShortTermInvestments / MarketableSecuritiesCurrent / AvailableForSaleSecuritiesDebtSecuritiesCurrent"
+     ]
+    },
+    {
+     "valor": 2743000000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "etiqueta": "us-gaap:CashAndCashEquivalentsAtCarryingValue",
+     "periodo_fin": "2026-09-30",
+     "formulario": "10-Q",
+     "accn": "0001692819-26-000025",
      "componentes_no_etiquetados": [
       "ShortTermInvestments / MarketableSecuritiesCurrent / AvailableForSaleSecuritiesDebtSecuritiesCurrent"
      ]
@@ -7148,12 +7172,12 @@
     {
      "valor": 785000000,
      "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
-     "fecha_presentacion": "2026-08-10",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
      "etiqueta": "us-gaap:CashAndCashEquivalentsAtCarryingValue",
      "periodo_fin": "2025-12-31",
      "formulario": "10-Q",
-     "accn": "0001692819-26-000019",
+     "accn": "0001692819-26-000025",
      "periodo": "2025"
     }
    ]
@@ -7162,26 +7186,16 @@
    "nombre": "Deuda financiera",
    "unidad": "USD",
    "ultimo": {
-    "valor": 19595000000,
+    "valor": 21146000000,
     "fuente": "SEC EDGAR · 10-Q",
-    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
-    "fecha_presentacion": "2026-08-10",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+    "fecha_presentacion": "2026-11-09",
     "etiqueta": "us-gaap:LongTermDebt",
-    "periodo_fin": "2026-06-30",
+    "periodo_fin": "2026-09-30",
     "formulario": "10-Q",
-    "accn": "0001692819-26-000019"
+    "accn": "0001692819-26-000025"
    },
    "historico": [
-    {
-     "valor": 16305000000,
-     "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281925000035/0001692819-25-000035-index.htm",
-     "fecha_presentacion": "2025-05-08",
-     "etiqueta": "us-gaap:LongTermDebt",
-     "periodo_fin": "2025-03-31",
-     "formulario": "10-Q",
-     "accn": "0001692819-25-000035"
-    },
     {
      "valor": 15770000000,
      "fuente": "SEC EDGAR · 10-Q",
@@ -7205,12 +7219,12 @@
     {
      "valor": 17043000000,
      "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
-     "fecha_presentacion": "2026-08-10",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
      "etiqueta": "us-gaap:LongTermDebt",
      "periodo_fin": "2025-12-31",
      "formulario": "10-Q",
-     "accn": "0001692819-26-000019"
+     "accn": "0001692819-26-000025"
     },
     {
      "valor": 19163000000,
@@ -7231,6 +7245,16 @@
      "periodo_fin": "2026-06-30",
      "formulario": "10-Q",
      "accn": "0001692819-26-000019"
+    },
+    {
+     "valor": 21146000000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "etiqueta": "us-gaap:LongTermDebt",
+     "periodo_fin": "2026-09-30",
+     "formulario": "10-Q",
+     "accn": "0001692819-26-000025"
     }
    ],
    "asumido": false,
@@ -7308,12 +7332,12 @@
     {
      "valor": 17043000000,
      "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
-     "fecha_presentacion": "2026-08-10",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
      "etiqueta": "us-gaap:LongTermDebt",
      "periodo_fin": "2025-12-31",
      "formulario": "10-Q",
-     "accn": "0001692819-26-000019",
+     "accn": "0001692819-26-000025",
      "periodo": "2025"
     }
    ]
@@ -7322,26 +7346,16 @@
    "nombre": "Patrimonio neto",
    "unidad": "USD",
    "ultimo": {
-    "valor": 5482000000,
+    "valor": 6306000000,
     "fuente": "SEC EDGAR · 10-Q",
-    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
-    "fecha_presentacion": "2026-08-10",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+    "fecha_presentacion": "2026-11-09",
     "etiqueta": "us-gaap:StockholdersEquity",
-    "periodo_fin": "2026-06-30",
+    "periodo_fin": "2026-09-30",
     "formulario": "10-Q",
-    "accn": "0001692819-26-000019"
+    "accn": "0001692819-26-000025"
    },
    "historico": [
-    {
-     "valor": 4825000000,
-     "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281925000035/0001692819-25-000035-index.htm",
-     "fecha_presentacion": "2025-05-08",
-     "etiqueta": "us-gaap:StockholdersEquity",
-     "periodo_fin": "2025-03-31",
-     "formulario": "10-Q",
-     "accn": "0001692819-25-000035"
-    },
     {
      "valor": 4823000000,
      "fuente": "SEC EDGAR · 10-Q",
@@ -7365,12 +7379,12 @@
     {
      "valor": 5097000000,
      "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
-     "fecha_presentacion": "2026-08-10",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
      "etiqueta": "us-gaap:StockholdersEquity",
      "periodo_fin": "2025-12-31",
      "formulario": "10-Q",
-     "accn": "0001692819-26-000019"
+     "accn": "0001692819-26-000025"
     },
     {
      "valor": 5597000000,
@@ -7391,6 +7405,16 @@
      "periodo_fin": "2026-06-30",
      "formulario": "10-Q",
      "accn": "0001692819-26-000019"
+    },
+    {
+     "valor": 6306000000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "etiqueta": "us-gaap:StockholdersEquity",
+     "periodo_fin": "2026-09-30",
+     "formulario": "10-Q",
+     "accn": "0001692819-26-000025"
     }
    ],
    "asumido": false,
@@ -7464,12 +7488,12 @@
     {
      "valor": 5097000000,
      "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
-     "fecha_presentacion": "2026-08-10",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
      "etiqueta": "us-gaap:StockholdersEquity",
      "periodo_fin": "2025-12-31",
      "formulario": "10-Q",
-     "accn": "0001692819-26-000019",
+     "accn": "0001692819-26-000025",
      "periodo": "2025"
     }
    ]
@@ -7478,26 +7502,16 @@
    "nombre": "Activo total",
    "unidad": "USD",
    "ultimo": {
-    "valor": 42603000000,
+    "valor": 45029000000,
     "fuente": "SEC EDGAR · 10-Q",
-    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
-    "fecha_presentacion": "2026-08-10",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+    "fecha_presentacion": "2026-11-09",
     "etiqueta": "us-gaap:Assets",
-    "periodo_fin": "2026-06-30",
+    "periodo_fin": "2026-09-30",
     "formulario": "10-Q",
-    "accn": "0001692819-26-000019"
+    "accn": "0001692819-26-000025"
    },
    "historico": [
-    {
-     "valor": 38228000000,
-     "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281925000035/0001692819-25-000035-index.htm",
-     "fecha_presentacion": "2025-05-08",
-     "etiqueta": "us-gaap:Assets",
-     "periodo_fin": "2025-03-31",
-     "formulario": "10-Q",
-     "accn": "0001692819-25-000035"
-    },
     {
      "valor": 38146000000,
      "fuente": "SEC EDGAR · 10-Q",
@@ -7521,12 +7535,12 @@
     {
      "valor": 41550000000,
      "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
-     "fecha_presentacion": "2026-08-10",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
      "etiqueta": "us-gaap:Assets",
      "periodo_fin": "2025-12-31",
      "formulario": "10-Q",
-     "accn": "0001692819-26-000019"
+     "accn": "0001692819-26-000025"
     },
     {
      "valor": 41308000000,
@@ -7547,6 +7561,16 @@
      "periodo_fin": "2026-06-30",
      "formulario": "10-Q",
      "accn": "0001692819-26-000019"
+    },
+    {
+     "valor": 45029000000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "etiqueta": "us-gaap:Assets",
+     "periodo_fin": "2026-09-30",
+     "formulario": "10-Q",
+     "accn": "0001692819-26-000025"
     }
    ],
    "asumido": false,
@@ -7620,12 +7644,12 @@
     {
      "valor": 41550000000,
      "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
-     "fecha_presentacion": "2026-08-10",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
      "etiqueta": "us-gaap:Assets",
      "periodo_fin": "2025-12-31",
      "formulario": "10-Q",
-     "accn": "0001692819-26-000019",
+     "accn": "0001692819-26-000025",
      "periodo": "2025"
     }
    ]
@@ -7634,26 +7658,16 @@
    "nombre": "Activo corriente",
    "unidad": "USD",
    "ultimo": {
-    "valor": 10276000000,
+    "valor": 13367000000,
     "fuente": "SEC EDGAR · 10-Q",
-    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
-    "fecha_presentacion": "2026-08-10",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+    "fecha_presentacion": "2026-11-09",
     "etiqueta": "us-gaap:AssetsCurrent",
-    "periodo_fin": "2026-06-30",
+    "periodo_fin": "2026-09-30",
     "formulario": "10-Q",
-    "accn": "0001692819-26-000019"
+    "accn": "0001692819-26-000025"
    },
    "historico": [
-    {
-     "valor": 8430000000,
-     "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281925000035/0001692819-25-000035-index.htm",
-     "fecha_presentacion": "2025-05-08",
-     "etiqueta": "us-gaap:AssetsCurrent",
-     "periodo_fin": "2025-03-31",
-     "formulario": "10-Q",
-     "accn": "0001692819-25-000035"
-    },
     {
      "valor": 8484000000,
      "fuente": "SEC EDGAR · 10-Q",
@@ -7677,12 +7691,12 @@
     {
      "valor": 9179000000,
      "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
-     "fecha_presentacion": "2026-08-10",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
      "etiqueta": "us-gaap:AssetsCurrent",
      "periodo_fin": "2025-12-31",
      "formulario": "10-Q",
-     "accn": "0001692819-26-000019"
+     "accn": "0001692819-26-000025"
     },
     {
      "valor": 9016000000,
@@ -7703,6 +7717,16 @@
      "periodo_fin": "2026-06-30",
      "formulario": "10-Q",
      "accn": "0001692819-26-000019"
+    },
+    {
+     "valor": 13367000000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "etiqueta": "us-gaap:AssetsCurrent",
+     "periodo_fin": "2026-09-30",
+     "formulario": "10-Q",
+     "accn": "0001692819-26-000025"
     }
    ],
    "asumido": false,
@@ -7776,12 +7800,12 @@
     {
      "valor": 9179000000,
      "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
-     "fecha_presentacion": "2026-08-10",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
      "etiqueta": "us-gaap:AssetsCurrent",
      "periodo_fin": "2025-12-31",
      "formulario": "10-Q",
-     "accn": "0001692819-26-000019",
+     "accn": "0001692819-26-000025",
      "periodo": "2025"
     }
    ]
@@ -7790,26 +7814,16 @@
    "nombre": "Pasivo corriente",
    "unidad": "USD",
    "ultimo": {
-    "valor": 10557000000,
+    "valor": 11549000000,
     "fuente": "SEC EDGAR · 10-Q",
-    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
-    "fecha_presentacion": "2026-08-10",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+    "fecha_presentacion": "2026-11-09",
     "etiqueta": "us-gaap:LiabilitiesCurrent",
-    "periodo_fin": "2026-06-30",
+    "periodo_fin": "2026-09-30",
     "formulario": "10-Q",
-    "accn": "0001692819-26-000019"
+    "accn": "0001692819-26-000025"
    },
    "historico": [
-    {
-     "valor": 9753000000,
-     "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281925000035/0001692819-25-000035-index.htm",
-     "fecha_presentacion": "2025-05-08",
-     "etiqueta": "us-gaap:LiabilitiesCurrent",
-     "periodo_fin": "2025-03-31",
-     "formulario": "10-Q",
-     "accn": "0001692819-25-000035"
-    },
     {
      "valor": 9434000000,
      "fuente": "SEC EDGAR · 10-Q",
@@ -7833,12 +7847,12 @@
     {
      "valor": 11814000000,
      "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
-     "fecha_presentacion": "2026-08-10",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
      "etiqueta": "us-gaap:LiabilitiesCurrent",
      "periodo_fin": "2025-12-31",
      "formulario": "10-Q",
-     "accn": "0001692819-26-000019"
+     "accn": "0001692819-26-000025"
     },
     {
      "valor": 10059000000,
@@ -7859,6 +7873,16 @@
      "periodo_fin": "2026-06-30",
      "formulario": "10-Q",
      "accn": "0001692819-26-000019"
+    },
+    {
+     "valor": 11549000000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "etiqueta": "us-gaap:LiabilitiesCurrent",
+     "periodo_fin": "2026-09-30",
+     "formulario": "10-Q",
+     "accn": "0001692819-26-000025"
     }
    ],
    "asumido": false,
@@ -7932,12 +7956,12 @@
     {
      "valor": 11814000000,
      "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
-     "fecha_presentacion": "2026-08-10",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
      "etiqueta": "us-gaap:LiabilitiesCurrent",
      "periodo_fin": "2025-12-31",
      "formulario": "10-Q",
-     "accn": "0001692819-26-000019",
+     "accn": "0001692819-26-000025",
      "periodo": "2025"
     }
    ]
@@ -8021,26 +8045,16 @@
    "nombre": "Pasivo total",
    "unidad": "USD",
    "ultimo": {
-    "valor": 37109000000,
+    "valor": 38566000000,
     "fuente": "SEC EDGAR · 10-Q",
-    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
-    "fecha_presentacion": "2026-08-10",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+    "fecha_presentacion": "2026-11-09",
     "etiqueta": "us-gaap:Liabilities",
-    "periodo_fin": "2026-06-30",
+    "periodo_fin": "2026-09-30",
     "formulario": "10-Q",
-    "accn": "0001692819-26-000019"
+    "accn": "0001692819-26-000025"
    },
    "historico": [
-    {
-     "valor": 33390000000,
-     "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281925000035/0001692819-25-000035-index.htm",
-     "fecha_presentacion": "2025-05-08",
-     "etiqueta": "us-gaap:Liabilities",
-     "periodo_fin": "2025-03-31",
-     "formulario": "10-Q",
-     "accn": "0001692819-25-000035"
-    },
     {
      "valor": 33310000000,
      "fuente": "SEC EDGAR · 10-Q",
@@ -8064,12 +8078,12 @@
     {
      "valor": 36440000000,
      "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
-     "fecha_presentacion": "2026-08-10",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
      "etiqueta": "us-gaap:Liabilities",
      "periodo_fin": "2025-12-31",
      "formulario": "10-Q",
-     "accn": "0001692819-26-000019"
+     "accn": "0001692819-26-000025"
     },
     {
      "valor": 35698000000,
@@ -8090,6 +8104,16 @@
      "periodo_fin": "2026-06-30",
      "formulario": "10-Q",
      "accn": "0001692819-26-000019"
+    },
+    {
+     "valor": 38566000000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "etiqueta": "us-gaap:Liabilities",
+     "periodo_fin": "2026-09-30",
+     "formulario": "10-Q",
+     "accn": "0001692819-26-000025"
     }
    ],
    "asumido": false,
@@ -8163,12 +8187,12 @@
     {
      "valor": 36440000000,
      "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
-     "fecha_presentacion": "2026-08-10",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
      "etiqueta": "us-gaap:Liabilities",
      "periodo_fin": "2025-12-31",
      "formulario": "10-Q",
-     "accn": "0001692819-26-000019",
+     "accn": "0001692819-26-000025",
      "periodo": "2025"
     }
    ]
@@ -8177,26 +8201,16 @@
    "nombre": "Beneficios retenidos",
    "unidad": "USD",
    "ultimo": {
-    "valor": 1076000000,
+    "valor": 2091000000,
     "fuente": "SEC EDGAR · 10-Q",
-    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
-    "fecha_presentacion": "2026-08-10",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+    "fecha_presentacion": "2026-11-09",
     "etiqueta": "us-gaap:RetainedEarningsAccumulatedDeficit",
-    "periodo_fin": "2026-06-30",
+    "periodo_fin": "2026-09-30",
     "formulario": "10-Q",
-    "accn": "0001692819-26-000019"
+    "accn": "0001692819-26-000025"
    },
    "historico": [
-    {
-     "valor": -835000000,
-     "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281925000035/0001692819-25-000035-index.htm",
-     "fecha_presentacion": "2025-05-08",
-     "etiqueta": "us-gaap:RetainedEarningsAccumulatedDeficit",
-     "periodo_fin": "2025-03-31",
-     "formulario": "10-Q",
-     "accn": "0001692819-25-000035"
-    },
     {
      "valor": -642000000,
      "fuente": "SEC EDGAR · 10-Q",
@@ -8220,12 +8234,12 @@
     {
      "valor": -12000000,
      "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
-     "fecha_presentacion": "2026-08-10",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
      "etiqueta": "us-gaap:RetainedEarningsAccumulatedDeficit",
      "periodo_fin": "2025-12-31",
      "formulario": "10-Q",
-     "accn": "0001692819-26-000019"
+     "accn": "0001692819-26-000025"
     },
     {
      "valor": 903000000,
@@ -8246,6 +8260,16 @@
      "periodo_fin": "2026-06-30",
      "formulario": "10-Q",
      "accn": "0001692819-26-000019"
+    },
+    {
+     "valor": 2091000000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "etiqueta": "us-gaap:RetainedEarningsAccumulatedDeficit",
+     "periodo_fin": "2026-09-30",
+     "formulario": "10-Q",
+     "accn": "0001692819-26-000025"
     }
    ],
    "asumido": false,
@@ -8319,12 +8343,12 @@
     {
      "valor": -12000000,
      "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
-     "fecha_presentacion": "2026-08-10",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
      "etiqueta": "us-gaap:RetainedEarningsAccumulatedDeficit",
      "periodo_fin": "2025-12-31",
      "formulario": "10-Q",
-     "accn": "0001692819-26-000019",
+     "accn": "0001692819-26-000025",
      "periodo": "2025"
     }
    ]
@@ -8333,26 +8357,16 @@
    "nombre": "Cuentas a cobrar",
    "unidad": "USD",
    "ultimo": {
-    "valor": 2293000000,
+    "valor": 2763000000,
     "fuente": "SEC EDGAR · 10-Q",
-    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
-    "fecha_presentacion": "2026-08-10",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+    "fecha_presentacion": "2026-11-09",
     "etiqueta": "us-gaap:AccountsReceivableNetCurrent",
-    "periodo_fin": "2026-06-30",
+    "periodo_fin": "2026-09-30",
     "formulario": "10-Q",
-    "accn": "0001692819-26-000019"
+    "accn": "0001692819-26-000025"
    },
    "historico": [
-    {
-     "valor": 1924000000,
-     "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281925000035/0001692819-25-000035-index.htm",
-     "fecha_presentacion": "2025-05-08",
-     "etiqueta": "us-gaap:AccountsReceivableNetCurrent",
-     "periodo_fin": "2025-03-31",
-     "formulario": "10-Q",
-     "accn": "0001692819-25-000035"
-    },
     {
      "valor": 2229000000,
      "fuente": "SEC EDGAR · 10-Q",
@@ -8376,12 +8390,12 @@
     {
      "valor": 2323000000,
      "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
-     "fecha_presentacion": "2026-08-10",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
      "etiqueta": "us-gaap:AccountsReceivableNetCurrent",
      "periodo_fin": "2025-12-31",
      "formulario": "10-Q",
-     "accn": "0001692819-26-000019"
+     "accn": "0001692819-26-000025"
     },
     {
      "valor": 1984000000,
@@ -8402,6 +8416,16 @@
      "periodo_fin": "2026-06-30",
      "formulario": "10-Q",
      "accn": "0001692819-26-000019"
+    },
+    {
+     "valor": 2763000000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "etiqueta": "us-gaap:AccountsReceivableNetCurrent",
+     "periodo_fin": "2026-09-30",
+     "formulario": "10-Q",
+     "accn": "0001692819-26-000025"
     }
    ],
    "asumido": false,
@@ -8475,12 +8499,12 @@
     {
      "valor": 2323000000,
      "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
-     "fecha_presentacion": "2026-08-10",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
      "etiqueta": "us-gaap:AccountsReceivableNetCurrent",
      "periodo_fin": "2025-12-31",
      "formulario": "10-Q",
-     "accn": "0001692819-26-000019",
+     "accn": "0001692819-26-000025",
      "periodo": "2025"
     }
    ]
@@ -8489,26 +8513,16 @@
    "nombre": "Inmovilizado material neto",
    "unidad": "USD",
    "ultimo": {
-    "valor": 19944000000,
+    "valor": 19089000000,
     "fuente": "SEC EDGAR · 10-Q",
-    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
-    "fecha_presentacion": "2026-08-10",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+    "fecha_presentacion": "2026-11-09",
     "etiqueta": "us-gaap:PropertyPlantAndEquipmentNet",
-    "periodo_fin": "2026-06-30",
+    "periodo_fin": "2026-09-30",
     "formulario": "10-Q",
-    "accn": "0001692819-26-000019"
+    "accn": "0001692819-26-000025"
    },
    "historico": [
-    {
-     "valor": 17716000000,
-     "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281925000035/0001692819-25-000035-index.htm",
-     "fecha_presentacion": "2025-05-08",
-     "etiqueta": "us-gaap:PropertyPlantAndEquipmentNet",
-     "periodo_fin": "2025-03-31",
-     "formulario": "10-Q",
-     "accn": "0001692819-25-000035"
-    },
     {
      "valor": 17736000000,
      "fuente": "SEC EDGAR · 10-Q",
@@ -8532,12 +8546,12 @@
     {
      "valor": 19846000000,
      "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
-     "fecha_presentacion": "2026-08-10",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
      "etiqueta": "us-gaap:PropertyPlantAndEquipmentNet",
      "periodo_fin": "2025-12-31",
      "formulario": "10-Q",
-     "accn": "0001692819-26-000019"
+     "accn": "0001692819-26-000025"
     },
     {
      "valor": 19876000000,
@@ -8558,6 +8572,16 @@
      "periodo_fin": "2026-06-30",
      "formulario": "10-Q",
      "accn": "0001692819-26-000019"
+    },
+    {
+     "valor": 19089000000,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "etiqueta": "us-gaap:PropertyPlantAndEquipmentNet",
+     "periodo_fin": "2026-09-30",
+     "formulario": "10-Q",
+     "accn": "0001692819-26-000025"
     }
    ],
    "asumido": false,
@@ -8631,12 +8655,12 @@
     {
      "valor": 19846000000,
      "fuente": "SEC EDGAR · 10-Q",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
-     "fecha_presentacion": "2026-08-10",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fecha_presentacion": "2026-11-09",
      "etiqueta": "us-gaap:PropertyPlantAndEquipmentNet",
      "periodo_fin": "2025-12-31",
      "formulario": "10-Q",
-     "accn": "0001692819-26-000019",
+     "accn": "0001692819-26-000025",
      "periodo": "2025"
     }
    ]
@@ -8714,14 +8738,14 @@
   ]
  },
  "acciones_en_circulacion": {
-  "valor": 335635195,
+  "valor": 339394683,
   "fuente": "SEC EDGAR · 10-Q",
-  "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
-  "fecha_presentacion": "2026-08-10",
+  "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+  "fecha_presentacion": "2026-11-09",
   "etiqueta": "dei:EntityCommonStockSharesOutstanding",
-  "periodo_fin": "2026-08-03",
+  "periodo_fin": "2026-11-02",
   "formulario": "10-Q",
-  "accn": "0001692819-26-000019",
+  "accn": "0001692819-26-000025",
   "clases": 1
  },
  "avisos": [
@@ -8784,13 +8808,13 @@
   {
    "nivel": "info",
    "codigo": "componente_no_etiquetado",
-   "mensaje": "Caja e inversiones a corto a 2026-06-30: no hay dato de ShortTermInvestments / MarketableSecuritiesCurrent / AvailableForSaleSecuritiesDebtSecuritiesCurrent; cuenta como 0.",
+   "mensaje": "Caja e inversiones a corto a 2026-09-30: no hay dato de ShortTermInvestments / MarketableSecuritiesCurrent / AvailableForSaleSecuritiesDebtSecuritiesCurrent; cuenta como 0.",
    "concepto": "caja"
   },
   {
    "nivel": "info",
    "codigo": "etiqueta_obsoleta",
-   "mensaje": "Existencias: se descarta «InventoryNet» (último dato 2025-09-30, ingresos hasta 2026-06-30).",
+   "mensaje": "Existencias: se descarta «InventoryNet» (último dato 2025-09-30, ingresos hasta 2026-09-30).",
    "concepto": "existencias",
    "etiqueta": "InventoryNet"
   },
@@ -8826,6 +8850,7 @@
  "bonos": {
   "version": 5,
   "informes_accn": [
+   "0001692819-26-000025",
    "0001692819-26-000019",
    "0001692819-26-000014",
    "0001692819-26-000006"
@@ -8838,7 +8863,7 @@
     "cupon": 5.05,
     "variable": false,
     "en_libros": 500000000.0,
-    "en_libros_fecha": "2026-06-30",
+    "en_libros_fecha": "2026-09-30",
     "moneda": "USD",
     "vencimiento": "2026-12-31",
     "vencimiento_aprox": true,
@@ -8853,9 +8878,9 @@
     },
     "fuente": {
      "formulario": "10-Q",
-     "fecha_presentacion": "2026-08-10",
-     "fecha_periodo": "2026-06-30",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "fecha_periodo": "2026-09-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
      "fuente": "SEC EDGAR · 10-Q (XBRL)"
     },
     "detalle": true,
@@ -8869,7 +8894,7 @@
     "cupon": 3.7,
     "variable": false,
     "en_libros": 800000000.0,
-    "en_libros_fecha": "2026-06-30",
+    "en_libros_fecha": "2026-09-30",
     "moneda": "USD",
     "vencimiento": "2027-12-31",
     "vencimiento_aprox": true,
@@ -8884,9 +8909,9 @@
     },
     "fuente": {
      "formulario": "10-Q",
-     "fecha_presentacion": "2026-08-10",
-     "fecha_periodo": "2026-06-30",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "fecha_periodo": "2026-09-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
      "fuente": "SEC EDGAR · 10-Q (XBRL)"
     },
     "detalle": true,
@@ -8900,7 +8925,7 @@
     "cupon": 5.0,
     "variable": false,
     "en_libros": 1300000000.0,
-    "en_libros_fecha": "2026-06-30",
+    "en_libros_fecha": "2026-09-30",
     "moneda": "USD",
     "vencimiento": "2027-12-31",
     "vencimiento_aprox": true,
@@ -8915,9 +8940,9 @@
     },
     "fuente": {
      "formulario": "10-Q",
-     "fecha_presentacion": "2026-08-10",
-     "fecha_periodo": "2026-06-30",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "fecha_periodo": "2026-09-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
      "fuente": "SEC EDGAR · 10-Q (XBRL)"
     },
     "detalle": true,
@@ -8931,7 +8956,7 @@
     "cupon": 4.3,
     "variable": false,
     "en_libros": 750000000.0,
-    "en_libros_fecha": "2026-06-30",
+    "en_libros_fecha": "2026-09-30",
     "moneda": "USD",
     "vencimiento": "2028-12-31",
     "vencimiento_aprox": true,
@@ -8946,9 +8971,9 @@
     },
     "fuente": {
      "formulario": "10-Q",
-     "fecha_presentacion": "2026-08-10",
-     "fecha_periodo": "2026-06-30",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "fecha_periodo": "2026-09-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
      "fuente": "SEC EDGAR · 10-Q (XBRL)"
     },
     "detalle": true,
@@ -8962,7 +8987,7 @@
     "cupon": 4.55,
     "variable": false,
     "en_libros": 500000000.0,
-    "en_libros_fecha": "2026-06-30",
+    "en_libros_fecha": "2026-09-30",
     "moneda": "USD",
     "vencimiento": "2028-12-31",
     "vencimiento_aprox": true,
@@ -8977,9 +9002,9 @@
     },
     "fuente": {
      "formulario": "10-Q",
-     "fecha_presentacion": "2026-08-10",
-     "fecha_periodo": "2026-06-30",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "fecha_periodo": "2026-09-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
      "fuente": "SEC EDGAR · 10-Q (XBRL)"
     },
     "nominal": 500000000.0,
@@ -8995,7 +9020,7 @@
     "cupon": 3.375,
     "variable": false,
     "en_libros": 100000000.0,
-    "en_libros_fecha": "2026-06-30",
+    "en_libros_fecha": "2026-09-30",
     "moneda": "USD",
     "vencimiento": "2029-12-31",
     "vencimiento_aprox": true,
@@ -9010,9 +9035,9 @@
     },
     "fuente": {
      "formulario": "10-Q",
-     "fecha_presentacion": "2026-08-10",
-     "fecha_periodo": "2026-06-30",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "fecha_periodo": "2026-09-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
      "fuente": "SEC EDGAR · 10-Q (XBRL)"
     },
     "detalle": true,
@@ -9026,7 +9051,7 @@
     "cupon": 4.3,
     "variable": false,
     "en_libros": 800000000.0,
-    "en_libros_fecha": "2026-06-30",
+    "en_libros_fecha": "2026-09-30",
     "moneda": "USD",
     "vencimiento": "2029-12-31",
     "vencimiento_aprox": true,
@@ -9041,9 +9066,9 @@
     },
     "fuente": {
      "formulario": "10-Q",
-     "fecha_presentacion": "2026-08-10",
-     "fecha_periodo": "2026-06-30",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "fecha_periodo": "2026-09-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
      "fuente": "SEC EDGAR · 10-Q (XBRL)"
     },
     "detalle": true,
@@ -9057,7 +9082,7 @@
     "cupon": 4.375,
     "variable": false,
     "en_libros": 1250000000.0,
-    "en_libros_fecha": "2026-06-30",
+    "en_libros_fecha": "2026-09-30",
     "moneda": "USD",
     "vencimiento": "2029-12-31",
     "vencimiento_aprox": true,
@@ -9072,9 +9097,9 @@
     },
     "fuente": {
      "formulario": "10-Q",
-     "fecha_presentacion": "2026-08-10",
-     "fecha_periodo": "2026-06-30",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "fecha_periodo": "2026-09-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
      "fuente": "SEC EDGAR · 10-Q (XBRL)"
     },
     "detalle": true,
@@ -9088,7 +9113,7 @@
     "cupon": 4.6,
     "variable": false,
     "en_libros": 500000000.0,
-    "en_libros_fecha": "2026-06-30",
+    "en_libros_fecha": "2026-09-30",
     "moneda": "USD",
     "vencimiento": "2030-12-31",
     "vencimiento_aprox": true,
@@ -9103,9 +9128,9 @@
     },
     "fuente": {
      "formulario": "10-Q",
-     "fecha_presentacion": "2026-08-10",
-     "fecha_periodo": "2026-06-30",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "fecha_periodo": "2026-09-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
      "fuente": "SEC EDGAR · 10-Q (XBRL)"
     },
     "detalle": true,
@@ -9120,7 +9145,7 @@
     "variable": false,
     "nominal": 1000000000.0,
     "en_libros": 1000000000.0,
-    "en_libros_fecha": "2026-06-30",
+    "en_libros_fecha": "2026-09-30",
     "moneda": "USD",
     "nominal_moneda": "USD",
     "vencimiento": "2031-12-31",
@@ -9136,9 +9161,9 @@
     },
     "fuente": {
      "formulario": "10-Q",
-     "fecha_presentacion": "2026-08-10",
-     "fecha_periodo": "2026-06-30",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "fecha_periodo": "2026-09-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
      "fuente": "SEC EDGAR · 10-Q (XBRL)"
     },
     "detalle": true,
@@ -9152,7 +9177,7 @@
     "cupon": 5.0,
     "variable": false,
     "en_libros": 1000000000.0,
-    "en_libros_fecha": "2026-06-30",
+    "en_libros_fecha": "2026-09-30",
     "moneda": "USD",
     "vencimiento": "2031-12-31",
     "vencimiento_aprox": true,
@@ -9167,9 +9192,9 @@
     },
     "fuente": {
      "formulario": "10-Q",
-     "fecha_presentacion": "2026-08-10",
-     "fecha_periodo": "2026-06-30",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "fecha_periodo": "2026-09-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
      "fuente": "SEC EDGAR · 10-Q (XBRL)"
     },
     "nominal": 1000000000.0,
@@ -9185,7 +9210,7 @@
     "cupon": 7.75,
     "variable": false,
     "en_libros": 1450000000.0,
-    "en_libros_fecha": "2026-06-30",
+    "en_libros_fecha": "2026-09-30",
     "moneda": "USD",
     "vencimiento": "2031-12-31",
     "vencimiento_aprox": true,
@@ -9200,9 +9225,9 @@
     },
     "fuente": {
      "formulario": "10-Q",
-     "fecha_presentacion": "2026-08-10",
-     "fecha_periodo": "2026-06-30",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "fecha_periodo": "2026-09-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
      "fuente": "SEC EDGAR · 10-Q (XBRL)"
     },
     "detalle": true,
@@ -9216,7 +9241,7 @@
     "cupon": 6.875,
     "variable": false,
     "en_libros": 1000000000.0,
-    "en_libros_fecha": "2026-06-30",
+    "en_libros_fecha": "2026-09-30",
     "moneda": "USD",
     "vencimiento": "2032-12-31",
     "vencimiento_aprox": true,
@@ -9231,9 +9256,9 @@
     },
     "fuente": {
      "formulario": "10-Q",
-     "fecha_presentacion": "2026-08-10",
-     "fecha_periodo": "2026-06-30",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "fecha_periodo": "2026-09-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
      "fuente": "SEC EDGAR · 10-Q (XBRL)"
     },
     "detalle": true,
@@ -9247,7 +9272,7 @@
     "cupon": 4.75,
     "variable": false,
     "en_libros": 285000000.0,
-    "en_libros_fecha": "2026-06-30",
+    "en_libros_fecha": "2026-09-30",
     "moneda": "USD",
     "vencimiento": "2033-12-31",
     "vencimiento_aprox": true,
@@ -9262,9 +9287,9 @@
     },
     "fuente": {
      "formulario": "10-Q",
-     "fecha_presentacion": "2026-08-10",
-     "fecha_periodo": "2026-06-30",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "fecha_periodo": "2026-09-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
      "fuente": "SEC EDGAR · 10-Q (XBRL)"
     },
     "detalle": true,
@@ -9278,7 +9303,7 @@
     "cupon": 5.25,
     "variable": false,
     "en_libros": 1000000000.0,
-    "en_libros_fecha": "2026-06-30",
+    "en_libros_fecha": "2026-09-30",
     "moneda": "USD",
     "vencimiento": "2033-12-31",
     "vencimiento_aprox": true,
@@ -9293,9 +9318,9 @@
     },
     "fuente": {
      "formulario": "10-Q",
-     "fecha_presentacion": "2026-08-10",
-     "fecha_periodo": "2026-06-30",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "fecha_periodo": "2026-09-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
      "fuente": "SEC EDGAR · 10-Q (XBRL)"
     },
     "nominal": 1000000000.0,
@@ -9311,7 +9336,7 @@
     "cupon": 6.95,
     "variable": false,
     "en_libros": 1050000000.0,
-    "en_libros_fecha": "2026-06-30",
+    "en_libros_fecha": "2026-09-30",
     "moneda": "USD",
     "vencimiento": "2033-12-31",
     "vencimiento_aprox": true,
@@ -9326,9 +9351,9 @@
     },
     "fuente": {
      "formulario": "10-Q",
-     "fecha_presentacion": "2026-08-10",
-     "fecha_periodo": "2026-06-30",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "fecha_periodo": "2026-09-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
      "fuente": "SEC EDGAR · 10-Q (XBRL)"
     },
     "detalle": true,
@@ -9342,7 +9367,7 @@
     "cupon": 5.7,
     "variable": false,
     "en_libros": 750000000.0,
-    "en_libros_fecha": "2026-06-30",
+    "en_libros_fecha": "2026-09-30",
     "moneda": "USD",
     "vencimiento": "2034-12-31",
     "vencimiento_aprox": true,
@@ -9357,9 +9382,9 @@
     },
     "fuente": {
      "formulario": "10-Q",
-     "fecha_presentacion": "2026-08-10",
-     "fecha_periodo": "2026-06-30",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "fecha_periodo": "2026-09-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
      "fuente": "SEC EDGAR · 10-Q (XBRL)"
     },
     "detalle": true,
@@ -9373,7 +9398,7 @@
     "cupon": 6.0,
     "variable": false,
     "en_libros": 500000000.0,
-    "en_libros_fecha": "2026-06-30",
+    "en_libros_fecha": "2026-09-30",
     "moneda": "USD",
     "vencimiento": "2034-12-31",
     "vencimiento_aprox": true,
@@ -9388,9 +9413,9 @@
     },
     "fuente": {
      "formulario": "10-Q",
-     "fecha_presentacion": "2026-08-10",
-     "fecha_periodo": "2026-06-30",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "fecha_periodo": "2026-09-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
      "fuente": "SEC EDGAR · 10-Q (XBRL)"
     },
     "detalle": true,
@@ -9404,7 +9429,7 @@
     "cupon": 5.25,
     "variable": false,
     "en_libros": 750000000.0,
-    "en_libros_fecha": "2026-06-30",
+    "en_libros_fecha": "2026-09-30",
     "moneda": "USD",
     "vencimiento": "2035-12-31",
     "vencimiento_aprox": true,
@@ -9419,9 +9444,9 @@
     },
     "fuente": {
      "formulario": "10-Q",
-     "fecha_presentacion": "2026-08-10",
-     "fecha_periodo": "2026-06-30",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "fecha_periodo": "2026-09-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
      "fuente": "SEC EDGAR · 10-Q (XBRL)"
     },
     "detalle": true,
@@ -9436,7 +9461,7 @@
     "variable": false,
     "nominal": 1250000000.0,
     "en_libros": 1250000000.0,
-    "en_libros_fecha": "2026-06-30",
+    "en_libros_fecha": "2026-09-30",
     "moneda": "USD",
     "nominal_moneda": "USD",
     "vencimiento": "2036-12-31",
@@ -9452,9 +9477,9 @@
     },
     "fuente": {
      "formulario": "10-Q",
-     "fecha_presentacion": "2026-08-10",
-     "fecha_periodo": "2026-06-30",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "fecha_periodo": "2026-09-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
      "fuente": "SEC EDGAR · 10-Q (XBRL)"
     },
     "detalle": true,
@@ -9468,7 +9493,7 @@
     "cupon": 5.55,
     "variable": false,
     "en_libros": 1500000000.0,
-    "en_libros_fecha": "2026-06-30",
+    "en_libros_fecha": "2026-09-30",
     "moneda": "USD",
     "vencimiento": "2036-12-31",
     "vencimiento_aprox": true,
@@ -9483,9 +9508,9 @@
     },
     "fuente": {
      "formulario": "10-Q",
-     "fecha_presentacion": "2026-08-10",
-     "fecha_periodo": "2026-06-30",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "fecha_periodo": "2026-09-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
      "fuente": "SEC EDGAR · 10-Q (XBRL)"
     },
     "nominal": 1500000000.0,
@@ -9501,7 +9526,7 @@
     "cupon": 3.75,
     "variable": false,
     "en_libros": 46000000.0,
-    "en_libros_fecha": "2026-06-30",
+    "en_libros_fecha": "2026-09-30",
     "moneda": "USD",
     "vencimiento": "2047-12-31",
     "vencimiento_aprox": true,
@@ -9516,9 +9541,9 @@
     },
     "fuente": {
      "formulario": "10-Q",
-     "fecha_presentacion": "2026-08-10",
-     "fecha_periodo": "2026-06-30",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "fecha_periodo": "2026-09-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
      "fuente": "SEC EDGAR · 10-Q (XBRL)"
     },
     "detalle": true,
@@ -9526,12 +9551,70 @@
     "nueva": false
    },
    {
+    "miembro": "vistra:A7.000SeriesAJuniorSubordinatedNotesMember",
+    "nombre": "7.000% Series A Junior Subordinated Notes",
+    "tipo": "Bono senior",
+    "cupon": 7.0,
+    "variable": false,
+    "en_libros": 850000000.0,
+    "en_libros_fecha": "2026-09-30",
+    "moneda": "USD",
+    "vencimiento_aprox": false,
+    "programa": false,
+    "primera_vez": {
+     "formulario": "10-Q",
+     "fecha_presentacion": "2026-11-09",
+     "fecha_periodo": "2026-09-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fuente": "SEC EDGAR · 10-Q (XBRL)"
+    },
+    "fuente": {
+     "formulario": "10-Q",
+     "fecha_presentacion": "2026-11-09",
+     "fecha_periodo": "2026-09-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fuente": "SEC EDGAR · 10-Q (XBRL)"
+    },
+    "detalle": false,
+    "agregado": false,
+    "nueva": true
+   },
+   {
+    "miembro": "vistra:A7.250SeriesBJuniorSubordinatedNotesMember",
+    "nombre": "7.250% Series B Junior Subordinated Notes",
+    "tipo": "Bono senior",
+    "cupon": 7.25,
+    "variable": false,
+    "en_libros": 650000000.0,
+    "en_libros_fecha": "2026-09-30",
+    "moneda": "USD",
+    "vencimiento_aprox": false,
+    "programa": false,
+    "primera_vez": {
+     "formulario": "10-Q",
+     "fecha_presentacion": "2026-11-09",
+     "fecha_periodo": "2026-09-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fuente": "SEC EDGAR · 10-Q (XBRL)"
+    },
+    "fuente": {
+     "formulario": "10-Q",
+     "fecha_presentacion": "2026-11-09",
+     "fecha_periodo": "2026-09-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fuente": "SEC EDGAR · 10-Q (XBRL)"
+    },
+    "detalle": false,
+    "agregado": false,
+    "nueva": true
+   },
+   {
     "miembro": "vistra:BCOPCreditFacilitiesMember",
     "nombre": "BCOP Credit Facilities",
     "tipo": "Otra deuda",
     "variable": false,
     "en_libros": 261000000.0,
-    "en_libros_fecha": "2026-06-30",
+    "en_libros_fecha": "2026-09-30",
     "moneda": "USD",
     "vencimiento_aprox": false,
     "programa": false,
@@ -9544,9 +9627,9 @@
     },
     "fuente": {
      "formulario": "10-Q",
-     "fecha_presentacion": "2026-08-10",
-     "fecha_periodo": "2026-06-30",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "fecha_periodo": "2026-09-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
      "fuente": "SEC EDGAR · 10-Q (XBRL)"
     },
     "detalle": false,
@@ -9572,9 +9655,9 @@
     },
     "fuente": {
      "formulario": "10-Q",
-     "fecha_presentacion": "2026-08-10",
-     "fecha_periodo": "2026-06-30",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "fecha_periodo": "2026-09-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
      "fuente": "SEC EDGAR · 10-Q (XBRL)"
     },
     "detalle": false,
@@ -9600,9 +9683,9 @@
     },
     "fuente": {
      "formulario": "10-Q",
-     "fecha_presentacion": "2026-08-10",
-     "fecha_periodo": "2026-06-30",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "fecha_periodo": "2026-09-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
      "fuente": "SEC EDGAR · 10-Q (XBRL)"
     },
     "detalle": false,
@@ -9615,7 +9698,7 @@
     "tipo": "Otra deuda",
     "variable": false,
     "en_libros": 46000000.0,
-    "en_libros_fecha": "2026-06-30",
+    "en_libros_fecha": "2026-09-30",
     "moneda": "USD",
     "vencimiento_aprox": false,
     "programa": false,
@@ -9628,9 +9711,9 @@
     },
     "fuente": {
      "formulario": "10-Q",
-     "fecha_presentacion": "2026-08-10",
-     "fecha_periodo": "2026-06-30",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "fecha_periodo": "2026-09-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
      "fuente": "SEC EDGAR · 10-Q (XBRL)"
     },
     "detalle": false,
@@ -9642,7 +9725,7 @@
     "nombre": "Oak Hill",
     "tipo": "Otra deuda",
     "variable": false,
-    "nominal": 206000000.0,
+    "nominal": 202000000.0,
     "moneda": "USD",
     "nominal_moneda": "USD",
     "vencimiento_aprox": false,
@@ -9656,9 +9739,9 @@
     },
     "fuente": {
      "formulario": "10-Q",
-     "fecha_presentacion": "2026-08-10",
-     "fecha_periodo": "2026-06-30",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "fecha_periodo": "2026-09-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
      "fuente": "SEC EDGAR · 10-Q (XBRL)"
     },
     "detalle": false,
@@ -9671,7 +9754,7 @@
     "tipo": "Otra deuda",
     "variable": false,
     "en_libros": 4000000.0,
-    "en_libros_fecha": "2026-06-30",
+    "en_libros_fecha": "2026-09-30",
     "moneda": "USD",
     "vencimiento_aprox": false,
     "programa": false,
@@ -9684,9 +9767,9 @@
     },
     "fuente": {
      "formulario": "10-Q",
-     "fecha_presentacion": "2026-08-10",
-     "fecha_periodo": "2026-06-30",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "fecha_periodo": "2026-09-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
      "fuente": "SEC EDGAR · 10-Q (XBRL)"
     },
     "detalle": false,
@@ -9712,9 +9795,9 @@
     },
     "fuente": {
      "formulario": "10-Q",
-     "fecha_presentacion": "2026-08-10",
-     "fecha_periodo": "2026-06-30",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "fecha_periodo": "2026-09-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
      "fuente": "SEC EDGAR · 10-Q (XBRL)"
     },
     "detalle": false,
@@ -9740,9 +9823,9 @@
     },
     "fuente": {
      "formulario": "10-Q",
-     "fecha_presentacion": "2026-08-10",
-     "fecha_periodo": "2026-06-30",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "fecha_periodo": "2026-09-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
      "fuente": "SEC EDGAR · 10-Q (XBRL)"
     },
     "detalle": false,
@@ -9750,42 +9833,98 @@
     "nueva": false
    },
    {
-    "miembro": "vistra:SeniorSecuredTermLoanB3FacilityMember",
-    "nombre": "Senior Secured Term Loan B-3 Facility",
+    "miembro": "vistra:SeniorSecuredTermLoanFacilityMember",
+    "nombre": "Senior Secured Term Loan Facility",
     "tipo": "Préstamo a plazo",
     "variable": false,
-    "en_libros": 2444000000.0,
-    "en_libros_fecha": "2026-03-31",
+    "nominal": 2444000000.0,
     "moneda": "USD",
+    "nominal_moneda": "USD",
     "vencimiento_aprox": false,
     "programa": false,
     "primera_vez": {
-     "formulario": "10-K",
-     "fecha_presentacion": "2026-02-27",
-     "fecha_periodo": "2025-12-31",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000006/0001692819-26-000006-index.htm",
-     "fuente": "SEC EDGAR · 10-K (XBRL)"
+     "formulario": "10-Q",
+     "fecha_presentacion": "2026-11-09",
+     "fecha_periodo": "2026-09-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fuente": "SEC EDGAR · 10-Q (XBRL)"
     },
     "fuente": {
      "formulario": "10-Q",
-     "fecha_presentacion": "2026-08-10",
-     "fecha_periodo": "2026-06-30",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "fecha_periodo": "2026-09-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
      "fuente": "SEC EDGAR · 10-Q (XBRL)"
     },
-    "nominal": 2444000000.0,
-    "nominal_moneda": "USD",
     "detalle": false,
     "agregado": false,
-    "nueva": false
+    "nueva": true
+   },
+   {
+    "miembro": "vistra:SeriesAJuniorSubordinatedNotesMember",
+    "nombre": "Series A Junior Subordinated Notes",
+    "tipo": "Bono senior",
+    "cupon": 7.0,
+    "variable": false,
+    "nominal": 850000000.0,
+    "moneda": "USD",
+    "nominal_moneda": "USD",
+    "vencimiento_aprox": false,
+    "programa": false,
+    "primera_vez": {
+     "formulario": "10-Q",
+     "fecha_presentacion": "2026-11-09",
+     "fecha_periodo": "2026-09-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fuente": "SEC EDGAR · 10-Q (XBRL)"
+    },
+    "fuente": {
+     "formulario": "10-Q",
+     "fecha_presentacion": "2026-11-09",
+     "fecha_periodo": "2026-09-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fuente": "SEC EDGAR · 10-Q (XBRL)"
+    },
+    "detalle": false,
+    "agregado": false,
+    "nueva": true
+   },
+   {
+    "miembro": "vistra:SeriesBJuniorSubordinatedNotesMember",
+    "nombre": "Series B Junior Subordinated Notes",
+    "tipo": "Bono senior",
+    "cupon": 7.25,
+    "variable": false,
+    "nominal": 650000000.0,
+    "moneda": "USD",
+    "nominal_moneda": "USD",
+    "vencimiento_aprox": false,
+    "programa": false,
+    "primera_vez": {
+     "formulario": "10-Q",
+     "fecha_presentacion": "2026-11-09",
+     "fecha_periodo": "2026-09-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fuente": "SEC EDGAR · 10-Q (XBRL)"
+    },
+    "fuente": {
+     "formulario": "10-Q",
+     "fecha_presentacion": "2026-11-09",
+     "fecha_periodo": "2026-09-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fuente": "SEC EDGAR · 10-Q (XBRL)"
+    },
+    "detalle": false,
+    "agregado": false,
+    "nueva": true
    },
    {
     "miembro": "vistra:TexasEnergyFundLoanMember",
     "nombre": "Texas Energy Fund Loan",
     "tipo": "Otra deuda",
     "variable": false,
-    "en_libros": 172000000.0,
-    "en_libros_fecha": "2026-06-30",
+    "en_libros": 236000000.0,
+    "en_libros_fecha": "2026-09-30",
     "moneda": "USD",
     "vencimiento_aprox": false,
     "programa": false,
@@ -9798,9 +9937,37 @@
     },
     "fuente": {
      "formulario": "10-Q",
-     "fecha_presentacion": "2026-08-10",
-     "fecha_periodo": "2026-06-30",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "fecha_periodo": "2026-09-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fuente": "SEC EDGAR · 10-Q (XBRL)"
+    },
+    "detalle": false,
+    "agregado": false,
+    "nueva": true
+   },
+   {
+    "miembro": "vistra:TxEFLoanMember",
+    "nombre": "TxEF Loan",
+    "tipo": "Otra deuda",
+    "variable": false,
+    "en_libros": 236000000.0,
+    "en_libros_fecha": "2026-09-30",
+    "moneda": "USD",
+    "vencimiento_aprox": false,
+    "programa": false,
+    "primera_vez": {
+     "formulario": "10-Q",
+     "fecha_presentacion": "2026-11-09",
+     "fecha_periodo": "2026-09-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fuente": "SEC EDGAR · 10-Q (XBRL)"
+    },
+    "fuente": {
+     "formulario": "10-Q",
+     "fecha_presentacion": "2026-11-09",
+     "fecha_periodo": "2026-09-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
      "fuente": "SEC EDGAR · 10-Q (XBRL)"
     },
     "detalle": false,
@@ -9813,7 +9980,7 @@
     "tipo": "Línea de crédito",
     "variable": false,
     "en_libros": 697000000.0,
-    "en_libros_fecha": "2026-06-30",
+    "en_libros_fecha": "2026-09-30",
     "moneda": "USD",
     "vencimiento_aprox": false,
     "programa": false,
@@ -9826,9 +9993,9 @@
     },
     "fuente": {
      "formulario": "10-Q",
-     "fecha_presentacion": "2026-08-10",
-     "fecha_periodo": "2026-06-30",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "fecha_periodo": "2026-09-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
      "fuente": "SEC EDGAR · 10-Q (XBRL)"
     },
     "detalle": false,
@@ -9841,7 +10008,7 @@
     "tipo": "Préstamo a plazo",
     "variable": false,
     "en_libros": 697000000.0,
-    "en_libros_fecha": "2026-06-30",
+    "en_libros_fecha": "2026-09-30",
     "moneda": "USD",
     "vencimiento_aprox": false,
     "programa": false,
@@ -9854,9 +10021,9 @@
     },
     "fuente": {
      "formulario": "10-Q",
-     "fecha_presentacion": "2026-08-10",
-     "fecha_periodo": "2026-06-30",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "fecha_periodo": "2026-09-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
      "fuente": "SEC EDGAR · 10-Q (XBRL)"
     },
     "detalle": false,
@@ -9866,15 +10033,28 @@
   ],
   "composicion": [
    {
+    "miembro": "vistra:EnergyHarborDebtMember",
+    "nombre": "Energy Harbor Debt",
+    "tipo": "Otra deuda",
+    "importe": 431000000.0,
+    "fuente": {
+     "formulario": "10-Q",
+     "fecha_presentacion": "2026-11-09",
+     "fecha_periodo": "2026-09-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+     "fuente": "SEC EDGAR · 10-Q (XBRL)"
+    }
+   },
+   {
     "miembro": "vistra:ProjectLevelDebtMember",
     "nombre": "Project-level Debt",
     "tipo": "Otra deuda",
-    "importe": 1633000000.0,
+    "importe": 1693000000.0,
     "fuente": {
      "formulario": "10-Q",
-     "fecha_presentacion": "2026-08-10",
-     "fecha_periodo": "2026-06-30",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "fecha_periodo": "2026-09-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
      "fuente": "SEC EDGAR · 10-Q (XBRL)"
     }
    },
@@ -9882,12 +10062,12 @@
     "miembro": "vistra:VistraOperationsDebtMember",
     "nombre": "Vistra Operations Debt",
     "tipo": "Otra deuda",
-    "importe": 18131000000.0,
+    "importe": 19200000000.0,
     "fuente": {
      "formulario": "10-Q",
-     "fecha_presentacion": "2026-08-10",
-     "fecha_periodo": "2026-06-30",
-     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
+     "fecha_presentacion": "2026-11-09",
+     "fecha_periodo": "2026-09-30",
+     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
      "fuente": "SEC EDGAR · 10-Q (XBRL)"
     }
    }
@@ -9913,27 +10093,34 @@
     "fecha_periodo": "2026-06-30",
     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
     "fuente": "SEC EDGAR · 10-Q (XBRL)"
+   },
+   {
+    "formulario": "10-Q",
+    "fecha_presentacion": "2026-11-09",
+    "fecha_periodo": "2026-09-30",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+    "fuente": "SEC EDGAR · 10-Q (XBRL)"
    }
   ],
   "conceptos_xbrl": {
-   "LongTermDebtAndCapitalLeaseObligationsIncludingCurrentMaturities": 159,
-   "DebtInstrumentInterestRateStatedPercentage": 87,
-   "LineOfCreditFacilityMaximumBorrowingCapacity": 37,
-   "DebtInstrumentFaceAmount": 36,
-   "LineOfCreditFacilityBorrowingsOutstanding": 29,
-   "LineOfCreditFacilityLettersOfCreditOutstanding": 21,
-   "LineOfCreditFacilityRemainingBorrowingCapacity": 21,
-   "DebtInstrumentBasisSpreadOnVariableRate1": 7,
-   "DebtInstrumentFeeOnUndrawnAmounts": 6,
-   "LettersOfCreditOutstandingAmount": 6,
-   "AccountsReceivableSecuritizationProgramAmountsBorrowed": 6,
-   "AccountsReceivableRepurchaseFacilityAmountsBorrowed": 6,
-   "LineOfCreditFacilityBorrowingBaseCapacityLimit": 3,
+   "LongTermDebtAndCapitalLeaseObligationsIncludingCurrentMaturities": 224,
+   "DebtInstrumentInterestRateStatedPercentage": 124,
+   "DebtInstrumentFaceAmount": 54,
+   "LineOfCreditFacilityMaximumBorrowingCapacity": 47,
+   "LineOfCreditFacilityBorrowingsOutstanding": 38,
+   "LineOfCreditFacilityLettersOfCreditOutstanding": 28,
+   "LineOfCreditFacilityRemainingBorrowingCapacity": 28,
+   "DebtInstrumentBasisSpreadOnVariableRate1": 11,
+   "DebtInstrumentFeeOnUndrawnAmounts": 8,
+   "LettersOfCreditOutstandingAmount": 8,
+   "AccountsReceivableSecuritizationProgramAmountsBorrowed": 8,
+   "AccountsReceivableRepurchaseFacilityAmountsBorrowed": 8,
+   "LineOfCreditFacilityBorrowingBaseCapacityLimit": 4,
    "AccountsReceivableSecuritizationProgramGrossTradeAccountsReceivableHeldBySpecialPurposeSubsidiary": 3,
+   "AccountsReceivableRepurchaseFacilityMaximumBorrowingCapacity": 3,
+   "CollateralSuspensionProvisionEffectiveDateGracePeriodNumberOfDays": 3,
    "LineOfCreditFacilityInterestRateAtPeriodEnd": 2,
    "DebtInstrumentPeriodicPayment": 2,
-   "AccountsReceivableRepurchaseFacilityMaximumBorrowingCapacity": 2,
-   "CollateralSuspensionProvisionEffectiveDateGracePeriodNumberOfDays": 2,
    "DebtWeightedAverageInterestRate": 1,
    "RepaymentsOfLinesOfCredit": 1
   }
@@ -9941,6 +10128,7 @@
  "segmentos": {
   "version": 5,
   "informes_accn": [
+   "0001692819-26-000025",
    "0001692819-26-000019",
    "0001692819-26-000014",
    "0001692819-26-000006"
@@ -9964,6 +10152,18 @@
       "valor": 2999000000.0
      },
      {
+      "periodo": "3T25",
+      "periodo_inicio": "2025-07-01",
+      "periodo_fin": "2025-09-30",
+      "valor": 3752000000.0
+     },
+     {
+      "periodo": "4T25",
+      "periodo_inicio": "2025-10-01",
+      "periodo_fin": "2025-12-31",
+      "valor": 3249000000.0
+     },
+     {
       "periodo": "1T26",
       "periodo_inicio": "2026-01-01",
       "periodo_fin": "2026-03-31",
@@ -9974,6 +10174,12 @@
       "periodo_inicio": "2026-04-01",
       "periodo_fin": "2026-06-30",
       "valor": 3344000000.0
+     },
+     {
+      "periodo": "3T26",
+      "periodo_inicio": "2026-07-01",
+      "periodo_fin": "2026-09-30",
+      "valor": 4338000000.0
      }
     ],
     "anual": [
@@ -10017,6 +10223,18 @@
       "valor": 534000000.0
      },
      {
+      "periodo": "3T25",
+      "periodo_inicio": "2025-07-01",
+      "periodo_fin": "2025-09-30",
+      "valor": 723000000.0
+     },
+     {
+      "periodo": "4T25",
+      "periodo_inicio": "2025-10-01",
+      "periodo_fin": "2025-12-31",
+      "valor": 1134000000.0
+     },
+     {
       "periodo": "1T26",
       "periodo_inicio": "2026-01-01",
       "periodo_fin": "2026-03-31",
@@ -10027,6 +10245,12 @@
       "periodo_inicio": "2026-04-01",
       "periodo_fin": "2026-06-30",
       "valor": 774000000.0
+     },
+     {
+      "periodo": "3T26",
+      "periodo_inicio": "2026-07-01",
+      "periodo_fin": "2026-09-30",
+      "valor": 1253000000.0
      }
     ],
     "anual": [
@@ -10070,6 +10294,18 @@
       "valor": 150000000.0
      },
      {
+      "periodo": "3T25",
+      "periodo_inicio": "2025-07-01",
+      "periodo_fin": "2025-09-30",
+      "valor": 212000000.0
+     },
+     {
+      "periodo": "4T25",
+      "periodo_inicio": "2025-10-01",
+      "periodo_fin": "2025-12-31",
+      "valor": 349000000.0
+     },
+     {
       "periodo": "1T26",
       "periodo_inicio": "2026-01-01",
       "periodo_fin": "2026-03-31",
@@ -10080,6 +10316,12 @@
       "periodo_inicio": "2026-04-01",
       "periodo_fin": "2026-06-30",
       "valor": 203000000.0
+     },
+     {
+      "periodo": "3T26",
+      "periodo_inicio": "2026-07-01",
+      "periodo_fin": "2026-09-30",
+      "valor": 253000000.0
      }
     ],
     "anual": [
@@ -10123,6 +10365,18 @@
       "valor": 68000000.0
      },
      {
+      "periodo": "3T25",
+      "periodo_inicio": "2025-07-01",
+      "periodo_fin": "2025-09-30",
+      "valor": 89000000.0
+     },
+     {
+      "periodo": "4T25",
+      "periodo_inicio": "2025-10-01",
+      "periodo_fin": "2025-12-31",
+      "valor": 77000000.0
+     },
+     {
       "periodo": "1T26",
       "periodo_inicio": "2026-01-01",
       "periodo_fin": "2026-03-31",
@@ -10133,6 +10387,12 @@
       "periodo_inicio": "2026-04-01",
       "periodo_fin": "2026-06-30",
       "valor": 79000000.0
+     },
+     {
+      "periodo": "3T26",
+      "periodo_inicio": "2026-07-01",
+      "periodo_fin": "2026-09-30",
+      "valor": 146000000.0
      }
     ],
     "anual": [
@@ -10176,6 +10436,18 @@
       "valor": 1000000.0
      },
      {
+      "periodo": "3T25",
+      "periodo_inicio": "2025-07-01",
+      "periodo_fin": "2025-09-30",
+      "valor": 0.0
+     },
+     {
+      "periodo": "4T25",
+      "periodo_inicio": "2025-10-01",
+      "periodo_fin": "2025-12-31",
+      "valor": -1000000.0
+     },
+     {
       "periodo": "1T26",
       "periodo_inicio": "2026-01-01",
       "periodo_fin": "2026-03-31",
@@ -10185,6 +10457,12 @@
       "periodo": "2T26",
       "periodo_inicio": "2026-04-01",
       "periodo_fin": "2026-06-30",
+      "valor": 0.0
+     },
+     {
+      "periodo": "3T26",
+      "periodo_inicio": "2026-07-01",
+      "periodo_fin": "2026-09-30",
       "valor": 0.0
      }
     ],
@@ -10231,6 +10509,18 @@
       "valor": 2206000000.0
      },
      {
+      "periodo": "3T25",
+      "periodo_inicio": "2025-07-01",
+      "periodo_fin": "2025-09-30",
+      "valor": 2698000000.0
+     },
+     {
+      "periodo": "4T25",
+      "periodo_inicio": "2025-10-01",
+      "periodo_fin": "2025-12-31",
+      "valor": 2076000000.0
+     },
+     {
       "periodo": "1T26",
       "periodo_inicio": "2026-01-01",
       "periodo_fin": "2026-03-31",
@@ -10241,6 +10531,12 @@
       "periodo_inicio": "2026-04-01",
       "periodo_fin": "2026-06-30",
       "valor": 2253000000.0
+     },
+     {
+      "periodo": "3T26",
+      "periodo_inicio": "2026-07-01",
+      "periodo_fin": "2026-09-30",
+      "valor": 3007000000.0
      }
     ],
     "anual": [
@@ -10284,6 +10580,18 @@
       "valor": 793000000.0
      },
      {
+      "periodo": "3T25",
+      "periodo_inicio": "2025-07-01",
+      "periodo_fin": "2025-09-30",
+      "valor": 1054000000.0
+     },
+     {
+      "periodo": "4T25",
+      "periodo_inicio": "2025-10-01",
+      "periodo_fin": "2025-12-31",
+      "valor": 1173000000.0
+     },
+     {
       "periodo": "1T26",
       "periodo_inicio": "2026-01-01",
       "periodo_fin": "2026-03-31",
@@ -10294,6 +10602,12 @@
       "periodo_inicio": "2026-04-01",
       "periodo_fin": "2026-06-30",
       "valor": 1091000000.0
+     },
+     {
+      "periodo": "3T26",
+      "periodo_inicio": "2026-07-01",
+      "periodo_fin": "2026-09-30",
+      "valor": 1331000000.0
      }
     ],
     "anual": [
@@ -10337,6 +10651,18 @@
       "valor": 474000000.0
      },
      {
+      "periodo": "3T25",
+      "periodo_inicio": "2025-07-01",
+      "periodo_fin": "2025-09-30",
+      "valor": 683000000.0
+     },
+     {
+      "periodo": "4T25",
+      "periodo_inicio": "2025-10-01",
+      "periodo_fin": "2025-12-31",
+      "valor": 1157000000.0
+     },
+     {
       "periodo": "1T26",
       "periodo_inicio": "2026-01-01",
       "periodo_fin": "2026-03-31",
@@ -10347,6 +10673,12 @@
       "periodo_inicio": "2026-04-01",
       "periodo_fin": "2026-06-30",
       "valor": 620000000.0
+     },
+     {
+      "periodo": "3T26",
+      "periodo_inicio": "2026-07-01",
+      "periodo_fin": "2026-09-30",
+      "valor": 1226000000.0
      }
     ],
     "anual": [
@@ -10373,6 +10705,148 @@
     "operativo_anual": []
    },
    {
+    "miembro": "vistra:HedgingAndOtherRevenuesMember",
+    "nombre": "Hedging And Other Revenues",
+    "ajuste": true,
+    "trimestral": [
+     {
+      "periodo": "1T25",
+      "periodo_inicio": "2025-01-01",
+      "periodo_fin": "2025-03-31",
+      "valor": -513000000.0
+     },
+     {
+      "periodo": "2T25",
+      "periodo_inicio": "2025-04-01",
+      "periodo_fin": "2025-06-30",
+      "valor": 50000000.0
+     },
+     {
+      "periodo": "3T25",
+      "periodo_inicio": "2025-07-01",
+      "periodo_fin": "2025-09-30",
+      "valor": 162000000.0
+     },
+     {
+      "periodo": "4T25",
+      "periodo_inicio": "2025-10-01",
+      "periodo_fin": "2025-12-31",
+      "valor": -465000000.0
+     },
+     {
+      "periodo": "1T26",
+      "periodo_inicio": "2026-01-01",
+      "periodo_fin": "2026-03-31",
+      "valor": 636000000.0
+     },
+     {
+      "periodo": "2T26",
+      "periodo_inicio": "2026-04-01",
+      "periodo_fin": "2026-06-30",
+      "valor": -562000000.0
+     },
+     {
+      "periodo": "3T26",
+      "periodo_inicio": "2026-07-01",
+      "periodo_fin": "2026-09-30",
+      "valor": 519000000.0
+     }
+    ],
+    "anual": [
+     {
+      "periodo": "2023",
+      "periodo_inicio": "2023-01-01",
+      "periodo_fin": "2023-12-31",
+      "valor": 714000000.0
+     },
+     {
+      "periodo": "2024",
+      "periodo_inicio": "2024-01-01",
+      "periodo_fin": "2024-12-31",
+      "valor": 1013000000.0
+     },
+     {
+      "periodo": "2025",
+      "periodo_inicio": "2025-01-01",
+      "periodo_fin": "2025-12-31",
+      "valor": -766000000.0
+     }
+    ],
+    "operativo_trimestral": [],
+    "operativo_anual": []
+   },
+   {
+    "miembro": "vistra:TotalOtherRevenuesMember",
+    "nombre": "Total Other Revenues",
+    "ajuste": false,
+    "trimestral": [
+     {
+      "periodo": "1T25",
+      "periodo_inicio": "2025-01-01",
+      "periodo_fin": "2025-03-31",
+      "valor": -317000000.0
+     },
+     {
+      "periodo": "2T25",
+      "periodo_inicio": "2025-04-01",
+      "periodo_fin": "2025-06-30",
+      "valor": 497000000.0
+     },
+     {
+      "periodo": "3T25",
+      "periodo_inicio": "2025-07-01",
+      "periodo_fin": "2025-09-30",
+      "valor": 193000000.0
+     },
+     {
+      "periodo": "4T25",
+      "periodo_inicio": "2025-10-01",
+      "periodo_fin": "2025-12-31",
+      "valor": -221000000.0
+     },
+     {
+      "periodo": "1T26",
+      "periodo_inicio": "2026-01-01",
+      "periodo_fin": "2026-03-31",
+      "valor": 639000000.0
+     },
+     {
+      "periodo": "2T26",
+      "periodo_inicio": "2026-04-01",
+      "periodo_fin": "2026-06-30",
+      "valor": -384000000.0
+     },
+     {
+      "periodo": "3T26",
+      "periodo_inicio": "2026-07-01",
+      "periodo_fin": "2026-09-30",
+      "valor": 355000000.0
+     }
+    ],
+    "anual": [
+     {
+      "periodo": "2023",
+      "periodo_inicio": "2023-01-01",
+      "periodo_fin": "2023-12-31",
+      "valor": 975000000.0
+     },
+     {
+      "periodo": "2024",
+      "periodo_inicio": "2024-01-01",
+      "periodo_fin": "2024-12-31",
+      "valor": 2463000000.0
+     },
+     {
+      "periodo": "2025",
+      "periodo_inicio": "2025-01-01",
+      "periodo_fin": "2025-12-31",
+      "valor": 152000000.0
+     }
+    ],
+    "operativo_trimestral": [],
+    "operativo_anual": []
+   },
+   {
     "miembro": "vistra:RevenueFromOtherWholesaleContractsMember",
     "nombre": "Revenue From Other Wholesale Contracts",
     "ajuste": false,
@@ -10390,6 +10864,18 @@
       "valor": 250000000.0
      },
      {
+      "periodo": "3T25",
+      "periodo_inicio": "2025-07-01",
+      "periodo_fin": "2025-09-30",
+      "valor": 264000000.0
+     },
+     {
+      "periodo": "4T25",
+      "periodo_inicio": "2025-10-01",
+      "periodo_fin": "2025-12-31",
+      "valor": 301000000.0
+     },
+     {
       "periodo": "1T26",
       "periodo_inicio": "2026-01-01",
       "periodo_fin": "2026-03-31",
@@ -10400,6 +10886,12 @@
       "periodo_inicio": "2026-04-01",
       "periodo_fin": "2026-06-30",
       "valor": 303000000.0
+     },
+     {
+      "periodo": "3T26",
+      "periodo_inicio": "2026-07-01",
+      "periodo_fin": "2026-09-30",
+      "valor": 281000000.0
      }
     ],
     "anual": [
@@ -10429,7 +10921,20 @@
     "miembro": "vistra:TransferableNuclearProductionTaxCreditRevenuesMember",
     "nombre": "Transferable Nuclear Production Tax Credit Revenues",
     "ajuste": false,
-    "trimestral": [],
+    "trimestral": [
+     {
+      "periodo": "3T25",
+      "periodo_inicio": "2025-07-01",
+      "periodo_fin": "2025-09-30",
+      "valor": 145000000.0
+     },
+     {
+      "periodo": "3T26",
+      "periodo_inicio": "2026-07-01",
+      "periodo_fin": "2026-09-30",
+      "valor": 162000000.0
+     }
+    ],
     "anual": [
      {
       "periodo": "2024",
@@ -10448,33 +10953,51 @@
     "operativo_anual": []
    },
    {
-    "miembro": "vistra:HedgingRevenueRealizedMember",
-    "nombre": "Hedging Revenue, Realized",
-    "ajuste": true,
+    "miembro": "vistra:TransferableProductionTaxCreditRevenuesMember",
+    "nombre": "Transferable Production Tax Credit Revenues",
+    "ajuste": false,
     "trimestral": [
      {
       "periodo": "1T25",
       "periodo_inicio": "2025-01-01",
       "periodo_fin": "2025-03-31",
-      "valor": 195000000.0
+      "valor": 2000000.0
      },
      {
       "periodo": "2T25",
       "periodo_inicio": "2025-04-01",
       "periodo_fin": "2025-06-30",
-      "valor": 427000000.0
+      "valor": 4000000.0
+     },
+     {
+      "periodo": "3T25",
+      "periodo_inicio": "2025-07-01",
+      "periodo_fin": "2025-09-30",
+      "valor": 145000000.0
+     },
+     {
+      "periodo": "4T25",
+      "periodo_inicio": "2025-10-01",
+      "periodo_fin": "2025-12-31",
+      "valor": 78000000.0
      },
      {
       "periodo": "1T26",
       "periodo_inicio": "2026-01-01",
       "periodo_fin": "2026-03-31",
-      "valor": -3000000.0
+      "valor": 2000000.0
      },
      {
       "periodo": "2T26",
       "periodo_inicio": "2026-04-01",
       "periodo_fin": "2026-06-30",
-      "valor": 154000000.0
+      "valor": 3000000.0
+     },
+     {
+      "periodo": "3T26",
+      "periodo_inicio": "2026-07-01",
+      "periodo_fin": "2026-09-30",
+      "valor": 149000000.0
      }
     ],
     "anual": [
@@ -10482,19 +11005,19 @@
       "periodo": "2023",
       "periodo_inicio": "2023-01-01",
       "periodo_fin": "2023-12-31",
-      "valor": 252000000.0
+      "valor": 10000000.0
      },
      {
       "periodo": "2024",
       "periodo_inicio": "2024-01-01",
       "periodo_fin": "2024-12-31",
-      "valor": 895000000.0
+      "valor": 556000000.0
      },
      {
       "periodo": "2025",
       "periodo_inicio": "2025-01-01",
       "periodo_fin": "2025-12-31",
-      "valor": 583000000.0
+      "valor": 229000000.0
      }
     ],
     "operativo_trimestral": [],
@@ -10518,6 +11041,18 @@
       "valor": 30000000.0
      },
      {
+      "periodo": "3T25",
+      "periodo_inicio": "2025-07-01",
+      "periodo_fin": "2025-09-30",
+      "valor": 79000000.0
+     },
+     {
+      "periodo": "4T25",
+      "periodo_inicio": "2025-10-01",
+      "periodo_fin": "2025-12-31",
+      "valor": 98000000.0
+     },
+     {
       "periodo": "1T26",
       "periodo_inicio": "2026-01-01",
       "periodo_fin": "2026-03-31",
@@ -10528,6 +11063,12 @@
       "periodo_inicio": "2026-04-01",
       "periodo_fin": "2026-06-30",
       "valor": 134000000.0
+     },
+     {
+      "periodo": "3T26",
+      "periodo_inicio": "2026-07-01",
+      "periodo_fin": "2026-09-30",
+      "valor": 147000000.0
      }
     ],
     "anual": [
@@ -10565,6 +11106,12 @@
       "valor": 21000000.0
      },
      {
+      "periodo": "3T25",
+      "periodo_inicio": "2025-07-01",
+      "periodo_fin": "2025-09-30",
+      "valor": 1000000.0
+     },
+     {
       "periodo": "1T26",
       "periodo_inicio": "2026-01-01",
       "periodo_fin": "2026-03-31",
@@ -10575,6 +11122,12 @@
       "periodo_inicio": "2026-04-01",
       "periodo_fin": "2026-06-30",
       "valor": 22000000.0
+     },
+     {
+      "periodo": "3T26",
+      "periodo_inicio": "2026-07-01",
+      "periodo_fin": "2026-09-30",
+      "valor": 0.0
      }
     ],
     "anual": [
@@ -10589,33 +11142,51 @@
     "operativo_anual": []
    },
    {
-    "miembro": "vistra:TransferableProductionTaxCreditRevenuesMember",
-    "nombre": "Transferable Production Tax Credit Revenues",
+    "miembro": "vistra:IntangibleAmortizationAndOtherRevenuesMember",
+    "nombre": "Intangible Amortization And Other Revenues",
     "ajuste": false,
     "trimestral": [
      {
       "periodo": "1T25",
       "periodo_inicio": "2025-01-01",
       "periodo_fin": "2025-03-31",
-      "valor": 2000000.0
+      "valor": -1000000.0
      },
      {
       "periodo": "2T25",
       "periodo_inicio": "2025-04-01",
       "periodo_fin": "2025-06-30",
-      "valor": 4000000.0
+      "valor": -5000000.0
+     },
+     {
+      "periodo": "3T25",
+      "periodo_inicio": "2025-07-01",
+      "periodo_fin": "2025-09-30",
+      "valor": -7000000.0
+     },
+     {
+      "periodo": "4T25",
+      "periodo_inicio": "2025-10-01",
+      "periodo_fin": "2025-12-31",
+      "valor": 1000000.0
      },
      {
       "periodo": "1T26",
       "periodo_inicio": "2026-01-01",
       "periodo_fin": "2026-03-31",
-      "valor": 2000000.0
+      "valor": -2000000.0
      },
      {
       "periodo": "2T26",
       "periodo_inicio": "2026-04-01",
       "periodo_fin": "2026-06-30",
-      "valor": 3000000.0
+      "valor": -1000000.0
+     },
+     {
+      "periodo": "3T26",
+      "periodo_inicio": "2026-07-01",
+      "periodo_fin": "2026-09-30",
+      "valor": 0.0
      }
     ],
     "anual": [
@@ -10623,19 +11194,19 @@
       "periodo": "2023",
       "periodo_inicio": "2023-01-01",
       "periodo_fin": "2023-12-31",
-      "valor": 10000000.0
+      "valor": -1000000.0
      },
      {
       "periodo": "2024",
       "periodo_inicio": "2024-01-01",
       "periodo_fin": "2024-12-31",
-      "valor": 556000000.0
+      "valor": -1000000.0
      },
      {
       "periodo": "2025",
       "periodo_inicio": "2025-01-01",
       "periodo_fin": "2025-12-31",
-      "valor": 229000000.0
+      "valor": -12000000.0
      }
     ],
     "operativo_trimestral": [],
@@ -10659,6 +11230,18 @@
       "valor": 0.0
      },
      {
+      "periodo": "3T25",
+      "periodo_inicio": "2025-07-01",
+      "periodo_fin": "2025-09-30",
+      "valor": 0.0
+     },
+     {
+      "periodo": "4T25",
+      "periodo_inicio": "2025-10-01",
+      "periodo_fin": "2025-12-31",
+      "valor": 0.0
+     },
+     {
       "periodo": "1T26",
       "periodo_inicio": "2026-01-01",
       "periodo_fin": "2026-03-31",
@@ -10668,6 +11251,12 @@
       "periodo": "2T26",
       "periodo_inicio": "2026-04-01",
       "periodo_fin": "2026-06-30",
+      "valor": 0.0
+     },
+     {
+      "periodo": "3T26",
+      "periodo_inicio": "2026-07-01",
+      "periodo_fin": "2026-09-30",
       "valor": 0.0
      }
     ],
@@ -10712,6 +11301,12 @@
       "valor": 0.0
      },
      {
+      "periodo": "3T25",
+      "periodo_inicio": "2025-07-01",
+      "periodo_fin": "2025-09-30",
+      "valor": 0.0
+     },
+     {
       "periodo": "1T26",
       "periodo_inicio": "2026-01-01",
       "periodo_fin": "2026-03-31",
@@ -10721,6 +11316,12 @@
       "periodo": "2T26",
       "periodo_inicio": "2026-04-01",
       "periodo_fin": "2026-06-30",
+      "valor": 0.0
+     },
+     {
+      "periodo": "3T26",
+      "periodo_inicio": "2026-07-01",
+      "periodo_fin": "2026-09-30",
       "valor": 0.0
      }
     ],
@@ -10729,139 +11330,51 @@
     "operativo_anual": []
    },
    {
-    "miembro": "vistra:IntangibleAmortizationAndOtherRevenuesMember",
-    "nombre": "Intangible Amortization And Other Revenues",
-    "ajuste": false,
-    "trimestral": [
-     {
-      "periodo": "1T25",
-      "periodo_inicio": "2025-01-01",
-      "periodo_fin": "2025-03-31",
-      "valor": -1000000.0
-     },
-     {
-      "periodo": "2T25",
-      "periodo_inicio": "2025-04-01",
-      "periodo_fin": "2025-06-30",
-      "valor": -5000000.0
-     },
-     {
-      "periodo": "1T26",
-      "periodo_inicio": "2026-01-01",
-      "periodo_fin": "2026-03-31",
-      "valor": -2000000.0
-     },
-     {
-      "periodo": "2T26",
-      "periodo_inicio": "2026-04-01",
-      "periodo_fin": "2026-06-30",
-      "valor": -1000000.0
-     }
-    ],
-    "anual": [
-     {
-      "periodo": "2023",
-      "periodo_inicio": "2023-01-01",
-      "periodo_fin": "2023-12-31",
-      "valor": -1000000.0
-     },
-     {
-      "periodo": "2024",
-      "periodo_inicio": "2024-01-01",
-      "periodo_fin": "2024-12-31",
-      "valor": -1000000.0
-     },
-     {
-      "periodo": "2025",
-      "periodo_inicio": "2025-01-01",
-      "periodo_fin": "2025-12-31",
-      "valor": -12000000.0
-     }
-    ],
-    "operativo_trimestral": [],
-    "operativo_anual": []
-   },
-   {
-    "miembro": "vistra:TotalOtherRevenuesMember",
-    "nombre": "Total Other Revenues",
-    "ajuste": false,
-    "trimestral": [
-     {
-      "periodo": "1T25",
-      "periodo_inicio": "2025-01-01",
-      "periodo_fin": "2025-03-31",
-      "valor": -317000000.0
-     },
-     {
-      "periodo": "2T25",
-      "periodo_inicio": "2025-04-01",
-      "periodo_fin": "2025-06-30",
-      "valor": 497000000.0
-     },
-     {
-      "periodo": "1T26",
-      "periodo_inicio": "2026-01-01",
-      "periodo_fin": "2026-03-31",
-      "valor": 639000000.0
-     },
-     {
-      "periodo": "2T26",
-      "periodo_inicio": "2026-04-01",
-      "periodo_fin": "2026-06-30",
-      "valor": -384000000.0
-     }
-    ],
-    "anual": [
-     {
-      "periodo": "2023",
-      "periodo_inicio": "2023-01-01",
-      "periodo_fin": "2023-12-31",
-      "valor": 975000000.0
-     },
-     {
-      "periodo": "2024",
-      "periodo_inicio": "2024-01-01",
-      "periodo_fin": "2024-12-31",
-      "valor": 2463000000.0
-     },
-     {
-      "periodo": "2025",
-      "periodo_inicio": "2025-01-01",
-      "periodo_fin": "2025-12-31",
-      "valor": 152000000.0
-     }
-    ],
-    "operativo_trimestral": [],
-    "operativo_anual": []
-   },
-   {
-    "miembro": "vistra:HedgingAndOtherRevenuesMember",
-    "nombre": "Hedging And Other Revenues",
+    "miembro": "vistra:HedgingRevenueRealizedMember",
+    "nombre": "Hedging Revenue, Realized",
     "ajuste": true,
     "trimestral": [
      {
       "periodo": "1T25",
       "periodo_inicio": "2025-01-01",
       "periodo_fin": "2025-03-31",
-      "valor": -513000000.0
+      "valor": 195000000.0
      },
      {
       "periodo": "2T25",
       "periodo_inicio": "2025-04-01",
       "periodo_fin": "2025-06-30",
-      "valor": 50000000.0
+      "valor": 427000000.0
+     },
+     {
+      "periodo": "3T25",
+      "periodo_inicio": "2025-07-01",
+      "periodo_fin": "2025-09-30",
+      "valor": -108000000.0
+     },
+     {
+      "periodo": "4T25",
+      "periodo_inicio": "2025-10-01",
+      "periodo_fin": "2025-12-31",
+      "valor": 69000000.0
      },
      {
       "periodo": "1T26",
       "periodo_inicio": "2026-01-01",
       "periodo_fin": "2026-03-31",
-      "valor": 636000000.0
+      "valor": -3000000.0
      },
      {
       "periodo": "2T26",
       "periodo_inicio": "2026-04-01",
       "periodo_fin": "2026-06-30",
-      "valor": -562000000.0
+      "valor": 154000000.0
+     },
+     {
+      "periodo": "3T26",
+      "periodo_inicio": "2026-07-01",
+      "periodo_fin": "2026-09-30",
+      "valor": -313000000.0
      }
     ],
     "anual": [
@@ -10869,19 +11382,19 @@
       "periodo": "2023",
       "periodo_inicio": "2023-01-01",
       "periodo_fin": "2023-12-31",
-      "valor": 714000000.0
+      "valor": 252000000.0
      },
      {
       "periodo": "2024",
       "periodo_inicio": "2024-01-01",
       "periodo_fin": "2024-12-31",
-      "valor": 1013000000.0
+      "valor": 895000000.0
      },
      {
       "periodo": "2025",
       "periodo_inicio": "2025-01-01",
       "periodo_fin": "2025-12-31",
-      "valor": -766000000.0
+      "valor": 583000000.0
      }
     ],
     "operativo_trimestral": [],
@@ -10912,6 +11425,13 @@
     "fecha_periodo": "2026-06-30",
     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
     "fuente": "SEC EDGAR · 10-Q (XBRL)"
+   },
+   {
+    "formulario": "10-Q",
+    "fecha_presentacion": "2026-11-09",
+    "fecha_periodo": "2026-09-30",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+    "fuente": "SEC EDGAR · 10-Q (XBRL)"
    }
   ],
   "fuente": "SEC EDGAR · XBRL completo (dimensiones de segmento y producto)"
@@ -10928,7 +11448,7 @@
    "compradores": [
     "BURKE JAMES A"
    ],
-   "desde": "2026-05-08"
+   "desde": "2026-05-10"
   },
   "operaciones": [
    {
@@ -12015,7 +12535,7 @@
  "precio": {
   "minimo_52s": 110.89,
   "maximo_52s": 196.8,
-  "beta": 1.4240991,
+  "beta": 1.3950163,
   "valor": 124.8,
   "cierre_anterior": 112.89,
   "moneda": "USD",
@@ -12076,7 +12596,7 @@
    "hora_codigo": "amc",
    "trimestre": 4,
    "anio": 2026,
-   "bpa_estimado": 2.0705,
+   "bpa_estimado": 2.1126,
    "ingresos_estimados": 6089787495
   },
   "sorpresas": [
@@ -12115,6 +12635,123 @@
   ]
  },
  "noticias": [
+  {
+   "titular": "Wall Street Breakfast Podcast: The Spy Who Loved Nvidia",
+   "medio": "Seeking Alpha",
+   "url": "https://finnhub.io/api/news?id=c2a64147185315ce3fef75d6784d724cd2acddc78567762af30d444b7b0fce74",
+   "fecha": "2026-11-09",
+   "resumen": "Nvidia finds itself in a real-life spy drama. NASA has big plans for the Moon. The nuclear comeback gathered steam Friday.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "CECO Environmental Moves To Y'All Street, Shares Plummet, And I'm Buying",
+   "medio": "Seeking Alpha",
+   "url": "https://finnhub.io/api/news?id=6f0e82575ccd4f18f18958739aaa8fa48b6be0a38b21713071dfd90d4fbc6977",
+   "fecha": "2026-11-08",
+   "resumen": "CECO Environmental offers a compelling entry point after a pullback, with record orders, strong backlog, margin expansion, and earnings upside. Learn more about CECO stock here.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Not Bloom Energy. Not Vistra. This AI Power Stock Just Posted a 96% Jump in Orders.",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=785b51a23a857c469b3ddfaf14dc4060002763c17eeb79315093a4c7615388f9",
+   "fecha": "2026-11-08",
+   "resumen": "The impending change in the political backdrop isn't apt to actually affect the growing demand for its equipment, either.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Vistra Q3 Earnings Call Highlights",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=391e0d3a865d7ca19e4cf77d8633be8b7ce11463732b49420dd5407918baf55f",
+   "fecha": "2026-11-08",
+   "resumen": "Vistra (NYSE:VST) reported record third-quarter adjusted earnings and raised the midpoints of its 2026 financial outlook, as higher realized power prices, capacity revenue and acquired generation assets helped drive growth. The power producer also introduced its 2027 guidance and",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Constellation Energy Just Dropped 17% in a Month. Is It Time to Sell, or Load Up?",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=86de8fcb305de73dc681b02a3a59eff67869523fea4ec75449d5a8a02afd4d32",
+   "fecha": "2026-11-08",
+   "resumen": "Key TakeawaysConstellation Energy is down 17% in the past month. It gave back its jump on a big Google deal as investors sold AI power stocks, along with Vistra and GE Vernova.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Vistra: Q3 Confirms The Midterm Fear Is The Opportunity",
+   "medio": "Seeking Alpha",
+   "url": "https://finnhub.io/api/news?id=e345a501ceda450c9d0b63d4b26613d0ffeda360414961f45406150d73b7c54f",
+   "fecha": "2026-11-07",
+   "resumen": "",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "NuScale Just Hit a New 52-Week Low After Losing 26% in a Week. Is the Selling Overdone?",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=1111af467f7b2f2492a24ea62b3ab1a81c89eca88cf0ad65cb665d108bcfe6d5",
+   "fecha": "2026-11-07",
+   "resumen": "Key TakeawaysNuScale Power fell 26% in a week to a new 52-week low as power and nuclear stocks, Oklo and Vistra among them, sold off around the election. NuScale had no bad news of its own, though Wedbush initiated coverage at Underperform.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Texas Data Center Freeze: Is Vistra a Better Buy Than Vertiv?",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=0949df4185740a5d3abf378200e987c9108d6372d97d723977a6c321d3ef723c",
+   "fecha": "2026-11-07",
+   "resumen": "A looming Texas moratorium threatens billions in AI spending, yet one stock tied to it has sunk while its earnings soared. Which company is better positioned if data centers stall, relocate, or move overseas?",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "What Just Happened To Vistra Stock?",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=3875bd6421f2b4b7040a086e3c0b4a938403f63104ee1fd9d41bd9c4bd6a6d54",
+   "fecha": "2026-11-07",
+   "resumen": "For questions about this article or underlying research, email help@trefis.com.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "GE Vernova vs. Vistra: Which Industrials Stock Is a Better Buy for 2027?",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=ccaead5d18f446532891dbf2345e2e8c603a0181c389aad86be78fc90b977966",
+   "fecha": "2026-11-07",
+   "resumen": "GE Vernova boasts a strong balance sheet, while Vistra trades at a lower valuation but carries significant leverage.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Vistra (VST) Stock Climbs After Record Q3 Earnings Power",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=91b1328e64ca2b73c6621bfaca8bce7247930aac6b97437dadd818cedb6963a2",
+   "fecha": "2026-11-07",
+   "resumen": "Vistra just dropped its Q3 2026 scorecard and the stock wasted no time, jumping 3.8% to about $124.80 after the release. Traders responded to the headline results, a record quarter with adjusted earnings power anchored by $2.378b of adjusted EBITDA and strong cash generation, and",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "NRG Energy Reports Soon: How Has The Stock Reacted To Past Earnings?",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=bfc1cc0a253091be04c28bd26177367226cbb8e352848490dd613a9fd90120e3",
+   "fecha": "2026-11-07",
+   "resumen": "NRG Energy (NYSE:NRG) is scheduled to report its earnings on Monday, November 9, 2026. The company has a market value of about $17.0 billion. Over the last twelve months it generated $33.1 billion in revenue and $2.1 billion in operating profit, with net income of $849 million.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Vistra Corp (VST) (Q3 2026) Earnings Call Highlights: Record Adjusted EBITDA of $2. ...",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=4b23dfc1c67475d02cfc22a4675f4db5823649497e85dae0fdfe2d92a9335bc8",
+   "fecha": "2026-11-07",
+   "resumen": "Vistra Corp (VST) posts a company-record third quarter, lifts 2026 guidance midpoints, closes the Cogentrix acquisition, and introduces 2027 guidance while outlining a disciplined capital return plan.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
   {
    "titular": "8-K a la SEC: Resultados",
    "medio": "SEC · 8-K (oficial)",
@@ -12177,11 +12814,65 @@
    }
   },
   {
-   "titular": "Vistra Corp. 2026 Q3 - Results - Earnings Call Presentation",
-   "medio": "Seeking Alpha",
-   "url": "https://finnhub.io/api/news?id=6c21fd3f8429282319ac122261ba735f29fb63b5ce9e9ab5499ed70084d59fee",
+   "titular": "S&P 500 Top Movers: Nov. 6, 2026 Gainers and Losers",
+   "medio": "ChartMill",
+   "url": "https://finnhub.io/api/news?id=0398cd187515393b2ec1fa88b495f7621e74df47c69e4f2f9685e2c2bc9ca75f",
    "fecha": "2026-11-06",
-   "resumen": "2026-11-06. The following slide deck was published by Vistra Corp.",
+   "resumen": "S&P 500 top movers for Nov. 6, 2026: Coherent, Airbnb, AppLovin, NRG and Vistra led gainers, while Axon and Microchip led losers.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "S&P 500 Top Movers: Gainers and Losers on Nov. 6, 2026",
+   "medio": "ChartMill",
+   "url": "https://finnhub.io/api/news?id=98d257587dc7075a7bf9504a3bfa99fb54e62b8101edd3ee1411df8397d0f5a1",
+   "fecha": "2026-11-06",
+   "resumen": "S&P 500 top movers for Nov. 6, 2026: LRCX led gainers at 12.66%, while AXON led decliners at -17.99%. See the session's notable index moves.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Bernstein Reiterates Outperform on Vistra, Maintains $181 Price Target",
+   "medio": "Benzinga",
+   "url": "https://finnhub.io/api/news?id=3f2a24b73603f44b7159744d247d7bb365b95fad3158a7aa606404c2156474c4",
+   "fecha": "2026-11-06",
+   "resumen": "Bernstein  analyst Sunaina Ocalan   reiterates Vistra (NYSE:VST) with a Outperform and maintains $181 price target.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Reported Earlier: Vistra Authorizes Additional $1.5B In Share Buybacks, With $2.5B Remaining Through 2028",
+   "medio": "Benzinga",
+   "url": "https://finnhub.io/api/news?id=34a0515a0261df4cb179830bcbe72175d9652a469bf199e34cc864018df86f20",
+   "fecha": "2026-11-06",
+   "resumen": "Share Repurchase ProgramAs of Nov. 2, 2026:Vistra executed ~$6.7 billion in share repurchases since November 2021.Vistra had ~339 million shares outstanding, representing a ~30% reduction of the amount of the shares",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Vistra Stock Soars After Surprising Q3 Sales Results",
+   "medio": "Benzinga",
+   "url": "https://finnhub.io/api/news?id=7af6ad2d38644791314e93d557547ab87a0c4203066b9b9e7ef445ec0476cbf7",
+   "fecha": "2026-11-06",
+   "resumen": "Vistra shares are popping Friday after reporting Q3 sales that beat analyst estimates and raising the midpoint of its 2026 profit outlook.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Vistra Q3 2026 Earnings Call Transcript",
+   "medio": "Benzinga",
+   "url": "https://finnhub.io/api/news?id=41a53cb7d2b4689ed1687ccc4dc8de36b5c4dde3f1c5c599e72339403aa1e07c",
+   "fecha": "2026-11-06",
+   "resumen": "Vistra (NYSE:VST) reported third-quarter financial results on Friday. The transcript from the company’s third-quarter earnings call has been provided below.This transcript is brought to you by Benzinga APIs. For",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Vistra Says Mid Term Election Results Do Not Change Its Fundamental View Of Growth Opportunities; Expects Cogentrix Deal To Deliver High-Single-Digit Adjusted FCF Accretion In Near Term, Double-Digit Accretion From 2029; Says It Is In Active Talks With Large-Load Customers In PJM And Ercot For Existing And New-Build Assets; Says It Remains Open To Opportunistic, Fleet-Complementary M&A",
+   "medio": "Benzinga",
+   "url": "https://finnhub.io/api/news?id=a0533f2a7c9f975aa49244b1572ab9b5ae6158eb36bdcda1d36d25a6fae90c43",
+   "fecha": "2026-11-06",
+   "resumen": "-Conference Call. ",
    "tipo": "prensa",
    "via": "Finnhub"
   },
@@ -12195,105 +12886,6 @@
    "via": "Finnhub"
   },
   {
-   "titular": "Top Wall Street Forecasters Revamp Vistra Expectations Ahead Of Q3 Earnings",
-   "medio": "Benzinga",
-   "url": "https://finnhub.io/api/news?id=1f46d9ac0c692c201ca573798512fcdba9f7e711c92abb451bc5eea92c2cffa9",
-   "fecha": "2026-11-06",
-   "resumen": "Vistra will report Q3 earnings Friday, with EPS forecast at $2.43 and revenue at $5.98B, after completing its Cogentrix acquisition.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Vistra Corp. Q3 2026 Earnings Call Summary",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=8e0e0a9d96da363d19edbd2869c0220d9ba7eae2bfbc725d86befcd2d52572f9",
-   "fecha": "2026-11-06",
-   "resumen": "Moby summary of Vistra Corp.'s Q3 2026 earnings call",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Sector Update: Energy Stocks Lower Late Afternoon",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=8a5beb8f363667e01bfc5ce41c864082c1bcfe1215a4e6e03518917bec18c2e2",
-   "fecha": "2026-11-06",
-   "resumen": "Energy stocks were softer late Friday afternoon, with the NYSE Energy Sector Index easing 0.1% and t",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Vistra Stocks Jump 7.69% After Earnings Surge and Fresh $1.5 Billion Buyback",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=c6b496894d3613067b475f90bf00f5011c27092063d70931df798e41c4565f59",
-   "fecha": "2026-11-06",
-   "resumen": "Ongoing adjusted EBITDA rose more than 50%, and Vistra guided 2027 EBITDA to $7.7 billion to $8.5 billion.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Sector Update: Energy Stocks Higher Friday Afternoon",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=8a740771cbe221ee0ad26121ec7bf257465a4cedc0f1dbf5238b794e643e1e0d",
-   "fecha": "2026-11-06",
-   "resumen": "Energy stocks advanced Friday afternoon, with the NYSE Energy Sector Index up 0.1% and the State Str",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Constellation Energy Fell 9% on the Midterm Sweep. Monday’s Report Has to Defend Its Growth Estimates",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=37be07d62ecd5710d9ff4b11630d1ee070f1723a012b3955aaae778776115727",
-   "fecha": "2026-11-06",
-   "resumen": "Key TakeawaysConstellation Energy fell 9% in the two sessions after Democrats swept the midterms, and it reports third-quarter results on Monday, Nov. 9, before the open.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Vistra Soars 8% on 50% EBITDA Jump and First 2027 Outlook: “More of These Opportunities”",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=40d57e22989ac46b7f00e71833dc7675f09a78687b09addad35d039ed8ed8735",
-   "fecha": "2026-11-06",
-   "resumen": "Key TakeawaysVistra jumped 8% today after third-quarter adjusted EBITDA rose more than 50% and it guided to $7. 7 billion to $8.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Vistra Shares Rise 5% as Q3 Profit Surges Despite Revenue Miss, Raises 2026 Outlook",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=29217bc92c4b2dd062c41046ed55a0c642a515b96d8edd11c50cf16ff76ba4b4",
-   "fecha": "2026-11-06",
-   "resumen": "Vistra Corp. (NYSE:VST) shares gained approximately 5% in premarket trading after the power generation company reported strong third-quarter 2026 profit growth and raised its full-year earnings guidance, despite revenue falling short of Wall Street expectations.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Vistra stock jumps despite revenue miss",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=dfdc5f0255fef681803076894bbb40a2a286e9911aaa9353a969083a51ce8e6a",
-   "fecha": "2026-11-06",
-   "resumen": "Investing.com -- Vistra Corp. (NYSE: VST) reported third-quarter results that missed revenue expectations but showed strong profit growth, with shares rising around 5% premarket following the announcement.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Vistra Reports Third Quarter 2026 Results",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=f429177e126be0a9fc76b4a2290c102126974c39c4ccfe877b7581f5de22f674",
-   "fecha": "2026-11-06",
-   "resumen": "Vistra Corp. (NYSE: VST) today reported its third quarter 2026 financial results and other highlights.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Here Is What The Trailing P/E Misses About Constellation Energy Stock",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=76fcd5974168966dada61ce54c97ff736348ce2bfeb10afe69c1dfb839e5bd5f",
-   "fecha": "2026-11-06",
-   "resumen": "For questions about this article or underlying research, email help@trefis.com.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
    "titular": "8-K a la SEC: Compra o venta de activos; nueva deuda u obligación financiera; venta de acciones no registrada; comunicación al mercado (Reg FD)",
    "medio": "SEC · 8-K (oficial)",
    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000114036126042013/ef20084950_8k.htm",
@@ -12301,37 +12893,6 @@
    "resumen": "Comunicación oficial de la compañía. Items: 2.01, 2.03, 3.02, 7.01.",
    "oficial": true,
    "tipo": "prensa"
-  },
-  {
-   "titular": "Vistra: The Market Is Underpricing Its Shift To Contracted Earnings (NYSE:VST)",
-   "url": "https://seekingalpha.com/article/4963003-vistra-the-market-is-underpricing-its-shift-to-contracted-earnings",
-   "fecha": "2026-11-05",
-   "resumen": "Vistra Corp. shifts to steadier contracted power earnings, with 2026 EBITDA growth and valuation upside. Click to read more about the VST stock.",
-   "medio": "Seeking Alpha",
-   "tipo": "prensa",
-   "via": "Marketaux",
-   "sentimiento": {
-    "puntuacion": 0.089,
-    "etiqueta": "Neutral"
-   }
-  },
-  {
-   "titular": "Enbridge, Moderna On Deck Friday As Demand, Vaccine Pipeline Face Test",
-   "medio": "Benzinga",
-   "url": "https://finnhub.io/api/news?id=fadea71ac94ce6fe655c9f761ecabdc1e27209c433c59ee9087828101f938fc8",
-   "fecha": "2026-11-05",
-   "resumen": "Enbridge headlines Friday’s reports, with investors weighing whether resilient pipeline utilization can offset a softer revenue comparison. Moderna, Brookfield Asset Management, Humana, Vistra, PPL, Plains All American",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Vistra: The Market Is Underpricing Its Shift To Contracted Earnings",
-   "medio": "Seeking Alpha",
-   "url": "https://finnhub.io/api/news?id=e36de4829b606392c60b2b94d32127cbb171ee3c8ff1aa2ecdc8f360dbf77a19",
-   "fecha": "2026-11-05",
-   "resumen": "Vistra Corp. shifts to steadier contracted power earnings, with 2026 EBITDA growth and valuation upside. Click to read more about the VST stock.",
-   "tipo": "prensa",
-   "via": "Finnhub"
   },
   {
    "titular": "S&P 500 Top Movers: Gainers and Losers in Today's US Session",
@@ -12359,61 +12920,12 @@
    "resumen": "S&P 500 gap movers today: XYZ, ZBH, SWK and FSLR led gap-ups, while FIS, TRMB, FIX and SWKS topped gap-downs, with opening gaps, percentage changes and prices.",
    "tipo": "prensa",
    "via": "Finnhub"
-  },
-  {
-   "titular": "S&P 500 Premarket Movers for Nov. 4",
-   "medio": "ChartMill",
-   "url": "https://finnhub.io/api/news?id=64e1e067d297cd9663b262f6d082f583dbfbe776196f3e9d8bb027b27c38301b",
-   "fecha": "2026-11-04",
-   "resumen": "S&P 500 premarket movers for Nov. 4 include Block up 9.87% and Fidelity National Information Services down 21.77%, with gainers and losers ahead of the U.S. open.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Dow Rallies 2.9%, Oil Sinks 7% After Midterms: Stock Market Today",
-   "medio": "Benzinga",
-   "url": "https://finnhub.io/api/news?id=da864d1f6364ece8aef14815dea42ecff8d8d346521c81e737da789fc2f4bcf6",
-   "fecha": "2026-11-04",
-   "resumen": "Democrats&#39; sweep of Congress lifted hyperscalers and retailers, sank oil and data-center builders, and pulled yields lower.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Keybanc Downgrades Vistra to Sector Weight",
-   "medio": "Benzinga",
-   "url": "https://finnhub.io/api/news?id=8ee78f11765964e98af52a600b1da2c44c117027ba9807ee99036d4bbe36f8df",
-   "fecha": "2026-11-04",
-   "resumen": "Keybanc  analyst Sophie Karp   downgrades Vistra (NYSE:VST) from Overweight to Sector Weight.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Nancy Pelosi Isn't Running for Re-Election in 2026 Midterms: Say Goodbye to Her Stock Picks in Two Months",
-   "medio": "Benzinga",
-   "url": "https://finnhub.io/api/news?id=6fc3bf7bfc770e75966e2258d029525116722ff57ec9c7f106d2b4123b9a96e7",
-   "fecha": "2026-11-03",
-   "resumen": "Nancy Pelosi is not seeking re-election Tuesday and will leave Congress in January 2027.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Vistra Corp. (VST) Reports Next Week: Wall Street Expects Earnings Growth",
-   "url": "https://www.zacks.com/stock/news/3019695/vistra-corp-vst-reports-next-week-wall-street-expects-earnings-growth?cid=CS-ZC-FT-fundamental_analysis|yseop_template_9-3019695",
-   "fecha": "2026-10-30",
-   "resumen": "Vistra (VST) doesn't possess the right combination of the two key ingredients for a likely earnings beat in its upcoming report. Get prepared with the key expectations.",
-   "medio": "Zacks",
-   "tipo": "prensa",
-   "via": "Marketaux",
-   "sentimiento": {
-    "puntuacion": 0.382,
-    "etiqueta": "Alcista"
-   }
   }
  ],
  "noticias_sentimiento": {
-  "puntuacion": 0.248,
+  "puntuacion": 0.255,
   "etiqueta": "Algo alcista",
-  "noticias": 6,
+  "noticias": 4,
   "fuente": "Alpha Vantage / Marketaux (puntuación media de las noticias del último mes)"
  },
  "noticias_fuentes": {
@@ -12432,7 +12944,7 @@
    },
    "Marketaux": {
     "ok": true,
-    "titulares": 1
+    "titulares": 0
    },
    "RSS de medios": {
     "ok": true,
@@ -17728,36 +18240,36 @@
   "fecha": "2026-11-06",
   "ajuste": "splits"
  },
- "generado": "2026-11-07T00:49:27+00:00",
+ "generado": "2026-11-09T13:52:00+00:00",
  "peers": {
   "fuente_lista": "manual",
   "fuente_cifras": "SEC EDGAR (companyfacts, UDM) · precio Finnhub",
-  "actualizado": "2026-11-07",
+  "actualizado": "2026-11-09",
   "propia": {
-   "ingresos": 19212000000,
-   "crecimiento": 3.8,
+   "ingresos": 20588000000,
+   "crecimiento": 19.76,
    "margen_bruto": null,
-   "margen_operativo": 18.55,
-   "margen_neto": 11.55,
-   "margen_fcf": 11.74,
-   "beneficio_neto": 2219000000,
-   "ebitda": 5415000000,
-   "fcf": 2255000000,
-   "caja": 435000000,
-   "deuda": 19595000000,
-   "acciones": 335635195,
-   "periodo_fin": "2026-06-30",
+   "margen_operativo": 20.56,
+   "margen_neto": 13.15,
+   "margen_fcf": 12.66,
+   "beneficio_neto": 2707000000,
+   "ebitda": 6335000000,
+   "fcf": 2607000000,
+   "caja": 2743000000,
+   "deuda": 21146000000,
+   "acciones": 339394683,
+   "periodo_fin": "2026-09-30",
    "informe": "10-Q",
-   "informe_fecha": "2026-08-10",
-   "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
+   "informe_fecha": "2026-11-09",
+   "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
    "precio": 124.8,
-   "capitalizacion": 41887272336.0,
-   "ev": 61047272336.0,
-   "per": 18.88,
-   "precio_ventas": 2.18,
-   "ev_ebitda": 11.27,
-   "rentabilidad_fcf": 5.38,
-   "deuda_neta_ebitda": 3.54,
+   "capitalizacion": 42356456438.4,
+   "ev": 60759456438.4,
+   "per": 15.65,
+   "precio_ventas": 2.06,
+   "ev_ebitda": 9.59,
+   "rentabilidad_fcf": 6.15,
+   "deuda_neta_ebitda": 2.9,
    "ticker": "VST",
    "nombre": "Vistra",
    "propia": true
@@ -17767,7 +18279,7 @@
     "ticker": "CEG",
     "nombre": "Constellation Energy",
     "cik": "0001868275",
-    "calculado": "2026-11-01",
+    "calculado": "2026-11-09",
     "soportada": true,
     "version": 3,
     "logo": "logos/CEG.png",
@@ -17803,7 +18315,7 @@
     "ticker": "NRG",
     "nombre": "Nrg Energy",
     "cik": "0001013871",
-    "calculado": "2026-11-01",
+    "calculado": "2026-11-09",
     "soportada": true,
     "version": 3,
     "logo": "logos/NRG.png",
@@ -17839,7 +18351,7 @@
     "ticker": "TLN",
     "nombre": "Talen Energy",
     "cik": "0001622536",
-    "calculado": "2026-11-01",
+    "calculado": "2026-11-09",
     "soportada": true,
     "version": 3,
     "logo": "logos/TLN.png",
@@ -17847,7 +18359,7 @@
     "web": "https://www.talenenergy.com/",
     "pais": "US",
     "ingresos": null,
-    "crecimiento": 90.29,
+    "crecimiento": 158.14,
     "margen_bruto": null,
     "margen_operativo": null,
     "margen_neto": null,
@@ -17855,16 +18367,16 @@
     "beneficio_neto": null,
     "ebitda": null,
     "fcf": null,
-    "caja": 231000000,
-    "deuda": 9572000000,
-    "acciones": 47914259,
+    "caja": 335000000,
+    "deuda": 9569000000,
+    "acciones": 43505312,
     "periodo_fin": null,
     "informe": "10-Q",
-    "informe_fecha": "2026-08-05",
-    "url": "https://www.sec.gov/Archives/edgar/data/1622536/000162253626000066/0001622536-26-000066-index.htm",
+    "informe_fecha": "2026-11-03",
+    "url": "https://www.sec.gov/Archives/edgar/data/1622536/000162253626000086/0001622536-26-000086-index.htm",
     "precio": 338.64,
-    "capitalizacion": 16225684667.76,
-    "ev": 25566684667.760002,
+    "capitalizacion": 14732638855.68,
+    "ev": 23966638855.68,
     "per": null,
     "precio_ventas": null,
     "ev_ebitda": null,
@@ -17875,43 +18387,43 @@
     "ticker": "AES",
     "nombre": "AES",
     "cik": "0000874761",
-    "calculado": "2026-11-01",
+    "calculado": "2026-11-09",
     "soportada": true,
     "version": 3,
     "logo": "logos/AES.png",
     "industria": "Utilities",
     "web": "https://www.aes.com/",
     "pais": "US",
-    "ingresos": 13054000000,
-    "crecimiento": 8.49,
-    "margen_bruto": 20.29,
-    "margen_operativo": 16.72,
-    "margen_neto": 14.34,
-    "margen_fcf": -13.18,
-    "beneficio_neto": 1872000000,
-    "ebitda": 3816000000,
-    "fcf": -1720000000,
-    "caja": 1853000000,
+    "ingresos": 13575000000,
+    "crecimiento": 12.25,
+    "margen_bruto": 21.33,
+    "margen_operativo": 17.49,
+    "margen_neto": 13.16,
+    "margen_fcf": -11.17,
+    "beneficio_neto": 1786000000,
+    "ebitda": 4055000000,
+    "fcf": -1516000000,
+    "caja": 2026000000,
     "deuda": 0,
-    "acciones": 713438630,
-    "periodo_fin": "2026-06-30",
+    "acciones": 713564658,
+    "periodo_fin": "2026-09-30",
     "informe": "10-Q",
-    "informe_fecha": "2026-08-04",
-    "url": "https://www.sec.gov/Archives/edgar/data/874761/000087476126000144/0000874761-26-000144-index.htm",
+    "informe_fecha": "2026-11-03",
+    "url": "https://www.sec.gov/Archives/edgar/data/874761/000087476126000156/0000874761-26-000156-index.htm",
     "precio": 14.87,
-    "capitalizacion": 10608832428.1,
-    "ev": 8755832428.1,
-    "per": 5.67,
-    "precio_ventas": 0.81,
-    "ev_ebitda": 2.29,
-    "rentabilidad_fcf": -16.21,
-    "deuda_neta_ebitda": -0.49
+    "capitalizacion": 10610706464.46,
+    "ev": 8584706464.459999,
+    "per": 5.94,
+    "precio_ventas": 0.78,
+    "ev_ebitda": 2.12,
+    "rentabilidad_fcf": -14.29,
+    "deuda_neta_ebitda": -0.5
    },
    {
     "ticker": "NEE",
     "nombre": "Nextera Energy",
     "cik": "0000753308",
-    "calculado": "2026-11-01",
+    "calculado": "2026-11-09",
     "soportada": true,
     "version": 3,
     "logo": "logos/NEE.png",
@@ -17973,9 +18485,10 @@
    "documentos_leidos": [
     "0001140361-26-038468",
     "0001140361-26-042013",
-    "0001692819-26-000023"
+    "0001692819-26-000023",
+    "0001692819-26-000025"
    ],
-   "revisado": "2026-11-07"
+   "revisado": "2026-11-09"
   }
  ],
  "perfil": {

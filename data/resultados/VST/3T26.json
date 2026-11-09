@@ -7,10 +7,10 @@
  "monograma": "V",
  "logo": "logos/VST.png",
  "periodo": "3T26",
- "periodo_fin": "2026-09-29",
+ "periodo_fin": "2026-09-30",
  "fecha_resultados": "2026-11-06",
- "estado": "provisional",
- "fuente_cifras": "Nota de resultados (8-K, Exhibit 99.1), provisional hasta el 10-Q",
+ "estado": "definitivo",
+ "fuente_cifras": "SEC EDGAR · 10-Q (XBRL)",
  "informe": {
   "accn_8k": "0001692819-26-000023",
   "url_8k": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000023/0001692819-26-000023-index.htm",
@@ -22,7 +22,12 @@
     "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000023/vistra-20260930xearningsre.htm"
    }
   ],
-  "periodico": null
+  "periodico": {
+   "formulario": "10-Q",
+   "fecha_presentacion": "2026-11-09",
+   "url_indice": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+   "url_documento": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/vistra-20260930.htm"
+  }
  },
  "tabla": [
   {
@@ -30,13 +35,15 @@
    "nombre": "Ingresos",
    "tipo": "total",
    "reportado": {
-    "fuente": "SEC EDGAR · 8-K, Exhibit 99.1 (provisional)",
-    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000023/vistra-20260930xearningsre.htm",
-    "fecha_presentacion": "2026-11-06",
+    "valor": 6347000000,
+    "fuente": "SEC EDGAR · 10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+    "fecha_presentacion": "2026-11-09",
+    "etiqueta": "us-gaap:Revenues",
     "periodo": "3T26",
-    "provisional": true,
-    "valor": 6347000000.0,
-    "etiqueta": "Nota de resultados: fila «Operating revenues»"
+    "periodo_inicio": "2026-07-01",
+    "periodo_fin": "2026-09-30",
+    "formulario": "10-Q"
    },
    "estimado": {
     "valor": 5978000000.0,
@@ -50,17 +57,38 @@
    "interanual_pct": 27.68
   },
   {
+   "concepto": "segmento",
+   "nombre": "East Segment",
+   "tipo": "segmento",
+   "reportado": {
+    "valor": 1253000000.0,
+    "fuente": "SEC EDGAR · 10-Q (XBRL, segmentos)",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+    "fecha_presentacion": "2026-11-09",
+    "periodo": "3T26",
+    "etiqueta": "vistra:EastSegmentMember"
+   },
+   "estimado": null,
+   "dif_pct": null,
+   "resultado": null,
+   "anio_anterior": 723000000.0,
+   "interanual_pct": 73.31,
+   "pendiente": null
+  },
+  {
    "concepto": "beneficio_operativo",
    "nombre": "Beneficio operativo (EBIT)",
    "tipo": "total",
    "reportado": {
-    "fuente": "SEC EDGAR · 8-K, Exhibit 99.1 (provisional)",
-    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000023/vistra-20260930xearningsre.htm",
-    "fecha_presentacion": "2026-11-06",
+    "valor": 1706000000,
+    "fuente": "SEC EDGAR · 10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+    "fecha_presentacion": "2026-11-09",
+    "etiqueta": "us-gaap:OperatingIncomeLoss",
     "periodo": "3T26",
-    "provisional": true,
-    "valor": 1706000000.0,
-    "etiqueta": "Nota de resultados: fila «Operating income»"
+    "periodo_inicio": "2026-07-01",
+    "periodo_fin": "2026-09-30",
+    "formulario": "10-Q"
    },
    "estimado": {
     "valor": 1645000000.0,
@@ -103,13 +131,15 @@
    "nombre": "Beneficio neto",
    "tipo": "total",
    "reportado": {
-    "fuente": "SEC EDGAR · 8-K, Exhibit 99.1 (provisional)",
-    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000023/vistra-20260930xearningsre.htm",
-    "fecha_presentacion": "2026-11-06",
+    "valor": 1140000000,
+    "fuente": "SEC EDGAR · 10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+    "fecha_presentacion": "2026-11-09",
+    "etiqueta": "us-gaap:NetIncomeLoss",
     "periodo": "3T26",
-    "provisional": true,
-    "valor": 1140000000.0,
-    "etiqueta": "Nota de resultados: fila «Net income attributable to Vistra»"
+    "periodo_inicio": "2026-07-01",
+    "periodo_fin": "2026-09-30",
+    "formulario": "10-Q"
    },
    "estimado": null,
    "dif_pct": null,
@@ -121,17 +151,27 @@
    "concepto": "bpa_diluido",
    "nombre": "BPA diluido",
    "tipo": "total",
-   "reportado": null,
+   "reportado": {
+    "valor": 3.23,
+    "fuente": "SEC EDGAR · 10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+    "fecha_presentacion": "2026-11-09",
+    "etiqueta": "us-gaap:EarningsPerShareDiluted",
+    "periodo": "3T26",
+    "periodo_inicio": "2026-07-01",
+    "periodo_fin": "2026-09-30",
+    "formulario": "10-Q"
+   },
    "estimado": {
     "valor": 2.43,
     "fuente": "manual · TIKR · guía: punto medio anterior",
     "manual": true,
     "fecha": "5-nov-2026"
    },
-   "dif_pct": null,
-   "resultado": null,
+   "dif_pct": 32.92,
+   "resultado": "Beat",
    "anio_anterior": 1.75,
-   "interanual_pct": null
+   "interanual_pct": 84.57
   }
  ],
  "guia": {
@@ -1199,17 +1239,327 @@
   ],
   "precio": 124.8,
   "fecha_precio": "2026-11-06",
-  "capitalizacion": 41887272336.0,
+  "capitalizacion": 42356456438.4,
   "minimo_12m": 112.89,
   "maximo_12m": 191.0,
   "variacion_12m_pct": -32.4,
   "fuente": "Twelve Data (API oficial, plan gratuito)"
  },
  "desglose": {
-  "producto": [],
-  "segmento": []
+  "producto": [
+   {
+    "nombre": "Retail Energy Charge In ERCOT",
+    "miembro": "vistra:RetailEnergyChargeInERCOTMember",
+    "valor": 3007000000.0,
+    "anio_anterior": 2698000000.0,
+    "interanual_pct": 11.45,
+    "peso_pct": 47.4,
+    "margen_operativo_pct": null,
+    "margen_operativo_ya_pct": null
+   },
+   {
+    "nombre": "Retail Energy Charge In Northeast/Midwest",
+    "miembro": "vistra:RetailEnergyChargeInNortheastMidwestMember",
+    "valor": 1331000000.0,
+    "anio_anterior": 1054000000.0,
+    "interanual_pct": 26.28,
+    "peso_pct": 21.0,
+    "margen_operativo_pct": null,
+    "margen_operativo_ya_pct": null
+   },
+   {
+    "nombre": "Wholesale Generation Revenue From ERCOT",
+    "miembro": "vistra:WholesaleGenerationRevenueFromERCOTMember",
+    "valor": 1226000000.0,
+    "anio_anterior": 683000000.0,
+    "interanual_pct": 79.5,
+    "peso_pct": 19.3,
+    "margen_operativo_pct": null,
+    "margen_operativo_ya_pct": null
+   },
+   {
+    "nombre": "Total Other Revenues",
+    "miembro": "vistra:TotalOtherRevenuesMember",
+    "valor": 355000000.0,
+    "anio_anterior": 193000000.0,
+    "interanual_pct": 83.94,
+    "peso_pct": 5.6,
+    "margen_operativo_pct": null,
+    "margen_operativo_ya_pct": null
+   },
+   {
+    "nombre": "Revenue From Other Wholesale Contracts",
+    "miembro": "vistra:RevenueFromOtherWholesaleContractsMember",
+    "valor": 281000000.0,
+    "anio_anterior": 264000000.0,
+    "interanual_pct": 6.44,
+    "peso_pct": 4.4,
+    "margen_operativo_pct": null,
+    "margen_operativo_ya_pct": null
+   },
+   {
+    "nombre": "Transferable Nuclear Production Tax Credit Revenues",
+    "miembro": "vistra:TransferableNuclearProductionTaxCreditRevenuesMember",
+    "valor": 162000000.0,
+    "anio_anterior": 145000000.0,
+    "interanual_pct": 11.72,
+    "peso_pct": 2.6,
+    "margen_operativo_pct": null,
+    "margen_operativo_ya_pct": null
+   },
+   {
+    "nombre": "Transferable Production Tax Credit Revenues",
+    "miembro": "vistra:TransferableProductionTaxCreditRevenuesMember",
+    "valor": 149000000.0,
+    "anio_anterior": 145000000.0,
+    "interanual_pct": 2.76,
+    "peso_pct": 2.3,
+    "margen_operativo_pct": null,
+    "margen_operativo_ya_pct": null
+   },
+   {
+    "nombre": "Capacity Revenue",
+    "miembro": "vistra:CapacityRevenueMember",
+    "valor": 147000000.0,
+    "anio_anterior": 79000000.0,
+    "interanual_pct": 86.08,
+    "peso_pct": 2.3,
+    "margen_operativo_pct": null,
+    "margen_operativo_ya_pct": null
+   },
+   {
+    "nombre": "Business Interruption Insurance Proceeds",
+    "miembro": "vistra:BusinessInterruptionInsuranceProceedsMember",
+    "valor": 0.0,
+    "anio_anterior": 1000000.0,
+    "interanual_pct": -100.0,
+    "peso_pct": 0.0,
+    "margen_operativo_pct": null,
+    "margen_operativo_ya_pct": null
+   },
+   {
+    "nombre": "Intangible Amortization And Other Revenues",
+    "miembro": "vistra:IntangibleAmortizationAndOtherRevenuesMember",
+    "valor": 0.0,
+    "anio_anterior": -7000000.0,
+    "interanual_pct": null,
+    "peso_pct": 0.0,
+    "margen_operativo_pct": null,
+    "margen_operativo_ya_pct": null
+   }
+  ],
+  "segmento": [
+   {
+    "nombre": "Retail Segment",
+    "miembro": "vistra:RetailSegmentMember",
+    "valor": 4338000000.0,
+    "anio_anterior": 3752000000.0,
+    "interanual_pct": 15.62,
+    "peso_pct": 68.3,
+    "margen_operativo_pct": null,
+    "margen_operativo_ya_pct": null
+   },
+   {
+    "nombre": "East Segment",
+    "miembro": "vistra:EastSegmentMember",
+    "valor": 1253000000.0,
+    "anio_anterior": 723000000.0,
+    "interanual_pct": 73.31,
+    "peso_pct": 19.7,
+    "margen_operativo_pct": null,
+    "margen_operativo_ya_pct": null
+   },
+   {
+    "nombre": "Texas Segment",
+    "miembro": "vistra:TexasSegmentMember",
+    "valor": 253000000.0,
+    "anio_anterior": 212000000.0,
+    "interanual_pct": 19.34,
+    "peso_pct": 4.0,
+    "margen_operativo_pct": null,
+    "margen_operativo_ya_pct": null
+   },
+   {
+    "nombre": "West Segment",
+    "miembro": "vistra:WestSegmentMember",
+    "valor": 146000000.0,
+    "anio_anterior": 89000000.0,
+    "interanual_pct": 64.04,
+    "peso_pct": 2.3,
+    "margen_operativo_pct": null,
+    "margen_operativo_ya_pct": null
+   },
+   {
+    "nombre": "Asset Closure Segment",
+    "miembro": "vistra:AssetClosureSegmentMember",
+    "valor": 0.0,
+    "anio_anterior": 0.0,
+    "interanual_pct": null,
+    "peso_pct": 0.0,
+    "margen_operativo_pct": null,
+    "margen_operativo_ya_pct": null
+   }
+  ]
  },
- "estrella": null,
+ "estrella": {
+  "nombre": "East Segment",
+  "miembro": "vistra:EastSegmentMember",
+  "elegido": "automático",
+  "serie": [
+   {
+    "periodo": "1T22",
+    "periodo_fin": "2022-03-31",
+    "valor": 639000000.0,
+    "run_rate": 2556000000.0,
+    "interanual_pct": null,
+    "margen_operativo_pct": -19.7
+   },
+   {
+    "periodo": "2T22",
+    "periodo_fin": "2022-06-30",
+    "valor": 368000000.0,
+    "run_rate": 1472000000.0,
+    "interanual_pct": null,
+    "margen_operativo_pct": -179.6
+   },
+   {
+    "periodo": "3T22",
+    "periodo_fin": "2022-09-30",
+    "valor": 671000000.0,
+    "run_rate": 2684000000.0,
+    "interanual_pct": null,
+    "margen_operativo_pct": -17.9
+   },
+   {
+    "periodo": "4T22",
+    "periodo_fin": "2022-12-31",
+    "valor": 1641000000.0,
+    "run_rate": 6564000000.0,
+    "interanual_pct": null,
+    "margen_operativo_pct": 2.4
+   },
+   {
+    "periodo": "1T23",
+    "periodo_fin": "2023-03-31",
+    "valor": 559000000.0,
+    "run_rate": 2236000000.0,
+    "interanual_pct": -12.52,
+    "margen_operativo_pct": 133.1
+   },
+   {
+    "periodo": "2T23",
+    "periodo_fin": "2023-06-30",
+    "valor": 381000000.0,
+    "run_rate": 1524000000.0,
+    "interanual_pct": 3.53,
+    "margen_operativo_pct": 72.2
+   },
+   {
+    "periodo": "3T23",
+    "periodo_fin": "2023-09-30",
+    "valor": 441000000.0,
+    "run_rate": 1764000000.0,
+    "interanual_pct": -34.28,
+    "margen_operativo_pct": 6.6
+   },
+   {
+    "periodo": "4T23",
+    "periodo_fin": "2023-12-31",
+    "valor": 812000000.0,
+    "run_rate": 3248000000.0,
+    "interanual_pct": -50.52,
+    "margen_operativo_pct": 13.5
+   },
+   {
+    "periodo": "1T24",
+    "periodo_fin": "2024-03-31",
+    "valor": 477000000.0,
+    "run_rate": 1908000000.0,
+    "interanual_pct": -14.67,
+    "margen_operativo_pct": -46.8
+   },
+   {
+    "periodo": "2T24",
+    "periodo_fin": "2024-06-30",
+    "valor": 268000000.0,
+    "run_rate": 1072000000.0,
+    "interanual_pct": -29.66,
+    "margen_operativo_pct": 137.3
+   },
+   {
+    "periodo": "3T24",
+    "periodo_fin": "2024-09-30",
+    "valor": 465000000.0,
+    "run_rate": 1860000000.0,
+    "interanual_pct": 5.44,
+    "margen_operativo_pct": 77.8
+   },
+   {
+    "periodo": "4T24",
+    "periodo_fin": "2024-12-31",
+    "valor": 613000000.0,
+    "run_rate": 2452000000.0,
+    "interanual_pct": -24.51,
+    "margen_operativo_pct": null
+   },
+   {
+    "periodo": "1T25",
+    "periodo_fin": "2025-03-31",
+    "valor": 920000000.0,
+    "run_rate": 3680000000.0,
+    "interanual_pct": 92.87,
+    "margen_operativo_pct": null
+   },
+   {
+    "periodo": "2T25",
+    "periodo_fin": "2025-06-30",
+    "valor": 534000000.0,
+    "run_rate": 2136000000.0,
+    "interanual_pct": 99.25,
+    "margen_operativo_pct": null
+   },
+   {
+    "periodo": "3T25",
+    "periodo_fin": "2025-09-30",
+    "valor": 723000000.0,
+    "run_rate": 2892000000.0,
+    "interanual_pct": 55.48,
+    "margen_operativo_pct": null
+   },
+   {
+    "periodo": "4T25",
+    "periodo_fin": "2025-12-31",
+    "valor": 1134000000.0,
+    "run_rate": 4536000000.0,
+    "interanual_pct": 84.99,
+    "margen_operativo_pct": null
+   },
+   {
+    "periodo": "1T26",
+    "periodo_fin": "2026-03-31",
+    "valor": 1435000000.0,
+    "run_rate": 5740000000.0,
+    "interanual_pct": 55.98,
+    "margen_operativo_pct": null
+   },
+   {
+    "periodo": "2T26",
+    "periodo_fin": "2026-06-30",
+    "valor": 774000000.0,
+    "run_rate": 3096000000.0,
+    "interanual_pct": 44.94,
+    "margen_operativo_pct": null
+   },
+   {
+    "periodo": "3T26",
+    "periodo_fin": "2026-09-30",
+    "valor": 1253000000.0,
+    "run_rate": 5012000000.0,
+    "interanual_pct": 73.31,
+    "margen_operativo_pct": null
+   }
+  ]
+ },
  "margenes": {
   "trimestral": [
    {
@@ -1258,19 +1608,13 @@
    },
    {
     "periodo": "3T26",
-    "margen_pct": 26.88,
-    "provisional": true
+    "margen_pct": 26.88
    }
   ]
  },
  "dentro": {
-  "periodo": "2T26",
+  "periodo": "3T26",
   "ingresos": [
-   {
-    "periodo": "2T24",
-    "valor": 3845000000,
-    "interanual_pct": 20.57
-   },
    {
     "periodo": "3T24",
     "valor": 6288000000,
@@ -1310,17 +1654,14 @@
     "periodo": "2T26",
     "valor": 4017000000,
     "interanual_pct": -5.48
+   },
+   {
+    "periodo": "3T26",
+    "valor": 6347000000,
+    "interanual_pct": 27.68
    }
   ],
   "caja": [
-   {
-    "periodo": "2T25",
-    "beneficio_neto": 327000000,
-    "caja_operativa": 572000000,
-    "capex": 690000000,
-    "fcf": -118000000,
-    "conversion_pct": 175.0
-   },
    {
     "periodo": "3T25",
     "beneficio_neto": 652000000,
@@ -1352,6 +1693,14 @@
     "capex": 689000000,
     "fcf": 334000000,
     "conversion_pct": 335.0
+   },
+   {
+    "periodo": "3T26",
+    "beneficio_neto": 1140000000,
+    "caja_operativa": 2108000000,
+    "capex": 747000000,
+    "fcf": 1361000000,
+    "conversion_pct": 185.0
    }
   ],
   "capex_solo_anual": false,
@@ -1359,35 +1708,35 @@
    {
     "clave": "gastos_generales",
     "nombre": "Comerciales, generales y admin.",
-    "valor": 392000000,
-    "pct": 9.8,
-    "pct_ya": 9.9
+    "valor": 448000000,
+    "pct": 7.1,
+    "pct_ya": 8.9
    },
    {
     "clave": "remuneracion_acciones",
     "nombre": "Remuneración en acciones (incluida arriba)",
-    "valor": 35000000,
-    "pct": 0.9,
-    "pct_ya": 0.6
+    "valor": 29000000,
+    "pct": 0.5,
+    "pct_ya": 0.7
    }
   ],
   "accionista": {
-   "recompras": 337000000,
-   "recompras_ya": 252000000,
-   "recompras_12m": 1148000000,
+   "recompras": 208000000,
+   "recompras_ya": 187000000,
+   "recompras_12m": 1169000000,
    "dividendos": 77000000,
    "dividendos_12m": 308000000,
-   "acciones_diluidas": 339230976,
-   "acciones_diluidas_ya": 345505188,
-   "acciones_var_pct": -1.82,
-   "remuneracion_acciones": 35000000,
-   "remuneracion_pct_ingresos": 0.9,
-   "retorno_sobre_caja_pct": 65.0,
+   "acciones_diluidas": 337852657,
+   "acciones_diluidas_ya": 345035160,
+   "acciones_var_pct": -2.08,
+   "remuneracion_acciones": 29000000,
+   "remuneracion_pct_ingresos": 0.5,
+   "retorno_sobre_caja_pct": 57.0,
    "retorno_base": "flujo de caja libre"
   },
   "fuente": "SEC EDGAR · XBRL (10-Q/10-K)",
-  "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000019/0001692819-26-000019-index.htm",
-  "fecha_presentacion": "2026-08-10"
+  "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
+  "fecha_presentacion": "2026-11-09"
  },
  "cita": {
   "cita": "I am proud of the results the Vistra team delivered this quarter",
@@ -1482,35 +1831,7 @@
   "bpa_real": null,
   "ingresos_reales": null
  },
- "_cifras_nota": {
-  "ingresos": {
-   "fuente": "SEC EDGAR · 8-K, Exhibit 99.1 (provisional)",
-   "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000023/vistra-20260930xearningsre.htm",
-   "fecha_presentacion": "2026-11-06",
-   "periodo": "3T26",
-   "provisional": true,
-   "valor": 6347000000.0,
-   "etiqueta": "Nota de resultados: fila «Operating revenues»"
-  },
-  "beneficio_operativo": {
-   "fuente": "SEC EDGAR · 8-K, Exhibit 99.1 (provisional)",
-   "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000023/vistra-20260930xearningsre.htm",
-   "fecha_presentacion": "2026-11-06",
-   "periodo": "3T26",
-   "provisional": true,
-   "valor": 1706000000.0,
-   "etiqueta": "Nota de resultados: fila «Operating income»"
-  },
-  "beneficio_neto": {
-   "fuente": "SEC EDGAR · 8-K, Exhibit 99.1 (provisional)",
-   "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000023/vistra-20260930xearningsre.htm",
-   "fecha_presentacion": "2026-11-06",
-   "periodo": "3T26",
-   "provisional": true,
-   "valor": 1140000000.0,
-   "etiqueta": "Nota de resultados: fila «Net income attributable to Vistra»"
-  }
- },
+ "_cifras_nota": null,
  "traduccion": {
   "pendientes": 0,
   "completa": true,
