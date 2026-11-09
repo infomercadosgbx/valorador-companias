@@ -6,7 +6,7 @@
   "hq": "Austin, Texas",
   "founded": "1977",
   "employees": "~160.000",
-  "asOf": "6-nov-2026",
+  "asOf": "9-nov-2026",
   "fav": false,
   "autogenerado": "2026-11-02",
   "nextEarnings": "8-dic-2026 (Finnhub)"
@@ -520,9 +520,9 @@
   {
    "n": "Obsolescencia de las GPU",
    "cat": "Operativo",
-   "p": 3,
+   "p": 4,
    "i": 3,
-   "note": "Equipos que se amortizan en pocos años; hoy se renuevan con prima, pero puede cambiar"
+   "note": "Microsoft no renueva el alquiler de 2023 (GPU Nvidia de generación anterior para Bing) y apaga esa capacidad (Bloomberg, 6-nov-26). Oracle responde que la capacidad que vencía en su 1T se renovó o revendió con una prima del 20%"
   },
   {
    "n": "Software clásico frente a la IA",
@@ -607,7 +607,8 @@
    "Conversión de la cartera en ingresos y peso de OpenAI",
    "Margen bruto y operativo de OCI",
    "Permisos y electricidad en Nuevo México y Wisconsin",
-   "Calificación crediticia y coste de los bonos"
+   "Calificación crediticia y coste de los bonos",
+   "Renovación o reventa de la capacidad de GPU antigua que deja Microsoft"
   ]
  },
  "notes": "Supuestos del DCF (4-nov-2026): ingresos +34% en FY27 (guía), +30%, +28%, +25% y +10%: 188.000 M$ en FY30 frente a los 225.000 M$ de la compañía. Capex del 78% de las ventas en FY27 bajando al 12%: más prudente que la guía (caja libre positiva en FY30 en vez de 2S FY28). WACC del 10,5% por la beta (1,8) y el riesgo de crédito. El valor terminal pesa todo el valor, porque los primeros años la caja libre es negativa.",
@@ -641,6 +642,16 @@
    }
   ],
   "news": [
+   {
+    "t": "Microsoft no renueva el alquiler de capacidad de IA de 2023 y lo va apagando (según Bloomberg)",
+    "src": "MarketScale",
+    "u": "https://www.marketscale.com/industries/software-and-technology/microsoft-winding-down-oracle-ai-cloud-capacity-deal"
+   },
+   {
+    "t": "Oracle cae un 4% tras la noticia de Microsoft",
+    "src": "Yahoo Finance",
+    "u": "https://finnhub.io/api/news?id=27cd75d0d38118909e5c40f15da08c3efc77a226fcf38ad4b8f9d97a70f515a4"
+   },
    {
     "t": "S&P rebaja a Oracle a BBB-, a un escalón del bono basura",
     "src": "The Next Web",
