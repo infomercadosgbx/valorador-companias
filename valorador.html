@@ -858,7 +858,10 @@ body.report .g2,body.report .g3{align-items:start}
 .pe-obj{display:flex;flex-direction:column;gap:3px}
 .pred textarea.pe-txt{resize:none;overflow:hidden}
 .prc>div:first-child{position:sticky;top:0;align-self:start;max-height:80vh;overflow:auto}
-.pe-fmt{font-size:11px;color:var(--ink2);margin-bottom:3px} .pred textarea.pe-lines{white-space:pre-wrap} .pe-f{display:grid;grid-template-columns:86px minmax(0,1fr);gap:6px;align-items:start} .pe-k{font-size:11px;color:var(--ink2);padding-top:5px}
+.pe-fmt{font-size:11px;color:var(--ink2);margin-bottom:3px}
+.pred .pe-ul{margin:0;padding:4px 8px 4px 24px;border:1px dashed color-mix(in srgb,var(--good) 45%,var(--line));border-radius:5px;font-size:12.5px;line-height:1.45;color:var(--ink);cursor:text;outline:none;min-height:1.6em}
+.pred .pe-ul:focus{border-style:solid;background:var(--surface);outline:2px solid color-mix(in srgb,var(--good) 55%,transparent)}
+.pred .pe-ul li{margin:2px 0} .pe-f{display:grid;grid-template-columns:86px minmax(0,1fr);gap:6px;align-items:start} .pe-k{font-size:11px;color:var(--ink2);padding-top:5px}
 .pl{margin:2px 0 0;padding-left:16px} .pl li{margin:2px 0}
 
 .wrow{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:4px 10px;align-items:start;padding:6px 0;border-bottom:1px solid color-mix(in srgb,var(--line) 60%,transparent)}
@@ -1383,9 +1386,9 @@ function propEd(v,path){
   if(Array.isArray(v)){
     const objs=v.some(x=>x&&typeof x==="object"&&!Array.isArray(x)), ks=objs?peKeys(v):[];
     const tipos={}; ks.forEach(k=>{ const o=v.find(x=>x&&x[k]!=null); tipos[k]=o?(typeof o[k]==="number"?"n":typeof o[k]==="object"?"j":"s"):"s"; });
-    const txt=v.map(x=>objs?ks.map(k=>peTxt(x&&x[k])).join(" | "):peTxt(x)).join("\n");
-    return `${objs?`<div class="pe-fmt">Una línea por elemento: ${ks.map(k=>esc(PEK[k]||k)).join(" | ")}</div>`:`<div class="pe-fmt">Una línea por elemento</div>`}
-      <textarea class="pe-txt pe-lines" rows="1" data-pl="${pe}" data-keys="${esc(JSON.stringify(ks))}" data-tipos="${esc(JSON.stringify(tipos))}" data-num="${v.length&&v.every(x=>typeof x==="number")?1:""}">${esc(txt)}</textarea>`;
+    const lis=v.map(x=>{ let fs=objs?ks.map(k=>peTxt(x&&x[k])):[peTxt(x)]; while(fs.length>1&&fs[fs.length-1]==="") fs.pop(); return `<li>${esc(fs.join(" | "))}</li>`; }).join("")||"<li></li>";
+    return `${objs&&ks.length>1?`<div class="pe-fmt">Cada punto: ${ks.map(k=>esc(PEK[k]||k)).join(" | ")}</div>`:""}
+      <ul class="pe-ul" contenteditable="true" spellcheck="true" data-pl="${pe}" data-keys="${esc(JSON.stringify(ks))}" data-tipos="${esc(JSON.stringify(tipos))}" data-num="${v.length&&v.every(x=>typeof x==="number")?1:""}">${lis}</ul>`;
   }
   if(typeof v==="object") return `<div class="pe-obj">${Object.keys(v).filter(k=>typeof v[k]!=="boolean").map(k=>`<div class="pe-f"><span class="pe-k">${esc(PEK[k]||k)}</span><div>${propEd(v[k],path.concat(k))}</div></div>`).join("")}</div>`;
   return esc(String(v));
@@ -1393,7 +1396,8 @@ function propEd(v,path){
 function propFit(root){ (root||document).querySelectorAll("textarea.pe-txt").forEach(t=>{ t.style.height="auto"; t.style.height=(t.scrollHeight+2)+"px"; }); }
 function peLines(el){
   const ks=JSON.parse(el.dataset.keys||"[]"), tipos=JSON.parse(el.dataset.tipos||"{}");
-  const ls=el.value.split("\n").map(l=>l.trim()).filter(Boolean);
+  if(el.tagName==="UL"&&!el.querySelector("li")) el.innerHTML="<li></li>";
+  const ls=(el.tagName==="UL"?el.innerText:el.value).split("\n").map(l=>l.trim()).filter(Boolean);
   if(!ks.length) return ls.map(l=>el.dataset.num&&isFinite(+l.replace(",","."))?+l.replace(",","."):l);
   return ls.map(l=>{ const ps=l.split(/\s*\|\s*/); if(ps.length>ks.length) ps.splice(ks.length-1,ps.length,ps.slice(ks.length-1).join(" | "));
     const o={}; ks.forEach((k,j)=>{ const s=(ps[j]??"").trim(); if(s===""&&tipos[k]!=="s") return;
@@ -1402,6 +1406,15 @@ function peLines(el){
       else o[k]=s; });
     return o; });
 }
+function pePaste(e){
+  const ul=e.target.closest&&e.target.closest(".pe-ul"); if(!ul) return; e.preventDefault();
+  const ls=(e.clipboardData||window.clipboardData).getData("text/plain").replace(/\r/g,"").split("\n").map(l=>l.replace(/^\s*[•·\-–*]\s+/,"").trim()).filter(Boolean);
+  if(!ls.length) return; document.execCommand("insertText",false,ls[0]);
+  if(ls.length>1){ const sel=getSelection(); let li=sel.anchorNode&&(sel.anchorNode.nodeType===1?sel.anchorNode:sel.anchorNode.parentElement).closest("li"); if(!li||!ul.contains(li)) li=ul.lastElementChild;
+    ls.slice(1).forEach(t=>{ const n=document.createElement("li"); n.textContent=t; li.after(n); li=n; });
+    const r=document.createRange(); r.selectNodeContents(li); r.collapse(false); sel.removeAllRanges(); sel.addRange(r); propEdit(ul); }
+}
+document.addEventListener("paste",pePaste);
 function propEdit(el){
   const PR=cur&&cur._prop; if(!PR) return; let path; try{ path=JSON.parse(el.dataset.pe||el.dataset.pl); }catch(e){ return; }
   const c=PR.cambios[path[0]]; if(!c) return; const ks=path.slice(1);
@@ -4584,6 +4597,7 @@ document.addEventListener("change",e=>{const t=e.target; const p=t.dataset&&t.da
   if(t.type==="number"||t.type==="range"||t.type==="text") {rebuildCharts(); renderHeader(); if(TAB==="verdict") drawLevels();}
 });
 document.addEventListener("click",e=>{
+  if(e.target.closest&&e.target.closest(".pe-ul")){ e.preventDefault(); return; }
   if(e.target.closest("[data-mapa=toggle]")){ mapaToggle(); return; }
   if(e.target.closest("[data-agcal=toggle]")){ agCalToggle(); return; }
   const mf=e.target.closest("[data-mapafuente]"); if(mf){ MAPA.fuente=mf.dataset.mapafuente; lsSet("valorador.mapa.fuente",MAPA.fuente);
