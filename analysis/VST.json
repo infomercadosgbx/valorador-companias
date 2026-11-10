@@ -6,7 +6,7 @@
   "hq": "Irving, Texas",
   "founded": "2016 (raíces en TXU, 1882)",
   "employees": "6.390",
-  "asOf": "6-nov-2026",
+  "asOf": "10-nov-2026",
   "nextEarnings": "Feb-2027 (4T26, fecha por confirmar)"
  },
  "overview": {
@@ -719,6 +719,66 @@
    "nivel": "aviso",
    "mensaje": "Ingresos 3T22: +221% frente a 2T22. Revisa el informe.",
    "comprobacion": "Comprobado con los 10-Q/10-K de la SEC (nota 4, «Hedging and other revenues»): cifras correctas. Vistra incluye en ingresos la valoración a mercado de sus coberturas. 1T22 −334 M y 2T22 −1.735 M (pérdidas no realizadas de 2.088 M por la subida del gas); 3T22 +307 M; 2T24 +245 M, 3T24 +1.943 M (ganancias no realizadas de 1.960 M); 4T24 +375 M. Los ingresos por contratos con clientes se mueven mucho menos: 3.461 / 3.326 / 4.838 M en 2022 y 3.599 / 4.341 / 3.662 M en 2T–4T24."
+  },
+  {
+   "id": "componente_no_etiquetado.Caja e inversiones a corto a #-#-#: no hay dato de ShortTermInvestments / Market",
+   "fecha": "2026-11-10",
+   "nivel": "info",
+   "mensaje": "Caja e inversiones a corto a 2026-09-30: no hay dato de ShortTermInvestments / MarketableSecuritiesCurrent / AvailableForSaleSecuritiesDebtSecuritiesCurrent; cuenta como 0."
+  },
+  {
+   "id": "etiqueta_preferida.Ingresos: se usa «Revenues» por ajuste de la compañía (companies.json), porque e",
+   "fecha": "2026-11-10",
+   "nivel": "info",
+   "mensaje": "Ingresos: se usa «Revenues» por ajuste de la compañía (companies.json), porque es el total de su cuenta de resultados; las demás etiquetas solo rellenan huecos."
+  },
+  {
+   "id": "etiqueta_obsoleta.Capex: «PaymentsToAcquireProductiveAssets» termina el #-#-#; solo se usa para añ",
+   "fecha": "2026-11-10",
+   "nivel": "info",
+   "mensaje": "Capex: «PaymentsToAcquireProductiveAssets» termina el 2019-09-30; solo se usa para años antiguos."
+  },
+  {
+   "id": "etiqueta_obsoleta.Remuneración en acciones (SBC): «AllocatedShareBasedCompensationExpense» termina",
+   "fecha": "2026-11-10",
+   "nivel": "info",
+   "mensaje": "Remuneración en acciones (SBC): «AllocatedShareBasedCompensationExpense» termina el 2025-12-31; solo se usa para años antiguos."
+  },
+  {
+   "id": "etiqueta_obsoleta.Depreciación: «Depreciation» termina el #-#-#; solo se usa para años antiguos.",
+   "fecha": "2026-11-10",
+   "nivel": "info",
+   "mensaje": "Depreciación: «Depreciation» termina el 2024-12-31; solo se usa para años antiguos."
+  },
+  {
+   "id": "etiqueta_obsoleta.Amortización de intangibles: «AmortizationOfIntangibleAssets» termina el #-#-#; ",
+   "fecha": "2026-11-10",
+   "nivel": "info",
+   "mensaje": "Amortización de intangibles: «AmortizationOfIntangibleAssets» termina el 2018-03-31; solo se usa para años antiguos."
+  },
+  {
+   "id": "etiqueta_obsoleta.Beneficio antes de impuestos: «IncomeLossFromContinuingOperationsBeforeIncomeTax",
+   "fecha": "2026-11-10",
+   "nivel": "info",
+   "mensaje": "Beneficio antes de impuestos: «IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments» termina el 2019-09-30; solo se usa para años antiguos."
+  },
+  {
+   "id": "etiqueta_obsoleta.Gastos por intereses: «InterestExpense» termina el #-#-#; solo se usa para años ",
+   "fecha": "2026-11-10",
+   "nivel": "info",
+   "mensaje": "Gastos por intereses: «InterestExpense» termina el 2024-09-30; solo se usa para años antiguos."
+  },
+  {
+   "id": "etiqueta_obsoleta.Dividendos pagados: «PaymentsOfDividends» termina el #-#-#; solo se usa para año",
+   "fecha": "2026-11-10",
+   "nivel": "info",
+   "mensaje": "Dividendos pagados: «PaymentsOfDividends» termina el 2016-12-31; solo se usa para años antiguos."
+  },
+  {
+   "id": "etiqueta_obsoleta.Existencias: se descarta «InventoryNet» (último dato #-#-# ingresos hasta #-#-#)",
+   "fecha": "2026-11-10",
+   "nivel": "info",
+   "mensaje": "Existencias: se descarta «InventoryNet» (último dato 2025-09-30, ingresos hasta 2026-09-30)."
   }
  ]
 }
