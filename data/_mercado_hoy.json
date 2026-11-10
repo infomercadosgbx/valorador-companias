@@ -1,6 +1,6 @@
 {
  "esquema": 1,
- "generado": "2026-11-09T16:01:34+00:00",
+ "generado": "2026-11-10T00:19:07+00:00",
  "grupos": {
   "bolsa": "Bolsa",
   "riesgo": "Volatilidad y crédito",
@@ -14,13 +14,13 @@
    "grupo": "bolsa",
    "simbolo": "SPY",
    "unidad": "$",
-   "valor": 751.68,
+   "valor": 752.69,
    "anterior": 735.29,
    "fecha": "2026-11-09",
    "fuente": "Finnhub",
    "url": "https://finnhub.io/",
-   "var": 16.39,
-   "var_pct": 2.23,
+   "var": 17.4,
+   "var_pct": 2.37,
    "vivo": {
     "ticker": "SPY",
     "modo": "directo"
@@ -32,13 +32,13 @@
    "grupo": "bolsa",
    "simbolo": "QQQ",
    "unidad": "$",
-   "valor": 678.25,
+   "valor": 679.35,
    "anterior": 656.1,
    "fecha": "2026-11-09",
    "fuente": "Finnhub",
    "url": "https://finnhub.io/",
-   "var": 22.15,
-   "var_pct": 3.38,
+   "var": 23.25,
+   "var_pct": 3.54,
    "vivo": {
     "ticker": "QQQ",
     "modo": "directo"
@@ -50,13 +50,13 @@
    "grupo": "bolsa",
    "simbolo": "URTH",
    "unidad": "$",
-   "valor": 204.24,
+   "valor": 204.82,
    "anterior": 199.67,
    "fecha": "2026-11-09",
    "fuente": "Finnhub",
    "url": "https://finnhub.io/",
-   "var": 4.57,
-   "var_pct": 2.29,
+   "var": 5.15,
+   "var_pct": 2.58,
    "vivo": {
     "ticker": "URTH",
     "modo": "directo"
@@ -69,13 +69,13 @@
    "grupo": "bolsa",
    "simbolo": "EWY",
    "unidad": "$",
-   "valor": 141.76,
+   "valor": 142.1,
    "anterior": 137.01,
    "fecha": "2026-11-09",
    "fuente": "Finnhub",
    "url": "https://finnhub.io/",
-   "var": 4.75,
-   "var_pct": 3.47,
+   "var": 5.09,
+   "var_pct": 3.72,
    "vivo": {
     "ticker": "EWY",
     "modo": "directo"
@@ -88,13 +88,13 @@
    "grupo": "riesgo",
    "simbolo": "VIXCLS",
    "unidad": "pts",
-   "valor": 28.18,
-   "anterior": 16.61,
-   "fecha": "2026-11-05",
+   "valor": 25.64,
+   "anterior": 28.18,
+   "fecha": "2026-11-06",
    "fuente": "FRED (Cboe)",
    "url": "https://fred.stlouisfed.org/series/VIXCLS",
-   "var": 11.57,
-   "var_pct": 69.66
+   "var": -2.54,
+   "var_pct": -9.01
   },
   {
    "id": "hyg",
@@ -102,13 +102,13 @@
    "grupo": "riesgo",
    "simbolo": "HYG",
    "unidad": "$",
-   "valor": 77.47,
+   "valor": 77.51,
    "anterior": 77.23,
    "fecha": "2026-11-09",
    "fuente": "Finnhub",
    "url": "https://finnhub.io/",
-   "var": 0.24,
-   "var_pct": 0.31,
+   "var": 0.28,
+   "var_pct": 0.36,
    "vivo": {
     "ticker": "HYG",
     "modo": "directo"
@@ -120,13 +120,13 @@
    "grupo": "riesgo",
    "simbolo": "LQD",
    "unidad": "$",
-   "valor": 104.68,
+   "valor": 104.67,
    "anterior": 104.53,
    "fecha": "2026-11-09",
    "fuente": "Finnhub",
    "url": "https://finnhub.io/",
-   "var": 0.15,
-   "var_pct": 0.14,
+   "var": 0.14,
+   "var_pct": 0.13,
    "vivo": {
     "ticker": "LQD",
     "modo": "directo"
@@ -151,13 +151,13 @@
    "grupo": "riesgo",
    "simbolo": "KRE",
    "unidad": "$",
-   "valor": 73.51,
+   "valor": 73.45,
    "anterior": 72.2,
    "fecha": "2026-11-09",
    "fuente": "Finnhub",
    "url": "https://finnhub.io/",
-   "var": 1.31,
-   "var_pct": 1.81,
+   "var": 1.25,
+   "var_pct": 1.73,
    "vivo": {
     "ticker": "KRE",
     "modo": "directo"
@@ -169,12 +169,12 @@
    "grupo": "tipos",
    "simbolo": "5 Yr",
    "unidad": "%",
-   "valor": 4.64,
-   "anterior": 4.59,
-   "fecha": "2026-11-06",
+   "valor": 4.67,
+   "anterior": 4.64,
+   "fecha": "2026-11-09",
    "fuente": "Tesoro de EE. UU.",
    "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve",
-   "var": 0.05
+   "var": 0.03
   },
   {
    "id": "us10y",
@@ -182,9 +182,9 @@
    "grupo": "tipos",
    "simbolo": "10 Yr",
    "unidad": "%",
-   "valor": 4.86,
-   "anterior": 4.84,
-   "fecha": "2026-11-06",
+   "valor": 4.88,
+   "anterior": 4.86,
+   "fecha": "2026-11-09",
    "fuente": "Tesoro de EE. UU.",
    "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve",
    "var": 0.02
@@ -195,13 +195,13 @@
    "grupo": "tipos",
    "simbolo": "EUR/USD",
    "unidad": "",
-   "valor": 1.1196,
-   "anterior": 1.1138,
-   "fecha": "2026-11-09",
+   "valor": 1.1218,
+   "anterior": 1.1224,
+   "fecha": "2026-11-10",
    "fuente": "Twelve Data",
    "url": "https://twelvedata.com/",
-   "var": 0.0057,
-   "var_pct": 0.51
+   "var": -0.0006,
+   "var_pct": -0.06
   },
   {
    "id": "oro",
@@ -209,13 +209,13 @@
    "grupo": "materias",
    "simbolo": "XAU/USD",
    "unidad": "$",
-   "valor": 4121.0903,
-   "anterior": 4066.0297,
-   "fecha": "2026-11-09",
+   "valor": 4132.6576,
+   "anterior": 4134.0276,
+   "fecha": "2026-11-10",
    "fuente": "Twelve Data",
    "url": "https://twelvedata.com/",
-   "var": 55.0606,
-   "var_pct": 1.35
+   "var": -1.37,
+   "var_pct": -0.03
   },
   {
    "id": "wti",
@@ -237,13 +237,13 @@
    "grupo": "materias",
    "simbolo": "BTC/USD",
    "unidad": "$",
-   "valor": 75533.53,
-   "anterior": 74851.44,
-   "fecha": "2026-11-09",
+   "valor": 75230.01,
+   "anterior": 75368.41,
+   "fecha": "2026-11-10",
    "fuente": "Twelve Data",
    "url": "https://twelvedata.com/",
-   "var": 682.09,
-   "var_pct": 0.91
+   "var": -138.4,
+   "var_pct": -0.18
   }
  ],
  "sentimiento": {
@@ -579,7 +579,7 @@
      "fin": "2026-12-09",
      "proyecciones": true,
      "hora_madrid": "20:00",
-     "dias": 30,
+     "dias": 29,
      "comunicado": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261209a.htm",
      "rueda_prensa": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20261209.htm",
      "actas_fecha": "2026-12-30",
@@ -590,7 +590,7 @@
      "fin": "2027-01-27",
      "proyecciones": false,
      "hora_madrid": "20:00",
-     "dias": 79,
+     "dias": 78,
      "comunicado": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20270127a.htm",
      "rueda_prensa": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20270127.htm",
      "actas_fecha": "2027-02-17"
@@ -600,7 +600,7 @@
      "fin": "2027-03-17",
      "proyecciones": true,
      "hora_madrid": "19:00",
-     "dias": 128,
+     "dias": 127,
      "comunicado": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20270317a.htm",
      "rueda_prensa": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20270317.htm",
      "actas_fecha": "2027-04-07",
@@ -611,7 +611,7 @@
      "fin": "2027-04-28",
      "proyecciones": false,
      "hora_madrid": "20:00",
-     "dias": 170,
+     "dias": 169,
      "comunicado": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20270428a.htm",
      "rueda_prensa": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20270428.htm",
      "actas_fecha": "2027-05-19"
@@ -622,7 +622,7 @@
     "fin": "2026-10-28",
     "proyecciones": false,
     "hora_madrid": "19:00",
-    "dias": -12,
+    "dias": -13,
     "comunicado": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261028a.htm",
     "rueda_prensa": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20261028.htm",
     "actas_fecha": "2026-11-18",
@@ -677,30 +677,30 @@
    "plazos": [
     {
      "plazo": "3 meses",
-     "valor": 4.19,
-     "fecha": "2026-11-06",
-     "dif_pb": 31,
+     "valor": 4.24,
+     "fecha": "2026-11-09",
+     "dif_pb": 36,
      "lectura": "subidas"
     },
     {
      "plazo": "6 meses",
-     "valor": 4.23,
-     "fecha": "2026-11-06",
-     "dif_pb": 35,
+     "valor": 4.26,
+     "fecha": "2026-11-09",
+     "dif_pb": 38,
      "lectura": "subidas"
     },
     {
      "plazo": "1 año",
-     "valor": 4.33,
-     "fecha": "2026-11-06",
-     "dif_pb": 45,
+     "valor": 4.38,
+     "fecha": "2026-11-09",
+     "dif_pb": 50,
      "lectura": "subidas"
     },
     {
      "plazo": "2 años",
-     "valor": 4.51,
-     "fecha": "2026-11-06",
-     "dif_pb": 63,
+     "valor": 4.56,
+     "fecha": "2026-11-09",
+     "dif_pb": 68,
      "lectura": "subidas"
     }
    ],
@@ -710,14 +710,14 @@
   },
   "pendiente": {
    "10a_2a": {
-    "pb": 35,
-    "hace_1m": 51,
-    "fecha": "2026-11-06"
+    "pb": 32,
+    "hace_1m": 44,
+    "fecha": "2026-11-09"
    },
    "10a_3m": {
-    "pb": 67,
-    "hace_1m": 106,
-    "fecha": "2026-11-06"
+    "pb": 64,
+    "hace_1m": 99,
+    "fecha": "2026-11-09"
    },
    "fuente": "Tesoro de EE. UU.",
    "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve"
@@ -756,23 +756,23 @@
     "url": "https://fred.stlouisfed.org/series/PCEPILFE"
    },
    "esperada_10a": {
-    "valor": 2.23,
-    "fecha": "2026-11-06",
-    "hace_1m": 2.36,
+    "valor": 2.22,
+    "fecha": "2026-11-09",
+    "hace_1m": 2.33,
     "nombre": "Inflación esperada a 10 años",
     "url": "https://fred.stlouisfed.org/series/T10YIE"
    },
    "esperada_5a5a": {
-    "valor": 2.17,
-    "fecha": "2026-11-06",
-    "hace_1m": 2.35,
+    "valor": 2.19,
+    "fecha": "2026-11-09",
+    "hace_1m": 2.32,
     "nombre": "Inflación esperada de dentro de 5 a 10 años",
     "url": "https://fred.stlouisfed.org/series/T5YIFR"
    },
    "real_10a": {
-    "valor": 2.6,
-    "fecha": "2026-11-05",
-    "hace_1m": 2.91,
+    "valor": 2.63,
+    "fecha": "2026-11-06",
+    "hace_1m": 2.92,
     "nombre": "Tipo real a 10 años (TIPS)",
     "url": "https://fred.stlouisfed.org/series/DFII10"
    },
