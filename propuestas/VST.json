@@ -1,0 +1,244 @@
+{
+ "ticker": "VST",
+ "creada": "2026-11-10",
+ "motivo": "10-Q del 3T26 (presentado el 9-nov-2026)",
+ "informe_accn": "0001692819-26-000025",
+ "resumen": "El 10-Q del 3T26 confirma las cifras de la nota y aporta el balance a 30-sep: deuda a largo plazo de 21.146 M$ (17.043 M$ en dic-25) y caja de 2.743 M$. Después del cierre, Vistra pagó Cogentrix (~2.200 M$ en efectivo y 5 M de acciones), amortizó la Serie A de preferentes (1.000 M$) y el 5-nov repagó los 1.700 M$ de deuda asumida con caja y con sus líneas de cuentas a cobrar y de recompra; la Serie B se amortiza el 15-dic. Los factores de riesgo no cambian frente al 10-K de 2025. El 9-nov registró la reventa de las 5 M de acciones entregadas al vendedor de Cogentrix (8-K y folleto 424B7). Se propone actualizar la deuda del DCF (20.508 → 21.146 M$), el riesgo de endeudamiento, la nota de balance, los datos clave, los catalizadores y la asignación de capital. La tesis no cambia.",
+ "fuentes": [
+  {
+   "t": "Vistra, 10-Q del 3T26 (balance, nota 2 de adquisiciones, nota 12 de deuda, MD&A de liquidez)",
+   "u": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/vistra-20260930.htm",
+   "d": "9-nov-2026"
+  },
+  {
+   "t": "Vistra, 8-K (Item 8.01): opinión legal para el folleto de reventa de acciones",
+   "u": "https://www.sec.gov/Archives/edgar/data/1692819/000114036126042795/ef20085053_8k.htm",
+   "d": "9-nov-2026"
+  },
+  {
+   "t": "Vistra, folleto 424B7: reventa de hasta 5 M de acciones por el vendedor de Cogentrix",
+   "u": "https://www.sec.gov/Archives/edgar/data/1692819/000114036126042789/ny20084968x1_424b7.htm",
+   "d": "9-nov-2026"
+  }
+ ],
+ "cambios": [
+  {
+   "campo": "v.debt",
+   "valor": 21146,
+   "porque": "Deuda a largo plazo total del 10-Q a 30-sep-26 (incluye los 1.500 M$ de bonos subordinados de sep). Es un mínimo: en noviembre dispuso de sus líneas de cuentas a cobrar (límite 1.250 M$) y de recompra (125 M$) para repagar la deuda de Cogentrix. La caja del modelo (435 M$) no se toca: a 30-sep había 2.743 M$, pero después salieron ~2.200 M$ por Cogentrix y 1.000 M$ por las preferentes Serie A."
+  },
+  {
+   "campo": "risks",
+   "valor": [
+    {
+     "n": "Precios de la luz bajos en Texas",
+     "cat": "Mercado",
+     "p": 3,
+     "i": 4,
+     "note": "2027 cubierto al ~98%, lo que reduce la exposición a corto plazo; el riesgo se desplaza a 2028 (~78% cubierto)"
+    },
+    {
+     "n": "Endeudamiento",
+     "cat": "Financiero",
+     "p": 3,
+     "i": 3,
+     "note": "Deuda a largo plazo de 21.146 M$ a sep-26 (17.043 M$ en dic-25), 2.877 M$ con vencimiento en 12 meses. Después pagó ~2.200 M$ en efectivo por Cogentrix, amortizó la Serie A de preferentes (1.000 M$) y repagó 1.700 M$ de deuda de Cogentrix con caja y con toda la capacidad de sus líneas de cuentas a cobrar y de recompra; la Serie B se amortiza el 15-dic-26. Liquidez ~5.400 M$ pro forma."
+    },
+    {
+     "n": "Retrasos regulatorios en centros de datos",
+     "cat": "Regulatorio",
+     "p": 3,
+     "i": 3,
+     "note": "Texas pausó aprobaciones de grandes consumos; ERCOT aplazó estudios"
+    },
+    {
+     "n": "Incidente o parada nuclear",
+     "cat": "Operativo",
+     "p": 2,
+     "i": 4,
+     "note": "Cuatro centrales nucleares concentran gran parte del valor"
+    },
+    {
+     "n": "Clima extremo",
+     "cat": "Operativo",
+     "p": 2,
+     "i": 4,
+     "note": "La tormenta Uri de 2021 le costó más de 1.500 M$; el verano de 2026 batió récords de demanda sin incidencias"
+    },
+    {
+     "n": "Integración de Cogentrix",
+     "cat": "Operativo",
+     "p": 2,
+     "i": 3,
+     "note": "Cerrada en oct-26: ~5.500 MW de gas, 2.200 M$ en efectivo y ~1.700 M$ de deuda asumida ya repagada"
+    },
+    {
+     "n": "Volatilidad contable por coberturas",
+     "cat": "Financiero",
+     "p": 4,
+     "i": 1,
+     "note": "+559 M$ no realizados en el 3T26 tras −472 M$ en el 2T26"
+    },
+    {
+     "n": "Inversión en Helix",
+     "cat": "Comercial",
+     "p": 2,
+     "i": 2,
+     "note": "Hasta 1.000 M$ en un negocio fuera de su núcleo"
+    },
+    {
+     "n": "Préstamo del DOE no se cierra",
+     "cat": "Financiero",
+     "p": 2,
+     "i": 2,
+     "note": "Compromiso condicional de hasta 4.200 M$, no firmado. El DOE ya canceló otro compromiso condicional (Grain Belt Express, 4.900 M$, jul-2025). Con la Cámara demócrata desde ene-2027 puede haber más supervisión del programa, pero la decisión es del DOE. Si se cayera, la ampliación seguiría con deuda privada, más cara."
+    }
+   ],
+   "porque": "El 10-Q ya da la deuda del 3T que faltaba en el riesgo de endeudamiento, y detalla cómo se financiaron Cogentrix y las preferentes. Los factores de riesgo no cambian frente al 10-K de 2025 (Parte II, Item 1A)."
+  },
+  {
+   "campo": "business.quality",
+   "valor": [
+    {
+     "n": "Márgenes",
+     "s": 3,
+     "note": "EBITDA ~32% de las ventas; beneficio neto muy volátil por coberturas"
+    },
+    {
+     "n": "Retorno sobre capital",
+     "s": 3,
+     "note": "Activos pesados; mejora con las recompras"
+    },
+    {
+     "n": "Conversión en caja",
+     "s": 4,
+     "note": "FCF antes de crecimiento ~60% del EBITDA"
+    },
+    {
+     "n": "Recurrencia de ingresos",
+     "s": 3,
+     "note": "Minorista y contratos de 20 años, pero parte depende del precio de mercado"
+    },
+    {
+     "n": "Diversificación",
+     "s": 3,
+     "note": "Texas y PJM; nuclear, gas y minorista"
+    },
+    {
+     "n": "Balance",
+     "s": 2,
+     "note": "21.146 M$ de deuda a sep-26 (antes de las disposiciones de oct-nov), ~2,9 veces el EBITDA de 2026"
+    }
+   ],
+   "porque": "Nota de balance con la deuda del 10-Q a 30-sep (21.146 M$) frente al punto medio de la guía de EBITDA 2026 (7.300 M$)."
+  },
+  {
+   "campo": "overview.keyFacts",
+   "valor": [
+    {
+     "k": "EBITDA ajustado 3T26",
+     "v": "2.378 M$ (+50%; 1.581 M$ en 3T25)"
+    },
+    {
+     "k": "Ingresos 3T26",
+     "v": "6.347 M$ (+28%)"
+    },
+    {
+     "k": "Beneficio neto 3T26",
+     "v": "1.140 M$ (652 M$ en 3T25; incluye +559 M$ no realizados por coberturas)"
+    },
+    {
+     "k": "Guía EBITDA ajustado 2026",
+     "v": "7.100–7.500 M$ (antes 6.800–7.600 M$)"
+    },
+    {
+     "k": "Guía EBITDA ajustado 2027",
+     "v": "7.700–8.500 M$ (primera guía formal)"
+    },
+    {
+     "k": "Guía FCF antes de crecimiento",
+     "v": "2026: 4.300–4.700 M$ · 2027: 4.300–5.100 M$"
+    },
+    {
+     "k": "Cobertura de generación",
+     "v": "~100% 2026 · ~98% 2027 · ~78% 2028"
+    },
+    {
+     "k": "Recompras desde nov-2021",
+     "v": "~6.700 M$ · ~339 M de acciones (−30%); quedan ~2.500 M$ hasta 2028"
+    },
+    {
+     "k": "Liquidez",
+     "v": "8.923 M$ a sep-26 (caja 2.743 M$); ~5.400 M$ pro forma tras Cogentrix y preferentes"
+    },
+    {
+     "k": "Deuda total a sep-26",
+     "v": "21.146 M$ (17.043 M$ en dic-25); 2.877 M$ vencen en 12 meses"
+    },
+    {
+     "k": "Caja operativa 9M26",
+     "v": "4.330 M$ (2.638 M$ en 9M25)"
+    }
+   ],
+   "porque": "Se añaden la deuda total y la caja operativa de 9M26 del 10-Q, y la caja a 30-sep en la liquidez."
+  },
+  {
+   "campo": "overview.catalysts",
+   "valor": [
+    {
+     "d": "Desde 9-nov-26",
+     "t": "El vendedor de Cogentrix (Q-Generation Holdings) puede revender hasta 5 M de acciones (~1,5% del capital), ya registradas en la SEC: posible presión vendedora."
+    },
+    {
+     "d": "15-dic-26",
+     "t": "Amortización de todas las preferentes de la Serie B (aviso ya enviado a los titulares)."
+    },
+    {
+     "d": "Feb-27",
+     "t": "10-K 2026: valor razonable de los activos de Cogentrix, cifras pro forma y deuda total tras repagar los 1.700 M$ asumidos."
+    },
+    {
+     "d": "2026–2028",
+     "t": "Recompras: ~2.500 M$ de autorización disponible hasta final de 2028."
+    },
+    {
+     "d": "2027",
+     "t": "Contratos con Meta (más de 2.600 MW nucleares en PJM) empiezan a sumar EBITDA."
+    },
+    {
+     "d": "Final 2027",
+     "t": "Comanche Peak empieza a suministrar 1.200 MW al centro de datos de Amazon."
+    },
+    {
+     "d": "20 años",
+     "t": "Contrato de 207 MW con New Era Energy and Digital en la central de gas de Odessa (Texas)."
+    },
+    {
+     "d": "Sin fecha",
+     "t": "Préstamo del DOE de hasta 4.200 M$ (433 MW nucleares): solo compromiso condicional desde el 5-oct-26; falta firmar los documentos definitivos y puede cancelarse. El robot lo vigila cada noche (Riesgos → Seguimientos). Las ampliaciones que financia no aportarán beneficio hasta 2031, según la dirección."
+    }
+   ],
+   "porque": "El 10-Q ya se ha publicado; se añaden la amortización de la Serie B (15-dic), el 10-K con la contabilidad de Cogentrix y la posible reventa de las 5 M de acciones del vendedor (424B7 del 9-nov)."
+  },
+  {
+   "campo": "mgmt.call.cap",
+   "valor": [
+    "~6.700 M$ recomprados desde nov-2021; ~339 M de acciones (−30%).",
+    "Nueva autorización de 1.500 M$: quedan ~2.500 M$, que espera usar antes de final de 2028.",
+    "Amortizadas las preferentes de la Serie A (1.000 M$); 2.200 M$ en efectivo por Cogentrix y repago de ~1.700 M$ de su deuda.",
+    "9M26: emisiones de deuda de 7.985 M$, recompras de 917 M$ y dividendos ordinarios de 231 M$.",
+    "Desde nov-2021 ha retirado ~172 M de acciones a un coste medio de ~39 $; en 2026 lleva ~1.000 M$ recomprados hasta el 2-nov.",
+    "Prioridad: recompras manteniendo métricas de grado de inversión.",
+    "3T26: recompró 1,43 M de acciones a 145,63 $ de media; a 30-sep quedaban 1.082 M$ de la autorización anterior, a los que se suman los 1.500 M$ nuevos.",
+    "26-oct: swaps de tipos de interés por 1.000 M$ para fijar el coste de futuras emisiones de bonos (de ene-2027 a ene-2037).",
+    "8-oct: vendidas las centrales de gas de Casco Bay, Beaver Falls y Syracuse (754 MW en ISO-NE y NYISO)."
+   ],
+   "porque": "El 10-Q detalla las recompras del 3T (Parte II, Item 2), los swaps de tipos del 26-oct y la venta de 754 MW de gas del 8-oct."
+  },
+  {
+   "campo": "meta.asOf",
+   "valor": "10-nov-2026",
+   "porque": "Revisión del 10-Q del 3T26."
+  }
+ ]
+}
