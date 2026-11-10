@@ -1,6 +1,6 @@
 {
  "esquema": 1,
- "generado": "2026-11-10T00:19:07+00:00",
+ "generado": "2026-11-10T15:49:59+00:00",
  "grupos": {
   "bolsa": "Bolsa",
   "riesgo": "Volatilidad y crédito",
@@ -14,13 +14,13 @@
    "grupo": "bolsa",
    "simbolo": "SPY",
    "unidad": "$",
-   "valor": 752.69,
-   "anterior": 735.29,
-   "fecha": "2026-11-09",
+   "valor": 747.43,
+   "anterior": 752.69,
+   "fecha": "2026-11-10",
    "fuente": "Finnhub",
    "url": "https://finnhub.io/",
-   "var": 17.4,
-   "var_pct": 2.37,
+   "var": -5.26,
+   "var_pct": -0.7,
    "vivo": {
     "ticker": "SPY",
     "modo": "directo"
@@ -32,13 +32,13 @@
    "grupo": "bolsa",
    "simbolo": "QQQ",
    "unidad": "$",
-   "valor": 679.35,
-   "anterior": 656.1,
-   "fecha": "2026-11-09",
+   "valor": 673.52,
+   "anterior": 679.35,
+   "fecha": "2026-11-10",
    "fuente": "Finnhub",
    "url": "https://finnhub.io/",
-   "var": 23.25,
-   "var_pct": 3.54,
+   "var": -5.83,
+   "var_pct": -0.86,
    "vivo": {
     "ticker": "QQQ",
     "modo": "directo"
@@ -50,13 +50,13 @@
    "grupo": "bolsa",
    "simbolo": "URTH",
    "unidad": "$",
-   "valor": 204.82,
-   "anterior": 199.67,
-   "fecha": "2026-11-09",
+   "valor": 203.36,
+   "anterior": 204.82,
+   "fecha": "2026-11-10",
    "fuente": "Finnhub",
    "url": "https://finnhub.io/",
-   "var": 5.15,
-   "var_pct": 2.58,
+   "var": -1.46,
+   "var_pct": -0.71,
    "vivo": {
     "ticker": "URTH",
     "modo": "directo"
@@ -69,13 +69,13 @@
    "grupo": "bolsa",
    "simbolo": "EWY",
    "unidad": "$",
-   "valor": 142.1,
-   "anterior": 137.01,
-   "fecha": "2026-11-09",
+   "valor": 139.34,
+   "anterior": 142.1,
+   "fecha": "2026-11-10",
    "fuente": "Finnhub",
    "url": "https://finnhub.io/",
-   "var": 5.09,
-   "var_pct": 3.72,
+   "var": -2.76,
+   "var_pct": -1.94,
    "vivo": {
     "ticker": "EWY",
     "modo": "directo"
@@ -88,13 +88,13 @@
    "grupo": "riesgo",
    "simbolo": "VIXCLS",
    "unidad": "pts",
-   "valor": 25.64,
-   "anterior": 28.18,
-   "fecha": "2026-11-06",
+   "valor": 19.92,
+   "anterior": 25.64,
+   "fecha": "2026-11-09",
    "fuente": "FRED (Cboe)",
    "url": "https://fred.stlouisfed.org/series/VIXCLS",
-   "var": -2.54,
-   "var_pct": -9.01
+   "var": -5.72,
+   "var_pct": -22.31
   },
   {
    "id": "hyg",
@@ -102,13 +102,13 @@
    "grupo": "riesgo",
    "simbolo": "HYG",
    "unidad": "$",
-   "valor": 77.51,
-   "anterior": 77.23,
-   "fecha": "2026-11-09",
+   "valor": 77.21,
+   "anterior": 77.51,
+   "fecha": "2026-11-10",
    "fuente": "Finnhub",
    "url": "https://finnhub.io/",
-   "var": 0.28,
-   "var_pct": 0.36,
+   "var": -0.3,
+   "var_pct": -0.39,
    "vivo": {
     "ticker": "HYG",
     "modo": "directo"
@@ -120,13 +120,13 @@
    "grupo": "riesgo",
    "simbolo": "LQD",
    "unidad": "$",
-   "valor": 104.67,
-   "anterior": 104.53,
-   "fecha": "2026-11-09",
+   "valor": 103.76,
+   "anterior": 104.67,
+   "fecha": "2026-11-10",
    "fuente": "Finnhub",
    "url": "https://finnhub.io/",
-   "var": 0.14,
-   "var_pct": 0.13,
+   "var": -0.91,
+   "var_pct": -0.87,
    "vivo": {
     "ticker": "LQD",
     "modo": "directo"
@@ -151,13 +151,13 @@
    "grupo": "riesgo",
    "simbolo": "KRE",
    "unidad": "$",
-   "valor": 73.45,
-   "anterior": 72.2,
-   "fecha": "2026-11-09",
+   "valor": 72.58,
+   "anterior": 73.45,
+   "fecha": "2026-11-10",
    "fuente": "Finnhub",
    "url": "https://finnhub.io/",
-   "var": 1.25,
-   "var_pct": 1.73,
+   "var": -0.87,
+   "var_pct": -1.18,
    "vivo": {
     "ticker": "KRE",
     "modo": "directo"
@@ -195,13 +195,13 @@
    "grupo": "tipos",
    "simbolo": "EUR/USD",
    "unidad": "",
-   "valor": 1.1218,
+   "valor": 1.1168,
    "anterior": 1.1224,
    "fecha": "2026-11-10",
    "fuente": "Twelve Data",
    "url": "https://twelvedata.com/",
-   "var": -0.0006,
-   "var_pct": -0.06
+   "var": -0.0056,
+   "var_pct": -0.5
   },
   {
    "id": "oro",
@@ -209,13 +209,13 @@
    "grupo": "materias",
    "simbolo": "XAU/USD",
    "unidad": "$",
-   "valor": 4132.6576,
+   "valor": 4042.2646,
    "anterior": 4134.0276,
    "fecha": "2026-11-10",
    "fuente": "Twelve Data",
    "url": "https://twelvedata.com/",
-   "var": -1.37,
-   "var_pct": -0.03
+   "var": -91.763,
+   "var_pct": -2.22
   },
   {
    "id": "wti",
@@ -237,21 +237,21 @@
    "grupo": "materias",
    "simbolo": "BTC/USD",
    "unidad": "$",
-   "valor": 75230.01,
+   "valor": 73356.01,
    "anterior": 75368.41,
    "fecha": "2026-11-10",
    "fuente": "Twelve Data",
    "url": "https://twelvedata.com/",
-   "var": -138.4,
-   "var_pct": -0.18
+   "var": -2012.4,
+   "var_pct": -2.67
   }
  ],
  "sentimiento": {
   "estres_ofr": {
-   "valor": -1.388,
-   "anterior": -2.162,
-   "hace_1s": -2.117,
-   "fecha": "2026-11-05",
+   "valor": -1.079,
+   "anterior": -1.388,
+   "hace_1s": -1.392,
+   "fecha": "2026-11-06",
    "maximo_1a": 0.204,
    "fuente": "OFR · Oficina de Investigación Financiera del Tesoro de EE. UU.",
    "url": "https://www.financialresearch.gov/financial-stress-index/"
@@ -636,12 +636,12 @@
   "fed": {
    "inferior": 3.75,
    "superior": 4.0,
-   "fecha": "2026-11-09",
+   "fecha": "2026-11-10",
    "fuente": "Reserva Federal vía FRED",
    "url": "https://fred.stlouisfed.org/series/DFEDTARU",
    "efectivo": {
     "valor": 3.88,
-    "fecha": "2026-11-06",
+    "fecha": "2026-11-09",
     "url": "https://fred.stlouisfed.org/series/EFFR"
    },
    "ultimo_cambio": {
@@ -724,18 +724,18 @@
   },
   "inflacion": {
    "ipc": {
-    "mes": "2026-09",
-    "interanual": 3.72,
-    "anterior": 3.35,
-    "mensual": 0.65,
+    "mes": "2026-10",
+    "interanual": null,
+    "anterior": 3.72,
+    "mensual": 0.35,
     "nombre": "IPC general",
     "url": "https://fred.stlouisfed.org/series/CPIAUCSL"
    },
    "ipc_sub": {
-    "mes": "2026-09",
-    "interanual": 2.57,
-    "anterior": 2.45,
-    "mensual": 0.33,
+    "mes": "2026-10",
+    "interanual": null,
+    "anterior": 2.57,
+    "mensual": 0.3,
     "nombre": "IPC subyacente",
     "url": "https://fred.stlouisfed.org/series/CPILFESL"
    },
@@ -791,17 +791,13 @@
      "nombre": "IPC (inflación)",
      "fuente": "BLS",
      "url": "https://www.bls.gov/cpi/",
-     "ultimo": "3,7% interanual (sep-26)",
+     "ultimo": null,
      "graficos": [
       {
        "id": "CPIAUCSL",
        "nombre": "IPC general",
        "modo": "ia",
        "puntos": [
-        [
-         "2024-09",
-         2.43
-        ],
         [
          "2024-10",
          2.58
@@ -902,10 +898,6 @@
        "nombre": "IPC subyacente",
        "modo": "ia",
        "puntos": [
-        [
-         "2024-09",
-         3.28
-        ],
         [
          "2024-10",
          3.3
@@ -1679,6 +1671,10 @@
    [
     "2026-11-06",
     0.95
+   ],
+   [
+    "2026-11-09",
+    0.88
    ]
   ]
  }
