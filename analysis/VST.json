@@ -138,7 +138,7 @@
    {
     "n": "Balance",
     "s": 2,
-    "note": "20.508 M$ de deuda total, ~2,8 veces el EBITDA"
+    "note": "21.146 M$ de deuda a sep-26 (10-Q) y ~25.000 M$ pro forma tras Cogentrix, ~3,4 veces el EBITDA de 2026; más 2.476 M$ de preferentes"
    }
   ],
   "phase": 3,
@@ -437,7 +437,7 @@
    "cat": "Financiero",
    "p": 3,
    "i": 3,
-   "note": "7.985 M$ de emisiones de deuda en 9M26 y compra de Cogentrix; liquidez ~5.400 M$ pro forma. Deuda total del 3T pendiente del 10-Q"
+   "note": "7.985 M$ de emisiones de deuda en 9M26 y compra de Cogentrix; liquidez ~5.400 M$ pro forma. Deuda a sep-26: 21.146 M$ (10-Q), ~25.000 M$ pro forma tras Cogentrix"
   },
   {
    "n": "Retrasos regulatorios en centros de datos",
@@ -491,8 +491,8 @@
  ],
  "v": {
   "shares": 339,
-  "cash": 435,
-  "debt": 20508,
+  "cash": 2743,
+  "debt": 27522,
   "rev0": 22200,
   "year0": 2026,
   "g": [
@@ -544,7 +544,7 @@
   "conviction": 4,
   "buyBelow": 135,
   "horizon": "12–24 meses",
-  "summary": "El 3T26 confirma la tesis: EBITDA ajustado +50%, punto medio de 2026 al alza y una primera guía de 2027 de 7.700–8.500 M$, casi totalmente cubierta. Cogentrix ya suma y las recompras siguen (quedan ~2.500 M$ hasta 2028). A 112,89 $ cotiza por debajo del precio de compra del modelo. Acumular por debajo de ~135 $, vigilando la deuda tras Cogentrix (10-Q pendiente) y los precios en Texas para 2028.",
+  "summary": "El 3T26 confirma la tesis: EBITDA ajustado +50%, punto medio de 2026 al alza y una primera guía de 2027 de 7.700–8.500 M$, casi totalmente cubierta. Cogentrix ya suma y las recompras siguen (quedan ~2.500 M$ hasta 2028). A 112,89 $ cotiza por debajo del precio de compra del modelo. Acumular por debajo de ~135 $, vigilando la deuda tras Cogentrix (~25.000 M$ pro forma) y los precios en Texas para 2028.",
   "bull": [
    "Guía de EBITDA 2027 de 7.700–8.500 M$, con el 98% de la generación cubierta",
    "Contratos de 20 años con Amazon y Meta desde 2027, y nuevo contrato en Odessa",
@@ -558,7 +558,7 @@
    "Beneficio contable muy volátil por coberturas"
   ],
   "watch": [
-   "Deuda total y caja en el 10-Q del 3T26",
+   "Deuda tras Cogentrix en el 10-K de 2026",
    "Precios a plazo en ERCOT para 2028",
    "Cierre definitivo o cancelación del préstamo del DOE (seguimiento automático)",
    "Ejecución del objetivo de ~70% de crecimiento del FCF por acción 2027–2030"
@@ -779,6 +779,13 @@
    "fecha": "2026-11-10",
    "nivel": "info",
    "mensaje": "Existencias: se descarta «InventoryNet» (último dato 2025-09-30, ingresos hasta 2026-09-30)."
+  },
+  {
+   "id": "contradiccion.Deuda del modelo (# M) difiere un #% del dato de la SEC (# M a #-sep-#).",
+   "fecha": "2026-11-10",
+   "nivel": "aviso",
+   "mensaje": "Deuda del modelo (27.522 M) difiere un 30% del dato de la SEC (21.146 M a 30-sep-26).",
+   "comprobacion": "Deuda pro forma a propósito: 21.146 M$ de deuda a 30-sep-26 (10-Q, LongTermDebt) + 2.476 M$ de preferentes (PreferredStockValue; derecho por delante del accionista) + 2.200 M$ pagados en efectivo por Cogentrix + ~1.700 M$ de deuda de Cogentrix asumida y repagada, ambos en oct-26, después del cierre del trimestre. La caja del modelo es la del 10-Q (2.743 M$), que aún incluía el dinero para Cogentrix."
   }
  ]
 }
