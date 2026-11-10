@@ -185,6 +185,63 @@
      }
     ]
    }
+  },
+  {
+   "fecha_commit": "2026-11-10",
+   "commit": "c2513d21ab",
+   "analisis_a": "10-nov-2026",
+   "recomendacion": "Mantener",
+   "conviccion": 3,
+   "comprar_por_debajo": 255,
+   "horizonte": "12–24 meses",
+   "resumen": "Uno de los mejores negocios del mundo en mitad de un ciclo de inversión enorme. Cloud crece al 103% con margen del 36% y una cartera de 560.800 M$, pero la Búsqueda se frena (+12%), el FCF es negativo y la empresa ha dejado de recomprar y emite deuda y acciones. Tras caer de 325 $ a ~283 $, el mercado ya descuenta parte del riesgo, pero aún no hay margen de seguridad: mantener y comprar por debajo",
+   "supuestos": {
+    "rev0": 493000,
+    "year0": 2026,
+    "g": [
+     17,
+     14,
+     12,
+     10,
+     8
+    ],
+    "m1": 47,
+    "m5": 50,
+    "da": 9,
+    "da5": 13,
+    "sbc": 5.5,
+    "capex": 43,
+    "capex5": 16,
+    "nwc": 5,
+    "tax": 17,
+    "wacc": 9,
+    "tg": 3,
+    "exit": 15,
+    "method": "blend",
+    "eps": 12,
+    "pe": 24,
+    "evm": 16,
+    "scn": [
+     {
+      "n": "Bajista",
+      "dg": -6,
+      "dm": -5,
+      "p": 25
+     },
+     {
+      "n": "Base",
+      "dg": 0,
+      "dm": 0,
+      "p": 50
+     },
+     {
+      "n": "Alcista",
+      "dg": 4,
+      "dm": 2,
+      "p": 25
+     }
+    ]
+   }
   }
  ],
  "fuente": "Historial de git de analysis/GOOGL.json"

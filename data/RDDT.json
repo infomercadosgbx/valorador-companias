@@ -6066,14 +6066,30 @@
   "fuente": "SEC EDGAR · formularios 4",
   "resumen": {
    "compras_mercado": 0,
-   "ventas_mercado": 87242158.22,
+   "ventas_mercado": 87626158.22,
    "n_compras": 0,
-   "n_ventas": 145,
+   "n_ventas": 146,
    "ventas_con_plan": 85834088.46,
    "compradores": [],
-   "desde": "2026-05-10"
+   "desde": "2026-05-11"
   },
   "operaciones": [
+   {
+    "fecha": "2026-11-06",
+    "codigo": "S",
+    "tipo": "Venta en mercado",
+    "acciones": 4000.0,
+    "precio": 96.0,
+    "importe": 384000.0,
+    "sentido": "venta",
+    "tras_operacion": 11181.0,
+    "clase": "Class A Common Stock",
+    "persona": "Gale Mary Porter",
+    "cargo": "Consejero",
+    "plan_10b5_1": false,
+    "fecha_presentacion": "2026-11-10",
+    "url": "https://www.sec.gov/Archives/edgar/data/1713445/000192458126000011/0001924581-26-000011-index.htm"
+   },
    {
     "fecha": "2026-11-04",
     "codigo": "S",
@@ -9213,6 +9229,31 @@
   ],
   "operaciones_por_filing": [
    {
+    "accn": "0001924581-26-000011",
+    "fecha_presentacion": "2026-11-10",
+    "url": "https://www.sec.gov/Archives/edgar/data/1713445/000192458126000011/0001924581-26-000011-index.htm",
+    "personas": [
+     {
+      "nombre": "Gale Mary Porter",
+      "cargo": "Consejero"
+     }
+    ],
+    "plan_10b5_1": false,
+    "operaciones": [
+     {
+      "fecha": "2026-11-06",
+      "codigo": "S",
+      "tipo": "Venta en mercado",
+      "acciones": 4000.0,
+      "precio": 96.0,
+      "importe": 384000.0,
+      "sentido": "venta",
+      "tras_operacion": 11181.0,
+      "clase": "Class A Common Stock"
+     }
+    ]
+   },
+   {
     "accn": "0001924581-26-000009",
     "fecha_presentacion": "2026-11-05",
     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000192458126000009/0001924581-26-000009-index.htm",
@@ -12055,7 +12096,7 @@
     ]
    }
   ],
-  "n_formularios": 49
+  "n_formularios": 50
  },
  "riesgos_10k": {
   "version": 4,
@@ -12095,11 +12136,11 @@
  "precio": {
   "minimo_52s": 89.28,
   "maximo_52s": 263.4999,
-  "beta": 2.209466,
-  "valor": 100.79,
-  "cierre_anterior": 95.1,
+  "beta": 2.2523556,
+  "valor": 98.67,
+  "cierre_anterior": 100.79,
   "moneda": "USD",
-  "fecha": "2026-11-09",
+  "fecha": "2026-11-10",
   "fuente": "Finnhub (API oficial, plan gratuito)",
   "url": "https://finnhub.io/"
  },
@@ -12196,11 +12237,92 @@
  },
  "noticias": [
   {
+   "titular": "Reddit Taps Qloo To Strengthen Its Predictive Targeting",
+   "url": "https://www.adexchanger.com/marketers/reddit-taps-qloo-to-strengthen-its-predictive-targeting/",
+   "fecha": "2026-11-10",
+   "resumen": "Through a partnership with Qloo, Reddit will be able to better understand correlated interests and target users with more relevant ads. The post Reddit Taps Qloo To Strengthen Its Predictive Targeting appeared first on AdExchanger .",
+   "medio": "AdExchanger",
+   "tipo": "sectorial",
+   "via": "RSS del medio"
+  },
+  {
+   "titular": "Reddit dangles seasonal ad credits but advertisers still want better proof it works all year round",
+   "url": "https://digiday.com/marketing/reddit-dangles-seasonal-ad-credits-but-advertisers-still-want-better-proof-it-works-all-year-round/?utm_campaign=digidaydis&utm_medium=rss&utm_source=general-rss",
+   "fecha": "2026-11-10",
+   "resumen": "Q4 credits may bring advertisers to Reddit, but concerns about measurement and its ad capabilities make it harder to secure year-round spend.",
+   "medio": "Digiday",
+   "tipo": "sectorial",
+   "via": "RSS del medio"
+  },
+  {
+   "titular": "Reddit is turning user conversations into AI-powered product reviews",
+   "url": "https://techcrunch.com/2026/11/10/reddit-is-turning-user-conversations-into-ai-powered-product-reviews/",
+   "fecha": "2026-11-10",
+   "resumen": "Reddit's new AI-powered reviews summarize what users like and dislike about 10,000 products, helping shoppers research purchases ahead of the holidays.",
+   "medio": "TechCrunch",
+   "tipo": "sectorial",
+   "via": "RSS del medio"
+  },
+  {
+   "titular": "Reddit's 29% Earnings Selloff May Be Overlooking Conversion Traffic Potential",
+   "medio": "Seeking Alpha",
+   "url": "https://finnhub.io/api/news?id=e2161f0fee22a81afd9b3a2497fb62da150dab9d46001b83ab64ecc4d4b987ea",
+   "fecha": "2026-11-10",
+   "resumen": "The analyst sees Reddit as attractively valued at 18.7x trailing earnings after a 29% selloff; 53% US ARPU growth supports upside, but DAU growth remains. Read the full analysis here.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Guggenheim Maintains Buy on Reddit, Lowers Price Target to $140",
+   "medio": "Benzinga",
+   "url": "https://finnhub.io/api/news?id=da1c40a26332d7c7b516bfd7075e567ac815f1b23f73c76c858af91c4ae2f98f",
+   "fecha": "2026-11-10",
+   "resumen": "Guggenheim  analyst Michael Morris   maintains Reddit (NYSE:RDDT) with a Buy and lowers the price target from $170 to $140.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Woman Filed For Bankruptcy, Then Racked Up Another $17K In Debt. ‘I Don’t Understand Why Companies Keep Giving Her Credit,’ Sibling Says",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=bc8cf09fc4018248a8f9b190e11baa421946dfffec1fb82e3b689cc3628734ee",
+   "fecha": "2026-11-10",
+   "resumen": "A woman ran up another $17,000 in credit card debt after filing for bankruptcy. Her disability benefits went toward living expenses, leaving nothing for even the minimum debt payments. \"I don’t understand why companies keep giving her credit,\" her sibling...",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "These 5 Internet Platform Stocks Run on Advertising Dollars",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=11847a028aea03a7aad8f2cd4050008656969a4a215730adc919c7abcb22449d",
+   "fecha": "2026-11-10",
+   "resumen": "Ad growth slowed at all five of these companies last quarter. Which ones have something else to rely on?",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Reddit Consensus Price Target Decreased by 10.41% to $156.95",
+   "medio": "Fintel",
+   "url": "https://finnhub.io/api/news?id=0a139ebf18b1f9fe0d15f02d373d9826a7ee578d18847d7712cc6086ac9154ba",
+   "fecha": "2026-11-09",
+   "resumen": "",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
    "titular": "Reddit: 35% Growth And 11x FCF. I See The Risks, But I'm Still Bullish",
    "medio": "Seeking Alpha",
    "url": "https://finnhub.io/api/news?id=48dfacab2990e037e06687cd2dd2250242f843501d5a6115949a8ea5832e1f56",
    "fecha": "2026-11-09",
    "resumen": "See why Reddit looks undervalued at 11x forward free cash flow, with strong growth potential and no debt.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Reddit (RDDT), What Is Behind The Fresh Attention?",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=19acbc1d6a329e51ea4beaaa4ac1451d8c28aa89b65fa6ea18df73468b71fb75",
+   "fecha": "2026-11-09",
+   "resumen": "Reddit (RDDT) is back in focus after the company reported third quarter earnings on October 29, 2026, along with fresh fourth quarter revenue guidance and an update on its ongoing share repurchase program. Reddit’s latest earnings and buyback update hit a stock that has been unde",
    "tipo": "prensa",
    "via": "Finnhub"
   },
@@ -12286,33 +12408,6 @@
    "via": "Finnhub"
   },
   {
-   "titular": "Pinterest CEO: The EU Hit Was “Greater Than We Anticipated.” Its Q4 Guide Sits $70 Million Light",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=b4158cef95a874881da342365ea8e1b65a5e485dacdf2cfb15f6162b6d0cb5ab",
-   "fecha": "2026-11-07",
-   "resumen": "Key TakeawaysPinterest closed at $18. 96, down 19% in three months, near the $18.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Reddit’s (RDDT) Short-Term Pains May Lead to Long-Term Gains",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=1a92905ce41d80869458beb44ed94cd0167cd44c96e6ebb545e0cc881c30a697",
-   "fecha": "2026-11-06",
-   "resumen": "Reddit’s (RDDT) short-term pains may lead to long-term gains, in my view. The leading social media platform lost more than 25% of its market value soon after it reported Q3 earnings on October 30. This crash followed traffic headwinds from Google’s (GOOGL) AI Overviews and the ro",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "The Average Social Security Check Is Just $1,940 And 56% Can’t Afford To Miss Half A Payment — ‘This Is Why Seniors Are Bagging Groceries at 70’",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=e16d9b0e9ffdd6058a14d6deb486a7719f720e473b07e6ee3e09980562e7c6ef",
-   "fecha": "2026-11-06",
-   "resumen": "Retirement sounds wonderful until someone has to explain how the bills get paid. For some Americans, 65 means freedom, travel and finally ditching the alarm clock. For others, it means figuring out how to make Social Security cover a mortgage,...",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
    "titular": "Google Plays Hardball With Schoolchildren; Reddit Upvotes Search Ads",
    "url": "https://www.adexchanger.com/daily-news-roundup/wednesday-04112026/",
    "fecha": "2026-11-04",
@@ -12394,65 +12489,11 @@
    "via": "Finnhub"
   },
   {
-   "titular": "5 Stock Picks Last Month From Wall Street's Most Accurate Analysts",
-   "medio": "Benzinga",
-   "url": "https://finnhub.io/api/news?id=dfaf89087bc1b6c1a949e6e362fb5200a3fab17e1deb562d2dec7d029272ba75",
-   "fecha": "2026-11-02",
-   "resumen": "U.S. stocks fell Friday as Nasdaq dropped over 700 points; Benzinga highlighted top analysts’ latest calls on Allegro, Intel and Reddit.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
    "titular": "Reddit Consensus Price Target Decreased by 20.11% to $175.18",
    "medio": "Fintel",
    "url": "https://finnhub.io/api/news?id=e1b2e4cfc24c2d7396685a9ec0ce860f087b0c7215b9e5da3f303eae219b230c",
    "fecha": "2026-11-02",
    "resumen": "",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Reddit: Google Is Taking Its Traffic, But The Selloff Has Gone Too Far",
-   "medio": "Seeking Alpha",
-   "url": "https://finnhub.io/api/news?id=acf984f172b80b0e43ec9f587d24152dffcc0654df352fc79bf6eddb99623551",
-   "fecha": "2026-11-01",
-   "resumen": "In its earnings, Reddit announced it grew revenue 53% and ARPU from $9.04 to $13.82, as advertisers value engagement. See why I rate RDDT stock a Buy.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Keybanc Downgrades Reddit to Sector Weight from Overweight",
-   "medio": "Fintel",
-   "url": "https://finnhub.io/api/news?id=6e352f0906f80c85e0f6882fb40077a81e60a2ef7faf9506021dac9af3c5693b",
-   "fecha": "2026-10-31",
-   "resumen": "",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Citizens Downgrades Reddit to Market Perform from Market Outperform",
-   "medio": "Fintel",
-   "url": "https://finnhub.io/api/news?id=a6630e9fe1dfa031fa66b7b8b07c26db2f970b5563d507146894cc6d548978bf",
-   "fecha": "2026-10-31",
-   "resumen": "",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "S&P 500 Top Movers: Gainers and Losers in Today's US Session",
-   "medio": "ChartMill",
-   "url": "https://finnhub.io/api/news?id=a44171cddfb342446f40d46de2d93a46c7e83ee351259121874ff7dd3fb7086d",
-   "fecha": "2026-10-30",
-   "resumen": "S&P 500 top percentage movers in today's US session, led by FDXF gainer and INTC decliner, with gainers and losers ranked by latest prices.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "S&P 500 Most-Active Stocks: Oct. 30, 2026",
-   "medio": "ChartMill",
-   "url": "https://finnhub.io/api/news?id=cc3041a9b2f9c2901eb49505eed2f9508d6b60d08adcc9bba455ebf19e7464d6",
-   "fecha": "2026-10-30",
-   "resumen": "S&P 500 most-active stocks on Oct. 30, 2026 included Reddit and Marvell double-digit declines, while AT&T, Pfizer and Keurig Dr Pepper rose.",
    "tipo": "prensa",
    "via": "Finnhub"
   },
@@ -12485,7 +12526,7 @@
    },
    "RSS de medios": {
     "ok": true,
-    "titulares": 0
+    "titulares": 3
    }
   }
  },
@@ -15134,18 +15175,22 @@
    [
     "2026-11-09",
     100.79
+   ],
+   [
+    "2026-11-10",
+    98.67
    ]
   ],
   "fuente": "Twelve Data (API oficial, plan gratuito)",
   "url": "https://twelvedata.com/",
-  "fecha": "2026-11-09",
+  "fecha": "2026-11-10",
   "ajuste": "splits"
  },
- "generado": "2026-11-09T23:50:28+00:00",
+ "generado": "2026-11-10T23:45:24+00:00",
  "peers": {
   "fuente_lista": "manual",
   "fuente_cifras": "SEC EDGAR (companyfacts, UDM) · precio Finnhub",
-  "actualizado": "2026-11-09",
+  "actualizado": "2026-11-10",
   "propia": {
    "ingresos": 3088880000,
    "crecimiento": 62.18,
@@ -15163,13 +15208,13 @@
    "informe": "10-Q",
    "informe_fecha": "2026-10-30",
    "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000116/0001713445-26-000116-index.htm",
-   "precio": 100.79,
-   "capitalizacion": 20345494093.550003,
-   "ev": 17312062093.550003,
-   "per": 20.52,
-   "precio_ventas": 6.59,
-   "ev_ebitda": 18.72,
-   "rentabilidad_fcf": 5.89,
+   "precio": 98.67,
+   "capitalizacion": 19917550374.15,
+   "ev": 16884118374.150002,
+   "per": 20.08,
+   "precio_ventas": 6.45,
+   "ev_ebitda": 18.25,
+   "rentabilidad_fcf": 6.02,
    "deuda_neta_ebitda": -3.28,
    "ticker": "RDDT",
    "nombre": "Reddit",
@@ -15203,9 +15248,9 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-22",
     "url": "https://www.sec.gov/Archives/edgar/data/1326801/000162828026066773/0001628280-26-066773-index.htm",
-    "precio": 641.37,
-    "capitalizacion": 1650245010000.0,
-    "ev": 1651465010000.0,
+    "precio": 641.39,
+    "capitalizacion": 1650296470000.0,
+    "ev": 1651516470000.0,
     "per": 21.93,
     "precio_ventas": 6.83,
     "ev_ebitda": 15.83,
@@ -15239,13 +15284,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-29",
     "url": "https://www.sec.gov/Archives/edgar/data/1506293/000150629326000153/0001506293-26-000153-index.htm",
-    "precio": 19.06,
-    "capitalizacion": 11105347120.0,
-    "ev": 9635326120.0,
-    "per": 62.27,
-    "precio_ventas": 2.37,
-    "ev_ebitda": 41.78,
-    "rentabilidad_fcf": 11.37,
+    "precio": 18.95,
+    "capitalizacion": 11041255400.0,
+    "ev": 9571234400.0,
+    "per": 61.92,
+    "precio_ventas": 2.36,
+    "ev_ebitda": 41.51,
+    "rentabilidad_fcf": 11.43,
     "deuda_neta_ebitda": -6.37
    },
    {
@@ -15275,13 +15320,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-11-05",
     "url": "https://www.sec.gov/Archives/edgar/data/1564408/000156440826000067/0001564408-26-000067-index.htm",
-    "precio": 5.05,
-    "capitalizacion": 8889201900.0,
-    "ev": 9498770900.0,
+    "precio": 5,
+    "capitalizacion": 8801190000,
+    "ev": 9410759000,
     "per": null,
-    "precio_ventas": 1.35,
-    "ev_ebitda": 155.95,
-    "rentabilidad_fcf": 8.74,
+    "precio_ventas": 1.34,
+    "ev_ebitda": 154.5,
+    "rentabilidad_fcf": 8.82,
     "deuda_neta_ebitda": 10.01
    },
    {
@@ -15311,12 +15356,12 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-29",
     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/0001652044-26-000084-index.htm",
-    "precio": 288.15,
-    "capitalizacion": 3542516099999.9995,
-    "ev": 3403536099999.9995,
-    "per": 15.03,
-    "precio_ventas": 7.52,
-    "ev_ebitda": 18.4,
+    "precio": 287.38,
+    "capitalizacion": 3533049720000.0,
+    "ev": 3394069720000.0,
+    "per": 14.99,
+    "precio_ventas": 7.5,
+    "ev_ebitda": 18.35,
     "rentabilidad_fcf": 0.56,
     "deuda_neta_ebitda": -0.75
    },
@@ -15347,13 +15392,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-08-06",
     "url": "https://www.sec.gov/Archives/edgar/data/1671933/000167193326000086/0001671933-26-000086-index.htm",
-    "precio": 14.93,
-    "capitalizacion": 7016323640.0,
-    "ev": 5530990640.0,
-    "per": 17.24,
-    "precio_ventas": 2.35,
-    "ev_ebitda": 7.76,
-    "rentabilidad_fcf": 12.3,
+    "precio": 15.42,
+    "capitalizacion": 7246598160.0,
+    "ev": 5761265160.0,
+    "per": 17.81,
+    "precio_ventas": 2.42,
+    "ev_ebitda": 8.08,
+    "rentabilidad_fcf": 11.91,
     "deuda_neta_ebitda": -2.08
    }
   ]
