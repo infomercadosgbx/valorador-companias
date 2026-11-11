@@ -557,7 +557,7 @@
     "p": 25
    }
   ],
-  "comentario": "«balance pro forma tras el cierre de Cogentrix el 30-oct; quitar cuando salga el 10-K de febrero»\n\nCalculo WACC --> WACC = E/(D+E) × Ke + D/(D+E) × Kd × (1 − t)\nKe = Rf + β × (Rm − Rf)\nEjemplo con Vistra (cifras aproximadas):\nE = 344 M acciones × 131 $ ≈ 45.000 M$\nD ≈ 25.000 M$ → pesos: E 64 %, D 36 %\nKe = 4,2 % + 1,37 × 5 % ≈ 11,1 %\nKd ≈ 5,5 % → después de impuestos: 5,5 % × (1 − 0,21) ≈ 4,3 %\nWACC = 0,64 × 11,1 % + 0,36 × 4,3 % ≈ 7,1 % + 1,5 % ≈ 8,6 %\n(Lo razonado para ponerlo en celda WACC)\nFondos propios: ~4,2 % + 1,37 × 5 % ≈ 11 %, con un peso de ~2/3.\nDeuda: ~4,3 %, con un peso de ~1/3.\nWACC de Vistra ≈ 8,8–9,3 %."
+  "comentario": "· Balance pro forma tras el cierre de Cogentrix (30-oct-2026): deuda 25.046 M$, 344 M acciones. Quitar cuando salga el 10-K de febrero.\n· WACC 9 % (11-nov-2026), por CAPM:\n  Ke = 4,2 % (bono 10a) + 1,37 (beta Finnhub) × 5 % (prima) ≈ 11,1 %\n  Kd = 5,2 % (intereses 12 m 1.090 M$ / deuda ~21.000 M$, SEC) → 4,1 % tras impuestos (21 %)\n  Pesos: fondos propios 64 % (45.000 M$), deuda 36 % (25.000 M$)\n  Resultado ≈ 8,6 %; pongo 9 % por prudencia (riesgo regulatorio de Texas, beta inestable).\n  Revisar si la beta o el bono cambian más de 0,2 / 0,5 puntos."
  },
  "verdict": {
   "rating": "Acumular",
