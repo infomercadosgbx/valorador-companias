@@ -1,10 +1,10 @@
 {
  "ticker": "PEP",
- "creada": "2026-11-09",
+ "creada": "2026-11-11",
  "alcance": "internet",
- "motivo": "Novedades del 6-nov-2026: KFC renueva con PepsiCo en ocho mercados internacionales",
+ "motivo": "Novedades del 6-nov-2026: KFC renueva con PepsiCo en ocho mercados internacionales; 9-nov-2026: ~1.000 despidos en Norteamérica",
  "informe_accn": "0000077476-26-000050",
- "resumen": "Revisión de internet del 6 al 9-nov. KFC mantiene a PepsiCo como socio de bebidas en Australia, India, Reino Unido, España, Alemania, Francia, Países Bajos y Bélgica, aunque en EE. UU. pasa a Coca-Cola desde enero de 2027. Limita el daño de la pérdida de KFC en EE. UU.; no se publican importes ni duración. Se propone reflejarlo en los clientes conocidos y en las noticias; no cambia la tesis. Beverage Digest (de pago) no se pudo leer.",
+ "resumen": "Revisión de internet del 6 al 9-nov. KFC mantiene a PepsiCo como socio de bebidas en Australia, India, Reino Unido, España, Alemania, Francia, Países Bajos y Bélgica, aunque en EE. UU. pasa a Coca-Cola desde enero de 2027. Limita el daño de la pérdida de KFC en EE. UU.; no se publican importes ni duración. Se propone reflejarlo en los clientes conocidos y en las noticias; no cambia la tesis. Beverage Digest (de pago) no se pudo leer. Revisión del 9 al 11-nov: el 9-nov PepsiCo anunció a sus empleados (memo del consejero delegado de Norteamérica, Ram Krishnan) la eliminación de unos 1.000 puestos en Norteamérica durante la semana, para «simplificar estructuras y decidir más rápido»; no se publican costes ni ahorros. Se propone reflejarlo en el riesgo de ejecución de la reestructuración y en noticias.",
  "fuentes": [
   {
    "t": "BeverageDaily: PepsiCo renueva con KFC en ocho mercados tras perder EE. UU.",
@@ -15,6 +15,11 @@
    "t": "Benzinga: PepsiCo renueva como socio de bebidas de KFC en Australia, India, Reino Unido, España, Alemania, Francia, Países Bajos y Bélgica",
    "u": "https://finnhub.io/api/news?id=cb18d876bec0bce314707a3a4ec8ed2ad7218e7896b081167c42dec2cfd0da77",
    "d": "6-nov-2026"
+  },
+  {
+   "t": "Transport Topics (Bloomberg): PepsiCo eliminará unos 1.000 puestos en Norteamérica",
+   "u": "https://www.ttnews.com/articles/pepsi-cuts-1000-north-america",
+   "d": "9-nov-2026"
   }
  ],
  "cambios": [
@@ -80,8 +85,80 @@
    }
   },
   {
+   "campo": "risks",
+   "valor": [
+    {
+     "n": "Inflación de costes y fin de coberturas",
+     "cat": "Financiero",
+     "p": 4,
+     "i": 3,
+     "note": "Guía de BPA rebajada a +1–2%; las coberturas expiran desde el 4T26"
+    },
+    {
+     "n": "Volúmenes débiles en Norteamérica",
+     "cat": "Mercado",
+     "p": 3,
+     "i": 4,
+     "note": "Orgánico ligeramente negativo en PFNA y PBNA en 3T26"
+    },
+    {
+     "n": "Hábitos de salud y fármacos GLP-1",
+     "cat": "Mercado",
+     "p": 3,
+     "i": 4,
+     "note": "Menos consumo de snacks y refrescos azucarados a largo plazo"
+    },
+    {
+     "n": "Pérdida de cuota en refrescos",
+     "cat": "Competencia",
+     "p": 3,
+     "i": 3,
+     "note": "La dirección admite que no compite bien frente a Coca-Cola"
+    },
+    {
+     "n": "Ejecución de la reestructuración",
+     "cat": "Operativo",
+     "p": 3,
+     "i": 3,
+     "note": "Recorte de referencias, «One North America» y posible refranchising; el 9-nov anunció ~1.000 despidos en Norteamérica para simplificar la estructura (memo de Ram Krishnan)"
+    },
+    {
+     "n": "Dividendo con poco margen",
+     "cat": "Financiero",
+     "p": 2,
+     "i": 3,
+     "note": "Dividendos y recompras (8.900 M$) consumen ~85% de la caja libre; deuda neta ~2,2x EBITDA"
+    },
+    {
+     "n": "Regulación de azúcar, colorantes y etiquetado",
+     "cat": "Regulatorio",
+     "p": 3,
+     "i": 2,
+     "note": "Impuestos al azúcar y presión en EE. UU. sobre colorantes artificiales"
+    },
+    {
+     "n": "Divisa y aranceles",
+     "cat": "Mercado",
+     "p": 3,
+     "i": 2,
+     "note": "41% de las ventas fuera de EE. UU.; aranceles sobre envases y materias primas"
+    }
+   ],
+   "porque": "Primer recorte de plantilla concreto de las «acciones estructurales de reducción de costes» anunciadas con el 3T26; la probabilidad e impacto no cambian",
+   "fuente": {
+    "t": "Transport Topics (Bloomberg): PepsiCo eliminará unos 1.000 puestos en Norteamérica",
+    "u": "https://www.ttnews.com/articles/pepsi-cuts-1000-north-america",
+    "d": "9-nov-2026"
+   }
+  },
+  {
    "campo": "sources.news",
    "valor": [
+    {
+     "t": "PepsiCo eliminará unos 1.000 puestos en Norteamérica para simplificar su estructura",
+     "src": "Transport Topics (Bloomberg) · 9-nov-2026",
+     "u": "https://www.ttnews.com/articles/pepsi-cuts-1000-north-america"
+    },
     {
      "t": "PepsiCo renueva con KFC en ocho mercados internacionales tras perder EE. UU.",
      "src": "BeverageDaily",
@@ -108,12 +185,17 @@
      "u": "https://www.tikr.com/blog/pepsico-beat-on-revenue-then-watched-analysts-cut-their-targets-near-52-week-lows-is-the-selloff-overdone"
     }
    ],
-   "porque": "Se añade la renovación con KFC",
+   "porque": "Se añade la noticia de los despidos a la de KFC ya propuesta",
    "fuente": {
-    "t": "BeverageDaily: PepsiCo renueva con KFC en ocho mercados tras perder EE. UU.",
-    "u": "https://www.beveragedaily.com/Article/2026/11/06/pepsico-renews-kfc-beverage-partnership-across-eight-markets/",
-    "d": "6-nov-2026"
+    "t": "Transport Topics (Bloomberg): PepsiCo eliminará unos 1.000 puestos en Norteamérica",
+    "u": "https://www.ttnews.com/articles/pepsi-cuts-1000-north-america",
+    "d": "9-nov-2026"
    }
+  },
+  {
+   "campo": "meta.asOf",
+   "valor": "11-nov-2026",
+   "porque": "Fecha de la revisión"
   }
  ]
 }

@@ -1,0 +1,174 @@
+{
+ "ticker": "GOOGL",
+ "creada": "2026-11-11",
+ "alcance": "internet",
+ "motivo": "Novedades del 9 y 10-nov-2026: Alphabet compra ~10.000 M$ en la salida a bolsa de Anthropic y nuevos TPU",
+ "informe_accn": "0001652044-26-000080",
+ "resumen": "Revisión de internet del 9 al 11-nov. El folleto modificado de Anthropic (10-nov) fija una horquilla de 70–78 $ por acción (valoración de ~0,92–1,02 billones $) y una colocación privada de 26.000 M$ al precio de salida en la que Alphabet y Nvidia compran unos 10.000 M$ cada una; el precio se espera hacia el 18-nov. El 9-nov Google presentó dos sistemas TPU nuevos (TPU 8tx y TPU 8i Max) para 2027 y dijo tener casi 100 clientes de TPU. Se propone añadirlo a catalizadores, «Qué vigilar» y noticias; la tesis y el DCF no cambian. Cifras de prensa basadas en el folleto de Anthropic (sec.gov no accesible desde este entorno). Redes sociales: no revisadas en profundidad; sin cambio de tono apreciable en los titulares.",
+ "fuentes": [
+  {
+   "t": "Trace Cohen: Anthropic fija la horquilla de 70–78 $ (folleto modificado n.º 2)",
+   "u": "https://tracecohen.substack.com/p/special-edition-anthropic-sets-its",
+   "d": "10-nov-2026"
+  },
+  {
+   "t": "The Tribune (ANI): siete compañías comprometen 26.000 M$ en Anthropic; precio previsto el 18-nov",
+   "u": "https://www.tribuneindia.com/news/business/google-nvidia-microsoft-among-seven-firms-committing-usd-26-billion-to-anthropic",
+   "d": "11-nov-2026"
+  },
+  {
+   "t": "The Next Platform: Google rehace sus TPU para inferencia (TPU 8tx y TPU 8i Max)",
+   "u": "https://www.nextplatform.com/compute/2026/11/09/google-rejiggers-tpu-accelerators-for-broader-ai-inference-work/5308534",
+   "d": "9-nov-2026"
+  },
+  {
+   "t": "PPC Land: el negocio de TPU de Google roza los 100 clientes",
+   "u": "https://ppc.land/googles-ai-chip-business-nears-100-customers-as-it-adds-tpu-8tx-and-8i-max/",
+   "d": "9-nov-2026"
+  }
+ ],
+ "cambios": [
+  {
+   "campo": "overview.catalysts",
+   "valor": [
+    {
+     "d": "~18-nov-26",
+     "t": "Anthropic fija el precio de su salida a bolsa (horquilla de 70–78 $). Alphabet compra unos 10.000 M$ de acciones de clase N al precio de salida, en una colocación privada de 26.000 M$ con Nvidia, Microsoft, Broadcom, AMD, Micron y TSMC."
+    },
+    {
+     "d": "2-feb-27",
+     "t": "Resultados 4T26 (tras el cierre) y cifra de capex 2027 («aumentará significativamente»)."
+    },
+    {
+     "d": "4T26",
+     "t": "Flujo de caja libre sin la multa de la CE (5.200 M$ pagados en el 3T26) ni la acumulación de inventario de TPU."
+    },
+    {
+     "d": "2027",
+     "t": "Instalación de los nuevos sistemas TPU 8tx (cómputo confidencial, con CPU AMD EPYC) y TPU 8i Max (dos chips por paquete para contextos largos), anunciados el 9-nov."
+    },
+    {
+     "d": "2026–27",
+     "t": "Conversión de la cartera de Cloud: algo más del 55% de 567.700 M$ en 24 meses (10-Q)."
+    },
+    {
+     "d": "4T26",
+     "t": "Anuncios en AI Mode en 10 países más y anuncios multiturno en EE. UU."
+    },
+    {
+     "d": "En curso",
+     "t": "Apelación del caso de búsqueda (Mehta) y aplicación de los remedios de ad tech (Brinkema)."
+    }
+   ],
+   "porque": "Nuevos hitos: precio de la salida a bolsa de Anthropic con la compra de ~10.000 M$ de Alphabet, y llegada de los TPU 8tx y 8i Max en 2027",
+   "fuente": {
+    "t": "Trace Cohen: Anthropic fija la horquilla de 70–78 $ (folleto modificado n.º 2)",
+    "u": "https://tracecohen.substack.com/p/special-edition-anthropic-sets-its",
+    "d": "10-nov-2026"
+   }
+  },
+  {
+   "campo": "verdict.watch",
+   "valor": [
+    "Resultados del 4T26 (2-feb-27) y cifra de capex 2027",
+    "Precio de salida de Anthropic (~18-nov) y valor de la participación de Alphabet",
+    "FCF sin multa ni inventario de TPU",
+    "Crecimiento de Búsqueda frente al de consultas",
+    "Margen de Cloud y conversión de la cartera",
+    "Vuelta de las recompras"
+   ],
+   "porque": "Alphabet invierte ~10.000 M$ más en Anthropic, su mayor cliente de Cloud (≥111.100 M$ comprometidos): el precio de salida fija el valor de esa participación",
+   "fuente": {
+    "t": "The Tribune (ANI): siete compañías comprometen 26.000 M$ en Anthropic; precio previsto el 18-nov",
+    "u": "https://www.tribuneindia.com/news/business/google-nvidia-microsoft-among-seven-firms-committing-usd-26-billion-to-anthropic",
+    "d": "11-nov-2026"
+   }
+  },
+  {
+   "campo": "sources.news",
+   "valor": [
+    {
+     "t": "Anthropic fija una horquilla de 70–78 $; Alphabet y Nvidia compran unos 10.000 M$ cada una en la colocación privada de 26.000 M$",
+     "src": "Trace Cohen · 10-nov-2026",
+     "u": "https://tracecohen.substack.com/p/special-edition-anthropic-sets-its"
+    },
+    {
+     "t": "Google presenta TPU 8tx y TPU 8i Max: cuatro sistemas TPU en un año y casi 100 clientes de TPU",
+     "src": "PPC Land · 9-nov-2026",
+     "u": "https://ppc.land/googles-ai-chip-business-nears-100-customers-as-it-adds-tpu-8tx-and-8i-max/"
+    },
+    {
+     "t": "Google invertirá 17.000 M$ en su primer centro de datos en Wyoming, con 702 MW de pilas de combustible de Bloom y captura de carbono, y pagará el 100% de su electricidad",
+     "src": "Blog de Google",
+     "u": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/wyoming-data-center/"
+    },
+    {
+     "t": "Google, Meta y TikTok demandan a California por su ley de redes sociales para menores",
+     "src": "TechCrunch",
+     "u": "https://techcrunch.com/2026/11/05/meta-google-and-tiktok-sue-california-ag-over-teen-social-media-law/"
+    },
+    {
+     "t": "Reacción de los analistas: fallo en BPA, recortes de precio objetivo y rebaja de Citizens",
+     "src": "CNBC",
+     "u": "https://www.cnbc.com/2026/10/29/alphabet-q3-earnings-analyst-reaction.html"
+    },
+    {
+     "t": "Morgan Stanley y Barclays recortan precio objetivo",
+     "src": "Investing.com",
+     "u": "https://www.investing.com/news/analyst-ratings/morgan-stanley-cuts-alphabet-stock-price-target-on-growth-concerns-93CH-4981845"
+    },
+    {
+     "t": "FCF sin la multa de la CE: unos −3.900 M$",
+     "src": "TheStreet Pro",
+     "u": "https://pro.thestreet.com/portfolio/were-trimming-our-alphabet-price-target-and-asking-this-big-question"
+    },
+    {
+     "t": "Compromisos de compra de 924.000 M$ frente a la cartera de Cloud",
+     "src": "FourWeekMBA",
+     "u": "https://fourweekmba.com/ai-googles-commitments-hit-924b-1-65x-its-cloud-backlog/"
+    },
+    {
+     "t": "Emisión de 6.000 M€ en bonos en euros (cierre 5-nov-26)",
+     "src": "Cleary Gottlieb",
+     "u": "https://www.clearygottlieb.com/news-and-insights/news-listing/alphabet-in-6-billion-eur-denominated-bonds-offering"
+    },
+    {
+     "t": "Qué ha cambiado para el accionista: menos caja y sin recompras",
+     "src": "Trefis",
+     "u": "https://trefis.com/stock/googl/articles/622620/what-has-changed-about-owning-alphabet-stock/2026-11-04"
+    },
+    {
+     "t": "Resultados 3T26: Cloud +103%, capex de 51.360 M$",
+     "src": "StockTitan",
+     "u": "https://www.stocktitan.net/articles/alphabet-q3-2026-earnings-google-cloud-doubles-search-slows"
+    },
+    {
+     "t": "La acción cae tras el FCF negativo",
+     "src": "FinanceFeeds",
+     "u": "https://financefeeds.com/alphabet-googl-stock-292-after-q3-profit-miss-negative-9-billion-free-cash-flow-bull-325-bear-266/"
+    },
+    {
+     "t": "Búsqueda +12% y monetización de AI Mode",
+     "src": "Relevant Audience",
+     "u": "https://www.relevantaudience.com/google-ads-en/alphabet-q3-2026-search-revenue-ai-mode-monetization/"
+    },
+    {
+     "t": "Fallo de ad tech: sin venta forzosa",
+     "src": "JOPR",
+     "u": "https://jopr.org/news/detail/google-keeps-adtech-business"
+    }
+   ],
+   "porque": "Dos noticias materiales de la ventana",
+   "fuente": {
+    "t": "Trace Cohen: Anthropic fija la horquilla de 70–78 $ (folleto modificado n.º 2)",
+    "u": "https://tracecohen.substack.com/p/special-edition-anthropic-sets-its",
+    "d": "10-nov-2026"
+   }
+  },
+  {
+   "campo": "meta.asOf",
+   "valor": "11-nov-2026",
+   "porque": "Fecha de la revisión"
+  }
+ ]
+}
