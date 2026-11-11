@@ -248,6 +248,65 @@
      }
     ]
    }
+  },
+  {
+   "fecha_commit": "2026-11-11",
+   "commit": "032c7767b9",
+   "analisis_a": "11-nov-2026",
+   "recomendacion": "Comprar",
+   "conviccion": 3.5,
+   "comprar_por_debajo": 340,
+   "horizonte": "12–24 meses",
+   "resumen": "Probablemente el mejor posicionado para el crecimiento de la IA después de Nvidia, con márgenes y caja excepcionales y un equipo muy disciplinado. Cae un 41% desde máximos y ronda el mínimo del año (~292 $) sin noticias propias: el desplome del 5-nov fue de todo el sector, por miedo a que el nuevo Congreso demócrata frene los centros de datos. A este precio el mercado solo descuenta ~15% de crecim",
+   "supuestos": {
+    "cash": 23975,
+    "debt": 59419,
+    "rev0": 105990,
+    "year0": 2026,
+    "g": [
+     58,
+     40,
+     15,
+     10,
+     7
+    ],
+    "m1": 64,
+    "m5": 60,
+    "da": 4,
+    "da5": 2,
+    "sbc": 4,
+    "capex": 1.2,
+    "capex5": 1,
+    "nwc": 10,
+    "tax": 15,
+    "wacc": 9.5,
+    "tg": 3,
+    "exit": 16,
+    "method": "blend",
+    "eps": 17.41,
+    "pe": 28,
+    "evm": 22,
+    "scn": [
+     {
+      "n": "Bajista",
+      "dg": -15,
+      "dm": -6,
+      "p": 30
+     },
+     {
+      "n": "Base",
+      "dg": 0,
+      "dm": 0,
+      "p": 50
+     },
+     {
+      "n": "Alcista",
+      "dg": 8,
+      "dm": 2,
+      "p": 20
+     }
+    ]
+   }
   }
  ],
  "fuente": "Historial de git de analysis/AVGO.json"
