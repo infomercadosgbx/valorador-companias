@@ -7,7 +7,7 @@
   "hq": "Mountain View, California",
   "founded": "1998",
   "employees": "204.757",
-  "asOf": "10-nov-2026"
+  "asOf": "11-nov-2026"
  },
  "overview": {
   "thesis": "Gran negocio en plena fase de inversión: Cloud se duplica, pero el capex se come el flujo de caja y la búsqueda se frena. A ~283 $ sigue por encima de la zona de compra (255 $): mantener.",
@@ -48,12 +48,20 @@
   ],
   "catalysts": [
    {
+    "d": "~18-nov-26",
+    "t": "Anthropic fija el precio de su salida a bolsa (horquilla de 70–78 $). Alphabet compra unos 10.000 M$ de acciones de clase N al precio de salida, en una colocación privada de 26.000 M$ con Nvidia, Microsoft, Broadcom, AMD, Micron y TSMC."
+   },
+   {
     "d": "2-feb-27",
     "t": "Resultados 4T26 (tras el cierre) y cifra de capex 2027 («aumentará significativamente»)."
    },
    {
     "d": "4T26",
     "t": "Flujo de caja libre sin la multa de la CE (5.200 M$ pagados en el 3T26) ni la acumulación de inventario de TPU."
+   },
+   {
+    "d": "2027",
+    "t": "Instalación de los nuevos sistemas TPU 8tx (cómputo confidencial, con CPU AMD EPYC) y TPU 8i Max (dos chips por paquete para contextos largos), anunciados el 9-nov."
    },
    {
     "d": "2026–27",
@@ -574,6 +582,7 @@
   ],
   "watch": [
    "Resultados del 4T26 (2-feb-27) y cifra de capex 2027",
+   "Precio de salida de Anthropic (~18-nov) y valor de la participación de Alphabet",
    "FCF sin multa ni inventario de TPU",
    "Crecimiento de Búsqueda frente al de consultas",
    "Margen de Cloud y conversión de la cartera",
@@ -647,6 +656,16 @@
    }
   ],
   "news": [
+   {
+    "t": "Anthropic fija una horquilla de 70–78 $; Alphabet y Nvidia compran unos 10.000 M$ cada una en la colocación privada de 26.000 M$",
+    "src": "Trace Cohen · 10-nov-2026",
+    "u": "https://tracecohen.substack.com/p/special-edition-anthropic-sets-its"
+   },
+   {
+    "t": "Google presenta TPU 8tx y TPU 8i Max: cuatro sistemas TPU en un año y casi 100 clientes de TPU",
+    "src": "PPC Land · 9-nov-2026",
+    "u": "https://ppc.land/googles-ai-chip-business-nears-100-customers-as-it-adds-tpu-8tx-and-8i-max/"
+   },
    {
     "t": "Google invertirá 17.000 M$ en su primer centro de datos en Wyoming, con 702 MW de pilas de combustible de Bloom y captura de carbono, y pagará el 100% de su electricidad",
     "src": "Blog de Google",
