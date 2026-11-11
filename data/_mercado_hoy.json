@@ -1,6 +1,6 @@
 {
  "esquema": 1,
- "generado": "2026-11-10T15:49:59+00:00",
+ "generado": "2026-11-11T00:20:35+00:00",
  "grupos": {
   "bolsa": "Bolsa",
   "riesgo": "Volatilidad y crédito",
@@ -14,13 +14,13 @@
    "grupo": "bolsa",
    "simbolo": "SPY",
    "unidad": "$",
-   "valor": 747.43,
+   "valor": 749.92,
    "anterior": 752.69,
    "fecha": "2026-11-10",
    "fuente": "Finnhub",
    "url": "https://finnhub.io/",
-   "var": -5.26,
-   "var_pct": -0.7,
+   "var": -2.77,
+   "var_pct": -0.37,
    "vivo": {
     "ticker": "SPY",
     "modo": "directo"
@@ -32,13 +32,13 @@
    "grupo": "bolsa",
    "simbolo": "QQQ",
    "unidad": "$",
-   "valor": 673.52,
+   "valor": 674.76,
    "anterior": 679.35,
    "fecha": "2026-11-10",
    "fuente": "Finnhub",
    "url": "https://finnhub.io/",
-   "var": -5.83,
-   "var_pct": -0.86,
+   "var": -4.59,
+   "var_pct": -0.68,
    "vivo": {
     "ticker": "QQQ",
     "modo": "directo"
@@ -50,13 +50,13 @@
    "grupo": "bolsa",
    "simbolo": "URTH",
    "unidad": "$",
-   "valor": 203.36,
+   "valor": 203.86,
    "anterior": 204.82,
    "fecha": "2026-11-10",
    "fuente": "Finnhub",
    "url": "https://finnhub.io/",
-   "var": -1.46,
-   "var_pct": -0.71,
+   "var": -0.96,
+   "var_pct": -0.47,
    "vivo": {
     "ticker": "URTH",
     "modo": "directo"
@@ -69,13 +69,13 @@
    "grupo": "bolsa",
    "simbolo": "EWY",
    "unidad": "$",
-   "valor": 139.34,
+   "valor": 139.18,
    "anterior": 142.1,
    "fecha": "2026-11-10",
    "fuente": "Finnhub",
    "url": "https://finnhub.io/",
-   "var": -2.76,
-   "var_pct": -1.94,
+   "var": -2.92,
+   "var_pct": -2.05,
    "vivo": {
     "ticker": "EWY",
     "modo": "directo"
@@ -102,13 +102,13 @@
    "grupo": "riesgo",
    "simbolo": "HYG",
    "unidad": "$",
-   "valor": 77.21,
+   "valor": 77.18,
    "anterior": 77.51,
    "fecha": "2026-11-10",
    "fuente": "Finnhub",
    "url": "https://finnhub.io/",
-   "var": -0.3,
-   "var_pct": -0.39,
+   "var": -0.33,
+   "var_pct": -0.43,
    "vivo": {
     "ticker": "HYG",
     "modo": "directo"
@@ -120,13 +120,13 @@
    "grupo": "riesgo",
    "simbolo": "LQD",
    "unidad": "$",
-   "valor": 103.76,
+   "valor": 103.88,
    "anterior": 104.67,
    "fecha": "2026-11-10",
    "fuente": "Finnhub",
    "url": "https://finnhub.io/",
-   "var": -0.91,
-   "var_pct": -0.87,
+   "var": -0.79,
+   "var_pct": -0.75,
    "vivo": {
     "ticker": "LQD",
     "modo": "directo"
@@ -138,12 +138,12 @@
    "grupo": "riesgo",
    "simbolo": "BAMLH0A0HYM2",
    "unidad": "%",
-   "valor": 3.42,
-   "anterior": 3.48,
-   "fecha": "2026-11-06",
+   "valor": 3.34,
+   "anterior": 3.42,
+   "fecha": "2026-11-09",
    "fuente": "FRED (ICE BofA)",
    "url": "https://fred.stlouisfed.org/series/BAMLH0A0HYM2",
-   "var": -0.06
+   "var": -0.08
   },
   {
    "id": "kre",
@@ -151,13 +151,13 @@
    "grupo": "riesgo",
    "simbolo": "KRE",
    "unidad": "$",
-   "valor": 72.58,
+   "valor": 73.09,
    "anterior": 73.45,
    "fecha": "2026-11-10",
    "fuente": "Finnhub",
    "url": "https://finnhub.io/",
-   "var": -0.87,
-   "var_pct": -1.18,
+   "var": -0.36,
+   "var_pct": -0.49,
    "vivo": {
     "ticker": "KRE",
     "modo": "directo"
@@ -169,12 +169,12 @@
    "grupo": "tipos",
    "simbolo": "5 Yr",
    "unidad": "%",
-   "valor": 4.67,
-   "anterior": 4.64,
-   "fecha": "2026-11-09",
+   "valor": 4.81,
+   "anterior": 4.67,
+   "fecha": "2026-11-10",
    "fuente": "Tesoro de EE. UU.",
    "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve",
-   "var": 0.03
+   "var": 0.14
   },
   {
    "id": "us10y",
@@ -182,12 +182,12 @@
    "grupo": "tipos",
    "simbolo": "10 Yr",
    "unidad": "%",
-   "valor": 4.88,
-   "anterior": 4.86,
-   "fecha": "2026-11-09",
+   "valor": 4.98,
+   "anterior": 4.88,
+   "fecha": "2026-11-10",
    "fuente": "Tesoro de EE. UU.",
    "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve",
-   "var": 0.02
+   "var": 0.1
   },
   {
    "id": "eurusd",
@@ -196,12 +196,12 @@
    "simbolo": "EUR/USD",
    "unidad": "",
    "valor": 1.1168,
-   "anterior": 1.1224,
-   "fecha": "2026-11-10",
+   "anterior": 1.1167,
+   "fecha": "2026-11-11",
    "fuente": "Twelve Data",
    "url": "https://twelvedata.com/",
-   "var": -0.0056,
-   "var_pct": -0.5
+   "var": 0.0001,
+   "var_pct": 0.01
   },
   {
    "id": "oro",
@@ -209,13 +209,13 @@
    "grupo": "materias",
    "simbolo": "XAU/USD",
    "unidad": "$",
-   "valor": 4042.2646,
-   "anterior": 4134.0276,
-   "fecha": "2026-11-10",
+   "valor": 4038.8971,
+   "anterior": 4030.4241,
+   "fecha": "2026-11-11",
    "fuente": "Twelve Data",
    "url": "https://twelvedata.com/",
-   "var": -91.763,
-   "var_pct": -2.22
+   "var": 8.473,
+   "var_pct": 0.21
   },
   {
    "id": "wti",
@@ -237,13 +237,13 @@
    "grupo": "materias",
    "simbolo": "BTC/USD",
    "unidad": "$",
-   "valor": 73356.01,
-   "anterior": 75368.41,
-   "fecha": "2026-11-10",
+   "valor": 73678.87,
+   "anterior": 73796.06,
+   "fecha": "2026-11-11",
    "fuente": "Twelve Data",
    "url": "https://twelvedata.com/",
-   "var": -2012.4,
-   "var_pct": -2.67
+   "var": -117.19,
+   "var_pct": -0.16
   }
  ],
  "sentimiento": {
@@ -257,30 +257,30 @@
    "url": "https://www.financialresearch.gov/financial-stress-index/"
   },
   "miedo_codicia": {
-   "valor": 16.1,
+   "valor": 20.6,
    "etiqueta": "Miedo extremo",
-   "fecha": "2026-11-05",
+   "fecha": "2026-11-09",
    "n_componentes": 5,
    "anterior": {
-    "valor": 29.3,
-    "fecha": "2026-11-04"
+    "valor": 16.5,
+    "fecha": "2026-11-06"
    },
    "hace_1s": {
-    "valor": 19.7,
-    "fecha": "2026-10-29"
+    "valor": 19.4,
+    "fecha": "2026-11-02"
    },
    "hace_1m": {
-    "valor": 47.9,
-    "fecha": "2026-10-07"
+    "valor": 46.0,
+    "fecha": "2026-10-09"
    },
    "componentes": [
     {
      "id": "impulso",
      "nombre": "Impulso del mercado",
      "descripcion": "S&P 500 frente a su media de 125 sesiones. Por encima, codicia.",
-     "puntuacion": 9.7,
+     "puntuacion": 14.3,
      "etiqueta": "Miedo extremo",
-     "bruto": -0.031,
+     "bruto": -0.0053,
      "fuente": "S&P 500 vía FRED",
      "url": "https://fred.stlouisfed.org/series/SP500"
     },
@@ -288,9 +288,9 @@
      "id": "volatilidad",
      "nombre": "Volatilidad",
      "descripcion": "VIX frente a su media de 50 sesiones. Si sube por encima, miedo.",
-     "puntuacion": 0.8,
+     "puntuacion": 15.9,
      "etiqueta": "Miedo extremo",
-     "bruto": 0.6876,
+     "bruto": 0.1703,
      "fuente": "VIX (Cboe) vía FRED",
      "url": "https://fred.stlouisfed.org/series/VIXCLS"
     },
@@ -298,9 +298,9 @@
      "id": "bonos_basura",
      "nombre": "Demanda de bonos basura",
      "descripcion": "Diferencial high yield menos el de grado de inversión. Si se abre, miedo.",
-     "puntuacion": 4.6,
+     "puntuacion": 8.3,
      "etiqueta": "Miedo extremo",
-     "bruto": 2.55,
+     "bruto": 2.43,
      "fuente": "FRED (ICE BofA)",
      "url": "https://fred.stlouisfed.org/series/BAMLH0A0HYM2"
     },
@@ -308,9 +308,9 @@
      "id": "refugio",
      "nombre": "Demanda de refugio",
      "descripcion": "Rentabilidad a 20 sesiones de la bolsa menos la del bono a 10 años. Si ganan los bonos, miedo.",
-     "puntuacion": 2.4,
+     "puntuacion": 4.6,
      "etiqueta": "Miedo extremo",
-     "bruto": -8.9451,
+     "bruto": -6.7715,
      "fuente": "S&P 500 y bono a 10 años vía FRED",
      "url": "https://fred.stlouisfed.org/series/DGS10"
     },
@@ -318,22 +318,14 @@
      "id": "put_call",
      "nombre": "Ratio put/call",
      "descripcion": "Media de 5 sesiones del ratio put/call total del Cboe. Muchas puts, miedo.",
-     "puntuacion": 63.0,
+     "puntuacion": 60.0,
      "etiqueta": "Codicia",
-     "bruto": 0.898,
+     "bruto": 0.91,
      "fuente": "Cboe · estadísticas diarias",
      "url": "https://www.cboe.com/us/options/market_statistics/daily/"
     }
    ],
    "serie": [
-    [
-     "2026-08-13",
-     82.7
-    ],
-    [
-     "2026-08-14",
-     86.5
-    ],
     [
      "2026-08-17",
      79.7
@@ -565,6 +557,14 @@
     [
      "2026-11-05",
      16.1
+    ],
+    [
+     "2026-11-06",
+     16.5
+    ],
+    [
+     "2026-11-09",
+     20.6
     ]
    ],
    "metodo": "Media de los componentes disponibles, cada uno puntuado de 0 a 100 según su percentil frente a los dos últimos años de sesiones (el put/call, por tramos fijos). Misma receta que el índice de CNN, sin los dos componentes de amplitud de la NYSE, que no tienen fuente gratuita."
@@ -579,7 +579,7 @@
      "fin": "2026-12-09",
      "proyecciones": true,
      "hora_madrid": "20:00",
-     "dias": 29,
+     "dias": 28,
      "comunicado": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261209a.htm",
      "rueda_prensa": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20261209.htm",
      "actas_fecha": "2026-12-30",
@@ -590,7 +590,7 @@
      "fin": "2027-01-27",
      "proyecciones": false,
      "hora_madrid": "20:00",
-     "dias": 78,
+     "dias": 77,
      "comunicado": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20270127a.htm",
      "rueda_prensa": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20270127.htm",
      "actas_fecha": "2027-02-17"
@@ -600,7 +600,7 @@
      "fin": "2027-03-17",
      "proyecciones": true,
      "hora_madrid": "19:00",
-     "dias": 127,
+     "dias": 126,
      "comunicado": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20270317a.htm",
      "rueda_prensa": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20270317.htm",
      "actas_fecha": "2027-04-07",
@@ -611,7 +611,7 @@
      "fin": "2027-04-28",
      "proyecciones": false,
      "hora_madrid": "20:00",
-     "dias": 169,
+     "dias": 168,
      "comunicado": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20270428a.htm",
      "rueda_prensa": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20270428.htm",
      "actas_fecha": "2027-05-19"
@@ -622,7 +622,7 @@
     "fin": "2026-10-28",
     "proyecciones": false,
     "hora_madrid": "19:00",
-    "dias": -13,
+    "dias": -14,
     "comunicado": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261028a.htm",
     "rueda_prensa": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20261028.htm",
     "actas_fecha": "2026-11-18",
@@ -677,30 +677,30 @@
    "plazos": [
     {
      "plazo": "3 meses",
-     "valor": 4.24,
-     "fecha": "2026-11-09",
-     "dif_pb": 36,
+     "valor": 4.3,
+     "fecha": "2026-11-10",
+     "dif_pb": 42,
      "lectura": "subidas"
     },
     {
      "plazo": "6 meses",
-     "valor": 4.26,
-     "fecha": "2026-11-09",
-     "dif_pb": 38,
-     "lectura": "subidas"
-    },
-    {
-     "plazo": "1 año",
      "valor": 4.38,
-     "fecha": "2026-11-09",
+     "fecha": "2026-11-10",
      "dif_pb": 50,
      "lectura": "subidas"
     },
     {
-     "plazo": "2 años",
+     "plazo": "1 año",
      "valor": 4.56,
-     "fecha": "2026-11-09",
+     "fecha": "2026-11-10",
      "dif_pb": 68,
+     "lectura": "subidas"
+    },
+    {
+     "plazo": "2 años",
+     "valor": 4.73,
+     "fecha": "2026-11-10",
+     "dif_pb": 85,
      "lectura": "subidas"
     }
    ],
@@ -710,14 +710,14 @@
   },
   "pendiente": {
    "10a_2a": {
-    "pb": 32,
+    "pb": 25,
     "hace_1m": 44,
-    "fecha": "2026-11-09"
+    "fecha": "2026-11-10"
    },
    "10a_3m": {
-    "pb": 64,
+    "pb": 68,
     "hace_1m": 99,
-    "fecha": "2026-11-09"
+    "fecha": "2026-11-10"
    },
    "fuente": "Tesoro de EE. UU.",
    "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve"
@@ -756,23 +756,23 @@
     "url": "https://fred.stlouisfed.org/series/PCEPILFE"
    },
    "esperada_10a": {
-    "valor": 2.22,
-    "fecha": "2026-11-09",
+    "valor": 2.2,
+    "fecha": "2026-11-10",
     "hace_1m": 2.33,
     "nombre": "Inflación esperada a 10 años",
     "url": "https://fred.stlouisfed.org/series/T10YIE"
    },
    "esperada_5a5a": {
-    "valor": 2.19,
-    "fecha": "2026-11-09",
+    "valor": 2.15,
+    "fecha": "2026-11-10",
     "hace_1m": 2.32,
     "nombre": "Inflación esperada de dentro de 5 a 10 años",
     "url": "https://fred.stlouisfed.org/series/T5YIFR"
    },
    "real_10a": {
-    "valor": 2.63,
-    "fecha": "2026-11-06",
-    "hace_1m": 2.92,
+    "valor": 2.66,
+    "fecha": "2026-11-09",
+    "hace_1m": 2.91,
     "nombre": "Tipo real a 10 años (TIPS)",
     "url": "https://fred.stlouisfed.org/series/DFII10"
    },
@@ -786,219 +786,6 @@
   },
   "agenda": {
    "items": [
-    {
-     "id": "ipc",
-     "nombre": "IPC (inflación)",
-     "fuente": "BLS",
-     "url": "https://www.bls.gov/cpi/",
-     "ultimo": null,
-     "graficos": [
-      {
-       "id": "CPIAUCSL",
-       "nombre": "IPC general",
-       "modo": "ia",
-       "puntos": [
-        [
-         "2024-10",
-         2.58
-        ],
-        [
-         "2024-11",
-         2.72
-        ],
-        [
-         "2024-12",
-         2.87
-        ],
-        [
-         "2025-01",
-         2.99
-        ],
-        [
-         "2025-02",
-         2.8
-        ],
-        [
-         "2025-03",
-         2.38
-        ],
-        [
-         "2025-04",
-         2.33
-        ],
-        [
-         "2025-05",
-         2.38
-        ],
-        [
-         "2025-06",
-         2.68
-        ],
-        [
-         "2025-07",
-         2.74
-        ],
-        [
-         "2025-08",
-         2.94
-        ],
-        [
-         "2025-09",
-         3.02
-        ],
-        [
-         "2025-11",
-         2.7
-        ],
-        [
-         "2025-12",
-         2.65
-        ],
-        [
-         "2026-01",
-         2.39
-        ],
-        [
-         "2026-02",
-         2.43
-        ],
-        [
-         "2026-03",
-         3.29
-        ],
-        [
-         "2026-04",
-         3.78
-        ],
-        [
-         "2026-05",
-         4.17
-        ],
-        [
-         "2026-06",
-         3.46
-        ],
-        [
-         "2026-07",
-         3.3
-        ],
-        [
-         "2026-08",
-         3.35
-        ],
-        [
-         "2026-09",
-         3.72
-        ]
-       ],
-       "url": "https://fred.stlouisfed.org/series/CPIAUCSL"
-      },
-      {
-       "id": "CPILFESL",
-       "nombre": "IPC subyacente",
-       "modo": "ia",
-       "puntos": [
-        [
-         "2024-10",
-         3.3
-        ],
-        [
-         "2024-11",
-         3.29
-        ],
-        [
-         "2024-12",
-         3.21
-        ],
-        [
-         "2025-01",
-         3.28
-        ],
-        [
-         "2025-02",
-         3.14
-        ],
-        [
-         "2025-03",
-         2.81
-        ],
-        [
-         "2025-04",
-         2.78
-        ],
-        [
-         "2025-05",
-         2.77
-        ],
-        [
-         "2025-06",
-         2.91
-        ],
-        [
-         "2025-07",
-         3.05
-        ],
-        [
-         "2025-08",
-         3.11
-        ],
-        [
-         "2025-09",
-         3.02
-        ],
-        [
-         "2025-11",
-         2.6
-        ],
-        [
-         "2025-12",
-         2.65
-        ],
-        [
-         "2026-01",
-         2.51
-        ],
-        [
-         "2026-02",
-         2.47
-        ],
-        [
-         "2026-03",
-         2.6
-        ],
-        [
-         "2026-04",
-         2.74
-        ],
-        [
-         "2026-05",
-         2.82
-        ],
-        [
-         "2026-06",
-         2.57
-        ],
-        [
-         "2026-07",
-         2.47
-        ],
-        [
-         "2026-08",
-         2.45
-        ],
-        [
-         "2026-09",
-         2.57
-        ]
-       ],
-       "url": "https://fred.stlouisfed.org/series/CPILFESL"
-      }
-     ],
-     "fecha": "2026-11-10",
-     "hora_madrid": "14:30",
-     "siguiente": "2026-12-10",
-     "anterior": "2026-10-14"
-    },
     {
      "id": "ipp",
      "nombre": "Precios de producción (IPP)",
@@ -1625,6 +1412,218 @@
      "fecha": "2026-12-04",
      "hora_madrid": "14:30",
      "anterior": "2026-11-06"
+    },
+    {
+     "id": "ipc",
+     "nombre": "IPC (inflación)",
+     "fuente": "BLS",
+     "url": "https://www.bls.gov/cpi/",
+     "ultimo": null,
+     "graficos": [
+      {
+       "id": "CPIAUCSL",
+       "nombre": "IPC general",
+       "modo": "ia",
+       "puntos": [
+        [
+         "2024-10",
+         2.58
+        ],
+        [
+         "2024-11",
+         2.72
+        ],
+        [
+         "2024-12",
+         2.87
+        ],
+        [
+         "2025-01",
+         2.99
+        ],
+        [
+         "2025-02",
+         2.8
+        ],
+        [
+         "2025-03",
+         2.38
+        ],
+        [
+         "2025-04",
+         2.33
+        ],
+        [
+         "2025-05",
+         2.38
+        ],
+        [
+         "2025-06",
+         2.68
+        ],
+        [
+         "2025-07",
+         2.74
+        ],
+        [
+         "2025-08",
+         2.94
+        ],
+        [
+         "2025-09",
+         3.02
+        ],
+        [
+         "2025-11",
+         2.7
+        ],
+        [
+         "2025-12",
+         2.65
+        ],
+        [
+         "2026-01",
+         2.39
+        ],
+        [
+         "2026-02",
+         2.43
+        ],
+        [
+         "2026-03",
+         3.29
+        ],
+        [
+         "2026-04",
+         3.78
+        ],
+        [
+         "2026-05",
+         4.17
+        ],
+        [
+         "2026-06",
+         3.46
+        ],
+        [
+         "2026-07",
+         3.3
+        ],
+        [
+         "2026-08",
+         3.35
+        ],
+        [
+         "2026-09",
+         3.72
+        ]
+       ],
+       "url": "https://fred.stlouisfed.org/series/CPIAUCSL"
+      },
+      {
+       "id": "CPILFESL",
+       "nombre": "IPC subyacente",
+       "modo": "ia",
+       "puntos": [
+        [
+         "2024-10",
+         3.3
+        ],
+        [
+         "2024-11",
+         3.29
+        ],
+        [
+         "2024-12",
+         3.21
+        ],
+        [
+         "2025-01",
+         3.28
+        ],
+        [
+         "2025-02",
+         3.14
+        ],
+        [
+         "2025-03",
+         2.81
+        ],
+        [
+         "2025-04",
+         2.78
+        ],
+        [
+         "2025-05",
+         2.77
+        ],
+        [
+         "2025-06",
+         2.91
+        ],
+        [
+         "2025-07",
+         3.05
+        ],
+        [
+         "2025-08",
+         3.11
+        ],
+        [
+         "2025-09",
+         3.02
+        ],
+        [
+         "2025-11",
+         2.6
+        ],
+        [
+         "2025-12",
+         2.65
+        ],
+        [
+         "2026-01",
+         2.51
+        ],
+        [
+         "2026-02",
+         2.47
+        ],
+        [
+         "2026-03",
+         2.6
+        ],
+        [
+         "2026-04",
+         2.74
+        ],
+        [
+         "2026-05",
+         2.82
+        ],
+        [
+         "2026-06",
+         2.57
+        ],
+        [
+         "2026-07",
+         2.47
+        ],
+        [
+         "2026-08",
+         2.45
+        ],
+        [
+         "2026-09",
+         2.57
+        ]
+       ],
+       "url": "https://fred.stlouisfed.org/series/CPILFESL"
+      }
+     ],
+     "fecha": "2026-12-10",
+     "hora_madrid": "14:30",
+     "anterior": "2026-11-10"
     }
    ],
    "fuente": "Fechas oficiales del BLS y el BEA vía FRED",
