@@ -6,7 +6,7 @@
   "hq": "Irving, Texas",
   "founded": "2016 (raíces en TXU, 1882)",
   "employees": "6.390",
-  "asOf": "10-nov-2026",
+  "asOf": "11-nov-2026",
   "nextEarnings": "Feb-2027 (4T26, fecha por confirmar)"
  },
  "overview": {
@@ -47,13 +47,29 @@
    },
    {
     "k": "Liquidez",
-    "v": "8.923 M$ a sep-26; ~5.400 M$ pro forma tras Cogentrix y preferentes"
+    "v": "8.923 M$ a sep-26 (caja 2.743 M$); ~5.400 M$ pro forma tras Cogentrix y preferentes"
+   },
+   {
+    "k": "Deuda total a sep-26",
+    "v": "21.146 M$ (17.043 M$ en dic-25); 2.877 M$ vencen en 12 meses"
+   },
+   {
+    "k": "Caja operativa 9M26",
+    "v": "4.330 M$ (2.638 M$ en 9M25)"
    }
   ],
   "catalysts": [
    {
-    "d": "Nov-26",
-    "t": "10-Q del 3T26: deuda total y caja tras la compra de Cogentrix."
+    "d": "Desde 9-nov-26",
+    "t": "El vendedor de Cogentrix (Q-Generation Holdings) puede revender hasta 5 M de acciones (~1,5% del capital), ya registradas en la SEC: posible presión vendedora."
+   },
+   {
+    "d": "15-dic-26",
+    "t": "Amortización de todas las preferentes de la Serie B (aviso ya enviado a los titulares)."
+   },
+   {
+    "d": "Feb-27",
+    "t": "10-K 2026: valor razonable de los activos de Cogentrix, cifras pro forma y deuda total tras repagar los 1.700 M$ asumidos."
    },
    {
     "d": "2026–2028",
@@ -138,7 +154,7 @@
    {
     "n": "Balance",
     "s": 2,
-    "note": "21.146 M$ de deuda a sep-26 (10-Q) y ~25.000 M$ pro forma tras Cogentrix, ~3,4 veces el EBITDA de 2026; más 2.476 M$ de preferentes"
+    "note": "21.146 M$ de deuda a sep-26 (antes de las disposiciones de oct-nov), ~2,9 veces el EBITDA de 2026"
    }
   ],
   "phase": 3,
@@ -420,7 +436,10 @@
     "Amortizadas las preferentes de la Serie A (1.000 M$); 2.200 M$ en efectivo por Cogentrix y repago de ~1.700 M$ de su deuda.",
     "9M26: emisiones de deuda de 7.985 M$, recompras de 917 M$ y dividendos ordinarios de 231 M$.",
     "Desde nov-2021 ha retirado ~172 M de acciones a un coste medio de ~39 $; en 2026 lleva ~1.000 M$ recomprados hasta el 2-nov.",
-    "Prioridad: recompras manteniendo métricas de grado de inversión."
+    "Prioridad: recompras manteniendo métricas de grado de inversión.",
+    "3T26: recompró 1,43 M de acciones a 145,63 $ de media; a 30-sep quedaban 1.082 M$ de la autorización anterior, a los que se suman los 1.500 M$ nuevos.",
+    "26-oct: swaps de tipos de interés por 1.000 M$ para fijar el coste de futuras emisiones de bonos (de ene-2027 a ene-2037).",
+    "8-oct: vendidas las centrales de gas de Casco Bay, Beaver Falls y Syracuse (754 MW en ISO-NE y NYISO)."
    ]
   }
  },
@@ -437,7 +456,7 @@
    "cat": "Financiero",
    "p": 3,
    "i": 3,
-   "note": "7.985 M$ de emisiones de deuda en 9M26 y compra de Cogentrix; liquidez ~5.400 M$ pro forma. Deuda a sep-26: 21.146 M$ (10-Q), ~25.000 M$ pro forma tras Cogentrix"
+   "note": "Deuda a largo plazo de 21.146 M$ a sep-26 (17.043 M$ en dic-25), 2.877 M$ con vencimiento en 12 meses. Después pagó ~2.200 M$ en efectivo por Cogentrix, amortizó la Serie A de preferentes (1.000 M$) y repagó 1.700 M$ de deuda de Cogentrix con caja y con toda la capacidad de sus líneas de cuentas a cobrar y de recompra; la Serie B se amortiza el 15-dic-26. Liquidez ~5.400 M$ pro forma."
   },
   {
    "n": "Retrasos regulatorios en centros de datos",
@@ -492,7 +511,7 @@
  "v": {
   "shares": 339,
   "cash": 2743,
-  "debt": 27522,
+  "debt": 21146,
   "rev0": 22200,
   "year0": 2026,
   "g": [
