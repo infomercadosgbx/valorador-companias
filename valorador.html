@@ -501,8 +501,8 @@ details.asmore>.asrow{margin-top:8px}
 .drow2 .asline{border-top:0;padding-top:0} .drow2 details.asmore{margin-top:4px}
 @media (max-width:900px){.drow2{grid-template-columns:minmax(0,1fr) minmax(0,1fr)} .drow2 .dname{grid-column:1/-1}}
 @media (max-width:560px){.drow2{grid-template-columns:minmax(0,1fr)}}
-.vhist td.chg{text-align:left;font-family:var(--f-body);white-space:normal;min-width:260px;font-size:12.5px;color:var(--ink2)} .vhist td.chg b{color:var(--ink);font-family:var(--f-num);font-weight:600}
-.vhist td.chg .vn{display:block;color:var(--ink);margin-top:2px} .vhist td.chg input{width:100%;min-width:180px}
+.vhist td.chg{text-align:left;font-family:var(--f-body);white-space:normal;min-width:140px;font-size:12.5px;color:var(--ink2)} .vhist td.chg b{color:var(--ink);font-family:var(--f-num);font-weight:600}
+.vhist td.chg .vn{display:inline-block;margin-left:8px;font-size:11.5px;color:var(--ink2);cursor:help} .vhist .vchg{border:1px solid var(--line);background:var(--surface2);border-radius:999px;padding:3px 10px;font-size:12.5px;font-weight:600;color:var(--ink);cursor:pointer;white-space:nowrap} .vhist .vchg:hover{border-color:var(--tcx,var(--ink))} .vhist td.chg input{width:100%;min-width:180px}
 .vhist .vx{border:0;background:none;color:var(--ink3,var(--ink2));cursor:pointer;font-size:15px;padding:2px 6px;border-radius:6px} .vhist .vx:hover{color:var(--critText);background:color-mix(in srgb,var(--crit) 12%,transparent)}
 .vhist .vx.armed{color:var(--critText);font-size:12px;font-weight:600}
 .vhist td input[type=number]{width:84px} .vhist td select{min-width:110px}
@@ -4866,14 +4866,26 @@ const hoyIso=()=>{ const d=new Date(); return `${d.getFullYear()}-${String(d.get
 function vFmt(k,x){ if(x==null) return "–"; if(k==="method") return MET_TV[x]||x; if(k==="g") return (x||[]).map(v=>nf(v,v%1?1:0)).join("/");
   if(k==="scn") return (x||[]).map(c=>`${nf(c.p,0)}%`).join("/"); if(typeof x==="number") return nf(x,Math.abs(x)>=1000||Number.isInteger(x)?0:(Math.abs(x)<10?2:1)); return String(x); }
 function vChanges(x,prev){
-  if(!prev) return [`<span class="note">Primer veredicto registrado</span>`];
-  const out=[], A=prev.supuestos||{}, B=x.supuestos||{};
-  if(prev.recomendacion!==x.recomendacion) out.push(`recomendación <b>${esc(prev.recomendacion||"–")} → ${esc(x.recomendacion||"–")}</b>`);
-  if(+prev.conviccion!==+x.conviccion) out.push(`convicción <b>${vFmt("c",prev.conviccion)} → ${vFmt("c",x.conviccion)}</b>`);
-  if(+prev.comprar_por_debajo!==+x.comprar_por_debajo) out.push(`comprar por debajo <b>${vFmt("c",prev.comprar_por_debajo)} → ${vFmt("c",x.comprar_por_debajo)}</b>`);
+  if(!prev) return null; const out=[], A=prev.supuestos||{}, B=x.supuestos||{};
+  if(prev.recomendacion!==x.recomendacion) out.push({grp:"v",lab:"Recomendación",a:prev.recomendacion||"–",b:x.recomendacion||"–"});
+  if(+prev.conviccion!==+x.conviccion) out.push({grp:"v",lab:"Convicción",a:fin(+prev.conviccion)?nf(prev.conviccion,prev.conviccion%1?1:0)+"/5":"–",b:fin(+x.conviccion)?nf(x.conviccion,x.conviccion%1?1:0)+"/5":"–"});
+  if(+prev.comprar_por_debajo!==+x.comprar_por_debajo) out.push({grp:"v",lab:"Comprar por debajo de",a:money(+prev.comprar_por_debajo),b:money(+x.comprar_por_debajo)});
   const ks=[...new Set([...VSUP_ORD,...Object.keys(A),...Object.keys(B)])].filter(k=>!VSUP_FUERA.has(k));
-  ks.forEach(k=>{ if(JSON.stringify(A[k])===JSON.stringify(B[k])||(A[k]===undefined||B[k]===undefined)) return; out.push(`${VSUP_LAB[k]||esc(k)} <b>${vFmt(k,A[k])} → ${vFmt(k,B[k])}</b>`); });
-  return out.length?out:[`<span class="note">Sin cambios en recomendación ni supuestos</span>`];
+  ks.forEach(k=>{ if(A[k]===undefined||B[k]===undefined||JSON.stringify(A[k])===JSON.stringify(B[k])) return;
+    const L=VSUP_LAB[k]||k, lab=L.charAt(0).toUpperCase()+L.slice(1);
+    if(k==="g"&&Array.isArray(A.g)&&Array.isArray(B.g)){ const y0=+(B.year0??A.year0)||0; B.g.forEach((v,j)=>{ if(A.g[j]!==v) out.push({grp:"s",lab:`Crecimiento ${y0?y0+j+1:"año "+(j+1)}`,a:pct(A.g[j],1),b:pct(v,1)}); }); return; }
+    const pctK=new Set(["m1","m5","wacc","tg","da","da5","sbc","capex","capex5","nwc","tax"]);
+    out.push({grp:"s",lab,a:pctK.has(k)?pct(A[k],k==="wacc"||k==="tg"?2:1):k==="exit"||k==="pe"||k==="evm"?nf(A[k],1)+"x":vFmt(k,A[k]),b:pctK.has(k)?pct(B[k],k==="wacc"||k==="tg"?2:1):k==="exit"||k==="pe"||k==="evm"?nf(B[k],1)+"x":vFmt(k,B[k])}); });
+  return out;
+}
+function vChangesModal(i){
+  const x=cur.veredictos[i], prev=cur.veredictos[i-1], L=vChanges(x,prev)||[], v0=vValue(prev), v1=vValue(x), d=fin(v0)&&fin(v1)&&v0>0?(v1/v0-1)*100:NaN;
+  const tb=(t,g)=>{ const r=L.filter(c=>c.grp===g); return r.length?`<tr class="grp"><td colspan="3">${t}</td></tr>${r.map(c=>`<tr><td style="text-align:left;font-family:var(--f-body)">${esc(c.lab)}</td><td>${esc(c.a)}</td><td><b>${esc(c.b)}</b></td></tr>`).join("")}`:""; };
+  $("modal").innerHTML=`<div style="display:flex;justify-content:space-between;gap:12px;align-items:flex-start"><div><div class="eyebrow">${esc(cur.meta.name)} · veredicto del ${esc(fecha(x.fecha))}</div><h2 id="mTitle">Qué cambió frente al ${esc(fecha(prev.fecha))}</h2></div><button type="button" class="x" data-close aria-label="Cerrar">×</button></div>
+    <div class="scroll"><table><thead><tr><th style="text-align:left">Concepto</th><th>Antes</th><th>Ahora</th></tr></thead><tbody>${tb("Tu veredicto","v")}${tb("Supuestos del DCF","s")}</tbody></table></div>
+    ${fin(v0)&&fin(v1)?`<p class="note" style="margin:0">Valor con esos supuestos: <b>${money(v0)}</b> → <b>${money(v1)}</b>${fin(d)?` (<span style="color:${d>=0?"var(--goodText)":"var(--critText)"}">${d>=0?"+":"−"}${nf(Math.abs(d),1)}%</span>)`:""}, con las cifras de la SEC actuales.</p>`:""}
+    ${x.nota?`<div><span class="eyebrow">Nota</span><p style="margin:2px 0 0">${esc(x.nota)}</p></div>`:""}`;
+  $("overlay").hidden=false; setTimeout(()=>{const b=$("modal").querySelector("[data-close]"); if(b) b.focus();},0);
 }
 function vPrice(x){ if(fin(+x.precio)&&+x.precio>0) return +x.precio; const Hs=cur._data&&cur._data.historico_precio&&cur._data.historico_precio.serie; if(!Hs||!x.fecha) return NaN; let p=null; for(const q of Hs){ if(q[0]<=x.fecha) p=q; else break; } return p?p[1]:NaN; }
 function vValue(x){ try{ return valuation({v:Object.assign({},cur.v,x.supuestos||{},{price:cur.v.price})}).w; }catch(e){ return NaN; } }
@@ -4889,14 +4901,14 @@ function vRegister(){
 function histHtml(){
   const L=(cur.veredictos||[]).map((x,i)=>({x,i})), P=cur.v.price;
   const rows=L.slice().reverse().map(({x,i},j,arr)=>{ const prev=i>0?cur.veredictos[i-1]:null, p0=vPrice(x), val=vValue(x), ch=fin(p0)&&fin(P)?(P/p0-1)*100:NaN, chg=vChanges(x,prev), b=`veredictos.${i}`;
-    const chgTxt=chg.length>3?chg.slice(0,3).join(" · ")+` <span class="note" title="${esc(chg.slice(3).map(t=>t.replace(/<[^>]+>/g,"")).join(" · "))}">y ${chg.length-3} más</span>`:chg.join(" · ");
+    const chgTxt=!chg?`<span class="note">Primer veredicto</span>`:!chg.length?`<span class="note">Sin cambios</span>`:`<button type="button" class="vchg" data-vchg="${i}">${chg.length} ${chg.length===1?"cambio":"cambios"} <span aria-hidden="true">›</span></button>`;
     return `<tr><td>${esc(fecha(x.fecha))}</td>
       <td style="text-align:left;font-family:var(--f-body)">${EDIT?sel(b+".recomendacion",RATINGS):ratingPill(x.recomendacion)}</td>
       <td>${EDIT?nm(b+".conviccion",{lab:"Convicción",step:0.5}):fin(+x.conviccion)?nf(x.conviccion,x.conviccion%1?1:0)+"/5":"–"}</td>
       <td>${EDIT?nm(b+".comprar_por_debajo",{lab:"Comprar por debajo de"}):fin(+x.comprar_por_debajo)?money(+x.comprar_por_debajo):"–"}</td>
       <td>${money(val)}</td><td>${fin(p0)?money(p0):"–"}</td>
       <td>${fin(ch)?`<span style="color:${ch>=0?"var(--goodText)":"var(--critText)"}">${ch>=0?"+":""}${nf(ch,1)}%</span>`:"–"}</td>
-      <td class="chg">${chgTxt}${EDIT?`<input type="text" class="ed" data-p="${b}.nota" value="${esc(x.nota||"")}" placeholder="Nota (opcional): por qué lo registras" aria-label="Nota">`:x.nota?`<span class="vn">${esc(x.nota)}</span>`:""}</td>
+      <td class="chg">${chgTxt}${EDIT?`<input type="text" class="ed" data-p="${b}.nota" value="${esc(x.nota||"")}" placeholder="Nota (opcional): por qué lo registras" aria-label="Nota">`:x.nota?`<span class="vn" title="${esc(x.nota)}">Con nota</span>`:""}</td>
       <td><button type="button" class="vx" data-vdel="${i}" aria-label="Borrar el veredicto del ${esc(fecha(x.fecha))}" title="Borrar">×</button></td></tr>`; }).join("");
   const Hs=cur._data&&cur._data.historico_precio&&cur._data.historico_precio.serie;
   const fvc=L.length&&Hs?`<section class="card" style="--tc:var(--c4)"><h2>Valor razonable frente al precio</h2><p class="sub">El precio diario frente al valor que daba tu DCF en cada veredicto registrado y tu precio de compra. La distancia entre las dos líneas es el margen de seguridad: así ves si la oportunidad se abre o se cierra.</p>
@@ -4904,8 +4916,8 @@ function histHtml(){
     <p class="note" style="margin:0">${(()=>{ const w=valuation(cur).w, p=cur.v.price; return fin(w)&&fin(p)?`Hoy: valor ${money(w)} y precio ${money(p)} → margen de seguridad <b style="color:${w>=p?"var(--goodText)":"var(--critText)"}">${w>=p?"+":"−"}${nf(Math.abs(w/p-1)*100,0)}%</b>. `:""; })()}Precio: Twelve Data (cierre diario, ajustado por splits). Valor: los supuestos de cada veredicto con las cifras de la SEC actuales; las líneas punteadas llevan tu valor y tu precio de compra de hoy hacia atrás, como referencia.</p></section>`:"";
   return fvc+`<section class="card vhist" id="vhist"><div class="vhhead"><h2>Historial de veredictos</h2><button type="button" class="btn-acc" id="btnVReg">Registrar veredicto de hoy</button></div>
     <p class="sub">Cada fila es un veredicto que registraste: tu recomendación, tu precio de compra y los supuestos del DCF de ese día. Probar y guardar supuestos no crea filas; solo el botón. ${EDIT?"Puedes corregir recomendación, convicción, precio de compra y nota.":"Para corregir una fila pulsa «Editar»; para borrarla, la ×."}</p>
-    ${L.length?`<div class="scroll"><table><thead><tr><th>Fecha</th><th style="text-align:left">Recomendación</th><th>Convicción</th><th>Comprar por debajo de</th><th>Valor con esos supuestos</th><th>Precio ese día</th><th>Desde entonces</th><th style="text-align:left">Qué cambió</th><th></th></tr></thead><tbody>${rows}</tbody></table></div>
-    <p class="note">«Valor con esos supuestos» se recalcula con los supuestos de cada fila y las cifras de la SEC actuales, así que dos filas con el mismo valor tienen los mismos supuestos. «Qué cambió» compara con la fila anterior. Hoy: ${money(P)}. Los cambios se conservan al pulsar «Guardar en GitHub».</p>`:`<p class="empty">Aún no hay veredictos registrados. Cuando tengas tu recomendación y tus supuestos listos, pulsa «Registrar veredicto de hoy».</p>`}</section>`;
+    ${L.length?`<div class="scroll"><table><thead><tr><th>Fecha</th><th style="text-align:left">Recomendación</th><th>Convicción</th><th>Comprar por debajo de</th><th>Valor con esos supuestos</th><th>Precio ese día</th><th>Desde entonces</th><th style="text-align:left">Cambios</th><th></th></tr></thead><tbody>${rows}</tbody></table></div>
+    <p class="note">«Valor con esos supuestos» se recalcula con los supuestos de cada fila y las cifras de la SEC actuales, así que dos filas con el mismo valor tienen los mismos supuestos. «Cambios» compara con la fila anterior: púlsalo para ver el detalle. Hoy: ${money(P)}. Los cambios se conservan al pulsar «Guardar en GitHub».</p>`:`<p class="empty">Aún no hay veredictos registrados. Cuando tengas tu recomendación y tus supuestos listos, pulsa «Registrar veredicto de hoy».</p>`}</section>`;
 }
 function retHtml(vz,s){
   if(!vz.ok||!fin(cur.v.price)) return "";
@@ -5318,6 +5330,7 @@ document.addEventListener("click",e=>{
   if(e.target.closest("#btnGhForget")){ lsSet("valorador.ghtoken",null); renderGhBox(); renderDraft(); toast("Token olvidado en este navegador"); return; }
   const dc=e.target.closest("#btnDiscard"); if(dc){ if(dc.dataset.armed!=="1"){dc.dataset.armed="1"; dc.textContent="¿Seguro? Pulsa otra vez"; setTimeout(()=>{if(dc.isConnected){dc.dataset.armed=""; dc.textContent="Descartar";}},3000); return;} discardDraft(); return;}
   if(e.target.closest("#btnVReg")){ vRegister(); return; }
+  const vc=e.target.closest("[data-vchg]"); if(vc){ vChangesModal(+vc.dataset.vchg); return; }
   const vd=e.target.closest("[data-vdel]"); if(vd){ if(vd.dataset.armed!=="1"){ vd.dataset.armed="1"; vd.classList.add("armed"); vd.textContent="¿Borrar?"; setTimeout(()=>{ if(vd.isConnected){ vd.dataset.armed=""; vd.classList.remove("armed"); vd.textContent="×"; } },3000); return; }
     cur.veredictos.splice(+vd.dataset.vdel,1); save(); renderTab(); renderHeader(); toast(ghToken()?"Veredicto borrado. Pulsa «Guardar en GitHub» para conservarlo.":"Veredicto borrado del borrador."); return; }
   const uw=e.target.closest("[data-usewacc]"); if(uw){ cur.v.wacc=+uw.dataset.usewacc; save(); renderTab(); renderHeader(); return; }
