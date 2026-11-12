@@ -485,6 +485,14 @@ def build_instant(cf, cik, concept_key, ref_end):
                 if tf:
                     gm.append((t, {d(k): v for k, v in latest_by(tf, lambda f: f["end"]).items()}))
             opt_maps.append((group, gm))
+        extra_maps = []
+        for group in strat.get("extra", []):
+            gm = []
+            for t in group:
+                tf = raw_facts(cf, t, "USD")
+                if tf:
+                    gm.append((t, {d(k): v for k, v in latest_by(tf, lambda f: f["end"]).items()}))
+            extra_maps.append(gm)
         hist = []
         for end_s, f in sorted(main.items()):
             end = d(end_s)
@@ -508,6 +516,16 @@ def build_instant(cf, cik, concept_key, ref_end):
                         newest = found[1]
                 else:
                     missing.append(" / ".join(group))
+            if "DebtCurrent" not in parts:
+                for gm in extra_maps:
+                    for t, mp in gm:
+                        v = find_near(mp, end)
+                        if v is not None and v.get("val"):
+                            total += v["val"]
+                            parts.append(t)
+                            if v["filed"] > newest["filed"]:
+                                newest = v
+                            break
             pt = point(newest, cik, " + ".join(f"us-gaap:{p}" for p in parts), value=total,
                        derived=("Suma: " + " + ".join(parts)) if len(parts) > 1 else None)
             pt["periodo_fin"] = end_s

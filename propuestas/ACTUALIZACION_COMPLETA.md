@@ -3,7 +3,7 @@
 Estas instrucciones las sigue la orden **«Actualizar todo»** (por ejemplo: «Actualiza todo de AMZN» o «Actualiza todo de todas las compañías»).
 A diferencia de la «Revisión tras resultados» (`INSTRUCCIONES.md`), que solo mira la última nota de resultados, esta orden repasa **las 10 pestañas** con todo lo publicado desde la última revisión: 10-K, 10-Q, 8-K, presentaciones, prensa financiera y sectorial, y redes sociales.
 
-El resultado es siempre una **propuesta** en `propuestas/<T>.json`. **Nunca se modifica `analysis/` ni `data/`.** El usuario revisa la propuesta en la web (agrupada por pestañas), marca qué aplica y guarda.
+El resultado es siempre una **propuesta** en `propuestas/<T>.json`; tú **nunca** escribes en `analysis/` ni en `data/`. Después se sigue `INSTRUCCIONES.md`, apartado 8: cada cambio lleva `tipo` (`"hecho"` o `"criterio"`), un segundo agente verifica los hechos y `scripts/aplicar_cambios.py` aplica solo los verificados. En la orden «Actualizar todo», pedida por el usuario, la propuesta es `urgente: true`: el criterio le llega en el momento, sin esperar al sábado.
 
 ## 0. Alcance y punto de partida
 
@@ -59,7 +59,7 @@ Cierra siempre con `meta.asOf` = fecha de hoy («7-nov-2026»).
 
 - Las cifras de `overview.keyFacts`, `business` y `growth` coinciden con `data/<T>.json`.
 - Ningún catalizador tiene fecha pasada.
-- La deuda, la caja y las acciones del modelo no difieren más de un 20% de la SEC (la web avisaría).
+- No propones `v.shares`, `v.cash` ni `v.debt`: salen de la SEC. Los hechos posteriores al último informe van en `ajustes_posteriores` (`INSTRUCCIONES.md`, apartado 8.4).
 - Cada riesgo con P×I ≥ 12 aparece en `verdict.bear` o `verdict.watch`.
 - `verdict.buyBelow` y `verdict.rating` son coherentes con el valor del DCF y el precio actual (`data → precio.valor`).
 - Los seguimientos de `seguimientos.json` de esa compañía están reflejados en riesgos o en «Qué vigilar».

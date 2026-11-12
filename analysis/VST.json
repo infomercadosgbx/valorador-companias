@@ -509,9 +509,6 @@
   }
  ],
  "v": {
-  "shares": 344,
-  "cash": 2743,
-  "debt": 25046,
   "rev0": 22200,
   "year0": 2026,
   "g": [
@@ -806,6 +803,34 @@
    "nivel": "aviso",
    "mensaje": "Deuda del modelo (27.522 M) difiere un 30% del dato de la SEC (21.146 M a 30-sep-26).",
    "comprobacion": "Deuda pro forma a propósito: 21.146 M$ de deuda a 30-sep-26 (10-Q, LongTermDebt) + 2.476 M$ de preferentes (PreferredStockValue; derecho por delante del accionista) + 2.200 M$ pagados en efectivo por Cogentrix + ~1.700 M$ de deuda de Cogentrix asumida y repagada, ambos en oct-26, después del cierre del trimestre. La caja del modelo es la del 10-Q (2.743 M$), que aún incluía el dinero para Cogentrix."
+  }
+ ],
+ "ajustes_posteriores": [
+  {
+   "k": "debt",
+   "delta": 3900,
+   "base_accn": "0001692819-26-000025",
+   "porque": "Balance pro forma tras el cierre de Cogentrix (30-oct-2026) y la amortización de las preferentes Serie A: deuda 25.046 M$ (21.146 M$ de la SEC a 30-sep). Lo fijaste el 11-nov; caduca con el 10-K de febrero.",
+   "fuente": {
+    "t": "10-Q 3T26 · Noteworthy Developments",
+    "u": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/vistra-20260930.htm",
+    "d": "9-nov-2026"
+   },
+   "origen": "usuario",
+   "fecha": "2026-11-11"
+  },
+  {
+   "k": "shares",
+   "delta": 4.6,
+   "base_accn": "0001692819-26-000025",
+   "porque": "Acciones pro forma que fijaste el 11-nov (344 M frente a 339,4 M de la portada del 10-Q a 2-nov). Caduca con el 10-K de febrero.",
+   "fuente": {
+    "t": "10-Q 3T26 · Noteworthy Developments",
+    "u": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/vistra-20260930.htm",
+    "d": "9-nov-2026"
+   },
+   "origen": "usuario",
+   "fecha": "2026-11-11"
   }
  ]
 }

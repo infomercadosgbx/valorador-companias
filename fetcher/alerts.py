@@ -171,6 +171,20 @@ def run(root=ROOT, out=None, today=None, owner=None, site=None):
         prev = git_json(root, f"data/{t}.json")
         analysis = read(root / "analysis" / f"{t}.json")
         lines += company_alerts(c, data, prev, analysis, state, today)
+        # cambios aplicados solos por la revisión de la mañana (scripts/aplicar_cambios.py)
+        nuevos = {}
+        for x in (analysis or {}).get("cambios_auto") or []:
+            if x.get("deshecho") or not x.get("fecha"):
+                continue
+            k = f"{t}:auto:{x['fecha']}"
+            if not state.get(k):
+                nuevos.setdefault(x["fecha"], []).append(x.get("campo", ""))
+        for f, campos in sorted(nuevos.items()):
+            lines.append(("🤖", f"**{c['nombre']} ({t})**: {len(campos)} "
+                                f"{'cambio verificado aplicado' if len(campos) == 1 else 'cambios verificados aplicados'} "
+                                f"automáticamente el {fecha(f)} ({', '.join(dict.fromkeys(campos))}). "
+                                "Puedes deshacerlos en Fuentes → Cambios aplicados automáticamente."))
+            state[f"{t}:auto:{f}"] = today.isoformat()
         prop = read(root / "propuestas" / f"{t}.json")
         if prop and prop.get("cambios"):
             k = f"{t}:propuesta:{prop.get('creada')}|{prop.get('informe_accn', '')}" + (f"|{prop['alcance']}" if prop.get("alcance") else "")

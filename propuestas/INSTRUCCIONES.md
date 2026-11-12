@@ -1,7 +1,8 @@
 # Revisión tras resultados: cómo preparar una propuesta
 
-Estas instrucciones las sigue la tarea programada «Revisión tras resultados» (y cualquiera que prepare una propuesta a mano).
-La propuesta **nunca** modifica `analysis/`: el usuario la revisa en la web, elige qué cambios aplica y los guarda él.
+Estas instrucciones las sigue la tarea programada «Valorador · revisión tras resultados y novedades» (y cualquiera que prepare una propuesta a mano).
+
+Tú **nunca** escribes en `analysis/` ni en `data/`. Preparas la propuesta en `propuestas/<T>.json`, un segundo agente la verifica y `scripts/aplicar_cambios.py` (apartado 8) aplica solo los **hechos verificados**, con registro y opción de deshacer en la web. Los cambios de **criterio** (supuestos del DCF, scorecard, veredicto, MOAT, riesgos) los decide siempre el usuario.
 
 ## 1. Qué compañías revisar
 
@@ -41,8 +42,11 @@ Campos habituales (rutas con punto, tal y como están en `analysis/<T>.json`):
 | `verdict.summary`, `verdict.bull`, `verdict.bear`, `verdict.watch` | Conclusión y listas actualizadas |
 | `verdict.rating`, `verdict.buyBelow`, `verdict.conviction` | Solo si los resultados lo justifican claramente; explícalo en `porque` |
 | `meta.asOf` | Fecha de la revisión, p. ej. `"5-nov-2026"` |
+| `ajustes_posteriores` | Lista completa `[{k, delta, base_accn, porque, fuente, fecha}]`: hechos posteriores al último 10-Q/10-K que cambian acciones, caja o deuda (apartado 8.4) |
 
-Cada cambio lleva un `porque` de una línea. Los listados se proponen completos (sustituyen al actual).
+Cada cambio lleva un `porque` de una línea, una `fuente` `{t, u, d}` y un `tipo`: `"hecho"` o `"criterio"` (apartado 8.1). Los listados se proponen completos (sustituyen al actual).
+
+**Nunca propongas `v.shares`, `v.cash` ni `v.debt`.** Acciones, caja y deuda salen siempre de la SEC; lo que haya pasado después del cierre va en `ajustes_posteriores`.
 
 ## 4. Formato de `propuestas/<T>.json`
 
@@ -54,11 +58,17 @@ Cada cambio lleva un `porque` de una línea. Los listados se proponen completos 
   "informe_accn": "0001713445-26-000114",
   "resumen": "Tres o cuatro frases: qué ha pasado, qué cambia en la tesis y qué cambios propones.",
   "fuentes": [{"t": "Nota de resultados 3T26 (8-K, Ex. 99.1)", "u": "https://www.sec.gov/..."}],
+  "urgente": true,
   "cambios": [
-    {"campo": "overview.thesis", "valor": "…", "porque": "…"}
-  ]
+    {"campo": "overview.keyFacts", "valor": [], "tipo": "hecho", "porque": "…", "fuente": {"t": "…", "u": "https://…", "d": "29-oct-2026"}},
+    {"campo": "overview.thesis", "valor": "…", "tipo": "criterio", "porque": "…", "fuente": {"t": "…", "u": "https://…", "d": "29-oct-2026"}}
+  ],
+  "avisos_resueltos": []
 }
 ```
+
+- `urgente: true` cuando la propuesta sale de unos resultados (8-K Item 2.02), de un 10-Q/10-K nuevo o de una novedad grave (apartado 8.3). Si no, omítelo.
+- `avisos_resueltos`: ver apartado 8.2.
 
 ## 5. Traducir la nota al español
 
@@ -89,7 +99,7 @@ La revisión no se limita al 8-K de resultados. En cada ejecución, y para cada 
   - **Notas a los estados financieros** (*footnotes*): deuda y vencimientos, segmentos, ingresos pendientes de reconocer (RPO o *backlog*), compromisos y contingencias, litigios, impuestos, remuneración en acciones, adquisiciones o desinversiones y hechos posteriores al cierre.
   - **Factores de riesgo** (Item 1A): riesgos nuevos o cambiados frente al informe anterior.
   - Las cifras definitivas: si difieren de la nota de prensa, dilo.
-- `motivo`: «10-Q del 3T26 (presentado el 9-nov-2026)» o el equivalente. Campos típicos: `overview.keyFacts`, `fin_manual.q` (solo series que la SEC no publica; el resto de Finanzas lo pone el robot), `business.clients`, `risks`, `mgmt.call.cap`, `v.debt`, `v.cash`, `v.shares` y los supuestos del DCF que cambien.
+- `motivo`: «10-Q del 3T26 (presentado el 9-nov-2026)» o el equivalente. Campos típicos: `overview.keyFacts`, `fin_manual.q` (solo series que la SEC no publica; el resto de Finanzas lo pone el robot), `business.clients`, `risks`, `mgmt.call.cap`, `ajustes_posteriores` (hechos posteriores al cierre, en la nota «Subsequent events» o en «Noteworthy developments») y los supuestos del DCF que cambien.
 - Al terminar, guarda `informe.<T> = {accn, fecha, formulario}` en `propuestas/_estado.json`.
 
 ### 7.2 Notas de prensa y otros 8-K
@@ -109,3 +119,60 @@ La revisión no se limita al 8-K de resultados. En cada ejecución, y para cada 
 Presentaciones en conferencias de inversores, *investor day* y cartas a accionistas dentro de la ventana: solo si cambian la guía, la estrategia o la asignación de capital. Van en `mgmt.*` y `growth.guidance`, con enlace y fecha.
 
 Si no hay nada nuevo en ninguna de las cuatro, no se hace nada con esa compañía. Commit: `Propuesta: <T> tras <10-Q 3T26 | nota de prensa | llamada 3T26>`.
+
+## 8. Verificación y aplicación automática (parte C)
+
+Cuando ya está escrita la propuesta del día (resultados, 10-Q/10-K, otros 8-K, llamadas e internet), se verifica y se aplica lo que sea un hecho comprobado. El objetivo: que al usuario solo le lleguen sus decisiones de criterio y lo que el robot no haya podido comprobar.
+
+### 8.1 Hecho o criterio
+
+Marca cada cambio con `tipo`:
+
+| `tipo` | Campos | Qué pasa |
+|---|---|---|
+| `"hecho"` | `overview.keyFacts`, `overview.catalysts`, `overview.summary`, `meta.asOf`, `meta.nextEarnings`, `meta.employees`, `business.model`, `business.customers`, `business.customerTypes`, `business.clients`, `business.segments`, `business.segNote`, `growth.guidance`, `growth.tam`, `mgmt.call`, `mgmt.people`, `mgmt.vote`, `mgmt.alloc`, `fin_manual`, `sources.docs`, `sources.news`, `social.*`, `ajustes_posteriores` | Se aplica solo si pasa la verificación |
+| `"criterio"` | Todo lo demás: `v.*` (supuestos del DCF), `verdict.*`, `risks`, `moat.*`, `overview.thesis`, `business.quality`, `business.phase*`, `growth.score`, `growth.scoreNote`, `growth.drivers`, `mgmt.scores`, `mgmt.note`, `peers` | Lo decide el usuario |
+
+Un hecho es lo que dice un documento (una cifra, una fecha, una guía, un nombramiento, una cita de la dirección). Si el texto incluye una valoración tuya («la guía es conservadora», «el riesgo sube»), sepáralo: el dato va como hecho y la valoración en un campo de criterio. El script ignora el `tipo` si el campo no está en la lista de hechos: lo trata como criterio.
+
+### 8.2 Avisos de calidad del dato
+
+Para cada aviso de `data/<T>.json → avisos` (nivel `aviso` o `error`) y de la web (modelo frente a SEC) que no esté en `analysis/<T>.json → avisos_aprobados`, intenta explicarlo con los documentos oficiales:
+
+- **Cruza dos fuentes:** la cifra XBRL frente a la nota de resultados (Exhibit 99.1) o el propio 10-Q/10-K. Si coinciden, la cifra es buena.
+- **Cuadres:** activo = pasivo + patrimonio neto + minoritarios; los cuatro trimestres suman el año (`resultados.*.trimestral` frente a `anual`).
+- **Saltos:** busca la causa en el MD&A y en las notas (coberturas a valor de mercado, compras, ventas de negocio, reexpresiones, estacionalidad).
+
+Si queda explicado con un documento, añádelo a `avisos_resueltos`: `{codigo, nivel, mensaje, comprobacion, fuente: {t, u, d}}`, con `codigo`, `nivel` y `mensaje` **copiados exactos** del aviso y en `comprobacion` las cifras que lo explican (p. ej. «Nota 4 del 10-Q: la valoración a mercado de las coberturas suma −1.735 M$ en 2T22; los ingresos por contratos con clientes solo bajan un 4%»). Si no puedes explicarlo, no lo incluyas: le llegará al usuario.
+
+Las notas técnicas (nivel `info`) no hace falta resolverlas: la web ya no las enseña en la cabecera.
+
+### 8.3 Qué criterio se propone y cuándo
+
+- **Supuestos del DCF (`v.*`):** solo si mueven el valor por acción un 5% o más. Mídelo con `node scripts/impacto_dcf.mjs <T>` (usa el mismo motor que la web); el script de aplicación vuelve a medirlo y descarta lo que no llegue.
+- **Riesgos, MOAT, veredicto, tesis y puntuaciones:** solo con una novedad material (criterio de `ACTUALIZACION_COMPLETA.md`, apartado 5, punto 3).
+- **Cuándo le llega al usuario:**
+  - Con resultados o un 10-Q/10-K nuevo (`urgente: true`): ese mismo día.
+  - Con una novedad grave (`urgente: true`): ese mismo día. Grave es un movimiento del precio de más del 10% en un día con causa clara, un cambio de guía, una compra o venta relevante, la salida del consejero delegado o del director financiero, o lo que vigila `seguimientos.json` (p. ej. el préstamo del DOE a Vistra). También, sin marcarlo, cuando los supuestos mueven el valor un 10% o más.
+  - Todo lo demás: a la cola semanal (`propuestas/_cola/<T>.json`), que el script publica el sábado en una sola propuesta por compañía.
+
+### 8.4 Ajustes por hechos posteriores
+
+Si después del cierre del último 10-Q/10-K hay hechos que cambian acciones, caja o deuda (compras pagadas, emisiones o amortizaciones de deuda o de preferentes, ampliaciones), propón `ajustes_posteriores` con la lista completa: `{"k": "debt" | "cash" | "shares", "delta": <millones, con signo>, "base_accn": <data/<T>.json → ultimo_informe.accn>, "porque": "…", "fuente": {t, u, d}, "fecha": "<hoy>"}`. Usa solo cifras de la SEC o de la compañía; si una cifra es aproximada («hasta 1.250 M$»), dilo en `porque`. La web suma el ajuste al dato de la SEC y, cuando llega el siguiente informe, deja de aplicarlo; el script lo quita del análisis. Conserva los ajustes que fijó el usuario (`origen: "usuario"`) salvo que un documento nuevo los contradiga.
+
+### 8.5 Verificación con un segundo agente
+
+Lanza un agente nuevo (herramienta Agent, `subagent_type: "general-purpose"`) que **no** haya redactado la propuesta, con este encargo: para cada compañía con `propuestas/<T>.json`, y para cada cambio con `tipo: "hecho"` sin `procesado` y cada entrada de `avisos_resueltos`:
+
+1. Abrir la fuente citada (`fuente.u`; si sec.gov no es accesible, la misma nota en la web de la compañía, Business Wire o PR Newswire).
+2. Comprobar que **cada número, fecha y nombre** del `valor` (o de la `comprobacion`) aparece en la fuente o en `data/<T>.json`, con el mismo significado, y que el texto no afirma nada que la fuente no diga.
+3. Escribir en el cambio `"verificacion": {"ok": true|false, "nota": "<qué comprobó o qué no cuadra, una línea>"}`. Con una sola cifra que no cuadre, `ok: false`. Para `avisos_resueltos`, si no cuadra, quitar la entrada y decirlo en el resumen.
+
+El agente solo escribe el campo `verificacion` (y quita avisos no comprobados): no cambia valores ni añade cambios.
+
+### 8.6 Aplicar y guardar
+
+1. `python scripts/aplicar_cambios.py --todas` (el sábado, `--todas --sabado`). Imprime por compañía qué se ha aplicado, qué falla la verificación, qué queda para hoy, qué va a la cola y qué se ha descartado.
+2. Valida los JSON tocados con `python -m json.tool` y ejecuta `python -m pytest -q tests/test_aplicar_cambios.py`.
+3. Commit en `main`: `Aplicado automáticamente: <T1> (<n> cambios), <T2> (…)` y, si quedan propuestas o cola, `Propuestas: …`. Push.
+

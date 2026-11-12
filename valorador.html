@@ -778,7 +778,7 @@ body.report .scroll{overflow:visible}
 body.report table{font-size:9.5px} body.report th{white-space:normal;font-size:8.5px;letter-spacing:.03em} body.report th,body.report td{padding:4px 5px}
 body.report td{white-space:nowrap} body.report td:first-child{white-space:normal}
 body.report .h200{height:190px} body.report .h240,body.report .h260{height:220px} body.report .h300,body.report .h340{height:250px}
-body.report details:not([open]),body.report .dwhich,body.report .seg,body.report .ib,body.report button.add,body.report .x,body.report #socialBox,body.report #glossary,body.report .tiles,body.report [data-usesec],body.report [data-usewacc]{display:none!important}
+body.report details:not([open]),body.report .dwhich,body.report .seg,body.report .ib,body.report button.add,body.report .x,body.report #socialBox,body.report #glossary,body.report .tiles,body.report [data-usesec],body.report [data-usewacc],body.report #autoCard,body.report [data-autoundo]{display:none!important}
 body.report input[type=number],body.report input[type=text],body.report textarea,body.report select{border:0;background:transparent;padding:0;resize:none}
 body.report .g2,body.report .g3{grid-template-columns:repeat(2,minmax(0,1fr))}
 body.report .rp-bar{width:700px}
@@ -1250,7 +1250,7 @@ const TPL={
   drivers:{n:"Nuevo motor",impact:3,h:"",st:"",k:"",peso:"",d:"",ev:"",r:"",u:""}, people:{n:"Nombre",role:"Cargo",since:"",note:""}, scores:{n:"Nuevo criterio",s:3,note:""},
   items:{n:"Nueva partida",v:0}, docs:{cat:"Formularios SEC",t:"Nuevo documento",d:"",u:"https://"}, videos:{t:"Nuevo vídeo",u:"https://www.youtube.com/watch?v="}, news:{t:"Nueva fuente",src:"",u:"https://"}, risks:{n:"Nuevo riesgo",cat:"Operativo",p:3,i:3,note:""}
 };
-const ANALYSIS_KEYS=["peers","meta","overview","business","moat","growth","mgmt","risks","v","verdict","notes","sources","social","fin_manual","avisos_aprobados"];
+const ANALYSIS_KEYS=["peers","meta","overview","business","moat","growth","mgmt","risks","v","verdict","notes","sources","social","fin_manual","avisos_aprobados","ajustes_posteriores","cambios_auto"];
 const DATA_V=["price","lo52","hi52","cMean","cLow","cHigh"];
 const MODEL_SEC=[["shares","Acciones"],["cash","Caja"],["debt","Deuda"]];
 const M6=1e6;
@@ -1354,7 +1354,7 @@ function secFigures(d){
 }
 function applyData(c){
   const d=c._data, man=c._manual||{}, P=d&&d.precio;
-  c.v=c.v||{}; c._auto={};
+  c.v=c.v||{}; Object.keys(c._auto||{}).forEach(k=>delete c.v[k]); c._auto={};
   c.v.price=c._live?c._live.precio:(P&&fin(P.valor)?P.valor:NaN);
   c.v.lo52=P&&fin(P.minimo_52s)?P.minimo_52s:null; c.v.hi52=P&&fin(P.maximo_52s)?P.maximo_52s:null;
   { const H=d&&d.historico_precio&&d.historico_precio.serie; if(H&&H.length>200){ const t=Date.parse(H.at(-1)[0])-365.25*864e5, y=H.filter(p=>Date.parse(p[0])>=t).map(p=>p[1]); c.v.lo52=Math.min(...y); c.v.hi52=Math.max(...y); } }
@@ -1362,6 +1362,12 @@ function applyData(c){
   c.v.cMean=n(man.precio_objetivo_medio); c.v.cLow=n(man.precio_objetivo_bajo); c.v.cHigh=n(man.precio_objetivo_alto);
   c.sec=secFigures(d);
   MODEL_SEC.forEach(([k])=>{ if(!fin(c.v[k])&&fin(c.sec[k].m)){ c.v[k]=+c.sec[k].m.toFixed(k==="shares"?1:0); c._auto[k]=true; } });
+  /* ajustes por hechos posteriores al último informe (compras, emisiones, amortizaciones…): se suman al dato de la SEC
+     mientras siga siendo el mismo informe; con el siguiente 10-Q/10-K caducan solos porque la SEC ya los recoge */
+  c._adj={}; c._adjOld=[]; const accn=d&&d.ultimo_informe&&d.ultimo_informe.accn;
+  (c.ajustes_posteriores||[]).forEach(a=>{ if(!a||!MODEL_SEC.some(x=>x[0]===a.k)||!fin(a.delta)) return;
+    if(a.base_accn&&accn&&a.base_accn!==accn){ c._adjOld.push(a); return; }
+    if(!c._auto[a.k]) return; (c._adj[a.k]=c._adj[a.k]||[]).push(a); c.v[a.k]=+(c.v[a.k]+a.delta).toFixed(a.k==="shares"?1:0); });
   c.fin=buildFin(c);
   c.sources=c.sources||{}; const ui=d&&d.ultimo_informe;
   c.sources.secLatest=ui?{endIso:ui.fecha_periodo,form:ui.formulario,filed:fecha(ui.fecha_presentacion)}:null;
@@ -1372,7 +1378,7 @@ function exportAnalysis(c){
   ANALYSIS_KEYS.forEach(k=>{ if(c[k]!==undefined) o[k]=clone(c[k]); });
   ["name","ticker","brand","ccy","updatedAt"].forEach(k=>delete o.meta[k]);
   DATA_V.forEach(k=>delete o.v[k]);
-  Object.keys(c._auto||{}).forEach(k=>{ if(fin(c.sec[k].m)&&Math.abs(o.v[k]-c.sec[k].m)<1) delete o.v[k]; });
+  Object.keys(c._auto||{}).forEach(k=>{ const adj=(c._adj&&c._adj[k]||[]).reduce((s,a)=>s+a.delta,0); if(fin(c.sec[k].m)&&Math.abs(o.v[k]-c.sec[k].m-adj)<1) delete o.v[k]; });
   if(o.sources){delete o.sources.secLatest; delete o.sources.cik;}
   return o;
 }
@@ -1404,6 +1410,7 @@ function contradictions(c){
     if(s.p&&s.p.asumido){ if(a>0) out.push({nivel:"info",codigo:"contradiccion",campo:k,mensaje:`${lab}: el modelo usa ${nf(a)} M; la SEC no etiqueta deuda y el dato automático es 0 (asumido).`}); return; }
     const base=Math.max(Math.abs(s.m),1e-9), diff=Math.abs(a-s.m)/base;
     if(diff>0.2) out.push({nivel:"aviso",codigo:"contradiccion",campo:k,mensaje:`${lab} del modelo (${nf(a,k==="shares"?1:0)} M) difiere un ${nf(diff*100,0)}% del dato de la SEC (${nf(s.m,k==="shares"?1:0)} M a ${fecha(s.p.periodo_fin)}).`}); });
+  (c._adjOld||[]).forEach(a=>out.push({nivel:"info",codigo:"ajuste_caducado",campo:a.k,mensaje:`Ajuste de ${(MODEL_SEC.find(x=>x[0]===a.k)||[])[1]||a.k} (${a.delta>0?"+":""}${nf(a.delta,a.k==="shares"?1:0)} M, ${a.porque||""}) ya no se aplica: hay un informe nuevo de la SEC que recoge esos hechos.`}));
   if(c._data&&!fin(c.v.price)) out.push({nivel:"aviso",codigo:"sin_precio",mensaje:"Sin precio de mercado: el DCF no puede comparar con la cotización."});
   (c.fin.splits||[]).forEach(sp=>out.push({nivel:"info",codigo:"split",mensaje:`Split de ${sp.factor}×1 detectado en ${sp.anio}: las acciones y el BPA de los años anteriores se ajustan para que sean comparables.`}));
   if((c.fin.capexAssumed||[]).length) out.push({nivel:"info",codigo:"capex_asumido",mensaje:`Capex de ${c.fin.capexAssumed.map(i=>c.fin.years[i]).join(", ")}: la compañía ya no lo etiqueta en XBRL y antes era menos del 2% de su caja operativa; se asume 0 para calcular el FCF.`});
@@ -1436,11 +1443,13 @@ const WEXP={
   componente_no_etiquetado:"Una parte de una partida (por ejemplo, la deuda a corto) no aparece en el informe y cuenta como 0.",
   anio_52_53_semanas:"Ejercicio de 52/53 semanas: los trimestres pueden durar distinto y se etiquetan por su fecha de cierre.",
   amortizacion_por_componentes:"Las amortizaciones se calculan sumando depreciación y amortización de intangibles.",
-  capex_asumido:"La compañía dejó de publicar el capex por ser muy pequeño: se toma 0 para el flujo de caja libre."};
+  capex_asumido:"La compañía dejó de publicar el capex por ser muy pequeño: se toma 0 para el flujo de caja libre.",
+  ajuste_caducado:"El ajuste por hechos posteriores se hizo sobre el informe anterior. El nuevo informe de la SEC ya incluye esos hechos, así que el modelo vuelve al dato de la SEC. El robot lo quita del análisis en la próxima revisión."};
 const wId=w=>(w.codigo||"")+"."+String(w.mensaje||"").replace(/\d[\d.,]*/g,"#").slice(0,80);
 const wKey=(t,w)=>"valorador.avisorev."+t+"."+wId(w);
 /* aprobado: se guarda en el análisis (avisos_aprobados) para que valga en cualquier navegador; las marcas antiguas de este navegador siguen valiendo */
 function wApproved(w,c){ c=c||cur; const a=(c.avisos_aprobados||[]).find(x=>x.id===wId(w)); return a?(a.fecha||"sí"):lsGet(wKey(c._t,w))==="1"?"local":null; }
+const wApObj=(w,c)=>((c||cur).avisos_aprobados||[]).find(x=>x.id===wId(w))||null;
 const wSeen=w=>!!wApproved(w);
 function approveWarnings(ws){ const hoy=new Date().toISOString().slice(0,10), L=(cur.avisos_aprobados||[]).slice();
   ws.forEach(w=>{ const id=wId(w); if(!L.some(x=>x.id===id)) L.push({id,fecha:hoy,nivel:w.nivel,mensaje:w.mensaje}); });
@@ -1451,15 +1460,17 @@ let WPEND=[];
 function warnGroups(ws){ const g={}; ws.forEach(w=>{ (g[w.codigo||w.mensaje]=g[w.codigo||w.mensaje]||[]).push(w); }); return Object.values(g); }
 function warnRow(group,mode){ const w=group[0], exp=WEXP[w.codigo]||"";
   const msgs=group.length>1?`<ul class="wsub">${group.map(x=>`<li>${esc(x.mensaje)}</li>`).join("")}</ul>`:`<span>${esc(w.mensaje)}</span>`;
-  const ap=mode==="fuentes"?wApproved(w):null, ids=group.map(x=>esc(wId(x))).join("|");
+  const ap=mode==="fuentes"?wApproved(w):null, ids=group.map(x=>esc(wId(x))).join("|"), ao=ap?wApObj(w):null, rob=ao&&ao.por==="robot";
   const btn=mode==="pend"?`<button type="button" class="wok" data-wok="${ids}">Aprobar</button>`
-    :mode==="fuentes"?(ap?`<span class="wap">✓ Aprobado${ap==="local"||ap==="sí"?"":" el "+esc(fecha(ap))}<button type="button" class="wlink" data-wundo="${ids}">volver a la cabecera</button></span>`:`<button type="button" class="wok" data-wok="${ids}">Aprobar</button>`):"";
-  return `<li class="wrow"><span class="lvl ${esc(w.nivel)}">${w.nivel==="aviso"?"Aviso":w.nivel==="error"?"Error":"Nota"}</span><div class="wtxt">${group.length>1?`<span>${exp?esc(exp):"Varias partidas"} <span class="wn">(${group.length})</span></span>${msgs}`:`${msgs}${exp?`<span class="wexp">${esc(exp)}</span>`:""}`}</div>${btn}</li>`; }
+    :mode==="fuentes"?(ap?`<span class="wap">✓ Aprobado${rob?" por el robot":""}${ap==="local"||ap==="sí"?"":" el "+esc(fecha(ap))}<button type="button" class="wlink" data-wundo="${ids}">volver a la cabecera</button></span>`:`<button type="button" class="wok" data-wok="${ids}">Aprobar</button>`):"";
+  const comp=ao&&ao.comprobacion?`<span class="wexp"><b>Comprobación${rob?" del robot":""}:</b> ${esc(ao.comprobacion)}${ao.fuente&&ao.fuente.u?` · <a href="${esc(ao.fuente.u)}" target="_blank" rel="noopener">${esc(ao.fuente.t||"fuente")}</a>`:""}</span>`:"";
+  return `<li class="wrow"><span class="lvl ${esc(w.nivel)}">${w.nivel==="aviso"?"Aviso":w.nivel==="error"?"Error":"Nota"}</span><div class="wtxt">${group.length>1?`<span>${exp?esc(exp):"Varias partidas"} <span class="wn">(${group.length})</span></span>${msgs}`:`${msgs}${comp||(exp?`<span class="wexp">${esc(exp)}</span>`:"")}`}${group.length>1?comp:""}</div>${btn}</li>`; }
 function warnList(ws,mode){ return `<ul class="wl">${warnGroups(ws).map(g=>warnRow(g,mode)).join("")}</ul>`; }
 /* cabecera: solo lo pendiente de aprobar (avisos y notas técnicas). Lo aprobado vive en Fuentes → Cifras clave y calidad del dato */
 function renderWarnings(){
   const box=$("warnBox"); if(!box) return; const ws=allWarnings(cur);
-  const pend=ws.filter(w=>!wSeen(w)), imp=pend.filter(w=>w.nivel!=="info"), inf=pend.filter(w=>w.nivel==="info"), nAp=ws.length-pend.length; WPEND=pend;
+  /* las notas técnicas (nivel info) no requieren acción: van directas a Fuentes → Cifras clave y calidad del dato, sin pasar por la cabecera */
+  const pend=ws.filter(w=>!wSeen(w)&&w.nivel!=="info"), imp=pend, inf=[], nAp=ws.filter(w=>w.nivel!=="info"&&wSeen(w)).length; WPEND=pend;
   if(!pend.length){box.hidden=true; box.innerHTML=""; return;}
   box.hidden=false; box.className="avisos"+(imp.some(w=>w.nivel==="error")?" bad":imp.length?"":" quiet");
   const open=lsGet("valorador.avisosabiertos")==="1"||imp.some(w=>w.codigo==="contradiccion"||w.nivel==="error");
@@ -1467,12 +1478,12 @@ function renderWarnings(){
   box.innerHTML=`<details id="warnDet"${open?" open":""}><summary>${head}${nAp?` <span class="note" style="font-weight:400">· ${nAp} ya aprobado${nAp>1?"s":""}</span>`:""}</summary>
     ${imp.length?warnList(imp,"pend"):""}
     ${inf.length?`<details class="wsec"${imp.length?"":" open"}><summary>Notas técnicas (${inf.length}): cómo se han leído los datos, no requieren acción</summary>${warnList(inf,"pend")}</details>`:""}
-    <div class="wfoot"><button type="button" class="wok wall" data-wall="1">Aprobar todo y pasarlo a Fuentes</button>
-    <p class="note" style="margin:0">Los genera el robot al validar los datos de la SEC y la web al comparar tu modelo con ellos; ninguna cifra se corrige en silencio. Lo aprobado se guarda en tu análisis (publícalo para que valga en otros dispositivos) y pasa a Fuentes → Cifras clave y calidad del dato. Si aparece un aviso nuevo, vuelve aquí.</p></div></details>`;
+    <div class="wfoot"><button type="button" class="wok wall" data-wall="1">${pend.length>1?"Aprobar todos y pasarlos a Fuentes":"Aprobar y pasarlo a Fuentes"}</button>
+    <p class="note" style="margin:0">Aquí solo llega lo que el robot no ha podido explicar con los documentos de la SEC; lo que sí explica lo aprueba él y lo deja en Fuentes con su comprobación. Las notas técnicas van directas a Fuentes. Lo aprobado se guarda en tu análisis (publícalo para que valga en otros dispositivos) y pasa a Fuentes → Cifras clave y calidad del dato. Si aparece un aviso nuevo, vuelve aquí.</p></div></details>`;
 }
 const DLAB={"v.comentario":"Comentario de los supuestos","v.wacc":"WACC","v.tg":"Crecimiento perpetuo","v.exit":"Múltiplo de salida","v.method":"Método del valor terminal","v.m1":"Margen EBITDA año 1","v.m5":"Margen EBITDA año 5",
   "v.da":"Amortizaciones año 1","v.da5":"Amortizaciones año 5","v.sbc":"Pago en acciones","v.capex":"Capex año 1","v.capex5":"Capex año 5","v.nwc":"Circulante","v.tax":"Tipo impositivo",
-  "v.rev0":"Ingresos año base","v.year0":"Año base","v.eps":"BPA próximos 12 meses","v.pe":"PER objetivo","v.evm":"EV/EBITDA objetivo","v.shares":"Acciones","v.cash":"Caja","v.debt":"Deuda","avisos_aprobados":"Avisos aprobados"};
+  "v.rev0":"Ingresos año base","v.year0":"Año base","v.eps":"BPA próximos 12 meses","v.pe":"PER objetivo","v.evm":"EV/EBITDA objetivo","v.shares":"Acciones","v.cash":"Caja","v.debt":"Deuda","avisos_aprobados":"Avisos aprobados","ajustes_posteriores":"Ajustes por hechos posteriores","cambios_auto":"Registro de cambios automáticos"};
 function draftLabel(p){ if(DLAB[p]) return DLAB[p]; if(typeof PLAB!=="undefined"&&PLAB[p]) return PLAB[p]; let m=/^v\.g\.(\d)$/.exec(p); if(m) return `Crecimiento año ${+m[1]+1}`;
   m=/^v\.scn\.(\d)\.(dg|dm|p)$/.exec(p); if(m){ const n=((cur.v.scn||[])[+m[1]]||{}).n||"Escenario"; return `${n}: ${{dg:"Δ crecimiento",dm:"Δ margen",p:"probabilidad"}[m[2]]}`; }
   return p.replace(/\./g," › "); }
@@ -1500,11 +1511,35 @@ function staleInfo(c){
   const stale=days>90||(fin(dp)&&Math.abs(dp)>=5)||docs.length>0;
   return {iso,days,p0,dp,docs,stale};
 }
+/* ---- cambios aplicados automáticamente por el robot (analysis.cambios_auto) ---- */
+function autoShort(x){ if(x==null||x==="") return "—"; if(typeof x==="number") return nf(x,Math.abs(x)<100&&x%1?1:0);
+  if(Array.isArray(x)) return `${x.length} ${x.length===1?"elemento":"elementos"}`; if(typeof x==="object") return x.k&&x.v?`${x.k}: ${x.v}`:"(varios campos)";
+  const t=String(x); return t.length>160?t.slice(0,157)+"…":t; }
+function autoRecent(c,days){ const lim=new Date(Date.now()-days*864e5).toISOString().slice(0,10); return (c.cambios_auto||[]).filter(x=>!x.deshecho&&x.fecha>=lim); }
+function autoRow(x,i){ const desh=x.deshecho;
+  return `<li class="wrow"><span class="lvl ${desh?"info":"ok"}" style="${desh?"":"background:var(--okbg,#e7f6ec);color:var(--ok,#1e7a3c)"}">${desh?"Deshecho":"Aplicado"}</span><div class="wtxt"><span><b>${esc(propLabel(x.campo))}</b> · ${esc(fecha(x.fecha))}${x.motivo?` · ${esc(x.motivo)}`:""}</span>
+    <span class="wexp">Antes: ${esc(autoShort(x.antes))} → Ahora: ${esc(autoShort(x.despues))}</span>
+    ${x.porque?`<span class="wexp">${esc(x.porque)}</span>`:""}
+    <span class="wexp">${x.fuente&&x.fuente.u?`Fuente: <a href="${esc(x.fuente.u)}" target="_blank" rel="noopener">${esc(x.fuente.t||"documento")}</a>${x.fuente.d?" ("+esc(x.fuente.d)+")":""}`:""}${x.verificacion?` · ✓ ${esc(x.verificacion)}`:""}${desh?` · deshecho el ${esc(fecha(desh))}`:""}</span></div>
+    ${desh?"":`<button type="button" class="wok" data-autoundo="${i}">Deshacer</button>`}</li>`; }
+function autoUndo(i){ const L=cur.cambios_auto||[], x=L[i]; if(!x||x.deshecho) return;
+  if(!confirm(`¿Deshacer «${propLabel(x.campo)}» y volver al valor anterior?`)) return;
+  setPath(cur,x.campo,x.antes===undefined?null:clone(x.antes)); if(/^v\.(shares|cash|debt)$/.test(x.campo)&&x.antes==null){ delete cur.v[x.campo.slice(2)]; applyData(cur); }
+  if(x.campo==="ajustes_posteriores") applyData(cur);
+  cur.cambios_auto=L.map((y,j)=>j===i?Object.assign({},y,{deshecho:new Date().toISOString().slice(0,10)}):y);
+  save(); renderHeader(); renderTab(); }
+function autoCard(){ const L=(cur.cambios_auto||[]).map((x,i)=>[x,i]).reverse(); const n=L.filter(([x])=>!x.deshecho).length;
+  return `<section class="card" id="autoCard"><h2>Cambios aplicados automáticamente</h2><p class="sub">Hechos verificados que el robot ha aplicado solo: cifras, fechas, guía, datos clave, catalizadores, directiva y ajustes por hechos posteriores. Cada uno lo ha comprobado un segundo agente contra la fuente citada. Tu criterio (DCF, scorecard, veredicto, MOAT, riesgos) nunca se toca sin tu visto bueno. «Deshacer» deja el valor anterior como borrador: publícalo para que valga en todos tus dispositivos.</p>
+   ${L.length?`<details class="box" id="autoList"${lsGet("valorador.autolist")==="1"?" open":""}><summary><span>Registro <span class="note" style="font-weight:400">· ${n} aplicado${n===1?"":"s"}${L.length>n?` · ${L.length-n} deshecho${L.length-n===1?"":"s"}`:""}</span></span></summary><div style="padding:0 14px 12px"><ul class="wl">${L.slice(0,60).map(([x,i])=>autoRow(x,i)).join("")}</ul></div></details>`:`<p class="empty">Todavía no hay cambios automáticos.</p>`}</section>`; }
 function renderStale(){
   const el=$("staleBox"); if(!el||!cur) return; const s=staleInfo(cur);
   const PR=cur._prop; if(PR&&lsGet("valorador.propvista."+cur._t)!==PR.creada+"|"+(PR.informe_accn||"")+(PR.alcance?"|"+PR.alcance:"")){
     el.innerHTML=`<span>📝 <b>Propuesta de actualización</b> de ${esc(cur.meta.name)}: ${esc(PR.motivo||"")} · ${PR.cambios.length} ${PR.cambios.length===1?"cambio":"cambios"} · preparada el ${esc(fecha(PR.creada))}.</span><span class="note">Revísala: tú eliges qué cambios aplicar. No se toca nada hasta que los guardes.</span><span><button type="button" class="btn-acc" id="btnProp">Revisar la propuesta</button></span>`;
     el.hidden=false; return; }
+  { const R=autoRecent(cur,7), key=R.length?R.at(-1).fecha+"|"+R.length:"";
+    if(R.length&&lsGet("valorador.autovisto."+cur._t)!==key){
+      el.innerHTML=`<span>🤖 <b>${R.length} ${R.length===1?"cambio aplicado":"cambios aplicados"} automáticamente</b> en ${esc(cur.meta.name)} (último el ${esc(fecha(R.at(-1).fecha))}): ${R.slice(-4).map(x=>esc(propLabel(x.campo))).join(", ")}${R.length>4?"…":""}.</span><span class="note">Hechos verificados contra su fuente. Puedes deshacer cualquiera en Fuentes.</span><span><button type="button" class="btn-acc" id="btnAutoVer">Ver el registro</button> <button type="button" id="btnAutoOk">Entendido</button></span>`;
+      el.hidden=false; return; } }
   if(cur.meta&&cur.meta.autogenerado&&!cur.meta.asOf){ el.innerHTML=`<span>✨ <b>Compañía recién añadida</b> (${esc(fecha(cur.meta.autogenerado))}). Las cifras, segmentos y previsiones ya son automáticos, y el DCF arranca con los datos reales de los últimos 12 meses.</span><span class="note">Falta tu criterio: pulsa «Editar» para escribir la tesis, el negocio, el MOAT, la directiva, los riesgos y el veredicto, revisa los supuestos y rellena «Análisis a».</span>`; el.hidden=false; return; }
   if(!s||!s.stale||s.days<1){ el.hidden=true; el.innerHTML=""; return; }
   const parts=[]; if(fin(s.dp)) parts.push(`precio <b>${s.dp>=0?"+":"−"}${nf(Math.abs(s.dp),1)}%</b> (de ${nf(s.p0[1],2)} a ${nf(cur.v.price,2)})`);
@@ -1595,7 +1630,7 @@ function propModal(){
     ${PR.resumen?`<div class="alert" style="background:var(--surface2);border-color:var(--line)">${esc(PR.resumen)}</div>`:""}
     <p class="note" style="margin:0">Marca los cambios que quieras y corrige directamente cualquier texto o número de la columna «Propuesta». Se aplican como borrador: los verás en la web, podrás retocarlos con «Editar» y después los guardas con «Guardar en GitHub».</p>
     <div class="prlist">${propGroups(PR.cambios).map(([tab,items])=>`${PR.cambios.length>6?`<div class="eyebrow" style="margin-top:6px">${esc(tab)} · ${items.length}</div>`:""}${items.map(([c,i])=>`<label class="pr"><input type="checkbox" data-pi="${i}" checked>
-      <div><div class="prh"><b>${esc(propLabel(c.campo))}</b>${c.porque?`<span class="note">${esc(c.porque)}</span>`:""}${c.fuente&&c.fuente.u?`<span class="note">Fuente: <a href="${esc(c.fuente.u)}" target="_blank" rel="noopener">${esc(c.fuente.t||c.fuente.u)}</a>${c.fuente.d?` · ${esc(c.fuente.d)}`:""}</span>`:""}</div>
+      <div><div class="prh"><b>${esc(propLabel(c.campo))}</b>${c.fallo_verificacion?`<span class="note" style="color:var(--down,#b42318)">⚠ No ha superado la verificación automática: ${esc(c.fallo_verificacion)}. Compruébalo antes de aplicarlo.</span>`:""}${c.porque?`<span class="note">${esc(c.porque)}</span>`:""}${c.fuente&&c.fuente.u?`<span class="note">Fuente: <a href="${esc(c.fuente.u)}" target="_blank" rel="noopener">${esc(c.fuente.t||c.fuente.u)}</a>${c.fuente.d?` · ${esc(c.fuente.d)}`:""}</span>`:""}</div>
       <div class="prc"><div><span class="eyebrow">Ahora</span><div class="prv old">${propShow(getPath(cur,c.campo))}</div></div><div><span class="eyebrow">Propuesta · puedes corregirla aquí</span><div class="prv new pred" id="pred-${i}">${propEd(c.valor,[i])}</div></div></div></div></label>`).join("")}`).join("")}</div>
     ${(PR.fuentes||[]).length?`<div class="note">Fuentes: ${PR.fuentes.map(f=>`<a href="${esc(f.u)}" target="_blank" rel="noopener">${esc(f.t)}</a>`).join(" · ")}</div>`:""}
     <div class="toolbar"><button type="button" class="btn-acc" id="btnPropApply">Aplicar los marcados como borrador</button><button type="button" id="btnPropAll">Marcar / desmarcar todos</button><button type="button" id="btnPropDrop">Descartar la propuesta</button><span class="saved" id="propMsg"></span></div>`;
@@ -4359,7 +4394,8 @@ R.valuation=()=>{
     if(k in RO){ const p=RO[k]==="m"?{manual:true,fecha:(cur._manual||{}).fecha,fuente:(cur._manual||{}).fuente||"Introducido a mano"}:RO[k];
       return lab+`<input type="number" id="v_${k}" class="ro" readonly tabindex="-1" value="${fin(cur.v[k])?cur.v[k]:""}" title="${RO[k]==="m"?"Se edita en manual/"+esc(cur._t)+".json":"Dato automático"}"><div class="fieldsrc">${srcTag(p)}</div>`; }
     let hint=""; if(MODEL_SEC.some(x=>x[0]===k)){ const s=cur.sec[k], w=bad.some(x=>x.campo===k&&x.nivel==="aviso"), dec=k==="shares"?1:0;
-      hint=`<div class="fieldsrc ${w?"bad":""}">${cur._auto[k]?"Dato de la SEC":`SEC: ${s&&fin(s.m)?nf(s.m,dec)+" M":"–"}`} ${srcTag(s&&s.p)}${!cur._auto[k]&&s&&fin(s.m)&&Math.abs(cur.v[k]-s.m)>=0.5?` <button type="button" class="add" data-usesec="${k}">Usar dato SEC</button>`:""}</div>`; }
+      const adj=(cur._adj&&cur._adj[k])||[];
+      hint=`<div class="fieldsrc ${w?"bad":""}">${cur._auto[k]?(adj.length?`SEC ${nf(s.m,dec)} M ${adj.map(a=>`${a.delta>0?"+":"−"} ${nf(Math.abs(a.delta),dec)} M <span title="${esc(a.porque||"")}">(hechos posteriores${a.fuente&&a.fuente.u?`: <a href="${esc(a.fuente.u)}" target="_blank" rel="noopener">${esc(a.fuente.t||"fuente")}</a>`:""})</span>`).join(" ")}`:"Dato de la SEC"):`SEC: ${s&&fin(s.m)?nf(s.m,dec)+" M":"–"}`} ${srcTag(s&&s.p)}${!cur._auto[k]&&s&&fin(s.m)&&Math.abs(cur.v[k]-s.m)>=0.5?` <button type="button" class="add" data-usesec="${k}">Usar dato SEC</button>`:""}</div>`; }
     return lab+`<input type="number" id="v_${k}" step="${st||"any"}" data-k="num" data-p="v.${k}" value="${fin(cur.v[k])?cur.v[k]:""}">`+hint; };
   const v=cur.v;
   const ovr=MODEL_SEC.some(([k])=>!cur._auto[k])||bad.some(x=>x.codigo==="contradiccion");
@@ -4409,7 +4445,7 @@ R.valuation=()=>{
         drow("pe","PER objetivo","Cuántas veces el beneficio pagarías por la acción.",sub("veces (x)",N("pe",0.5,"PER objetivo")))+
         drow("evm","EV/EBITDA objetivo","Cuántas veces el EBITDA del año 1 pagarías por la empresa entera (incluida la deuda).",sub("veces (x)",N("evm",0.5,"EV/EBITDA objetivo"))))}
       <div class="mktline" style="margin:0 14px 14px"><div class="eyebrow">Datos de mercado (automáticos)</div>
-        <div>Cotización <b class="num">${money(v.price)}</b> ${srcTag(P)} · acciones <b class="num">${nf(v.shares,1)} M</b> · caja <b class="num">${nf(v.cash)}</b> · deuda <b class="num">${nf(v.debt)}</b> ${cur._auto.shares&&cur._auto.cash&&cur._auto.debt?"(SEC)":"(con ajustes tuyos)"}</div>
+        <div>Cotización <b class="num">${money(v.price)}</b> ${srcTag(P)} · acciones <b class="num">${nf(v.shares,1)} M</b> · caja <b class="num">${nf(v.cash)}</b> · deuda <b class="num">${nf(v.debt)}</b> ${cur._auto.shares&&cur._auto.cash&&cur._auto.debt?(Object.keys(cur._adj||{}).length?"(SEC + hechos posteriores)":"(SEC)"):"(con ajustes tuyos)"}</div>
         <details${ovr?" open":""}><summary class="note" style="cursor:pointer">Ajustar acciones, caja o deuda</summary><div class="fields detgrid" style="padding:6px 0 0">${F("shares","Acciones diluidas","M",0.1)}${F("cash","Caja","M",1)}${F("debt","Deuda financiera","M",1)}</div></details>
       </div>
     </details>
@@ -5177,6 +5213,9 @@ document.addEventListener("click",e=>{
   if(e.target.closest("[data-ajcopy]")){ const c=store.companies[($("ajCo")||{}).value]; if(!c) return; const t=JSON.stringify(exportAnalysis(c),null,1);
     if(navigator.clipboard&&navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(()=>toast("JSON copiado"),()=>toast("No se pudo copiar")); else toast("Este navegador no permite copiar"); return; }
   if(e.target.closest("#btnProp")){ propModal(); return; }
+  if(e.target.closest("#btnAutoOk")||e.target.closest("#btnAutoVer")){ const R=autoRecent(cur,7); if(R.length) lsSet("valorador.autovisto."+cur._t,R.at(-1).fecha+"|"+R.length);
+    if(e.target.closest("#btnAutoVer")){ lsSet("valorador.autolist","1"); goTab("sources"); setTimeout(()=>{const a=$("autoCard"); if(a) a.scrollIntoView({behavior:"smooth"});},60); } else renderStale(); return; }
+  const au=e.target.closest("[data-autoundo]"); if(au){ autoUndo(+au.dataset.autoundo); return; }
   if(e.target.closest("#btnPropApply")){ propApply(); return; }
   if(e.target.closest("#btnPropAll")){ const cbs=[...$("modal").querySelectorAll("[data-pi]")]; const all=cbs.every(x=>x.checked); cbs.forEach(x=>x.checked=!all); return; }
   if(e.target.closest("#btnPropDrop")){ propDrop(); return; }
@@ -5186,7 +5225,7 @@ document.addEventListener("click",e=>{
   if(e.target.closest("#btnGhForget")){ lsSet("valorador.ghtoken",null); renderGhBox(); renderDraft(); toast("Token olvidado en este navegador"); return; }
   const dc=e.target.closest("#btnDiscard"); if(dc){ if(dc.dataset.armed!=="1"){dc.dataset.armed="1"; dc.textContent="¿Seguro? Pulsa otra vez"; setTimeout(()=>{if(dc.isConnected){dc.dataset.armed=""; dc.textContent="Descartar";}},3000); return;} discardDraft(); return;}
   const uw=e.target.closest("[data-usewacc]"); if(uw){ cur.v.wacc=+uw.dataset.usewacc; save(); renderTab(); renderHeader(); return; }
-  const us=e.target.closest("[data-usesec]"); if(us){const k=us.dataset.usesec; cur.v[k]=+cur.sec[k].m.toFixed(k==="shares"?1:0); cur._auto[k]=true; save(); renderTab(); renderHeader(); return;}
+  const us=e.target.closest("[data-usesec]"); if(us){const k=us.dataset.usesec; delete cur.v[k]; applyData(cur); save(); renderTab(); renderHeader(); return;}
   const co=e.target.closest("[data-co]"); if(co){ if(WATCH) exitWatch(); store.current=co.dataset.co; cur=store.companies[store.current]; lsSet("valorador.actual",store.current); renderHeader(); renderTab(); return;}
   const go=e.target.closest("[data-go]"); if(go){e.preventDefault();goTab(go.dataset.go);window.scrollTo({top:0});return;}
   const ad=e.target.closest("[data-add]"); if(ad){const a=get(ad.dataset.add)||[]; a.push(clone(TPL[ad.dataset.tpl])); setPath(cur,ad.dataset.add,a); save(); renderTab(); return;}
@@ -5221,7 +5260,7 @@ document.addEventListener("keydown",ev=>{ if(ev.key==="Escape"&&$("mkpop")){ mkP
 document.addEventListener("pointerdown",e=>{ if($("mkpop")&&!e.target.closest("#mkpop")&&!e.target.closest("[data-mki]")) mkPopClose(); },true);
 addEventListener("resize",()=>mkPopClose()); addEventListener("scroll",e=>{ if(innerWidth>560&&$("mkpop")&&!(e.target&&e.target.closest&&e.target.closest("#mkpop"))) mkPopClose(); },true);
 try{ matchMedia("(prefers-color-scheme: dark)").addEventListener("change",()=>{ if(MAPA.abierto&&$("mkmapBox")) mapaCargar(); }); }catch(e){}
-document.addEventListener("toggle",e=>{ const d=e.target; if(d&&d.id==="peerCards") lsSet("valorador.peercards",d.open?"1":"0"); if(d&&d.id==="warnDet") lsSet("valorador.avisosabiertos",d.open?"1":"0"); if(d&&d.id==="keyAs") lsSet("valorador.supclave",d.open?"1":"0"); if(d&&d.id==="srcKeys") lsSet("valorador.srckeys",d.open?"1":"0"); if(d&&d.id==="srcWarn") lsSet("valorador.srcwarn",d.open?"1":"0"); if(d&&d.id==="socialBox") lsSet("valorador.social",d.open?"1":"0"); if(d&&d.id==="glossary"){ lsSet("valorador.glosario",d.open?"1":"0"); const n=d.querySelector(".glsum .note"); if(n) n.textContent=n.textContent.replace(/pulsa para (plegar|desplegar)/,d.open?"pulsa para plegar":"pulsa para desplegar"); } },true);
+document.addEventListener("toggle",e=>{ const d=e.target; if(d&&d.id==="peerCards") lsSet("valorador.peercards",d.open?"1":"0"); if(d&&d.id==="warnDet") lsSet("valorador.avisosabiertos",d.open?"1":"0"); if(d&&d.id==="keyAs") lsSet("valorador.supclave",d.open?"1":"0"); if(d&&d.id==="srcKeys") lsSet("valorador.srckeys",d.open?"1":"0"); if(d&&d.id==="srcWarn") lsSet("valorador.srcwarn",d.open?"1":"0"); if(d&&d.id==="autoList") lsSet("valorador.autolist",d.open?"1":"0"); if(d&&d.id==="socialBox") lsSet("valorador.social",d.open?"1":"0"); if(d&&d.id==="glossary"){ lsSet("valorador.glosario",d.open?"1":"0"); const n=d.querySelector(".glsum .note"); if(n) n.textContent=n.textContent.replace(/pulsa para (plegar|desplegar)/,d.open?"pulsa para plegar":"pulsa para desplegar"); } },true);
 window.addEventListener("hashchange",()=>{const h=location.hash.slice(1); const HV={seguimiento:"lista",cartera:"cartera",inicio:"inicio",favoritas:"favoritas",ajustes:"ajustes"}; if(HV[h]){ const v=HV[h]; if(!WATCH||WVIEW!==v){ WVIEW=v; WATCH=true; renderWatch(); } return; } if(WATCH) exitWatch(); if(h&&h!==TAB) goTab(h,false);});
 try{const mq=matchMedia("(prefers-color-scheme: dark)"); mq.addEventListener("change",()=>rebuildCharts());}catch(e){}
 new MutationObserver(()=>{rebuildCharts(); if(TAB==="valuation") drawFootball();}).observe(document.documentElement,{attributes:true,attributeFilter:["data-theme"]});
@@ -5314,7 +5353,7 @@ function officialHtml(){
      <div style="padding:0 14px 12px">${!ws.length?`<p class="empty">Sin avisos.</p>`:
        `${av.length?`<div class="eyebrow" style="margin:4px 0 2px">Avisos · revisa si afectan a tu análisis</div>${warnList(av,"fuentes")}`:""}
         ${nt.length?`<div class="eyebrow" style="margin:10px 0 2px">Notas técnicas · cómo se han leído los datos, no requieren acción</div>${warnList(nt,"fuentes")}`:""}`}</div></details>`; })()}
-  </section>`;
+  </section>`+autoCard();
 }
 function cellTitle(k,i){const map={rev:"rev",profit:"profit",ni:"ni",capex:"capex",ocf:"ocf",fcf:"ocf",gross:"gross",ebitda:"profit",sbc:"sbc",int:"int"}; const p=cur.fin.pts[map[k]]&&cur.fin.pts[map[k]][i];
   return p?[p.etiqueta,`Presentado ${fecha(p.fecha_presentacion)} (${p.formulario||""})`,p.derivado||"",k==="fcf"?"FCF = caja operativa − capex":k==="ebitda"?"EBITDA = beneficio operativo + amortizaciones":k==="gross"&&!(cur.fin.pts.gross[i])?"Bruto = ingresos − coste de ventas":""].filter(Boolean).join("\n"):"";}

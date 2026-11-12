@@ -77,7 +77,7 @@ Para **quitar** una compañía, borra su línea de `companies.json` (los archivo
 
 ## Revisión tras resultados (propuestas)
 
-Cuando una compañía presenta resultados, una tarea programada de Claude (cada mañana laborable) lee la nota de resultados y la llamada con analistas y deja una **propuesta** en `propuestas/<TICKER>.json`, siguiendo `propuestas/INSTRUCCIONES.md`. Nunca modifica `analysis/`.
+Cuando una compañía presenta resultados, una tarea programada de Claude (cada mañana laborable) lee la nota de resultados y la llamada con analistas y deja una **propuesta** en `propuestas/<TICKER>.json`, siguiendo `propuestas/INSTRUCCIONES.md`.
 
 - La web muestra un aviso «Propuesta de actualización» en la compañía. «Revisar la propuesta» enseña cada cambio con lo que hay ahora, lo propuesto y por qué; marca los que quieras y «Aplicar los marcados como borrador». Revisa en la web, retoca con «Editar» y guarda con «Guardar en GitHub»: al guardar, la propuesta se borra sola. «Descartar la propuesta» la elimina sin aplicar nada.
 - Te llega también un aviso por email («Propuesta de actualización de …»).
@@ -88,6 +88,17 @@ Cuando una compañía presenta resultados, una tarea programada de Claude (cada 
 Pídele a Claude «Actualiza todo de AMZN» (o «de todas las compañías»). Repasa las 10 pestañas con todo lo publicado desde «Análisis a»: 10-K, 10-Q, 8-K, proxy, llamada de resultados, prensa financiera y sectorial, y redes sociales (estas solo para el tono). Deja una propuesta igual que la revisión tras resultados, pero agrupada por pestañas y con la fuente de cada cambio. El procedimiento está en `propuestas/ACTUALIZACION_COMPLETA.md`.
 
 La tarea programada de Claude (7:41 h) lo reparte así: **de martes a sábado**, tras el robot nocturno, revisa lo oficial de la SEC y de la compañía (resultados, 10-Q y 10-K con MD&A, notas y riesgos, otros 8-K y notas de prensa, llamadas con analistas y comentarios de la dirección; ver `propuestas/INSTRUCCIONES.md`). **Lunes, miércoles y viernes** revisa además lo que se dice en internet (prensa financiera y sectorial, y redes sociales; apartado 5 de `ACTUALIZACION_COMPLETA.md`). En los dos casos solo propone los campos afectados por novedades materiales; si no hay nada, no toca nada.
+
+### Qué se aplica solo y qué te llega a ti
+
+Al final de cada revisión (apartado 8 de `propuestas/INSTRUCCIONES.md`):
+
+- **Hechos verificados, aplicados solos.** Cifras, fechas, guía, datos clave, catalizadores, directiva, clientes, segmentos, fuentes y ajustes por hechos posteriores. Un segundo agente, que no ha redactado la propuesta, comprueba cada número y cada frase contra la fuente citada; `scripts/aplicar_cambios.py` aplica solo lo comprobado y lo anota en `analysis/<T>.json → cambios_auto`. La web los enseña en un aviso «🤖 cambios aplicados automáticamente» y en **Fuentes → Cambios aplicados automáticamente**, donde puedes **deshacer** cualquiera (queda como borrador; publícalo). El email de la noche también los resume.
+- **Avisos de calidad del dato explicados por el robot.** Si cuadra la cifra con la nota de resultados o encuentra la causa en el 10-Q/10-K (coberturas, compras, reexpresiones), los aprueba él y deja la comprobación en Fuentes. En la cabecera solo te queda lo que no ha podido explicar. Las notas técnicas ya no salen en la cabecera.
+- **Tu criterio, nunca solo.** Supuestos del DCF, scorecard, veredicto, MOAT, tesis y riesgos siguen siendo propuestas. Los supuestos del DCF solo se proponen si mueven el valor por acción un 5% o más (`node scripts/impacto_dcf.mjs <T>` lo mide con el mismo motor que la web). Con resultados, un 10-Q/10-K nuevo o una novedad grave (o un impacto del 10% o más) te llegan ese día; el resto se acumula en `propuestas/_cola/` y te llega el sábado en una sola propuesta por compañía.
+- **Lo que falla la verificación** te llega ese mismo día en la propuesta, marcado «No ha superado la verificación automática».
+
+**Acciones, caja y deuda del modelo** salen siempre del último informe de la SEC. Lo que pase después del cierre (una compra, una emisión o amortización de deuda) va en `analysis/<T>.json → ajustes_posteriores` con su fuente; la web lo suma al dato de la SEC y deja de aplicarlo cuando llega el siguiente 10-Q/10-K. Si fijas tú una cifra a mano en Valoración, manda la tuya y la web avisa si se aleja más de un 20% de la SEC.
 
 ## Informe de resultados (PDF por presentación)
 

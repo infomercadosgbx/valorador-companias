@@ -159,9 +159,14 @@ INSTANT_CONCEPTS = {
     "deuda": {
         "nombre": "Deuda financiera",
         "strategies": [
+            # «extra»: deuda a corto (pólizas, papel comercial) que se suma si existe en esa
+            # fecha, sin avisar si no está. No se suma si ya se ha usado DebtCurrent, que la incluye.
+            # Vistra (31-dic-25): LongTermDebt 17.043 M + ShortTermBorrowings 1.800 M.
             {"required": ["LongTermDebtNoncurrent"],
-             "optional": [["LongTermDebtCurrent", "DebtCurrent"]]},
-            {"required": ["LongTermDebt"], "optional": []},
+             "optional": [["LongTermDebtCurrent", "DebtCurrent"]],
+             "extra": [["ShortTermBorrowings", "CommercialPaper"]]},
+            {"required": ["LongTermDebt"], "optional": [],
+             "extra": [["ShortTermBorrowings", "CommercialPaper"]]},
             {"required": ["LongTermDebtAndCapitalLeaseObligations"],
              "optional": [["LongTermDebtAndCapitalLeaseObligationsCurrent", "DebtCurrent", "ShortTermBorrowings"]]},
             # Chevron (10-Q): deuda a largo con vencimientos corrientes incluidos + deuda a corto
