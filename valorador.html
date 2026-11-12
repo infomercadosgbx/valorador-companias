@@ -977,6 +977,163 @@ h1,h2,h3{font-family:var(--f-display);letter-spacing:-.01em}
 
 /* identidad de la compañía, con mesura: canto de las fichas y rótulo de la pestaña */
 .tabhead .eyebrow.tc{color:var(--brand)}
+
+/* ================= Inicio · termómetro diario (Propuesta 1d). Solo variables del tema: funciona en claro y oscuro ================= */
+:root{--ih-hi:#0B6B70;--ih-hiInk:#FFFFFF;--ih-hiSub:#D3ECEC;--ih-amb:#FFF4DE;--ih-ambInk:#7A4F00;--ih-up:#1F6E3A;--ih-dn:#9E2A22;--ih-ne:#5B6773;--ih-upBg:#E3F4EA;--ih-dnBg:#FBE4E2;--ih-g:#2F8F57;--ih-r:#C2423A;--ih-o:#E8946A;--ih-gl:#86C49A;
+  --ih-disp:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;--ih-num:"JetBrains Mono",ui-monospace,Menlo,monospace}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--ih-hi:#0F5559;--ih-hiSub:#BFE3E3;--ih-amb:#3A2E14;--ih-ambInk:#F2C46B;--ih-up:#4CC27A;--ih-dn:#F07A7A;--ih-ne:#9AA5B1;--ih-upBg:#13301F;--ih-dnBg:#3A1A18;--ih-g:#3FA66A;--ih-r:#D9544B}}
+:root[data-theme="dark"]{--ih-hi:#0F5559;--ih-hiSub:#BFE3E3;--ih-amb:#3A2E14;--ih-ambInk:#F2C46B;--ih-up:#4CC27A;--ih-dn:#F07A7A;--ih-ne:#9AA5B1;--ih-upBg:#13301F;--ih-dnBg:#3A1A18;--ih-g:#3FA66A;--ih-r:#D9544B}
+.ih{display:flex;flex-direction:column;gap:24px;margin:4px 0 32px}
+.ih .up{color:var(--ih-up)}.ih .dn{color:var(--ih-dn)}.ih .ne{color:var(--ih-ne)}.ih .amb{color:var(--ih-ambInk)}.ih .mut{color:var(--ink2)}.ih .acc{color:var(--accent)}
+.ihsm{font-size:12px;color:var(--muted)}.ihold{font-size:11.5px;color:var(--ih-ambInk);font-weight:600}.ihwarn{color:var(--ih-ambInk)!important}
+.iheb{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.ih h2,.ihmodal h2{font-family:var(--ih-disp);font-weight:700;font-size:21px;margin:0;letter-spacing:-.01em}
+.ihcard,.ihhero,.ihm{background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow)}
+.ihcard{padding:22px 24px;display:flex;flex-direction:column;gap:16px}
+.ihsh{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.ihlnk{all:unset;cursor:pointer;font-size:13px;font-weight:600;color:var(--accent)}.ihlnk:hover,.ihlnk:focus-visible{text-decoration:underline}
+.ihpill{display:inline-flex;align-items:center;padding:3px 10px;border-radius:999px;font-size:12.5px;font-weight:700;white-space:nowrap}
+.ihpill.crit{background:var(--ih-dnBg);color:var(--ih-dn)}.ihpill.serious{background:color-mix(in srgb,var(--ih-o) 22%,var(--surface));color:var(--ih-dn)}
+.ihpill.ne{background:var(--surface2);color:var(--ink2)}.ihpill.goodl,.ihpill.good{background:var(--ih-upBg);color:var(--ih-up)}
+.ihlive{color:var(--ih-up);font-weight:700}.ihref{color:var(--muted)}
+.ihdot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--muted)}.ihdot.on,.ihtk .ihdot{background:var(--ih-g)}
+/* cabecera */
+.ihhero{overflow:hidden}
+.ihhg{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr)}
+.ihhl{padding:28px 32px;display:flex;flex-direction:column;gap:10px;justify-content:center}
+.ihhl h1{margin:0;font-family:var(--ih-disp);font-weight:800;font-size:clamp(26px,3vw,38px);line-height:1.08;letter-spacing:-.02em;color:var(--ink)}
+.ihhl p{margin:0;font-size:15.5px;color:var(--ink2);max-width:640px}
+.ihchips{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+.ihchip{all:unset;box-sizing:border-box;display:inline-flex;align-items:center;gap:8px;min-height:30px;padding:4px 12px;border-radius:999px;background:var(--surface2);border:1px solid var(--line);font-size:12.5px;font-weight:600;color:var(--ink2)}
+.ihchip.amb{background:var(--ih-amb);border-color:transparent;color:var(--ih-ambInk);font-weight:700}.ihchip.mut{font-weight:500;color:var(--muted)}
+button.ihchip{cursor:pointer}button.ihchip:hover{border-color:var(--ink2)}
+.ihfg{padding:22px 26px;border-left:1px solid var(--line);background:var(--surface2);display:flex;flex-direction:column;gap:8px;min-width:0}
+.ihfgh{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.ihseg{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--surface)}
+.ihseg button{all:unset;cursor:pointer;height:30px;padding:0 12px;font-size:12px;font-weight:700;color:var(--ink2)}.ihseg button+button{border-left:1px solid var(--line)}
+.ihseg button[aria-pressed="true"]{background:var(--ink);color:var(--surface)}
+.ihseg button:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.ihfgv{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.ihfgv>b{font-family:var(--ih-num);font-size:48px;font-weight:700;line-height:1;letter-spacing:-.02em;color:var(--ink)}
+.ihfgt{display:flex;flex-direction:column;gap:3px;align-items:flex-start}.ihfgv .ihlnk{margin-left:auto;font-size:12.5px}
+.ihevo,.ihvel{width:100%;height:auto;display:block}.ihvel{max-width:300px;align-self:center}
+.ihevo .zg{fill:var(--ih-g);opacity:.09}.ihevo .zr{fill:var(--ih-r);opacity:.1}.ihevo .mid{stroke:var(--line);stroke-dasharray:3 4}
+.ihevo .ar{fill:var(--accent);opacity:.09}.ihevo .ln{fill:none;stroke:var(--accent);stroke-width:2.2;stroke-linejoin:round}.ihevo .pt{fill:var(--accent)}
+.ihevo text,.ihvel text{font-family:var(--f-body);font-size:10px}.ihevo .tg,.ihvel .tg{fill:var(--ih-up);font-weight:700}.ihevo .tr,.ihvel .tr{fill:var(--ih-dn);font-weight:700}
+.ihax{display:flex;justify-content:space-between;font-size:11px;color:var(--muted)}
+.ihvel path{fill:none;stroke-width:18}.ihvel .a1{stroke:var(--ih-r)}.ihvel .a2{stroke:var(--ih-o)}.ihvel .a3{stroke:var(--line)}.ihvel .a4{stroke:var(--ih-gl)}.ihvel .a5{stroke:var(--ih-g)}
+.ihvel .ag{stroke:var(--ink);stroke-width:4;stroke-linecap:round}.ihvel .hub{fill:var(--ink)}.ihvel .cnn{fill:var(--surface);stroke:var(--ink);stroke-width:2}
+.ihvel .nm{font-family:var(--ih-num);fill:var(--muted);text-anchor:middle}
+.ihleg{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;font-size:11.5px;color:var(--ink2)}.ihleg span{display:inline-flex;align-items:center;gap:6px}
+.ihleg .lg1{width:14px;height:3px;border-radius:2px;background:var(--ink)}.ihleg .lg2{width:9px;height:9px;border-radius:50%;border:2px solid var(--ink)}
+.ihtks{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));border-top:1px solid var(--line)}
+.ihtk{padding:12px 16px;display:flex;flex-direction:column;gap:1px;min-width:0}.ihtk+.ihtk{border-left:1px solid var(--line)}
+.ihtk span{font-size:11.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.ihtk b{font-family:var(--ih-num);font-size:16px;color:var(--ink)}
+.ihtk em{font-style:normal;font-family:var(--ih-num);font-size:12px;font-weight:700}
+/* pulso + tu espacio */
+.ihrow2{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:20px}
+.ihbtn{all:unset;box-sizing:border-box;display:inline-flex;align-items:center;gap:8px;min-height:36px;padding:4px 12px;border-radius:10px;border:1px solid var(--line);background:var(--surface);font-size:13px;font-weight:700;color:var(--ink);cursor:pointer}
+.ihbtn:hover{border-color:var(--ink2)}.ihbtn:focus-visible,.ihlista:focus-visible,.ihesp2 button:focus-visible,.ihac:focus-visible,.ihae:focus-visible,.ihmore:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.ihbadge{font-family:var(--ih-num);font-size:11px;font-weight:700;background:var(--ih-amb);color:var(--ih-ambInk);border-radius:999px;padding:1px 7px}
+.ihp4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.ihpc,.ihtc{padding:14px 16px;display:flex;flex-direction:column;gap:2px;min-width:0}.ihpc+.ihpc{border-left:1px solid var(--line)}
+.ihpl{font-size:12px;font-weight:600;color:var(--muted)}.ihpc>b{font-family:var(--ih-num);font-size:26px;font-weight:700;color:var(--ink)}
+.ihps{font-size:12px;font-weight:600}
+.ihaaii{display:flex;flex-direction:column;gap:8px}.ihaah{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:13px}.ihaah small{color:var(--muted)}.ihaah .amb{font-size:12px;font-weight:600}
+.ihbar3{display:flex;height:16px;border-radius:8px;overflow:hidden;gap:2px}.ihbar3 .b{background:var(--ih-g)}.ihbar3 .n{background:var(--line)}.ihbar3 .r{background:var(--ih-r)}
+.ihaan{display:flex;justify-content:space-between;font-size:12.5px;color:var(--ink2)}.ihaan b{font-family:var(--ih-num);color:var(--ink)}.ihaan b.up{color:var(--ih-up)}.ihaan b.dn{color:var(--ih-dn)}
+.ihesp{display:flex;flex-direction:column;gap:12px}
+.ihlista{all:unset;box-sizing:border-box;cursor:pointer;flex:1;display:flex;flex-direction:column;justify-content:space-between;gap:12px;padding:22px;border-radius:16px;background:var(--ih-hi);color:var(--ih-hiInk)}
+.ihlista:hover{filter:brightness(1.06)}
+.ihlh{display:flex;justify-content:space-between;align-items:center}.ihlt{font-family:var(--ih-disp);font-size:20px;font-weight:700}
+.ihl3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.ihl3>span{display:flex;flex-direction:column;border-top:1px solid rgba(255,255,255,.3);padding-top:8px;font-size:12.5px;color:var(--ih-hiSub)}
+.ihl3 b{font-family:var(--ih-num);font-size:30px;line-height:1.1;color:var(--ih-hiInk)}
+.ihesp2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.ihesp2 button{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:4px;padding:16px 18px;border-radius:14px;background:var(--surface);border:1px solid var(--line);color:var(--ink)}
+.ihesp2 button:hover{border-color:var(--ink2)}.ihesp2 span{font-size:12.5px;color:var(--muted)}
+/* mercados */
+.ihsec{display:flex;flex-direction:column;gap:14px}.ihsec>.ihsh h2{font-size:22px}
+.ihm4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.ihm{display:flex;flex-direction:column;overflow:hidden;min-width:0}
+.ihmh{padding:18px 18px 14px;display:flex;flex-direction:column;gap:6px;background:var(--surface2);border-bottom:1px solid var(--line)}
+.ihmh h3{margin:0 0 4px;font-family:var(--ih-disp);font-size:16px;font-weight:700}
+.ihmtl{font-size:12px;font-weight:600;color:var(--muted)}.ihmtl small{font-size:12px}
+.ihmtv{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}.ihmtv b{font-family:var(--ih-num);font-size:26px;font-weight:700;letter-spacing:-.01em;color:var(--ink)}
+.ihchg{font-style:normal;font-family:var(--ih-num);font-size:13px;font-weight:700;padding:2px 8px;border-radius:6px;background:var(--surface)}
+.ihchg.up{background:var(--ih-upBg)}.ihchg.dn{background:var(--ih-dnBg)}
+.ihml{padding:2px 18px 0;display:flex;flex-direction:column;flex:1}
+.ihr{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--grid)}
+.ihrn{display:flex;flex-direction:column;min-width:0}.ihrn>span{font-size:13.5px;font-weight:600;color:var(--ink)}.ihrn small{font-size:11.5px;color:var(--muted);overflow:hidden;text-overflow:ellipsis}
+.ihrv{display:flex;flex-direction:column;align-items:flex-end;white-space:nowrap}.ihrv b{font-family:var(--ih-num);font-size:14px;font-weight:700;color:var(--ink)}
+.ihrv em{font-style:normal;font-family:var(--ih-num);font-size:12px;font-weight:700}
+.ihmore{all:unset;box-sizing:border-box;cursor:pointer;min-height:46px;display:flex;align-items:center;justify-content:center;gap:6px;font-size:13px;font-weight:700;color:var(--accent)}
+.ihmore:hover{background:var(--surface2)}
+/* tipos */
+.ihtg{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:24px;align-items:stretch}
+.iht6{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.ihtc{padding:16px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);gap:3px}.ihtc:nth-child(3n){border-right:0}.ihtc:nth-last-child(-n+3){border-bottom:0}
+.ihtc>b{font-family:var(--ih-num);font-size:21px;font-weight:700;color:var(--ink)}.ihtc.hl{background:color-mix(in srgb,var(--accent) 8%,var(--surface))}
+.ihcurva{border:1px solid var(--line);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:6px}
+.ihcvh{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;font-size:13.5px}
+.ihcurva svg{width:100%;height:auto;display:block}.ihcurva .g{stroke:var(--grid)}.ihcurva .base{stroke:var(--ink2);stroke-dasharray:4 4}
+.ihcurva text{font-family:var(--ih-num);font-size:10px;fill:var(--muted)}.ihcurva .nm{fill:var(--ink2)}.ihcurva .ax{font-family:var(--f-body);font-size:10.5px}
+.ihcurva .ln{fill:none;stroke-width:2.4;stroke-linejoin:round;stroke:var(--ih-ne)}.ihcurva .ar{fill:var(--ih-ne);opacity:.1}.ihcurva .pt{fill:var(--ih-ne)}.ihcurva .lb{font-size:11px;font-weight:700;fill:var(--ih-ne)}
+.ihcurva.dn .ln{stroke:var(--ih-r)}.ihcurva.dn .ar,.ihcurva.dn .pt{fill:var(--ih-r)}.ihcurva.dn .lb{fill:var(--ih-dn)}
+.ihcurva.up .ln{stroke:var(--ih-g)}.ihcurva.up .ar,.ihcurva.up .pt{fill:var(--ih-g)}.ihcurva.up .lb{fill:var(--ih-up)}
+/* agenda */
+.ihstrip{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.ihae{all:unset;box-sizing:border-box;cursor:pointer;padding:12px 14px;display:flex;flex-direction:column;gap:3px;min-width:0}.ihae+.ihae{border-left:1px solid var(--line)}
+.ihae:hover{background:var(--surface2)}.ihae.amb{background:var(--ih-amb)}.ihae.fed{background:color-mix(in srgb,var(--accent) 8%,var(--surface))}
+.ihaet{display:flex;justify-content:space-between;align-items:baseline;gap:6px}.ihaet b{font-family:var(--ih-num);font-size:12.5px;color:var(--ink)}.ihaet em{font-style:normal;font-size:10.5px;font-weight:700;color:var(--muted)}
+.ihae.amb .ihaet em{color:var(--ih-ambInk)}.ihae.ok .ihaet em{color:var(--ih-up)}
+.ihaen{font-size:14px;color:var(--ink)}.ihae small{font-size:12px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.ihacs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.ihac{all:unset;box-sizing:border-box;cursor:pointer;border:1px solid var(--line);background:var(--surface);border-radius:12px;padding:14px 16px 10px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.ihac:hover{border-color:var(--ink2)}.ihac.amb{border-color:color-mix(in srgb,var(--ih-ambInk) 35%,var(--line));background:color-mix(in srgb,var(--ih-amb) 45%,var(--surface))}
+.ihach{display:flex;justify-content:space-between;align-items:baseline;gap:8px}.ihach b{font-size:14px;color:var(--ink)}.ihach em{font-style:normal;font-size:11.5px;font-weight:700;color:var(--muted)}.ihac.amb .ihach em{color:var(--ih-ambInk)}
+.ihacv{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}.ihacv b{font-family:var(--ih-num);font-size:20px;color:var(--ink)}.ihacv small{font-size:12px;color:var(--muted)}
+.ihacf{display:flex;justify-content:space-between;gap:10px;font-size:11.5px;color:var(--ink2)}.ihamp{color:var(--accent);font-weight:700}
+.ihmas{border-style:dashed;background:var(--surface2);justify-content:center;gap:6px}.ihmas b{font-size:14px;color:var(--accent)}.ihmas span{font-size:12.5px;color:var(--muted)}
+.ihmini{width:100%;height:auto;display:block}.ihmini text{font-family:var(--ih-num);font-size:9.5px;fill:var(--muted)}
+.ihmini .gl{stroke:var(--grid)}.ihmini .gb{stroke:var(--line)}.ihmini .tg{stroke:var(--ih-g);stroke-dasharray:3 3}
+.ihmini .l1{fill:none;stroke:var(--accent);stroke-width:2.4;stroke-linejoin:round}.ihmini .l2{fill:none;stroke:var(--muted);stroke-width:1.6;stroke-dasharray:4 3}
+.ihmini .bp{fill:var(--ih-g);opacity:.8}.ihmini .bn{fill:var(--ih-r);opacity:.8}.ihmini .est{fill:var(--surface);stroke:var(--accent);stroke-width:2}
+.ihfoot{font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+.ih .mkmap{margin:0;border-radius:16px}
+.ih .agcal{border-top:1px solid var(--grid);padding-top:12px}
+/* ventanas */
+.modal.ihmodal{width:min(720px,100%);gap:12px}.modal.ihmodal.wide{width:min(880px,100%)}
+.ihmodh{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.ihmodh>div{display:flex;flex-direction:column;gap:2px}.ihmodal h2{font-size:24px;font-weight:800}
+.ihsect{margin-top:12px;padding:6px 10px;background:var(--surface2);border-radius:8px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2)}
+.ihtr{display:grid;grid-template-columns:minmax(0,1fr) 70px minmax(150px,auto) 20px;align-items:center;gap:12px;padding:9px 10px;border-bottom:1px solid var(--grid)}
+.ihtr .ihrv{flex-direction:row;align-items:baseline;gap:14px}.ihtr .ihrv b{font-size:15px}.ihtr .ihrv em{min-width:76px;text-align:right;font-size:13px}
+.ihbar{display:flex;align-items:center;height:12px}.ihbar .l,.ihbar .r{flex:1;display:flex;height:6px}.ihbar .l{justify-content:flex-end}.ihbar .z{width:1px;height:12px;background:var(--line)}
+.ihbar i{display:block;height:6px}.ihbar .dn{background:var(--ih-r);border-radius:3px 0 0 3px}.ihbar .up{background:var(--ih-g);border-radius:0 3px 3px 0}.ihbar .ne{background:var(--muted);border-radius:0 3px 3px 0}
+.ihsrc{color:var(--muted);text-decoration:none;font-weight:700}.ihsrc:hover{color:var(--accent)}.ihnota{color:var(--muted);cursor:help;font-weight:400}
+.ihk3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.ihk3>div{background:var(--surface2);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column}.ihk3>div.amb{background:var(--ih-amb)}
+.ihk3 span{font-size:12px;font-weight:600;color:var(--muted)}.ihk3 .amb span{color:var(--ih-ambInk)}.ihk3 b{font-family:var(--ih-num);font-size:22px;color:var(--ink)}.ihk3 small{font-size:12px;color:var(--ink2)}
+.ihbig{height:300px;position:relative}
+.iht6r{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.iht6r>div{padding:8px 10px;display:flex;flex-direction:column}.iht6r>div+div{border-left:1px solid var(--line)}.iht6r span{font-size:11px;color:var(--muted)}.iht6r b{font-family:var(--ih-num);font-size:14px}
+.ihmasr{all:unset;box-sizing:border-box;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 4px;border-bottom:1px solid var(--grid)}
+.ihmasr:hover{background:var(--surface2)}.ihmasr>span:first-child{display:flex;flex-direction:column}.ihmasr small{font-size:12.5px;color:var(--muted)}
+.ihmasf{display:flex;flex-direction:column;align-items:flex-end;font-size:12.5px;font-family:var(--ih-num);color:var(--ink2);white-space:nowrap}.ihmasf em{font-style:normal;font-family:var(--f-body);font-size:12px;font-weight:700;color:var(--accent)}
+.ihcomp{display:flex;flex-direction:column}.ihcomp>div{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--grid)}
+.ihcomp small a{color:var(--accent)}.ihcnn{font-size:13px}
+.ihavisos{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px;font-size:13px}
+.ihmodal .mk.tp{margin:0}.ihmodal .mkfrow{grid-template-columns:minmax(0,1.2fr) minmax(0,1.5fr) 150px}.ihmodal .mkfv{min-width:0}.ihmodal .mkfv label{min-width:0}.ihmodal .mkfv input,.ihmodal .mkff input{width:100%;min-width:0;box-sizing:border-box}@media (max-width:640px){.ihmodal .mkfrow{grid-template-columns:1fr}}.ihmodal .mkedit{border:0;padding:0;box-shadow:none;background:transparent}
+@media (max-width:1100px){.ihm4{grid-template-columns:repeat(2,minmax(0,1fr))}.ihtks{grid-template-columns:repeat(4,minmax(0,1fr))}.ihtk:nth-child(5){border-left:0}.ihtk:nth-child(n+5){border-top:1px solid var(--line)}
+  .ihstrip{grid-template-columns:repeat(3,minmax(0,1fr))}.ihae:nth-child(4){border-left:0}.ihae:nth-child(n+4){border-top:1px solid var(--line)}.ihtg{grid-template-columns:1fr}}
+@media (max-width:860px){.ihhg,.ihrow2{grid-template-columns:1fr}.ihfg{border-left:0;border-top:1px solid var(--line)}.ihacs{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ihp4{grid-template-columns:repeat(2,minmax(0,1fr))}.ihpc:nth-child(3){border-left:0}.ihpc:nth-child(n+3){border-top:1px solid var(--line)}}
+@media (max-width:600px){.ih{gap:16px}.ihhl{padding:20px 18px}.ihfg{padding:18px}.ihcard{padding:18px 16px}.ihm4,.ihacs{grid-template-columns:1fr}
+  .ihtks{grid-template-columns:repeat(2,minmax(0,1fr))}.ihtk:nth-child(odd){border-left:0}.ihtk:nth-child(n+3){border-top:1px solid var(--line)}
+  .ihstrip{grid-template-columns:repeat(2,minmax(0,1fr))}.ihae:nth-child(odd){border-left:0}.ihae:nth-child(n+3){border-top:1px solid var(--line)}
+  .iht6{grid-template-columns:repeat(2,minmax(0,1fr))}.ihtc{border-right:1px solid var(--line)!important;border-bottom:1px solid var(--line)!important}.ihtc:nth-child(2n){border-right:0!important}.ihtc:nth-last-child(-n+2){border-bottom:0!important}
+  .ihtr{grid-template-columns:minmax(0,1fr) auto 18px}.ihtr .ihbar{display:none}.ihtr .ihrv{flex-direction:column;gap:0;align-items:flex-end}.ihtr .ihrv em{min-width:0}
+  .ihk3{grid-template-columns:1fr}.iht6r{grid-template-columns:repeat(3,minmax(0,1fr))}.iht6r>div:nth-child(4){border-left:0}.iht6r>div:nth-child(n+4){border-top:1px solid var(--line)}
+  .ihfgv>b{font-size:40px}.ihl3 b{font-size:24px}.ihbig{height:240px}}
 </style>
 </head>
 <body>
@@ -1495,7 +1652,7 @@ function downloadAnalysis(c){
 }
 function discardDraft(){ lsSet(DRAFT(cur._t),null); const t=cur._t; const c=buildCompany(cur._co,cur._base,cur._data,cur._manual); store.companies[t]=c; cur=c; renderHeader(); renderTab(); toast("Borrador descartado"); }
 const REFRESH={busy:false};
-function closeModal(){ $("overlay").hidden=true; $("modal").innerHTML=""; }
+function closeModal(){ $("overlay").hidden=true; $("modal").innerHTML=""; $("modal").className="modal"; if(typeof AGCH!=="undefined") AGCH.splice(0).forEach(c=>{ try{c.destroy();}catch(e){} }); }
 
 const TABS=[
  {id:"overview",label:"Resumen",c:"--tcx",title:"Visión general",desc:"La tesis en una línea, los datos clave, la puntuación por área y lo que viene."},
@@ -1782,17 +1939,6 @@ function carRows(){
 const HOMEV=[["inicio","Inicio","⌂"],["favoritas","Favoritas","★"],["lista","Lista de seguimiento","📋"],["cartera","Cartera","💼"]];
 function homeNav(){ return `<div class="homenav" role="tablist">${HOMEV.map(([k,l,i])=>`<button type="button" role="tab" data-home="${k}" aria-selected="${WVIEW===k}">${i} ${l}</button>`).join("")}</div>`; }
 function homeHead(t,p){ return `<div class="tabhead"><div><div class="eyebrow">Valorador</div><h2>${t}</h2>${p?`<p>${p}</p>`:""}</div></div>${homeNav()}`; }
-function inicioHtml(){
-  const W=watchRows(), favs=W.filter(r=>r.fav), below=W.filter(r=>fin(r.toBuy)&&r.toBuy<=0), soon=W.filter(r=>fin(r.eDays)&&r.eDays>=0&&r.eDays<=14).sort((a,b)=>a.eDays-b.eDays);
-  const {rows,tot}=carRows(), cost=rows.reduce((a,r)=>a+r.cost,0);
-  const tile=(k,ic,t,d,stat)=>`<button type="button" class="htile" data-home="${k}"><span class="hic">${ic}</span><span class="ht">${t}</span><span class="hd">${d}</span>${stat?`<span class="hs">${stat}</span>`:""}</button>`;
-  return homeHead("Menú principal","Elige qué quieres ver. Para volver a una compañía, ábrela desde el selector de arriba o desde cualquier lista.")+`<div id="mkWrap">${mercadoHtml()}</div>`+mapaHtml()+`<div id="tipWrap">${tiposHtml()}</div><div id="agWrap">${agendaHtml()}</div>`+`
-   <div class="htiles" id="inicioTiles">
-    ${tile("favoritas","★","Favoritas","Tus compañías marcadas, a un clic.",favs.length?`${favs.length} favorita${favs.length>1?"s":""}: ${favs.map(r=>esc(r.name)).join(", ")}`:"Aún no tienes favoritas")}
-    ${tile("lista","📋","Lista de seguimiento","Precio, valor de tu modelo, puntuación y lo que toca vigilar de todas las compañías.",`${W.length} compañías · ${below.length} en zona de compra${soon.length?` · resultados: ${soon.slice(0,2).map(r=>`${esc(r.name)} ${esc(fecha(r.eDate))}`).join(", ")}`:""}`)}
-    ${tile("cartera","💼","Cartera","Tus posiciones con el precio actual y tu valoración.",rows.length?`${nf(tot,0)} $ · ${tot>=cost?"+":"−"}${nf(Math.abs(cost>0?(tot/cost-1)*100:0),1)}% · ${rows.length} posiciones`:"Sin posiciones todavía")}
-   </div>`;
-}
 /* ================= MAPA DEL MERCADO (widget oficial de TradingView) =================
    Contenido de un tercero, solo se muestra: no entra en /data ni se mezcla con las cifras oficiales.
    Plegado por defecto y cargado al abrirlo; la web recuerda si lo dejaste abierto y qué índice. */
@@ -1925,8 +2071,8 @@ function mkPopOpen(btn,k){ const x=MKINFO[k]; if(!x) return; mkPopClose(); MKH.i
   p.querySelector("[data-mkpopx]").focus({preventScroll:true}); }
 function mkLiveTickers(){ return ((MKH.d&&MKH.d.indicadores)||[]).map(i=>i.vivo&&i.vivo.ticker).filter(Boolean); }
 function mkFmt(i,v){ if(!fin(v)) return "–";
-  if(i.unidad==="%") return nf(v,i.id==="dif_hy"?2:3)+"%";
-  if(i.id==="eurusd") return nf(v,4);
+  if(i.unidad==="%") return nf(v,["dif_hy","dif_ig","hipoteca"].includes(i.id)?2:3)+"%";
+  if(i.unidad==="") return nf(v,i.id==="usdjpy"?2:4);
   if(i.id==="bitcoin") return nf(v,0)+" $";
   return nf(v,2)+(i.unidad==="$"?" $":""); }
 function mkVar(i){ /* variación del día; durante la sesión, la del Worker si el ETF es el propio indicador */
@@ -2018,9 +2164,8 @@ function mkEditHtml(){ const m=MKH.man, v=(k,f="valor")=>m[k]&&m[k][f]!=null?esc
       <div class="mkfv">${valor}</div>
       <label class="mkff"><span>Fecha del dato</span><input type="date" id="mk_${k}_f" value="${v(k,"fecha")&&v(k,"fecha")>=fdef?v(k,"fecha"):fdef}"></label></div>`;
   const inp=(id,val,ph,lab)=>`<label><span>${lab}</span><input type="number" step="any" inputmode="decimal" id="${id}" value="${val}" placeholder="${ph}"></label>`;
-  return `<div class="mkedit card" style="margin:0 0 14px">
-    <h3 style="margin-top:0">Apuntar valores manuales</h3>
-    <p class="note">Una fila por indicador: valor y la fecha a la que corresponde ese dato. Se guardan en <code>manual/_mercado.json</code>. Deja vacío lo que no quieras mostrar.</p>
+  return `<div class="mkedit">
+    <div class="ihmodh"><div><span class="iheb">Datos sin fuente automática</span><h2 id="mTitle">Apuntar valores manuales</h2><span class="ihsm">Una fila por indicador: abre la fuente, copia el dato y pon la fecha a la que corresponde. Se guardan en <code>manual/_mercado.json</code>; deja vacío lo que no quieras mostrar.</span></div><button type="button" class="x" data-close aria-label="Cerrar">×</button></div>
     <div class="mkform2">
       ${fila("naaim","NAAIM","Semanal. Fecha: el miércoles de la encuesta (la web gratuita va 13 semanas por detrás).",inp("mk_naaim",v("naaim"),"p. ej. 72,4","Exposición (de −200 a 200)"),mkDue("naaim").disp)}
       ${fila("cnn","Miedo y codicia de CNN","Diario. Fecha: el día que lo consultas.",inp("mk_cnn",v("cnn"),"0–100","Valor (0–100)"),mkDue("cnn").disp)}
@@ -2053,7 +2198,7 @@ async function mkGuardar(){
     const bytes=new TextEncoder().encode(JSON.stringify(remote,null,2)+"\n"); let bin=""; for(let i=0;i<bytes.length;i+=8192) bin+=String.fromCharCode.apply(null,bytes.subarray(i,i+8192));
     const r=await gh(url,{method:"PUT",body:JSON.stringify({message:"Mercado hoy: valores manuales desde la web",content:btoa(bin),branch:"main",sha:g.j.sha})});
     if(!r.ok) throw new Error(ghErr(r.status,r.j));
-    MKH.man=mh; MKH.editar=false; renderWatch(); toast("Guardado. La web publicada se actualiza en 1–2 minutos.");
+    MKH.man=mh; MKH.editar=false; closeModal(); { const ag=$("agWrap"); if(ag) ag.dataset.gen=""; } renderWatch(); toast("Guardado. La web publicada se actualiza en 1–2 minutos.");
   }catch(e){ msg.textContent=e.message; }
 }
 function mercadoHtml(){
@@ -2263,6 +2408,366 @@ function agDibujar(){
     try{ AGCH.push(new Chart(el,cfg)); }catch(e){ console.error(e); }
   }
 }
+/* ================= INICIO · termómetro diario del mercado (Propuesta 1d) =================
+   Todo sale de data/_mercado_hoy.json (automático) y manual/_mercado.json (lo que apuntas a mano).
+   Colores con las variables del tema, para que el modo oscuro de Ajustes funcione igual. */
+const mes_es=m=>`${MES3[+String(m).slice(5,7)-1]}-${String(m).slice(2,4)}`;
+const FGV={vista:lsGet("valorador.fgvista")==="vel"?"vel":"evo"};
+const IH_DIAS=["domingo","lunes","martes","miércoles","jueves","viernes","sábado"];
+const IH_MESES=["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
+const IH_MAL=new Set(["vix","vix3m","vxn","move","ovx","gvz","us3m","us2y","us5y","us10y","us30y","euro10y","dif_hy","dif_ig","hipoteca"]);
+const IH_NEUTRO=new Set(["dolar","eurusd","usdjpy","gbpusd","usdcny","oro","plata","cobre","uranio","wti","brent","gas","bitcoin","ethereum"]);
+function ihMadrid(){ const p={}; new Intl.DateTimeFormat("en-CA",{timeZone:"Europe/Madrid",year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",hourCycle:"h23"}).formatToParts(new Date()).forEach(x=>p[x.type]=x.value);
+  return {iso:`${p.year}-${p.month}-${p.day}`,hm:`${p.hour}:${p.minute}`}; }
+const ihDate=iso=>new Date(iso+"T12:00:00");
+const ihF=iso=>{ if(!iso) return ""; const d=ihDate(iso.slice(0,10)); return `${d.getDate()}-${MES3[d.getMonth()]}`; };
+const ihDiasHasta=iso=>Math.round((ihDate(iso)-ihDate(ihMadrid().iso))/864e5);
+const ihInd=id=>((MKH.d&&MKH.d.indicadores)||[]).find(i=>i.id===id);
+function ihMove(){ const m=MKH.man.move||{};
+  return {id:"move",nombre:"MOVE",corto:"Volatilidad de bonos",grupo:"volatilidad",seccion:"Volatilidad",unidad:"pts",manual:true,
+    valor:fin(m.valor)?m.valor:null,fecha:m.fecha,fuente:"ICE BofA · introducido a mano",url:mkUrl("move"),vacio:!fin(m.valor)}; }
+function ihEf(i){ return IH_NEUTRO.has(i.id)?0:IH_MAL.has(i.id)?-1:1; }
+/* valor, variación y color de un indicador (con el precio en vivo del Worker si es un ETF en sesión) */
+function ihDato(i){
+  if(!i||i.vacio) return {v:"–",ch:"sin apuntar",mag:0,cls:"ne",vacio:true};
+  const x=mkVar(i); let ch="—",mag=0,sg=0;
+  if(fin(x.pb)&&!x.vivo){ sg=Math.sign(Math.round(x.pb)); ch=sg?`${sg>0?"▲":"▼"} ${nf(Math.abs(x.pb),0)} pb`:"= 0 pb"; mag=Math.abs(x.pb)/10; }
+  else if(fin(x.pct)){ sg=Math.sign(x.pct); ch=`${sg>0?"▲":sg<0?"▼":""} ${nf(Math.abs(x.pct),2)}%`.trim(); mag=Math.abs(x.pct); }
+  const g=sg*ihEf(i);
+  return {v:mkFmt(i,x.v),ch,mag,sg,cls:g>0?"up":g<0?"dn":"ne",vivo:!!x.vivo,hora:x.hora,ref:x.ref}; }
+function ihSub(i,d,ultima){ /* línea pequeña bajo el nombre: fuente corta y fecha (o «en vivo») */
+  if(i.vacio) return `<small>${esc(i.corto)}</small>`;
+  const hh=d.vivo&&d.hora?new Date(d.hora).toLocaleTimeString("es-ES",{hour:"2-digit",minute:"2-digit"}):"";
+  const f=d.vivo?`<span class="ihlive">● en vivo ${esc(hh)}</span>`:(i.manual?`manual ${esc(ihF(i.fecha))}`:esc(ihF(i.fecha)));
+  const viejo=!d.vivo&&ultima&&i.fecha&&i.fecha<ultima;
+  return `<small class="${i.desactualizado?"ihwarn":viejo?"ihold":""}" title="${esc((i.fuente||"")+(i.nota?" · "+i.nota:"")+(i.desactualizado?" · la fuente no respondió en la última actualización":""))}">${esc(i.corto||i.fuente||"")} · ${f}${d.ref?` · <span class="ihref">${esc(i.vivo.ticker)} ahora ${d.ref.var_pct>0?"+":"−"}${nf(Math.abs(d.ref.var_pct),2)}%</span>`:""}</small>`; }
+const ihUltima=()=>{ const s=ihInd("sp500"); return s&&s.fecha; };
+
+/* ---------- titular y resumen automáticos ---------- */
+function ihTitular(){
+  const sp=ihInd("sp500"), nq=ihInd("nasdaq"), y=ihInd("us10y"); if(!sp) return {h:"Mercado hoy",p:""};
+  const a=mkVar(sp), b=nq?mkVar(nq):null, pa=a.pct, pb=b&&b.pct, med=fin(pb)?(pa+pb)/2:pa;
+  const bolsa=!fin(med)?"La bolsa, sin datos":med>=0.8?"La bolsa sube con fuerza":med>=0.2?"La bolsa sube":med<=-0.8?"La bolsa cae con fuerza":med<=-0.2?"La bolsa cae":"La bolsa, sin apenas cambios";
+  const pbY=y&&fin(y.var)?y.var*100:NaN;
+  const tipos=!fin(pbY)?"":pbY>=5?" y los tipos repuntan":pbY<=-5?" y los tipos bajan":" con los tipos estables";
+  const cuando=a.vivo?"hoy":"el "+IH_DIAS[ihDate(sp.fecha).getDay()];
+  const v=x=>`${x>0?"sube":"cae"} un ${nf(Math.abs(x),1)}%`;
+  let p=fin(pa)?`El S&P 500 ${v(pa)}${fin(pb)?` y el Nasdaq-100 ${pb*pa>0?"un "+nf(Math.abs(pb),1)+"%":v(pb)}`:""} ${cuando}.`:"";
+  if(y) p+=` El bono a 10 años está en el ${nf(y.valor,2)}%${y.valor>=4.9&&y.valor<5?" y roza el 5%":""}.`;
+  const T=MKH.d.tipos||{}, M=T.mercado, P=((T.calendario||{}).proximas||[])[0];
+  if(M&&M.plazos&&M.plazos.length&&P){ const l=M.plazos[M.plazos.length-1].lectura;
+    const d=ihDate(P.fin); p+=` Las letras descuentan ${l==="subidas"?"subidas":l==="bajadas"?"bajadas":"tipos sin cambios"} antes de la Fed del ${d.getDate()} de ${IH_MESES[d.getMonth()]}.`; }
+  const e=ihProximo(); if(e){ const n=ihDiasHasta(e.fecha); if(n<=1) p+=` ${n===0?"Hoy":"Mañana"}, ${e.corto.toLowerCase()}.`; }
+  return {h:bolsa+tipos,p}; }
+const IH_CORTO={ipc:"IPC",empleo:"Informe de empleo",pce:"PCE",ipp:"Precios de producción",pib:"PIB",ventas:"Ventas minoristas",paro_sem:"Peticiones de paro",jolts:"Ofertas de empleo (JOLTS)",umich:"Confianza del consumidor",vivienda:"Viviendas iniciadas",fomc:"Decisión de la Fed"};
+function ihProximo(){ const {iso,hm}=ihMadrid();
+  return agEventos().map(x=>({...x,corto:IH_CORTO[x.id]||x.nombre})).find(x=>x.fecha>iso||(x.fecha===iso&&(!x.hora_madrid||hm<x.hora_madrid))); }
+function ihSesion(){ /* estado de Wall Street y cuándo abre, en hora de Madrid */
+  if(enHorario()) return {abierta:true,t:"Sesión abierta · cierra a las "+ihHoraNY(16,0)};
+  const n=nyNow(); let d=0; const dow=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"].indexOf(n.dow);
+  if(n.min>=960||dow===0||dow===6){ d=1; while([0,6].includes((dow+d)%7)) d++; }
+  return {abierta:false,t:`Cerrado · abre ${d===0?"hoy":d===1?"mañana":"el "+IH_DIAS[(new Date().getDay()+d)%7]} a las ${ihHoraNY(9,30)}`}; }
+function ihHoraNY(h,m){ /* hora de Madrid equivalente a h:m de Nueva York hoy */
+  const now=new Date(), ny=new Date(now.toLocaleString("en-US",{timeZone:"America/New_York"})), md=new Date(now.toLocaleString("en-US",{timeZone:"Europe/Madrid"}));
+  const dif=Math.round((md-ny)/36e5), hh=(h+dif+24)%24; return `${hh}:${String(m).padStart(2,"0")}`; }
+
+/* ---------- cabecera: titular + miedo y codicia + franja de cotizaciones ---------- */
+function ihFgPanel(){
+  const S=(MKH.d&&MKH.d.sentimiento)||{}, F=S.miedo_codicia, cnn=MKH.man.cnn||{};
+  if(!F) return `<div class="ihfg"><span class="iheb">Miedo y codicia</span><p class="note">Sin datos todavía.</p></div>`;
+  const tone=F.valor<25?"crit":F.valor<45?"serious":F.valor<=55?"ne":F.valor<=75?"goodl":"good";
+  let graf;
+  if(FGV.vista==="evo"){ const s=(F.serie||[]).filter(p=>fin(p[1])), x=i=>(i*396/Math.max(1,s.length-1)).toFixed(1), y=v=>(100-v).toFixed(1);
+    const L=s.map((p,i)=>`${i?"L":"M"}${x(i)} ${y(p[1])}`).join(" ");
+    graf=s.length>1?`<svg class="ihevo" viewBox="0 0 400 100" role="img" aria-label="Índice de miedo y codicia en las últimas ${s.length} sesiones: de ${nf(s[0][1],0)} el ${ihF(s[0][0])} a ${nf(F.valor,0)} el ${ihF(F.fecha)}.">
+      <rect class="zg" x="0" y="0" width="400" height="25"/><rect class="zr" x="0" y="75" width="400" height="25"/><line class="mid" x1="0" x2="400" y1="50" y2="50"/>
+      <path class="ar" d="${L} L${x(s.length-1)} 100 L0 100 Z"/><path class="ln" d="${L}"/><circle class="pt" cx="${x(s.length-1)}" cy="${y(s.at(-1)[1])}" r="4"/>
+      <text x="4" y="12" class="tg">Codicia</text><text x="4" y="96" class="tr">Miedo</text></svg>
+      <div class="ihax"><span>${esc(ihF(s[0][0]))}</span><span>${s.length} sesiones</span><span>${esc(ihF(s.at(-1)[0]))}</span></div>`:"";
+  } else {
+    const pt=(v,r)=>{ const a=Math.PI*(1-Math.max(0,Math.min(100,v))/100); return [(110+r*Math.cos(a)).toFixed(1),(110-r*Math.sin(a)).toFixed(1)]; }, n=pt(F.valor,70), c=fin(cnn.valor)?pt(cnn.valor,90):null;
+    graf=`<svg class="ihvel" viewBox="0 0 220 132" role="img" aria-label="Velocímetro: ${nf(F.valor,0)} sobre 100, ${esc(F.etiqueta)}${c?`. CNN marca ${nf(cnn.valor,0)}`:""}.">
+      <path class="a1" d="M20 110 A90 90 0 0 1 46.36 46.36"/><path class="a2" d="M46.36 46.36 A90 90 0 0 1 95.92 21.11"/><path class="a3" d="M95.92 21.11 A90 90 0 0 1 124.08 21.11"/><path class="a4" d="M124.08 21.11 A90 90 0 0 1 173.64 46.36"/><path class="a5" d="M173.64 46.36 A90 90 0 0 1 200 110"/>
+      <line class="ag" x1="110" y1="110" x2="${n[0]}" y2="${n[1]}"/><circle class="hub" cx="110" cy="110" r="8"/>${c?`<circle class="cnn" cx="${c[0]}" cy="${c[1]}" r="5"/>`:""}
+      <text x="20" y="128" class="nm">0</text><text x="110" y="8" class="nm">50</text><text x="200" y="128" class="nm">100</text><text x="52" y="100" class="tr">Miedo</text><text x="138" y="100" class="tg">Codicia</text></svg>
+      <div class="ihleg"><span><i class="lg1"></i>Índice propio ${nf(F.valor,0)}</span>${c?`<span><i class="lg2"></i>CNN ${nf(cnn.valor,0)} (${esc(ihF(cnn.fecha))})</span>`:""}${F.hace_1m&&fin(F.hace_1m.valor)?`<span>Hace 1 mes ${nf(F.hace_1m.valor,0)}</span>`:""}</div>`;
+  }
+  const atras=F.fecha&&ihUltima()&&F.fecha<ihUltima();
+  return `<div class="ihfg">
+    <div class="ihfgh"><span class="iheb">Miedo y codicia ${mkI("fg")}</span>
+      <div class="ihseg" role="group" aria-label="Vista del índice"><button type="button" data-fgv="evo" aria-pressed="${FGV.vista==="evo"}">Evolución</button><button type="button" data-fgv="vel" aria-pressed="${FGV.vista==="vel"}">Velocímetro</button></div></div>
+    <div class="ihfgv"><b>${nf(F.valor,0)}</b><span class="ihfgt"><span class="ihpill ${tone}">${esc(F.etiqueta)}</span><span class="${atras?"ihold":"ihsm"}">dato del ${esc(ihF(F.fecha))}</span></span>
+      <button type="button" class="ihlnk" data-ih="fg">Cómo se calcula</button></div>
+    ${graf}
+  </div>`; }
+const IH_TICKER=[["sp500","S&P 500 · SPY"],["nasdaq","Nasdaq-100 · QQQ"],["vix","VIX"],["us10y","Bono 10 años"],["eurusd","EUR/USD"],["oro","Oro"],["wti","WTI"],["bitcoin","Bitcoin"]];
+function ihHero(){
+  const D=MKH.d, {iso}=ihMadrid(), hoy=ihDate(iso), T=ihTitular(), ses=ihSesion(), e=ihProximo(), ult=ihUltima();
+  const fecha=`${IH_DIAS[hoy.getDay()]}, ${hoy.getDate()} de ${IH_MESES[hoy.getMonth()]} de ${hoy.getFullYear()}`;
+  const eN=e?ihDiasHasta(e.fecha):null, eTxt=e?`${eN===0?"Hoy":eN===1?"Mañana":agFechaTxt(e.fecha)}${e.hora_madrid?" "+e.hora_madrid:""} · ${e.corto.toLowerCase()}`:"";
+  const tk=IH_TICKER.map(([id,n])=>{ const i=ihInd(id); if(!i) return ""; const d=ihDato(i), viejo=!d.vivo&&ult&&i.fecha<ult;
+    return `<div class="ihtk"><span>${esc(n)}${viejo?` · ${esc(ihF(i.fecha))}`:""}${d.vivo?` <i class="ihdot" title="en vivo"></i>`:""}</span><b>${id==="oro"||id==="bitcoin"?nf(mkVar(i).v,0):d.v.replace(/ \$$/,"")}</b><em class="${d.cls}">${esc(d.ch)}</em></div>`; }).join("");
+  return `<section class="ihhero" aria-labelledby="ihH1">
+    <div class="ihhg">
+      <div class="ihhl"><span class="iheb">${esc(fecha[0].toUpperCase()+fecha.slice(1))}</span>
+        <h1 id="ihH1">${esc(T.h)}</h1>${T.p?`<p>${esc(T.p)}</p>`:""}
+        <div class="ihchips"><span class="ihchip"><i class="ihdot ${ses.abierta?"on":""}"></i>${esc(ses.t)}</span>
+          ${e?`<span class="ihchip ${eN<=1?"amb":""}">${esc(eTxt)}</span>`:""}
+          ${ult?`<span class="ihchip mut">Datos al cierre del ${esc(IH_DIAS[ihDate(ult).getDay()])} ${esc(ihF(ult))}</span>`:""}
+          ${D&&D.avisos&&D.avisos.length?`<button type="button" class="ihchip mut" data-ih="avisos" title="Fuentes que no respondieron en la última actualización">⚠ ${D.avisos.length} aviso${D.avisos.length>1?"s":""}</button>`:""}</div></div>
+      ${ihFgPanel()}
+    </div>
+    <div class="ihtks">${tk}</div>
+  </section>`; }
+
+/* ---------- pulso del mercado + tu espacio ---------- */
+function ihAaii(){ const S=(MKH.d&&MKH.d.sentimiento)||{}, am=MKH.man.aaii||{};
+  const manA=fin(am.alcistas)&&fin(am.bajistas)&&(!S.aaii||(am.fecha||"")>(S.aaii.fecha||""));
+  return manA?{...am,neutrales:fin(am.neutrales)?am.neutrales:100-am.alcistas-am.bajistas,manual:true}:S.aaii; }
+function ihPulso(){
+  const S=(MKH.d&&MKH.d.sentimiento)||{}, O=S.estres_ofr, vx=ihInd("vix"), M=MKH.man, n=mkPendientes();
+  const cel=(lab,info,val,sub,cls)=>`<div class="ihpc"><span class="ihpl">${lab}${info?" "+mkI(info):""}</span><b>${val}</b><span class="ihps ${cls||""}">${sub}</span></div>`;
+  const man=(k,lab,dec)=>{ const m=M[k]||{}, due=mkDue(k,m.fecha);
+    return cel(`${lab} · manual`,k,fin(m.valor)?nf(m.valor,dec):"–",fin(m.valor)?`${due&&due.due?"Hay dato nuevo · ":"Dato del "}${esc(ihF(m.fecha))}`:"sin apuntar",due&&due.due?"amb":"mut"); };
+  let vixc="";
+  if(vx){ const d=ihDato(vx), v=vx.valor, lv=v<15?"calma":v<20?"normal":v<30?"tensión":"pánico"; vixc=cel(`VIX · ${esc(ihF(vx.fecha))}`,"vix",nf(v,2),`${esc(d.ch)} · ${lv}`,d.cls); }
+  const ofr=O?cel(`Estrés OFR · ${esc(ihF(O.fecha))}`,"ofr",(O.valor<0?"−":"")+nf(Math.abs(O.valor),2),O.valor>1?"Estrés alto":O.valor>0?"Por encima de lo normal":"Bajo lo normal",O.valor>1?"dn":O.valor>0?"amb":"up"):"";
+  const A=ihAaii(), am=M.aaii||{}, dueA=mkDue("aaii",A&&A.fecha);
+  const aaii=A?`<div class="ihaaii"><div class="ihaah"><span><b>Encuesta AAII · inversores particulares</b> ${mkI("aaii")}<small> · ${A.manual?"manual":"aaii.com"}</small></span><span class="${dueA&&dueA.due?"amb":"ihsm"}">semana del ${esc(ihF(A.fecha))}${dueA&&dueA.due?" · ya hay una nueva":""}</span></div>
+      <div class="ihbar3" role="img" aria-label="Alcistas ${nf(A.alcistas,1)}%, neutrales ${nf(A.neutrales,1)}%, bajistas ${nf(A.bajistas,1)}%"><span class="b" style="width:${A.alcistas}%"></span><span class="n" style="width:${A.neutrales}%"></span><span class="r" style="width:${A.bajistas}%"></span></div>
+      <div class="ihaan"><span><b class="up">${nf(A.alcistas,1)}%</b> alcistas</span><span><b>${nf(A.neutrales,1)}%</b> neutrales</span><span><b class="dn">${nf(A.bajistas,1)}%</b> bajistas</span></div></div>`
+    :`<div class="ihaaii"><span class="note">Encuesta AAII: sin datos. Apúntala con «Apuntar valores».</span></div>`;
+  return `<section class="ihcard ihpulso" aria-labelledby="ihPul">
+    <div class="ihsh"><h2 id="ihPul">Pulso del mercado</h2>
+      <button type="button" class="ihbtn" data-mk="editar"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>Apuntar valores${n?`<span class="ihbadge">${n} por actualizar</span>`:""}</button></div>
+    <div class="ihp4">${vixc}${ofr}${man("move","MOVE · bonos",2)}${man("naaim","NAAIM",1)}</div>
+    ${aaii}
+  </section>`; }
+function ihEspacio(){
+  const W=watchRows(), favs=W.filter(r=>r.fav).length, below=W.filter(r=>fin(r.toBuy)&&r.toBuy<=0).length;
+  const {rows,tot}=carRows(), cost=rows.reduce((a,r)=>a+r.cost,0);
+  const flecha=`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg>`;
+  return `<section class="ihesp" aria-label="Tu espacio">
+    <button type="button" class="ihlista" data-home="lista"><span class="ihlh"><span class="ihlt">Lista de seguimiento</span>${flecha}</span>
+      <span class="ihl3"><span><b>${W.length}</b>compañías</span><span><b>${below}</b>en zona de compra</span><span><b>${favs}</b>favorita${favs===1?"":"s"}</span></span></button>
+    <div class="ihesp2"><button type="button" data-home="favoritas"><b>Favoritas</b><span>${favs?`${favs} compañía${favs>1?"s":""}`:"Aún no tienes"}</span></button>
+      <button type="button" data-home="cartera"><b>Cartera</b><span>${rows.length?`${nf(tot,0)} $ · ${tot>=cost?"+":"−"}${nf(Math.abs(cost>0?(tot/cost-1)*100:0),1)}%`:"Sin posiciones todavía"}</span></button></div>
+  </section>`; }
+
+/* ---------- mercados en cuatro temas ---------- */
+function ihTema(g){ const I=((MKH.d&&MKH.d.indicadores)||[]).filter(i=>i.grupo===g);
+  if(g==="volatilidad"){ const k=I.findIndex(i=>i.id==="vxn"); I.splice(k>=0?k+1:I.length,0,ihMove()); }
+  return I; }
+const ihGet=id=>id==="move"?ihMove():ihInd(id);
+function ihRow(i,ult){ const d=ihDato(i);
+  return `<div class="ihr"><span class="ihrn"><span>${esc(i.nombre)}</span>${ihSub(i,d,ult)}</span><span class="ihrv"><b>${esc(d.v)}</b><em class="${d.cls}">${esc(d.ch)}</em></span></div>`; }
+function ihMercados(){
+  const D=MKH.d; if(!D||!D.temas) return "";
+  const ult=ihUltima();
+  const cards=Object.entries(D.grupos||{}).map(([g,t])=>{ const Tm=D.temas[g]; if(!Tm) return ""; const top=ihGet(Tm.top); if(!top) return "";
+    const d=ihDato(top), n=ihTema(g).length;
+    return `<article class="ihm"><div class="ihmh"><h3>${esc(t)}</h3>
+        <span class="ihmtl">${esc(top.nombre)} · ${ihSub(top,d,ult).replace(/^<small[^>]*>|<\/small>$/g,"")}</span>
+        <span class="ihmtv"><b>${esc(d.v)}</b><em class="ihchg ${d.cls}">${esc(d.ch)}</em></span></div>
+      <div class="ihml">${Tm.resto.map(ihGet).filter(Boolean).map(i=>ihRow(i,ult)).join("")}</div>
+      <button type="button" class="ihmore" data-ih="tema:${esc(g)}">Ver los ${n} indicadores <span aria-hidden="true">↗</span></button></article>`; }).join("");
+  const vivo=LIVE.estado==="vivo";
+  return `<section class="ihsec" aria-labelledby="ihMer"><div class="ihsh"><h2 id="ihMer">Mercados</h2><span class="ihsm">${vivo?`<span class="ihlive">● Sesión abierta</span> · los ETF se actualizan cada minuto · `:""}Variación del día · verde, buena para el mercado; rojo, mala</span></div>
+    <div class="ihm4">${cards}</div></section>`; }
+function ihTemaModal(g){
+  const D=MKH.d, t=(D.grupos||{})[g], Tm=D.temas[g], I=ihTema(g), ult=ihUltima(), secs=[...new Set(I.map(i=>i.seccion))];
+  const fila=i=>{ const d=ihDato(i), w=Math.min(d.mag/2,1)*100;
+    return `<div class="ihtr"><span class="ihrn"><span>${esc(i.nombre)}${i.nota?` <span class="ihnota" title="${esc(i.nota)}">ⓘ</span>`:""}</span>${ihSub(i,d,ult)}</span>
+      <span class="ihbar" aria-hidden="true"><span class="l"><i class="dn" style="width:${d.cls==="dn"?w:0}%"></i></span><span class="z"></span><span class="r"><i class="${d.cls==="ne"?"ne":"up"}" style="width:${d.cls!=="dn"?w:0}%"></i></span></span>
+      <span class="ihrv"><b>${esc(d.v)}</b><em class="${d.cls}">${esc(d.ch)}</em></span>
+      <a class="ihsrc" href="${esc(i.url||"#")}" target="_blank" rel="noopener noreferrer" aria-label="Fuente de ${esc(i.nombre)}">↗</a></div>`; };
+  ihModal(`<div class="ihmodh"><div><span class="iheb">Mercados · ${I.length} indicadores</span><h2 id="mTitle">${esc(t)}</h2><span class="ihsm">${esc(Tm.sub)}</span></div><button type="button" class="x" data-close aria-label="Cerrar">×</button></div>
+    ${secs.map(s=>`<div class="ihsect">${esc(s)}</div>${I.filter(i=>i.seccion===s).map(fila).join("")}`).join("")}
+    <p class="note" style="margin:14px 0 0">Verde: movimiento favorable para la bolsa; rojo, desfavorable; gris, neutro. La barra es el tamaño del movimiento del día. Los ETF replican el índice o la materia prima cuando el dato oficial no tiene fuente gratuita (pasa el ratón por ⓘ). ↗ abre la fuente.</p>`,"wide"); }
+
+/* ---------- tipos e inflación ---------- */
+function ihTipos(){
+  const T=MKH.d&&MKH.d.tipos; if(!T||!T.calendario) return "";
+  const F=T.fed, C=T.calendario, P=(C.proximas||[])[0], U=C.ultima, Dg=T.diagrama, I=T.inflacion||{}, K=T.pendiente||{}, M=T.mercado;
+  const cel=(lab,info,val,sub,cls,hl)=>`<div class="ihtc${hl?" hl":""}"><span class="ihpl">${lab}${info?" "+mkI(info):""}</span><b>${val}</b><span class="ihps ${cls||""}">${sub}</span></div>`;
+  const anio=new Date().getFullYear(), d0=Dg&&Dg.anios&&(Dg.anios.find(a=>a.anio===anio)||Dg.anios[0]), d1=Dg&&Dg.anios&&Dg.anios.find(a=>a.anio===(d0&&d0.anio)+1);
+  const ps=I.pce_sub, rc=I.real_corto, c2=K["10a_2a"];
+  const dias=P?ihDiasHasta(P.fin):null;
+  const cells=[
+    F?cel("Tipos de la Fed","fed",`${nf(F.inferior,2)}–${nf(F.superior,2)}%`,U&&U.decision?`${esc(U.decision.texto)} (${esc(tpDias(U.inicio,U.fin))})`:"","mut"):"",
+    P?cel("Próxima reunión","fomc",esc(tpDias(P.inicio,P.fin)),`${dias===0?"hoy":dias===1?"mañana":"en "+dias+" días"} · ${esc(P.hora_madrid||"20:00")}${P.proyecciones?" · con proyecciones":""}`,"acc",true):"",
+    d0?cel("Prevé la Fed","puntos",`${nf(d0.mediana,2)}%`,`final de ${d0.anio}${d1&&d1.mediana===d0.mediana?" y "+d1.anio:""}`,"mut"):"",
+    ps?cel("PCE subyacente","inflacion",`${nf(ps.interanual,1)}%`,`${ps.interanual>2.5?"Lejos del 2%":ps.interanual>2.2?"Algo por encima del 2%":"Cerca del 2%"} · ${esc(mes_es(ps.mes))}`,ps.interanual>2.5?"dn":ps.interanual>2.2?"amb":"up"):"",
+    rc?cel("Tipo real","tipo_real",`${nf(rc.valor,2)}%`,rc.lectura?`Política ${rc.lectura}`:"",rc.lectura==="restrictiva"?"dn":rc.lectura==="expansiva"?"up":"mut"):"",
+    c2?cel("Curva 10a − 2a","curva",`${c2.pb>0?"+":c2.pb<0?"−":""}${nf(Math.abs(c2.pb),0)} pb`,c2.pb<0?"Invertida":fin(c2.hace_1m)?`${c2.pb<c2.hace_1m?"Se aplana":c2.pb>c2.hace_1m?"Se empina":"Igual"} (${c2.hace_1m>0?"+":""}${nf(c2.hace_1m,0)} hace 1 mes)`:"",c2.pb<0?"dn":"mut"):""].join("");
+  let curva="";
+  if(M&&M.plazos&&M.plazos.length){ const pl=M.plazos, vs=pl.map(p=>p.valor), mn=Math.min(M.base,...vs)-0.08, mx=Math.max(M.base,...vs)+0.08;
+    const cy=v=>(120-(v-mn)/(mx-mn)*104).toFixed(1), xs=pl.map((_,i)=>70+i*(270/Math.max(1,pl.length-1)));
+    const l=pl.at(-1).lectura, cls=l==="subidas"?"dn":l==="bajadas"?"up":"ne";
+    const L=pl.map((p,i)=>`${i?"L":"M"}${xs[i]} ${cy(p.valor)}`).join(" ");
+    const fw=MKH.man.fedwatch||{}, fwOk=fin(fw.mantener)||fin(fw.bajar)||fin(fw.subir);
+    curva=`<div class="ihcurva ${cls}"><div class="ihcvh"><b>¿Qué descuenta el mercado? ${mkI("expectativas")}</b><span class="ihpill ${cls==="dn"?"crit":cls==="up"?"good":"ne"}">${l==="subidas"?"Subidas":l==="bajadas"?"Bajadas":"Sin cambios"}</span></div>
+      <svg viewBox="0 0 360 150" role="img" aria-label="Letras del Tesoro frente al tipo efectivo de la Fed (${nf(M.base,2)}%): ${pl.map(p=>`${p.plazo} ${nf(p.valor,2)}%`).join(", ")}.">
+        <line class="g" x1="40" x2="350" y1="${cy(mx-0.08)}" y2="${cy(mx-0.08)}"/><line class="base" x1="40" x2="350" y1="${cy(M.base)}" y2="${cy(M.base)}"/>
+        <text x="36" y="${(+cy(M.base)+3).toFixed(1)}" class="nm" text-anchor="end">${nf(M.base,2)}</text><text x="36" y="${(+cy(mx-0.08)+3).toFixed(1)}" class="nm2" text-anchor="end">${nf(mx-0.08,2)}</text>
+        <path class="ar" d="${L} L${xs.at(-1)} ${cy(M.base)} L${xs[0]} ${cy(M.base)} Z"/><path class="ln" d="${L}"/>
+        ${pl.map((p,i)=>`<circle class="pt" cx="${xs[i]}" cy="${cy(p.valor)}" r="4"/><text x="${xs[i]}" y="142" class="ax" text-anchor="middle">${esc(p.plazo.replace(" meses"," m"))}</text>`).join("")}
+        <text x="${xs.at(-1)}" y="${(+cy(pl.at(-1).valor)-9).toFixed(1)}" class="lb" text-anchor="end">${pl.at(-1).dif_pb>0?"+":"−"}${nf(Math.abs(pl.at(-1).dif_pb),0)} pb</text></svg>
+      <span class="ihsm">Letras del Tesoro (${esc(ihF(pl[0].fecha))}) frente al tipo efectivo de la Fed (línea discontinua). Por encima: el mercado espera subidas.</span>
+      <span class="ihsm">${fwOk?`CME FedWatch (manual, ${esc(ihF(fw.fecha))}): ${[["mantener","mantener"],["bajar","bajar"],["subir","subir"]].filter(([k])=>fin(fw[k])).map(([k,l])=>`${l} <b>${nf(fw[k],0)}%</b>`).join(" · ")}`:"CME FedWatch: sin apuntar"} · ${mkA("fedwatch","consultar")}</span></div>`; }
+  return `<section class="ihcard" aria-labelledby="ihTip"><div class="ihsh"><h2 id="ihTip">Tipos e inflación · EE. UU.</h2><button type="button" class="ihlnk" data-ih="fed">Detalle de la Fed</button></div>
+    <div class="ihtg"><div class="iht6">${cells}</div>${curva}</div></section>`; }
+
+/* ---------- agenda macro ---------- */
+Object.assign(AG_TEXTO,{ventas:"Lo que gastan los hogares en tiendas y restaurantes. Es el primer dato del consumo de cada mes, y el consumo es dos tercios de la economía de EE. UU.",
+  paro_sem:"Personas que piden por primera vez el subsidio de desempleo cada semana. Es el dato más rápido del mercado laboral: si sube de forma sostenida, la economía se enfría.",
+  jolts:"Puestos de trabajo sin cubrir. Muchas vacantes por cada parado presionan los salarios al alza y, con ellos, la inflación.",
+  umich:"Encuesta de la Universidad de Michigan a los hogares sobre su situación y la economía. Incluye las expectativas de inflación, que la Fed sigue de cerca.",
+  vivienda:"Viviendas cuya construcción empieza cada mes, en tasa anual. Es muy sensible a los tipos hipotecarios: adelanta el efecto de la política de la Fed."});
+const IH_ORDEN=["ipc","empleo","pce","ipp","pib","ventas","paro_sem","jolts","umich","vivienda"];
+const ihAgItems=()=>((MKH.d&&MKH.d.tipos&&MKH.d.tipos.agenda&&MKH.d.tipos.agenda.items)||[]).filter(x=>x.graficos&&x.graficos.length);
+const ihMesTxt=p=>/^\d{4}-\d{2}-\d{2}$/.test(p)?ihF(p):mes_es(p);
+const ihPer=(x,p)=>x.id==="pib"?`${Math.floor((+p.slice(5,7)-1)/3)+1}T${p.slice(2,4)}`:ihMesTxt(p);
+/* último y penúltimo dato con su formato y nota */
+function ihAgVal(x,k=1){ const g=x.graficos[0], p=g.puntos[g.puntos.length-k]; if(!p) return null;
+  const v=p[1], per=ihPer(x,p[0]), est=p[2]?" · estimado":"";
+  switch(x.id){
+    case "empleo":{ const u=x.graficos[1], um=u?Object.fromEntries(u.puntos):{}; return {v:`${v>=0?"+":"−"}${nf(Math.abs(v),0)} mil`,n:`${fin(um[p[0]])?`paro ${nf(um[p[0]],1)}% · `:""}${per}`}; }
+    case "pib": return {v:`${v>=0?"+":"−"}${nf(Math.abs(v),1)}%`,n:`anualizado · ${per}`};
+    case "ventas": return {v:`${v>=0?"+":"−"}${nf(Math.abs(v),1)}%`,n:`en el mes · ${per}`};
+    case "paro_sem": return {v:`${nf(v,0)} mil`,n:`semana del ${per}`};
+    case "jolts": return {v:`${nf(v/1000,2)} M`,n:`ofertas · ${per}`};
+    case "umich": return {v:nf(v,1),n:`puntos · ${per}`};
+    case "vivienda": return {v:`${nf(v/1000,2)} M`,n:`anualizadas · ${per}`};
+    case "pce": return {v:`${nf(v,1)}%`,n:`subyacente · ${per}`};
+    case "ipc":{ const I=(MKH.d.tipos.inflacion||{}).ipc; return k===1&&I&&I.mes===p[0]&&fin(I.mensual)?{v:`${nf(v,1)}%`,n:`interanual · ${per}${est} · ${I.mensual>=0?"+":"−"}${nf(Math.abs(I.mensual),2)}% en el mes`}:{v:`${nf(v,1)}%`,n:`interanual · ${per}${est}`}; }
+    default: return {v:`${nf(v,1)}%`,n:`interanual · ${per}${est}`};
+  } }
+function ihCuando(x){ const {iso,hm}=ihMadrid(); if(!x.fecha) return {t:"",c:""};
+  const n=ihDiasHasta(x.fecha);
+  if(n===0) return x.hora_madrid&&hm>=x.hora_madrid?{t:"publicado hoy",c:"ok"}:{t:`HOY ${x.hora_madrid||""}`.trim(),c:"amb"};
+  if(n===1) return {t:`MAÑANA ${x.hora_madrid||""}`.trim(),c:"amb"};
+  return {t:n<=7?`en ${n} días`:agFechaTxt(x.fecha),c:""}; }
+/* gráfico pequeño en SVG (las tarjetas); el grande del detalle usa Chart.js */
+function ihMini(x){
+  const g=x.graficos[0], pts=g.puntos.slice(x.id==="pib"?-12:-24), vals=pts.map(p=>p[1]);
+  const barras=["dif","mm"].includes(g.modo)||x.id==="pib", obj=x.id==="ipc"||x.id==="pce";
+  const g2=x.graficos[1], m2=g2?Object.fromEntries(g2.puntos):null, v2=g2?pts.map(p=>m2[p[0]]):[];
+  const otraEscala=x.id==="empleo";
+  let mn=Math.min(...vals,...(otraEscala?[]:v2.filter(fin))), mx=Math.max(...vals,...(otraEscala?[]:v2.filter(fin)));
+  if(barras){ mn=Math.min(0,mn); mx=Math.max(0,mx); } if(obj){ mn=Math.min(mn,2); mx=Math.max(mx,2); }
+  const pad=(mx-mn)*0.08||1; mn-=barras&&mn===0?0:pad; mx+=pad;
+  const X0=34,X1=316,YT=10,YB=112, sy=v=>YB-(v-mn)/(mx-mn)*(YB-YT), n=pts.length;
+  const fmt=v=>Math.abs(mx-mn)>=20?nf(v,0):nf(v,1);
+  let body="";
+  if(barras){ const st=(X1-X0)/n, bw=st*0.62, y0=sy(0);
+    body=pts.map((p,i)=>{ const bx=X0+i*st+(st-bw)/2, y=sy(p[1]); return `<rect class="${p[1]>=0?"bp":"bn"}" x="${bx.toFixed(1)}" y="${Math.min(y,y0).toFixed(1)}" width="${bw.toFixed(1)}" height="${Math.abs(y0-y).toFixed(1)}"/>`; }).join("");
+  } else { const lx=i=>(X0+i*(X1-X0)/Math.max(1,n-1)).toFixed(1);
+    body=`<path class="l1" d="${pts.map((p,i)=>`${i?"L":"M"}${lx(i)} ${sy(p[1]).toFixed(1)}`).join(" ")}"/>`;
+    const e=pts.map((p,i)=>p[2]?`<circle class="est" cx="${lx(i)}" cy="${sy(p[1]).toFixed(1)}" r="3.5"><title>Estimado</title></circle>`:"").join(""); body+=e; }
+  if(g2){ const ok=v2.filter(fin); if(ok.length>1){ let a=mn,b=mx; if(otraEscala){ a=Math.min(...ok)-0.2; b=Math.max(...ok)+0.2; }
+      const sy2=v=>YB-(v-a)/(b-a)*(YB-YT), lx=i=>barras?(X0+(i+0.5)*(X1-X0)/n):(X0+i*(X1-X0)/Math.max(1,n-1));
+      body+=`<path class="l2" d="${v2.map((v,i)=>fin(v)?`${lx(i).toFixed(1)} ${sy2(v).toFixed(1)}`:null).filter(Boolean).map((s,i)=>(i?"L":"M")+s).join(" ")}"/>`; } }
+  const obj2=obj?`<line class="tg" x1="${X0}" x2="${X1}" y1="${sy(2).toFixed(1)}" y2="${sy(2).toFixed(1)}"/>`:"";
+  const mid=(mn+mx)/2;
+  return `<svg class="ihmini" viewBox="0 0 320 130" role="img" aria-label="${esc(g.nombre)}: de ${esc(ihPer(x,pts[0][0]))} a ${esc(ihPer(x,pts.at(-1)[0]))}, último ${esc(fmt(vals.at(-1)))}.">
+    <line class="gl" x1="${X0}" x2="${X1}" y1="${YT}" y2="${YT}"/><line class="gl" x1="${X0}" x2="${X1}" y1="${(YT+YB)/2}" y2="${(YT+YB)/2}"/><line class="gb" x1="${X0}" x2="${X1}" y1="${YB}" y2="${YB}"/>
+    <text x="30" y="${YT+3}" text-anchor="end">${fmt(mx)}</text><text x="30" y="${(YT+YB)/2+3}" text-anchor="end">${fmt(mid)}</text><text x="30" y="${YB+3}" text-anchor="end">${fmt(mn)}</text>
+    ${obj2}${body}<text x="${X0}" y="126">${esc(ihPer(x,pts[0][0]))}</text><text x="${X1}" y="126" text-anchor="end">${esc(ihPer(x,pts.at(-1)[0]))}</text></svg>`; }
+const IH_LEY={ipc:"Línea: general · gris: subyacente · verde: objetivo 2%",pce:"Línea: subyacente · gris: general · verde: objetivo 2%",empleo:"Barras: empleos creados (miles) · gris: paro",pib:"Crecimiento trimestral anualizado",
+  ipp:"IPP de demanda final, interanual",ventas:"Variación mensual",paro_sem:"Peticiones iniciales, miles por semana",jolts:"Vacantes, miles",umich:"Índice de confianza",vivienda:"Miles de viviendas, ritmo anual"};
+function ihAgenda(){
+  const T=MKH.d&&MKH.d.tipos; if(!T) return "";
+  const {iso}=ihMadrid(), ev=agEventos().filter(x=>x.fecha>=iso).slice(0,6), items=ihAgItems();
+  const strip=ev.map(x=>{ const c=ihCuando(x);
+    return `<button type="button" class="ihae ${c.c} ${x.id==="fomc"?"fed":""}" data-ih="${x.id==="fomc"?"fed":"ag:"+esc(x.id)}"><span class="ihaet"><b>${esc(agFechaTxt(x.fecha))}</b><em>${esc(c.t)}</em></span><b class="ihaen">${esc(IH_CORTO[x.id]||x.nombre)}</b><small>${x.ultimo?"Último: "+esc(x.ultimo):""}</small></button>`; }).join("");
+  const princ=items.filter(x=>x.principal!==false).sort((a,b)=>(a.fecha||"9")<(b.fecha||"9")?-1:1), mas=items.filter(x=>x.principal===false);
+  const cards=princ.map(x=>{ const c=ihCuando(x), u=ihAgVal(x);
+    return `<button type="button" class="ihac ${c.c}" data-ih="ag:${esc(x.id)}" aria-label="Ampliar el gráfico de ${esc(x.nombre)}">
+      <span class="ihach"><b>${esc(IH_CORTO[x.id]||x.nombre)}</b><em>${esc(c.t)}</em></span>
+      ${u?`<span class="ihacv"><b>${esc(u.v)}</b><small>${esc(u.n)}</small></span>`:""}
+      ${ihMini(x)}<span class="ihacf"><span>${esc(IH_LEY[x.id]||"")}</span><span class="ihamp">Ampliar</span></span></button>`; }).join("");
+  return `<section class="ihcard" aria-labelledby="ihAg"><div class="ihsh"><h2 id="ihAg">Agenda macro ${mkI("agenda")}</h2><span class="ihsm">Ordenada por fecha · horas de Madrid · pulsa un dato para ver el detalle</span></div>
+    ${strip?`<div class="ihstrip">${strip}</div>`:`<p class="note">Sin fechas todavía.</p>`}
+    <div class="ihacs">${cards}${mas.length?`<button type="button" class="ihac ihmas" data-ih="agmas"><b>Ver ${mas.length} indicadores más</b><span>${esc(mas.map(x=>IH_CORTO[x.id]||x.nombre).join(", "))}.</span></button>`:""}</div>
+    <div class="agcal">
+      <button type="button" class="mkmaph" data-agcal="toggle" aria-expanded="${AGCAL.abierto}" aria-controls="agcalBody"><span class="mkchev" aria-hidden="true">▸</span><span><b>Calendario con previsiones de los analistas</b><span class="note"> TradingView · se carga al abrirlo</span></span></button>
+      <div id="agcalBody"${AGCAL.abierto?"":" hidden"}><div class="agcalbox" id="agcalBox"></div>
+        <p class="note mkmapsrc">Calendario de <a href="https://www.tradingview.com/" target="_blank" rel="noopener noreferrer">TradingView</a> (no son datos oficiales). Solo EE. UU., importancia media y alta.</p></div></div>
+  </section>`; }
+function ihAgModal(id){
+  const x=ihAgItems().find(i=>i.id===id); if(!x) return;
+  const u=ihAgVal(x), a=ihAgVal(x,2), of=AG_OFICIAL[x.id]||[x.fuente,x.url], g0=x.graficos[0];
+  const tabla=g0.puntos.slice(-6).map(p=>{ const o=ihAgVal({...x,graficos:[{...g0,puntos:g0.puntos.slice(0,g0.puntos.indexOf(p)+1)},...x.graficos.slice(1)]}); return `<div><span>${esc(ihPer(x,p[0]))}</span><b>${esc(o?o.v:"")}</b></div>`; }).join("");
+  const est=g0.puntos.some(p=>p[2]);
+  ihModal(`<div class="ihmodh"><div><span class="iheb">Agenda macro · ${esc(x.fuente)}</span><h2 id="mTitle">${esc(x.nombre)}</h2></div><button type="button" class="x" data-close aria-label="Cerrar">×</button></div>
+    <div class="ihk3"><div><span>Último dato</span><b>${esc(u?u.v:"–")}</b><small>${esc(u?u.n:"")}</small></div><div><span>Dato anterior</span><b>${esc(a?a.v:"–")}</b><small>${esc(a?a.n:"")}</small></div>
+      <div class="amb"><span>Próxima publicación</span><b>${x.fecha?esc(agFechaTxt(x.fecha)):"–"}</b><small>${x.hora_madrid?esc(x.hora_madrid)+" hora de Madrid":""}</small></div></div>
+    <div class="ihbig"><canvas id="ihAgCh" aria-label="Gráfico de ${esc(x.nombre)}"></canvas></div>
+    <div class="iht6r">${tabla}</div>
+    <p style="margin:0">${esc(AG_TEXTO[x.id]||"")}</p>
+    ${est?`<p class="note" style="margin:0">El punto marcado es una estimación: a FRED le falta el IPC de octubre de 2025 (el cierre del Gobierno de EE. UU. dejó ese mes sin publicar), así que la base de la tasa interanual se calcula con la media de septiembre y noviembre.</p>`:""}
+    <div class="tplinks"><a class="mkgo" href="${esc(of[1])}" target="_blank" rel="noopener noreferrer">Fuente oficial (${esc(of[0])}) ↗</a>${x.graficos.map(g=>`<a class="mkgo" href="${esc(g.url)}" target="_blank" rel="noopener noreferrer">${esc(g.nombre)} en FRED ↗</a>`).join("")}</div>`,"wide");
+  requestAnimationFrame(()=>ihAgChart(x)); }
+function ihAgChart(x){
+  const el=$("ihAgCh"); if(!el||!window.Chart) return; AGCH.splice(0).forEach(c=>{ try{c.destroy();}catch(e){} }); setDefaults();
+  const c1=V("--accent")||"#0B6B70", c2=V("--muted")||"#888", good=V("--good"), crit=V("--crit");
+  const g0=x.graficos[0], pts=g0.puntos.slice(x.id==="pib"?-12:-24), labels=pts.map(p=>ihPer(x,p[0]));
+  const barras=["dif","mm"].includes(g0.modo)||x.id==="pib", obj=x.id==="ipc"||x.id==="pce";
+  const suf=["ia","mm"].includes(g0.modo)||x.id==="pib"?"%":"", d=x.id==="umich"||suf?1:0;
+  const ds=[barras?{type:"bar",label:g0.nombre,data:pts.map(p=>p[1]),backgroundColor:pts.map(p=>p[1]>=0?alpha(x.id==="pib"?c1:good,.75):alpha(crit,.75)),yAxisID:"y",order:2}
+    :{type:"line",label:g0.nombre,data:pts.map(p=>p[1]),borderColor:c1,backgroundColor:c1,borderWidth:2.2,pointRadius:pts.map(p=>p[2]?5:0),pointStyle:"circle",pointBackgroundColor:V("--surface"),tension:.25,yAxisID:"y",order:1}];
+  const g2=x.graficos[1];
+  if(g2){ const m=Object.fromEntries(g2.puntos); ds.push({type:"line",label:g2.nombre,data:pts.map(p=>m[p[0]]??null),borderColor:c2,backgroundColor:c2,borderWidth:1.6,borderDash:[4,3],pointRadius:0,tension:.25,spanGaps:true,yAxisID:x.id==="empleo"?"y2":"y",order:1}); }
+  if(obj) ds.push({type:"line",label:"Objetivo de la Fed (2%)",data:labels.map(()=>2),borderColor:alpha(good,.8),borderWidth:1,borderDash:[2,3],pointRadius:0,yAxisID:"y"});
+  const scales={x:{...axisX,ticks:{maxTicksLimit:8}},y:axisY({zero:barras,d,suf})};
+  if(x.id==="empleo") scales.y2={...axisY({zero:false,d:1,suf:"%"}),position:"right",grid:{display:false}};
+  try{ AGCH.push(new Chart(el,{type:barras?"bar":"line",data:{labels,datasets:ds},options:{maintainAspectRatio:false,interaction:{mode:"index",intersect:false},
+    plugins:{legend:{display:ds.length>1,position:"top",align:"start",labels:{boxWidth:10}},tooltip:{callbacks:{label:c=>` ${c.dataset.label}: ${nf(c.parsed.y,c.dataset.yAxisID==="y2"?1:d)}${c.dataset.yAxisID==="y2"?"%":suf}${pts[c.dataIndex]&&pts[c.dataIndex][2]&&c.datasetIndex===0?" (estimado)":""}`}}},scales}})); }catch(e){ console.error(e); } }
+function ihAgMasModal(){
+  const mas=ihAgItems().filter(x=>x.principal===false).sort((a,b)=>(a.fecha||"9")<(b.fecha||"9")?-1:1);
+  ihModal(`<div class="ihmodh"><div><span class="iheb">Agenda macro</span><h2 id="mTitle">Más indicadores</h2></div><button type="button" class="x" data-close aria-label="Cerrar">×</button></div>
+    ${mas.map(x=>{ const u=ihAgVal(x), c=ihCuando(x); return `<button type="button" class="ihmasr" data-ih="ag:${esc(x.id)}"><span><b>${esc(x.nombre)}</b><small>${u?`${esc(u.v)} · ${esc(u.n)}`:""} · ${esc(x.fuente)}</small></span><span class="ihmasf ${c.c}">${x.fecha?esc(agFechaTxt(x.fecha))+(x.hora_madrid?" · "+esc(x.hora_madrid):""):""}<em>Ver gráfico ↗</em></span></button>`; }).join("")}`); }
+
+/* ---------- ventanas emergentes ---------- */
+function ihModal(html,cls){ AGCH.splice(0).forEach(c=>{ try{c.destroy();}catch(e){} }); mkPopClose();
+  const m=$("modal"); m.className="modal ihmodal"+(cls?" "+cls:""); m.innerHTML=html; $("overlay").hidden=false; $("overlay").scrollTop=0;
+  setTimeout(()=>{ const b=m.querySelector("[data-close]"); if(b) b.focus(); },0); }
+function ihFgModal(){ const F=MKH.d&&MKH.d.sentimiento&&MKH.d.sentimiento.miedo_codicia, cnn=MKH.man.cnn||{}; if(!F) return;
+  const tone=v=>v<25?"crit":v<45?"serious":v<=55?"ne":v<=75?"goodl":"good";
+  ihModal(`<div class="ihmodh"><div><span class="iheb">Índice propio · ${esc(ihF(F.fecha))}</span><h2 id="mTitle">Miedo y codicia: ${nf(F.valor,0)} · ${esc(F.etiqueta)}</h2></div><button type="button" class="x" data-close aria-label="Cerrar">×</button></div>
+    <div class="ihk3"><div><span>Ayer</span><b>${F.anterior?nf(F.anterior.valor,0):"–"}</b></div><div><span>Hace 1 semana</span><b>${F.hace_1s?nf(F.hace_1s.valor,0):"–"}</b></div><div><span>Hace 1 mes</span><b>${F.hace_1m?nf(F.hace_1m.valor,0):"–"}</b></div></div>
+    <div class="ihcomp">${F.componentes.map(c=>`<div><span class="ihrn"><span>${esc(c.nombre)}</span><small>${esc(c.descripcion)} <a href="${esc(c.url)}" target="_blank" rel="noopener noreferrer">${esc(c.fuente)} ↗</a></small></span>${fin(c.puntuacion)?`<span class="ihpill ${tone(c.puntuacion)}">${nf(c.puntuacion,0)} · ${esc(c.etiqueta)}</span>`:`<span class="src off">sin dato</span>`}</div>`).join("")}</div>
+    <p class="note" style="margin:0">${esc(F.metodo||"")} No es el número de CNN: se mueve de forma parecida, pero puede diferir unos puntos.</p>
+    <div class="ihcnn">${fin(cnn.valor)?`CNN (manual, ${esc(ihF(cnn.fecha))}): <b>${nf(cnn.valor,0)}</b>`:"CNN: sin apuntar"} · ${mkA("cnn","Ver el de CNN")}</div>`); }
+function ihAvisosModal(){ const A=(MKH.d&&MKH.d.avisos)||[];
+  ihModal(`<div class="ihmodh"><div><span class="iheb">Última actualización · ${esc(new Date(MKH.d.generado).toLocaleString("es-ES",{dateStyle:"short",timeStyle:"short"}))}</span><h2 id="mTitle">Avisos de las fuentes</h2></div><button type="button" class="x" data-close aria-label="Cerrar">×</button></div>
+    <ul class="ihavisos">${A.map(a=>`<li>${esc(a)}</li>`).join("")}</ul><p class="note" style="margin:0">Cuando una fuente no responde, se mantiene su último dato marcado como «sin actualizar». El Action «Mercado hoy» se repite cada hora los días laborables.</p>`); }
+function ihFedModal(){ ihModal(`<div class="ihmodh"><div><span class="iheb">Reserva Federal</span><h2 id="mTitle">Detalle de tipos e inflación</h2></div><button type="button" class="x" data-close aria-label="Cerrar">×</button></div>${tiposHtml().replace(/^<section class="card mk tp">/,'<section class="mk tp">')}`,"wide"); }
+function ihManualModal(){ ihModal(mkEditHtml(),"wide"); }
+function ihClick(a){
+  if(a==="fg") return ihFgModal();
+  if(a==="fed") return ihFedModal();
+  if(a==="avisos") return ihAvisosModal();
+  if(a==="agmas") return ihAgMasModal();
+  if(a.startsWith("tema:")) return ihTemaModal(a.slice(5));
+  if(a.startsWith("ag:")) return ihAgModal(a.slice(3)); }
+
+function ihPintar(){ /* bloques que cambian con el precio en vivo */
+  const h=$("ihHero"), p=$("ihPulsoEsp"), m=$("ihMerc"); if(h) h.innerHTML=ihHero(); if(p) p.innerHTML=ihPulso()+ihEspacio(); if(m) m.innerHTML=ihMercados(); }
+function inicioHtml(){
+  if(!MKH.cargado) return `<div class="ih"><section class="ihcard"><p class="note">Cargando el mercado…</p></section></div>`;
+  if(!MKH.d) return `<div class="ih"><section class="ihcard"><h2>Mercado hoy</h2><p class="note">${esc(MKH.err||"Sin datos.")}</p></section><div id="ihPulsoEsp" class="ihrow2">${ihEspacio()}</div></div>`;
+  return `<div class="ih" id="ihWrap">
+    <div id="ihHero">${ihHero()}</div>
+    <div id="ihPulsoEsp" class="ihrow2">${ihPulso()}${ihEspacio()}</div>
+    <div id="ihMerc">${ihMercados()}</div>
+    <div id="tipWrap">${ihTipos()}</div>
+    <div id="agWrap">${ihAgenda()}</div>
+    ${mapaHtml()}
+    <footer class="ihfoot">Cifras de compañías: SEC EDGAR (XBRL). Mercado: Cboe, Tesoro de EE. UU., BCE, FRED (Reserva Federal de St. Louis), OFR, Finnhub y Twelve Data; AAII, NAAIM, MOVE, CNN y FedWatch se apuntan a mano. Se actualiza cada hora los días laborables${MKH.d.generado?` · última actualización: ${esc(new Date(MKH.d.generado).toLocaleString("es-ES",{weekday:"short",day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"}))}`:""}.</footer>
+  </div>`; }
+
 function favoritasHtml(){
   const W=watchRows().sort((a,b)=>(b.fav-a.fav)||a.name.localeCompare(b.name)), F=W.filter(r=>r.fav);
   const sg=v=>!fin(v)?"–":`<span class="${v>=0?"up":"dn"}">${v>=0?"+":"−"}${nf(Math.abs(v),1)}%</span>`;
@@ -2416,13 +2921,12 @@ function renderWatch(){
   const m=$("main"); m.style.setProperty("--tc","var(--tcx)");
   if(WVIEW==="cartera"){ m.innerHTML=carteraHtml(); requestAnimationFrame(()=>{ setDefaults(); drawCartera(); }); return; }
   if(WVIEW==="inicio"){
-    /* Si ya estamos en Inicio, se repintan solo «Mercado hoy» y las tarjetas: así el mapa de TradingView
-       no se recarga cada minuto con el precio en vivo. */
-    const w=$("mkWrap"), t=$("inicioTiles");
-    if(w&&t&&$("mkmap")&&m.contains(w)){ w.innerHTML=mercadoHtml(); if($("tipWrap")) $("tipWrap").innerHTML=tiposHtml();
-      const ag=$("agWrap"), gen=(MKH.d&&MKH.d.generado)||""; if(ag&&ag.dataset.gen!==gen){ ag.innerHTML=agendaHtml(); ag.dataset.gen=gen; requestAnimationFrame(agDibujar); if(AGCAL.abierto) agCalCargar(); }
-      const tmp=document.createElement("div"); tmp.innerHTML=inicioHtml(); const nt=tmp.querySelector("#inicioTiles"); if(nt) t.innerHTML=nt.innerHTML; return; }
-    m.innerHTML=inicioHtml(); if(MAPA.abierto) mapaCargar(); if($("agWrap")) $("agWrap").dataset.gen=(MKH.d&&MKH.d.generado)||""; requestAnimationFrame(agDibujar); if(AGCAL.abierto) agCalCargar(); return; }
+    /* Si ya estamos en Inicio, solo se repintan los bloques que cambian con el precio en vivo: así el mapa
+       de TradingView no se recarga cada minuto. Tipos y agenda, solo cuando llega un JSON nuevo. */
+    const w=$("ihWrap");
+    if(w&&$("mkmap")&&m.contains(w)){ ihPintar(); const gen=(MKH.d&&MKH.d.generado)||"", ag=$("agWrap");
+      if(ag&&ag.dataset.gen!==gen){ if($("tipWrap")) $("tipWrap").innerHTML=ihTipos(); ag.innerHTML=ihAgenda(); ag.dataset.gen=gen; if(AGCAL.abierto) agCalCargar(); } return; }
+    m.innerHTML=inicioHtml(); if(MAPA.abierto) mapaCargar(); if($("agWrap")) $("agWrap").dataset.gen=(MKH.d&&MKH.d.generado)||""; if(AGCAL.abierto) agCalCargar(); return; }
   if(WVIEW==="favoritas"){ m.innerHTML=favoritasHtml(); return; }
   if(WVIEW==="ajustes"){ m.innerHTML=ajustesHtml(); return; }
   m.innerHTML=watchHtml();
@@ -4622,8 +5126,10 @@ document.addEventListener("click",e=>{
     document.querySelectorAll("[data-mapafuente]").forEach(b=>b.setAttribute("aria-pressed",b===mf)); mapaCargar(); return; }
   if(e.target.closest("[data-mkpopx]")){ mkPopClose(true); return; }
   const mki=e.target.closest("[data-mki]"); if(mki){ if(MKH.info===mki.dataset.mki) mkPopClose(); else mkPopOpen(mki,mki.dataset.mki); return; }
+  const fgv=e.target.closest("[data-fgv]"); if(fgv){ FGV.vista=fgv.dataset.fgv; lsSet("valorador.fgvista",FGV.vista); const h=$("ihHero"); if(h) h.innerHTML=ihHero(); const nb=document.querySelector(`[data-fgv="${FGV.vista}"]`); if(nb) nb.focus(); return; }
+  const ihb=e.target.closest("[data-ih]"); if(ihb){ ihClick(ihb.dataset.ih); return; }
   const mkb=e.target.closest("[data-mk]"); if(mkb){ const a=mkb.dataset.mk;
-    if(a==="editar"||a==="cerrar"){ MKH.editar=a==="editar"&&!MKH.editar; renderWatch(); } else if(a==="guardar") mkGuardar(); return; }
+    if(a==="editar") ihManualModal(); else if(a==="cerrar") closeModal(); else if(a==="guardar") mkGuardar(); return; }
   const mi=e.target.closest("[data-metric]"); if(mi){e.preventDefault(); metricModal(mi.dataset.metric); return;}
   const cl=e.target.closest("[data-cli]"); if(cl){e.preventDefault(); clientModal(+cl.dataset.cli); return;}
   if(e.target.closest("[data-close]")||e.target.id==="overlay"){closeModal(); return;}

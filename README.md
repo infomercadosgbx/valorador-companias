@@ -167,18 +167,22 @@ Si sirves la web desde otro dominio, añádelo en el Worker como variable de tex
 
 ## Mercado hoy (menú principal)
 
-Encima de las tarjetas del menú principal hay una franja con indicadores básicos del mercado. La escribe el workflow **Mercado hoy** (`.github/workflows/mercado-hoy.yml`) en `data/_mercado_hoy.json` dos veces cada día laborable: a las 15:07 UTC (FRED ya tiene el cierre del día anterior y, los jueves, la AAII su encuesta) y a las 23:47 UTC (tras el cierre). Va aparte de la actualización de compañías: si una de estas fuentes falla, los datos de la SEC no se ven afectados.
+El menú principal es un termómetro diario del mercado: titular automático, miedo y codicia (evolución o velocímetro), franja de cotizaciones, pulso del mercado, cuatro temas de mercados (Bolsa · Volatilidad y divisas · Bonos y crédito · Materias primas y cripto; «Ver los N indicadores» abre todos), tipos e inflación y la agenda macro con gráficos. Lo escribe el workflow **Mercado hoy** (`.github/workflows/mercado-hoy.yml`) en `data/_mercado_hoy.json` **cada hora de 7:07 a 22:07 UTC** los días laborables, más una pasada a las 23:47 UTC tras el cierre. Cada ejecución gasta 8 créditos de Twelve Data (de 800 al día) y unas 45 consultas de Finnhub. Va aparte de la actualización de compañías: si una de estas fuentes falla, los datos de la SEC no se ven afectados, y la web muestra el último dato marcado como «sin actualizar» y un aviso.
 
 | Indicador | Fuente | Frecuencia |
 |---|---|---|
-| VIX, petróleo WTI, diferencial high yield | FRED (Reserva Federal de St. Louis) | Cierre diario, con un día de retraso; el WTI, con dos o tres |
-| Bono de EE. UU. a 5 y 10 años | Departamento del Tesoro (curva diaria) | Cierre diario |
-| S&P 500 (ETF SPY), Nasdaq-100 (ETF QQQ), HYG, LQD, KRE, MSCI World (ETF URTH), Corea (ETF EWY) | Finnhub | Cierre diario y **en vivo** durante la sesión con el Worker |
-| EUR/USD, oro, bitcoin | Twelve Data | Diario |
+| VIX, VIX a 3 meses, VXN, OVX, GVZ | Cboe (históricos diarios oficiales) | Cierre diario, el mismo día |
+| Curva del Tesoro (3 meses a 30 años) | Departamento del Tesoro | Cierre diario |
+| Bono AAA de la zona euro a 10 años | BCE (API de datos) | Cierre diario |
+| Diferenciales high yield y grado de inversión, índice dólar de la Fed, hipoteca a 30 años, WTI, Brent y gas natural | FRED (ICE BofA, Reserva Federal, Freddie Mac, EIA) | De uno a siete días de retraso según la serie |
+| Índices de bolsa vía ETF (SPY, QQQ, DIA, IWM, URTH, VGK, EWP, EWJ, MCHI, EWY, EEM, SOXX, KRE), HYG, LQD, TLT, plata (SLV), cobre (CPER), uranio (URA) | Finnhub | Cada hora y **en vivo** durante la sesión con el Worker |
+| EUR/USD, USD/JPY, GBP/USD, USD/CNY, oro, bitcoin, ethereum | Twelve Data (un solo lote) | Cada hora |
 | Estrés financiero | OFR (Oficina de Investigación Financiera del Tesoro) | Diario, con dos días hábiles de retraso |
-| Encuesta AAII | aaii.com (el propio emisor) | Semanal (jueves) |
-| Miedo y codicia (índice propio) | Calculado con FRED y el Cboe | Diario |
-| NAAIM, miedo y codicia de CNN, MOVE | **Manual** (no tienen fuente gratuita) | Cuando los apuntes (el MOVE de Investing va con un día de retraso) |
+| Encuesta AAII | aaii.com (el propio emisor) | Semanal (jueves); aaii.com suele bloquear a GitHub, así que normalmente se apunta a mano |
+| Miedo y codicia (índice propio) | Serie diaria del SPY (Twelve Data), VIX del Cboe, ICE BofA y Tesoro; FRED como respaldo | Cada hora |
+| NAAIM, miedo y codicia de CNN, MOVE, CME FedWatch | **Manual** (no tienen fuente gratuita) | Cuando los apuntes |
+
+Plata, WTI, Brent, cobre y el índice del dólar al contado no están en el plan gratuito de Twelve Data: el WTI y el Brent son el precio oficial de la EIA (con unos días de retraso) y durante la sesión se muestra al lado la variación del ETF USO; el índice dólar es el amplio de la Fed y en sesión se muestra el ETF UUP. El IPC de octubre de 2025 no se publicó (cierre del Gobierno de EE. UU.): la tasa interanual que depende de ese mes se calcula con la media de septiembre y noviembre y se marca como «estimado».
 
 El S&P 500 y el Nasdaq se muestran con sus ETF (SPY y QQQ) porque FRED publica los índices con uno o dos días de retraso; el ETF da el cierre del mismo día y, durante la sesión, el precio en vivo con el Worker. El índice de miedo y codicia sigue usando la serie oficial SP500 de FRED.
 
