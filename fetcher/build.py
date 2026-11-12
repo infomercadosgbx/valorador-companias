@@ -4,6 +4,7 @@ from __future__ import annotations
 from datetime import datetime, timezone
 
 from . import concepts as C
+from . import objetivos as OBJ
 from . import extract as X
 from . import filings as F
 from . import news as NEWS
@@ -450,6 +451,7 @@ def build_company(client, company, price_provider, price_warning=None, previous=
             rec["consenso_automatico"] = price_provider.recommendations(company["ticker"])
         except Exception as e:  # noqa: BLE001
             rec["avisos"].append(X.warn("info", "sin_consenso", f"Recomendaciones no disponibles: {e}"))
+    OBJ.actualizar(rec, company["ticker"], previous, warn=X.warn)
     _noticias(rec, company, subs, None if price_warning else price_provider, previous)
     # Histórico de cotizaciones (secundario: si falla, se conserva el anterior y se avisa)
     rec["historico_precio"] = (previous or {}).get("historico_precio")

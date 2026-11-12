@@ -18,6 +18,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from . import estimaciones as EST
+from . import objetivos as OBJ
 from . import logos, prices
 from . import resultados as RES
 from . import peers as PEERS
@@ -171,6 +172,7 @@ def run(only=None, report=None, root=ROOT, client=None, provider=None, price_war
         provider, price_warning = prices.from_env()
     NEWS.APIS = NEWS.apis_from_env() if real else []
     NEWS.FEEDS_CACHE = NEWS.FeedCache() if real else None
+    OBJ.PROVIDER = OBJ.from_env() if real else None
     hist, hist_warning = (history if history is not None else prices.history_from_env())
     extended = prices.extended_from_env()
     cik_issues = check_ciks(client, companies)
