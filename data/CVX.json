@@ -9662,14 +9662,78 @@
   "fuente": "SEC EDGAR · formularios 4",
   "resumen": {
    "compras_mercado": 0,
-   "ventas_mercado": 317414462.15,
+   "ventas_mercado": 340987765.89,
    "n_compras": 0,
-   "n_ventas": 24,
+   "n_ventas": 26,
    "ventas_con_plan": 9766243.02,
    "compradores": [],
-   "desde": "2026-05-12"
+   "desde": "2026-05-13"
   },
   "operaciones": [
+   {
+    "fecha": "2026-11-10",
+    "codigo": "M",
+    "tipo": "Ejercicio de opciones",
+    "acciones": 81900.0,
+    "precio": 88.2,
+    "importe": 7223580.0,
+    "sentido": "compra",
+    "tras_operacion": 93547.0,
+    "clase": "Common Stock",
+    "persona": "NELSON MARK A",
+    "cargo": "Vice Chairman",
+    "plan_10b5_1": false,
+    "fecha_presentacion": "2026-11-12",
+    "url": "https://www.sec.gov/Archives/edgar/data/93410/000009341026000202/0000093410-26-000202-index.htm"
+   },
+   {
+    "fecha": "2026-11-10",
+    "codigo": "S",
+    "tipo": "Venta en mercado",
+    "acciones": 81900.0,
+    "precio": 210.4734,
+    "importe": 17237771.46,
+    "sentido": "venta",
+    "tras_operacion": 41747.0,
+    "clase": "Common Stock",
+    "persona": "NELSON MARK A",
+    "cargo": "Vice Chairman",
+    "plan_10b5_1": false,
+    "fecha_presentacion": "2026-11-12",
+    "url": "https://www.sec.gov/Archives/edgar/data/93410/000009341026000202/0000093410-26-000202-index.htm"
+   },
+   {
+    "fecha": "2026-11-10",
+    "codigo": "M",
+    "tipo": "Ejercicio de opciones",
+    "acciones": 30100.0,
+    "precio": 179.08,
+    "importe": 5390308.0,
+    "sentido": "compra",
+    "tras_operacion": 123647.0,
+    "clase": "Common Stock",
+    "persona": "NELSON MARK A",
+    "cargo": "Vice Chairman",
+    "plan_10b5_1": false,
+    "fecha_presentacion": "2026-11-12",
+    "url": "https://www.sec.gov/Archives/edgar/data/93410/000009341026000202/0000093410-26-000202-index.htm"
+   },
+   {
+    "fecha": "2026-11-10",
+    "codigo": "S",
+    "tipo": "Venta en mercado",
+    "acciones": 30100.0,
+    "precio": 210.4828,
+    "importe": 6335532.28,
+    "sentido": "venta",
+    "tras_operacion": 11647.0,
+    "clase": "Common Stock",
+    "persona": "NELSON MARK A",
+    "cargo": "Vice Chairman",
+    "plan_10b5_1": false,
+    "fecha_presentacion": "2026-11-12",
+    "url": "https://www.sec.gov/Archives/edgar/data/93410/000009341026000202/0000093410-26-000202-index.htm"
+   },
    {
     "fecha": "2026-11-02",
     "codigo": "M",
@@ -10552,6 +10616,64 @@
    }
   ],
   "operaciones_por_filing": [
+   {
+    "accn": "0000093410-26-000202",
+    "fecha_presentacion": "2026-11-12",
+    "url": "https://www.sec.gov/Archives/edgar/data/93410/000009341026000202/0000093410-26-000202-index.htm",
+    "personas": [
+     {
+      "nombre": "NELSON MARK A",
+      "cargo": "Vice Chairman"
+     }
+    ],
+    "plan_10b5_1": false,
+    "operaciones": [
+     {
+      "fecha": "2026-11-10",
+      "codigo": "M",
+      "tipo": "Ejercicio de opciones",
+      "acciones": 81900.0,
+      "precio": 88.2,
+      "importe": 7223580.0,
+      "sentido": "compra",
+      "tras_operacion": 93547.0,
+      "clase": "Common Stock"
+     },
+     {
+      "fecha": "2026-11-10",
+      "codigo": "S",
+      "tipo": "Venta en mercado",
+      "acciones": 81900.0,
+      "precio": 210.4734,
+      "importe": 17237771.46,
+      "sentido": "venta",
+      "tras_operacion": 41747.0,
+      "clase": "Common Stock"
+     },
+     {
+      "fecha": "2026-11-10",
+      "codigo": "M",
+      "tipo": "Ejercicio de opciones",
+      "acciones": 30100.0,
+      "precio": 179.08,
+      "importe": 5390308.0,
+      "sentido": "compra",
+      "tras_operacion": 123647.0,
+      "clase": "Common Stock"
+     },
+     {
+      "fecha": "2026-11-10",
+      "codigo": "S",
+      "tipo": "Venta en mercado",
+      "acciones": 30100.0,
+      "precio": 210.4828,
+      "importe": 6335532.28,
+      "sentido": "venta",
+      "tras_operacion": 11647.0,
+      "clase": "Common Stock"
+     }
+    ]
+   },
    {
     "accn": "0000093410-26-000198",
     "fecha_presentacion": "2026-11-04",
@@ -11504,7 +11626,7 @@
     ]
    }
   ],
-  "n_formularios": 25
+  "n_formularios": 26
  },
  "riesgos_10k": {
   "version": 4,
@@ -11545,11 +11667,11 @@
  "precio": {
   "minimo_52s": 146.49,
   "maximo_52s": 236.48,
-  "beta": 0.4836743,
-  "valor": 213.28,
-  "cierre_anterior": 211.22,
+  "beta": 0.47128624,
+  "valor": 216.35,
+  "cierre_anterior": 213.28,
   "moneda": "USD",
-  "fecha": "2026-11-11",
+  "fecha": "2026-11-12",
   "fuente": "Finnhub (API oficial, plan gratuito)",
   "url": "https://finnhub.io/"
  },
@@ -11646,65 +11768,137 @@
  },
  "noticias": [
   {
+   "titular": "Discerning The AI Industrial Buildout Through An Energy Lens",
+   "medio": "Seeking Alpha",
+   "url": "https://finnhub.io/api/news?id=4428d87e2689063e59dd40e84d7e84e23ed2b84f60632e3fce537388991ddeab",
+   "fecha": "2026-11-12",
+   "resumen": "Real GDP grew 3.4% annualized in Q3, driven by high-income consumption and robust AI-related CapEx.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Bernstein Maintains Market Perform on Chevron, Lowers Price Target to $233",
+   "medio": "Benzinga",
+   "url": "https://finnhub.io/api/news?id=ae6ce36f625a4b291aa63661baaa685ddb4994c092ff1f05b7a843694959805d",
+   "fecha": "2026-11-12",
+   "resumen": "Bernstein  analyst Bob Brackett   maintains Chevron (NYSE:CVX) with a Market Perform and lowers the price target from $248 to $233.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Chevron To Restart Operations At Its Biodiesel Production Facility In Ralston, Iowa, With Capacity Of Almost 42M Gallons/Year",
+   "medio": "Benzinga",
+   "url": "https://finnhub.io/api/news?id=85d9445d7a7d7cd0ad62252a2a5f37965763e338b56f8a4aa69824b281de8058",
+   "fecha": "2026-11-12",
+   "resumen": " The restart is supported by a commercial and operational agreement between Chevron and farmer-owned Landus Cooperative, an Iowa-based agriculture services cooperative.This press release features multimedia. View the",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Chevron Vs. ExxonMobil: Buy The Peace, Not The War Premium",
+   "medio": "Seeking Alpha",
+   "url": "https://finnhub.io/api/news?id=38be289797beefd4205b49ce0cd8035c5700e79abbc677113e6590b3e1a2f0bc",
+   "fecha": "2026-11-12",
+   "resumen": "Chevron and ExxonMobil both banked a war windfall and have already started giving it back to the shareholders. See why CVX stock is a Buy and XOM stock a Hold.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "LOS ANGELES AUTO SHOW PUTS CAR SHOPPERS BEHIND THE WHEEL WITH DOZENS OF TEST DRIVES AND RIDE EXPERIENCES FOR 2026",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=e26afd4c596c380debc1d4733e3872da7f18d756118cb282948dbf30113f77ef",
+   "fecha": "2026-11-12",
+   "resumen": "The 2026 Los Angeles Auto Show®, presented by Chevron with Techron®, is putting car shoppers in the driver's seat with dozens of vehicles available to test drive or experience firsthand across four distinct ride-and-drive experiences. From city streets and outdoor driving routes ",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Sector Update: Energy Stocks Rise Pre-Bell Thursday",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=14830ff76e5fcd64184bc9404c450f13a6d5f867641bcb383ed3b01cd98e84a6",
+   "fecha": "2026-11-12",
+   "resumen": "Energy stocks were rising pre-bell Thursday, with the State Street Energy Select Sector SPDR ETF (XL",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Oil Price is Still High: Boon for ExxonMobil's Upstream Business?",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=0aa46968aa40acbfcebeabd0694e6a25850bbf085500f0b05c1c547fc7d479cb",
+   "fecha": "2026-11-12",
+   "resumen": "Oil above $85 per barrel boosts XOM's upstream outlook, backed by low-cost Permian and Guyana assets.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Chevron's Production Fell. Its Profit Nearly Tripled. Here's How.",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=63531e984efb7bf2b2ee33694d273c701d1c7345e198a35985ee6c70276f3265",
+   "fecha": "2026-11-12",
+   "resumen": "Fewer barrels, bigger profits: Chevron's latest quarter highlights the strength of its integrated business model.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Can Occidental Petroleum Stock Fall 30%?",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=49ab416c0dc269043e0d8392e07612d18ab0e84f7d9190d042c1cec342309604",
+   "fecha": "2026-11-12",
+   "resumen": "For questions about this article or underlying research, email help@trefis.com.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Oil Still Above $85, EOG Up 41% in a Year: Is the Stock Still a Buy?",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=d3f2bb9b8855dd1b29ec043df460e767410966c4906151e3fec7dd2978f61563",
+   "fecha": "2026-11-12",
+   "resumen": "EOG Resources has surged 40.8% in a year. High oil prices, low debt, steady dividends and attractive valuation support its appeal.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Chevron (CVX) Stock Looks Discounted As Its 123% Five Year Run Continues",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=716b838dfbf6be54b50aa440977fd74d3cf6ce752ed4224c170ab5b922c225d3",
+   "fecha": "2026-11-12",
+   "resumen": "Chevron has delivered a powerful run over the past few years, and with the stock last closing at US$213.28 the live question for you is whether that price still lines up with the cash the business can generate over time. Over 5 years the share price has gained 123.2%, which puts ",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Chevron Q3 Earnings Surge on Strong Refining: Is the Stock a Buy Now?",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=be370d03326d49c370fcd0ccda0d9e18a24877c3b8dfe40c5aa3fef31bf5c18b",
+   "fecha": "2026-11-12",
+   "resumen": "CVX's surging Q3 earnings, record U.S. refinery throughput, rising estimates and strong cash flow bolster its appeal. It also outpaces energy rivals in 2026.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Your $300,000 in XLE Holds $116,286 in Just Two Oil Companies",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=84a083e3f4c74c3a6e00a54eb6834718388ca2b54610012fd546b919110aa581",
+   "fecha": "2026-11-12",
+   "resumen": "You think a sector ETF spreads your risk across the whole energy industry. A look inside XLE's filing shows how much of your money rides on just two names, and why a rock-bottom fee hides the real price.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Chevron to Restart Ralston Biodiesel Facility in Iowa, Supported by Landus Cooperative Feedstock Supply Agreement",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=d6f6df6dc69e4a16b5195935155530c4f0516200b03d5f447944c533bf06a7ac",
+   "fecha": "2026-11-12",
+   "resumen": "HOUSTON & DES MOINES, Iowa, November 12, 2026--Chevron U.S.A. Inc., a subsidiary of Chevron Corporation (NYSE: CVX), announced today it will resume operation at its biodiesel production facility in Ralston, Iowa. The restart is supported by a commercial and operational agreement ",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
    "titular": "Q3 2026 MLP/Midstream Dividends: Growth Extends Into 2027",
    "medio": "Seeking Alpha",
    "url": "https://finnhub.io/api/news?id=06960c4cc382f85651fbbdd1d62d72d35a23d8f0fc9c235a44cb180d39cfd0f4",
    "fecha": "2026-11-11",
    "resumen": "On a year-over-year basis, 94.5% of the Alerian Midstream Energy Index, by weighting, has grown its dividends. Read more here.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Exxon vs. Chevron: 45 and 39 Straight Years of Raises. Which Oil Dividend Wins the Next Decade?",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=4a4ccde694761fb163a47311032180f4d6acc1560c2a3e9dbd537459e6331a63",
-   "fecha": "2026-11-11",
-   "resumen": "Key TakeawaysExxonMobil raised its quarterly dividend 4% to $1. 07 on Oct.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "TRGP Q3 Earnings Beat on Permian Growth and Higher Fees",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=b3c098f665be93468a3d60ffd9478748bf2b4db862566c78416fefb033ab0fb5",
-   "fecha": "2026-11-11",
-   "resumen": "Targa Resources' Q3 2026 earnings beat estimates as record Permian volumes and higher fees fueled growth, prompting a raised full-year EBITDA outlook.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Chevron (CVX) Could Be 76% Below Fair Value As Q3 Earnings Reset Valuation",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=8b33d17c82c0cc30c334015abe7bcf767991baa8a3f07f2ba584d3ee1b9b01ff",
-   "fecha": "2026-11-11",
-   "resumen": "Chevron (CVX) just posted third quarter 2026 results that put fresh numbers around its earnings power, while also reaffirming its quarterly dividend. For income focused investors, that combination is where the story starts. Chevron’s recent news flurry, from stronger third quarte",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Better Dividend Stock: Chevron vs. Duke Energy",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=9185170f24b0d93b2d10d0db0a5bd57d450d97b003c777604ffcdf50283af4bd",
-   "fecha": "2026-11-11",
-   "resumen": "Key TakeawaysDuke Energy reported third-quarter adjusted EPS of $1. 99 on Nov.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Inflation Is Running Above 3%. These 3 Energy Dividend Stocks Can Keep Up.",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=f3e6aaf6bcc108b424e009992d8ec799ca91e5f5e7d29ee446186709b412b9ba",
-   "fecha": "2026-11-11",
-   "resumen": "Energy prices drive the inflation consumers feel, but the same commodity swings that protect income can also wipe out a dividend. Three payers sit at different points in the energy chain, and only one has never cut its payout.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "ExxonMobil Is Up 43% in a Year. Will Its “Lasting Improvements” Outlast the Iran War?",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=98d04ed443c92fa413cd597ac6fefc468222a4eded80a96569f885fb8479b8c7",
-   "fecha": "2026-11-11",
-   "resumen": "Key TakeawaysExxonMobil stock is up 43% in the past year after the war with Iran sent oil above $100 and refining margins to records, and Chevron rode the same boom. About $12 billion of the $18.",
    "tipo": "prensa",
    "via": "Finnhub"
   },
@@ -11723,42 +11917,6 @@
    "url": "https://finnhub.io/api/news?id=e63eda9865b325dc566865ae8d76b9637f396253a2f431839732d22ed8fa9933",
    "fecha": "2026-11-10",
    "resumen": "Kelly accused Trump of profiting from rising oil and gas stocks while families face higher gas prices, spotlighting conflicts of interest.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "What Ranger Energy Services (RNGR) Said on Its Q3 Earnings Call",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=63d417061d3e363199ad9ad67e2f3a521f104a69b5c995872ed5e87ca54f788d",
-   "fecha": "2026-11-10",
-   "resumen": "Ranger Energy Services (NYSE:RNGR) reported softer-than-expected third-quarter results as customers tightened spending, lower-priced competitors won some work and employee medical costs rose. The company nevertheless generated enough cash to repay its acquisition-related revolvin",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Worried About a Market Crash? These 3 High-Yielding Stocks Can Be Safe Long-Term Options",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=9a6ec9a0fb25d406f73efdea61181b5032d2cbb4f54ce5dfa3dec98337e54f35",
-   "fecha": "2026-11-10",
-   "resumen": "These stocks pay as much as 5.9% in dividends.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Can Chevron's $13.8B Vaca Muerta Bet Fuel Long-Term Growth?",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=cf470c9c8f8e685037dbf7b21c14308d247542ccde7e2cde36dee9aaec2bea0d",
-   "fecha": "2026-11-10",
-   "resumen": "CVX aims to triple Argentina output by 2035 through its Vaca Muerta expansion, leveraging Permian expertise while tackling high costs and pipeline constraints.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Oil Prices Just Fell to Their Lowest Since August as Trump Says the Iran War Is ‘Effectively Over’",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=e993d8007aef178b07eb87f881a167fd5a66e454a68ed968830cde6bf78bfc4f",
-   "fecha": "2026-11-10",
-   "resumen": "Futures sank on words alone, with no signed deal and Iran denying any talks exist. Why did one oil fund crater while Exxon and Chevron barely flinched, and what number could reverse the slide?",
    "tipo": "prensa",
    "via": "Finnhub"
   },
@@ -11857,24 +12015,6 @@
    "via": "Finnhub"
   },
   {
-   "titular": "Diamond Hill Large Cap Fund Q3 2026 Portfolio Update",
-   "medio": "Seeking Alpha",
-   "url": "https://finnhub.io/api/news?id=8544bd5e50101d54620f2806534dc81e9dcd756bdb6963f9f17943b4a2a864be",
-   "fecha": "2026-11-06",
-   "resumen": "Diamond Hill Large Cap Fund returned 3.18% compared to a 2.61% return for the Russell 1000 Value Index. Read more here.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Stocks To Consider Ahead Of The Upcoming October 2026 CPI Report",
-   "medio": "Seeking Alpha",
-   "url": "https://finnhub.io/api/news?id=7cecaf6d998be2918108737a2b0222bad8bb2ce0b1dfa897e3770803638886ca",
-   "fecha": "2026-11-05",
-   "resumen": "Federal Reserve held rates at 3.75%-4.00% amid elevated inflation and resilient domestic spending, with a 25 bps hike next month. Read full analysis here.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
    "titular": "Chevron Corporation (CVX) is Attracting Investor Attention: Here is What You Should Know",
    "url": "https://www.zacks.com/stock/news/3021556/chevron-corporation-cvx-is-attracting-investor-attention-here-is-what-you-should-know?cid=CS-ZC-FT-fundamental_analysis|most_searched_stocks-3021556",
    "fecha": "2026-11-03",
@@ -11893,24 +12033,6 @@
    "url": "https://finnhub.io/api/news?id=73a37307f8eee1b0ef172b6ac9427640c5907173dd09e027256cc1e786706a63",
    "fecha": "2026-11-03",
    "resumen": "Evercore warns a disputed Democratic sweep plus deeper Iran involvement could send the S&amp;P 500 down 10% to 6,800, erasing 2026 gains.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Chevron (NYSE:CVX) Clears Eight High-Growth Tests as Fundamentals Improve",
-   "medio": "ChartMill",
-   "url": "https://finnhub.io/api/news?id=c78820e43b813971f92c019aafa17a8b1a15f81345c661afa36b6355bbcf45af",
-   "fecha": "2026-11-03",
-   "resumen": "Chevron clears all eight Navellier growth-stock rules, showing strong earnings and cash flow momentum, though ROIC and payout risks warrant caution.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Venezuela's Oil Exports Almost Unchanged At 1.08M Barrels/Day In Oct; Venezuela's Oil Exports To U.S. Fell To 449,000 Barrels/Day In Oct; Venezuela's Oil Exports To Europe Increased To Some 235,000 Barrels/Day In Oct; Chevron's Exports Of Venezuelan Crude Up To Some 303,000 Barrels/Day, Traders Exported 506,000 Barrels/Day",
-   "medio": "Benzinga",
-   "url": "https://finnhub.io/api/news?id=01dd912f25335941e123af3c856da92bb41b7b8a8ba0fbd40f72f874fe48ac37",
-   "fecha": "2026-11-03",
-   "resumen": "- Reuters Citing Shipping Data",
    "tipo": "prensa",
    "via": "Finnhub"
   },
@@ -11948,10 +12070,6 @@
  },
  "historico_precio": {
   "serie": [
-   [
-    "2021-08-11",
-    102.85
-   ],
    [
     "2021-08-12",
     102.64
@@ -17227,18 +17345,22 @@
    [
     "2026-11-11",
     213.28
+   ],
+   [
+    "2026-11-12",
+    216.35
    ]
   ],
   "fuente": "Twelve Data (API oficial, plan gratuito)",
   "url": "https://twelvedata.com/",
-  "fecha": "2026-11-11",
+  "fecha": "2026-11-12",
   "ajuste": "splits"
  },
- "generado": "2026-11-11T23:57:57+00:00",
+ "generado": "2026-11-12T23:54:34+00:00",
  "peers": {
   "fuente_lista": "manual",
   "fuente_cifras": "SEC EDGAR (companyfacts, UDM) · precio Finnhub",
-  "actualizado": "2026-11-11",
+  "actualizado": "2026-11-12",
   "propia": {
    "ingresos": 225779000000,
    "crecimiento": 20.75,
@@ -17256,13 +17378,13 @@
    "informe": "10-Q",
    "informe_fecha": "2026-11-05",
    "url": "https://www.sec.gov/Archives/edgar/data/93410/000009341026000200/0000093410-26-000200-index.htm",
-   "precio": 213.28,
-   "capitalizacion": 419185137190.08,
-   "ev": 438800137190.08,
-   "per": 15.54,
-   "precio_ventas": 1.86,
-   "ev_ebitda": 6.83,
-   "rentabilidad_fcf": 8.13,
+   "precio": 216.35,
+   "capitalizacion": 425218981766.1,
+   "ev": 444833981766.1,
+   "per": 15.76,
+   "precio_ventas": 1.88,
+   "ev_ebitda": 6.92,
+   "rentabilidad_fcf": 8.01,
    "deuda_neta_ebitda": 0.31,
    "ticker": "CVX",
    "nombre": "Chevron",
@@ -17295,9 +17417,9 @@
     "informe": "10-Q",
     "informe_fecha": "2026-11-02",
     "url": "https://www.sec.gov/Archives/edgar/data/2115436/000211543626000020/0002115436-26-000020-index.htm",
-    "precio": 166.71,
-    "capitalizacion": 680047173639.24,
-    "ev": 702144173639.24,
+    "precio": 169.78,
+    "capitalizacion": 692570386542.32,
+    "ev": 714667386542.32,
     "per": null,
     "precio_ventas": null,
     "ev_ebitda": null,
@@ -17331,13 +17453,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-11-05",
     "url": "https://www.sec.gov/Archives/edgar/data/1163165/000116316526000045/0001163165-26-000045-index.htm",
-    "precio": 137.86,
-    "capitalizacion": 162996710958.02002,
-    "ev": 176329710958.02002,
-    "per": 14.1,
-    "precio_ventas": 2.71,
-    "ev_ebitda": 5.96,
-    "rentabilidad_fcf": 10.99,
+    "precio": 140.06,
+    "capitalizacion": 165597848083.42,
+    "ev": 178930848083.42,
+    "per": 14.33,
+    "precio_ventas": 2.75,
+    "ev_ebitda": 6.05,
+    "rentabilidad_fcf": 10.82,
     "deuda_neta_ebitda": 0.45
    },
    {
@@ -17367,13 +17489,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-11-09",
     "url": "https://www.sec.gov/Archives/edgar/data/797468/000162828026072198/0001628280-26-072198-index.htm",
-    "precio": 57.24,
-    "capitalizacion": 57233975203.8,
-    "ev": 64974975203.8,
-    "per": 6.9,
-    "precio_ventas": 2.32,
-    "ev_ebitda": 4.48,
-    "rentabilidad_fcf": 10.25,
+    "precio": 58.4,
+    "capitalizacion": 58393853108.0,
+    "ev": 66134853108.0,
+    "per": 7.04,
+    "precio_ventas": 2.36,
+    "ev_ebitda": 4.56,
+    "rentabilidad_fcf": 10.04,
     "deuda_neta_ebitda": 0.53
    },
    {
@@ -17403,12 +17525,12 @@
     "informe": "10-Q",
     "informe_fecha": "2026-11-05",
     "url": "https://www.sec.gov/Archives/edgar/data/821189/000082118926000227/0000821189-26-000227-index.htm",
-    "precio": 153.77,
-    "capitalizacion": 79727319124.48001,
-    "ev": 81902319124.48001,
-    "per": 9.74,
-    "precio_ventas": 2.68,
-    "ev_ebitda": 5.24,
+    "precio": 155.62,
+    "capitalizacion": 80686514938.88,
+    "ev": 82861514938.88,
+    "per": 9.86,
+    "precio_ventas": 2.71,
+    "ev_ebitda": 5.3,
     "rentabilidad_fcf": null,
     "deuda_neta_ebitda": 0.14
    },
@@ -17439,13 +17561,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-11-06",
     "url": "https://www.sec.gov/Archives/edgar/data/1090012/000119312526451216/0001193125-26-451216-index.htm",
-    "precio": 44.95,
-    "capitalizacion": 51230158234.5,
-    "ev": 61514158234.5,
-    "per": 14.23,
-    "precio_ventas": 2.21,
-    "ev_ebitda": 6.17,
-    "rentabilidad_fcf": 10.19,
+    "precio": 46.23,
+    "capitalizacion": 52688992551.299995,
+    "ev": 62972992551.299995,
+    "per": 14.63,
+    "precio_ventas": 2.27,
+    "ev_ebitda": 6.31,
+    "rentabilidad_fcf": 9.9,
     "deuda_neta_ebitda": 1.03
    },
    {
@@ -17475,11 +17597,11 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-28",
     "url": "https://www.sec.gov/Archives/edgar/data/1534701/000153470126000037/0001534701-26-000037-index.htm",
-    "precio": 258.68,
-    "capitalizacion": 100903918602.16,
-    "ev": 113585918602.16,
-    "per": 8.02,
-    "precio_ventas": 0.6,
+    "precio": 262.91,
+    "capitalizacion": 102553924693.42001,
+    "ev": 115235924693.42001,
+    "per": 8.15,
+    "precio_ventas": 0.61,
     "ev_ebitda": null,
     "rentabilidad_fcf": null,
     "deuda_neta_ebitda": null

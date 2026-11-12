@@ -9927,7 +9927,7 @@
    "n_ventas": 14,
    "ventas_con_plan": 62406107.96,
    "compradores": [],
-   "desde": "2026-05-12"
+   "desde": "2026-05-13"
   },
   "operaciones": [
    {
@@ -11680,11 +11680,11 @@
  "precio": {
   "minimo_52s": 9.2,
   "maximo_52s": 19.84,
-  "beta": 1.0846992,
-  "valor": 13.14,
-  "cierre_anterior": 12.83,
+  "beta": 1.0798031,
+  "valor": 13.1,
+  "cierre_anterior": 13.14,
   "moneda": "USD",
-  "fecha": "2026-11-11",
+  "fecha": "2026-11-12",
   "fuente": "Finnhub (API oficial, plan gratuito)",
   "url": "https://finnhub.io/"
  },
@@ -11780,6 +11780,24 @@
   ]
  },
  "noticias": [
+  {
+   "titular": "A $548 Million Reason to Watch Qualcomm Stock Here",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=32638869d1c6a9e0c7e941b8ee9c5f51304bc631f8246c1a4dcea479073760ef",
+   "fecha": "2026-11-12",
+   "resumen": "Alphabet just invested in Qualcomm for the first time ever.",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
+  {
+   "titular": "Should Gemini Healthcare Tie Up Require Action From UiPath (PATH) Investors?",
+   "medio": "Yahoo Finance",
+   "url": "https://finnhub.io/api/news?id=643053620eeb08fd02c91a4552578e560585301dfe1cc802ea8886461f1af98b",
+   "fecha": "2026-11-12",
+   "resumen": "UiPath announced it is a launch partner for Google Cloud’s Gemini for healthcare, connecting Gemini to UiPath automations through the Model Context Protocol Server so regulated healthcare providers can run governed, end to end workflows across multiple systems. The integration po",
+   "tipo": "prensa",
+   "via": "Finnhub"
+  },
   {
    "titular": "UiPath (PATH) Could Be 40% Undervalued Following Gemini For Healthcare Launch",
    "medio": "Yahoo Finance",
@@ -11990,24 +12008,6 @@
    "via": "Finnhub"
   },
   {
-   "titular": "How Rare Is Tenable's Record Profit Margin?",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=02d9b0681f3fec846e3131cea11f248b557453b34e1872ea510b1bac125e809b",
-   "fecha": "2026-10-27",
-   "resumen": "For questions about this article or underlying research, email help@trefis.com.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "PATH or APP: Which AI-driven Tech Stock Should You Bet on?",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=4968af641e1031b34c47042ca101cb0fe7d3eb90812509e0a51500d49591e672",
-   "fecha": "2026-10-27",
-   "resumen": "UiPath's expanding AI automation platform, improving profitability and lower valuation strengthen its case against AppLovin's faster-growing ad business.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
    "titular": "10 Information Technology Stocks With Whale Alerts In Today’s Session",
    "medio": "Benzinga",
    "url": "https://finnhub.io/api/news?id=594edbcfe146386df8e302249ad9ab777a6b222764c8e81038fa2ac7792dc1e8",
@@ -12065,10 +12065,6 @@
  },
  "historico_precio": {
   "serie": [
-   [
-    "2021-08-11",
-    64.51
-   ],
    [
     "2021-08-12",
     62.15
@@ -17344,18 +17340,22 @@
    [
     "2026-11-11",
     13.14
+   ],
+   [
+    "2026-11-12",
+    13.1
    ]
   ],
   "fuente": "Twelve Data (API oficial, plan gratuito)",
   "url": "https://twelvedata.com/",
-  "fecha": "2026-11-11",
+  "fecha": "2026-11-12",
   "ajuste": "splits"
  },
- "generado": "2026-11-11T23:58:17+00:00",
+ "generado": "2026-11-12T23:54:54+00:00",
  "peers": {
   "fuente_lista": "manual",
   "fuente_cifras": "SEC EDGAR (companyfacts, UDM) · precio Finnhub",
-  "actualizado": "2026-11-11",
+  "actualizado": "2026-11-12",
   "propia": {
    "ingresos": 1720858000,
    "crecimiento": 14.98,
@@ -17373,13 +17373,13 @@
    "informe": "10-Q",
    "informe_fecha": "2026-09-08",
    "url": "https://www.sec.gov/Archives/edgar/data/1734722/000173472226000050/0001734722-26-000050-index.htm",
-   "precio": 13.14,
-   "capitalizacion": 6872390820.0,
-   "ev": 5588400820.0,
-   "per": 18.99,
-   "precio_ventas": 3.99,
-   "ev_ebitda": 31.23,
-   "rentabilidad_fcf": 5.28,
+   "precio": 13.1,
+   "capitalizacion": 6851470300.0,
+   "ev": 5567480300.0,
+   "per": 18.93,
+   "precio_ventas": 3.98,
+   "ev_ebitda": 31.11,
+   "rentabilidad_fcf": 5.3,
    "deuda_neta_ebitda": -7.18,
    "ticker": "PATH",
    "nombre": "UiPath",
@@ -17413,13 +17413,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-28",
     "url": "https://www.sec.gov/Archives/edgar/data/1373715/000137371526000096/0001373715-26-000096-index.htm",
-    "precio": 102.76,
-    "capitalizacion": 106664880000.0,
-    "ev": 107495880000.0,
-    "per": 73.82,
-    "precio_ventas": 6.91,
-    "ev_ebitda": 38.95,
-    "rentabilidad_fcf": 4.45,
+    "precio": 100.66,
+    "capitalizacion": 104485080000.0,
+    "ev": 105316080000.0,
+    "per": 72.31,
+    "precio_ventas": 6.77,
+    "ev_ebitda": 38.16,
+    "rentabilidad_fcf": 4.55,
     "deuda_neta_ebitda": 0.3
    },
    {
@@ -17449,13 +17449,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-08-27",
     "url": "https://www.sec.gov/Archives/edgar/data/1108524/000110852426000190/0001108524-26-000190-index.htm",
-    "precio": 218.01,
-    "capitalizacion": 179422230000.0,
-    "ev": 207307230000.0,
-    "per": 18.57,
+    "precio": 217.57,
+    "capitalizacion": 179060110000.0,
+    "ev": 206945110000.0,
+    "per": 18.53,
     "precio_ventas": 4.08,
-    "ev_ebitda": 16.38,
-    "rentabilidad_fcf": 8.45,
+    "ev_ebitda": 16.35,
+    "rentabilidad_fcf": 8.46,
     "deuda_neta_ebitda": 2.2
    },
    {
@@ -17485,13 +17485,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-28",
     "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526436133/0001193125-26-436133-index.htm",
-    "precio": 521.125,
-    "capitalizacion": 3869975635911.0,
-    "ev": 3840947635911.0,
-    "per": 27.13,
-    "precio_ventas": 11.17,
-    "ev_ebitda": 18.67,
-    "rentabilidad_fcf": 1.55,
+    "precio": 523,
+    "capitalizacion": 3883899750696,
+    "ev": 3854871750696,
+    "per": 27.23,
+    "precio_ventas": 11.21,
+    "ev_ebitda": 18.74,
+    "rentabilidad_fcf": 1.54,
     "deuda_neta_ebitda": -0.14
    },
    {
@@ -17521,13 +17521,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-20",
     "url": "https://www.sec.gov/Archives/edgar/data/1013857/000101385726000058/0001013857-26-000058-index.htm",
-    "precio": 31.39,
-    "capitalizacion": 5137398677.55,
-    "ev": 4827687677.55,
-    "per": 17.43,
-    "precio_ventas": 2.94,
-    "ev_ebitda": 25.87,
-    "rentabilidad_fcf": 8.61,
+    "precio": 32.04,
+    "capitalizacion": 5243779981.8,
+    "ev": 4934068981.8,
+    "per": 17.79,
+    "precio_ventas": 3.0,
+    "ev_ebitda": 26.44,
+    "rentabilidad_fcf": 8.43,
     "deuda_neta_ebitda": -1.66
    },
    {
@@ -17557,13 +17557,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-11-05",
     "url": "https://www.sec.gov/Archives/edgar/data/1441683/000144168326000061/0001441683-26-000061-index.htm",
-    "precio": 53.6,
-    "capitalizacion": 3832400000.0,
-    "ev": 3942853000.0,
+    "precio": 55.15,
+    "capitalizacion": 3943225000.0,
+    "ev": 4053678000.0,
     "per": null,
-    "precio_ventas": 4.55,
-    "ev_ebitda": 139.5,
-    "rentabilidad_fcf": 1.01,
+    "precio_ventas": 4.68,
+    "ev_ebitda": 143.42,
+    "rentabilidad_fcf": 0.98,
     "deuda_neta_ebitda": 3.91
    },
    {
@@ -17593,11 +17593,11 @@
     "informe": "10-Q",
     "informe_fecha": "2026-09-02",
     "url": "https://www.sec.gov/Archives/edgar/data/1653482/000162828026059943/0001628280-26-059943-index.htm",
-    "precio": 47.32,
-    "capitalizacion": 7983025960.0,
-    "ev": 7756534960.0,
+    "precio": 47.28,
+    "capitalizacion": 7976277840.0,
+    "ev": 7749786840.0,
     "per": null,
-    "precio_ventas": 7.57,
+    "precio_ventas": 7.56,
     "ev_ebitda": null,
     "rentabilidad_fcf": 2.68,
     "deuda_neta_ebitda": null
