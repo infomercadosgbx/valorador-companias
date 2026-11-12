@@ -110,6 +110,43 @@ def test_etiquetas_como_cnn():
     assert [MH.etiqueta(v) for v in (10, 30, 50, 60, 90)] == ["Miedo extremo", "Miedo", "Neutral", "Codicia", "Codicia extrema"]
 
 
+# ------------------------------------------------------------ fuentes nuevas
+def test_cboe_csv_y_bce():
+    vix = "DATE,OPEN,HIGH,LOW,CLOSE\n11/10/2026,19.76,21.61,19.29,19.460000\n11/11/2026,18.81,18.96,17.33,17.490000\n"
+    assert MH.parse_cboe_csv(vix) == [("2026-11-10", 19.46), ("2026-11-11", 17.49)]
+    ovx = "DATE,OVX\n11/11/2026,51.260000\n11/10/2026,53.1\n"
+    assert MH.parse_cboe_csv(ovx) == [("2026-11-10", 53.1), ("2026-11-11", 51.26)]
+    ecb = ("KEY,FREQ,TIME_PERIOD,OBS_VALUE,OBS_STATUS\n"
+           "YC.B.U2,B,2026-11-10,3.3308865271,A\nYC.B.U2,B,2026-11-11,3.3400829714,A\n")
+    assert MH.parse_ecb_csv(ecb) == [("2026-11-10", 3.3309), ("2026-11-11", 3.3401)]
+
+
+def test_twelvedata_en_lote_y_serie():
+    llamadas, esperas = [], []
+
+    def http(url, **k):
+        llamadas.append(url)
+        if "time_series" in url:
+            return json.dumps({"values": [{"datetime": "2026-11-11", "close": "759.81"}, {"datetime": "2026-11-10", "close": "750.0"}]})
+        return json.dumps({"EUR/USD": {"close": "1.10781", "previous_close": "1.10933", "datetime": "2026-11-12"},
+                           "XAG/USD": {"code": 400, "status": "error", "message": "**symbol** XAG/USD is not available with your plan"}})
+    f = MH.Fuentes(env={"TWELVEDATA_API_KEY": "x"}, http=http, sleep=esperas.append)
+    assert f.td_serie("SPY") == [("2026-11-10", 750.0), ("2026-11-11", 759.81)]
+    q = f.twelvedata(["EUR/USD", "XAG/USD"])
+    assert q["EUR/USD"] == {"valor": 1.10781, "anterior": 1.10933, "fecha": "2026-11-12"}
+    assert isinstance(q["XAG/USD"], RuntimeError) and "plan" in str(q["XAG/USD"])
+    assert esperas == [62] and len(llamadas) == 2        # la segunda petición espera al minuto siguiente
+
+
+def test_temas_apuntan_a_indicadores_existentes():
+    ids = {x["id"] for x in MH.INDICADORES}
+    assert len(ids) == len(MH.INDICADORES)
+    for g, t in MH.TEMAS.items():
+        assert g in MH.GRUPOS and t["top"] in ids and len(t["resto"]) == 4 and set(t["resto"]) <= ids
+        assert all(x["grupo"] == g for x in MH.INDICADORES if x["id"] in [t["top"], *t["resto"]])
+    assert sum(x["origen"] == "twelvedata" for x in MH.INDICADORES) <= 7      # + la serie del SPY = 8 créditos/min
+
+
 # ------------------------------------------------------------ construcción del JSON
 class Falsas(MH.Fuentes):
     def __init__(self, fallan=()):
@@ -117,9 +154,13 @@ class Falsas(MH.Fuentes):
         self.fallan = set(fallan)
         self.m = dict(zip(("SP500", "VIXCLS", "BAMLH0A0HYM2", "BAMLC0A0CM", "DGS10"), mercado()))
         d = [x for x, _ in self.m["SP500"]]
+        for sid in ("DTWEXBGS", "MORTGAGE30US", "DCOILBRENTEU", "DHHNGSP"):
+            self.m[sid] = [(x, 50.0) for x in d[-30:]]
         self.m.update(NASDAQCOM=[(x, 20000.0 + i) for i, x in enumerate(d)], DCOILWTICO=[(x, 88.0) for x in d[:-1]] + [(d[-1], 90.2)])
+        self.pedidos = []
 
     def _f(self, k):
+        self.pedidos.append(k)
         if k in self.fallan:
             raise RuntimeError("HTTP 503")
 
@@ -135,9 +176,21 @@ class Falsas(MH.Fuentes):
         self._f(sym)
         return {"valor": 77.22, "anterior": 77.52, "fecha": "2026-11-05"}
 
-    def twelvedata(self, sym):
-        self._f(sym)
-        return {"valor": 1.1223, "anterior": 1.1229, "fecha": "2026-11-05"}
+    def twelvedata(self, syms):
+        self._f("td")
+        return {k: {"valor": 1.1223, "anterior": 1.1229, "fecha": "2026-11-05"} for k in syms}
+
+    def td_serie(self, sym, n=800):
+        self._f("td_serie")
+        return [(d, v / 10) for d, v in self.m["SP500"]]
+
+    def cboe(self, sym):
+        self._f("cboe:" + sym)
+        return self.m["VIXCLS"] if sym == "VIX" else [("2026-11-03", 20.0), ("2026-11-04", 21.0)]
+
+    def ecb(self, key, n=30):
+        self._f("ecb")
+        return [("2026-11-03", 3.3), ("2026-11-04", 3.34)]
 
     def ofr(self):
         self._f("ofr")
@@ -153,28 +206,49 @@ class Falsas(MH.Fuentes):
 
 
 def test_build_completo():
-    out = MH.build(Falsas())
+    f = Falsas()
+    out = MH.build(f)
     ids = [i["id"] for i in out["indicadores"]]
     assert "move" not in ids and len(ids) == len(MH.INDICADORES) - 1
     us10 = next(i for i in out["indicadores"] if i["id"] == "us10y")
     assert us10["valor"] == 4.828 and "var_pct" not in us10 and abs(us10["var"] + 0.065) < 1e-9
+    assert us10["seccion"] == "Deuda pública" and us10["serie"][-1] == ["2026-11-04", 4.828]
     wti = next(i for i in out["indicadores"] if i["id"] == "wti")
     assert wti["var_pct"] == round((90.2 / 88 - 1) * 100, 2) and wti["url"].endswith("DCOILWTICO")
+    assert wti["vivo"] == {"ticker": "USO", "modo": "ref"} and wti["nota"]
     hyg = next(i for i in out["indicadores"] if i["id"] == "hyg")
-    assert hyg["vivo"] == {"ticker": "HYG", "modo": "directo"}
+    assert hyg["vivo"] == {"ticker": "HYG", "modo": "directo"} and "serie" not in hyg
+    vix = next(i for i in out["indicadores"] if i["id"] == "vix")
+    assert vix["fuente"] == "Cboe" and vix["grupo"] == "volatilidad"
+    assert out["temas"]["bonos"]["top"] == "us10y" and out["esquema"] == 2
+    assert f.pedidos.index("td_serie") < f.pedidos.index("td") and f.pedidos.count("td") == 1
     S = out["sentimiento"]
     assert S["aaii"]["bajistas"] == 48.4 and S["estres_ofr"]["valor"] == 1.1 and S["estres_ofr"]["hace_1s"] == -1.5
-    assert S["miedo_codicia"]["n_componentes"] == 4
+    mc = S["miedo_codicia"]
+    assert mc["n_componentes"] == 4
+    comp = {c["id"]: c for c in mc["componentes"]}
+    assert "Twelve Data" in comp["impulso"]["fuente"] and comp["volatilidad"]["fuente"] == "VIX · Cboe"
+    assert "SP500" not in f.pedidos and "VIXCLS" not in f.pedidos       # FRED solo como respaldo
     assert any("put/call" in a for a in out["avisos"])
+
+
+def test_miedo_codicia_vuelve_a_fred_si_falla_twelvedata():
+    f = Falsas(fallan={"td_serie", "cboe:VIX"})
+    out = MH.build(f)
+    comp = {c["id"]: c for c in out["sentimiento"]["miedo_codicia"]["componentes"]}
+    assert "FRED" in comp["impulso"]["fuente"] and "FRED" in comp["volatilidad"]["fuente"]
+    assert any(a.startswith("Serie diaria del SPY") for a in out["avisos"])
 
 
 def test_build_conserva_lo_anterior_si_falla_una_fuente():
     prev = MH.build(Falsas())
-    out = MH.build(Falsas(fallan={"HYG", "aaii", "ofr"}), prev)
+    out = MH.build(Falsas(fallan={"HYG", "aaii", "ofr", "td"}), prev)
     hyg = next(i for i in out["indicadores"] if i["id"] == "hyg")
     assert hyg["desactualizado"] and hyg["valor"] == 77.22
+    eur = next(i for i in out["indicadores"] if i["id"] == "eurusd")
+    assert eur["desactualizado"] and eur["valor"] == 1.1223
     assert out["sentimiento"]["aaii"]["fecha"] == "2026-11-04"          # se mantiene la última semana leída
-    assert any(a.startswith("Bonos high yield (HYG)") for a in out["avisos"])
+    assert any(a.startswith("Bonos high yield") for a in out["avisos"])
     assert any(a.startswith("Encuesta AAII") for a in out["avisos"])
 
 

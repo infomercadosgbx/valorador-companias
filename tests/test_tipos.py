@@ -149,10 +149,13 @@ class ConAgenda(ConTipos):
         rid = int(q["release_id"])
         nombres = {10: "Consumer Price Index", 50: "Employment Situation", 54: "Personal Income and Outlays",
                    46: "Producer Price Index", 53: "Gross Domestic Product"}
+        nombres.update({9: "Advance Monthly Sales for Retail and Food Services", 180: "Unemployment Insurance Weekly Claims Report",
+                        192: "Job Openings and Labor Turnover Survey", 91: "Surveys of Consumers", 27: "New Residential Construction"})
         if "/dates" not in url:
             return json.dumps({"releases": [{"id": rid, "name": "Algo raro" if rid == 46 else nombres[rid]}]})
         fechas = {10: ["2026-10-15", "2026-11-13", "2026-12-10"], 50: ["2026-10-02", "2026-11-06", "2026-12-04"],
-                  54: ["2026-10-31", "2026-11-26"], 53: ["2026-10-30", "2026-11-25"]}[rid]
+                  54: ["2026-10-31", "2026-11-26"], 53: ["2026-10-30", "2026-11-25"], 91: ["2026-11-20"],
+                  180: ["2026-11-05", "2026-11-12"]}.get(rid, [])
         return json.dumps({"release_dates": [{"release_id": rid, "date": d} for d in fechas]})
 
 
@@ -161,18 +164,39 @@ def test_agenda():
     av = []
     infl = T.inflacion(lambda k: f.fred(k, None), None, None, [])
     a = T.agenda(f, lambda k: f.fred(k, None), infl, av)
-    ids = [i["id"] for i in a["items"]]
+    ids = [i["id"] for i in a["items"] if i["principal"]]
     assert ids == ["empleo", "ipc", "pib", "pce"]          # ordenadas por fecha; el IPP no cuadra y se avisa
-    emp = a["items"][0]
+    um = next(i for i in a["items"] if i["id"] == "umich")
+    assert not um["principal"] and um["fecha"] == "2026-11-20" and um["hora_madrid"] == "16:00"
+    pr = [i for i in a["items"] if i["principal"]]
+    emp = pr[0]
     assert emp["fecha"] == "2026-11-06" and emp["anterior"] == "2026-10-02" and emp["hora_madrid"] == "14:30"
     assert emp["ultimo"] == "+120 mil empleos · paro 4,3% (oct-26)"
-    assert a["items"][1]["siguiente"] == "2026-12-10" and "interanual" in a["items"][1]["ultimo"]
+    assert pr[1]["siguiente"] == "2026-12-10" and "interanual" in pr[1]["ultimo"]
     assert any("IPP" in x or "46" in x for x in av)
 
 
 def test_agenda_sin_clave():
     av = []
     assert T.agenda(ConTipos(), None, None, av, old={"items": []}) == {"items": []} and "FRED_API_KEY" in av[0]
+
+
+def test_ipc_con_un_mes_sin_publicar():
+    s = [x for x in _mensual(300, 0.0025, n=30, fin="2026-10") if x[0] != "2025-10-01"]     # octubre de 2025, sin dato
+    r = T.interanual(s)
+    assert r["mes"] == "2026-10" and r["estimado"] and abs(r["interanual"] - 3.04) < 0.02
+    pts = T.serie_interanual(s)
+    est = [p for p in pts if len(p) == 3]
+    assert [p[0] for p in est] == ["2026-10"] and abs(est[0][1] - 3.04) < 0.02
+
+
+def test_graficos_nuevos():
+    s = {"RSAFS": [("2026-08-01", 100.0), ("2026-09-01", 101.0)], "ICSA": [("2026-10-24", 195000), ("2026-10-31", 189000)]}
+    fred = lambda k: s[k]
+    assert T.graficos("ventas", fred)[0]["puntos"] == [["2026-09", 1.0]]
+    assert T.graficos("paro_sem", fred)[0]["puntos"][-1] == ["2026-10-31", 189.0]
+    assert T.ultimo_dato("paro_sem", fred, None) == "189 mil (semana del 31 oct)"
+    assert T.ultimo_dato("ventas", fred, None) == "+1,0% en el mes (sep-26)"
 
 
 def test_graficos():

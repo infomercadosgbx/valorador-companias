@@ -4,15 +4,16 @@ Escribe data/_mercado_hoy.json (automático, nunca a mano). Los valores que no t
 fuente gratuita (NAAIM, miedo y codicia de CNN, MOVE) se apuntan en manual/_mercado.json
 y la web los marca como «manual».
 
-Fuentes (todas oficiales o del propio emisor del dato, sin scraping de terceros):
-- FRED (Reserva Federal de St. Louis): S&P 500, Nasdaq, VIX, WTI y diferenciales de crédito
-  de ICE BofA. Con FRED_API_KEY usa la API oficial; sin clave, la descarga CSV oficial de FRED.
-- Departamento del Tesoro de EE. UU.: bono a 5 y 10 años (curva diaria).
-- Finnhub (FINNHUB_API_KEY): ETF HYG, LQD, KRE, URTH (MSCI World) y EWY (Corea).
-- Twelve Data (TWELVEDATA_API_KEY): EUR/USD, oro (XAU/USD) y bitcoin (BTC/USD).
+Fuentes (todas oficiales, del propio emisor del dato o API con plan gratuito; sin scraping de terceros):
+- Finnhub (FINNHUB_API_KEY): ETF que replican índices de bolsa, bonos, plata, cobre y uranio.
+- Twelve Data (TWELVEDATA_API_KEY): divisas, oro y cripto en un solo lote, y la serie diaria del SPY.
+- Cboe: VIX, VIX a 3 meses, VXN, OVX y GVZ (históricos diarios oficiales) y el ratio put/call.
+- Departamento del Tesoro de EE. UU.: curva diaria (3 meses a 30 años).
+- BCE: bono AAA de la zona euro a 10 años.
+- FRED (Reserva Federal de St. Louis): índice dólar de la Fed, diferenciales de ICE BofA, hipoteca de
+  Freddie Mac y petróleo y gas de la EIA.
 - OFR (Oficina de Investigación Financiera del Tesoro): índice de estrés financiero.
 - AAII: encuesta semanal de sentimiento, leída de aaii.com (emisor del dato).
-- Cboe: ratio put/call diario, del propio Cboe.
 
 Índice propio de miedo y codicia: misma receta que el de CNN con los componentes que
 tienen fuente oficial. Cada componente se puntúa de 0 a 100 según dónde está hoy frente a
@@ -50,30 +51,90 @@ AAII_PAGE = "https://www.aaii.com/sentimentsurvey"
 CBOE_JSON = "https://cdn.cboe.com/data/us/options/market_statistics/daily/{d}_daily_options"
 CBOE_PAGE = "https://www.cboe.com/us/options/market_statistics/daily/"
 
-# id, nombre, grupo, origen, símbolo, unidad, fuente, precio en vivo (ticker, modo)
-INDICADORES = [
-    # S&P 500 y Nasdaq con sus ETF: FRED publica los índices con uno o dos días de retraso y el ETF
-    # da el cierre del mismo día (y el precio en vivo durante la sesión). El índice de miedo y codicia
-    # sigue usando la serie SP500 de FRED, que tiene el histórico largo que necesita.
-    ("sp500", "S&P 500 (ETF SPY)", "bolsa", "finnhub", "SPY", "$", "Finnhub", ("SPY", "directo")),
-    ("nasdaq", "Nasdaq-100 (ETF QQQ)", "bolsa", "finnhub", "QQQ", "$", "Finnhub", ("QQQ", "directo")),
-    ("msci_world", "MSCI World (ETF URTH)", "bolsa", "finnhub", "URTH", "$", "Finnhub", ("URTH", "directo")),
-    ("corea", "Corea del Sur (ETF EWY)", "bolsa", "finnhub", "EWY", "$", "Finnhub", ("EWY", "directo")),
-    ("vix", "VIX", "riesgo", "fred", "VIXCLS", "pts", "FRED (Cboe)", None),
-    ("move", "MOVE (volatilidad de bonos)", "riesgo", "manual", "move", "pts", "ICE BofA · introducido a mano", None),
-    ("hyg", "Bonos high yield (HYG)", "riesgo", "finnhub", "HYG", "$", "Finnhub", ("HYG", "directo")),
-    ("lqd", "Bonos grado de inversión (LQD)", "riesgo", "finnhub", "LQD", "$", "Finnhub", ("LQD", "directo")),
-    ("dif_hy", "Diferencial high yield", "riesgo", "fred", "BAMLH0A0HYM2", "%", "FRED (ICE BofA)", None),
-    ("kre", "Bancos regionales (KRE)", "riesgo", "finnhub", "KRE", "$", "Finnhub", ("KRE", "directo")),
-    ("us5y", "Bono EE. UU. 5 años", "tipos", "tesoro", "5 Yr", "%", "Tesoro de EE. UU.", None),
-    ("us10y", "Bono EE. UU. 10 años", "tipos", "tesoro", "10 Yr", "%", "Tesoro de EE. UU.", None),
-    ("eurusd", "EUR/USD", "tipos", "twelvedata", "EUR/USD", "", "Twelve Data", None),
-    ("oro", "Oro (onza)", "materias", "twelvedata", "XAU/USD", "$", "Twelve Data", None),
-    ("wti", "Petróleo WTI (barril)", "materias", "fred", "DCOILWTICO", "$", "FRED (EIA)", None),
-    ("bitcoin", "Bitcoin", "materias", "twelvedata", "BTC/USD", "$", "Twelve Data", None),
-]
-GRUPOS = {"bolsa": "Bolsa", "riesgo": "Volatilidad y crédito", "tipos": "Tipos y divisas",
+CBOE_CSV = "https://cdn.cboe.com/api/global/us_indices/daily_prices/{s}_History.csv"
+CBOE_IDX_PAGE = "https://www.cboe.com/tradable_products/vix/vix_historical_data/"
+ECB_API = "https://data-api.ecb.europa.eu/service/data/{k}?format=csvdata&lastNObservations={n}"
+ECB_PAGE = "https://data.ecb.europa.eu/data/datasets/YC/YC.B.U2.EUR.4F.G_N_A.SV_C_YM.SR_10Y"
+TD_PAGE = "https://twelvedata.com/"
+FH_PAGE = "https://finnhub.io/"
+
+GRUPOS = {"bolsa": "Bolsa", "volatilidad": "Volatilidad y divisas", "bonos": "Bonos y crédito",
           "materias": "Materias primas y cripto"}
+# Cabecera de cada tema: fuentes y el indicador que va en grande en la tarjeta (y los 4 de debajo).
+TEMAS = {
+    "bolsa": {"sub": "Índices vía ETF (Finnhub) · en vivo durante la sesión", "top": "sp500",
+              "resto": ["nasdaq", "dow", "russell", "msci_world"]},
+    "volatilidad": {"sub": "Cboe, Reserva Federal y Twelve Data", "top": "vix",
+                    "resto": ["move", "dolar", "eurusd", "usdjpy"]},
+    "bonos": {"sub": "Tesoro de EE. UU., ICE BofA, BCE y Freddie Mac", "top": "us10y",
+              "resto": ["us2y", "dif_hy", "dif_ig", "hipoteca"]},
+    "materias": {"sub": "Twelve Data, EIA (vía FRED) y ETF", "top": "oro",
+                 "resto": ["wti", "cobre", "plata", "bitcoin"]},
+}
+
+
+def _i(iid, nombre, grupo, seccion, origen, sym, unidad, fuente, corto, vivo=None, nota=None):
+    return {"id": iid, "nombre": nombre, "grupo": grupo, "seccion": seccion, "origen": origen, "simbolo": sym,
+            "unidad": unidad, "fuente": fuente, "corto": corto, "vivo": vivo, "nota": nota}
+
+
+ETF = "ETF que replica el índice: el índice no tiene fuente gratuita."
+INDICADORES = [
+    # Bolsa
+    _i("sp500", "S&P 500", "bolsa", "Estados Unidos", "finnhub", "SPY", "$", "Finnhub", "ETF SPY", ("SPY", "directo"), ETF),
+    _i("nasdaq", "Nasdaq-100", "bolsa", "Estados Unidos", "finnhub", "QQQ", "$", "Finnhub", "ETF QQQ", ("QQQ", "directo"), ETF),
+    _i("dow", "Dow Jones", "bolsa", "Estados Unidos", "finnhub", "DIA", "$", "Finnhub", "ETF DIA", ("DIA", "directo"), ETF),
+    _i("russell", "Russell 2000", "bolsa", "Estados Unidos", "finnhub", "IWM", "$", "Finnhub", "ETF IWM · pequeñas", ("IWM", "directo"), ETF),
+    _i("msci_world", "MSCI World", "bolsa", "Resto del mundo", "finnhub", "URTH", "$", "Finnhub", "ETF URTH", ("URTH", "directo"), ETF),
+    _i("europa", "Europa", "bolsa", "Resto del mundo", "finnhub", "VGK", "$", "Finnhub", "ETF VGK", ("VGK", "directo"), "ETF en dólares de las grandes compañías europeas."),
+    _i("espana", "España", "bolsa", "Resto del mundo", "finnhub", "EWP", "$", "Finnhub", "ETF EWP", ("EWP", "directo"), "ETF en dólares de la bolsa española: incluye el efecto del euro."),
+    _i("japon", "Japón", "bolsa", "Resto del mundo", "finnhub", "EWJ", "$", "Finnhub", "ETF EWJ", ("EWJ", "directo"), "ETF en dólares: incluye el efecto del yen."),
+    _i("china", "China", "bolsa", "Resto del mundo", "finnhub", "MCHI", "$", "Finnhub", "ETF MCHI", ("MCHI", "directo"), ETF),
+    _i("corea", "Corea del Sur", "bolsa", "Resto del mundo", "finnhub", "EWY", "$", "Finnhub", "ETF EWY", ("EWY", "directo"), "ETF que replica el KOSPI en dólares: el índice no tiene fuente gratuita."),
+    _i("emergentes", "Emergentes", "bolsa", "Resto del mundo", "finnhub", "EEM", "$", "Finnhub", "ETF EEM", ("EEM", "directo"), ETF),
+    _i("semis", "Semiconductores", "bolsa", "Sectores", "finnhub", "SOXX", "$", "Finnhub", "ETF SOXX", ("SOXX", "directo")),
+    _i("kre", "Bancos regionales", "bolsa", "Sectores", "finnhub", "KRE", "$", "Finnhub", "ETF KRE", ("KRE", "directo")),
+    # Volatilidad y divisas
+    _i("vix", "VIX", "volatilidad", "Volatilidad", "cboe", "VIX", "pts", "Cboe", "Cboe · S&P 500 a 30 días"),
+    _i("vix3m", "VIX a 3 meses", "volatilidad", "Volatilidad", "cboe", "VIX3M", "pts", "Cboe", "Cboe VIX3M"),
+    _i("vxn", "Volatilidad Nasdaq", "volatilidad", "Volatilidad", "cboe", "VXN", "pts", "Cboe", "Cboe VXN"),
+    _i("move", "MOVE", "volatilidad", "Volatilidad", "manual", "move", "pts", "ICE BofA · introducido a mano", "Volatilidad de bonos"),
+    _i("ovx", "Volatilidad petróleo", "volatilidad", "Volatilidad", "cboe", "OVX", "pts", "Cboe", "Cboe OVX"),
+    _i("gvz", "Volatilidad oro", "volatilidad", "Volatilidad", "cboe", "GVZ", "pts", "Cboe", "Cboe GVZ"),
+    _i("dolar", "Índice dólar", "volatilidad", "Divisas", "fred", "DTWEXBGS", "pts", "Reserva Federal (FRED)", "Fed · amplio",
+       ("UUP", "ref"), "Índice amplio de la Fed frente a 26 divisas; se publica con una semana de retraso. En sesión se muestra el ETF UUP."),
+    _i("eurusd", "EUR/USD", "volatilidad", "Divisas", "twelvedata", "EUR/USD", "", "Twelve Data", "Twelve Data"),
+    _i("usdjpy", "USD/JPY", "volatilidad", "Divisas", "twelvedata", "USD/JPY", "", "Twelve Data", "Twelve Data"),
+    _i("gbpusd", "GBP/USD", "volatilidad", "Divisas", "twelvedata", "GBP/USD", "", "Twelve Data", "Twelve Data"),
+    _i("usdcny", "USD/CNY", "volatilidad", "Divisas", "twelvedata", "USD/CNY", "", "Twelve Data", "Twelve Data"),
+    # Bonos y crédito
+    _i("us3m", "Letra 3 meses", "bonos", "Deuda pública", "tesoro", "3 Mo", "%", "Tesoro de EE. UU.", "Tesoro"),
+    _i("us2y", "Bono 2 años", "bonos", "Deuda pública", "tesoro", "2 Yr", "%", "Tesoro de EE. UU.", "Tesoro"),
+    _i("us5y", "Bono 5 años", "bonos", "Deuda pública", "tesoro", "5 Yr", "%", "Tesoro de EE. UU.", "Tesoro"),
+    _i("us10y", "Bono 10 años", "bonos", "Deuda pública", "tesoro", "10 Yr", "%", "Tesoro de EE. UU.", "Tesoro"),
+    _i("us30y", "Bono 30 años", "bonos", "Deuda pública", "tesoro", "30 Yr", "%", "Tesoro de EE. UU.", "Tesoro"),
+    _i("euro10y", "Bono AAA zona euro 10 años", "bonos", "Deuda pública", "ecb", "YC/B.U2.EUR.4F.G_N_A.SV_C_YM.SR_10Y", "%", "BCE", "BCE · curva AAA",
+       None, "Curva de los bonos con calificación AAA de la zona euro (en la práctica, sobre todo Alemania)."),
+    _i("dif_hy", "Diferencial high yield", "bonos", "Crédito", "fred", "BAMLH0A0HYM2", "%", "ICE BofA (FRED)", "ICE BofA"),
+    _i("dif_ig", "Diferencial grado inversión", "bonos", "Crédito", "fred", "BAMLC0A0CM", "%", "ICE BofA (FRED)", "ICE BofA"),
+    _i("hyg", "Bonos high yield", "bonos", "Crédito", "finnhub", "HYG", "$", "Finnhub", "ETF HYG", ("HYG", "directo")),
+    _i("lqd", "Bonos grado inversión", "bonos", "Crédito", "finnhub", "LQD", "$", "Finnhub", "ETF LQD", ("LQD", "directo")),
+    _i("tlt", "Bonos largo plazo", "bonos", "Crédito", "finnhub", "TLT", "$", "Finnhub", "ETF TLT · 20+ años", ("TLT", "directo")),
+    _i("hipoteca", "Hipoteca a 30 años", "bonos", "Crédito", "fred", "MORTGAGE30US", "%", "Freddie Mac (FRED)", "Freddie Mac · semanal"),
+    # Materias primas y cripto
+    _i("oro", "Oro (onza)", "materias", "Metales", "twelvedata", "XAU/USD", "$", "Twelve Data", "Twelve Data"),
+    _i("plata", "Plata", "materias", "Metales", "finnhub", "SLV", "$", "Finnhub", "ETF SLV", ("SLV", "directo"),
+       "ETF respaldado por plata física; el precio al contado no está en el plan gratuito."),
+    _i("cobre", "Cobre", "materias", "Metales", "finnhub", "CPER", "$", "Finnhub", "ETF CPER", ("CPER", "directo"), "ETF de futuros de cobre."),
+    _i("uranio", "Uranio", "materias", "Metales", "finnhub", "URA", "$", "Finnhub", "ETF URA", ("URA", "directo"), "ETF de mineras de uranio."),
+    _i("wti", "Petróleo WTI", "materias", "Energía", "fred", "DCOILWTICO", "$", "EIA (FRED)", "EIA · barril", ("USO", "ref"),
+       "Precio oficial al contado de la EIA, con unos días de retraso. En sesión se muestra el ETF USO."),
+    _i("brent", "Petróleo Brent", "materias", "Energía", "fred", "DCOILBRENTEU", "$", "EIA (FRED)", "EIA · barril", ("USO", "ref"),
+       "Precio oficial al contado de la EIA, con unos días de retraso."),
+    _i("gas", "Gas natural", "materias", "Energía", "fred", "DHHNGSP", "$", "EIA (FRED)", "EIA · Henry Hub"),
+    _i("bitcoin", "Bitcoin", "materias", "Cripto", "twelvedata", "BTC/USD", "$", "Twelve Data", "Twelve Data"),
+    _i("ethereum", "Ethereum", "materias", "Cripto", "twelvedata", "ETH/USD", "$", "Twelve Data", "Twelve Data"),
+]
 
 ETIQUETAS = [(25, "Miedo extremo"), (45, "Miedo"), (55, "Neutral"), (75, "Codicia"), (101, "Codicia extrema")]
 VENTANA = 504          # dos años de sesiones para los percentiles
@@ -212,6 +273,40 @@ def parse_cboe(text):
         if "TOTAL" in k and 0.2 < v < 3:
             return v
     return None
+
+
+def parse_cboe_csv(text):
+    """Histórico diario de un índice del Cboe (VIX_History.csv…): [(fecha, cierre)]."""
+    out = []
+    for row in csv.reader(io.StringIO(text)):
+        if len(row) < 2 or not re.match(r"\d{1,2}/\d{1,2}/\d{4}$", row[0].strip()):
+            continue
+        m, d, y = (int(x) for x in row[0].strip().split("/"))
+        v = _num(row[-1])
+        if v is not None and v > 0:
+            out.append((f"{y:04d}-{m:02d}-{d:02d}", v))
+    return sorted(set(out))
+
+
+def parse_ecb_csv(text):
+    """Respuesta csvdata de la API del BCE: [(fecha, valor)]."""
+    rows = list(csv.DictReader(io.StringIO(text)))
+    return sorted((r["TIME_PERIOD"], round(v, 4)) for r in rows
+                  if (v := _num(r.get("OBS_VALUE"))) is not None and r.get("TIME_PERIOD"))
+
+
+def parse_td_quote(j):
+    if not isinstance(j, dict) or j.get("status") == "error" or _num(j.get("close")) is None:
+        raise RuntimeError(f"Twelve Data: {(j or {}).get('message') or 'sin cotización'}"[:200])
+    return {"valor": _num(j["close"]), "anterior": _num(j.get("previous_close")),
+            "fecha": str(j.get("datetime") or "")[:10]}
+
+
+def parse_td_series(text):
+    j = json.loads(text)
+    if j.get("status") == "error":
+        raise RuntimeError(f"Twelve Data: {j.get('message')}"[:200])
+    return sorted((v["datetime"][:10], _num(v["close"])) for v in j.get("values") or [] if _num(v.get("close")))
 
 
 # ---------------------------------------------------------------- índice propio de miedo y codicia
@@ -400,15 +495,54 @@ class Fuentes:
         return {"valor": q["c"], "anterior": q.get("pc"),
                 "fecha": datetime.fromtimestamp(q["t"], tz=timezone.utc).date().isoformat()}
 
-    def twelvedata(self, sym):
+    def twelvedata(self, syms):
+        """Cotizaciones de Twelve Data en una sola petición (cada símbolo gasta un crédito; el plan gratuito
+        admite 8 por minuto, así que como mucho 7 aquí y 1 para la serie del SPY)."""
         if not self.td_key:
             raise RuntimeError("falta TWELVEDATA_API_KEY")
-        j = json.loads(self.http(f"https://api.twelvedata.com/quote?{urllib.parse.urlencode({'symbol': sym, 'apikey': self.td_key})}"))
-        self.sleep(8)
-        if j.get("status") == "error" or _num(j.get("close")) is None:
-            raise RuntimeError(f"Twelve Data: {j.get('message') or 'sin cotización de ' + sym}")
-        return {"valor": _num(j["close"]), "anterior": _num(j.get("previous_close")),
-                "fecha": str(j.get("datetime") or "")[:10]}
+        self._td_espera()
+        j = json.loads(self.http(f"https://api.twelvedata.com/quote?{urllib.parse.urlencode({'symbol': ','.join(syms), 'apikey': self.td_key})}"))
+        if len(syms) == 1:
+            j = {syms[0]: j}
+        if j.get("status") == "error" and "code" in j:
+            raise RuntimeError(f"Twelve Data: {j.get('message')}"[:200])
+        out = {}
+        for k in syms:
+            try:
+                out[k] = parse_td_quote(j.get(k))
+            except RuntimeError as e:
+                out[k] = e
+        return out
+
+    def td_serie(self, sym, n=800):
+        if not self.td_key:
+            raise RuntimeError("falta TWELVEDATA_API_KEY")
+        self._td_espera()
+        q = urllib.parse.urlencode({"symbol": sym, "interval": "1day", "outputsize": n, "apikey": self.td_key})
+        return parse_td_series(self.http(f"https://api.twelvedata.com/time_series?{q}"))
+
+    def _td_espera(self):
+        # dos peticiones seguidas a Twelve Data (serie del SPY y lote de cotizaciones) superan los 8 créditos
+        # por minuto del plan gratuito: la segunda espera un minuto
+        if getattr(self, "_td_usado", False):
+            self.sleep(62)
+        self._td_usado = True
+
+    def cboe(self, sym):
+        cache = self.__dict__.setdefault("_cboe", {})
+        if sym not in cache:
+            try:
+                cache[sym] = parse_cboe_csv(self.http(CBOE_CSV.format(s=sym), headers={"User-Agent": "Mozilla/5.0"}))
+            except RuntimeError as e:
+                cache[sym] = e
+        if isinstance(cache[sym], Exception):
+            raise cache[sym]
+        if len(cache[sym]) < 2:
+            raise RuntimeError(f"Cboe sin datos de {sym}")
+        return cache[sym]
+
+    def ecb(self, key, n=30):
+        return parse_ecb_csv(self.http(ECB_API.format(k=key, n=n), tries=2))
 
     def ofr(self):
         return parse_ofr(self.http(OFR_CSV))
@@ -437,21 +571,25 @@ class Fuentes:
 
 
 # ---------------------------------------------------------------- construcción
-def _indicador(spec, q, fuente_url):
-    iid, nombre, grupo, origen, sym, unidad, fuente, vivo = spec
-    v, a = q["valor"], q.get("anterior")
-    o = {"id": iid, "nombre": nombre, "grupo": grupo, "simbolo": sym, "unidad": unidad,
-         "valor": round(v, 4), "anterior": round(a, 4) if a is not None else None, "fecha": q["fecha"],
-         "fuente": fuente, "url": fuente_url}
+def _indicador(spec, q, fuente_url, serie=None):
+    v, a, unidad = q["valor"], q.get("anterior"), spec["unidad"]
+    o = {k: spec[k] for k in ("id", "nombre", "grupo", "seccion", "simbolo", "unidad", "fuente", "corto")}
+    o.update(valor=round(v, 4), anterior=round(a, 4) if a is not None else None, fecha=q["fecha"], url=fuente_url)
     if a:
         o["var"] = round(v - a, 4)
         if unidad != "%":                 # en tipos y diferenciales, la variación va en puntos básicos
             o["var_pct"] = round((v / a - 1) * 100, 2)
-    if vivo:
-        o["vivo"] = {"ticker": vivo[0], "modo": vivo[1]}
-    if origen == "finnhub" and sym in ("URTH", "EWY"):
-        o["nota"] = "ETF que replica el índice: el índice no tiene fuente gratuita."
+    if spec["vivo"]:
+        o["vivo"] = {"ticker": spec["vivo"][0], "modo": spec["vivo"][1]}
+    if spec["nota"]:
+        o["nota"] = spec["nota"]
+    if serie:                             # últimos ~3 meses para la minigráfica de la web
+        o["serie"] = [[d, round(x, 4)] for d, x in serie[-65:]]
     return o
+
+
+def _desde_serie(s):
+    return {"valor": s[-1][1], "anterior": s[-2][1], "fecha": s[-1][0]}
 
 
 def build(f: Fuentes, old=None):
@@ -471,26 +609,48 @@ def build(f: Fuentes, old=None):
             raise series[sid]
         return series[sid]
 
+    # Twelve Data: primero la serie diaria del SPY (para el índice de miedo y codicia), luego un lote de cotizaciones
+    spy = None
+    try:
+        spy = f.td_serie("SPY")
+        if len(spy) < 200:
+            raise RuntimeError("serie del SPY demasiado corta")
+    except (RuntimeError, ValueError, KeyError, json.JSONDecodeError) as e:
+        avisos.append(f"Serie diaria del SPY (Twelve Data): no disponible ({e}); el miedo y codicia usa el S&P 500 de FRED.")
+        spy = None
+    td_syms = [x["simbolo"] for x in INDICADORES if x["origen"] == "twelvedata"]
+    try:
+        td = f.twelvedata(td_syms)
+    except (RuntimeError, json.JSONDecodeError) as e:
+        td = {k: e for k in td_syms}
+
     ind = []
     for spec in INDICADORES:
-        iid, nombre, _, origen, sym, *_ = spec
+        iid, nombre, origen, sym = spec["id"], spec["nombre"], spec["origen"], spec["simbolo"]
         if origen == "manual":
             continue
+        serie = None
         try:
             if origen == "fred":
-                s = fred(sym)
-                q = {"valor": s[-1][1], "anterior": s[-2][1], "fecha": s[-1][0]}
-                url = FRED_PAGE.format(sym)
+                serie = fred(sym)
+                q, url = _desde_serie(serie), FRED_PAGE.format(sym)
             elif origen == "tesoro":
-                s = f.tesoro(sym)
-                series["tesoro:" + sym] = s
-                q = {"valor": s[-1][1], "anterior": s[-2][1], "fecha": s[-1][0]}
-                url = TREASURY_PAGE
+                serie = f.tesoro(sym)
+                series["tesoro:" + sym] = serie
+                q, url = _desde_serie(serie), TREASURY_PAGE
+            elif origen == "cboe":
+                serie = f.cboe(sym)
+                q, url = _desde_serie(serie), CBOE_IDX_PAGE
+            elif origen == "ecb":
+                serie = f.ecb(sym, 70)
+                q, url = _desde_serie(serie), ECB_PAGE
             elif origen == "finnhub":
-                q, url = f.finnhub(sym), "https://finnhub.io/"
+                q, url = f.finnhub(sym), FH_PAGE
             else:
-                q, url = f.twelvedata(sym), "https://twelvedata.com/"
-            ind.append(_indicador(spec, q, url))
+                q, url = td.get(sym, RuntimeError("sin respuesta")), TD_PAGE
+                if isinstance(q, Exception):
+                    raise q
+            ind.append(_indicador(spec, q, url, serie))
         except (RuntimeError, IndexError, KeyError, ValueError, json.JSONDecodeError) as e:
             avisos.append(f"{nombre}: no disponible ({e}).")
             if iid in old_ind:
@@ -524,14 +684,25 @@ def build(f: Fuentes, old=None):
         pc = pc_old
     if not pc:
         avisos.append("Ratio put/call del Cboe: no disponible; el índice de miedo y codicia se calcula sin él.")
-    # índice propio de miedo y codicia
+    # índice propio de miedo y codicia: SPY diario (Twelve Data) y VIX del propio Cboe para que vaya al día;
+    # FRED como respaldo. El bono a 10 años: FRED más la curva del Tesoro, que se publica el mismo día.
     try:
-        r = miedo_codicia(fred("SP500"), fred("VIXCLS"), fred("BAMLH0A0HYM2"), fred("BAMLC0A0CM"),
-                          fred("DGS10"), pc)
-        fu = {"impulso": ("S&P 500 vía FRED", FRED_PAGE.format("SP500")),
-              "volatilidad": ("VIX (Cboe) vía FRED", FRED_PAGE.format("VIXCLS")),
+        if spy:
+            bolsa, f_bolsa = spy, ("ETF SPY · Twelve Data", TD_PAGE)
+        else:
+            bolsa, f_bolsa = fred("SP500"), ("S&P 500 vía FRED", FRED_PAGE.format("SP500"))
+        try:
+            vix, f_vix = f.cboe("VIX"), ("VIX · Cboe", CBOE_IDX_PAGE)
+        except RuntimeError:
+            vix, f_vix = fred("VIXCLS"), ("VIX (Cboe) vía FRED", FRED_PAGE.format("VIXCLS"))
+        y10 = dict(fred("DGS10"))
+        t10 = series.get("tesoro:10 Yr")
+        if isinstance(t10, list):
+            y10.update(t10)
+        r = miedo_codicia(bolsa, vix, fred("BAMLH0A0HYM2"), fred("BAMLC0A0CM"), sorted(y10.items()), pc)
+        fu = {"impulso": f_bolsa, "volatilidad": f_vix,
               "bonos_basura": ("FRED (ICE BofA)", FRED_PAGE.format("BAMLH0A0HYM2")),
-              "refugio": ("S&P 500 y bono a 10 años vía FRED", FRED_PAGE.format("DGS10")),
+              "refugio": ("Bolsa y bono a 10 años (Tesoro y FRED)", TREASURY_PAGE),
               "put_call": ("Cboe · estadísticas diarias", CBOE_PAGE)}
         mc = resumen_miedo_codicia(r, fu)
         if mc:
@@ -549,9 +720,10 @@ def build(f: Fuentes, old=None):
         avisos.append(f"Tipos de interés: error inesperado ({e}).")
         tip = old.get("tipos") or {}
 
-    return {"esquema": 1,
+    return {"esquema": 2,
             "generado": datetime.now(timezone.utc).isoformat(timespec="seconds"),
             "grupos": GRUPOS,
+            "temas": TEMAS,
             "indicadores": ind,
             "sentimiento": sent,
             "tipos": tip,

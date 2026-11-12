@@ -4,10 +4,11 @@ name: Mercado hoy
 # de compañías para que un fallo de estas fuentes nunca afecte a los datos de la SEC.
 on:
   schedule:
-    # 15:07 UTC (16:07 o 17:07 en Madrid): FRED ya ha publicado el cierre del día anterior y,
-    # los jueves, la AAII su encuesta semanal.
-    - cron: "7 15 * * 1-5"
-    # 23:47 UTC: cierre del día (Finnhub, Twelve Data, Tesoro) tras la actualización nocturna.
+    # Cada hora, de 7:07 a 22:07 UTC (de 8 a 23 en Madrid en invierno, de 9 a 24 en verano): divisas,
+    # oro, cripto, ETF y el índice de miedo y codicia se mantienen al día durante la jornada. Cada
+    # ejecución gasta 8 créditos de Twelve Data (de 800 al día) y unas 25 consultas de Finnhub.
+    - cron: "7 7-22 * * 1-5"
+    # 23:47 UTC: cierre del día (Cboe, Tesoro) tras la actualización nocturna.
     - cron: "47 23 * * 1-5"
   workflow_dispatch:
 

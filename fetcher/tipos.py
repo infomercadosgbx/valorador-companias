@@ -228,7 +228,22 @@ def _mes_antes(iso, n):
     while m < 1:
         m += 12
         y -= 1
+    while m > 12:
+        m -= 12
+        y += 1
     return f"{y}-{m:02d}-01"
+
+
+def _base(d, mes):
+    """Valor de un mes para calcular una tasa interanual. Si falta (octubre de 2025: el cierre del Gobierno
+    de EE. UU. dejó el IPC sin publicar), se estima con la media geométrica del mes anterior y el siguiente
+    y se marca como estimado."""
+    if d.get(mes):
+        return d[mes], False
+    a, b = d.get(_mes_antes(mes, 1)), d.get(_mes_antes(mes, -1))
+    if a and b:
+        return (a * b) ** 0.5, True
+    return None, False
 
 
 def interanual(serie):
@@ -239,11 +254,15 @@ def interanual(serie):
     ult = serie[-1][0]
 
     def ia(mes):
-        a, b = d.get(mes), d.get(_mes_antes(mes, 12))
-        return round((a / b - 1) * 100, 2) if a and b else None
+        a, b, est = d.get(mes), *_base(d, _mes_antes(mes, 12))
+        return (round((a / b - 1) * 100, 2), est) if a and b else (None, False)
     prev = _mes_antes(ult, 1)
     mm = round((d[ult] / d[prev] - 1) * 100, 2) if d.get(prev) else None
-    return {"mes": ult[:7], "interanual": ia(ult), "anterior": ia(prev), "mensual": mm}
+    (ia_u, est), (ia_p, _) = ia(ult), ia(prev)
+    out = {"mes": ult[:7], "interanual": ia_u, "anterior": ia_p, "mensual": mm}
+    if est:
+        out["estimado"] = True
+    return out
 
 
 def inflacion(fred, fed, diagrama, avisos):
@@ -276,13 +295,18 @@ def inflacion(fred, fed, diagrama, avisos):
 
 # ---------------------------------------------------------------- agenda macro (fechas oficiales vía API de FRED)
 FRED_REL = "https://api.stlouisfed.org/fred/release"
-# id, release de FRED, palabra que debe aparecer en su nombre, nombre, fuente, enlace
+# id, release de FRED, palabra que debe aparecer en su nombre, nombre, fuente, enlace, hora en Nueva York, principal
 PUBLICACIONES = [
-    ("ipc", 10, "Consumer Price", "IPC (inflación)", "BLS", "https://www.bls.gov/cpi/"),
-    ("empleo", 50, "Employment Situation", "Informe de empleo", "BLS", "https://www.bls.gov/news.release/empsit.nr0.htm"),
-    ("pce", 54, "Personal Income", "PCE (la inflación que mira la Fed)", "BEA", "https://www.bea.gov/data/income-saving/personal-income"),
-    ("ipp", 46, "Producer Price", "Precios de producción (IPP)", "BLS", "https://www.bls.gov/ppi/"),
-    ("pib", 53, "Gross Domestic Product", "PIB", "BEA", "https://www.bea.gov/data/gdp/gross-domestic-product"),
+    ("ipc", 10, "Consumer Price", "IPC (inflación)", "BLS", "https://www.bls.gov/cpi/", (8, 30), True),
+    ("empleo", 50, "Employment Situation", "Informe de empleo", "BLS", "https://www.bls.gov/news.release/empsit.nr0.htm", (8, 30), True),
+    ("pce", 54, "Personal Income", "PCE (la inflación que mira la Fed)", "BEA", "https://www.bea.gov/data/income-saving/personal-income", (8, 30), True),
+    ("ipp", 46, "Producer Price", "Precios de producción (IPP)", "BLS", "https://www.bls.gov/ppi/", (8, 30), True),
+    ("pib", 53, "Gross Domestic Product", "PIB", "BEA", "https://www.bea.gov/data/gdp/gross-domestic-product", (8, 30), True),
+    ("ventas", 9, "Retail", "Ventas minoristas", "Census", "https://www.census.gov/retail/index.html", (8, 30), False),
+    ("paro_sem", 180, "Unemployment Insurance", "Peticiones semanales de paro", "Dpto. de Trabajo", "https://www.dol.gov/ui/data.pdf", (8, 30), False),
+    ("jolts", 192, "Job Openings", "Ofertas de empleo (JOLTS)", "BLS", "https://www.bls.gov/jlt/", (10, 0), False),
+    ("umich", 91, "Surveys of Consumers", "Confianza del consumidor (U. Michigan)", "U. de Michigan", "https://www.sca.isr.umich.edu/", (10, 0), False),
+    ("vivienda", 27, "New Residential Construction", "Viviendas iniciadas", "Census", "https://www.census.gov/construction/nrc/", (8, 30), False),
 ]
 
 
@@ -308,7 +332,8 @@ def ultimo_dato(k, fred, infl):
     try:
         if k == "ipc" and infl and infl.get("ipc"):
             x = infl["ipc"]
-            return f"{x['interanual']:.1f}% interanual ({mes_es(x['mes'])})".replace(".", ",")
+            return (f"{x['interanual']:.1f}% interanual ({mes_es(x['mes'])})".replace(".", ",")
+                    + (" · estimado: falta el dato de hace un año" if x.get("estimado") else ""))
         if k == "pce" and infl and infl.get("pce_sub"):
             x = infl["pce_sub"]
             return f"subyacente {x['interanual']:.1f}% ({mes_es(x['mes'])})".replace(".", ",")
@@ -319,6 +344,21 @@ def ultimo_dato(k, fred, infl):
         if k == "ipp":
             r = interanual(fred("PPIFIS"))
             return f"{r['interanual']:.1f}% interanual ({mes_es(r['mes'])})".replace(".", ",") if r else None
+        if k == "ventas":
+            v = fred("RSAFS")
+            return f"{(v[-1][1] / v[-2][1] - 1) * 100:+.1f}% en el mes ({mes_es(v[-1][0])})".replace(".", ",")
+        if k == "paro_sem":
+            v = fred("ICSA")
+            return f"{v[-1][1] / 1000:.0f} mil (semana del {int(v[-1][0][8:])} {MES_ES[int(v[-1][0][5:7]) - 1]})"
+        if k == "jolts":
+            v = fred("JTSJOL")
+            return f"{v[-1][1] / 1000:.2f} millones ({mes_es(v[-1][0])})".replace(".", ",")
+        if k == "umich":
+            v = fred("UMCSENT")
+            return f"{v[-1][1]:.1f} puntos ({mes_es(v[-1][0])})".replace(".", ",")
+        if k == "vivienda":
+            v = fred("HOUST")
+            return f"{v[-1][1] / 1000:.2f} millones anualizadas ({mes_es(v[-1][0])})".replace(".", ",")
         if k == "pib":
             g = fred("A191RL1Q225SBEA")
             t = int(g[-1][0][5:7]) // 3 + 1
@@ -333,9 +373,9 @@ def serie_interanual(serie, n=24):
     d = dict(serie)
     out = []
     for f, v in serie[-n:]:
-        b = d.get(_mes_antes(f, 12))
+        b, est = _base(d, _mes_antes(f, 12))
         if b:
-            out.append([f[:7], round((v / b - 1) * 100, 2)])
+            out.append([f[:7], round((v / b - 1) * 100, 2)] + ([1] if est else []))   # 3.er elemento: estimado
     return out
 
 
@@ -346,6 +386,11 @@ GRAFICOS = {
     "pce": [("PCEPILFE", "PCE subyacente", "ia"), ("PCEPI", "PCE general", "ia")],
     "ipp": [("PPIFIS", "IPP demanda final", "ia")],
     "pib": [("A191RL1Q225SBEA", "PIB (% anualizado)", "nivel")],
+    "ventas": [("RSAFS", "Ventas minoristas, variación en el mes", "mm")],
+    "paro_sem": [("ICSA", "Peticiones iniciales (miles)", "sem")],
+    "jolts": [("JTSJOL", "Ofertas de empleo (miles)", "nivel")],
+    "umich": [("UMCSENT", "Confianza del consumidor", "nivel")],
+    "vivienda": [("HOUST", "Viviendas iniciadas (miles, anualizado)", "nivel")],
 }
 
 
@@ -360,6 +405,10 @@ def graficos(k, fred):
             pts = serie_interanual(s)
         elif modo == "dif":
             pts = [[s[i][0][:7], round(s[i][1] - s[i - 1][1])] for i in range(max(1, len(s) - 24), len(s))]
+        elif modo == "mm":
+            pts = [[s[i][0][:7], round((s[i][1] / s[i - 1][1] - 1) * 100, 2)] for i in range(max(1, len(s) - 24), len(s))]
+        elif modo == "sem":
+            pts = [[f, round(v / 1000, 1)] for f, v in s[-26:]]
         else:
             pts = [[f[:7], v] for f, v in s[-(12 if k == "pib" else 24):]]
         if pts:
@@ -374,7 +423,7 @@ def agenda(f, fred, infl, avisos, old=None):
     hoy = f.hoy.isoformat()
     desde = (f.hoy - timedelta(days=70)).isoformat()
     items = []
-    for k, rid, clave, nom, fuente, url in PUBLICACIONES:
+    for k, rid, clave, nom, fuente, url, (hh, mm), principal in PUBLICACIONES:
         try:
             q = urllib.parse.urlencode({"release_id": rid, "api_key": f.fred_key, "file_type": "json"})
             info = json.loads(f.http(f"{FRED_REL}?{q}"))
@@ -392,10 +441,10 @@ def agenda(f, fred, infl, avisos, old=None):
         prox = [d for d in fechas if d >= hoy]
         pas = [d for d in fechas if d < hoy]
         it = {"id": k, "nombre": nom, "fuente": fuente, "url": url, "ultimo": ultimo_dato(k, fred, infl),
-              "graficos": graficos(k, fred)}
+              "graficos": graficos(k, fred), "principal": principal}
         if prox:
             it["fecha"] = prox[0]
-            it["hora_madrid"] = hora_dato(prox[0])
+            it["hora_madrid"] = hora_dato(prox[0], hh, mm)
             if len(prox) > 1:
                 it["siguiente"] = prox[1]
         if pas:
@@ -404,4 +453,4 @@ def agenda(f, fred, infl, avisos, old=None):
     if not items:
         return old
     items.sort(key=lambda x: x.get("fecha") or "9999")
-    return {"items": items, "fuente": "Fechas oficiales del BLS y el BEA vía FRED", "url": "https://fred.stlouisfed.org/releases/calendar"}
+    return {"items": items, "fuente": "Fechas oficiales del BLS, el BEA, el Census y el Dpto. de Trabajo vía FRED", "url": "https://fred.stlouisfed.org/releases/calendar"}
