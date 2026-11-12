@@ -1373,14 +1373,10 @@ function applyData(c){
   { const H=d&&d.historico_precio&&d.historico_precio.serie; if(H&&H.length>200){ const t=Date.parse(H.at(-1)[0])-365.25*864e5, y=H.filter(p=>Date.parse(p[0])>=t).map(p=>p[1]); c.v.lo52=Math.min(...y); c.v.hi52=Math.max(...y); } }
   const n=x=>typeof x==="number"&&Number.isFinite(x)?x:null;
   c.v.cMean=n(man.precio_objetivo_medio); c.v.cLow=n(man.precio_objetivo_bajo); c.v.cHigh=n(man.precio_objetivo_alto);
-  /* precio objetivo medio: el automático (Alpha Vantage, cada noche) manda salvo que el manual sea más reciente */
-  { const ob=d&&d.objetivo_analistas, mIso=parseEsDate(man.fecha), auto=ob&&fin(ob.valor)&&(!fin(c.v.cMean)||!mIso||ob.fecha>=mIso);
-    c._obj=auto?{auto:true,fuente:"Alpha Vantage",fecha:ob.fecha,url:ob.url,analistas:ob.analistas}:{auto:false,fecha:man.fecha,fuente:man.fuente};
-    if(auto) c.v.cMean=ob.valor;
-    const ri=parseEsDate(man.fecha_rango||man.fecha), last=d&&d.ultimo_8k_resultados&&d.ultimo_8k_resultados.fecha_presentacion;
-    const age=ri?Math.round((Date.now()-Date.parse(ri+"T12:00:00Z"))/864e5):NaN;
-    c._obj.rango={fecha:man.fecha_rango||man.fecha,fuente:man.fuente_rango||man.fuente,viejo:(fin(c.v.cLow)||fin(c.v.cHigh))&&(!ri||age>30||(last&&last>ri)),antesResultados:!!(ri&&last&&last>ri),dias:age};
-    c._obj.viejo=!auto&&fin(c.v.cMean)&&(!mIso||Math.round((Date.now()-Date.parse(mIso+"T12:00:00Z"))/864e5)>30||(last&&mIso&&last>mIso)); }
+  /* precios objetivo: manuales (no hay API gratuita); los actualiza la revisión tras resultados */
+  { const mIso=parseEsDate(man.fecha), last=d&&d.ultimo_8k_resultados&&d.ultimo_8k_resultados.fecha_presentacion;
+    const age=mIso?Math.round((Date.now()-Date.parse(mIso+"T12:00:00Z"))/864e5):NaN, antes=!!(mIso&&last&&last>mIso);
+    c._obj={fecha:man.fecha,fuente:man.fuente,dias:age,antes,analistas:man.num_analistas,viejo:(fin(c.v.cMean)||fin(c.v.cLow))&&(!mIso||age>30||antes)}; }
   c.sec=secFigures(d);
   MODEL_SEC.forEach(([k])=>{ if(!fin(c.v[k])&&fin(c.sec[k].m)){ c.v[k]=+c.sec[k].m.toFixed(k==="shares"?1:0); c._auto[k]=true; } });
   /* ajustes por hechos posteriores al último informe (compras, emisiones, amortizaciones…): se suman al dato de la SEC
@@ -3345,7 +3341,7 @@ const TS=d=>Date.parse(d+"T00:00:00Z");
 function priceTargets(){
   const s=cur.v, vz=valuation(cur), out=[], col={Bajista:"--c8",Base:"--c1",Alcista:"--c3"};
   if(vz.ok){ vz.sc.out.forEach(o=>out.push({n:o.n,sub:`escenario, ${nf(o.p,0)}%`,v:o.ps,c:col[o.n]||"--c7"})); out.push({n:"Valor ponderado",sub:"tu modelo",v:vz.w,c:"--accent",w:3}); }
-  if(fin(s.cMean)) out.push({n:"Consenso de analistas",sub:cur._obj&&cur._obj.auto?"Alpha Vantage":"manual",v:s.cMean,c:"--c4"});
+  if(fin(s.cMean)) out.push({n:"Consenso de analistas",sub:"manual",v:s.cMean,c:"--c4"});
   return out.filter(t=>fin(t.v));
 }
 function priceStats(h){
@@ -3545,14 +3541,14 @@ function consensusHtml(){
   const hist=(ca&&ca.historial)||[], first=hist[0], ft=first?K.reduce((a,[k])=>a+(first[k]||0),0):0, fpos=first?(first.compra_fuerte||0)+(first.compra||0):0;
   const trend=first&&ft&&tot?(pos/tot-fpos/ft)*100:NaN;
   const up=v=>fin(v)&&s.price>0?(v/s.price-1)*100:NaN, pill=v=>fin(v)?`<span class="pill ${v>=0?"up":"down"}">${v>=0?"+":""}${nf(v,1)}%</span>`:"";
-  const mine=vz.ok?vz.w:NaN, O=cur._obj||{rango:{}};
+  const mine=vz.ok?vz.w:NaN, O=cur._obj||{};
   return `<section class="card" style="--tc:var(--c4)"><h2>Consenso de analistas</h2>
-    <p class="sub">Lo que opina el mercado, frente a tu valoración. Recomendaciones ${ca?srcTag({fuente:"Finnhub",fecha:ca.periodo,url:ca.url}):""}; precio objetivo medio ${O.auto?srcTag({fuente:"Alpha Vantage",fecha:O.fecha,url:O.url}):srcTag({manual:true,fecha:m.fecha,fuente:m.fuente||"Introducido a mano"})}${fin(s.cLow)||fin(s.cHigh)?`; rango ${srcTag({manual:true,fecha:O.rango.fecha,fuente:O.rango.fuente||"Introducido a mano"})}`:""}.</p>
-    ${O.viejo||O.rango.viejo?`<p class="note" style="margin:0 0 8px;padding:6px 10px;border-radius:8px;background:color-mix(in srgb,var(--warn) 16%,transparent);color:var(--ink)">${O.viejo?`El precio objetivo medio es manual y ${O.rango.antesResultados?"anterior a los últimos resultados":"tiene más de 30 días"}. `:""}${O.rango.viejo?`El rango ${O.rango.antesResultados?"es anterior a los últimos resultados":`tiene ${fin(O.rango.dias)?O.rango.dias+" días":"fecha desconocida"}`}: tómalo como orientativo hasta que la revisión tras resultados lo actualice.`:""}</p>`:""}
+    <p class="sub">Lo que opina el mercado, frente a tu valoración. Recomendaciones ${ca?srcTag({fuente:"Finnhub",fecha:ca.periodo,url:ca.url}):""}; precio objetivo ${srcTag({manual:true,fecha:m.fecha,fuente:m.fuente||"Introducido a mano"})}.</p>
+    ${O.viejo?`<p class="note" style="margin:0 0 8px;padding:6px 10px;border-radius:8px;background:color-mix(in srgb,var(--warn) 16%,transparent);color:var(--ink)">Los precios objetivo ${O.antes?"son anteriores a los últimos resultados":`tienen ${fin(O.dias)?O.dias+" días":"fecha desconocida"}`}: tómalos como orientativos hasta que la revisión tras resultados los actualice.</p>`:""}
     <div class="kpis">
       ${kpi("Recomendación media",fin(score)?`<span style="color:color-mix(in srgb,var(${labCol(score)}) 85%,var(--ink))">${esc(lab(score))}</span>`:"–",fin(score)?`<span class="note">${nf(score,1)} sobre 5 · ${tot} analistas</span>`:"")}
       ${kpi("Analistas que recomiendan comprar",tot?pct(pos/tot*100,0):"–",fin(trend)?`<span class="note">${trend>=0?"+":""}${nf(trend,0)} pp desde ${esc(mesCorto(first.periodo))}</span>`:"")}
-      ${kpi("Precio objetivo medio",money(s.cMean),`${pill(up(s.cMean))}${fin(s.cLow)&&fin(s.cHigh)?`<span class="note">rango ${nf(s.cLow,0)}–${nf(s.cHigh,0)}${O.rango.viejo?" (antiguo)":""}</span>`:""}${O.auto&&O.analistas?`<span class="note">${O.analistas} analistas</span>`:""}`)}
+      ${kpi("Precio objetivo medio",money(s.cMean),`${pill(up(s.cMean))}${fin(s.cLow)&&fin(s.cHigh)?`<span class="note">rango ${nf(s.cLow,0)}–${nf(s.cHigh,0)}</span>`:""}`)}
       ${kpi("Tu valor ponderado",money(mine),`${pill(up(mine))}${fin(mine)&&fin(s.cMean)?`<span class="note">${mine>=s.cMean?"por encima":"por debajo"} del consenso en ${nf(Math.abs(mine/s.cMean-1)*100,0)}%</span>`:""}`)}
     </div>
     ${ca?`<div class="g2" style="margin-top:16px;align-items:stretch;gap:24px">
@@ -3562,7 +3558,7 @@ function consensusHtml(){
         <p class="note" style="margin-top:8px">El consenso suele ser optimista: en las grandes compañías de EE. UU. es raro ver más de un 10% de recomendaciones de venta. Es más útil su <b>cambio</b> que su nivel.</p></div>
       <div><div class="pxh">Evolución mensual</div>${hist.length>1?`<div class="cv h240"><canvas id="ch_vl_rec" role="img" aria-label="Evolución de las recomendaciones"></canvas></div>`:`<p class="empty">El historial mensual aparecerá con la próxima actualización.</p>`}</div>
     </div>`:`<p class="empty">Sin recomendaciones automáticas.</p>`}
-    <p class="note">${O.auto?`El precio objetivo medio se actualiza cada noche desde Alpha Vantage (media de los analistas que cubren la compañía). El rango mínimo–máximo no está en ninguna fuente gratuita: lo apunta la revisión tras resultados en <code>manual/${esc(cur._t)}.json</code>.`:`El precio objetivo está introducido a mano en <code>manual/${esc(cur._t)}.json</code>${m.fecha?` (último dato: ${esc(m.fecha)})`:""}; cuando llegue el dato automático de Alpha Vantage lo sustituirá.`} En la pestaña Veredicto, el gráfico «Valor razonable frente al precio» compara su evolución con la de tu valor.</p>
+    <p class="note">Los precios objetivo no están en ninguna API gratuita: los apunta la revisión tras resultados en <code>manual/${esc(cur._t)}.json</code>${m.fecha?` (último dato: ${esc(m.fecha)})`:""}, con su fuente. Cada cambio de la media queda en su historial y en la pestaña Veredicto, el gráfico «Valor razonable frente al precio» lo compara con tu valor.</p>
   </section>`;
 }
 function sensHtml(s,vz){
@@ -4922,7 +4918,7 @@ function histHtml(){
   const Hs=cur._data&&cur._data.historico_precio&&cur._data.historico_precio.serie;
   const fvc=L.length&&Hs?`<section class="card" style="--tc:var(--c4)"><h2>Valor razonable frente al precio</h2><p class="sub">El precio diario frente al valor que daba tu DCF en cada veredicto registrado, tu precio de compra y el precio objetivo medio de los analistas. La distancia entre tu valor y el precio es el margen de seguridad; la distancia entre tu valor y el de los analistas, cuánto te separas del consenso.</p>
     <div class="cv h300"><canvas id="ch_vd_fv" role="img" aria-label="Valor razonable frente al precio"></canvas></div>
-    <p class="note" style="margin:0">${(()=>{ const w=valuation(cur).w, p=cur.v.price; return fin(w)&&fin(p)?`Hoy: valor ${money(w)} y precio ${money(p)} → margen de seguridad <b style="color:${w>=p?"var(--goodText)":"var(--critText)"}">${w>=p?"+":"−"}${nf(Math.abs(w/p-1)*100,0)}%</b>. `:""; })()}${(()=>{ const w=valuation(cur).w, c=cur.v.cMean; return fin(w)&&fin(c)?`Analistas: ${money(c)} → tu valor está un <b>${nf(Math.abs(w/c-1)*100,0)}% ${w>=c?"por encima":"por debajo"}</b>. `:""; })()}Precio: Twelve Data (cierre diario, ajustado por splits). Analistas: ${cur._obj&&cur._obj.auto?"Alpha Vantage, cada noche":"dato manual"}. Valor: los supuestos de cada veredicto con las cifras de la SEC actuales; las líneas punteadas llevan tu valor y tu precio de compra de hoy hacia atrás, como referencia.</p></section>`:"";
+    <p class="note" style="margin:0">${(()=>{ const w=valuation(cur).w, p=cur.v.price; return fin(w)&&fin(p)?`Hoy: valor ${money(w)} y precio ${money(p)} → margen de seguridad <b style="color:${w>=p?"var(--goodText)":"var(--critText)"}">${w>=p?"+":"−"}${nf(Math.abs(w/p-1)*100,0)}%</b>. `:""; })()}${(()=>{ const w=valuation(cur).w, c=cur.v.cMean; return fin(w)&&fin(c)?`Analistas: ${money(c)} → tu valor está un <b>${nf(Math.abs(w/c-1)*100,0)}% ${w>=c?"por encima":"por debajo"}</b>. `:""; })()}Precio: Twelve Data (cierre diario, ajustado por splits). Analistas: precio objetivo medio, apuntado tras cada presentación de resultados. Valor: los supuestos de cada veredicto con las cifras de la SEC actuales; las líneas punteadas llevan tu valor y tu precio de compra de hoy hacia atrás, como referencia.</p></section>`:"";
   return fvc+`<section class="card vhist" id="vhist"><div class="vhhead"><h2>Historial de veredictos</h2><button type="button" class="btn-acc" id="btnVReg">Registrar veredicto de hoy</button></div>
     <p class="sub">Cada fila es un veredicto que registraste: tu recomendación, tu precio de compra y los supuestos del DCF de ese día. Probar y guardar supuestos no crea filas; solo el botón. ${EDIT?"Puedes corregir recomendación, convicción, precio de compra y nota.":"Para corregir una fila pulsa «Editar»; para borrarla, la ×."}</p>
     ${L.length?`<div class="scroll"><table><thead><tr><th>Fecha</th><th style="text-align:left">Recomendación</th><th>Convicción</th><th>Comprar por debajo de</th><th>Valor con esos supuestos</th><th>Precio ese día</th><th>Desde entonces</th><th style="text-align:left">Cambios</th><th></th></tr></thead><tbody>${rows}</tbody></table></div>
@@ -5236,10 +5232,10 @@ function fvChart(){
   const step=k=>{ const o=[]; pts.forEach((p,i)=>{ if(fin(p[k])&&p[k]>0) o.push({x:p.t,y:p[k]}); }); const l=o.at(-1); if(l&&l.x<now) o.push({x:now,y:l.y}); return o; };
   const fv=step("v"), bb=step("b"), cat=CAT();
   /* precio objetivo medio de los analistas: el manual como punto de partida y luego cada cambio automático */
-  const ob=cur._data&&cur._data.objetivo_analistas, man=cur._manual||{}, an=[];
-  { const mi=parseEsDate(man.fecha), first=ob&&ob.historial&&ob.historial[0];
-    if(mi&&fin(+man.precio_objetivo_medio)&&(!first||mi<first[0])) an.push({x:Math.max(TS(mi),t0),y:+man.precio_objetivo_medio});
-    ((ob&&ob.historial)||[]).forEach(([d,v])=>{ if(fin(v)) an.push({x:Math.max(TS(d),t0),y:v}); });
+  const man=cur._manual||{}, an=[];
+  { const H=(man.historial_objetivo||[]).filter(p=>p&&p[0]&&fin(+p[1])).slice().sort((a,b)=>a[0]<b[0]?-1:1), mi=parseEsDate(man.fecha);
+    if(mi&&fin(+man.precio_objetivo_medio)&&!H.some(p=>p[0]===mi)) H.push([mi,+man.precio_objetivo_medio]);
+    H.sort((a,b)=>a[0]<b[0]?-1:1).forEach(([d,v])=>an.push({x:Math.max(TS(d),t0),y:+v}));
     if(an.length&&an.at(-1).x<now) an.push({x:now,y:an.at(-1).y}); }
   const ys=[...price.map(p=>p.y),...fv.map(p=>p.y),...bb.map(p=>p.y),...an.map(p=>p.y),cv,cb].filter(v=>fin(v)&&v>0), lo=Math.min(...ys), hi=Math.max(...ys), pad=(hi-lo)*0.08;
   const ds=[{label:"Precio",data:price,borderColor:V("--ink"),backgroundColor:V("--ink"),borderWidth:1.6,pointRadius:0,pointHoverRadius:3,tension:0},

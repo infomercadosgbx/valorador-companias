@@ -81,14 +81,15 @@ El informe de resultados (resultados.html y su PDF) copia de la nota los titular
 
 Al hacer push, el workflow «Rehacer informes» regenera los informes y sus PDF en un par de minutos.
 
-## 5 bis. Rango de precios objetivo de los analistas
+## 5 bis. Precios objetivo de los analistas
 
-El precio objetivo **medio** se actualiza solo cada noche (Alpha Vantage → `data/<T>.json → objetivo_analistas`). El **rango** (mínimo y máximo) no está en ninguna fuente gratuita, así que lo apuntas tú tras los resultados, cuando los analistas revisan sus objetivos:
+No hay ninguna API gratuita con precios objetivo (Finnhub y Alpha Vantage los cobran), así que los apuntas tú tras los resultados, cuando los analistas revisan sus objetivos:
 
-1. Busca el rango actual en una fuente fiable y reciente (Investing.com, MarketBeat, TipRanks, Nasdaq, prensa financiera con la cifra de cada banco). Debe ser **posterior a la nota de resultados**.
-2. Escribe directamente en `manual/<T>.json` (es un dato de mercado, no criterio del usuario): `precio_objetivo_bajo`, `precio_objetivo_alto`, `num_analistas` si lo da la fuente, `fecha_rango` («12-nov-2026») y `fuente_rango` (medio y fecha; si los extremos son de bancos concretos, nómbralos). No toques `precio_objetivo_medio` ni las estimaciones.
-3. Si no encuentras una fuente que te convenza, no lo cambies: la web ya avisa de que el rango es antiguo.
-4. Va en el mismo commit que la propuesta.
+1. Busca el consenso actual en una fuente fiable y reciente (Investing.com, MarketBeat, TipRanks, Nasdaq, prensa financiera con la cifra de cada banco). Debe ser **posterior a la nota de resultados**.
+2. Escribe directamente en `manual/<T>.json` (es un dato de mercado, no criterio del usuario): `precio_objetivo_medio`, `precio_objetivo_bajo`, `precio_objetivo_alto`, `num_analistas` si lo da la fuente, `fecha` («12-nov-2026») y `fuente` (medio y fecha; si los extremos son de bancos concretos, nómbralos).
+3. Añade al final de `historial_objetivo` la pareja `["AAAA-MM-DD", media]` si la media cambió. No borres los puntos anteriores: la web los usa para comparar la evolución del consenso con la de tu valor.
+4. Si no encuentras una fuente que te convenza, no lo cambies: la web ya avisa de que el dato es antiguo.
+5. Va en el mismo commit que la propuesta.
 
 ## 6. Guardar
 

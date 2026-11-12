@@ -232,7 +232,7 @@ Las fuentes que no respondan aparecen en un aviso plegable al pie de la franja y
 | `data/index.json` | Resumen de todas las compañías para la web | Solo el Action |
 | `analysis/<TICKER>.json` | Tus supuestos y textos: DCF, scorecard, veredicto, directiva, MOAT, riesgos, última presentación de resultados (`mgmt.call`) y series por segmento que la SEC no publica (`fin_manual`) | Tú, versionado en git |
 | `analysis/_plantilla.json` | Análisis en blanco para compañías nuevas | — |
-| `manual/<TICKER>.json` | Rango de precios objetivo (mínimo–máximo) y estimaciones de resultados introducidos a mano (la web lo marca «manual») | Tú o la revisión tras resultados |
+| `manual/<TICKER>.json` | Precios objetivo de los analistas (media, rango e historial) y estimaciones de resultados introducidos a mano (la web lo marca «manual») | Tú o la revisión tras resultados |
 | `data/resultados/<TICKER>/` | Informe de resultados de cada presentación (JSON y PDF) e histórico de segmentos | Solo el Action |
 | `data/estimaciones/<TICKER>/` | Foto del consenso de Finnhub antes de cada presentación | Solo el Action |
 | `resultados.html` | El informe de resultados (pantalla, impresión y PDF) | — |
@@ -248,7 +248,7 @@ Las fuentes que no respondan aparecen en un aviso plegable al pie de la franja y
 
 - **Cifras financieras:** solo SEC EDGAR (`data.sec.gov/api/xbrl/companyfacts` y `data.sec.gov/submissions`), con User-Agent identificado, como máximo 5 peticiones por segundo y reintentos con espera creciente.
 - **Precio:** Finnhub, endpoints `/quote` y `/stock/metric` (rango de 52 semanas) (API oficial, plan gratuito de 60 llamadas por minuto). Proveedor abstraído en `fetcher/prices.py`; para cambiarlo basta con otra clase `PriceProvider`.
-- **Consenso:** las recomendaciones (compra/mantener/venta) llegan de Finnhub `/stock/recommendation`, gratuito. El **precio objetivo medio** llega cada noche de Alpha Vantage (función OVERVIEW, campo `AnalystTargetPrice`, plan gratuito; usa el secret `ALPHAVANTAGE_API_KEY`) y se guarda con su historial en `data/<TICKER>.json → objetivo_analistas`. El **rango** mínimo–máximo no está en ninguna fuente gratuita: va en `manual/<TICKER>.json` (`precio_objetivo_bajo`, `precio_objetivo_alto`, `fecha_rango`, `fuente_rango`) y lo actualiza la revisión tras resultados; la web avisa si tiene más de 30 días o es anterior a los últimos resultados. Si Alpha Vantage falla, se mantiene el último dato y se usa el manual.
+- **Consenso:** las recomendaciones (compra/mantener/venta) llegan de Finnhub `/stock/recommendation`, gratuito. Los **precios objetivo** (media, mínimo y máximo) no están en ninguna API gratuita (Finnhub y Alpha Vantage los cobran; comprobado el 12-nov-2026). Van en `manual/<TICKER>.json` y los actualiza la revisión tras resultados con su fuente y fecha; cada cambio de la media se añade a `historial_objetivo`, que la web compara con tu valor. La web avisa si el dato tiene más de 30 días o es anterior a los últimos resultados.
 - **Mercado hoy:** FRED, Tesoro, OFR, Cboe, Finnhub y Twelve Data por sus API o descargas oficiales. La única lectura de una página web es la encuesta de la AAII en aaii.com, que es quien publica el dato; si falla, se apunta a mano.
 - No se hace scraping de webs de terceros.
 
