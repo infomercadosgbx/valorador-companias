@@ -487,15 +487,28 @@ table.mini2 td{padding:3px 6px;font-size:12px;border-bottom:1px solid var(--grid
 .as2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px}
 .asrow{display:flex;flex-direction:column;gap:3px;border-top:1px solid var(--grid);padding-top:8px}
 .asctx{font-size:13px} .asctx b{font-family:var(--f-num)}
+.asline{font-size:13px;color:var(--ink2);border-top:1px solid var(--grid);padding-top:8px;display:flex;flex-wrap:wrap;gap:4px 14px} .asline b{font-family:var(--f-num);color:var(--ink)}
+.asline .k{white-space:nowrap}
+details.asmore{margin-top:-4px} details.asmore>summary{cursor:pointer;font-size:12.5px;font-weight:600;color:var(--tcx,var(--ink));list-style:none;display:inline-flex;align-items:center;gap:4px;padding:2px 0}
+details.asmore>summary::-webkit-details-marker{display:none} details.box details.asmore>summary::after,details.asmore>summary::after{content:"▾";color:inherit;font-size:11px;transition:transform .15s}
+details.box details.asmore[open]>summary::after,details.asmore[open]>summary::after{content:"▾";transform:rotate(180deg)} details.asmore[open]>summary .lm{display:none} details.asmore:not([open])>summary .ll{display:none}
+details.asmore>.asrow{margin-top:8px}
+.fx{background:var(--surface2);border:1px solid var(--line);border-radius:8px;padding:9px 11px;display:flex;flex-direction:column;gap:5px;font-size:12.5px}
+.fx .eq{font-family:var(--f-num);font-size:13px;line-height:1.5;overflow-wrap:anywhere} .fx .eq.gen{color:var(--ink)} .fx .eq.num{color:var(--ink2)} .fx .eq b{color:var(--ink)}
+.fx dl{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:2px 10px;margin:4px 0 0;font-size:12px;color:var(--ink2)} .fx dt{font-family:var(--f-num);font-weight:700;color:var(--ink)} .fx dd{margin:0}
+.drow2{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.9fr) minmax(0,1.8fr);gap:12px;border-top:1px solid var(--grid);padding:10px 0;align-items:start}
+.drow2 .dname b{font-size:13.5px} .drow2 .dname p{margin:2px 0 0;font-size:12px;color:var(--ink2)} .drow2 .dinp{display:flex;flex-direction:column;gap:4px;min-width:0} .drow2 .dinp input[type=number]{width:100%;min-width:0}
+.drow2 .asline{border-top:0;padding-top:0} .drow2 details.asmore{margin-top:4px}
+@media (max-width:900px){.drow2{grid-template-columns:minmax(0,1fr) minmax(0,1fr)} .drow2 .dname{grid-column:1/-1}}
+@media (max-width:560px){.drow2{grid-template-columns:minmax(0,1fr)}}
+.vhist td.chg{text-align:left;font-family:var(--f-body);white-space:normal;min-width:260px;font-size:12.5px;color:var(--ink2)} .vhist td.chg b{color:var(--ink);font-family:var(--f-num);font-weight:600}
+.vhist td.chg .vn{display:block;color:var(--ink);margin-top:2px} .vhist td.chg input{width:100%;min-width:180px}
+.vhist .vx{border:0;background:none;color:var(--ink3,var(--ink2));cursor:pointer;font-size:15px;padding:2px 6px;border-radius:6px} .vhist .vx:hover{color:var(--critText);background:color-mix(in srgb,var(--crit) 12%,transparent)}
+.vhist .vx.armed{color:var(--critText);font-size:12px;font-weight:600}
+.vhist td input[type=number]{width:84px} .vhist td select{min-width:110px}
+.vhhead{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap} .vhhead h2{margin-bottom:0}
 .dgroup{padding:4px 14px 10px}
 .dgroup>h3{margin:14px 0 2px;font-size:14px} .dgroup>.note{margin:0 0 6px}
-.drow{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.8fr) minmax(0,1.3fr) minmax(0,1.3fr);gap:12px;border-top:1px solid var(--grid);padding:10px 0;align-items:start}
-.drow .dname b{font-size:13.5px} .drow .dname p{margin:2px 0 0;font-size:12px;color:var(--ink2)}
-.drow .dinp{display:flex;flex-direction:column;gap:4px;min-width:0} .drow .dinp input[type=number]{width:100%;min-width:0}
-.drow .asctx{font-size:12.5px} .drow .eyebrow{display:none;margin-bottom:2px}
-.dhead{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.8fr) minmax(0,1.3fr) minmax(0,1.3fr);gap:12px;padding:6px 0 2px}
-@media (max-width:900px){.drow{grid-template-columns:minmax(0,1fr) minmax(0,1fr)} .drow .dname{grid-column:1/-1} .dhead{display:none} .drow .eyebrow{display:block}}
-@media (max-width:560px){.drow{grid-template-columns:minmax(0,1fr)}}
 .scnres td{font-family:var(--f-num)} .scnres input{width:80px}
 .detgrid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr) 100px)!important}
 @media (max-width:640px){.detgrid{grid-template-columns:minmax(0,1fr) 100px!important}}
@@ -1250,7 +1263,7 @@ const TPL={
   drivers:{n:"Nuevo motor",impact:3,h:"",st:"",k:"",peso:"",d:"",ev:"",r:"",u:""}, people:{n:"Nombre",role:"Cargo",since:"",note:""}, scores:{n:"Nuevo criterio",s:3,note:""},
   items:{n:"Nueva partida",v:0}, docs:{cat:"Formularios SEC",t:"Nuevo documento",d:"",u:"https://"}, videos:{t:"Nuevo vídeo",u:"https://www.youtube.com/watch?v="}, news:{t:"Nueva fuente",src:"",u:"https://"}, risks:{n:"Nuevo riesgo",cat:"Operativo",p:3,i:3,note:""}
 };
-const ANALYSIS_KEYS=["peers","meta","overview","business","moat","growth","mgmt","risks","v","verdict","notes","sources","social","fin_manual","avisos_aprobados","ajustes_posteriores","cambios_auto"];
+const ANALYSIS_KEYS=["veredictos","peers","meta","overview","business","moat","growth","mgmt","risks","v","verdict","notes","sources","social","fin_manual","avisos_aprobados","ajustes_posteriores","cambios_auto"];
 const DATA_V=["price","lo52","hi52","cMean","cLow","cHigh"];
 const MODEL_SEC=[["shares","Acciones"],["cash","Caja"],["debt","Deuda"]];
 const M6=1e6;
@@ -1481,7 +1494,7 @@ function renderWarnings(){
     <div class="wfoot"><button type="button" class="wok wall" data-wall="1">${pend.length>1?"Aprobar todos y pasarlos a Fuentes":"Aprobar y pasarlo a Fuentes"}</button>
     <p class="note" style="margin:0">Aquí solo llega lo que el robot no ha podido explicar con los documentos de la SEC; lo que sí explica lo aprueba él y lo deja en Fuentes con su comprobación. Las notas técnicas van directas a Fuentes. Lo aprobado se guarda en tu análisis (publícalo para que valga en otros dispositivos) y pasa a Fuentes → Cifras clave y calidad del dato. Si aparece un aviso nuevo, vuelve aquí.</p></div></details>`;
 }
-const DLAB={"v.comentario":"Comentario de los supuestos","v.wacc":"WACC","v.tg":"Crecimiento perpetuo","v.exit":"Múltiplo de salida","v.method":"Método del valor terminal","v.m1":"Margen EBITDA año 1","v.m5":"Margen EBITDA año 5",
+const DLAB={"veredictos":"Historial de veredictos","v.comentario":"Comentario de los supuestos","v.wacc":"WACC","v.tg":"Crecimiento perpetuo","v.exit":"Múltiplo de salida","v.method":"Método del valor terminal","v.m1":"Margen EBITDA año 1","v.m5":"Margen EBITDA año 5",
   "v.da":"Amortizaciones año 1","v.da5":"Amortizaciones año 5","v.sbc":"Pago en acciones","v.capex":"Capex año 1","v.capex5":"Capex año 5","v.nwc":"Circulante","v.tax":"Tipo impositivo",
   "v.rev0":"Ingresos año base","v.year0":"Año base","v.eps":"BPA próximos 12 meses","v.pe":"PER objetivo","v.evm":"EV/EBITDA objetivo","v.shares":"Acciones","v.cash":"Caja","v.debt":"Deuda","avisos_aprobados":"Avisos aprobados","ajustes_posteriores":"Ajustes por hechos posteriores","cambios_auto":"Registro de cambios automáticos"};
 function draftLabel(p){ if(DLAB[p]) return DLAB[p]; if(typeof PLAB!=="undefined"&&PLAB[p]) return PLAB[p]; let m=/^v\.g\.(\d)$/.exec(p); if(m) return `Crecimiento año ${+m[1]+1}`;
@@ -4401,28 +4414,30 @@ R.valuation=()=>{
   const ovr=MODEL_SEC.some(([k])=>!cur._auto[k])||bad.some(x=>x.codigo==="contradiccion");
   const N=(k,st,lab)=>`<input type="number" id="v_${k}" step="${st}" data-k="num" data-p="v.${k}" value="${fin(v[k])?v[k]:""}" aria-label="${esc(lab)}">`;
   const sub=(t,inp)=>`<label class="note" style="display:flex;flex-direction:column;gap:2px;min-width:0">${t}${inp}</label>`;
+  const more=(id,rows)=>`<details class="asmore" data-more="${id}"${ASMORE.has(id)?" open":""}><summary><span class="lm">Ver más</span><span class="ll">Ver menos</span></summary>${rows}</details>`;
+  const mrow=(lab,id)=>`<div class="asrow"><span class="eyebrow">${lab}</span><div id="${id}" class="asctx"></div></div>`;
   const card=(id,title,inf,what,inputs)=>`<div class="ascard"><div class="ashead"><h3>${title}${info(inf)}</h3><span class="asverdict" id="ver_${id}"></span></div>
     <p class="aswhat">${what}</p><div class="asinputs">${inputs}</div>
-    <div class="asrow"><span class="eyebrow">Con qué compararlo</span><div id="ctx_${id}" class="asctx"></div></div>
-    <div class="asrow"><span class="eyebrow">Qué pasa si lo cambias</span><div id="eff_${id}" class="asctx"></div></div></div>`;
-  const drow=(id,title,what,inputs)=>`<div class="drow"><div class="dname"><b>${title}</b> <span id="ver_${id}"></span><p>${what}</p></div><div class="dinp">${inputs}</div>
-    <div><span class="eyebrow">Referencia real</span><div id="ref_${id}" class="asctx"></div></div><div><span class="eyebrow">Efecto en el valor</span><div id="eff_${id}" class="asctx"></div></div></div>`;
-  const dgroup=(t,note,body)=>`<div class="dgroup"><h3>${t}</h3><p class="note">${note}</p>${body.includes("drow")?`<div class="dhead eyebrow"><span>Supuesto</span><span>Tu valor</span><span>Referencia real</span><span>Efecto en el valor</span></div>`:""}${body}</div>`;
+    <div class="asline" id="sum_${id}"></div>
+    ${more(id,mrow("Cómo se calcula","fx_"+id)+mrow("Con qué compararlo","ctx_"+id)+mrow("Qué pasa si lo cambias","eff_"+id))}</div>`;
+  const drow=(id,title,what,inputs)=>`<div class="drow2"><div class="dname"><b>${title}</b> <span id="ver_${id}"></span><p>${what}</p></div><div class="dinp">${inputs}</div>
+    <div><div class="asline" id="sum_${id}"></div>${more(id,mrow("Referencia real","ref_"+id)+mrow("Qué pasa si lo cambias","eff_"+id))}</div></div>`;
+  const dgroup=(t,note,body)=>`<div class="dgroup"><h3>${t}</h3><p class="note">${note}</p>${body}</div>`;
   return `<div id="valTop" style="display:flex;flex-direction:column;gap:16px"></div>
   <div class="valout" id="valOut"></div>
   <div id="valBottom"></div>
   <section class="card" id="valIn" style="--tc:var(--c4)"><h2>Supuestos del modelo: qué supones y qué implica</h2>
-    <p class="sub">El DCF solo es tan bueno como sus supuestos. Despliega cada grupo para ver la referencia real y el efecto de cambiarlos. Todo se recalcula al momento.</p>
+    <p class="sub">El DCF solo es tan bueno como sus supuestos. Cada uno muestra en una línea cómo se compara con la realidad; en «Ver más» tienes la fórmula con tus números, la referencia y el efecto de cambiarlo. Todo se recalcula al momento.</p>
     <div class="assum" id="asSum"></div>
     <details class="box" id="keyAs"${lsGet("valorador.supclave")==="1"?" open":""}><summary><span>Supuestos clave <span class="note" style="font-weight:400">· crecimiento, margen, WACC y valor terminal</span></span></summary>
     <div class="asgrid" style="padding:0 14px 14px">
-      ${card("g","Crecimiento de los ingresos","crec_modelo","Cuánto crecerán las ventas cada uno de los próximos 5 años. Es el motor del modelo: más ventas, más flujo de caja.",
+      ${card("g","Crecimiento de los ingresos","crec_modelo","Cuánto crecen las ventas cada año. Es el motor del modelo.",
         `<div class="g5" style="grid-column:auto">${[0,1,2,3,4].map(i=>`<div><span>${v.year0+i+1}</span><input type="number" step="0.5" data-k="num" data-p="v.g.${i}" value="${v.g[i]}" aria-label="Crecimiento ${v.year0+i+1}"></div>`).join("")}</div>`)}
-      ${card("m","Margen EBITDA","margen_modelo","Qué parte de cada dólar vendido queda como beneficio de explotación (antes de amortizaciones). El modelo pasa del margen del año 1 al del año 5 de forma lineal.",
+      ${card("m","Margen EBITDA","margen_modelo","Qué parte de cada dólar vendido queda como beneficio de explotación.",
         `<div class="as2">${sub(`Año ${v.year0+1} (%)`,N("m1",0.5,"Margen EBITDA año 1"))}${sub(`Año ${v.year0+5} (%)`,N("m5",0.5,"Margen EBITDA año 5"))}</div>`)}
-      ${card("w","WACC (tasa de descuento)","wacc","La rentabilidad anual que exiges por invertir en esta empresa. Los flujos futuros se traen a hoy a esa tasa: cuanto más alta, menos vale hoy un dólar futuro.",
+      ${card("w","WACC (tasa de descuento)","wacc","La rentabilidad que exiges. Cuanto más alta, menos vale hoy un dólar futuro.",
         `<div class="as2">${sub("WACC (%)",N("wacc",0.25,"WACC"))}<span></span></div>`)}
-      ${card("t","Valor terminal","g_terminal","Lo que vale la empresa a partir del año 5, resumido en una cifra. Se calcula con un crecimiento perpetuo, con un múltiplo de salida o con la media de ambos.",
+      ${card("t","Valor terminal","g_terminal","Lo que vale la empresa a partir del año 5, resumido en una cifra.",
         `<div class="seg" role="group" aria-label="Método de valor terminal" style="margin-bottom:6px">${[["gordon","Crec. perpetuo"],["exit","Múltiplo"],["blend","Media"]].map(([k,l])=>`<button type="button" data-m="${k}" aria-pressed="${v.method===k}">${l}</button>`).join("")}</div>
          <div class="as2">${v.method!=="exit"?sub(`Crecimiento perpetuo (%)`,N("tg",0.25,"Crecimiento perpetuo")):""}${v.method!=="gordon"?sub(`Múltiplo de salida (x EBITDA)`,N("exit",0.5,"Múltiplo de salida")):""}</div>`)}
     </div>
@@ -4449,7 +4464,7 @@ R.valuation=()=>{
         <details${ovr?" open":""}><summary class="note" style="cursor:pointer">Ajustar acciones, caja o deuda</summary><div class="fields detgrid" style="padding:6px 0 0">${F("shares","Acciones diluidas","M",0.1)}${F("cash","Caja","M",1)}${F("debt","Deuda financiera","M",1)}</div></details>
       </div>
     </details>
-    <div class="ascomment" style="margin-top:14px"><label for="v_comentario"><b>Comentario de los supuestos</b> <span class="note" style="font-weight:400">· por qué pusiste cada supuesto y qué dato te haría cambiarlo. Se guarda con el análisis y queda en el historial de versiones.</span></label>
+    <div class="ascomment" style="margin-top:14px"><label for="v_comentario"><b>Comentario de los supuestos</b> <span class="note" style="font-weight:400">· por qué pusiste cada supuesto y qué dato te haría cambiarlo. Se guarda con el análisis.</span></label>
       <textarea id="v_comentario" data-p="v.comentario" rows="6" style="margin-top:6px" placeholder="Ej.: Margen final 31% por la robótica y el peso de AWS; revisar con el margen de Norteamérica de cada 10-Q. Capex 13% en 2031: pendiente de la guía de capex 2027 (4T, febrero).">${esc(v.comentario||"")}</textarea></div>
   </section>`;
 };
@@ -4516,6 +4531,9 @@ function drawFootball(){
   ];
   drawRanges("ff","ffaxis",rows,s.price);
 }
+/* «Ver más» de cada supuesto: se recuerda cuál dejaste abierto mientras navegas */
+const ASMORE=new Set();
+document.addEventListener("toggle",e=>{ const d=e.target; if(d&&d.matches&&d.matches("details.asmore")){ const k=d.dataset.more; if(d.open) ASMORE.add(k); else ASMORE.delete(k); } },true);
 /* ---------- referencia del WACC: CAPM con datos oficiales y de mercado ---------- */
 let MKT;
 function loadMkt(){ if(MKT!==undefined) return; MKT=null;
@@ -4532,13 +4550,17 @@ function waccRef(){
   let kd=fin(I)&&fin(D)&&D>0?I/D*100:NaN, kdNote="";
   if(!fin(kd)||kd<rf-1||kd>rf+6){ kd=rf+1.5; kdNote="(estimado: bono + 1,5 pp, porque el interés publicado no es representativo)"; } else kdNote="(gastos por intereses UDM / deuda)";
   const t=(fin(cur.v.tax)?cur.v.tax:21)/100, kdAt=kd*(1-t), wd=fin(E)&&fin(D)&&E+D>0?D/(E+D):0;
-  return {rf,rfDate:MKT.bono.fecha,beta,erp,erpSrc:MKT.erpSrc==="manual/_mercado.json"?"Damodaran, editable en manual/_mercado.json":"referencia por defecto",ke,kd,kdAt,kdNote,wd,wacc:(1-wd)*ke+wd*kdAt};
+  return {E,D,t,rf,rfDate:MKT.bono.fecha,beta,erp,erpSrc:MKT.erpSrc==="manual/_mercado.json"?"Damodaran, editable en manual/_mercado.json":"referencia por defecto",ke,kd,kdAt,kdNote,wd,wacc:(1-wd)*ke+wd*kdAt};
 }
 function updateEffects(){
   const s=cur.v, vz=valuation(cur); if(!vz.ok||!$("valIn")) return; const b=vz.base.ps;
   const pc=v=>{ if(!fin(v)) return "–"; const d=(v/b-1)*100; if(Math.abs(d)<0.5) return "<b>≈0%</b>"; return `<b>${d>=0?"+":"−"}${nf(Math.abs(d),0)}%</b>`; };
   const set=(id,h)=>{const el=$(id); if(el) el.innerHTML=h;};
   const V3=(t,c)=>`<span class="pill ${c}">${t}</span>`;
+  const kv=(k,v)=>`<span class="k">${k} <b>${v}</b></span>`, sum=(id,...p)=>set("sum_"+id,p.filter(Boolean).join(""));
+  const pm=(lo,hi)=>{ if(!fin(lo)||!fin(hi)) return "–"; const a=(hi/b-1)*100, c=(lo/b-1)*100; return Math.abs(Math.abs(a)-Math.abs(c))<1.5?`±${nf((Math.abs(a)+Math.abs(c))/2,0)}%`:`${a>=0?"+":"−"}${nf(Math.abs(a),0)}% / ${c>=0?"+":"−"}${nf(Math.abs(c),0)}%`; };
+  const FX=(gen,num,leg)=>`<div class="fx"><div class="eq gen">${gen}</div>${num?`<div class="eq num">${num}</div>`:""}${leg&&leg.length?`<dl>${leg.map(([k,d])=>`<dt>${k}</dt><dd>${d}</dd>`).join("")}</dl>`:""}</div>`;
+  const Y=vz.base.yrs, Mn=x=>nf(x)+" M";
   let m=null; try{ m=mctx(); }catch(e){}
   const val=money(b);
   /* crecimiento */
@@ -4546,24 +4568,45 @@ function updateEffects(){
     const ref=g3&&fin(g3.v)?g3.v:g5&&fin(g5.v)?g5.v:NaN, r=avgM/ref;
     set("ctx_g",`Histórico: <b>${g5?pct(g5.v):"–"}</b> anual en ${g5?g5.ys+"–"+g5.ye:"–"}${g3&&g5&&g3.k!==g5.k?` y <b>${pct(g3.v)}</b> en ${g3.ys}–${g3.ye}`:""}${fin(lq)?`; último trimestre <b>${pct(lq,0)}</b> interanual`:""}. Tu modelo: <b>${pct(avgM)}</b> de media${s.g[4]<s.g[0]?`, frenando de ${pct(s.g[0],0)} a ${pct(s.g[4],0)}`:""}.`);
     set("ver_g",!fin(r)?"":r>1.25?V3("Ambicioso","down"):r<0.8?V3("Conservador","up"):V3("En línea con el histórico","mid"));
+    sum("g",kv("Tu media",pct(avgM,1)),fin(ref)?kv("Histórico",pct(ref,1)):"",kv("±1 pp/año →",pm(dcf(s,{adj:{dg:-1,dm:0}}).ps,dcf(s,{adj:{dg:1,dm:0}}).ps))+" del valor");
+    set("fx_g",FX(`Ingresos año n = ingresos año n−1 × (1 + crecimiento n)`,
+      `${Mn(s.rev0)} <span class="note">(${s.year0})</span> → ${Y.map(y=>`<b>${nf(y.rev)}</b> <span class="note">(${y.year}, ${pct(y.g*100,1)})</span>`).join(" → ")}`,
+      [["Total",`las ventas se multiplican por <b>${nf(Y[4].rev/s.rev0,2)}</b> en 5 años, un <b>${pct((Math.pow(Y[4].rev/s.rev0,1/5)-1)*100,1)}</b> anual compuesto`]]));
     set("eff_g",`Cada punto más de crecimiento cada año → ${pc(dcf(s,{adj:{dg:1,dm:0}}).ps)} en el valor; cada punto menos → ${pc(dcf(s,{adj:{dg:-1,dm:0}}).ps)}. Con 3 puntos menos (un frenazo serio) el valor sería ${money(dcf(s,{adj:{dg:-3,dm:0}}).ps)}.`); }
   /* margen */
   { const real=m?MET.margen_ebitda.calc(m).res:NaN, hist=(cur.fin.ebitda||[]).map((e,i)=>fin(e)&&cur.fin.rev[i]>0?e/cur.fin.rev[i]*100:null).filter(fin);
     const d5=s.m5-real;
     set("ctx_m",`Margen EBITDA real: <b>${pct(real)}</b> en ${m?esc(m.y(m.L)):""}${hist.length>2?` (entre ${pct(Math.min(...hist),0)} y ${pct(Math.max(...hist),0)} en los últimos años)`:""}. Supones <b>${pct(s.m1,1)}</b> el primer año y <b>${pct(s.m5,1)}</b> el quinto: ${fin(d5)?`${d5>=0?"+":""}${nf(d5,1)} pp frente al actual`:""}.`);
     set("ver_m",!fin(d5)?"":d5>5?V3("Ambicioso","down"):d5<-3?V3("Conservador","up"):V3("En línea con el actual","mid"));
+    sum("m",kv("Tu margen",`${pct(s.m1,1)} → ${pct(s.m5,1)}`),fin(real)?kv("Real",pct(real,1)):"",kv("±1 pp →",pm(dcf(s,{adj:{dg:0,dm:-1}}).ps,dcf(s,{adj:{dg:0,dm:1}}).ps)));
+    { const y1=Y[0], y5=Y[4];
+      set("fx_m",FX(`EBITDA = ingresos × margen <span class="note">(el margen va en línea recta del año 1 al 5)</span>`,
+        `${y1.year}: ${Mn(y1.rev)} × ${pct(y1.m*100,1)} = <b>${Mn(y1.ebitda)}</b> · ${y5.year}: ${Mn(y5.rev)} × ${pct(y5.m*100,1)} = <b>${Mn(y5.ebitda)}</b>`,
+        [["Después",`el EBITDA no es caja. Flujo de caja libre = EBITDA − pago en acciones − impuestos − capex − aumento del circulante. En ${y5.year}: ${nf(y5.ebitda)} − ${nf(y5.sbc)} − ${nf(y5.tax)} − ${nf(y5.capex)} − ${nf(y5.dnwc)} = <b>${Mn(y5.fcf)}</b>`]])); }
     set("eff_m",`Un punto más de margen todos los años → ${pc(dcf(s,{adj:{dg:0,dm:1}}).ps)}; un punto menos → ${pc(dcf(s,{adj:{dg:0,dm:-1}}).ps)}. ${Math.abs(s.m5-s.m1)>=3?`Pasar de ${pct(s.m1,0)} a ${pct(s.m5,0)} es una ${s.m5>s.m1?"mejora":"caída"} de ${nf(Math.abs(s.m5-s.m1),1)} puntos que el negocio tiene que demostrar.`:""}`); }
   /* WACC */
   { const w=s.wacc, R=waccRef();
     const rng=`Para grandes empresas de EE. UU. suele estar entre el <b>8%</b> y el <b>11%</b>: más bajo para negocios estables (eléctricas reguladas, consumo), más alto para cíclicos, pequeños o endeudados.`;
     if(R&&fin(R.wacc)){
-      set("ctx_w",`<b>Referencia (CAPM): ${pct(R.wacc,2)}</b>. Coste del capital = bono a 10 años <b>${pct(R.rf,2)}</b> <span class="note">(Tesoro de EE. UU., ${esc(fecha(R.rfDate))})</span> + beta <b>${nf(R.beta,2)}</b> <span class="note">(Finnhub)</span> × prima de riesgo <b>${pct(R.erp,1)}</b> <span class="note">(${esc(R.erpSrc)})</span> = <b>${pct(R.ke,2)}</b>.
-        ${R.wd>0.005?` Deuda: interés medio <b>${pct(R.kd,2)}</b>${R.kdNote?` <span class="note">${R.kdNote}</span>`:""}, <b>${pct(R.kdAt,2)}</b> tras impuestos, con un peso del <b>${pct(R.wd*100,0)}</b>.`:" Sin deuda relevante: el WACC es el coste del capital."}
-        Tu WACC: <b>${pct(w,2)}</b> (${w-R.wacc>=0?"+":"−"}${nf(Math.abs(w-R.wacc),2)} pp). ${Math.abs(w-R.wacc)>0.25?`<button type="button" class="add" data-usewacc="${R.wacc.toFixed(2)}">Usar ${pct(R.wacc,2)}</button>`:""}
-        <div class="note" style="margin-top:4px">${rng} La beta mide cuánto se mueve la acción frente al mercado; con betas muy bajas o muy altas el CAPM se queda corto y conviene redondear con criterio.</div>`);
+      const E=R.E, D=R.D, we=1-R.wd;
+      set("fx_w",FX(`WACC = E/(D+E) × Ke + D/(D+E) × Kd × (1 − t)<br>Ke = Rf + β × prima de riesgo`,
+        `Ke = ${pct(R.rf,2)} + ${nf(R.beta,2)} × ${pct(R.erp,1)} = <b>${pct(R.ke,2)}</b><br>WACC = ${pct(we*100,0)} × ${pct(R.ke,2)}${R.wd>0.005?` + ${pct(R.wd*100,0)} × ${pct(R.kd,2)} × (1 − ${pct(R.t*100,0)})`:""} = <b>${pct(R.wacc,2)}</b>`,
+        [["E",`capitalización bursátil: precio × acciones${fin(E)?` = ${Mn(E)}`:""}. Es el dinero de los accionistas.`],
+         ["D",`deuda financiera${fin(D)?` = ${Mn(D)}`:""}. Su peso, D/(D+E), es el <b>${pct(R.wd*100,0)}</b>.`],
+         ["Ke",`coste del capital: lo que exige el accionista. Se estima con el CAPM.`],
+         ["Rf",`rentabilidad sin riesgo: bono del Tesoro de EE. UU. a 10 años, <b>${pct(R.rf,2)}</b> <span class="note">(${esc(fecha(R.rfDate))})</span>.`],
+         ["β",`beta: cuánto se mueve la acción frente al mercado (1 = igual que el mercado). <b>${nf(R.beta,2)}</b> <span class="note">(Finnhub)</span>.`],
+         ["Prima",`rentabilidad extra que se exige a la bolsa sobre el bono: <b>${pct(R.erp,1)}</b> <span class="note">(${esc(R.erpSrc)})</span>.`],
+         ["Kd",`coste de la deuda: interés medio que paga, <b>${pct(R.kd,2)}</b> <span class="note">${R.kdNote}</span>.`],
+         ["t",`tipo impositivo, <b>${pct(R.t*100,0)}</b>: los intereses desgravan, por eso la deuda sale más barata (${pct(R.kdAt,2)} tras impuestos).`]]));
+      set("ctx_w",`<b>Referencia (CAPM): ${pct(R.wacc,2)}</b>, calculada con datos de hoy (fórmula arriba). Tu WACC: <b>${pct(w,2)}</b> (${w-R.wacc>=0?"+":"−"}${nf(Math.abs(w-R.wacc),2)} pp). ${Math.abs(w-R.wacc)>0.25?`<button type="button" class="add" data-usewacc="${R.wacc.toFixed(2)}">Usar ${pct(R.wacc,2)}</button>`:""}
+        <div class="note" style="margin-top:4px">${rng} Con betas muy bajas o muy altas el CAPM se queda corto y conviene redondear con criterio.</div>`);
+      sum("w",kv("Tu WACC",pct(w,2)),kv("Referencia CAPM",pct(R.wacc,2)),kv("+1 pp →",pc(dcf(s,{wacc:w+1}).ps)));
       const dd=w-R.wacc;
       set("ver_w",dd>1.5?V3("Más exigente que la referencia","up"):dd<-1.5?V3("Menos exigente que la referencia","down"):V3("En línea con la referencia","mid"));
     } else {
+      set("fx_w",FX(`WACC = E/(D+E) × Ke + D/(D+E) × Kd × (1 − t)<br>Ke = Rf + β × prima de riesgo`,"",[["E / D","valor en bolsa del capital y de la deuda"],["Ke","coste del capital (lo que exige el accionista)"],["Rf","bono del Tesoro a 10 años"],["β","cuánto se mueve la acción frente al mercado"],["Kd","interés medio de la deuda"],["t","tipo impositivo"]]));
+      sum("w",kv("Tu WACC",pct(w,2)),kv("Rango habitual","8–11%"),kv("+1 pp →",pc(dcf(s,{wacc:w+1}).ps)));
       set("ctx_w",`${rng} Tu WACC: <b>${pct(w,2)}</b>.${R&&R.why?` <span class="note">Referencia CAPM no disponible: ${esc(R.why)}.</span>`:""}`);
       set("ver_w",w<7.5?V3("Poco exigente","down"):w>11.5?V3("Muy exigente","up"):V3("Razonable","mid"));
     }
@@ -4573,6 +4616,13 @@ function updateEffects(){
     set("ctx_t",`${s.method!=="exit"?`Crecimiento perpetuo: la economía de EE. UU. crece en torno al <b>4%</b> nominal a largo plazo; por encima de eso, la empresa acabaría siendo más grande que la economía. `:""}${s.method!=="gordon"?`Múltiplo: hoy cotiza a <b>${fin(evr)?nf(evr,1)+"x":"–"}</b> EBITDA; dentro de 5 años, con menos crecimiento, lo normal es un múltiplo menor. `:""}Tus supuestos equivalen a un múltiplo de salida de <b>${nf(ie,1)}x</b> y a un crecimiento perpetuo del <b>${pct(ig,1)}</b>.`);
     set("ver_t",tv>85?V3(`${nf(tv,0)}% del valor`,"down"):tv>70?V3(`${nf(tv,0)}% del valor`,"mid"):V3(`${nf(tv,0)}% del valor`,"up"));
     const t=[]; if(s.method!=="exit") t.push(`medio punto más de crecimiento perpetuo → ${pc(s.wacc>s.tg+0.5?dcf(s,{tg:s.tg+0.5}).ps:NaN)}`); if(s.method!=="gordon") t.push(`un múltiplo 1x mayor → ${pc(dcf(s,{exit:s.exit+1}).ps)}`);
+    sum("t",kv("Implica",`${nf(ie,1)}x EBITDA`),kv("Crec. perpetuo",pct(ig,1)),kv("Peso",`${nf(tv,0)}% del valor`));
+    { const y5=Y[4], tvG=s.wacc>s.tg?dcf(s,{method:"gordon"}).tv:NaN, tvM=dcf(s,{method:"exit"}).tv, base=vz.base, gl=[];
+      if(s.method!=="exit") gl.push(`Crec. perpetuo: VT = FCF₅ × (1 + g) / (WACC − g) = ${nf(y5.fcf)} × ${nf(1+s.tg/100,3)} / (${pct(s.wacc,2)} − ${pct(s.tg,2)}) = <b>${Mn(tvG)}</b>`);
+      if(s.method!=="gordon") gl.push(`Múltiplo: VT = EBITDA₅ × múltiplo = ${nf(y5.ebitda)} × ${nf(s.exit,1)} = <b>${Mn(tvM)}</b>`);
+      if(s.method==="blend") gl.push(`Media: (${nf(tvG)} + ${nf(tvM)}) / 2 = <b>${Mn(base.tv)}</b>`);
+      set("fx_t",FX(`Valor de hoy = VT / (1 + WACC)⁵`,`${gl.join("<br>")}<br>Hoy: ${nf(base.tv)} / ${nf(1+s.wacc/100,3)}⁵ = <b>${Mn(base.pvTV)}</b>, el ${nf(tv,0)}% del valor de la empresa (${Mn(base.ev)})`,
+        [["VT","valor terminal: lo que valdría la empresa al final del año 5"],["FCF₅",`flujo de caja libre del año 5 (${y5.year})`],["g","crecimiento perpetuo, para siempre, a partir del año 5"],["EBITDA₅",`EBITDA del año 5 (${y5.year})`]])); }
     set("eff_t",`${t.join("; ")}. El valor terminal supone el <b>${nf(tv,0)}%</b> de los ${val} por acción: ${tv>85?"casi todo el valor depende de lo que pase después del año 5, así que cualquier error aquí pesa mucho.":tv>70?"es lo habitual en empresas de crecimiento.":"buena parte del valor viene de los próximos 5 años, lo que lo hace más fiable."}`); }
   /* resumen de los supuestos clave (visible con el grupo plegado) */
   { const el=$("asSum"); if(el){ const vh=id=>($("ver_"+id)||{}).innerHTML||"", avg=s.g.reduce((a,x)=>a+x,0)/5;
@@ -4599,25 +4649,30 @@ function updateEffects(){
     set("ref_rev",`Últimos 12 meses (SEC): <b>${nf(ttm)}</b> M${t?` hasta ${esc(fecha(t.periodo_fin))}`:""}. Último año cerrado (${ia!=null?esc(f.years[ia]):"–"}): <b>${nf(la)}</b> M. Tu base: <b>${nf(s.rev0)}</b> M (${s.year0}).`);
     const est=ia!=null&&+s.year0>+f.years[ia];
     set("ver_rev",!fin(d)?"":Math.abs(d)<=0.05?V3("Cerca de los 12 meses","up"):est?V3(`Estimación: ${d>0?"+":"−"}${nf(Math.abs(d)*100,0)}% sobre 12 meses`,Math.abs(d)>0.25?"down":"mid"):fin(la)&&Math.abs(s.rev0/la-1)<=0.02?V3("Año cerrado","mid"):V3(`${d>0?"+":"−"}${nf(Math.abs(d)*100,0)}% vs 12 meses`,"down"));
+    sum("rev",kv("Tu base",Mn(s.rev0)),fin(ttm)?kv("12 meses",Mn(ttm)):"",kv("+5% →",pc(P({rev0:s.rev0*1.05}))));
     set("eff_rev",`Un 5% más de ventas de partida → ${pc(P({rev0:s.rev0*1.05}))}. ${!fin(d)||Math.abs(d)<=0.05?"La base escala todo: un error aquí se arrastra los 5 años.":est?`Tu base es una estimación de ${s.year0}, que aún no ha cerrado: el modelo da por hecho ese ${d>0?"crecimiento":"descenso"} antes incluso del año 1. Compárala con la guía de la compañía.`:"Si los últimos 12 meses ya están publicados, conviene usarlos como base para no proyectar desde un punto antiguo."}`); }
   /* amortizaciones */
   { const real=realOf(f.da);
     set("ref_da",histLine(f.da,"Amortizaciones / ventas")+` Supones <b>${pct(s.da,1)}</b> → <b>${pct(s.da5??s.da,1)}</b>.`);
     set("ver_da",fin(real)?(Math.abs(s.da-real)<=1?V3("En línea con el real","mid"):V3(s.da>real?"Por encima del real":"Por debajo del real","mid")):"");
+    sum("da",kv("Tu valor",`${pct(s.da,1)} → ${pct(s.da5??s.da,1)}`),fin(real)?kv("Real",pct(real,1)):"",kv("+1 pp →",pc(P({da:s.da+1,da5:(s.da5??s.da)+1}))));
     set("eff_da",`Un punto más → ${pc(P({da:s.da+1,da5:(s.da5??s.da)+1}))}. Efecto pequeño: solo cambia los impuestos (a más amortización, menos beneficio fiscal). Si la empresa invierte mucho, las amortizaciones irán subiendo detrás del capex.`); }
   /* pago en acciones */
   { const real=realOf(f.sbc);
     set("ref_sbc",histLine(f.sbc,"Pago en acciones / ventas")+` Supones <b>${pct(s.sbc,1)}</b>.`);
     set("ver_sbc",cmp(s.sbc,real,0.75,true));
+    sum("sbc",kv("Tu valor",pct(s.sbc,1)),fin(real)?kv("Real",pct(real,1)):"",kv("+1 pp →",pc(P({sbc:s.sbc+1}))));
     set("eff_sbc",`Un punto más → ${pc(P({sbc:s.sbc+1}))}; ponerlo a 0 (como hace el «EBITDA ajustado») → ${pc(P({sbc:0}))}. Ignorarlo infla el valor: es sueldo pagado diluyendo al accionista.`); }
   /* capex */
   { const real=realOf(f.capex), av=avg3(f.capex);
     set("ref_capex",histLine(f.capex,"Capex / ventas")+` Supones <b>${pct(s.capex,1)}</b> el año 1 y <b>${pct(s.capex5??s.capex,1)}</b> el 5.${fin(real)&&fin(av)&&real>av*1.3?" El capex reciente está muy por encima de su media: ¿es un pico temporal o el nuevo normal?":""}`);
     set("ver_capex",cmp(s.capex,real,1.5,true));
+    sum("capex",kv("Tu valor",`${pct(s.capex,1)} → ${pct(s.capex5??s.capex,1)}`),fin(real)?kv("Real",pct(real,1)):"",kv("+1 pp →",pc(P({capex:s.capex+1,capex5:(s.capex5??s.capex)+1}))));
     set("eff_capex",`Un punto más de capex todos los años → ${pc(P({capex:s.capex+1,capex5:(s.capex5??s.capex)+1}))}. Con el capex real (${pct(real,1)}) los 5 años → ${fin(real)?pc(P({capex:real,capex5:real})):"–"}.`); }
   /* circulante */
   set("ref_nwc",`No hay un dato directo comparable. Orientación: software y publicidad, <b>0–10%</b>; fabricación con inventario, <b>10–25%</b>; comercio que cobra antes de pagar a proveedores (Amazon), puede ser <b>negativo</b>. Supones <b>${pct(s.nwc,0)}</b>: de cada 100 de ventas nuevas, ${nf(s.nwc,0)} quedan inmovilizados.`);
   set("ver_nwc","");
+  sum("nwc",kv("Tu valor",pct(s.nwc,0)),kv("Orientación","0–25%"),kv("+5 pp →",pc(P({nwc:s.nwc+5}))));
   set("eff_nwc",`Cinco puntos más → ${pc(P({nwc:s.nwc+5}))}. Pesa más cuanto más crece la empresa, porque se aplica al aumento de ventas.`);
   /* impuestos */
   { const T=R.impuestos, B=R.beneficio_antes_impuestos;
@@ -4625,6 +4680,7 @@ function updateEffects(){
     const ya=T&&B?(T.anual||[]).map(t=>{const b=(B.anual||[]).find(x=>x.periodo_fin===t.periodo_fin); return b&&b.valor>0?{y:t.periodo,v:t.valor/b.valor*100}:null;}).filter(Boolean).slice(-3):[];
     set("ref_tax",`${fin(et)?`Tipo efectivo real de los últimos 12 meses: <b>${pct(et,1)}</b> (impuestos ${nf(T.ttm.valor/M6)} M / beneficio antes de impuestos ${nf(B.ttm.valor/M6)} M) ${srcTag(T.ttm)}. `:T||B?"":"El tipo efectivo real aparecerá tras la próxima actualización de datos. "}${ya.length?`Años: ${ya.map(x=>`${esc(x.y)} <b>${pct(x.v,1)}</b>`).join(", ")}. `:""}Tipo federal de EE. UU.: <b>21%</b>; con impuestos estatales, en torno al <b>24–25%</b>. Supones <b>${pct(s.tax,1)}</b>.`);
     set("ver_tax",cmp(s.tax,et,2.5,true));
+    sum("tax",kv("Tu valor",pct(s.tax,1)),fin(et)?kv("Real",pct(et,1)):"",kv("Federal","21%"),kv("+5 pp →",pc(P({tax:s.tax+5}))));
     set("eff_tax",`Cinco puntos más → ${pc(P({tax:s.tax+5}))}. Un tipo real bajo puede deberse a créditos fiscales o a beneficios en el extranjero que no siempre duran: para 5 años y el valor terminal es prudente acercarse al 21%.`); }
   /* escenarios */
   { const sc=vz.sc, pr=s.price;
@@ -4636,6 +4692,7 @@ function updateEffects(){
     const ea=(R.bpa_diluido&&R.bpa_diluido.anual||[]).at(-1), epsM=(y1.ebit-y1.tax)/s.shares;
     set("ref_eps",`BPA de los últimos 12 meses: <b>${fin(epsT)?nf(epsT,2):"–"}</b> (beneficio neto ${niT?nf(niT.valor/M6):"–"} M / ${nf(s.shares,1)} M de acciones)${ea?`; BPA diluido ${esc(ea.periodo)}: <b>${nf(ea.valor,2)}</b> ${srcTag(ea)}`:""}. Tu DCF implica unos <b>${nf(epsM,2)}</b> el año 1 (beneficio operativo después de impuestos, sin intereses).${(()=>{const P=cur._data&&cur._data.resultados_previstos&&cur._data.resultados_previstos.proximos; return P&&fin(P.bpa_estimado)?` Previsión de analistas para el ${P.trimestre}T${String(P.anio%100).padStart(2,"0")}: <b>${nf(P.bpa_estimado,2)}</b> (×4 ≈ ${nf(P.bpa_estimado*4,2)} anual, orientativo) <span class="rsrc off">Finnhub</span>.`:"";})()}`);
     const ge=fin(epsT)&&epsT>0?(s.eps/epsT-1)*100:NaN;
+    sum("eps",kv("Tu BPA",nf(s.eps,2)),fin(epsT)?kv("12 meses",nf(epsT,2)):"",kv("DCF año 1",nf(epsM,2)));
     set("ver_eps",!fin(ge)?"":ge>40?V3(`+${nf(ge,0)}% sobre 12 meses`,"down"):ge<0?V3(`${nf(ge,0)}% sobre 12 meses`,"up"):V3(`+${nf(ge,0)}% sobre 12 meses`,"mid"));
     const vPe=s.eps*s.pe;
     set("eff_eps",`Con tu PER objetivo, cada 1 USD de BPA son <b>${nf(s.pe,1)}</b> USD de valor. Hoy: ${money(vPe)} ${s.price>0&&fin(vPe)?upPill(vPe,s.price):""}.`);
@@ -4643,10 +4700,12 @@ function updateEffects(){
     const st=mh&&mh.stPer, perNow=fin(epsT)&&epsT>0?s.price/epsT:NaN;
     set("ref_pe",`PER actual: <b>${fin(perNow)?nf(perNow,1)+"x":"–"}</b> (cotización / BPA 12 meses).${st?` Histórico desde ${esc(fecha(st.desde))}: mediana <b>${nf(st.mean,1)}x</b>, normalmente entre ${nf(st.p10,1)}x y ${nf(st.p90,1)}x.`:""} Media del S&P 500: unas <b>20x</b>.`);
     set("ver_pe",st?(s.pe>st.p90?V3("Por encima de su histórico","down"):s.pe<st.p10?V3("Por debajo de su histórico","up"):V3("Dentro de su histórico","mid")):"");
+    sum("pe",kv("Tu PER",nf(s.pe,1)+"x"),fin(perNow)?kv("Actual",nf(perNow,1)+"x"):"",kv("Valor",money(vPe)));
     set("eff_pe",`Valor por PER: <b>${money(vPe)}</b> ${s.price>0&&fin(vPe)?upPill(vPe,s.price):""}. Cada 1x más de PER → +${money(s.eps)} por acción.`);
     const evr=MET.ev_ebitda.calc(m2).res, nd=s.debt-s.cash, vEv=(y1.ebitda*s.evm-nd)/s.shares;
     set("ref_evm",`EV/EBITDA actual: <b>${fin(evr)?nf(evr,1)+"x":"–"}</b> (con el último EBITDA anual). Tu múltiplo de salida del DCF: <b>${nf(s.exit,1)}x</b>; el valor terminal implica <b>${nf(vz.base.impliedExit,1)}x</b>. Se aplica al EBITDA del año 1: <b>${nf(y1.ebitda)}</b> M.`);
     set("ver_evm",fin(evr)?(s.evm>evr*1.2?V3("Por encima del actual","down"):s.evm<evr*0.8?V3("Por debajo del actual","up"):V3("Cerca del actual","mid")):"");
+    sum("evm",kv("Tu múltiplo",nf(s.evm,1)+"x"),fin(evr)?kv("Actual",nf(evr,1)+"x"):"",kv("Valor",money(vEv)));
     set("eff_evm",`Valor por EV/EBITDA: <b>${money(vEv)}</b> ${s.price>0&&fin(vEv)?upPill(vEv,s.price):""}. Cada 1x más → +${money(y1.ebitda/s.shares)} por acción.`); }
 }
 function renderValOut(){ if(!$("valOut")) return; killCharts(); if($("valTop")) $("valTop").innerHTML=valTopHtml(); $("valOut").innerHTML=valOutHtml(); if($("valBottom")){ const vz=valuation(cur); $("valBottom").innerHTML=vz.ok&&cur.v.price>0?sensHtml(cur.v,vz):""; } drawFootball(); setDefaults(); C.valuation(); drawPriceCharts(); updateEffects(); }
@@ -4794,23 +4853,59 @@ function socialHtml(part){
 }
 
 /* ---------- Veredicto ---------- */
+/* Historial de veredictos: analysis.veredictos. Una fila solo se crea con «Registrar veredicto»;
+   se corrige en modo edición y se borra desde la propia tabla. El valor se recalcula con los supuestos
+   guardados en cada fila y las cifras de la SEC actuales. */
+const VSUP_FUERA=new Set(["price","lo52","hi52","cMean","cLow","cHigh","shares","cash","debt","comentario"]);
+const VSUP_LAB={g:"crecimiento",m1:"margen año 1",m5:"margen año 5",wacc:"WACC",tg:"crec. perpetuo",exit:"múltiplo de salida",method:"método del valor terminal",rev0:"ingresos base",year0:"año base",
+  da:"amortizaciones año 1",da5:"amortizaciones año 5",sbc:"pago en acciones",capex:"capex año 1",capex5:"capex año 5",nwc:"circulante",tax:"impuestos",eps:"BPA",pe:"PER objetivo",evm:"EV/EBITDA objetivo",scn:"escenarios"};
+const VSUP_ORD=["wacc","g","m1","m5","tg","exit","method","capex","capex5","rev0","year0","tax","sbc","da","da5","nwc","scn","eps","pe","evm"];
+const MET_TV={gordon:"perpetuo",exit:"múltiplo",blend:"media"};
+function vSnap(){ const o={}; Object.keys(cur.v||{}).forEach(k=>{ if(!VSUP_FUERA.has(k)&&cur.v[k]!==undefined) o[k]=clone(cur.v[k]); }); return o; }
+const hoyIso=()=>{ const d=new Date(); return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`; };
+function vFmt(k,x){ if(x==null) return "–"; if(k==="method") return MET_TV[x]||x; if(k==="g") return (x||[]).map(v=>nf(v,v%1?1:0)).join("/");
+  if(k==="scn") return (x||[]).map(c=>`${nf(c.p,0)}%`).join("/"); if(typeof x==="number") return nf(x,Math.abs(x)>=1000||Number.isInteger(x)?0:(Math.abs(x)<10?2:1)); return String(x); }
+function vChanges(x,prev){
+  if(!prev) return [`<span class="note">Primer veredicto registrado</span>`];
+  const out=[], A=prev.supuestos||{}, B=x.supuestos||{};
+  if(prev.recomendacion!==x.recomendacion) out.push(`recomendación <b>${esc(prev.recomendacion||"–")} → ${esc(x.recomendacion||"–")}</b>`);
+  if(+prev.conviccion!==+x.conviccion) out.push(`convicción <b>${vFmt("c",prev.conviccion)} → ${vFmt("c",x.conviccion)}</b>`);
+  if(+prev.comprar_por_debajo!==+x.comprar_por_debajo) out.push(`comprar por debajo <b>${vFmt("c",prev.comprar_por_debajo)} → ${vFmt("c",x.comprar_por_debajo)}</b>`);
+  const ks=[...new Set([...VSUP_ORD,...Object.keys(A),...Object.keys(B)])].filter(k=>!VSUP_FUERA.has(k));
+  ks.forEach(k=>{ if(JSON.stringify(A[k])===JSON.stringify(B[k])||(A[k]===undefined||B[k]===undefined)) return; out.push(`${VSUP_LAB[k]||esc(k)} <b>${vFmt(k,A[k])} → ${vFmt(k,B[k])}</b>`); });
+  return out.length?out:[`<span class="note">Sin cambios en recomendación ni supuestos</span>`];
+}
+function vPrice(x){ if(fin(+x.precio)&&+x.precio>0) return +x.precio; const Hs=cur._data&&cur._data.historico_precio&&cur._data.historico_precio.serie; if(!Hs||!x.fecha) return NaN; let p=null; for(const q of Hs){ if(q[0]<=x.fecha) p=q; else break; } return p?p[1]:NaN; }
+function vValue(x){ try{ return valuation({v:Object.assign({},cur.v,x.supuestos||{},{price:cur.v.price})}).w; }catch(e){ return NaN; } }
+function vRegister(){
+  if(!cur) return; cur.veredictos=cur.veredictos||[]; const v=cur.verdict||{};
+  const e={id:Date.now().toString(36),fecha:hoyIso(),recomendacion:v.rating||"",conviccion:fin(+v.conviction)?+v.conviction:null,comprar_por_debajo:fin(+v.buyBelow)?+v.buyBelow:null,
+    horizonte:v.horizon||"",precio:fin(cur.v.price)?+(+cur.v.price).toFixed(2):null,nota:"",supuestos:vSnap()};
+  const last=cur.veredictos.at(-1), same=last&&["recomendacion","conviccion","comprar_por_debajo"].every(k=>last[k]===e[k])&&JSON.stringify(last.supuestos)===JSON.stringify(e.supuestos);
+  if(same&&last.fecha===e.fecha){ toast("Ese veredicto ya está registrado hoy"); return; }
+  cur.veredictos.push(e); save(); renderTab(); renderHeader();
+  toast(ghToken()?"Veredicto registrado. Pulsa «Guardar en GitHub» para conservarlo.":"Veredicto registrado en el borrador.");
+}
 function histHtml(){
-  if(cur._hist===undefined){ cur._hist=null; const t=cur._t, c=cur;
-    fetch(`data/historial/${encodeURIComponent(t)}.json`,{cache:"no-cache"}).then(r=>r.ok?r.json():{versiones:[]}).then(j=>{c._hist=j; if(cur===c&&TAB==="verdict") renderTab();}).catch(()=>{c._hist={versiones:[]};}); }
-  const H=cur._hist; if(!H) return "";
-  const vs=(H.versiones||[]).filter(x=>x.recomendacion);
+  const L=(cur.veredictos||[]).map((x,i)=>({x,i})), P=cur.v.price;
+  const rows=L.slice().reverse().map(({x,i},j,arr)=>{ const prev=i>0?cur.veredictos[i-1]:null, p0=vPrice(x), val=vValue(x), ch=fin(p0)&&fin(P)?(P/p0-1)*100:NaN, chg=vChanges(x,prev), b=`veredictos.${i}`;
+    const chgTxt=chg.length>3?chg.slice(0,3).join(" · ")+` <span class="note" title="${esc(chg.slice(3).map(t=>t.replace(/<[^>]+>/g,"")).join(" · "))}">y ${chg.length-3} más</span>`:chg.join(" · ");
+    return `<tr><td>${esc(fecha(x.fecha))}</td>
+      <td style="text-align:left;font-family:var(--f-body)">${EDIT?sel(b+".recomendacion",RATINGS):ratingPill(x.recomendacion)}</td>
+      <td>${EDIT?nm(b+".conviccion",{lab:"Convicción",step:0.5}):fin(+x.conviccion)?nf(x.conviccion,x.conviccion%1?1:0)+"/5":"–"}</td>
+      <td>${EDIT?nm(b+".comprar_por_debajo",{lab:"Comprar por debajo de"}):fin(+x.comprar_por_debajo)?money(+x.comprar_por_debajo):"–"}</td>
+      <td>${money(val)}</td><td>${fin(p0)?money(p0):"–"}</td>
+      <td>${fin(ch)?`<span style="color:${ch>=0?"var(--goodText)":"var(--critText)"}">${ch>=0?"+":""}${nf(ch,1)}%</span>`:"–"}</td>
+      <td class="chg">${chgTxt}${EDIT?`<input type="text" class="ed" data-p="${b}.nota" value="${esc(x.nota||"")}" placeholder="Nota (opcional): por qué lo registras" aria-label="Nota">`:x.nota?`<span class="vn">${esc(x.nota)}</span>`:""}</td>
+      <td><button type="button" class="vx" data-vdel="${i}" aria-label="Borrar el veredicto del ${esc(fecha(x.fecha))}" title="Borrar">×</button></td></tr>`; }).join("");
   const Hs=cur._data&&cur._data.historico_precio&&cur._data.historico_precio.serie;
-  const px=iso=>{ if(!Hs||!iso) return NaN; let p=null; for(const q of Hs){ if(q[0]<=iso) p=q; else break; } return p?p[1]:NaN; };
-  const rows=vs.slice().reverse().map(x=>{ const iso=parseEsDate(x.analisis_a)||x.fecha_commit, p0=px(iso);
-    let val=NaN; try{ val=valuation({v:Object.assign({},cur.v,x.supuestos||{},{price:cur.v.price})}).w; }catch(e){}
-    const ch=fin(p0)?(cur.v.price/p0-1)*100:NaN;
-    return `<tr><td>${esc(fecha(iso))}</td><td style="text-align:left;font-family:var(--f-body)">${ratingPill(x.recomendacion)}</td><td>${fin(x.conviccion)?nf(x.conviccion,0)+"/5":"–"}</td><td>${fin(+x.comprar_por_debajo)?money(+x.comprar_por_debajo):"–"}</td><td>${money(val)}</td><td>${fin(p0)?money(p0):"–"}</td><td>${fin(ch)?`<span style="color:${ch>=0?"var(--goodText)":"var(--critText)"}">${ch>=0?"+":""}${nf(ch,1)}%</span>`:"–"}</td></tr>`; }).join("");
-  const fvc=vs.length&&Hs?`<section class="card" style="--tc:var(--c4)"><h2>Valor razonable frente al precio</h2><p class="sub">El precio diario frente al valor que daba tu DCF en cada versión guardada del análisis y tu precio de compra. La distancia entre las dos líneas es el margen de seguridad: así ves si la oportunidad se abre o se cierra y cuánto mueven el valor tus cambios de supuestos.</p>
+  const fvc=L.length&&Hs?`<section class="card" style="--tc:var(--c4)"><h2>Valor razonable frente al precio</h2><p class="sub">El precio diario frente al valor que daba tu DCF en cada veredicto registrado y tu precio de compra. La distancia entre las dos líneas es el margen de seguridad: así ves si la oportunidad se abre o se cierra.</p>
     <div class="cv h300"><canvas id="ch_vd_fv" role="img" aria-label="Valor razonable frente al precio"></canvas></div>
-    <p class="note" style="margin:0">${(()=>{ const w=valuation(cur).w, p=cur.v.price; return fin(w)&&fin(p)?`Hoy: valor ${money(w)} y precio ${money(p)} → margen de seguridad <b style="color:${w>=p?"var(--goodText)":"var(--critText)"}">${w>=p?"+":"−"}${nf(Math.abs(w/p-1)*100,0)}%</b>. `:""; })()}Precio: Twelve Data (cierre diario, ajustado por splits). Valor: tus supuestos de cada versión con las cifras de la SEC actuales; las líneas punteadas llevan tu valor y tu precio de compra de hoy hacia atrás, como referencia. El historial crece cada vez que guardas el análisis.</p></section>`:"";
-  return fvc+`<section class="card"><h2>Historial de veredictos</h2><p class="sub">Cada vez que guardas un análisis en GitHub queda una versión. Así ves qué pensabas, a qué precio y qué ha pasado desde entonces.</p>
-    ${vs.length?`<div class="scroll"><table><thead><tr><th>Análisis a</th><th style="text-align:left">Recomendación</th><th>Convicción</th><th>Comprar por debajo de</th><th>Valor con tus supuestos de entonces</th><th>Precio entonces</th><th>Desde entonces</th></tr></thead><tbody>${rows}</tbody></table></div>
-    <p class="note">El valor se recalcula con los supuestos de cada versión y las cifras de la SEC actuales. Hoy: ${money(cur.v.price)}.</p>`:`<p class="empty">Aún no hay versiones guardadas con recomendación.</p>`}</section>`;
+    <p class="note" style="margin:0">${(()=>{ const w=valuation(cur).w, p=cur.v.price; return fin(w)&&fin(p)?`Hoy: valor ${money(w)} y precio ${money(p)} → margen de seguridad <b style="color:${w>=p?"var(--goodText)":"var(--critText)"}">${w>=p?"+":"−"}${nf(Math.abs(w/p-1)*100,0)}%</b>. `:""; })()}Precio: Twelve Data (cierre diario, ajustado por splits). Valor: los supuestos de cada veredicto con las cifras de la SEC actuales; las líneas punteadas llevan tu valor y tu precio de compra de hoy hacia atrás, como referencia.</p></section>`:"";
+  return fvc+`<section class="card vhist" id="vhist"><div class="vhhead"><h2>Historial de veredictos</h2><button type="button" class="btn-acc" id="btnVReg">Registrar veredicto de hoy</button></div>
+    <p class="sub">Cada fila es un veredicto que registraste: tu recomendación, tu precio de compra y los supuestos del DCF de ese día. Probar y guardar supuestos no crea filas; solo el botón. ${EDIT?"Puedes corregir recomendación, convicción, precio de compra y nota.":"Para corregir una fila pulsa «Editar»; para borrarla, la ×."}</p>
+    ${L.length?`<div class="scroll"><table><thead><tr><th>Fecha</th><th style="text-align:left">Recomendación</th><th>Convicción</th><th>Comprar por debajo de</th><th>Valor con esos supuestos</th><th>Precio ese día</th><th>Desde entonces</th><th style="text-align:left">Qué cambió</th><th></th></tr></thead><tbody>${rows}</tbody></table></div>
+    <p class="note">«Valor con esos supuestos» se recalcula con los supuestos de cada fila y las cifras de la SEC actuales, así que dos filas con el mismo valor tienen los mismos supuestos. «Qué cambió» compara con la fila anterior. Hoy: ${money(P)}. Los cambios se conservan al pulsar «Guardar en GitHub».</p>`:`<p class="empty">Aún no hay veredictos registrados. Cuando tengas tu recomendación y tus supuestos listos, pulsa «Registrar veredicto de hoy».</p>`}</section>`;
 }
 function retHtml(vz,s){
   if(!vz.ok||!fin(cur.v.price)) return "";
@@ -5110,11 +5205,9 @@ C.valuation=()=>{
     options:{plugins:{legend:legend(2),tooltip:tipU(sc.u)},scales:{x:axisX,y:axisY()}}});
 };
 function fvChart(){
-  const H=cur._hist, Hs=cur._data&&cur._data.historico_precio&&cur._data.historico_precio.serie; if(!H||!Hs||!$("ch_vd_fv")) return;
-  const vs=(H.versiones||[]).filter(x=>x.recomendacion||x.supuestos);
-  if(!vs.length) return;
-  const pts=vs.map(x=>{ const iso=parseEsDate(x.analisis_a)||x.fecha_commit; let val=NaN; try{ val=valuation({v:Object.assign({},cur.v,x.supuestos||{},{price:cur.v.price})}).w; }catch(e){} return {t:TS(iso),v:val,b:+x.comprar_por_debajo}; })
-    .filter(p=>fin(p.t)).sort((a,b)=>a.t-b.t);
+  const VS=cur.veredictos||[], Hs=cur._data&&cur._data.historico_precio&&cur._data.historico_precio.serie; if(!VS.length||!Hs||!$("ch_vd_fv")) return;
+  const pts=VS.map(x=>({t:TS(x.fecha),v:vValue(x),b:+x.comprar_por_debajo})).filter(p=>fin(p.t)).sort((a,b)=>a.t-b.t);
+  if(!pts.length) return;
   const cv=valuation(cur).w; let now=TS(Hs.at(-1)[0]); pts.forEach(p=>{ if(p.t>now) now=p.t; });
   if(fin(cv)&&(!pts.length||Math.abs(cv-pts.at(-1).v)>0.5)) pts.push({t:now,v:cv,b:+cur.verdict.buyBelow,draft:true});
   const t0=Math.min(pts[0].t-120*864e5, now-2*365*864e5), cb=+cur.verdict.buyBelow;
@@ -5224,6 +5317,9 @@ document.addEventListener("click",e=>{
   if(e.target.closest("#btnGhTest")){ ghTest(); return; }
   if(e.target.closest("#btnGhForget")){ lsSet("valorador.ghtoken",null); renderGhBox(); renderDraft(); toast("Token olvidado en este navegador"); return; }
   const dc=e.target.closest("#btnDiscard"); if(dc){ if(dc.dataset.armed!=="1"){dc.dataset.armed="1"; dc.textContent="¿Seguro? Pulsa otra vez"; setTimeout(()=>{if(dc.isConnected){dc.dataset.armed=""; dc.textContent="Descartar";}},3000); return;} discardDraft(); return;}
+  if(e.target.closest("#btnVReg")){ vRegister(); return; }
+  const vd=e.target.closest("[data-vdel]"); if(vd){ if(vd.dataset.armed!=="1"){ vd.dataset.armed="1"; vd.classList.add("armed"); vd.textContent="¿Borrar?"; setTimeout(()=>{ if(vd.isConnected){ vd.dataset.armed=""; vd.classList.remove("armed"); vd.textContent="×"; } },3000); return; }
+    cur.veredictos.splice(+vd.dataset.vdel,1); save(); renderTab(); renderHeader(); toast(ghToken()?"Veredicto borrado. Pulsa «Guardar en GitHub» para conservarlo.":"Veredicto borrado del borrador."); return; }
   const uw=e.target.closest("[data-usewacc]"); if(uw){ cur.v.wacc=+uw.dataset.usewacc; save(); renderTab(); renderHeader(); return; }
   const us=e.target.closest("[data-usesec]"); if(us){const k=us.dataset.usesec; delete cur.v[k]; applyData(cur); save(); renderTab(); renderHeader(); return;}
   const co=e.target.closest("[data-co]"); if(co){ if(WATCH) exitWatch(); store.current=co.dataset.co; cur=store.companies[store.current]; lsSet("valorador.actual",store.current); renderHeader(); renderTab(); return;}

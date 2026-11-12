@@ -731,5 +731,181 @@
    "nivel": "info",
    "mensaje": "Acciones: se usan las diluidas medias del 3T26 (202 M)."
   }
+ ],
+ "veredictos": [
+  {
+   "id": "d20c519784",
+   "fecha": "2026-10-27",
+   "recomendacion": "Acumular",
+   "conviccion": 3,
+   "comprar_por_debajo": 125,
+   "horizonte": "12–24 meses",
+   "precio": 136.46,
+   "nota": "",
+   "supuestos": {
+    "rev0": 3390,
+    "year0": 2026,
+    "g": [
+     30,
+     24,
+     19,
+     16,
+     13
+    ],
+    "m1": 46,
+    "m5": 50,
+    "da": 0.6,
+    "da5": 0.6,
+    "sbc": 8,
+    "capex": 0.3,
+    "capex5": 0.3,
+    "nwc": 8,
+    "tax": 18,
+    "wacc": 10.5,
+    "tg": 3,
+    "exit": 15,
+    "method": "blend",
+    "eps": 6.5,
+    "pe": 25,
+    "evm": 18,
+    "scn": [
+     {
+      "n": "Bajista",
+      "dg": -14,
+      "dm": -8,
+      "p": 25
+     },
+     {
+      "n": "Base",
+      "dg": 0,
+      "dm": 0,
+      "p": 50
+     },
+     {
+      "n": "Alcista",
+      "dg": 8,
+      "dm": 3,
+      "p": 25
+     }
+    ]
+   },
+   "origen": "git d20c519784"
+  },
+  {
+   "id": "ef777858dd",
+   "fecha": "2026-11-01",
+   "recomendacion": "Acumular",
+   "conviccion": 3,
+   "comprar_por_debajo": 100,
+   "horizonte": "12–24 meses",
+   "precio": 91.73,
+   "nota": "",
+   "supuestos": {
+    "rev0": 3380,
+    "year0": 2026,
+    "g": [
+     22,
+     18,
+     15,
+     13,
+     11
+    ],
+    "m1": 46,
+    "m5": 50,
+    "da": 0.6,
+    "da5": 0.6,
+    "sbc": 8,
+    "capex": 0.3,
+    "capex5": 0.3,
+    "nwc": 8,
+    "tax": 18,
+    "wacc": 10.5,
+    "tg": 3,
+    "exit": 15,
+    "method": "blend",
+    "eps": 6,
+    "pe": 22,
+    "evm": 18,
+    "scn": [
+     {
+      "n": "Bajista",
+      "dg": -14,
+      "dm": -8,
+      "p": 25
+     },
+     {
+      "n": "Base",
+      "dg": 0,
+      "dm": 0,
+      "p": 50
+     },
+     {
+      "n": "Alcista",
+      "dg": 8,
+      "dm": 3,
+      "p": 25
+     }
+    ]
+   },
+   "origen": "git ef777858dd"
+  },
+  {
+   "id": "919e525ec1",
+   "fecha": "2026-11-05",
+   "recomendacion": "Acumular",
+   "conviccion": 3,
+   "comprar_por_debajo": 100,
+   "horizonte": "12–24 meses",
+   "precio": 93.81,
+   "nota": "",
+   "supuestos": {
+    "rev0": 3380,
+    "year0": 2026,
+    "g": [
+     22,
+     18,
+     15,
+     13,
+     11
+    ],
+    "m1": 46,
+    "m5": 50,
+    "da": 0.6,
+    "da5": 0.6,
+    "sbc": 8,
+    "capex": 0.3,
+    "capex5": 0.3,
+    "nwc": 8,
+    "tax": 18,
+    "wacc": 10.5,
+    "tg": 3,
+    "exit": 15,
+    "method": "blend",
+    "eps": 6,
+    "pe": 22,
+    "evm": 18,
+    "scn": [
+     {
+      "n": "Bajista",
+      "dg": -14,
+      "dm": -8,
+      "p": 25
+     },
+     {
+      "n": "Base",
+      "dg": 0,
+      "dm": 0,
+      "p": 50
+     },
+     {
+      "n": "Alcista",
+      "dg": 8,
+      "dm": 3,
+      "p": 25
+     }
+    ]
+   },
+   "origen": "git 919e525ec1"
+  }
  ]
 }

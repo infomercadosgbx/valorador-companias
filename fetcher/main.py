@@ -17,7 +17,6 @@ import traceback
 from datetime import datetime, timezone
 from pathlib import Path
 
-from . import history as HIST
 from . import estimaciones as EST
 from . import logos, prices
 from . import resultados as RES
@@ -254,13 +253,8 @@ def run(only=None, report=None, root=ROOT, client=None, provider=None, price_war
                 "precio": (rec.get("precio") or {}).get("valor"),
             })
 
-    for c in companies:
-        vs = HIST.versions(root, c["ticker"].upper())
-        if vs:
-            if write_if_changed(root / "data" / "historial" / f"{c['ticker'].upper()}.json",
-                                {"ticker": c["ticker"].upper(), "versiones": vs,
-                                 "fuente": "Historial de git de analysis/" + c["ticker"].upper() + ".json"}):
-                changed.append(f"historial {c['ticker']}")
+    # El historial de veredictos ya no sale de git: vive en analysis/<T>.json → "veredictos"
+    # y se crea con «Registrar veredicto» en la web (ver scripts/migrar_veredictos.py).
 
     if hist is not None:
         try:

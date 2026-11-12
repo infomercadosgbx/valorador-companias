@@ -51,7 +51,7 @@ HECHOS = [
     r"social\.(pulse|videos|pulseFuente)(\..*)?",
     r"ajustes_posteriores",
 ]
-PROHIBIDOS = {"cambios_auto", "avisos_aprobados"}
+PROHIBIDOS = {"cambios_auto", "avisos_aprobados", "veredictos"}
 UMBRAL_DCF = 5.0      # % mínimo de cambio en el valor para proponer supuestos del DCF
 UMBRAL_GRAVE = 10.0   # % a partir del cual no se espera al sábado
 MAX_REGISTRO = 120

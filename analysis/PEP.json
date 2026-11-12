@@ -726,5 +726,123 @@
    "nivel": "info",
    "mensaje": "Año fiscal de 52/53 semanas (duraciones: 363, 370 días); los trimestres se etiquetan por su fecha de cierre."
   }
+ ],
+ "veredictos": [
+  {
+   "id": "b9cac07424",
+   "fecha": "2026-11-01",
+   "recomendacion": "Acumular",
+   "conviccion": 3,
+   "comprar_por_debajo": 130,
+   "horizonte": "2–3 años",
+   "precio": 137.34,
+   "nota": "",
+   "supuestos": {
+    "rev0": 99600,
+    "year0": 2026,
+    "g": [
+     4,
+     4,
+     4,
+     3.5,
+     3.5
+    ],
+    "m1": 20,
+    "m5": 21.5,
+    "da": 3.7,
+    "da5": 3.7,
+    "sbc": 0.4,
+    "capex": 4.8,
+    "capex5": 4.8,
+    "nwc": 2,
+    "tax": 21,
+    "wacc": 7.5,
+    "tg": 2.5,
+    "exit": 13,
+    "method": "blend",
+    "eps": 8.6,
+    "pe": 18,
+    "evm": 13,
+    "scn": [
+     {
+      "n": "Bajista",
+      "dg": -2,
+      "dm": -2,
+      "p": 25
+     },
+     {
+      "n": "Base",
+      "dg": 0,
+      "dm": 0,
+      "p": 50
+     },
+     {
+      "n": "Alcista",
+      "dg": 1.5,
+      "dm": 1.5,
+      "p": 25
+     }
+    ]
+   },
+   "origen": "git b9cac07424"
+  },
+  {
+   "id": "ae77dda2d8",
+   "fecha": "2026-11-09",
+   "recomendacion": "Acumular",
+   "conviccion": 3,
+   "comprar_por_debajo": 130,
+   "horizonte": "2–3 años",
+   "precio": 141.88,
+   "nota": "",
+   "supuestos": {
+    "rev0": 99600,
+    "year0": 2026,
+    "g": [
+     4,
+     4,
+     4,
+     3.5,
+     3.5
+    ],
+    "m1": 20,
+    "m5": 21.5,
+    "da": 3.7,
+    "da5": 3.7,
+    "sbc": 0.4,
+    "capex": 4.8,
+    "capex5": 4.8,
+    "nwc": 2,
+    "tax": 21,
+    "wacc": 7.5,
+    "tg": 2.5,
+    "exit": 13,
+    "method": "blend",
+    "eps": 8.6,
+    "pe": 18,
+    "evm": 13,
+    "scn": [
+     {
+      "n": "Bajista",
+      "dg": -2,
+      "dm": -2,
+      "p": 25
+     },
+     {
+      "n": "Base",
+      "dg": 0,
+      "dm": 0,
+      "p": 50
+     },
+     {
+      "n": "Alcista",
+      "dg": 1.5,
+      "dm": 1.5,
+      "p": 25
+     }
+    ]
+   },
+   "origen": "git ae77dda2d8"
+  }
  ]
 }

@@ -639,5 +639,65 @@
     "EOG",
     "DVN",
     "PSX"
+  ],
+  "veredictos": [
+    {
+      "id": "a39d8a0dc0",
+      "fecha": "2026-11-01",
+      "recomendacion": "Mantener",
+      "conviccion": 3,
+      "comprar_por_debajo": 195,
+      "horizonte": "2–3 años",
+      "precio": 235.52,
+      "nota": "",
+      "supuestos": {
+        "rev0": 245000,
+        "year0": 2026,
+        "g": [
+          -10,
+          -4,
+          2,
+          3,
+          3
+        ],
+        "m1": 26,
+        "m5": 25,
+        "da": 10,
+        "da5": 10,
+        "sbc": 0.3,
+        "capex": 8.5,
+        "capex5": 8.5,
+        "nwc": 3,
+        "tax": 30,
+        "wacc": 8,
+        "tg": 2.5,
+        "exit": 8,
+        "method": "blend",
+        "eps": 15,
+        "pe": 14,
+        "evm": 8,
+        "scn": [
+          {
+            "n": "Bajista",
+            "dg": -6,
+            "dm": -3,
+            "p": 25
+          },
+          {
+            "n": "Base",
+            "dg": 0,
+            "dm": 0,
+            "p": 50
+          },
+          {
+            "n": "Alcista",
+            "dg": 5,
+            "dm": 2,
+            "p": 25
+          }
+        ]
+      },
+      "origen": "git a39d8a0dc0"
+    }
   ]
 }
