@@ -152,6 +152,22 @@
    "ok": true,
    "titulares": 0,
    "error": null
+  },
+  "sala:RDDT": {
+   "medio": "Sala de prensa de Reddit",
+   "url": "https://redditinc.com/blog/rss.xml",
+   "tipo": "nota_prensa",
+   "ok": true,
+   "titulares": 10,
+   "error": null
+  },
+  "sala:CVX": {
+   "medio": "Sala de prensa de Chevron",
+   "url": "https://news.google.com/rss/search?q=site%3Achevron.com+when%3A14d&hl=en-US&gl=US&ceid=US%3Aen",
+   "tipo": "nota_prensa",
+   "ok": true,
+   "titulares": 51,
+   "error": null
   }
  },
  "apis": [
@@ -159,5 +175,5 @@
   "Seeking Alpha",
   "Marketaux"
  ],
- "generado": "2026-11-13T11:25:49+00:00"
+ "generado": "2026-11-13T12:24:19+00:00"
 }
