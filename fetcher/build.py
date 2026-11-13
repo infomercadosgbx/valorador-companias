@@ -394,9 +394,17 @@ def _noticias(rec, company, subs, price_provider, previous):
             rec["redes"] = {"stocktwits": NEWS.stocktwits(company["ticker"])}
             fuentes["StockTwits"] = {"ok": True, "mensajes": rec["redes"]["stocktwits"]["mensajes"]}
         except Exception as e:  # noqa: BLE001  secundario: se queda lo anterior
-            if (previous or {}).get("redes"):
-                rec["redes"] = previous["redes"]
+            if ((previous or {}).get("redes") or {}).get("stocktwits"):
+                rec["redes"] = {"stocktwits": previous["redes"]["stocktwits"]}
             fuentes["StockTwits"] = {"ok": False, "error": f"{type(e).__name__}: {str(e)[:120]}"}
+    if NEWS.REDDIT is not None:
+        try:
+            rec.setdefault("redes", {})["reddit"] = NEWS.REDDIT.pulso(company)
+            fuentes["Reddit"] = {"ok": True, "publicaciones": rec["redes"]["reddit"]["publicaciones_7d"]}
+        except Exception as e:  # noqa: BLE001  secundario: se queda lo anterior
+            if ((previous or {}).get("redes") or {}).get("reddit"):
+                rec.setdefault("redes", {})["reddit"] = previous["redes"]["reddit"]
+            fuentes["Reddit"] = {"ok": False, "error": f"{type(e).__name__}: {str(e)[:120]}"}
     rec["noticias_fuentes"] = {"medios_sectoriales": [NEWS.FEEDS[m][0] for m in company.get("medios") or [] if m in NEWS.FEEDS],
                                "alias": company.get("alias") or [], "proveedores": fuentes}
 

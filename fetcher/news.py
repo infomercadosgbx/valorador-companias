@@ -12,7 +12,9 @@
     medio y fecha: el texto completo de los medios de pago lo lee otra tarea con la sesión del usuario.
   · Seeking Alpha (RSS público por ticker): titulares de noticias y análisis.
   · StockTwits (API pública): pulso de los inversores particulares (mensajes alcistas/bajistas).
-    No son noticias: va a data/<T>.json → redes. Reddit exige una aplicación con OAuth; queda fuera.
+    No son noticias: va a data/<T>.json → redes.
+  · Reddit (API oficial con OAuth de solo lectura; claves REDDIT_CLIENT_ID y REDDIT_CLIENT_SECRET en
+    GitHub Secrets): publicaciones de la última semana en los foros de inversión → data/<T>.json → redes.
 
 Los feeds RSS solo muestran lo último publicado, así que lo encontrado se acumula noche a noche
 (se conserva lo anterior durante la ventana de días). El estado de cada fuente se guarda en
@@ -343,6 +345,60 @@ def stocktwits(ticker, opener=None, sleep=time.sleep) -> dict:
             "fecha": date.today().isoformat()}
 
 
+class Reddit:
+    """API oficial de Reddit con una aplicación «script» (solo lectura, OAuth client_credentials).
+    https://www.reddit.com/dev/api · límite gratuito: 100 consultas por minuto."""
+    TOKEN = "https://www.reddit.com/api/v1/access_token"
+    SUBS = "stocks+investing+wallstreetbets+StockMarket+ValueInvesting+options+SecurityAnalysis"
+    UA = "script:valorador-companias:1.0 (by /u/{usuario})"
+
+    def __init__(self, client_id, secret, usuario="valorador", opener=None, sleep=time.sleep, pausa=1.0):
+        self.id, self.secret, self.ua = client_id, secret, self.UA.format(usuario=usuario or "valorador")
+        self._open, self._sleep, self.pausa, self._token = opener or urllib.request.urlopen, sleep, pausa, None
+
+    def _get_token(self):
+        if self._token:
+            return self._token
+        import base64
+        auth = base64.b64encode(f"{self.id}:{self.secret}".encode()).decode()
+        req = urllib.request.Request(self.TOKEN, data=b"grant_type=client_credentials", method="POST",
+                                     headers={"Authorization": f"Basic {auth}", "User-Agent": self.ua,
+                                              "Content-Type": "application/x-www-form-urlencoded"})
+        with self._open(req, timeout=20) as r:
+            j = json.loads(r.read())
+        if not j.get("access_token"):
+            raise RuntimeError(j.get("error") or "Reddit no devolvió token")
+        self._token = j["access_token"]
+        return self._token
+
+    def pulso(self, company) -> dict:
+        nombre = re.sub(r",?\s+(Inc|Corp|Corporation|Holdings|Co|Ltd|plc)\.?$", "", company.get("nombre") or "").strip()
+        t = company["ticker"]
+        q = f'"{nombre}" OR "${t}"' + (f' OR "{t}"' if len(t) >= 3 else "")
+        url = (f"https://oauth.reddit.com/r/{self.SUBS}/search?"
+               + urllib.parse.urlencode({"q": q, "restrict_sr": "on", "sort": "new", "t": "week", "limit": 100, "raw_json": 1}))
+        req = urllib.request.Request(url, headers={"Authorization": f"bearer {self._get_token()}", "User-Agent": self.ua})
+        with self._open(req, timeout=20) as r:
+            j = json.loads(r.read())
+        self._sleep(self.pausa)
+        pat = patron(company, con_ticker=True)
+        posts = [c.get("data") or {} for c in (j.get("data") or {}).get("children") or []]
+        posts = [p for p in posts if pat.search((p.get("title") or "") + " " + (p.get("selftext") or "")[:500])]
+        top = sorted(posts, key=lambda p: -(p.get("score") or 0))[:5]
+        return {"fuente": "Reddit (API oficial)", "url": f"https://www.reddit.com/search/?q={urllib.parse.quote(nombre)}&t=week",
+                "publicaciones_7d": len(posts), "comentarios_7d": sum(p.get("num_comments") or 0 for p in posts),
+                "foros": sorted({p.get("subreddit") for p in posts if p.get("subreddit")}),
+                "destacadas": [{"titulo": _clean(p.get("title"), 200), "foro": p.get("subreddit"), "votos": p.get("score"),
+                                "comentarios": p.get("num_comments"), "url": "https://www.reddit.com" + (p.get("permalink") or ""),
+                                "fecha": datetime.fromtimestamp(p.get("created_utc") or 0, timezone.utc).date().isoformat()} for p in top],
+                "fecha": date.today().isoformat()}
+
+
+def reddit_from_env():
+    i, s = os.environ.get("REDDIT_CLIENT_ID", "").strip(), os.environ.get("REDDIT_CLIENT_SECRET", "").strip()
+    return Reddit(i, s, os.environ.get("REDDIT_USUARIO", "").strip()) if i and s else None
+
+
 def _sent(score):
     """Escala de Alpha Vantage (−1 a 1; ±0,15 neutral, ±0,35 claro), también válida para Marketaux."""
     try:
@@ -360,6 +416,7 @@ FEEDS_CACHE = None
 
 
 REDES = False      # StockTwits (lo activa main.run en la ejecución real)
+REDDIT = None      # cliente de Reddit si hay claves (lo prepara main.run)
 
 
 def apis_from_env():

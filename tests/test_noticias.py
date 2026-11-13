@@ -159,3 +159,21 @@ def test_avisos_de_bufetes_solo_el_mas_reciente():
                        n("APP DEADLINE ALERT: AppLovin Investors with Substantial Losses", "Benzinga", "2026-11-11"),
                        n("AppLovin beats estimates", "Reuters", "2026-11-10")]], today=HOY.replace(day=13))
     assert [x["titular"] for x in out] == ["Pomerantz Law Firm Announces Class Action Against AppLovin", "AppLovin beats estimates"]
+
+
+def test_reddit_pide_token_y_filtra_por_nombre():
+    pedidos = []
+
+    def opener(req, timeout=0):
+        pedidos.append(req)
+        if "access_token" in req.full_url:
+            return _R({"access_token": "tok"})
+        return _R({"data": {"children": [
+            {"data": {"title": "AppLovin earnings thread", "subreddit": "stocks", "score": 120, "num_comments": 40,
+                      "permalink": "/r/stocks/x", "created_utc": 1794787200}},
+            {"data": {"title": "My app idea", "subreddit": "investing", "score": 5, "num_comments": 1,
+                      "permalink": "/r/investing/y", "created_utc": 1794787200}}]}})
+    r = N.Reddit("id", "sec", opener=opener, sleep=lambda s: None).pulso({"nombre": "AppLovin Corp", "ticker": "APP"})
+    assert r["publicaciones_7d"] == 1 and r["comentarios_7d"] == 40 and r["foros"] == ["stocks"]
+    assert r["destacadas"][0]["url"] == "https://www.reddit.com/r/stocks/x"
+    assert pedidos[0].get_header("Authorization").startswith("Basic ") and pedidos[1].get_header("Authorization") == "bearer tok"

@@ -28,6 +28,8 @@ Necesitas permisos de administrador en el repositorio. Todo se hace desde la web
   - Marketaux: regístrate en <https://www.marketaux.com/register>, copia tu *API token* y créalo como secret `MARKETAUX_API_KEY` (plan gratuito: 100 consultas al día).
   - Alpha Vantage: su API de noticias pasó a los planes de pago (comprobado el 5-nov-2026). El código queda preparado: con una suscripción, crea el secret `ALPHAVANTAGE_API_KEY` y la variable `ALPHAVANTAGE_NOTICIAS` = `1`.
   - Sin ellas todo funciona igual, con Finnhub, los medios del sector y los 8-K. Para comprobarlas, lanza el workflow **Probar fuentes de noticias**.
+- **Sin clave, automático:** titulares de Google News (Reuters, Bloomberg, FT, WSJ, Expansión, Cinco Días…), Seeking Alpha y el pulso de StockTwits.
+- **Reddit (opcional, gratis):** entra con tu cuenta en <https://www.reddit.com/prefs/apps>, pulsa *create another app…*, elige el tipo **script**, pon de nombre `valorador-companias` y en *redirect uri* `http://localhost:8080` (no se usa). Copia el código que aparece bajo el nombre (*client id*) y el *secret*, y crea los secrets `REDDIT_CLIENT_ID` y `REDDIT_CLIENT_SECRET`. Solo lee: publicaciones de la última semana en r/stocks, r/investing, r/wallstreetbets y otros foros de inversión.
 
 **4. Activa GitHub Pages.**
 - *Settings → Pages → Build and deployment → Source:* **GitHub Actions**.
