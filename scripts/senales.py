@@ -1,11 +1,15 @@
-"""Qué compañías necesitan hoy la revisión de internet (parte B de la tarea programada).
+"""Señales para la revisión de internet, que va dentro del repaso semanal a fondo de cada compañía.
 
-La parte B corre cada mañana, pero solo para las compañías con alguna señal desde la
-revisión de internet anterior; el viernes, para todas (repaso semanal completo).
+Desde el 13-nov-2026 lo de internet (prensa, medios sectoriales, alertas de Gmail, redes) no se
+revisa cada día: cada compañía lo tiene en su repaso semanal (companies.json → repaso). Cada día
+solo corre la alarma barata, que no lee internet: si hay una novedad grave, esa compañía tiene una
+revisión de internet corta ese mismo día.
 
-    python scripts/senales.py            # imprime la lista y el motivo de cada compañía
-    python scripts/senales.py --json     # lo mismo en JSON (para la tarea programada)
-    python scripts/senales.py --marcar   # tras la revisión: guarda hoy como última revisión
+    python scripts/senales.py --repaso --json        # compañías del repaso de hoy, con ventana y señales
+    python scripts/senales.py --alarma --json        # solo novedades graves (cada día)
+    python scripts/senales.py --marcar T1 T2         # tras el repaso: guarda hoy como última revisión
+    python scripts/senales.py --marcar-alarma T1     # tras revisar una alarma
+    python scripts/senales.py                        # señales de todas (informativo)
 
 Señales (umbrales en las constantes de abajo):
 - movimiento de la cotización de un día ≥ 6 % dentro de la ventana;
@@ -45,7 +49,8 @@ UMBRAL_FUERTES = 2          # titulares con sentimiento muy marcado en la ventan
 DIAS_ANTES_RESULTADOS = 7
 DIAS_TRAS_RESULTADOS = 3
 VENTANA_POR_DEFECTO = 3
-DIA_REPASO_COMPLETO = 5     # viernes (isoweekday)
+UMBRAL_ALARMA = 10.0        # % de un día: «novedad grave» que no espera al repaso semanal
+DIAS = {2: "martes", 3: "miércoles", 4: "jueves", 5: "viernes"}   # isoweekday → companies.json «repaso»
 # Titulares de cambios de precio objetivo o de recomendación («Price Target», «Upgrades», «Initiates»…)
 PRECIO_OBJETIVO = re.compile(r"price target|\bPT\b|upgrade|downgrade|initiat\w* coverage|initiates|"
                              r"reiterat\w*|maintains (buy|sell|hold|neutral|overweight|underweight|outperform)|"
@@ -120,29 +125,54 @@ def lista_companias() -> list[dict]:
     return [c for c in cos if not c.get("archivada")]   # las archivadas no se revisan
 
 
-def calcular(hoy: date) -> list[dict]:
+def alarmas(t: str, data: dict, desde: date) -> list[str]:
+    """Solo lo grave (apartado 8.3 de INSTRUCCIONES.md): no lee internet, solo data/<T>.json.
+    Movimiento de un día ≥ 10 % o un seguimiento con cierre, cancelación o riesgo."""
+    a = []
+    serie = (data.get("historico_precio") or {}).get("serie") or []
+    for (f0, p0), (f1, p1) in zip(serie, serie[1:]):
+        d1 = fecha(f1)
+        if d1 and d1 > desde and p0 and abs((p1 / p0 - 1) * 100) >= UMBRAL_ALARMA:
+            a.append(f"cotización {(p1 / p0 - 1) * 100:+.1f} % el {f1}")
+    for seg in data.get("seguimientos") or []:
+        cod = (seg.get("estado") or {}).get("codigo")
+        if cod and cod not in ("sin_cambios", "mencion"):
+            a.append(f"seguimiento «{seg.get('titulo', seg.get('id'))}»: {cod}")
+    return a
+
+
+def calcular(hoy: date, modo: str = "todas") -> list[dict]:
+    """modo «todas»: señales de todas las activas; «repaso»: solo las del repaso semanal de hoy
+    (companies.json → repaso); «alarma»: solo las que tienen una novedad grave desde la última revisión."""
     companias = lista_companias()
-    estado = (rd(ESTADO, {}) or {}).get("internet", {})
-    completo = hoy.isoweekday() == DIA_REPASO_COMPLETO
+    estado = rd(ESTADO, {}) or {}
+    internet, alarma_vista = estado.get("internet", {}), estado.get("alarma", {})
+    if modo == "repaso":
+        companias = [c for c in companias if c.get("repaso") == DIAS.get(hoy.isoweekday())]
     out = []
     for c in companias:
         t = c["ticker"]
         data = rd(ROOT / "data" / f"{t}.json", {}) or {}
-        ultima = fecha(estado.get(t))
-        desde = ultima or hoy - timedelta(days=VENTANA_POR_DEFECTO)
+        ultima = fecha(internet.get(t))
+        desde = ultima or hoy - timedelta(days=7 if modo == "repaso" else VENTANA_POR_DEFECTO)
+        if modo == "alarma":
+            vista = fecha(alarma_vista.get(t))
+            a = alarmas(t, data, max(d for d in (desde, vista) if d) if vista else desde)
+            if a:
+                out.append({"ticker": t, "desde": desde.isoformat(), "alarmas": a})
+            continue
         s = senales(t, data, desde, hoy)
         if ultima is None:
             s.append("sin revisión de internet anterior")
-        if completo and not s:
-            s.append("repaso semanal completo (viernes)")
-        out.append({"ticker": t, "desde": desde.isoformat(), "revisar": bool(s), "senales": s,
+        out.append({"ticker": t, "desde": desde.isoformat(), "revisar": modo == "repaso" or bool(s), "senales": s,
                     "precio_objetivo": objetivos(data, desde)})
     return out
 
 
-def marcar(hoy: date, tickers: list[str] | None) -> None:
+def marcar(hoy: date, tickers: list[str] | None, clave: str = "internet") -> None:
+    """Guarda hoy como última revisión de internet (repaso semanal) o, con clave «alarma», como alarma ya vista."""
     estado = rd(ESTADO, {}) or {}
-    internet = estado.setdefault("internet", {})
+    internet = estado.setdefault(clave, {})
     for c in lista_companias():
         if not tickers or c["ticker"] in tickers:
             internet[c["ticker"]] = hoy.isoformat()
@@ -153,13 +183,24 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--json", action="store_true")
     ap.add_argument("--marcar", nargs="*", metavar="TICKER", help="guardar hoy como última revisión (sin tickers = todas)")
+    ap.add_argument("--repaso", action="store_true", help="solo las compañías del repaso semanal de hoy")
+    ap.add_argument("--alarma", action="store_true", help="solo novedades graves (diario, barato)")
+    ap.add_argument("--marcar-alarma", nargs="+", metavar="TICKER", help="guardar hoy como alarma ya revisada")
     ap.add_argument("--hoy", help="AAAA-MM-DD (para pruebas)")
     a = ap.parse_args()
     hoy = fecha(a.hoy) if a.hoy else datetime.now(ZoneInfo("Europe/Madrid")).date()
     if a.marcar is not None:
         marcar(hoy, a.marcar)
         return 0
-    res = calcular(hoy)
+    if a.marcar_alarma:
+        marcar(hoy, a.marcar_alarma, "alarma")
+        return 0
+    res = calcular(hoy, "alarma" if a.alarma else "repaso" if a.repaso else "todas")
+    if a.alarma and not a.json:
+        for r in res:
+            print(f"{r['ticker']:6} ALARMA  {'; '.join(r['alarmas'])}")
+        print("Sin novedades graves." if not res else "")
+        return 0
     if a.json:
         json.dump(res, sys.stdout, ensure_ascii=False, indent=1)
         print()

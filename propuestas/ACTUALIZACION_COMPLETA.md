@@ -100,18 +100,19 @@ El mismo que la revisión tras resultados, con `alcance: "completa"` y una `fuen
 - `informe_accn`: el de `data/<T>.json → ultimo_8k_resultados.accn`.
 - Ordena `cambios` por pestaña, en el orden de la tabla del apartado 2.
 
-## 5. Revisión de internet (tarea programada: cada mañana, solo con señal)
+## 5. Revisión de internet (dentro del repaso semanal de cada compañía)
 
-La tarea programada de cada mañana (lunes a sábado) se reparte así:
+Desde el 13-nov-2026, para no gastar de más, la tarea programada (martes a sábado) se reparte así:
 
-- **Lo oficial** (SEC y la compañía), de martes a sábado: 8-K de resultados, 10-Q y 10-K (MD&A, notas a los estados financieros, factores de riesgo), otros 8-K y notas de prensa de la compañía, llamadas con analistas y comentarios de la dirección. Se hace con `INSTRUCCIONES.md` (apartados 1–7), no con este documento.
-- **Lo que se dice en internet**, cada mañana, pero solo para las compañías con señal: prensa financiera, prensa sectorial y redes sociales (fuentes 3–5 del apartado 1). El viernes, para todas (repaso semanal).
+- **Lo oficial** (SEC y la compañía), **cada día** de martes a sábado: 8-K de resultados, 10-Q y 10-K, otros 8-K, presentaciones a la SEC, notas de prensa, llamadas con analistas. Es barato. Se hace con `INSTRUCCIONES.md` (apartados 1–7).
+- **Lo que se dice en internet** (prensa financiera y sectorial, alertas de Gmail, redes: fuentes 3–5 del apartado 1) va **dentro del repaso semanal a fondo de cada compañía** (apartado 7), una vez por semana, con la ventana desde su repaso anterior (unos 7 días).
+- **Alarma diaria** (barata, sin leer internet): `python scripts/senales.py --alarma --json` mira solo `data/<T>.json`. Si una compañía activa tiene una **novedad grave** (movimiento de un día del 10% o más, o un seguimiento con cierre, cancelación o riesgo), ese día tiene una revisión de internet **corta y solo de esa compañía**: la causa del movimiento o del seguimiento (una o dos búsquedas, alertas de Gmail que la nombren y su sala de prensa), y lo que cambie en las pestañas como en el punto 8. Al terminar, `python scripts/senales.py --marcar-alarma <T>` para no repetirla. Unos resultados no son alarma: ya tienen su revisión completa (`INSTRUCCIONES.md`, apartados 1 y 7).
 
 Cómo se hace la revisión de internet:
 
-1. **Qué compañías:** ejecuta `python scripts/senales.py`. Revisa las que salen como «REVISAR» y apunta sus señales en el resumen. Las señales son: movimiento de la cotización de un día ≥ 6 %, dos o más titulares con sentimiento muy marcado, una nota de prensa o noticia sectorial nueva, una publicación en la sala de prensa de la compañía, una presentación a la SEC distinta de 8-K/10-Q/10-K (formulario 3, 13D, junta, emisión…), un asunto de `seguimientos.json` con novedades, resultados en los próximos 7 días o en los 3 últimos, o que sea viernes. La columna «precio objetivo» no abre la revisión: solo pide el punto 10. Si ninguna sale, la parte de internet termina aquí.
-2. **Ventana:** desde la revisión de internet anterior de cada compañía (la columna «desde» de `senales.py`).
-3. **Alertas de la prensa de pago en Gmail:** busca en el Gmail del usuario (conector de Gmail) los correos de la ventana con `from:(ft.com OR cnbc.com OR marketwatch.com OR marketwatchmail.com OR morningstar.com OR wsj.com OR dowjones.com OR reuters.com OR thomsonreuters.com OR bloomberg.com OR bloombergbusiness.com OR expansion.com OR cincodias.elpais.com OR investing.com OR investingmail.com OR elconfidencial.com) newer_than:3d` (lunes: 4d). Quédate con los que nombran una compañía de `companies.json` (nombre, alias o ticker). Una alerta con una novedad material cuenta como señal aunque `senales.py` no la marcara: añade esa compañía a la revisión. Usa titular y resumen de la alerta como fuente («FT, alerta myFT del 13-nov-2026: <titular>» con el enlace del artículo); si la alerta trae el texto completo, mejor. Nunca copies párrafos: resume con tus palabras.
+1. **Qué compañías:** las del repaso semanal de hoy: `python scripts/senales.py --repaso --json` (las activas cuyo `companies.json → repaso` es hoy). Sus `senales` dicen por dónde empezar (movimientos de la cotización ≥ 6 %, titulares con sentimiento muy marcado, notas de prensa y noticias sectoriales, sala de prensa, presentaciones a la SEC, seguimientos, resultados próximos o recientes), pero **todas** se revisan, tengan señales o no.
+2. **Ventana:** desde la revisión de internet anterior de cada compañía (la columna «desde»; sin revisión anterior, 7 días).
+3. **Alertas de la prensa de pago en Gmail:** busca en el Gmail del usuario (conector de Gmail) los correos de la ventana con `from:(ft.com OR cnbc.com OR marketwatch.com OR marketwatchmail.com OR morningstar.com OR wsj.com OR dowjones.com OR reuters.com OR thomsonreuters.com OR bloomberg.com OR bloombergbusiness.com OR expansion.com OR cincodias.elpais.com OR investing.com OR investingmail.com OR elconfidencial.com) newer_than:8d` (o los días de la ventana). Quédate con los que nombran a la compañía que repasas (nombre, alias o ticker). Si al buscar aparece una alerta grave de **otra** compañía (un cambio de guía, una compra, la salida del consejero delegado), trátala como una alarma (arriba) en vez de esperar a su repaso. Usa titular y resumen de la alerta como fuente («FT, alerta myFT del 13-nov-2026: <titular>» con el enlace del artículo); si la alerta trae el texto completo, mejor. Nunca copies párrafos: resume con tus palabras.
 4. **Lista de comprobación por compañía (obligatoria, en este orden; apúntala en el resumen):**
    1. Causa de la señal y de cualquier movimiento de la cotización de un día del 5% o más en la ventana (`historico_precio`).
    2. Sala de prensa o blog de la compañía: titulares de `noticias` con `via` «Sala de prensa de la compañía» (lanzamientos, pruebas de producto, acuerdos, nombramientos). Si la compañía no tiene `newsroom` en `companies.json` o falla en `data/_noticias_estado.json`, busca «<compañía> newsroom» en la web y dilo en el resumen para añadirla.
@@ -125,10 +126,10 @@ Cómo se hace la revisión de internet:
 7. **Sin novedad material, no se hace nada** con esa compañía en esta parte (salvo el pulso en redes del punto 9, el precio objetivo del punto 10 y la fecha de revisión: si recorriste la lista de comprobación completa, propón `meta.asOf` con la fecha de hoy como `hecho`, para que la columna «Análisis» de la web enseñe que está revisada).
 8. **Con novedad material:** actualiza todo lo que la novedad afecta en las pestañas, no solo los datos: `overview.thesis` (tesis en una línea), `overview.keyFacts` y `catalysts`, `business.*`, `moat.*` (fuentes, competidores, anchura y tendencia), `growth.*` (motores, guía, puntuación), `mgmt.*`, `risks` (añadir, quitar o recalificar), `sources.news`. Cada cambio con `tipo` «hecho» o «texto» según `INSTRUCCIONES.md` 8.1: se aplican solos si pasan la verificación. Los supuestos del DCF y el veredicto se proponen (`tipo` «criterio») y los decide el usuario. `motivo`: «Novedades del <fecha>: <titular corto>».
 9. **Pulso en redes y vídeos** (`social.pulse`, `social.videos`, `social.pulseFuente`): para las compañías revisadas, proponlo solo si el tono o los temas han cambiado frente a lo que hay. Las redes solo sirven para el tono: nunca para cifras ni hechos.
-10. **Consenso de analistas:** para **todas** las compañías con titulares en `precio_objetivo` de `senales.py --json` (tengan o no señal) y para las que tienen la cifra de `manual/<T>.json` con más de 30 días, actualízalo como indica `INSTRUCCIONES.md`, apartado 5 bis.
+10. **Consenso de analistas:** en el repaso de cada compañía (y tras sus resultados), actualiza `manual/<T>.json` como indica `INSTRUCCIONES.md`, apartado 5 bis, si hay titulares en `precio_objetivo` o la cifra tiene más de 7 días.
 11. **Propuesta pendiente:** si ya existe `propuestas/<T>.json` (también la creada esa misma mañana con lo oficial), añade los cambios nuevos sin quitar los que ya había (si un campo se repite, gana el más reciente), une las `fuentes`, amplía el `resumen` y pon `creada` con la fecha de hoy.
-12. **Marca la revisión:** al terminar, `python scripts/senales.py --marcar <T1> <T2> …` con las compañías revisadas (el viernes, sin tickers: todas), para que la próxima ventana empiece hoy.
-13. **Un solo commit** al final para todas las compañías con cambios: `Propuestas de internet: <T1>, <T2>` (incluye `propuestas/_estado.json`). Si ninguna tiene novedades, haz commit solo de `propuestas/_estado.json` con «Revisión de internet sin novedades».
+12. **Marca la revisión:** al terminar, `python scripts/senales.py --marcar <T1> <T2> …` con las compañías repasadas, para que su próxima ventana empiece hoy.
+13. El commit va con el del repaso semanal (`Repaso semanal: <T1>, <T2>, <T3>`, apartado 7), incluido `propuestas/_estado.json`. Una alarma: `Alarma: <T> (<causa corta>)`.
 
 ## 6. Guardar
 
@@ -143,12 +144,15 @@ Cada compañía **activa** se repasa **a fondo una vez por semana**, el día que
 
 Reparto actual (13-nov-2026; manda siempre `companies.json`): martes AMZN, GOOGL, AVGO (nube e IA); miércoles ORCL, PATH, APP (software); jueves RDDT, PEP, MRNA (consumo y salud); viernes VST (energía). Las archivadas no se repasan. Las nuevas reciben el día con menos compañías (lo pone el alta; si falta, la tarea, apartado 0 bis). **Tras unos resultados**, la compañía tiene además este repaso completo al día siguiente, sea el día que sea (con los apartados 1–7 de `INSTRUCCIONES.md`). Si el día que toca ya hubo repaso tras resultados en los últimos 3 días, se salta.
 
+El repaso incluye la **revisión de internet de la semana** de esas compañías (apartado 5, puntos 1 a 13) y su consenso de analistas: no hay otra revisión de internet ese día ni el resto de la semana, salvo alarma.
+
 ### 7.1 Fuentes del repaso, por orden
 
 1. **Documentos de la SEC** (último 10-K: Item 1 negocio, clientes, competencia; Item 1A riesgos; último 10-Q y nota de resultados): la auditoría oficial del apartado 8.7 de `INSTRUCCIONES.md`.
 2. **Webs oficiales de la compañía** (`companies.json → webs_oficiales`, se leen con WebFetch): catálogo de productos y precios publicados, presentación a inversores y día del inversor, cartas a accionistas, blog técnico y de producto, casos de clientes, cartera de productos (pipeline), mapa de activos. Es la mejor fuente para explicar **qué vende, a quién y por qué le compran**: úsala para `business.model`, `business.customers`, `business.customerTypes`, `business.clients`, `business.segNote`, `moat.sources`, `moat.note`, `growth.drivers` y `growth.tam`. Lo que diga la web de marketing («líder», «el mejor») no es un hecho: cita solo productos, funciones, clientes con nombre, cifras publicadas y fechas.
 3. **Prensa sectorial y especializada** (`companies.json → medios`, fuentes 3–4 del apartado 1) y los resultados oficiales de los **competidores** (para `moat.comps` y la amenaza de cada uno).
-4. Prensa financiera solo para contexto. Redes, solo tono.
+4. **Prensa financiera y alertas de Gmail de la semana** (apartado 5): reacción del mercado, analistas, contratos y novedades que luego se confirman en la fuente oficial.
+5. **Redes** (StockTwits, Reddit, X, YouTube): solo el tono, para `social.*`.
 
 ### 7.2 Qué se revisa y cómo
 
@@ -168,6 +172,6 @@ Todo con `tipo` `hecho` o `texto` (apartado 8.1 de `INSTRUCCIONES.md`), fuente c
 El sábado no hay repaso de grupo. Se hace:
 
 1. **Coherencia de cada compañía** (apartado 3): que la tesis, los riesgos, los motores y los textos del veredicto encajan entre sí y con `data/<T>.json`. Corrige como `texto` lo que no encaje.
-2. **Consenso de analistas** (`manual/<T>.json`, apartado 5 bis de `INSTRUCCIONES.md`) al día para todas.
+2. **Consenso de analistas** (`manual/<T>.json`, apartado 5 bis de `INSTRUCCIONES.md`): ya lo pone al día el repaso de cada compañía; el sábado solo se busca para las que lo tengan con más de 10 días (sin más lectura de internet).
 3. **Para el usuario**: `python scripts/aplicar_cambios.py --todas --sabado` publica la cola semanal en una sola propuesta por compañía. En su `resumen`, añade para cada compañía una línea de comparación: valor de su DCF (`node scripts/impacto_dcf.mjs <T>` → `antes`), precio actual, su precio de compra y el precio objetivo medio de los analistas, y si algún hecho de la semana pone en duda sus supuestos (`v.*`), la recomendación o el precio de compra.
 
