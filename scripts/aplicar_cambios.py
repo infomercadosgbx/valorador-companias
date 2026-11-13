@@ -54,11 +54,14 @@ HECHOS = [
     r"ajustes_posteriores",
 ]
 # Textos y puntuaciones de las pestañas que el robot también aplica solo, tras la misma
-# verificación independiente (el usuario lo pidió el 13-nov-2026). Quedan siempre para el
-# usuario: los supuestos del DCF (v.*), el veredicto (verdict.*), sus notas (notes) y los
+# verificación independiente (el usuario lo pidió el 13-nov-2026). Desde el 13-nov-2026 también
+# los textos del veredicto (resumen, a favor, en contra, qué vigilar). Quedan siempre para el
+# usuario: los supuestos del DCF (v.*), la recomendación, el precio de compra, la convicción y
+# el horizonte (verdict.rating, buyBelow, conviction, horizon…), sus notas (notes) y los
 # comparables de la valoración (peers).
 TEXTOS = [
     r"overview\.thesis",
+    r"verdict\.(summary|bull|bear|watch)(\..*)?",
     r"business\.(quality|phase|phaseNote)(\..*)?",
     r"moat(\..*)?",
     r"growth\.(score|scoreNote|drivers)(\..*)?",

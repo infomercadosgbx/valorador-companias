@@ -163,12 +163,14 @@ Marca cada cambio con `tipo`:
 | `tipo` | Campos | Qué pasa |
 |---|---|---|
 | `"hecho"` | `overview.keyFacts`, `overview.catalysts`, `overview.summary`, `meta.asOf`, `meta.nextEarnings`, `meta.employees`, `business.model`, `business.customers`, `business.customerTypes`, `business.clients`, `business.segments`, `business.segNote`, `growth.guidance`, `growth.tam`, `mgmt.call`, `mgmt.people`, `mgmt.vote`, `mgmt.alloc`, `fin_manual`, `sources.docs`, `sources.news`, `social.*`, `ajustes_posteriores` | Se aplica solo si pasa la verificación |
-| `"texto"` | `overview.thesis`, `business.quality`, `business.phase*`, `moat.*`, `growth.score`, `growth.scoreNote`, `growth.drivers`, `mgmt.note`, `mgmt.scores`, `risks`, `sources.web`, `sources.ir` | Se aplica solo si pasa la verificación, salvo que una puntuación (1–5) salte más de un punto: entonces espera al usuario |
-| `"criterio"` | `v.*` (supuestos del DCF), `verdict.*`, `notes`, `peers` | Lo decide siempre el usuario |
+| `"texto"` | `overview.thesis`, `business.quality`, `business.phase*`, `moat.*`, `growth.score`, `growth.scoreNote`, `growth.drivers`, `mgmt.note`, `mgmt.scores`, `risks`, `sources.web`, `sources.ir`, `verdict.summary`, `verdict.bull`, `verdict.bear`, `verdict.watch` | Se aplica solo si pasa la verificación, salvo que una puntuación (1–5) salte más de un punto: entonces espera al usuario |
+| `"criterio"` | `v.*` (supuestos del DCF), `verdict.rating`, `verdict.buyBelow`, `verdict.conviction`, `verdict.horizon` (y el resto de `verdict.*` que no sea texto), `notes`, `peers` | Lo decide siempre el usuario: sus supuestos y su valoración frente a la de los analistas |
 
 Un hecho es lo que dice un documento (una cifra, una fecha, una guía, un nombramiento, una cita de la dirección). Un texto es tu lectura de las pestañas (tesis, MOAT, riesgos…) a partir de hechos citados: cada afirmación debe apoyarse en una fuente de `fuente` o `fuentes`, y no puede contradecir `data/<T>.json`. El script decide por el campo, no por el `tipo`: un campo de criterio nunca se aplica solo aunque lo marques como hecho o texto.
 
-Cambia los textos solo con una novedad material (apartado 8.3) y conserva lo que sigue siendo válido: reescribe el riesgo, la fuente del MOAT o el motor de crecimiento afectado, no la lista entera de cero. Las puntuaciones se mueven como mucho un punto por novedad.
+**La tesis en una línea (`overview.thesis`) no cita el precio de la acción** ni un nivel de compra con cifra: explica la idea de inversión (qué hace bien, qué la mueve, cuál es el riesgo principal). La web ya enseña el precio en vivo, y una tesis con precio se queda vieja con cada movimiento. Los textos del veredicto (resumen, a favor, en contra, qué vigilar) siguen la misma regla y deben encajar con la recomendación y el precio de compra que fijó el usuario: si los hechos nuevos los contradicen, no cambies la recomendación (es criterio), dilo en el resumen de la propuesta.
+
+Cambia los textos solo con una novedad material (apartado 8.3) o en el repaso semanal a fondo (`ACTUALIZACION_COMPLETA.md`, apartado 7), y conserva lo que sigue siendo válido: reescribe el riesgo, la fuente del MOAT o el motor de crecimiento afectado, no la lista entera de cero. Las puntuaciones se mueven como mucho un punto por novedad.
 
 ### 8.2 Avisos de calidad del dato
 
@@ -186,7 +188,7 @@ Las notas técnicas (nivel `info`) no hace falta resolverlas: la web ya no las e
 
 - **Supuestos del DCF (`v.*`):** solo si mueven el valor por acción un 5% o más. Mídelo con `node scripts/impacto_dcf.mjs <T>` (usa el mismo motor que la web); el script de aplicación vuelve a medirlo y descarta lo que no llegue.
 - **Tesis, negocio, MOAT, crecimiento, directiva, riesgos y sus puntuaciones (`texto`):** solo con una novedad material (criterio de `ACTUALIZACION_COMPLETA.md`, apartado 5, punto 6). Se aplican solos si pasan la verificación.
-- **Veredicto:** solo con una novedad material; siempre lo decide el usuario.
+- **Veredicto:** los textos (resumen, a favor, en contra, qué vigilar) se actualizan con cada novedad material y en el repaso semanal, y se aplican solos si pasan la verificación. La recomendación, el precio de compra y la convicción los decide siempre el usuario; propónlos como `criterio` solo si los hechos los cambian claramente, con el impacto en el DCF y la comparación con el consenso de `manual/<T>.json`.
 - **Cuándo le llega al usuario:**
   - Con resultados o un 10-Q/10-K nuevo (`urgente: true`): ese mismo día.
   - Con una novedad grave (`urgente: true`): ese mismo día. Grave es un movimiento del precio de más del 10% en un día con causa clara, un cambio de guía, una compra o venta relevante, la salida del consejero delegado o del director financiero, o lo que vigila `seguimientos.json` (p. ej. el préstamo del DOE a Vistra). También, sin marcarlo, cuando los supuestos mueven el valor un 10% o más.
@@ -212,9 +214,9 @@ El agente solo escribe el campo `verificacion` (y quita avisos no comprobados): 
 2. Valida los JSON tocados con `python -m json.tool` y ejecuta `python -m pytest -q tests/test_aplicar_cambios.py`.
 3. Commit en `main`: `Aplicado automáticamente: <T1> (<n> cambios), <T2> (…)` y, si quedan propuestas o cola, `Propuestas: …`. Push.
 
-### 8.7 Auditoría oficial rotatoria de las pestañas (una compañía al día)
+### 8.7 Auditoría oficial de las pestañas (dentro del repaso semanal)
 
-Para que lo que dicen las pestañas siga anclado en documentos oficiales y no se quede viejo, cada ejecución audita **a fondo una compañía**, por turno (la de `meta.asOf` más antiguo entre las que no tienen propuesta urgente pendiente hoy; en empate, orden alfabético). No depende de que haya noticias: es un repaso de coherencia con la SEC.
+Para que lo que dicen las pestañas siga anclado en documentos oficiales y no se quede viejo, cada compañía se audita a fondo **una vez por semana**, el día que le toca en el repaso semanal por sector (`ACTUALIZACION_COMPLETA.md`, apartado 7), y además al día siguiente de sus resultados. No depende de que haya noticias: es un repaso de coherencia con la SEC.
 
 Para la compañía elegida, compara cada pestaña de `analysis/<T>.json` con el **último 10-K, el último 10-Q y la última nota de resultados** y con `data/<T>.json`, y propón corrección donde:
 

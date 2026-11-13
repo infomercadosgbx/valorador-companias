@@ -70,22 +70,22 @@ def test_criterio_disfrazado_de_hecho_no_se_aplica(repo):
 
 def test_criterio_sin_resultados_va_a_la_cola_y_sale_el_sabado(repo):
     m, root = repo
-    _prop(root, [{"campo": "verdict.summary", "valor": "x", "tipo": "criterio", "porque": "x"}])
+    _prop(root, [{"campo": "verdict.conviction", "valor": "Alta", "tipo": "criterio", "porque": "x"}])
     m.procesar("VST", "2026-11-12", False)
     assert not (root / "propuestas/VST.json").exists()
     assert (root / "propuestas/_cola/VST.json").exists()
     m.procesar("VST", "2026-11-14", True)
     p = _rd(root / "propuestas/VST.json")
-    assert p["cambios"][0]["campo"] == "verdict.summary" and p["creada"] == "2026-11-14"
+    assert p["cambios"][0]["campo"] == "verdict.conviction" and p["creada"] == "2026-11-14"
     assert p["motivo"].startswith("Revisión semanal")
     assert not (root / "propuestas/_cola/VST.json").exists()
 
 
 def test_criterio_urgente_queda_para_hoy(repo):
     m, root = repo
-    _prop(root, [{"campo": "verdict.summary", "valor": "x", "tipo": "criterio"}], urgente=True)
+    _prop(root, [{"campo": "verdict.conviction", "valor": "Alta", "tipo": "criterio"}], urgente=True)
     m.procesar("VST", "2026-11-12", False)
-    assert _rd(root / "propuestas/VST.json")["cambios"][0]["campo"] == "verdict.summary"
+    assert _rd(root / "propuestas/VST.json")["cambios"][0]["campo"] == "verdict.conviction"
 
 
 def test_supuesto_dcf_pequeno_se_descarta(repo):
@@ -179,3 +179,24 @@ def test_veredicto_y_dcf_nunca_se_aplican_solos(repo):
     m.procesar("VST", "2026-11-12", False)
     an2 = _rd(root / "analysis/VST.json")
     assert an2["verdict"] == an["verdict"] and an2.get("notes") == an.get("notes")
+
+
+def test_textos_del_veredicto_se_aplican_y_la_recomendacion_no(repo):
+    m, root = repo
+    an = _rd(root / "analysis/VST.json")
+    _prop(root, [{"campo": "verdict.summary", "valor": "Resumen nuevo", "tipo": "texto", "verificacion": OK},
+                 {"campo": "verdict.watch", "valor": ["Vigilar A"], "tipo": "texto", "verificacion": OK},
+                 {"campo": "verdict.buyBelow", "valor": 1, "tipo": "texto", "verificacion": OK}], urgente=True)
+    m.procesar("VST", "2026-11-12", False)
+    v2 = _rd(root / "analysis/VST.json")["verdict"]
+    assert v2["summary"] == "Resumen nuevo" and v2["watch"] == ["Vigilar A"]
+    assert v2["buyBelow"] == an["verdict"]["buyBelow"] and v2.get("rating") == an["verdict"].get("rating")
+    assert _rd(root / "propuestas/VST.json")["cambios"][0]["campo"] == "verdict.buyBelow"
+
+
+def test_texto_del_veredicto_sin_verificar_no_se_aplica(repo):
+    m, root = repo
+    an = _rd(root / "analysis/VST.json")
+    _prop(root, [{"campo": "verdict.bull", "valor": ["x"], "tipo": "texto", "verificacion": {"ok": False, "nota": "no cuadra"}}], urgente=True)
+    m.procesar("VST", "2026-11-12", False)
+    assert _rd(root / "analysis/VST.json")["verdict"]["bull"] == an["verdict"]["bull"]

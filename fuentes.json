@@ -10,18 +10,97 @@
       "resumen": "Documentos de la SEC y de la propia compañía. De aquí salen TODAS las cifras y los hechos que se aplican solos tras verificarse. Ninguna cifra de la web viene de otro sitio.",
       "autoridad": "máxima",
       "fuentes": [
-        {"n": "SEC EDGAR — companyfacts (XBRL)", "u": "https://data.sec.gov/api/xbrl/companyfacts/", "uso": "Todas las cifras financieras: ingresos, márgenes, beneficio, caja, deuda, acciones, capex, dividendos.", "oficial": true, "clave": false},
-        {"n": "SEC EDGAR — submissions", "u": "https://data.sec.gov/submissions/", "uso": "Lista de presentaciones: 10-K, 10-Q, 8-K, formularios 3/4, 13D, DEF 14A, emisiones, OPA, correcciones.", "oficial": true, "clave": false},
-        {"n": "SEC EDGAR — 10-K (informe anual)", "u": "https://www.sec.gov/cgi-bin/browse-edgar", "uso": "Negocio (Item 1), riesgos (Item 1A), MD&A (Item 7), notas a los estados financieros, clientes de más del 10%.", "oficial": true, "clave": false},
-        {"n": "SEC EDGAR — 10-Q (informe trimestral)", "u": "https://www.sec.gov/cgi-bin/browse-edgar", "uso": "MD&A, notas (deuda, segmentos, RPO, litigios, hechos posteriores), riesgos nuevos (Part II Item 1A).", "oficial": true, "clave": false},
-        {"n": "SEC EDGAR — 8-K Item 2.02 (resultados)", "u": "https://www.sec.gov/cgi-bin/browse-edgar", "uso": "Nota de resultados y su Exhibit 99.1: titulares, guía y cita de la dirección.", "oficial": true, "clave": false},
-        {"n": "SEC EDGAR — otros 8-K", "u": "https://www.sec.gov/cgi-bin/browse-edgar", "uso": "Contratos (1.01), compras y ventas (2.01), deuda nueva (2.03), cambios en la dirección (5.02), otros hechos (7.01, 8.01).", "oficial": true, "clave": false},
-        {"n": "SEC EDGAR — formularios 3 y 4", "u": "https://www.sec.gov/cgi-bin/browse-edgar", "uso": "Altas de directivos y compras o ventas de directivos y consejeros (fuera de planes 10b5-1).", "oficial": true, "clave": false},
-        {"n": "SEC EDGAR — DEF 14A (proxy)", "u": "https://www.sec.gov/cgi-bin/browse-edgar", "uso": "Retribución, voto y composición del consejo.", "oficial": true, "clave": false},
-        {"n": "Sala de prensa / blog de la compañía (IR)", "u": "", "uso": "Notas de prensa oficiales, presentaciones, día del inversor y cartas a accionistas. Una por compañía (companies.json → newsroom).", "oficial": true, "clave": false},
-        {"n": "Transcripción de la llamada con analistas", "u": "https://www.fool.com/earnings-call-transcripts/", "uso": "Comentarios de la dirección y respuestas a analistas (The Motley Fool u otra fuente fiable).", "oficial": true, "clave": false},
-        {"n": "Tesoro de EE. UU. — bono a 10 años", "u": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates", "uso": "Tipo sin riesgo para el WACC.", "oficial": true, "clave": false},
-        {"n": "EIA / ERCOT / FERC", "u": "https://www.eia.gov", "uso": "Datos oficiales de energía (Vistra, Chevron).", "oficial": true, "clave": false}
+        {
+          "n": "SEC EDGAR — companyfacts (XBRL)",
+          "u": "https://data.sec.gov/api/xbrl/companyfacts/",
+          "uso": "Todas las cifras financieras: ingresos, márgenes, beneficio, caja, deuda, acciones, capex, dividendos.",
+          "oficial": true,
+          "clave": false
+        },
+        {
+          "n": "SEC EDGAR — submissions",
+          "u": "https://data.sec.gov/submissions/",
+          "uso": "Lista de presentaciones: 10-K, 10-Q, 8-K, formularios 3/4, 13D, DEF 14A, emisiones, OPA, correcciones.",
+          "oficial": true,
+          "clave": false
+        },
+        {
+          "n": "SEC EDGAR — 10-K (informe anual)",
+          "u": "https://www.sec.gov/cgi-bin/browse-edgar",
+          "uso": "Negocio (Item 1), riesgos (Item 1A), MD&A (Item 7), notas a los estados financieros, clientes de más del 10%.",
+          "oficial": true,
+          "clave": false
+        },
+        {
+          "n": "SEC EDGAR — 10-Q (informe trimestral)",
+          "u": "https://www.sec.gov/cgi-bin/browse-edgar",
+          "uso": "MD&A, notas (deuda, segmentos, RPO, litigios, hechos posteriores), riesgos nuevos (Part II Item 1A).",
+          "oficial": true,
+          "clave": false
+        },
+        {
+          "n": "SEC EDGAR — 8-K Item 2.02 (resultados)",
+          "u": "https://www.sec.gov/cgi-bin/browse-edgar",
+          "uso": "Nota de resultados y su Exhibit 99.1: titulares, guía y cita de la dirección.",
+          "oficial": true,
+          "clave": false
+        },
+        {
+          "n": "SEC EDGAR — otros 8-K",
+          "u": "https://www.sec.gov/cgi-bin/browse-edgar",
+          "uso": "Contratos (1.01), compras y ventas (2.01), deuda nueva (2.03), cambios en la dirección (5.02), otros hechos (7.01, 8.01).",
+          "oficial": true,
+          "clave": false
+        },
+        {
+          "n": "SEC EDGAR — formularios 3 y 4",
+          "u": "https://www.sec.gov/cgi-bin/browse-edgar",
+          "uso": "Altas de directivos y compras o ventas de directivos y consejeros (fuera de planes 10b5-1).",
+          "oficial": true,
+          "clave": false
+        },
+        {
+          "n": "SEC EDGAR — DEF 14A (proxy)",
+          "u": "https://www.sec.gov/cgi-bin/browse-edgar",
+          "uso": "Retribución, voto y composición del consejo.",
+          "oficial": true,
+          "clave": false
+        },
+        {
+          "n": "Sala de prensa / blog de la compañía (IR)",
+          "u": "",
+          "uso": "Notas de prensa oficiales, presentaciones, día del inversor y cartas a accionistas. Una por compañía (companies.json → newsroom).",
+          "oficial": true,
+          "clave": false
+        },
+        {
+          "n": "Webs oficiales de la compañía",
+          "u": "",
+          "uso": "Catálogo de productos, presentación a inversores y día del inversor, cartas a accionistas, blog técnico, casos de clientes y pipeline. Base del repaso semanal de Negocio, MOAT y Crecimiento (companies.json → webs_oficiales).",
+          "oficial": true,
+          "clave": false
+        },
+        {
+          "n": "Transcripción de la llamada con analistas",
+          "u": "https://www.fool.com/earnings-call-transcripts/",
+          "uso": "Comentarios de la dirección y respuestas a analistas (The Motley Fool u otra fuente fiable).",
+          "oficial": true,
+          "clave": false
+        },
+        {
+          "n": "Tesoro de EE. UU. — bono a 10 años",
+          "u": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates",
+          "uso": "Tipo sin riesgo para el WACC.",
+          "oficial": true,
+          "clave": false
+        },
+        {
+          "n": "EIA / ERCOT / FERC",
+          "u": "https://www.eia.gov",
+          "uso": "Datos oficiales de energía (Vistra, Chevron).",
+          "oficial": true,
+          "clave": false
+        }
       ]
     },
     {
@@ -31,10 +110,34 @@
       "resumen": "Cotización, perfil e indicadores de mercado por API con plan gratuito y clave en GitHub Secrets. No es scraping.",
       "autoridad": "alta",
       "fuentes": [
-        {"n": "Finnhub", "u": "https://finnhub.io", "uso": "Cotización, perfil, recuento de recomendaciones y calendario de resultados.", "oficial": true, "clave": true},
-        {"n": "Twelve Data", "u": "https://twelvedata.com", "uso": "Histórico de precios.", "oficial": true, "clave": true},
-        {"n": "FRED / OFR / Cboe / AAII", "u": "https://fred.stlouisfed.org", "uso": "Indicadores de mercado (liquidez, VIX, sentimiento) para la pestaña de mercado.", "oficial": true, "clave": false},
-        {"n": "Consenso de precio objetivo (manual)", "u": "", "uso": "Media, rango y número de analistas, a mano en manual/<T>.json (Investing, MarketBeat, TipRanks, Fintel). Marcado «manual» en la web.", "oficial": false, "clave": false}
+        {
+          "n": "Finnhub",
+          "u": "https://finnhub.io",
+          "uso": "Cotización, perfil, recuento de recomendaciones y calendario de resultados.",
+          "oficial": true,
+          "clave": true
+        },
+        {
+          "n": "Twelve Data",
+          "u": "https://twelvedata.com",
+          "uso": "Histórico de precios.",
+          "oficial": true,
+          "clave": true
+        },
+        {
+          "n": "FRED / OFR / Cboe / AAII",
+          "u": "https://fred.stlouisfed.org",
+          "uso": "Indicadores de mercado (liquidez, VIX, sentimiento) para la pestaña de mercado.",
+          "oficial": true,
+          "clave": false
+        },
+        {
+          "n": "Consenso de precio objetivo (manual)",
+          "u": "",
+          "uso": "Media, rango y número de analistas, a mano en manual/<T>.json (Investing, MarketBeat, TipRanks, Fintel). Marcado «manual» en la web.",
+          "oficial": false,
+          "clave": false
+        }
       ]
     },
     {
@@ -44,20 +147,110 @@
       "resumen": "Solo sirve para decidir qué compañía revisar y para dar contexto (reacción del mercado, producto, competencia, regulación). NUNCA entra una cifra ni un hecho desde aquí: para eso siempre hay que ir al documento oficial. Las redes solo miden el tono.",
       "autoridad": "contexto",
       "fuentes": [
-        {"n": "Finnhub — noticias", "u": "https://finnhub.io", "uso": "Prensa financiera general (Yahoo, Benzinga, Motley Fool, Zacks…). Da muchos titulares: es la mayor fuente de ruido.", "oficial": false, "clave": true, "ruido": "alto"},
-        {"n": "Marketaux", "u": "https://www.marketaux.com", "uso": "Noticias con sentimiento por compañía.", "oficial": false, "clave": true, "ruido": "medio"},
-        {"n": "Google News (RSS de búsqueda)", "u": "https://news.google.com", "uso": "Titulares de medios de referencia filtrados por «site:» (lista abajo). Solo titular, medio y fecha.", "oficial": false, "clave": false, "ruido": "medio"},
-        {"n": "Seeking Alpha (RSS por ticker)", "u": "https://seekingalpha.com", "uso": "Titulares de noticias y análisis. Muchas opiniones: contexto, no hechos.", "oficial": false, "clave": false, "ruido": "alto"},
-        {"n": "Medios sectoriales (RSS)", "u": "", "uso": "Prensa del sector por compañía (lista abajo). Buena para contratos, productos y competencia.", "oficial": false, "clave": false, "ruido": "bajo"},
-        {"n": "Business Wire / PR Newswire (RSS)", "u": "https://www.businesswire.com", "uso": "Notas de prensa; solo cuentan si la compañía está en el titular. La nota oficial se contrasta con la SEC.", "oficial": false, "clave": false, "ruido": "bajo"},
-        {"n": "StockTwits (API pública)", "u": "https://stocktwits.com", "uso": "Pulso de particulares (alcista/bajista). Solo tono, nunca cifras.", "oficial": false, "clave": false, "ruido": "solo-tono"},
-        {"n": "Reddit (API oficial)", "u": "https://www.reddit.com", "uso": "Foros de inversión. Solo tono y temas de conversación.", "oficial": false, "clave": true, "ruido": "solo-tono"},
-        {"n": "Alertas de prensa en Gmail", "u": "", "uso": "Boletines y alertas (Bloomberg, Reuters, FT, WSJ, CNBC, Investing, Expansión…). Solo lectura; se resumen, no se copian.", "oficial": false, "clave": false, "ruido": "medio"},
-        {"n": "Prensa de pago (tarea aparte, con tu Chrome)", "u": "", "uso": "Texto completo de Reuters, Bloomberg, FT, WSJ, Barron's, Investing Premium, Expansión… con tu sesión iniciada. Hoy desactivada.", "oficial": false, "clave": false, "ruido": "bajo"}
+        {
+          "n": "Finnhub — noticias",
+          "u": "https://finnhub.io",
+          "uso": "Prensa financiera general (Yahoo, Benzinga, Motley Fool, Zacks…). Da muchos titulares: es la mayor fuente de ruido.",
+          "oficial": false,
+          "clave": true,
+          "ruido": "alto"
+        },
+        {
+          "n": "Marketaux",
+          "u": "https://www.marketaux.com",
+          "uso": "Noticias con sentimiento por compañía.",
+          "oficial": false,
+          "clave": true,
+          "ruido": "medio"
+        },
+        {
+          "n": "Google News (RSS de búsqueda)",
+          "u": "https://news.google.com",
+          "uso": "Titulares de medios de referencia filtrados por «site:» (lista abajo). Solo titular, medio y fecha.",
+          "oficial": false,
+          "clave": false,
+          "ruido": "medio"
+        },
+        {
+          "n": "Seeking Alpha (RSS por ticker)",
+          "u": "https://seekingalpha.com",
+          "uso": "Titulares de noticias y análisis. Muchas opiniones: contexto, no hechos.",
+          "oficial": false,
+          "clave": false,
+          "ruido": "alto"
+        },
+        {
+          "n": "Medios sectoriales (RSS)",
+          "u": "",
+          "uso": "Prensa del sector por compañía (lista abajo). Buena para contratos, productos y competencia.",
+          "oficial": false,
+          "clave": false,
+          "ruido": "bajo"
+        },
+        {
+          "n": "Business Wire / PR Newswire (RSS)",
+          "u": "https://www.businesswire.com",
+          "uso": "Notas de prensa; solo cuentan si la compañía está en el titular. La nota oficial se contrasta con la SEC.",
+          "oficial": false,
+          "clave": false,
+          "ruido": "bajo"
+        },
+        {
+          "n": "StockTwits (API pública)",
+          "u": "https://stocktwits.com",
+          "uso": "Pulso de particulares (alcista/bajista). Solo tono, nunca cifras.",
+          "oficial": false,
+          "clave": false,
+          "ruido": "solo-tono"
+        },
+        {
+          "n": "Reddit (API oficial)",
+          "u": "https://www.reddit.com",
+          "uso": "Foros de inversión. Solo tono y temas de conversación.",
+          "oficial": false,
+          "clave": true,
+          "ruido": "solo-tono"
+        },
+        {
+          "n": "Alertas de prensa en Gmail",
+          "u": "",
+          "uso": "Boletines y alertas (Bloomberg, Reuters, FT, WSJ, CNBC, Investing, Expansión…). Solo lectura; se resumen, no se copian.",
+          "oficial": false,
+          "clave": false,
+          "ruido": "medio"
+        },
+        {
+          "n": "Prensa de pago (tarea aparte, con tu Chrome)",
+          "u": "",
+          "uso": "Texto completo de Reuters, Bloomberg, FT, WSJ, Barron's, Investing Premium, Expansión… con tu sesión iniciada. Hoy desactivada.",
+          "oficial": false,
+          "clave": false,
+          "ruido": "bajo"
+        }
       ],
       "google_news_sitios": {
-        "internacional": ["reuters.com", "bloomberg.com", "ft.com", "wsj.com", "cnbc.com", "marketwatch.com", "barrons.com", "theinformation.com", "apnews.com", "axios.com", "nytimes.com", "economist.com"],
-        "espana": ["expansion.com", "cincodias.elpais.com", "eleconomista.es", "elconfidencial.com", "lavanguardia.com", "elmundo.es"]
+        "internacional": [
+          "reuters.com",
+          "bloomberg.com",
+          "ft.com",
+          "wsj.com",
+          "cnbc.com",
+          "marketwatch.com",
+          "barrons.com",
+          "theinformation.com",
+          "apnews.com",
+          "axios.com",
+          "nytimes.com",
+          "economist.com"
+        ],
+        "espana": [
+          "expansion.com",
+          "cincodias.elpais.com",
+          "eleconomista.es",
+          "elconfidencial.com",
+          "lavanguardia.com",
+          "elmundo.es"
+        ]
       }
     }
   ]

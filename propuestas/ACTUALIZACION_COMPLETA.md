@@ -122,3 +122,45 @@ Cómo se hace la revisión de internet:
 2. Valida los JSON (`python -m json.tool propuestas/<T>.json`).
 3. Commit en `main`: `Propuesta: <T> actualización completa <fecha>` (en la revisión de internet, el del apartado 5) y push. La web muestra el aviso «Propuesta de actualización» y llega el email.
 4. Al terminar, informa al usuario por compañía: número de cambios por pestaña, lo más importante que cambia en la tesis y qué fuentes no se pudieron leer.
+
+## 7. Repaso semanal a fondo por sector (tarea programada: martes a viernes)
+
+Cada compañía se repasa **a fondo una vez por semana**, por grupos del mismo sector para aprovechar las mismas fuentes sectoriales. Es el momento de mejorar las pestañas más valiosas (**Negocio, MOAT y Crecimiento**) y de poner al día la tesis y los textos del veredicto, aunque no haya noticias.
+
+| Día | Grupo | Compañías |
+|---|---|---|
+| Martes | Nube e IA | AMZN, GOOGL, AVGO |
+| Miércoles | Software | ORCL, PATH, APP |
+| Jueves | Consumo y salud | RDDT, PEP, MRNA |
+| Viernes | Energía | VST, CVX |
+
+Las compañías que se añadan después entran en el grupo de su sector (o en el día con menos compañías). **Tras unos resultados**, la compañía tiene además este repaso completo al día siguiente, sea el día que sea (con los apartados 1–7 de `INSTRUCCIONES.md`). Si el día que toca ya hubo repaso tras resultados en los últimos 3 días, se salta.
+
+### 7.1 Fuentes del repaso, por orden
+
+1. **Documentos de la SEC** (último 10-K: Item 1 negocio, clientes, competencia; Item 1A riesgos; último 10-Q y nota de resultados): la auditoría oficial del apartado 8.7 de `INSTRUCCIONES.md`.
+2. **Webs oficiales de la compañía** (`companies.json → webs_oficiales`, se leen con WebFetch): catálogo de productos y precios publicados, presentación a inversores y día del inversor, cartas a accionistas, blog técnico y de producto, casos de clientes, cartera de productos (pipeline), mapa de activos. Es la mejor fuente para explicar **qué vende, a quién y por qué le compran**: úsala para `business.model`, `business.customers`, `business.customerTypes`, `business.clients`, `business.segNote`, `moat.sources`, `moat.note`, `growth.drivers` y `growth.tam`. Lo que diga la web de marketing («líder», «el mejor») no es un hecho: cita solo productos, funciones, clientes con nombre, cifras publicadas y fechas.
+3. **Prensa sectorial y especializada** (`companies.json → medios`, fuentes 3–4 del apartado 1) y los resultados oficiales de los **competidores** (para `moat.comps` y la amenaza de cada uno).
+4. Prensa financiera solo para contexto. Redes, solo tono.
+
+### 7.2 Qué se revisa y cómo
+
+- **Negocio:** que el modelo, los productos, los tipos de cliente, los clientes con nombre y los segmentos estén completos y al día con la web oficial y el 10-K. Productos nuevos, retirados o rebautizados; clientes nuevos con nombre; cambios de precios publicados.
+- **MOAT:** cada fuente de ventaja con su prueba (dato oficial o hecho citado); cambios en competidores (lanzamientos, precios, cuota publicada); `moat.width` y `moat.trend` se mueven como mucho un punto y solo con un hecho que lo justifique.
+- **Crecimiento:** cada motor (`growth.drivers`) con su estado (`st`), su indicador (`k`) y su peso, a partir de la guía, la web oficial (lanzamientos, pipeline, capacidad nueva) y la prensa sectorial; motores nuevos o agotados; `growth.tam` con la cifra oficial más reciente.
+- **Tesis en una línea** (`overview.thesis`): reescríbela si ya no refleja lo que dicen las pestañas. **Sin precio de la acción** (`INSTRUCCIONES.md`, 8.1).
+- **Veredicto, textos** (`verdict.summary`, `bull`, `bear`, `watch`): que recojan los motores y riesgos actuales; cada riesgo con P×I ≥ 12 en «En contra» o «Qué vigilar». Sin precio salvo para comparar con el precio de compra del usuario.
+- **Veredicto, criterio** (`verdict.rating`, `buyBelow`, `conviction`): no se tocan. Si lo que encuentras los pone en duda, dilo en el `resumen` de la propuesta con el dato que lo justifica; el sábado le llega al usuario junto a su DCF y al consenso.
+
+Todo con `tipo` `hecho` o `texto` (apartado 8.1 de `INSTRUCCIONES.md`), fuente con enlace y fecha, y la verificación independiente del 8.5. Conserva lo que sigue siendo válido: no reescribas una pestaña entera si basta con corregir un elemento. Cierra siempre con `meta.asOf` = hoy.
+
+`motivo`: «Repaso semanal a fondo (<grupo>)». Commit: `Repaso semanal: <T1>, <T2>, <T3>`.
+
+## 8. Cierre semanal (sábado)
+
+El sábado no hay repaso de grupo. Se hace:
+
+1. **Coherencia de cada compañía** (apartado 3): que la tesis, los riesgos, los motores y los textos del veredicto encajan entre sí y con `data/<T>.json`. Corrige como `texto` lo que no encaje.
+2. **Consenso de analistas** (`manual/<T>.json`, apartado 5 bis de `INSTRUCCIONES.md`) al día para todas.
+3. **Para el usuario**: `python scripts/aplicar_cambios.py --todas --sabado` publica la cola semanal en una sola propuesta por compañía. En su `resumen`, añade para cada compañía una línea de comparación: valor de su DCF (`node scripts/impacto_dcf.mjs <T>` → `antes`), precio actual, su precio de compra y el precio objetivo medio de los analistas, y si algún hecho de la semana pone en duda sus supuestos (`v.*`), la recomendación o el precio de compra.
+
