@@ -177,13 +177,13 @@
     },
     {
      "k": "Por contratar",
-     "v": "hasta 3,2 GW",
-     "d": "Beaver Valley y Comanche Peak, en negociación"
+     "v": "~3,2 GW",
+     "d": "Flota nuclear aún sin contratar a largo plazo, incluidas ampliaciones en Comanche Peak (presentación 3T26)"
     },
     {
      "k": "Minorista",
-     "v": "~76% de los ingresos",
-     "d": "2T26, segmento minorista"
+     "v": "~68% de los ingresos",
+     "d": "3T26: 4.338 de 6.347 M$ (segmento minorista, SEC); ~5 millones de clientes"
     }
    ],
    "conocidos": [
@@ -206,9 +206,26 @@
      "f": "ago-26"
     },
     {
+     "n": "Microsoft",
+     "t": "MSFT",
+     "sector": "Tecnología",
+     "cifra": "405 MW solares",
+     "d": "Compra la energía de la planta solar de Pulaski (Illinois), en operación comercial desde el 3T26.",
+     "u": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000023/vistra-20260930xearningsre.htm",
+     "f": "nov-26"
+    },
+    {
+     "n": "New Era Energy and Digital",
+     "sector": "Centros de datos",
+     "cifra": "207 MW · 20 años",
+     "d": "Contrato de compra de energía en la central de ciclo combinado de gas de Odessa (Texas).",
+     "u": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000023/vistra-20260930xearningsre.htm",
+     "f": "nov-26"
+    },
+    {
      "n": "Clientes de TXU Energy y otras marcas",
      "sector": "Minorista",
-     "cifra": "~76% de los ingresos",
+     "cifra": "~68% de los ingresos (3T26)",
      "d": "Hogares y pymes de Texas y del noreste: ingresos estables que compensan los vaivenes del precio mayorista."
     }
    ]
@@ -251,7 +268,7 @@
    {
     "n": "Constellation Energy",
     "threat": 3,
-    "note": "Mayor flota nuclear; compite por los mismos contratos con hiperescaladores"
+    "note": "Mayor flota nuclear; compite por los mismos contratos con hiperescaladores. En su nota del 3T26 (9-nov-26) anunció una colaboración a largo plazo con Google para nueva capacidad nuclear, un préstamo condicional del DOE de hasta 5.000 M$ para ampliaciones y un nuevo contrato de 20 años y 270 MW con su oferta Peak+"
    },
    {
     "n": "NRG Energy",
@@ -1296,6 +1313,183 @@
     "d": "6-nov-2026"
    },
    "verificacion": "Nota 3T26: EBITDA ajustado +50%, punto medio 2026 al alza, guía 2027 7.700–8.500 M$ (98% cubierto), Cogentrix cerrada, ~2.500 M$ hasta 2028; presentación: deuda pro forma 22.815 M$, 2,8x EBITDA 2027 (punto medio). Solo cita el precio de compra ~135 $.",
+   "motivo": "Repaso semanal a fondo (energía)"
+  },
+  {
+   "fecha": "2026-11-13",
+   "campo": "business.clients",
+   "antes": {
+    "nota": "Hogares y empresas de Texas y otros estados a través de sus comercializadoras (TXU Energy, entre otras), el mercado mayorista de electricidad y, cada vez más, grandes tecnológicas que compran energía nuclear a largo plazo para sus centros de datos.",
+    "kpis": [
+     {
+      "k": "Contratado con tecnológicas",
+      "v": "~3,8 GW",
+      "d": "Meta y Amazon, a 20 años"
+     },
+     {
+      "k": "Por contratar",
+      "v": "hasta 3,2 GW",
+      "d": "Beaver Valley y Comanche Peak, en negociación"
+     },
+     {
+      "k": "Minorista",
+      "v": "~76% de los ingresos",
+      "d": "2T26, segmento minorista"
+     }
+    ],
+    "conocidos": [
+     {
+      "n": "Meta",
+      "t": "META",
+      "sector": "Tecnología",
+      "cifra": "2.609 MW · 20 años",
+      "d": "Energía de Perry y Davis-Besse (Ohio) más ampliaciones en Beaver Valley; arranca en dic-26 (Perry) y dic-27 (Davis-Besse).",
+      "u": "https://world-nuclear-news.org/articles/ppas-support-extended-operations-at-vistra-plants",
+      "f": "ene-26"
+     },
+     {
+      "n": "Amazon (AWS)",
+      "t": "AMZN",
+      "sector": "Centros de datos",
+      "cifra": "1.200 MW · 20 años",
+      "d": "Energía de la nuclear de Comanche Peak para un centro de datos de 5.000 M$ junto a la central; entregas desde 2027, plena capacidad en 2032.",
+      "u": "https://www.utilitydive.com/news/vistra-texas-data-center-pause-comanche-amazon-earnings/827434/",
+      "f": "ago-26"
+     },
+     {
+      "n": "Clientes de TXU Energy y otras marcas",
+      "sector": "Minorista",
+      "cifra": "~76% de los ingresos",
+      "d": "Hogares y pymes de Texas y del noreste: ingresos estables que compensan los vaivenes del precio mayorista."
+     }
+    ]
+   },
+   "despues": {
+    "nota": "Hogares y empresas de Texas y otros estados a través de sus comercializadoras (TXU Energy, entre otras), el mercado mayorista de electricidad y, cada vez más, grandes tecnológicas que compran energía nuclear a largo plazo para sus centros de datos.",
+    "kpis": [
+     {
+      "k": "Contratado con tecnológicas",
+      "v": "~3,8 GW",
+      "d": "Meta y Amazon, a 20 años"
+     },
+     {
+      "k": "Por contratar",
+      "v": "~3,2 GW",
+      "d": "Flota nuclear aún sin contratar a largo plazo, incluidas ampliaciones en Comanche Peak (presentación 3T26)"
+     },
+     {
+      "k": "Minorista",
+      "v": "~68% de los ingresos",
+      "d": "3T26: 4.338 de 6.347 M$ (segmento minorista, SEC); ~5 millones de clientes"
+     }
+    ],
+    "conocidos": [
+     {
+      "n": "Meta",
+      "t": "META",
+      "sector": "Tecnología",
+      "cifra": "2.609 MW · 20 años",
+      "d": "Energía de Perry y Davis-Besse (Ohio) más ampliaciones en Beaver Valley; arranca en dic-26 (Perry) y dic-27 (Davis-Besse).",
+      "u": "https://world-nuclear-news.org/articles/ppas-support-extended-operations-at-vistra-plants",
+      "f": "ene-26"
+     },
+     {
+      "n": "Amazon (AWS)",
+      "t": "AMZN",
+      "sector": "Centros de datos",
+      "cifra": "1.200 MW · 20 años",
+      "d": "Energía de la nuclear de Comanche Peak para un centro de datos de 5.000 M$ junto a la central; entregas desde 2027, plena capacidad en 2032.",
+      "u": "https://www.utilitydive.com/news/vistra-texas-data-center-pause-comanche-amazon-earnings/827434/",
+      "f": "ago-26"
+     },
+     {
+      "n": "Microsoft",
+      "t": "MSFT",
+      "sector": "Tecnología",
+      "cifra": "405 MW solares",
+      "d": "Compra la energía de la planta solar de Pulaski (Illinois), en operación comercial desde el 3T26.",
+      "u": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000023/vistra-20260930xearningsre.htm",
+      "f": "nov-26"
+     },
+     {
+      "n": "New Era Energy and Digital",
+      "sector": "Centros de datos",
+      "cifra": "207 MW · 20 años",
+      "d": "Contrato de compra de energía en la central de ciclo combinado de gas de Odessa (Texas).",
+      "u": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000023/vistra-20260930xearningsre.htm",
+      "f": "nov-26"
+     },
+     {
+      "n": "Clientes de TXU Energy y otras marcas",
+      "sector": "Minorista",
+      "cifra": "~68% de los ingresos (3T26)",
+      "d": "Hogares y pymes de Texas y del noreste: ingresos estables que compensan los vaivenes del precio mayorista."
+     }
+    ]
+   },
+   "porque": "Faltaban Microsoft (Pulaski Solar, 405 MW, en operación en el 3T26) y New Era Energy and Digital (207 MW, 20 años, Odessa); el peso minorista pasa a 3T26 (4.338 de 6.347 M$) y lo pendiente de contratar se cita como lo da la compañía (~3,2 GW sin contratar). Corregido tras la verificación: la ficha de TXU pasa también al ~68% del 3T26.",
+   "fuente": {
+    "t": "Nota de resultados 3T26 (8-K, Ex. 99.1)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000023/vistra-20260930xearningsre.htm",
+    "d": "6-nov-2026"
+   },
+   "verificacion": "Nota 3T26: Pulaski Solar 405 MW con PPA de Microsoft en operación y PPA de 20 años y 207 MW con New Era en Odessa; presentación: ~5 M de clientes y ~3,2 GW nucleares sin contratar incl. ampliaciones en Comanche Peak (diap. 11 y 14); data: 4.338/6.347 M$ = 68%; Meta/Amazon y 3,8 GW sin cambios; se quita solo «Beaver Valley en negociación», que no tiene respaldo",
+   "motivo": "Repaso semanal a fondo (energía)"
+  },
+  {
+   "fecha": "2026-11-13",
+   "campo": "moat.comps",
+   "antes": [
+    {
+     "n": "Constellation Energy",
+     "threat": 3,
+     "note": "Mayor flota nuclear; compite por los mismos contratos con hiperescaladores"
+    },
+    {
+     "n": "NRG Energy",
+     "threat": 3,
+     "note": "Rival directo en Texas en minorista y generación"
+    },
+    {
+     "n": "Talen Energy",
+     "threat": 2,
+     "note": "Nuclear en PJM con contratos con Amazon"
+    },
+    {
+     "n": "Renovables y baterías",
+     "threat": 3,
+     "note": "Bajan los precios en Texas en horas de sol y viento"
+    }
+   ],
+   "despues": [
+    {
+     "n": "Constellation Energy",
+     "threat": 3,
+     "note": "Mayor flota nuclear; compite por los mismos contratos con hiperescaladores. En su nota del 3T26 (9-nov-26) anunció una colaboración a largo plazo con Google para nueva capacidad nuclear, un préstamo condicional del DOE de hasta 5.000 M$ para ampliaciones y un nuevo contrato de 20 años y 270 MW con su oferta Peak+"
+    },
+    {
+     "n": "NRG Energy",
+     "threat": 3,
+     "note": "Rival directo en Texas en minorista y generación"
+    },
+    {
+     "n": "Talen Energy",
+     "threat": 2,
+     "note": "Nuclear en PJM con contratos con Amazon"
+    },
+    {
+     "n": "Renovables y baterías",
+     "threat": 3,
+     "note": "Bajan los precios en Texas en horas de sol y viento"
+    }
+   ],
+   "porque": "Resultados de Constellation del 3T26 (8-K del 9-nov): colaboración con Google, préstamo condicional del DOE de hasta 5.000 M$ y contrato Peak+ de 270 MW a 20 años (sin contraparte nombrada); la amenaza se mantiene en 3. Corregido tras la verificación: no se fecha en el 3T26 y no se atribuye el contrato a Google.",
+   "fuente": {
+    "t": "Constellation Energy, nota de resultados 3T26 (8-K, Ex. 99.1)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1868275/000186827526000116/ceg-20261109991.htm",
+    "d": "9-nov-2026"
+   },
+   "verificacion": "Nota de CEG del 9-nov-26: colaboración a largo plazo con Google para nueva capacidad nuclear, garantía condicional del DOE de hasta 5.000 M$ para ampliaciones y contrato Peak+ de 20 años y 270 MW; lo anunciado en octubre se recoge en la nota; resto de comps intacto",
    "motivo": "Repaso semanal a fondo (energía)"
   }
  ]
