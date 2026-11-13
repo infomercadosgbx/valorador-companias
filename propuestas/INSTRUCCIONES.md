@@ -192,7 +192,7 @@ Las notas técnicas (nivel `info`) no hace falta resolverlas: la web ya no las e
 - **Cuándo le llega al usuario:**
   - Con resultados o un 10-Q/10-K nuevo (`urgente: true`): ese mismo día.
   - Con una novedad grave (`urgente: true`): ese mismo día. Grave es un movimiento del precio de más del 10% en un día con causa clara, un cambio de guía, una compra o venta relevante, la salida del consejero delegado o del director financiero, o lo que vigila `seguimientos.json` (p. ej. el préstamo del DOE a Vistra). También, sin marcarlo, cuando los supuestos mueven el valor un 10% o más.
-  - Todo lo demás: a la cola semanal (`propuestas/_cola/<T>.json`), que el script publica el sábado en una sola propuesta por compañía.
+  - Todo lo demás: a la cola semanal (`propuestas/_cola/<T>.json`), que el script publica el viernes (cierre semanal) en una sola propuesta por compañía.
 
 ### 8.4 Ajustes por hechos posteriores
 
@@ -210,7 +210,7 @@ El agente solo escribe el campo `verificacion` (y quita avisos no comprobados): 
 
 ### 8.6 Aplicar y guardar
 
-1. `python scripts/aplicar_cambios.py --todas` (el sábado, `--todas --sabado`). Imprime por compañía qué se ha aplicado, qué falla la verificación, qué queda para hoy, qué va a la cola y qué se ha descartado.
+1. `python scripts/aplicar_cambios.py --todas` (el viernes, `--todas --cierre`). Imprime por compañía qué se ha aplicado, qué falla la verificación, qué queda para hoy, qué va a la cola y qué se ha descartado.
 2. Valida los JSON tocados con `python -m json.tool` y ejecuta `python -m pytest -q tests/test_aplicar_cambios.py`.
 3. Commit en `main`: `Aplicado automáticamente: <T1> (<n> cambios), <T2> (…)` y, si quedan propuestas o cola, `Propuestas: …`. Push.
 

@@ -44,7 +44,7 @@ COLA = PROP / "_cola"
 # no esté aquí es criterio del usuario y nunca se aplica automáticamente.
 HECHOS = [
     r"overview\.(keyFacts|catalysts|summary)(\..*)?",
-    r"meta\.(asOf|nextEarnings|employees|hq|founded)",
+    r"meta\.(asOf|repasoFondo|nextEarnings|employees|hq|founded)",
     r"business\.(model|customers|customerTypes|clients|segments|segNote)(\..*)?",
     r"growth\.(guidance|tam)(\..*)?",
     r"mgmt\.(call|people|vote|alloc)(\..*)?",
@@ -328,7 +328,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("tickers", nargs="*")
     ap.add_argument("--todas", action="store_true")
-    ap.add_argument("--sabado", action="store_true", help="publica la cola semanal en las propuestas")
+    ap.add_argument("--sabado", "--cierre", dest="sabado", action="store_true",
+                    help="cierre semanal (viernes): publica la cola semanal en las propuestas")
     ap.add_argument("--hoy", help="fecha AAAA-MM-DD (por defecto, hoy en Madrid)")
     a = ap.parse_args()
     hoy = a.hoy or datetime.now(ZoneInfo("Europe/Madrid")).date().isoformat()

@@ -1,11 +1,11 @@
 name: Vigilar la revisión de la mañana
 
 # Comprueba que la tarea programada «Valorador · revisión tras resultados y novedades» (07:41, martes a
-# sábado) ha terminado: siempre escribe la entrada del día en propuestas/registro_fuentes.md.
+# viernes) ha terminado: siempre escribe la entrada del día en propuestas/registro_fuentes.md.
 # Si a las ~09:40 de Madrid no está, comenta el Issue de avisos (llega por email).
 on:
   schedule:
-    - cron: "37 8 * * 2-6"     # martes a sábado; 08:37 UTC = 09:37 en invierno (10:37 en verano)
+    - cron: "37 8 * * 2-5"     # martes a viernes; 08:37 UTC = 09:37 en invierno (10:37 en verano)
   workflow_dispatch:
 
 permissions:

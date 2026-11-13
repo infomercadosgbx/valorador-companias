@@ -1561,6 +1561,13 @@ function parseEsDate(t){ t=String(t||""); let m=/(\d{4})-(\d{2})-(\d{2})/.exec(t
   m=/(\d{1,2})[\s\-\/]+([a-záéíóú]{3,})[a-z]*[\s\-\/]+(\d{2,4})/i.exec(t); if(!m) return null;
   const mi=MESES.indexOf(m[2].slice(0,3).toLowerCase()); if(mi<0) return null; const y=m[3].length===2?"20"+m[3]:m[3];
   return `${y}-${String(mi+1).padStart(2,"0")}-${String(+m[1]).padStart(2,"0")}`; }
+/* Repaso a fondo semanal (parte C de la tarea): analysis.meta.repasoFondo = fecha del último; companies.json → repaso = su día */
+const DIA_N={martes:2,"miércoles":3,jueves:4,viernes:5}, DIA_C={martes:"mar","miércoles":"mié",jueves:"jue",viernes:"vie"};
+function repasoInfo(c){
+  const iso=parseEsDate(c.meta&&c.meta.repasoFondo), dia=c._co&&c._co.repaso;
+  const days=iso?Math.round((Date.now()-Date.parse(iso+"T12:00:00Z"))/864e5):NaN;
+  let prox=null; if(DIA_N[dia]){ const d=new Date(); for(let i=1;i<=7;i++){ const x=new Date(d.getTime()+i*864e5); if(x.getDay()===DIA_N[dia]){ prox=x; break; } } }
+  return {iso,days,dia,prox}; }
 function staleInfo(c){
   const iso=parseEsDate(c.meta&&c.meta.asOf); if(!iso||!c._data) return null;
   const days=Math.round((Date.now()-Date.parse(iso+"T12:00:00Z"))/864e5);
@@ -1614,7 +1621,7 @@ const PLAB={"overview.thesis":"Tesis en una línea","overview.summary":"Qué hac
   "growth.score":"Puntuación de crecimiento","growth.scoreNote":"Mi lectura del crecimiento","growth.guidance":"Guía de la empresa","growth.tam":"Tamaño del mercado","growth.drivers":"Motores de crecimiento",
   "mgmt.call":"Última presentación de resultados","mgmt.note":"Control y gobierno","mgmt.people":"Quién dirige","mgmt.scores":"Evaluación de la directiva","mgmt.alloc":"Asignación de capital",
   "risks":"Registro de riesgos","verdict.rating":"Recomendación","verdict.conviction":"Convicción","verdict.buyBelow":"Comprar por debajo de","verdict.horizon":"Horizonte",
-  "verdict.summary":"Conclusión","verdict.bull":"A favor","verdict.bear":"En contra","verdict.watch":"Qué vigilar","notes":"Notas","meta.asOf":"Análisis a","meta.nextEarnings":"Próximos resultados",
+  "verdict.summary":"Conclusión","verdict.bull":"A favor","verdict.bear":"En contra","verdict.watch":"Qué vigilar","notes":"Notas","meta.asOf":"Análisis a","meta.repasoFondo":"Repaso a fondo","meta.nextEarnings":"Próximos resultados",
   "meta.employees":"Empleados","business.clients":"Clientes y contratos","business.segments":"Segmentos","business.segNote":"Nota de segmentos","business.phase":"Fase (número)","moat.width":"Anchura del MOAT","mgmt.vote":"Poder de voto","fin_manual.q":"Series trimestrales manuales","peers":"Competidores comparables","sources.docs":"Documentos oficiales","sources.news":"Noticias seleccionadas","social.pulse":"Pulso en redes","social.videos":"Vídeos","social.pulseFuente":"Fuente del pulso en redes"};
 function propLabel(p){ return PLAB[p]||draftLabel(p); }
 function getPath(o,p){ return p.split(".").reduce((x,k)=>x==null?undefined:x[k],o); }
@@ -1938,7 +1945,8 @@ function renderHeader(){
   const dow=E&&E.fecha?["dom","lun","mar","mié","jue","vie","sáb"][new Date(E.fecha+"T12:00:00Z").getUTCDay()]:"";
   const nx=E&&E.fecha?`<span class="hs-k">Próximos resultados</span> <b>${dow} ${esc(fecha(E.fecha))}</b>${E.hora?` · ${esc(E.hora)}`:""}${fin(days)&&days>=0?` <span class="soon${days<=7?" hot":""}">${days===0?"hoy":days===1?"mañana":`en ${days} días`}</span>`:""}`
     :cur.meta.nextEarnings?`<span class="hs-k">Próximos resultados</span> <b>${esc(cur.meta.nextEarnings)}</b> <span class="note">· según tu análisis</span>`:`<span class="note">Sin fecha de próximos resultados</span>`;
-  $("hdrStrip").innerHTML=`<div class="hs-l">🗓 ${nx}</div><div class="hs-r note">${ref?`Cifras SEC hasta ${esc(fecha(ref))}`:"Sin datos de la SEC"}${cur._data&&cur._data.generado?` · datos actualizados ${esc(ago(cur._data.generado))}`:""}</div>`;
+  const RP=repasoInfo(cur), rp=RP.iso?` · <span title="Repaso a fondo semanal: webs oficiales, prensa y mercado">repaso a fondo ${RP.days<=0?"hoy":RP.days===1?"ayer":`hace ${RP.days} días`}</span>`:RP.dia?` · repaso a fondo los ${esc(RP.dia)}`:"";
+  $("hdrStrip").innerHTML=`<div class="hs-l">🗓 ${nx}</div><div class="hs-r note">${ref?`Cifras SEC hasta ${esc(fecha(ref))}`:"Sin datos de la SEC"}${cur._data&&cur._data.generado?` · datos actualizados ${esc(ago(cur._data.generado))}`:""}${rp}</div>`;
   applyBrand(cur); { const b=brandOf(cur), el=$("hdrMono"); el.className="mono"+(b.logo?" logo":""); el.style.background=b.logo?"":b.color; el.style.color=b.logo?"":b.ink; el.innerHTML=monoInner(b); }
   const n=Object.keys(store.companies).length, sym=symOf(cur);
   $("btnSwitch").innerHTML=`${monoHtml(cur,"sm")}<span class="nm">${esc(cur.meta.name||"Sin nombre")}</span>${sym?`<small>${esc(sym)}</small>`:""}<span class="ct">${n} ${n===1?"compañía":"compañías"} ▾</span><kbd>Ctrl K</kbd>`;
@@ -3101,7 +3109,7 @@ function watchRows(){
     let per=NaN, gr=NaN; try{ const prev=cur; cur=c; const m=mctx(); per=MET.per.calc(m).res; const pe=d.peers&&d.peers.propia; gr=pe?pe.crecimiento:NaN; cur=prev; }catch(e){}
     const days=st?st.days:NaN;
     return {k,c,name:c.meta.name,price:v.price,day,fv:vz.w,pot:fin(vz.w)&&v.price>0?(vz.w/v.price-1)*100:NaN,bb,toBuy,rating:c.verdict.rating||"",score:sc.total,
-      per,gr,eDate:E?E.fecha:null,eDays,age:days,stale:!!(st&&st.stale),isNew:!!(c.meta.autogenerado&&!c.meta.asOf),ws,fav:!!c.meta.fav};
+      per,gr,eDate:E?E.fecha:null,eDays,age:days,stale:!!(st&&st.stale),isNew:!!(c.meta.autogenerado&&!c.meta.asOf),ws,fav:!!c.meta.fav,rep:repasoInfo(c),repAge:repasoInfo(c).days};
   });
 }
 function watchHtml(){
@@ -3132,7 +3140,7 @@ function watchHtml(){
     <td>${fin(r.per)&&r.per>0?nf(r.per,1)+"x":"–"}</td>
     <td>${fin(r.gr)?sg(r.gr):"–"}</td>
     <td>${r.eDate?`${esc(fecha(r.eDate))}<span class="wsub">${r.eDays>=0?"en "+r.eDays+" días":"pasados"}</span>`:"–"}</td>
-    <td>${r.isNew?'<span class="pill neutral">Nueva</span>':fin(r.age)?`${r.stale?'<span class="pill mid">Revisar</span>':(r.age<=0?"hoy":`hace ${r.age} d`)}`:"–"}${r.stale&&fin(r.age)?`<span class="wsub">hace ${r.age} días</span>`:""}</td>
+    <td>${r.isNew?'<span class="pill neutral">Nueva</span>':fin(r.age)?`${r.stale?'<span class="pill mid">Revisar</span>':(r.age<=0?"hoy":`hace ${r.age} d`)}`:"–"}${r.stale&&fin(r.age)?`<span class="wsub">hace ${r.age} días</span>`:""}<span class="wsub" title="Repaso a fondo semanal: webs oficiales, prensa y mercado, y todas las pestañas al día con los datos oficiales">${fin(r.rep.days)?`a fondo ${r.rep.days<=0?"hoy":`hace ${r.rep.days} d`}`:r.rep.prox?`a fondo ${esc(DIA_C[r.rep.dia]||"")} ${r.rep.prox.getDate()}`:""}</span></td>
     <td>${r.ws?`<span class="pill mid">${r.ws}</span>`:'<span class="note">–</span>'}</td></tr>`).join("")}
   </tbody></table></div>
   <p class="note">Valor razonable: el ponderado de los escenarios de tu DCF. «Hasta precio de compra»: cuánto tendría que caer la cotización para llegar a tu «comprar por debajo de» (en el Veredicto). «Revisar»: el análisis tiene más de 90 días, el precio se ha movido más de un 5% o hay un informe nuevo desde que lo escribiste.</p></section>

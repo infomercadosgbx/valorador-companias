@@ -102,9 +102,9 @@ El mismo que la revisión tras resultados, con `alcance: "completa"` y una `fuen
 
 ## 5. Revisión de internet (dentro del repaso semanal de cada compañía)
 
-Desde el 13-nov-2026, para no gastar de más, la tarea programada (martes a sábado) se reparte así:
+Desde el 13-nov-2026, para no gastar de más, la tarea programada (martes a viernes; estructura en `TAREA.md`) se reparte así:
 
-- **Lo oficial** (SEC y la compañía), **cada día** de martes a sábado: 8-K de resultados, 10-Q y 10-K, otros 8-K, presentaciones a la SEC, notas de prensa, llamadas con analistas. Es barato. Se hace con `INSTRUCCIONES.md` (apartados 1–7).
+- **Lo oficial** (SEC y la compañía), **cada día** de martes a viernes: 8-K de resultados, 10-Q y 10-K, otros 8-K, presentaciones a la SEC, notas de prensa, llamadas con analistas. Es barato. Se hace con `INSTRUCCIONES.md` (apartados 1–7).
 - **Lo que se dice en internet** (prensa financiera y sectorial, alertas de Gmail, redes: fuentes 3–5 del apartado 1) va **dentro del repaso semanal a fondo de cada compañía** (apartado 7), una vez por semana, con la ventana desde su repaso anterior (unos 7 días).
 - **Alarma diaria** (barata, sin leer internet): `python scripts/senales.py --alarma --json` mira solo `data/<T>.json`. Si una compañía activa tiene una **novedad grave** (movimiento de un día del 10% o más, o un seguimiento con cierre, cancelación o riesgo), ese día tiene una revisión de internet **corta y solo de esa compañía**: la causa del movimiento o del seguimiento (una o dos búsquedas, alertas de Gmail que la nombren y su sala de prensa), y lo que cambie en las pestañas como en el punto 8. Al terminar, `python scripts/senales.py --marcar-alarma <T>` para no repetirla. Unos resultados no son alarma: ya tienen su revisión completa (`INSTRUCCIONES.md`, apartados 1 y 7).
 
@@ -163,15 +163,15 @@ El repaso incluye la **revisión de internet de la semana** de esas compañías 
 - **Veredicto, textos** (`verdict.summary`, `bull`, `bear`, `watch`): que recojan los motores y riesgos actuales; cada riesgo con P×I ≥ 12 en «En contra» o «Qué vigilar». Sin precio salvo para comparar con el precio de compra del usuario.
 - **Veredicto, criterio** (`verdict.rating`, `buyBelow`, `conviction`): no se tocan. Si lo que encuentras los pone en duda, dilo en el `resumen` de la propuesta con el dato que lo justifica; el sábado le llega al usuario junto a su DCF y al consenso.
 
-Todo con `tipo` `hecho` o `texto` (apartado 8.1 de `INSTRUCCIONES.md`), fuente con enlace y fecha, y la verificación independiente del 8.5. Conserva lo que sigue siendo válido: no reescribas una pestaña entera si basta con corregir un elemento. Cierra siempre con `meta.asOf` = hoy.
+Todo con `tipo` `hecho` o `texto` (apartado 8.1 de `INSTRUCCIONES.md`), fuente con enlace y fecha, y la verificación independiente del 8.5. Conserva lo que sigue siendo válido: no reescribas una pestaña entera si basta con corregir un elemento. Cierra siempre con `meta.asOf` y `meta.repasoFondo` = hoy (`tipo` `hecho`): la web enseña la fecha del repaso a fondo en la lista y en la cabecera de la compañía.
 
 `motivo`: «Repaso semanal a fondo (<grupo>)». Commit: `Repaso semanal: <T1>, <T2>, <T3>`.
 
-## 8. Cierre semanal (sábado)
+## 8. Cierre semanal (viernes, al final)
 
-El sábado no hay repaso de grupo. Se hace:
+El viernes, después del repaso de ese día, se hace:
 
 1. **Coherencia de cada compañía** (apartado 3): que la tesis, los riesgos, los motores y los textos del veredicto encajan entre sí y con `data/<T>.json`. Corrige como `texto` lo que no encaje.
-2. **Consenso de analistas** (`manual/<T>.json`, apartado 5 bis de `INSTRUCCIONES.md`): ya lo pone al día el repaso de cada compañía; el sábado solo se busca para las que lo tengan con más de 10 días (sin más lectura de internet).
-3. **Para el usuario**: `python scripts/aplicar_cambios.py --todas --sabado` publica la cola semanal en una sola propuesta por compañía. En su `resumen`, añade para cada compañía una línea de comparación: valor de su DCF (`node scripts/impacto_dcf.mjs <T>` → `antes`), precio actual, su precio de compra y el precio objetivo medio de los analistas, y si algún hecho de la semana pone en duda sus supuestos (`v.*`), la recomendación o el precio de compra.
+2. **Consenso de analistas** (`manual/<T>.json`, apartado 5 bis de `INSTRUCCIONES.md`): ya lo pone al día el repaso de cada compañía; el viernes solo se busca para las que lo tengan con más de 10 días (sin más lectura de internet).
+3. **Para el usuario**: `python scripts/aplicar_cambios.py --todas --cierre` publica la cola semanal en una sola propuesta por compañía. En su `resumen`, añade para cada compañía una línea de comparación: valor de su DCF (`node scripts/impacto_dcf.mjs <T>` → `antes`), precio actual, su precio de compra y el precio objetivo medio de los analistas, y si algún hecho de la semana pone en duda sus supuestos (`v.*`), la recomendación o el precio de compra.
 
