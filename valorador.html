@@ -3012,7 +3012,7 @@ function watchRows(){
     const vz=valuation(c), sc=scorecard(c,vz), v=c.v, d=c._data||{}, P=d.precio||{}, st=staleInfo(c);
     const E=d.resultados_previstos&&d.resultados_previstos.proximos, eDays=E?Math.round((Date.parse(E.fecha)-Date.now())/864e5):NaN;
     const bb=+c.verdict.buyBelow, toBuy=fin(bb)&&bb>0&&fin(v.price)?(v.price/bb-1)*100:NaN;
-    const ws=(allWarnings(c)||[]).filter(w=>w.nivel!=="info"&&lsGet(wKey(c._t,w))!=="1").length;
+    const ws=(allWarnings(c)||[]).filter(w=>w.nivel!=="info"&&!wApproved(w,c)).length;   /* sin los aprobados (análisis o este navegador) */
     const day=dayPct(c);
     let per=NaN, gr=NaN; try{ const prev=cur; cur=c; const m=mctx(); per=MET.per.calc(m).res; const pe=d.peers&&d.peers.propia; gr=pe?pe.crecimiento:NaN; cur=prev; }catch(e){}
     const days=st?st.days:NaN;
@@ -4810,7 +4810,7 @@ const okUrl=u=>/^https?:\/\/[^\s]+\.[^\s]+/i.test(u||"");
 function srcSummary(){
   const d=cur._data||{}, ui=d.ultimo_informe, k8=d.ultimo_8k_resultados, N=d.noticias||[], A=analyzedSources(), P=((cur.social||{}).pulse||[]).filter(x=>fin(x.s)&&x.p!=="Threads");
   const avg=P.length?P.reduce((a,x)=>a+x.s,0)/P.length:NaN, lab=v=>v>=1.5?"Muy alcista":v>=0.5?"Alcista":v>-0.5?"Neutral":v>-1.5?"Bajista":"Muy bajista";
-  const ws=allWarnings(cur).filter(w=>w.nivel!=="info").length;
+  const wsAll=allWarnings(cur).filter(w=>w.nivel!=="info"), ws=wsAll.filter(w=>!wSeen(w)).length, wsAp=wsAll.length-ws;
   const cell=(k,v,n)=>`<div class="ssum"><span>${k}</span><b>${v}</b><small>${n}</small></div>`;
   return `<section class="srcsum">
     ${cell("Último informe SEC",ui?esc(ui.formulario||""):"–",ui?`presentado el ${esc(fecha(ui.fecha_presentacion))}`:"sin datos")}
@@ -4818,7 +4818,7 @@ function srcSummary(){
     ${cell("Noticias recientes",String(Math.min(20,N.length)),"últimas tres semanas")}
     ${cell("Fuentes analizadas",String(A.length),"artículos, transcripciones y documentos")}
     ${cell("Sentimiento en redes",fin(avg)?lab(avg):"–",P.length?`media de ${P.length} redes`:"sin valorar")}
-    ${cell("Calidad del dato",ws?`${ws} ${ws===1?"aviso":"avisos"}`:"Sin avisos",ws?"revisa el detalle al final":"el robot no ha detectado problemas")}
+    ${cell("Calidad del dato",ws?`${ws} ${ws===1?"aviso":"avisos"}`:wsAp?"Sin avisos pendientes":"Sin avisos",ws?"revisa el detalle al final":wsAp?`${wsAp} ${wsAp===1?"aviso revisado y aprobado":"avisos revisados y aprobados"}`:"el robot no ha detectado problemas")}
   </section>`;
 }
 R.sources=()=>{
