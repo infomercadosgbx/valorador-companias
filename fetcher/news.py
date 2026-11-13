@@ -7,6 +7,12 @@
     de notas de prensa (Business Wire, PR Newswire). Se filtran por el nombre
     de la compañía y sus alias. No se lee ninguna web: solo el RSS que el medio ofrece.
   · 8-K de la SEC (sin peticiones extra; ver filings.recent_8k_news).
+  · Google News (RSS público de búsqueda): titulares de la prensa financiera de referencia, también
+    la de pago (Reuters, Bloomberg, FT, WSJ…), y de la prensa económica española. Solo titular,
+    medio y fecha: el texto completo de los medios de pago lo lee otra tarea con la sesión del usuario.
+  · Seeking Alpha (RSS público por ticker): titulares de noticias y análisis.
+  · StockTwits (API pública): pulso de los inversores particulares (mensajes alcistas/bajistas).
+    No son noticias: va a data/<T>.json → redes. Reddit exige una aplicación con OAuth; queda fuera.
 
 Los feeds RSS solo muestran lo último publicado, así que lo encontrado se acumula noche a noche
 (se conserva lo anterior durante la ventana de días). El estado de cada fuente se guarda en
@@ -263,6 +269,78 @@ class AlphaVantage:
         return [n for n in out if n["titular"] and n["url"]]
 
 
+class GoogleNews:
+    """RSS de búsqueda de Google News, limitado a medios de referencia con «site:».
+    Una consulta en inglés (prensa financiera internacional) y otra en español por compañía."""
+    nombre = "Google News"
+    URL = "https://news.google.com/rss/search"
+    SITIOS_EN = ["reuters.com", "bloomberg.com", "ft.com", "wsj.com", "cnbc.com", "marketwatch.com",
+                 "barrons.com", "theinformation.com", "morningstar.com", "apnews.com", "investing.com"]
+    SITIOS_ES = ["expansion.com", "cincodias.elpais.com", "eleconomista.es", "elconfidencial.com", "es.investing.com"]
+
+    def __init__(self, opener=None, dias=7, sleep=time.sleep, pausa=1.0):
+        self._open, self.dias, self._sleep, self.pausa = opener, dias, sleep, pausa
+
+    def _consulta(self, nombre, sitios, hl, gl, ceid):
+        q = f'"{nombre}" (' + " OR ".join(f"site:{s}" for s in sitios) + f") when:{self.dias}d"
+        url = f"{self.URL}?{urllib.parse.urlencode({'q': q, 'hl': hl, 'gl': gl, 'ceid': ceid})}"
+        root = ET.fromstring(_http_get(url, opener=self._open, sleep=self._sleep))
+        out = []
+        for it in root.iter("item"):
+            titulo = (it.findtext("title") or "").strip()
+            fuente = it.find("source")
+            medio = (fuente.text or "").strip() if fuente is not None else ""
+            if medio and titulo.endswith(" - " + medio):
+                titulo = titulo[: -len(medio) - 3].strip()
+            dom = urllib.parse.urlparse(fuente.get("url") if fuente is not None else "").netloc
+            out.append({"titular": _clean(titulo, 300), "url": (it.findtext("link") or "").strip(),
+                        "fecha": _fecha(it.findtext("pubDate") or ""), "resumen": "",
+                        "medio": MEDIOS_DOMINIO.get(dom.lower().removeprefix("www."), medio or _medio_dominio(dom)),
+                        "tipo": "prensa", "via": "Google News"})
+        return [n for n in out if n["titular"] and n["url"].startswith("http")]
+
+    def news_company(self, company):
+        nombre = re.sub(r",?\s+(Inc|Corp|Corporation|Holdings|Co|Ltd|plc)\.?$", "", company.get("nombre") or "").strip()
+        out = self._consulta(nombre, self.SITIOS_EN, "en-US", "US", "US:en")
+        self._sleep(self.pausa)
+        try:
+            out += self._consulta(nombre, self.SITIOS_ES, "es", "ES", "ES:es")
+        except Exception:  # noqa: BLE001  la consulta en español es secundaria
+            pass
+        self._sleep(self.pausa)
+        return out
+
+
+class SeekingAlpha:
+    """RSS público por ticker de Seeking Alpha (titulares de noticias y análisis; el texto es de pago)."""
+    nombre = "Seeking Alpha"
+    URL = "https://seekingalpha.com/api/sa/combined/{t}.xml"
+
+    def __init__(self, opener=None, sleep=time.sleep, pausa=1.0):
+        self._open, self._sleep, self.pausa = opener, sleep, pausa
+
+    def news(self, ticker):
+        items = parse_feed(_http_get(self.URL.format(t=urllib.parse.quote(ticker)), opener=self._open, sleep=self._sleep))
+        self._sleep(self.pausa)
+        return [dict(n, medio="Seeking Alpha", tipo="prensa", via="RSS de Seeking Alpha") for n in items]
+
+
+def stocktwits(ticker, opener=None, sleep=time.sleep) -> dict:
+    """Pulso de StockTwits: de los últimos mensajes (hasta 30), cuántos se etiquetan alcistas o bajistas."""
+    url = f"https://api.stocktwits.com/api/2/streams/symbol/{urllib.parse.quote(ticker)}.json"
+    j = json.loads(_http_get(url, opener=opener, sleep=sleep))
+    msgs = j.get("messages") or []
+    etiq = [((m.get("entities") or {}).get("sentiment") or {}).get("basic") for m in msgs]
+    alc, baj = etiq.count("Bullish"), etiq.count("Bearish")
+    fechas = sorted(_fecha(m.get("created_at")) for m in msgs if m.get("created_at"))
+    return {"fuente": "StockTwits (API pública)", "url": f"https://stocktwits.com/symbol/{ticker}",
+            "mensajes": len(msgs), "alcistas": alc, "bajistas": baj,
+            "pct_alcista": round(alc / (alc + baj) * 100) if alc + baj else None,
+            "seguidores": (j.get("symbol") or {}).get("watchlist_count"),
+            "desde": fechas[0] if fechas else None, "hasta": fechas[-1] if fechas else None,
+            "fecha": date.today().isoformat()}
+
+
 def _sent(score):
     """Escala de Alpha Vantage (−1 a 1; ±0,15 neutral, ±0,35 claro), también válida para Marketaux."""
     try:
@@ -279,8 +357,11 @@ APIS: list = []
 FEEDS_CACHE = None
 
 
+REDES = False      # StockTwits (lo activa main.run en la ejecución real)
+
+
 def apis_from_env():
-    out = []
+    out = [GoogleNews(), SeekingAlpha()]
     if os.environ.get("MARKETAUX_API_KEY", "").strip():
         out.append(Marketaux(os.environ["MARKETAUX_API_KEY"].strip()))
     # Alpha Vantage pasó NEWS_SENTIMENT a sus planes de pago (comprobado el 5-nov-2026). Solo se usa

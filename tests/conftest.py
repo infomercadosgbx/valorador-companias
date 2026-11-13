@@ -61,3 +61,7 @@ def _sin_red_noticias(monkeypatch):
             return []
     monkeypatch.setattr(news, "FeedCache", _Cache)
     monkeypatch.setattr(news, "apis_from_env", lambda: [])
+
+    def _sin_stocktwits(*a, **k):
+        raise RuntimeError("sin red en los tests")
+    monkeypatch.setattr(news, "stocktwits", _sin_stocktwits)

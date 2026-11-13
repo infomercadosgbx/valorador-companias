@@ -16,7 +16,7 @@ Lee antes de buscar nada fuera:
 | Archivo | Qué te da |
 |---|---|
 | `analysis/<T>.json` | El análisis actual: lo que hay que revisar campo a campo |
-| `data/<T>.json` | Cifras oficiales ya calculadas (`resultados`, `balance`, `segmentos`, `vencimientos_deuda`), `ultimo_informe` y `ultimo_8k_resultados` (con enlaces), `riesgos_10k` (riesgos nuevos o eliminados entre 10-K), `directivos` (formularios 4), `precio`, `consenso_automatico`, `resultados_previstos`, `noticias` (hasta 30 titulares con sentimiento), `peers` y `avisos` |
+| `data/<T>.json` | Cifras oficiales ya calculadas (`resultados`, `balance`, `segmentos`, `vencimientos_deuda`), `ultimo_informe` y `ultimo_8k_resultados` (con enlaces), `riesgos_10k` (riesgos nuevos o eliminados entre 10-K), `directivos` (formularios 4), `precio`, `consenso_automatico`, `resultados_previstos`, `noticias` (hasta 30 titulares con sentimiento: Finnhub, Marketaux, Google News —titulares de Reuters, Bloomberg, FT, WSJ, Expansión, Cinco Días…—, Seeking Alpha, medios sectoriales y agencias), `redes.stocktwits` (porcentaje de mensajes alcistas), `peers` y `avisos` |
 | `manual/<T>.json` | Precios objetivo (media, rango e historial) y estimaciones introducidos a mano |
 | `companies.json` | `medios` sectoriales y `alias` de la compañía |
 | `seguimientos.json` | Hechos que el usuario vigila (p. ej. préstamo del DOE a Vistra) |

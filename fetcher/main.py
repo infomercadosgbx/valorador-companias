@@ -172,6 +172,7 @@ def run(only=None, report=None, root=ROOT, client=None, provider=None, price_war
         provider, price_warning = prices.from_env()
     NEWS.APIS = NEWS.apis_from_env() if real else []
     NEWS.FEEDS_CACHE = NEWS.FeedCache() if real else None
+    NEWS.REDES = real
     hist, hist_warning = (history if history is not None else prices.history_from_env())
     extended = prices.extended_from_env()
     cik_issues = check_ciks(client, companies)

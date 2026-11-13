@@ -5,7 +5,7 @@ from datetime import date
 from fetcher import filings as F
 from fetcher import news as N
 from fetcher.prices import FinnhubProvider
-from fetcher.news import FeedCache   # el original (conftest lo sustituye en el resto de tests)
+from fetcher.news import FeedCache, stocktwits as stocktwits_real   # los originales (conftest lo sustituye en el resto de tests)
 
 HOY = date(2026, 11, 5)
 
@@ -116,3 +116,39 @@ def test_nombres_antiguos_cuentan_en_el_tope():
     nuevas = [n(f"New yahoo {i}", "Yahoo Finance") for i in range(15)]
     out = N.combinar([nuevas, [n("Zacks piece", "Zacks")]], previas=previas, today=HOY, limite=11)
     assert {x["medio"] for x in out} == {"Yahoo Finance", "Zacks"} and sum(x["medio"] == "Yahoo Finance" for x in out) == 10
+
+
+class _R:
+    def __init__(self, b): self.b = b if isinstance(b, bytes) else json.dumps(b).encode()
+    def __enter__(self): return self
+    def __exit__(self, *a): return False
+    def read(self, *_): return self.b
+
+
+GNEWS = b"""<?xml version="1.0"?><rss version="2.0"><channel>
+<item><title>Vistra signs data-center deal - Reuters</title><link>https://news.google.com/rss/articles/abc</link>
+<pubDate>Wed, 12 Nov 2026 14:00:00 GMT</pubDate><source url="https://www.reuters.com">Reuters</source></item>
+<item><title>Vistra sube en bolsa - Expansi\xc3\xb3n</title><link>https://news.google.com/rss/articles/def</link>
+<pubDate>Thu, 13 Nov 2026 08:00:00 GMT</pubDate><source url="https://www.expansion.com">Expansi\xc3\xb3n</source></item>
+</channel></rss>"""
+
+
+def test_google_news_limpia_el_medio_del_titular():
+    urls = []
+    g = N.GoogleNews(opener=lambda req, timeout=0: (urls.append(req.full_url), _R(GNEWS))[1], sleep=lambda s: None)
+    out = g.news_company({"nombre": "Vistra Corp.", "ticker": "VST"})
+    assert out[0] == {"titular": "Vistra signs data-center deal", "url": "https://news.google.com/rss/articles/abc",
+                      "fecha": "2026-11-12", "resumen": "", "medio": "Reuters", "tipo": "prensa", "via": "Google News"}
+    assert out[1]["medio"] == "Expansión"
+    assert len(urls) == 2 and "site%3Areuters.com" in urls[0] and "hl=es" in urls[1] and "%22Vistra%22" in urls[0]
+
+
+def test_stocktwits_cuenta_alcistas_y_bajistas():
+    j = {"symbol": {"watchlist_count": 26037}, "messages": [
+        {"created_at": "2026-11-13T08:00:00Z", "entities": {"sentiment": {"basic": "Bullish"}}},
+        {"created_at": "2026-11-12T08:00:00Z", "entities": {"sentiment": {"basic": "Bullish"}}},
+        {"created_at": "2026-11-12T07:00:00Z", "entities": {"sentiment": {"basic": "Bearish"}}},
+        {"created_at": "2026-11-11T07:00:00Z", "entities": {"sentiment": None}}]}
+    r = stocktwits_real("APP", opener=lambda req, timeout=0: _R(j), sleep=lambda s: None)
+    assert (r["mensajes"], r["alcistas"], r["bajistas"], r["pct_alcista"], r["seguidores"]) == (4, 2, 1, 67, 26037)
+    assert (r["desde"], r["hasta"]) == ("2026-11-11", "2026-11-13")

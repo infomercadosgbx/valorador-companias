@@ -369,7 +369,7 @@ def _noticias(rec, company, subs, price_provider, previous):
     proveedores = ([price_provider] if price_provider is not None and hasattr(price_provider, "news") else []) + NEWS.APIS
     for p in proveedores:
         try:
-            lote = p.news(company["ticker"]) or []
+            lote = (p.news_company(company) if hasattr(p, "news_company") else p.news(company["ticker"])) or []
             if p.nombre != getattr(price_provider, "nombre", None):     # APIs extra: solo lo que habla de la compañía
                 pat = NEWS.patron(company, con_ticker=True)
                 lote = [n for n in lote if pat.search(n["titular"] + " " + (n.get("resumen") or ""))]
@@ -389,6 +389,14 @@ def _noticias(rec, company, subs, price_provider, previous):
     prev = (previous or {}).get("noticias") or []
     rec["noticias"] = NEWS.combinar(lotes, prev)
     rec["noticias_sentimiento"] = NEWS.resumen_sentimiento(rec["noticias"])
+    if NEWS.REDES:
+        try:
+            rec["redes"] = {"stocktwits": NEWS.stocktwits(company["ticker"])}
+            fuentes["StockTwits"] = {"ok": True, "mensajes": rec["redes"]["stocktwits"]["mensajes"]}
+        except Exception as e:  # noqa: BLE001  secundario: se queda lo anterior
+            if (previous or {}).get("redes"):
+                rec["redes"] = previous["redes"]
+            fuentes["StockTwits"] = {"ok": False, "error": f"{type(e).__name__}: {str(e)[:120]}"}
     rec["noticias_fuentes"] = {"medios_sectoriales": [NEWS.FEEDS[m][0] for m in company.get("medios") or [] if m in NEWS.FEEDS],
                                "alias": company.get("alias") or [], "proveedores": fuentes}
 
