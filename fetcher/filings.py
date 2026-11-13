@@ -82,6 +82,48 @@ def recent_8k_news(cik, subs, today=None, days=45, limit=6):
     return out
 
 
+# Otras presentaciones que pueden cambiar la tesis y que no son 8-K, 10-Q ni 10-K. Los formularios 4 ya se
+# leen en directivos; el 144 (aviso de venta) y el 13G (inversor pasivo) son demasiado frecuentes y aportan poco.
+OTRAS_FORMAS = {
+    "3": "alta de un directivo o consejero (formulario 3)",
+    "SC 13D": "accionista activista o de control con más del 5% (13D)", "SC 13D/A": "cambio en un 13D",
+    "SCHEDULE 13D": "accionista activista o de control con más del 5% (13D)", "SCHEDULE 13D/A": "cambio en un 13D",
+    "DEF 14A": "convocatoria de la junta (proxy)", "DEFA14A": "material adicional para la junta",
+    "PRE 14A": "borrador de convocatoria de la junta", "PRE 14C": "decisión de accionistas por escrito (14C)",
+    "DEF 14C": "decisión de accionistas por escrito (14C)",
+    "S-1": "registro de una emisión", "S-3": "registro de una emisión (S-3)", "S-3ASR": "registro automático de emisión (S-3ASR)",
+    "S-4": "registro por fusión o canje", "425": "comunicación sobre una fusión", "SC TO-T": "OPA de un tercero",
+    "SC TO-I": "oferta de recompra propia", "SC 14D9": "posición del consejo ante una OPA",
+    "10-K/A": "corrección del 10-K", "10-Q/A": "corrección del 10-Q", "NT 10-K": "retraso del 10-K", "NT 10-Q": "retraso del 10-Q",
+    "15-12B": "baja de registro", "25-NSE": "exclusión de cotización",
+}
+
+
+def recent_other_filings(cik, subs, today=None, days=45, limit=12):
+    """Presentaciones relevantes que no son 8-K/10-Q/10-K, de los últimos «days» días (sin peticiones extra)."""
+    from datetime import date, timedelta
+    today = today or date.today()
+    desde = (today - timedelta(days=days)).isoformat()
+    out = []
+    for row in recent_rows(subs):
+        if row["filingDate"] < desde:
+            break
+        forma = row["form"]
+        if forma.startswith("424B"):
+            desc = "folleto de una emisión (424B)"
+        else:
+            desc = OTRAS_FORMAS.get(forma)
+        if not desc:
+            continue
+        rec = filing_record(cik, row, forma)
+        out.append({"formulario": forma, "descripcion": desc, "fecha_presentacion": row["filingDate"],
+                    "accn": row["accessionNumber"], "url_indice": rec["url_indice"],
+                    "url_documento": rec["url_documento"], "fuente": f"SEC EDGAR · {forma}"})
+        if len(out) >= limit:
+            break
+    return out
+
+
 def is_foreign_filer(subs):
     rows = recent_rows(subs)
     forms = {r["form"] for r in rows}

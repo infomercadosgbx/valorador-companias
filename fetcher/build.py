@@ -384,10 +384,21 @@ def _noticias(rec, company, subs, price_provider, previous):
             lotes.append(lote)
         except Exception as e:  # noqa: BLE001
             fuentes["RSS de medios"] = {"ok": False, "error": f"{type(e).__name__}: {str(e)[:120]}"}
+        if company.get("newsroom"):
+            lote = NEWS.from_newsroom(company, NEWS.FEEDS_CACHE)
+            est = NEWS.FEEDS_CACHE.estado.get(f"sala:{company['ticker']}") or {}
+            fuentes["Sala de prensa"] = {"ok": bool(est.get("ok")), "titulares": len(lote),
+                                         **({"error": est["error"]} if est.get("error") else {})}
+            lotes.append(lote)
     if subs:
         lotes.append(F.recent_8k_news(company["cik"], subs))
     prev = (previous or {}).get("noticias") or []
     rec["noticias"] = NEWS.combinar(lotes, prev)
+    if NEWS.FEEDS_CACHE is not None:          # solo en la ejecución real (en los tests no hay red)
+        try:
+            NEWS.resolver_finnhub(rec["noticias"], prev)
+        except Exception:  # noqa: BLE001  extra: se quedan los enlaces de Finnhub
+            pass
     rec["noticias_sentimiento"] = NEWS.resumen_sentimiento(rec["noticias"])
     if NEWS.REDES:
         try:
@@ -466,6 +477,10 @@ def build_company(client, company, price_provider, price_warning=None, previous=
             rec["consenso_automatico"] = price_provider.recommendations(company["ticker"])
         except Exception as e:  # noqa: BLE001
             rec["avisos"].append(X.warn("info", "sin_consenso", f"Recomendaciones no disponibles: {e}"))
+    try:
+        rec["presentaciones_sec"] = F.recent_other_filings(company["cik"], subs) if subs else []
+    except Exception:  # noqa: BLE001  extra
+        rec["presentaciones_sec"] = prev.get("presentaciones_sec") or []
     _noticias(rec, company, subs, None if price_warning else price_provider, previous)
     # Histórico de cotizaciones (secundario: si falla, se conserva el anterior y se avisa)
     rec["historico_precio"] = (previous or {}).get("historico_precio")

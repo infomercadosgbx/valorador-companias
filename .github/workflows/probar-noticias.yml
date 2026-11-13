@@ -42,6 +42,21 @@ jobs:
           print(f"\n## Titulares de hoy que mencionan a {c['nombre']}\n")
           for n in N.from_feeds(c, cache)[:15]:
               print(f"- {n['fecha']} · **{n['medio']}** · [{n['titular']}]({n['url']})")
+          print("\n## Salas de prensa (todas las compañías)\n\n| Compañía | Estado | Titulares | Feed usado | Error |\n|---|---|---|---|---|")
+          for co in load_companies():
+              if not co.get("newsroom"):
+                  print(f"| {co['ticker']} | — | 0 | sin «newsroom» | |"); continue
+              items, url, err = N.leer_sala(co["newsroom"])
+              print(f"| {co['ticker']} | {'✅' if items else '❌'} | {len(items)} | {url or ''} | {(err or '')[:150]} |")
+              for n in items[:2]:
+                  print(f"| | | | {n['fecha']} · {n['titular'][:80]} | |")
+          print("\n## Enlaces de Finnhub\n")
+          import json, pathlib
+          dat = json.loads(pathlib.Path(f"data/{t}.json").read_text(encoding="utf-8")) if pathlib.Path(f"data/{t}.json").exists() else {}
+          muestra = [dict(n) for n in (dat.get("noticias") or []) if (n.get("url") or "").startswith("https://finnhub.io/api/news")][:5]
+          print(f"Resueltos {N.resolver_finnhub(muestra)} de {len(muestra)}:\n")
+          for n in muestra:
+              print(f"- {'✅' if n.get('url_finnhub') else '❌'} {n['titular'][:70]} → {n['url'][:100]}")
           print("\n## APIs\n")
           apis = N.apis_from_env()
           if not apis:

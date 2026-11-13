@@ -12,9 +12,16 @@ Señales (umbrales en las constantes de abajo):
 - 2 o más titulares nuevos (data/<T>.json → noticias) con sentimiento muy marcado (no se usa
   el número de titulares: Finnhub da casi a diario una decena por compañía grande);
 - una nota de prensa de la compañía o un titular de un medio sectorial nuevos;
+- una publicación nueva en la sala de prensa o el blog de la compañía (companies.json → newsroom);
+- una presentación a la SEC que no es 8-K/10-Q/10-K (formulario 3, 13D, junta, emisión, OPA…;
+  data/<T>.json → presentaciones_sec);
+  (si la sala publica mucho, como un blog, solo cuentan las publicaciones con palabras de novedad material);
 - un asunto vigilado en seguimientos.json con hallazgos nuevos o estado distinto de «sin_cambios»;
 - resultados en los próximos 7 días o en los 3 últimos (reacción y cambios de precio objetivo);
 - la compañía nunca ha tenido revisión de internet.
+
+Los titulares de precio objetivo o recomendación de analistas no abren la revisión: se listan aparte
+(«precio_objetivo») para actualizar manual/<T>.json, que es barato.
 
 La ventana empieza el día de la revisión anterior (propuestas/_estado.json → internet.<T>);
 si no hay ninguna, los 3 últimos días.
@@ -23,6 +30,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
 from datetime import date, datetime, timedelta
 from pathlib import Path
@@ -38,6 +46,15 @@ DIAS_ANTES_RESULTADOS = 7
 DIAS_TRAS_RESULTADOS = 3
 VENTANA_POR_DEFECTO = 3
 DIA_REPASO_COMPLETO = 5     # viernes (isoweekday)
+# Titulares de cambios de precio objetivo o de recomendación («Price Target», «Upgrades», «Initiates»…)
+PRECIO_OBJETIVO = re.compile(r"price target|\bPT\b|upgrade|downgrade|initiat\w* coverage|initiates|"
+                             r"reiterat\w*|maintains (buy|sell|hold|neutral|overweight|underweight|outperform)|"
+                             r"precio objetivo|consensus price", re.I)
+VIA_SALA = "Sala de prensa de la compañía"
+SALA_POCAS = 3              # salas con pocas publicaciones: cualquiera es señal; con muchas (blogs), solo las materiales
+MATERIAL = re.compile(r"acqui|merger|agreement|partnership|appoint|names .*(chief|officer|ceo|cfo)|resign|steps down|"
+                      r"guidance|outlook|dividend|repurchase|buyback|offering|notes due|lawsuit|settlement|investigation|"
+                      r"layoff|restructur|recall|fda|approval|contract|price increase|tests? ads|advertis", re.I)
 
 
 def rd(p: Path, default=None):
@@ -66,9 +83,16 @@ def senales(t: str, data: dict, desde: date, hoy: date) -> list[str]:
     fuertes = [n for n in nuevas if abs(((n.get("sentimiento") or {}).get("puntuacion") or 0)) >= UMBRAL_SENTIMIENTO]
     if len(fuertes) >= UMBRAL_FUERTES:
         s.append(f"{len(fuertes)} titular(es) con sentimiento muy marcado")
-    propias = [n for n in nuevas if n.get("tipo") in ("nota_prensa", "sectorial")]
+    propias = [n for n in nuevas if n.get("tipo") in ("nota_prensa", "sectorial") and n.get("via") != VIA_SALA]
     if propias:
         s.append(f"{len(propias)} nota(s) de prensa o noticia(s) sectorial(es)")
+    sala = [n for n in nuevas if n.get("via") == VIA_SALA]
+    sala_mat = [n for n in sala if MATERIAL.search(n.get("titular") or "")]
+    if sala and (len(sala) <= SALA_POCAS or sala_mat):
+        s.append(f"{len(sala_mat) or len(sala)} publicación(es) en la sala de prensa de la compañía")
+    sec = [p for p in data.get("presentaciones_sec") or [] if (fecha(p.get("fecha_presentacion")) or date.min) > desde]
+    if sec:
+        s.append("SEC: " + "; ".join(sorted({f"{p['formulario']} ({p['descripcion']})" for p in sec})))
     for seg in data.get("seguimientos") or []:
         cod = (seg.get("estado") or {}).get("codigo")
         hall = [h for h in seg.get("hallazgos") or [] if (fecha(h.get("fecha")) or date.min) > desde]
@@ -81,6 +105,13 @@ def senales(t: str, data: dict, desde: date, hoy: date) -> list[str]:
     if ult and 0 <= (hoy - ult).days <= DIAS_TRAS_RESULTADOS:
         s.append(f"resultados presentados el {ult.isoformat()}")
     return s
+
+
+def objetivos(data: dict, desde: date) -> list[str]:
+    """Titulares de la ventana sobre precio objetivo o recomendación: no abren la revisión de internet,
+    pero la tarea actualiza con ellos manual/<T>.json (apartado 5 bis), que es barato."""
+    return [n["titular"] for n in data.get("noticias") or []
+            if (fecha(n.get("fecha")) or date.min) > desde and PRECIO_OBJETIVO.search(n.get("titular") or "")]
 
 
 def lista_companias() -> list[dict]:
@@ -103,7 +134,8 @@ def calcular(hoy: date) -> list[dict]:
             s.append("sin revisión de internet anterior")
         if completo and not s:
             s.append("repaso semanal completo (viernes)")
-        out.append({"ticker": t, "desde": desde.isoformat(), "revisar": bool(s), "senales": s})
+        out.append({"ticker": t, "desde": desde.isoformat(), "revisar": bool(s), "senales": s,
+                    "precio_objetivo": objetivos(data, desde)})
     return out
 
 
@@ -132,7 +164,8 @@ def main() -> int:
         print()
         return 0
     for r in res:
-        print(f"{r['ticker']:6} {'REVISAR' if r['revisar'] else '—':8} desde {r['desde']}: {'; '.join(r['senales']) or 'sin señales'}")
+        po = f" · precio objetivo: {len(r['precio_objetivo'])} titular(es)" if r["precio_objetivo"] else ""
+        print(f"{r['ticker']:6} {'REVISAR' if r['revisar'] else '—':8} desde {r['desde']}: {'; '.join(r['senales']) or 'sin señales'}{po}")
     return 0
 
 

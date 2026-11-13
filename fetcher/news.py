@@ -202,6 +202,91 @@ def from_feeds(company, cache: FeedCache) -> list:
     return out
 
 
+# ---------------------------------------------------------------- sala de prensa de la compañía
+def descubrir_feed(html: bytes, base: str) -> str | None:
+    """<link rel="alternate" type="application/rss+xml" href="…"> de una página (autodescubrimiento RSS)."""
+    txt = html[:400_000].decode("utf-8", "ignore")
+    for m in re.finditer(r"<link\b[^>]*>", txt, re.I):
+        tag = m.group(0)
+        if re.search(r"application/(rss|atom)\+xml", tag, re.I):
+            h = re.search(r"href=[\"']([^\"']+)", tag, re.I)
+            if h:
+                return urllib.parse.urljoin(base, h.group(1).replace("&amp;", "&"))
+    return None
+
+
+def leer_sala(urls, opener=None, sleep=time.sleep):
+    """Prueba cada dirección de companies.json → newsroom: si es un feed, lo lee; si es una página,
+    busca su feed RSS y lo lee. Devuelve (items, url_usada, error)."""
+    err = None
+    for url in ([urls] if isinstance(urls, str) else list(urls or [])):
+        try:
+            raw = _http_get(url, opener=opener, sleep=sleep, reintentos=1)
+            cabeza = raw[:600].lstrip().lower()
+            if not (cabeza.startswith(b"<?xml") or b"<rss" in cabeza or b"<feed" in cabeza):
+                feed = descubrir_feed(raw, url)
+                if not feed:
+                    err = f"{url}: sin feed RSS en la página"
+                    continue
+                url, raw = feed, _http_get(feed, opener=opener, sleep=sleep, reintentos=1)
+            items = parse_feed(raw)
+            if items:
+                return items, url, None
+            err = f"{url}: feed vacío"
+        except Exception as e:  # noqa: BLE001
+            err = f"{url}: {type(e).__name__}: {str(e)[:100]}"
+    return [], None, err or "sin direcciones"
+
+
+def from_newsroom(company, cache: "FeedCache") -> list:
+    """Notas y entradas del blog de la propia compañía (sin filtrar por nombre: todo es suyo)."""
+    urls = company.get("newsroom")
+    if not urls:
+        return []
+    fid = f"sala:{company['ticker']}"
+    if fid not in cache.items:
+        items, url, err = leer_sala(urls, opener=cache._open, sleep=cache._sleep)
+        cache.items[fid] = items
+        cache.estado[fid] = {"medio": f"Sala de prensa de {company.get('nombre') or company['ticker']}",
+                             "url": url or (urls if isinstance(urls, str) else urls[0]), "tipo": "nota_prensa",
+                             "ok": err is None, "titulares": len(items), "error": err}
+    medio = f"{company.get('nombre') or company['ticker']} (sala de prensa)"
+    return [dict(n, medio=medio, tipo="nota_prensa", via="Sala de prensa de la compañía") for n in cache.items[fid]]
+
+
+# ---------------------------------------------------------------- enlaces de Finnhub
+class _SinRedireccion(urllib.request.HTTPRedirectHandler):
+    def redirect_request(self, *a, **k):
+        return None
+
+
+def resolver_finnhub(noticias: list, previas: list | None = None, opener=None, maximo=40) -> int:
+    """Finnhub guarda muchos enlaces como finnhub.io/api/news?id=…, que redirigen al artículo. Se guarda
+    el enlace real en «url» (y el de Finnhub en «url_finnhub») para que se pueda abrir y citar.
+    Reutiliza lo resuelto en noches anteriores. Devuelve cuántos ha resuelto en esta ejecución."""
+    hechos = {n["url_finnhub"]: n["url"] for n in previas or [] if n.get("url_finnhub") and n.get("url")}
+    abrir = opener or urllib.request.build_opener(_SinRedireccion).open
+    nuevos = 0
+    for n in noticias:
+        u = n.get("url") or ""
+        if not u.startswith("https://finnhub.io/api/news"):
+            continue
+        destino = hechos.get(u)
+        if not destino and nuevos < maximo:
+            nuevos += 1
+            try:
+                req = urllib.request.Request(u, headers={"User-Agent": UA}, method="GET")
+                with abrir(req, timeout=15) as r:
+                    destino = r.headers.get("Location") or (r.geturl() if r.geturl() != u else None)
+            except urllib.error.HTTPError as e:
+                destino = e.headers.get("Location") if 300 <= e.code < 400 else None
+            except Exception:  # noqa: BLE001  se queda el enlace de Finnhub
+                destino = None
+        if destino and destino.startswith("http") and "finnhub.io" not in destino:
+            n["url_finnhub"], n["url"] = u, destino
+    return nuevos
+
+
 # ---------------------------------------------------------------- APIs
 MEDIOS_DOMINIO = {"benzinga.com": "Benzinga", "fool.com": "Motley Fool", "zacks.com": "Zacks", "cnbc.com": "CNBC",
                   "finance.yahoo.com": "Yahoo Finance", "seekingalpha.com": "Seeking Alpha", "marketwatch.com": "MarketWatch",
