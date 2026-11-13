@@ -388,7 +388,9 @@ class Reddit:
         return {"fuente": "Reddit (API oficial)", "url": f"https://www.reddit.com/search/?q={urllib.parse.quote(nombre)}&t=week",
                 "publicaciones_7d": len(posts), "comentarios_7d": sum(p.get("num_comments") or 0 for p in posts),
                 "foros": sorted({p.get("subreddit") for p in posts if p.get("subreddit")}),
-                "destacadas": [{"titulo": _clean(p.get("title"), 200), "foro": p.get("subreddit"), "votos": p.get("score"),
+                # Sin títulos ni textos de los usuarios: solo cifras y el enlace a la publicación en Reddit
+                # (la web es pública y así no se republica contenido que el autor pueda borrar después).
+                "destacadas": [{"foro": p.get("subreddit"), "votos": p.get("score"),
                                 "comentarios": p.get("num_comments"), "url": "https://www.reddit.com" + (p.get("permalink") or ""),
                                 "fecha": datetime.fromtimestamp(p.get("created_utc") or 0, timezone.utc).date().isoformat()} for p in top],
                 "fecha": date.today().isoformat()}
