@@ -7,7 +7,7 @@
   "hq": "Mountain View, California",
   "founded": "1998",
   "employees": "204.757",
-  "asOf": "11-nov-2026"
+  "asOf": "13-nov-2026"
  },
  "overview": {
   "thesis": "Gran negocio en plena fase de inversión: Cloud se duplica, pero el capex se come el flujo de caja y la búsqueda se frena. A ~283 $ sigue por encima de la zona de compra (255 $): mantener.",
@@ -1153,6 +1153,22 @@
     ]
    },
    "origen": "git c42bc8e08d"
+  }
+ ],
+ "cambios_auto": [
+  {
+   "fecha": "2026-11-13",
+   "campo": "meta.asOf",
+   "antes": "11-nov-2026",
+   "despues": "13-nov-2026",
+   "porque": "Auditoría oficial completa del 13-nov-2026 contra el 10-Q y la nota de resultados",
+   "fuente": {
+    "t": "10-Q presentado el 2026-10-29 (SEC)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/goog-20260930.htm",
+    "d": "13-nov-2026"
+   },
+   "verificacion": "fuente.u = data/GOOGL.json ultimo_informe.url_documento (10-Q presentado el 2026-10-29 (SEC)), responde 200; único cambio meta.asOf=13-nov-2026; la auditoría 87b795b del 13-nov-2026 lo revisó: ya al día, sin cambios.",
+   "motivo": "Auditoría oficial de las pestañas (SEC y compañía) y revisión de internet del 13-nov-2026"
   }
  ]
 }

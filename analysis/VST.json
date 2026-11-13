@@ -6,7 +6,7 @@
   "hq": "Irving, Texas",
   "founded": "2016 (raíces en TXU, 1882)",
   "employees": "6.390",
-  "asOf": "12-nov-2026",
+  "asOf": "13-nov-2026",
   "nextEarnings": "Feb-2027 (4T26, fecha por confirmar)"
  },
  "overview": {
@@ -949,6 +949,22 @@
     ]
    },
    "origen": "git a30b650ca1"
+  }
+ ],
+ "cambios_auto": [
+  {
+   "fecha": "2026-11-13",
+   "campo": "meta.asOf",
+   "antes": "12-nov-2026",
+   "despues": "13-nov-2026",
+   "porque": "Auditoría oficial completa del 13-nov-2026 contra el 10-Q y la nota de resultados",
+   "fuente": {
+    "t": "10-Q presentado el 2026-11-09 (SEC)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/vistra-20260930.htm",
+    "d": "13-nov-2026"
+   },
+   "verificacion": "fuente.u = data/VST.json ultimo_informe.url_documento (10-Q presentado el 2026-11-09 (SEC)), responde 200; único cambio meta.asOf=13-nov-2026; la auditoría 87b795b del 13-nov-2026 lo revisó: ya al día, sin cambios.",
+   "motivo": "Auditoría oficial de las pestañas (SEC y compañía) y revisión de internet del 13-nov-2026"
   }
  ]
 }

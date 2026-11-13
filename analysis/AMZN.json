@@ -7,7 +7,7 @@
   "hq": "Seattle, Washington",
   "founded": "1994",
   "employees": "1.638.000 (sep-26)",
-  "asOf": "8-nov-2026"
+  "asOf": "13-nov-2026"
  },
  "overview": {
   "thesis": "AWS se acelera (+39%) con una cartera de 578.000 M$ y Amazon gasta 220.000 M$ al año en centros de datos: el flujo de caja libre de 12 meses es de −42.400 M$. Tras subir un 8% desde los resultados, a ~259 $ cotiza algo por encima de lo que refleja el modelo base.",
@@ -1514,6 +1514,20 @@
    },
    "verificacion": "Solo cambia la nota de «Más deuda»: 68.851 (dic-25) y 180.332 M$ (sep-26) coinciden con data/AMZN.json; resto de riesgos y puntuaciones sin cambios.",
    "motivo": "Auditoría oficial de las pestañas (SEC y compañía)"
+  },
+  {
+   "fecha": "2026-11-13",
+   "campo": "meta.asOf",
+   "antes": "8-nov-2026",
+   "despues": "13-nov-2026",
+   "porque": "Auditoría oficial completa del 13-nov-2026 contra el 10-Q y la nota de resultados",
+   "fuente": {
+    "t": "10-Q presentado el 2026-10-30 (SEC)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/amzn-20260930.htm",
+    "d": "13-nov-2026"
+   },
+   "verificacion": "fuente.u = data/AMZN.json ultimo_informe.url_documento (10-Q presentado el 2026-10-30 (SEC)), responde 200; único cambio meta.asOf=13-nov-2026; la auditoría 87b795b del 13-nov-2026 lo revisó: con cambios aplicados (contratos IA, balance y FCF 3T26).",
+   "motivo": "Auditoría oficial de las pestañas (SEC y compañía) y revisión de internet del 13-nov-2026"
   }
  ]
 }

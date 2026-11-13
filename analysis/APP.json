@@ -6,7 +6,7 @@
   "hq": "Palo Alto, California",
   "founded": "2012",
   "employees": "898 (dic-25)",
-  "asOf": "8-nov-2026",
+  "asOf": "13-nov-2026",
   "nextEarnings": "9-feb-2027 (estimada, tras el cierre)",
   "fav": true
  },
@@ -1336,6 +1336,20 @@
    },
    "verificacion": "Nuevo: PRE 14C presentado el 12-nov-2026 en EDGAR; reincorporación de Delaware a Nevada aprobada por consentimiento escrito de accionistas con ~67% del voto (según el documento). Los 14 documentos existentes no cambian.",
    "motivo": "Presentación a la SEC del 12-nov-2026 (PRE 14C): cambio de domicilio social a Nevada"
+  },
+  {
+   "fecha": "2026-11-13",
+   "campo": "meta.asOf",
+   "antes": "8-nov-2026",
+   "despues": "13-nov-2026",
+   "porque": "Auditoría oficial completa del 13-nov-2026 contra el 10-Q y la nota de resultados",
+   "fuente": {
+    "t": "10-Q presentado el 2026-11-04 (SEC)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000069/app-20260930.htm",
+    "d": "13-nov-2026"
+   },
+   "verificacion": "fuente.u = data/APP.json ultimo_informe.url_documento (10-Q presentado el 2026-11-04 (SEC)), responde 200; único cambio meta.asOf=13-nov-2026; la auditoría 87b795b del 13-nov-2026 lo revisó: ya al día, sin cambios.",
+   "motivo": "Auditoría oficial de las pestañas (SEC y compañía) y revisión de internet del 13-nov-2026"
   }
  ]
 }

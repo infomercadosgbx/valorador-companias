@@ -223,5 +223,7 @@ Para la compañía elegida, compara cada pestaña de `analysis/<T>.json` con el 
 - un catalizador tenga fecha pasada, o falte la próxima fecha de resultados (→ `hecho`);
 - una afirmación de una pestaña no tenga ninguna fuente oficial detrás: reescríbela con la cita, o déjala en el resumen como «sin respaldo oficial» para el usuario si no encuentras el documento.
 
-Cada cambio, con su `fuente` oficial (SEC o la compañía) y fecha. No reescribas una pestaña entera: corrige solo lo que falla y conserva lo válido. Todo pasa por la verificación del apartado 8.5 y se aplica con 8.6. Si la compañía ya está perfectamente al día, dilo en el resumen («auditoría oficial de <T>: sin cambios») y no fuerces ninguno. En el resumen, nombra siempre a qué compañía le tocó la auditoría de hoy.
+Cada cambio, con su `fuente` oficial (SEC o la compañía) y fecha. No reescribas una pestaña entera: corrige solo lo que falla y conserva lo válido. Todo pasa por la verificación del apartado 8.5 y se aplica con 8.6. Si la compañía ya está perfectamente al día, dilo en el resumen («auditoría oficial de <T>: sin cambios») y no fuerces ninguno.
+
+**Fecha de revisión.** Termine con cambios o sin ellos, propón siempre `meta.asOf` con la fecha de hoy (`tipo: "hecho"`, fuente: el último 10-Q/10-K revisado). Es la fecha que enseña la columna «Análisis» de la web: si no se actualiza, una compañía revisada aparece como «hace X días» o «Revisar». Lo mismo vale para cualquier compañía cuya lista de comprobación oficial (7.5) se haya recorrido con un documento nuevo, y para las que la revisión de internet (parte B) haya mirado completas con la lista de comprobación. En el resumen, nombra siempre a qué compañía le tocó la auditoría de hoy.
 

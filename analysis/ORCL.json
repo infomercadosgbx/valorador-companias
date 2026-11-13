@@ -6,7 +6,7 @@
   "hq": "Austin, Texas",
   "founded": "1977",
   "employees": "~160.000",
-  "asOf": "9-nov-2026",
+  "asOf": "13-nov-2026",
   "fav": false,
   "autogenerado": "2026-11-02",
   "nextEarnings": "14-dic-2026 (Finnhub)"
@@ -1216,6 +1216,20 @@
    },
    "verificacion": "Catalizador de resultados 2T FY27 alineado con data (14-dic-2026).",
    "motivo": "Auditoría oficial de las pestañas (SEC y compañía)"
+  },
+  {
+   "fecha": "2026-11-13",
+   "campo": "meta.asOf",
+   "antes": "9-nov-2026",
+   "despues": "13-nov-2026",
+   "porque": "Auditoría oficial completa del 13-nov-2026 contra el 10-Q y la nota de resultados",
+   "fuente": {
+    "t": "10-Q presentado el 2026-09-11 (SEC)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526389274/orcl-20260831.htm",
+    "d": "13-nov-2026"
+   },
+   "verificacion": "fuente.u = data/ORCL.json ultimo_informe.url_documento (10-Q presentado el 2026-09-11 (SEC)), responde 200; único cambio meta.asOf=13-nov-2026; la auditoría 87b795b del 13-nov-2026 lo revisó: con cambios aplicados (próxima fecha de resultados).",
+   "motivo": "Auditoría oficial de las pestañas (SEC y compañía) y revisión de internet del 13-nov-2026"
   }
  ]
 }

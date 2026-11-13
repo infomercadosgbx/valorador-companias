@@ -7,7 +7,7 @@
   "hq": "Nueva York",
   "founded": "2005 (Bucarest)",
   "employees": "~3.800",
-  "asOf": "5-nov-2026"
+  "asOf": "13-nov-2026"
  },
  "overview": {
   "thesis": "El líder de la automatización con robots de software intenta convertirse en el «director de orquesta» de los agentes de IA. Rentable, sin deuda y con recompras, cotiza a ~14 $ (−87% desde máximos) y unas 3 veces las ventas: barata si la IA agéntica amplía su mercado; trampa si los agentes de OpenAI, Microsoft o Salesforce la sustituyen.",
@@ -814,6 +814,20 @@
    },
    "verificacion": "data→resultados_previstos: 2026-12-03, 3T FY27 (catalizador de resultados).",
    "motivo": "Auditoría oficial de las pestañas (SEC y compañía)"
+  },
+  {
+   "fecha": "2026-11-13",
+   "campo": "meta.asOf",
+   "antes": "5-nov-2026",
+   "despues": "13-nov-2026",
+   "porque": "Auditoría oficial completa del 13-nov-2026 contra el 10-Q y la nota de resultados",
+   "fuente": {
+    "t": "10-Q presentado el 2026-09-08 (SEC)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1734722/000173472226000050/path-20260731.htm",
+    "d": "13-nov-2026"
+   },
+   "verificacion": "fuente.u = data/PATH.json ultimo_informe.url_documento (10-Q presentado el 2026-09-08 (SEC)), responde 200; único cambio meta.asOf=13-nov-2026; la auditoría 87b795b del 13-nov-2026 lo revisó: con cambios aplicados (próxima fecha de resultados).",
+   "motivo": "Auditoría oficial de las pestañas (SEC y compañía) y revisión de internet del 13-nov-2026"
   }
  ]
 }

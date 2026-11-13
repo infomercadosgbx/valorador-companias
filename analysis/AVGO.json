@@ -6,7 +6,7 @@
   "hq": "Palo Alto, California",
   "founded": "1961 (como división de HP; Broadcom actual desde 2016)",
   "employees": "33.000",
-  "asOf": "11-nov-2026",
+  "asOf": "13-nov-2026",
   "nextEarnings": "9-dic-2026",
   "fav": false
  },
@@ -1364,6 +1364,20 @@
    },
    "verificacion": "Nuevos: dos noticias del 12-nov en data/AVGO.json → noticias (Benzinga: AMD y Broadcom suben por rotación desde Nvidia; Investing.com vía Yahoo: Ming-Chi Kuo ve beneficiados a los TPU de Google y Broadcom); la dimisión del CEO de Nvidia del 12-nov la confirman NPR, CNBC y un 8-K de Nvidia. Los 18 elementos existentes no cambian.",
    "motivo": "Novedades del 12-nov-2026: la salida del consejero delegado de Nvidia empuja a Broadcom"
+  },
+  {
+   "fecha": "2026-11-13",
+   "campo": "meta.asOf",
+   "antes": "11-nov-2026",
+   "despues": "13-nov-2026",
+   "porque": "Auditoría oficial completa del 13-nov-2026 contra el 10-Q y la nota de resultados",
+   "fuente": {
+    "t": "10-Q presentado el 2026-09-10 (SEC)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1730168/000173016826000080/avgo-20260802.htm",
+    "d": "13-nov-2026"
+   },
+   "verificacion": "fuente.u = data/AVGO.json ultimo_informe.url_documento (10-Q presentado el 2026-09-10 (SEC)), responde 200; único cambio meta.asOf=13-nov-2026; la auditoría 87b795b del 13-nov-2026 lo revisó: ya al día, sin cambios.",
+   "motivo": "Auditoría oficial de las pestañas (SEC y compañía) y revisión de internet del 13-nov-2026"
   }
  ]
 }
