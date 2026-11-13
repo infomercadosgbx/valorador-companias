@@ -7,7 +7,8 @@
   "founded": "2016 (raíces en TXU, 1882)",
   "employees": "6.390",
   "asOf": "13-nov-2026",
-  "nextEarnings": "Feb-2027 (4T26, fecha por confirmar)"
+  "nextEarnings": "Feb-2027 (4T26, fecha por confirmar)",
+  "repasoFondo": "2026-11-13"
  },
  "overview": {
   "thesis": "Productor eléctrico con ~49.000 MW (6.448 MW nucleares), ~5 millones de clientes minoristas y contratos de 20 años con Amazon y Meta. La guía de 2027 (7.700–8.500 M$ de EBITDA ajustado, generación cubierta al ~98%) y las recompras sostienen su objetivo de ~70% más FCF por acción entre 2027 y 2030; los riesgos principales son los precios de la luz en Texas desde 2028 y la deuda tras Cogentrix.",
@@ -1491,6 +1492,19 @@
    },
    "verificacion": "Nota de CEG del 9-nov-26: colaboración a largo plazo con Google para nueva capacidad nuclear, garantía condicional del DOE de hasta 5.000 M$ para ampliaciones y contrato Peak+ de 20 años y 270 MW; lo anunciado en octubre se recoge en la nota; resto de comps intacto",
    "motivo": "Repaso semanal a fondo (energía)"
+  },
+  {
+   "fecha": "2026-11-13",
+   "campo": "meta.repasoFondo",
+   "despues": "2026-11-13",
+   "porque": "Repaso semanal a fondo (energía) hecho y aplicado el 13-nov-2026",
+   "fuente": {
+    "t": "Repositorio: commit 745c362 «Repaso semanal: VST» y 1ba22f3 «Aplicado automáticamente: VST»",
+    "u": "https://github.com/infomercadosgbx/valorador-companias/commit/745c362",
+    "d": "13-nov-2026"
+   },
+   "verificacion": "git: 745c362 «Repaso semanal: VST» (13-nov-2026, motivo «Repaso semanal a fondo (energía)») aplicado en a6ec340/1ba22f3 el mismo día; analysis/VST.json tiene cambios_auto fecha 2026-11-13 con ese motivo.",
+   "motivo": "Fecha del repaso a fondo del 13-nov-2026"
   }
  ]
 }
