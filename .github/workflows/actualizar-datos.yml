@@ -128,7 +128,23 @@ jobs:
           if [ ! -s "$RUNNER_TEMP/avisos.md" ]; then echo "Sin avisos nuevos."; exit 0; fi
           gh label create aviso --color F59E0B --description "Avisos automáticos del valorador" --force >/dev/null 2>&1 || true
           n=$(grep -c '^\S.*\*\*' "$RUNNER_TEMP/avisos.md" || true)
-          gh issue create --title "Avisos del valorador · $(TZ=Europe/Madrid date +%d-%m-%Y) ($n)" --label aviso --body-file "$RUNNER_TEMP/avisos.md"
+          hoy=$(TZ=Europe/Madrid date +%d-%m-%Y)
+          titulo="Avisos del valorador · último: $hoy ($n)"
+          # Un solo Issue abierto que se va comentando: cada comentario llega por email igual
+          # que un Issue nuevo, pero no se acumulan decenas de Issues abiertos.
+          abiertos=$(gh issue list --label aviso --state open --limit 100 --json number --jq '[.[].number] | sort | reverse | .[]')
+          fijo=$(echo "$abiertos" | head -n1)
+          if [ -n "$fijo" ]; then
+            { echo "### $hoy"; echo; cat "$RUNNER_TEMP/avisos.md"; } > "$RUNNER_TEMP/comentario.md"
+            gh issue comment "$fijo" --body-file "$RUNNER_TEMP/comentario.md"
+            gh issue edit "$fijo" --title "$titulo"
+            for viejo in $(echo "$abiertos" | tail -n +2); do
+              gh issue close "$viejo" --comment "Agrupado en #$fijo." || true
+            done
+          else
+            { echo "Aquí llegan los avisos del valorador: cada día con novedades se añade un comentario."; echo; echo "### $hoy"; echo; cat "$RUNNER_TEMP/avisos.md"; } > "$RUNNER_TEMP/comentario.md"
+            gh issue create --title "$titulo" --label aviso --body-file "$RUNNER_TEMP/comentario.md"
+          fi
 
       - name: Abrir o actualizar un Issue si la SEC falla
         if: steps.fetch.outcome == 'failure'

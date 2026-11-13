@@ -4,6 +4,13 @@ name: Publicar web
 on:
   push:
     branches: [main]
+    # Estos cambios ya los publica «Rehacer informes» al terminar (workflow_run). Si también
+    # se publicaran aquí, las dos publicaciones se pisaban y a veces fallaba el despliegue.
+    # Si el push trae además otros archivos (p. ej. valorador.html), sí se publica aquí.
+    paths-ignore:
+      - "analysis/*.json"
+      - "manual/*.json"
+      - "i18n/notas_es.json"
   workflow_run:
     # «Mercado hoy» hace commit con GITHUB_TOKEN, que no dispara el evento push: sin esta línea,
     # el cierre de las 23:47 UTC no llegaba a la web hasta la actualización del día siguiente.
@@ -16,9 +23,11 @@ permissions:
   pages: write
   id-token: write
 
+# En cola, sin cancelar: cancelar un despliegue a medias es lo que dejaba la web sin
+# publicar algunas veces. Si llegan varias, GitHub deja solo la más reciente en espera.
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   publicar:
@@ -44,5 +53,15 @@ jobs:
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
-      - id: deploy
+      - id: deploy1
         uses: actions/deploy-pages@v4
+        continue-on-error: true
+      # A veces GitHub tarda en registrar el artefacto recién subido («Found 0 artifacts»):
+      # se espera un poco y se reintenta una vez.
+      - if: steps.deploy1.outcome == 'failure'
+        run: sleep 30
+      - id: deploy2
+        if: steps.deploy1.outcome == 'failure'
+        uses: actions/deploy-pages@v4
+      - id: deploy
+        run: echo "page_url=${{ steps.deploy1.outputs.page_url || steps.deploy2.outputs.page_url }}" >> "$GITHUB_OUTPUT"
