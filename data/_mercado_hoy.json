@@ -1,6 +1,6 @@
 {
  "esquema": 2,
- "generado": "2026-11-12T22:48:16+00:00",
+ "generado": "2026-11-13T00:28:25+00:00",
  "grupos": {
   "bolsa": "Bolsa",
   "volatilidad": "Volatilidad y divisas",
@@ -608,17 +608,13 @@
    "unidad": "pts",
    "fuente": "Cboe",
    "corto": "Cboe VIX3M",
-   "valor": 19.24,
-   "anterior": 20.64,
-   "fecha": "2026-11-11",
+   "valor": 20.06,
+   "anterior": 19.24,
+   "fecha": "2026-11-12",
    "url": "https://www.cboe.com/tradable_products/vix/vix_historical_data/",
-   "var": -1.4,
-   "var_pct": -6.78,
+   "var": 0.82,
+   "var_pct": 4.26,
    "serie": [
-    [
-     "2026-08-12",
-     18.53
-    ],
     [
      "2026-08-13",
      18.61
@@ -874,6 +870,10 @@
     [
      "2026-11-11",
      19.24
+    ],
+    [
+     "2026-11-12",
+     20.06
     ]
    ]
   },
@@ -886,17 +886,13 @@
    "unidad": "pts",
    "fuente": "Cboe",
    "corto": "Cboe VXN",
-   "valor": 26.74,
-   "anterior": 28.57,
-   "fecha": "2026-11-11",
+   "valor": 28.55,
+   "anterior": 26.74,
+   "fecha": "2026-11-12",
    "url": "https://www.cboe.com/tradable_products/vix/vix_historical_data/",
-   "var": -1.83,
-   "var_pct": -6.41,
+   "var": 1.81,
+   "var_pct": 6.77,
    "serie": [
-    [
-     "2026-08-12",
-     20.97
-    ],
     [
      "2026-08-13",
      21.23
@@ -1152,6 +1148,10 @@
     [
      "2026-11-11",
      26.74
+    ],
+    [
+     "2026-11-12",
+     28.55
     ]
    ]
   },
@@ -2003,12 +2003,12 @@
    "unidad": "",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 1.1056,
+   "valor": 1.1053,
    "anterior": 1.1056,
    "fecha": "2026-11-13",
    "url": "https://twelvedata.com/",
-   "var": 0.0,
-   "var_pct": 0.0
+   "var": -0.0003,
+   "var_pct": -0.02
   },
   {
    "id": "usdjpy",
@@ -2019,12 +2019,12 @@
    "unidad": "",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 159.8552,
+   "valor": 159.833,
    "anterior": 159.8375,
    "fecha": "2026-11-13",
    "url": "https://twelvedata.com/",
-   "var": 0.0176,
-   "var_pct": 0.01
+   "var": -0.0045,
+   "var_pct": -0.0
   },
   {
    "id": "gbpusd",
@@ -2035,12 +2035,12 @@
    "unidad": "",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 1.3238,
+   "valor": 1.3233,
    "anterior": 1.3236,
    "fecha": "2026-11-13",
    "url": "https://twelvedata.com/",
-   "var": 0.0001,
-   "var_pct": 0.01
+   "var": -0.0003,
+   "var_pct": -0.03
   },
   {
    "id": "usdcny",
@@ -2051,12 +2051,12 @@
    "unidad": "",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 6.6722,
+   "valor": 6.6713,
    "anterior": 6.6704,
    "fecha": "2026-11-13",
    "url": "https://twelvedata.com/",
-   "var": 0.0018,
-   "var_pct": 0.03
+   "var": 0.0009,
+   "var_pct": 0.01
   },
   {
    "id": "us3m",
@@ -4621,12 +4621,12 @@
    "unidad": "$",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 3876.8776,
+   "valor": 3885.0053,
    "anterior": 3883.6552,
    "fecha": "2026-11-13",
    "url": "https://twelvedata.com/",
-   "var": -6.7776,
-   "var_pct": -0.17
+   "var": 1.3502,
+   "var_pct": 0.03
   },
   {
    "id": "plata",
@@ -5544,12 +5544,12 @@
    "unidad": "$",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 71425.01,
-   "anterior": 74015.19,
-   "fecha": "2026-11-12",
+   "valor": 71267.26,
+   "anterior": 71460.0,
+   "fecha": "2026-11-13",
    "url": "https://twelvedata.com/",
-   "var": -2590.18,
-   "var_pct": -3.5
+   "var": -192.74,
+   "var_pct": -0.27
   },
   {
    "id": "ethereum",
@@ -5560,12 +5560,12 @@
    "unidad": "$",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 2012.2,
-   "anterior": 2056.36,
-   "fecha": "2026-11-12",
+   "valor": 2014.36,
+   "anterior": 2019.74,
+   "fecha": "2026-11-13",
    "url": "https://twelvedata.com/",
-   "var": -44.16,
-   "var_pct": -2.15
+   "var": -5.38,
+   "var_pct": -0.27
   }
  ],
  "sentimiento": {
@@ -5600,9 +5600,9 @@
      "id": "impulso",
      "nombre": "Impulso del mercado",
      "descripcion": "S&P 500 frente a su media de 125 sesiones. Por encima, codicia.",
-     "puntuacion": 16.3,
+     "puntuacion": 16.1,
      "etiqueta": "Miedo extremo",
-     "bruto": 0.0001,
+     "bruto": -0.0,
      "fuente": "ETF SPY · Twelve Data",
      "url": "https://twelvedata.com/"
     },
@@ -5632,7 +5632,7 @@
      "descripcion": "Rentabilidad a 20 sesiones de la bolsa menos la del bono a 10 años. Si ganan los bonos, miedo.",
      "puntuacion": 17.7,
      "etiqueta": "Miedo extremo",
-     "bruto": -2.2965,
+     "bruto": -2.3055,
      "fuente": "Bolsa y bono a 10 años (Tesoro y FRED)",
      "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve"
     },
@@ -5901,7 +5901,7 @@
      "fin": "2026-12-09",
      "proyecciones": true,
      "hora_madrid": "20:00",
-     "dias": 27,
+     "dias": 26,
      "comunicado": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261209a.htm",
      "rueda_prensa": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20261209.htm",
      "actas_fecha": "2026-12-30",
@@ -5912,7 +5912,7 @@
      "fin": "2027-01-27",
      "proyecciones": false,
      "hora_madrid": "20:00",
-     "dias": 76,
+     "dias": 75,
      "comunicado": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20270127a.htm",
      "rueda_prensa": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20270127.htm",
      "actas_fecha": "2027-02-17"
@@ -5922,7 +5922,7 @@
      "fin": "2027-03-17",
      "proyecciones": true,
      "hora_madrid": "19:00",
-     "dias": 125,
+     "dias": 124,
      "comunicado": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20270317a.htm",
      "rueda_prensa": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20270317.htm",
      "actas_fecha": "2027-04-07",
@@ -5933,7 +5933,7 @@
      "fin": "2027-04-28",
      "proyecciones": false,
      "hora_madrid": "20:00",
-     "dias": 167,
+     "dias": 166,
      "comunicado": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20270428a.htm",
      "rueda_prensa": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20270428.htm",
      "actas_fecha": "2027-05-19"
@@ -5944,7 +5944,7 @@
     "fin": "2026-10-28",
     "proyecciones": false,
     "hora_madrid": "19:00",
-    "dias": -15,
+    "dias": -16,
     "comunicado": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261028a.htm",
     "rueda_prensa": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20261028.htm",
     "actas_fecha": "2026-11-18",
@@ -6110,132 +6110,6 @@
   },
   "agenda": {
    "items": [
-    {
-     "id": "paro_sem",
-     "nombre": "Peticiones semanales de paro",
-     "fuente": "Dpto. de Trabajo",
-     "url": "https://www.dol.gov/ui/data.pdf",
-     "ultimo": "200 mil (semana del 7 nov)",
-     "graficos": [
-      {
-       "id": "ICSA",
-       "nombre": "Peticiones iniciales (miles)",
-       "modo": "sem",
-       "puntos": [
-        [
-         "2026-05-16",
-         210.0
-        ],
-        [
-         "2026-05-23",
-         212.0
-        ],
-        [
-         "2026-05-30",
-         225.0
-        ],
-        [
-         "2026-06-06",
-         230.0
-        ],
-        [
-         "2026-06-13",
-         227.0
-        ],
-        [
-         "2026-06-20",
-         216.0
-        ],
-        [
-         "2026-06-27",
-         217.0
-        ],
-        [
-         "2026-07-04",
-         217.0
-        ],
-        [
-         "2026-07-11",
-         209.0
-        ],
-        [
-         "2026-07-18",
-         189.0
-        ],
-        [
-         "2026-07-25",
-         198.0
-        ],
-        [
-         "2026-08-01",
-         200.0
-        ],
-        [
-         "2026-08-08",
-         212.0
-        ],
-        [
-         "2026-08-15",
-         207.0
-        ],
-        [
-         "2026-08-22",
-         204.0
-        ],
-        [
-         "2026-08-29",
-         207.0
-        ],
-        [
-         "2026-09-05",
-         207.0
-        ],
-        [
-         "2026-09-12",
-         198.0
-        ],
-        [
-         "2026-09-19",
-         198.0
-        ],
-        [
-         "2026-09-26",
-         199.0
-        ],
-        [
-         "2026-10-03",
-         198.0
-        ],
-        [
-         "2026-10-10",
-         200.0
-        ],
-        [
-         "2026-10-17",
-         195.0
-        ],
-        [
-         "2026-10-24",
-         195.0
-        ],
-        [
-         "2026-10-31",
-         191.0
-        ],
-        [
-         "2026-11-07",
-         200.0
-        ]
-       ],
-       "url": "https://fred.stlouisfed.org/series/ICSA"
-      }
-     ],
-     "principal": false,
-     "fecha": "2026-11-12",
-     "hora_madrid": "14:30",
-     "siguiente": "2026-11-19",
-     "anterior": "2026-11-05"
-    },
     {
      "id": "ipp",
      "nombre": "Precios de producción (IPP)",
@@ -6589,6 +6463,132 @@
      "hora_madrid": "14:30",
      "siguiente": "2026-11-25",
      "anterior": "2026-10-27"
+    },
+    {
+     "id": "paro_sem",
+     "nombre": "Peticiones semanales de paro",
+     "fuente": "Dpto. de Trabajo",
+     "url": "https://www.dol.gov/ui/data.pdf",
+     "ultimo": "200 mil (semana del 7 nov)",
+     "graficos": [
+      {
+       "id": "ICSA",
+       "nombre": "Peticiones iniciales (miles)",
+       "modo": "sem",
+       "puntos": [
+        [
+         "2026-05-16",
+         210.0
+        ],
+        [
+         "2026-05-23",
+         212.0
+        ],
+        [
+         "2026-05-30",
+         225.0
+        ],
+        [
+         "2026-06-06",
+         230.0
+        ],
+        [
+         "2026-06-13",
+         227.0
+        ],
+        [
+         "2026-06-20",
+         216.0
+        ],
+        [
+         "2026-06-27",
+         217.0
+        ],
+        [
+         "2026-07-04",
+         217.0
+        ],
+        [
+         "2026-07-11",
+         209.0
+        ],
+        [
+         "2026-07-18",
+         189.0
+        ],
+        [
+         "2026-07-25",
+         198.0
+        ],
+        [
+         "2026-08-01",
+         200.0
+        ],
+        [
+         "2026-08-08",
+         212.0
+        ],
+        [
+         "2026-08-15",
+         207.0
+        ],
+        [
+         "2026-08-22",
+         204.0
+        ],
+        [
+         "2026-08-29",
+         207.0
+        ],
+        [
+         "2026-09-05",
+         207.0
+        ],
+        [
+         "2026-09-12",
+         198.0
+        ],
+        [
+         "2026-09-19",
+         198.0
+        ],
+        [
+         "2026-09-26",
+         199.0
+        ],
+        [
+         "2026-10-03",
+         198.0
+        ],
+        [
+         "2026-10-10",
+         200.0
+        ],
+        [
+         "2026-10-17",
+         195.0
+        ],
+        [
+         "2026-10-24",
+         195.0
+        ],
+        [
+         "2026-10-31",
+         191.0
+        ],
+        [
+         "2026-11-07",
+         200.0
+        ]
+       ],
+       "url": "https://fred.stlouisfed.org/series/ICSA"
+      }
+     ],
+     "principal": false,
+     "fecha": "2026-11-19",
+     "hora_madrid": "14:30",
+     "siguiente": "2026-11-25",
+     "anterior": "2026-11-12"
     },
     {
      "id": "umich",
