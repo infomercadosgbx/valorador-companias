@@ -618,6 +618,15 @@ details[open]>summary.fgh::before{transform:rotate(45deg)}
 summary.fgh:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 details.fgrp>:not(summary){margin-left:20px}
 .fcnt{font-size:11px;color:var(--muted)}
+#ajCos{position:relative}
+.cosearch{position:absolute;top:13px;right:20px;display:flex;align-items:center;gap:6px;width:min(260px,45%);padding:5px 10px;border:1px solid var(--line);border-radius:999px;background:var(--surface2);color:var(--muted)}
+.cosearch:focus-within{border-color:var(--accent);color:var(--ink)}
+.cosearch input{border:0;outline:0;background:transparent;font:inherit;font-size:13px;color:var(--ink);width:100%;min-width:0;padding:0}
+.cosearch input::-webkit-search-cancel-button{cursor:pointer}
+@media (max-width:640px){.cosearch{position:static;width:100%;box-sizing:border-box}}
+#ajCos .ajlist li[hidden]{display:none}
+#ajCos .ajlist button{white-space:nowrap;flex:none}
+@media (max-width:640px){#ajCos details.fgrp>:not(summary){margin-left:4px}#ajCos .ajlist li{padding:8px}}
 .fpart{font-size:11px;color:var(--muted);font-weight:700;margin-left:auto}
 .fgofi,.fgint{font-size:10.5px;font-weight:800;padding:2px 8px;border-radius:999px;letter-spacing:.02em}
 .fgofi{background:color-mix(in srgb,var(--good) 18%,var(--surface));color:var(--goodText)}.fgofi.alt{background:color-mix(in srgb,var(--tcx) 16%,var(--surface));color:var(--tcx)}
@@ -2942,16 +2951,30 @@ function companiasHtml(){
   const act=COS_ALL.filter(c=>!c.archivada), arc=ARCHIVADAS, tok=ghToken(), wf=repoUrl()+"/actions/workflows/archivar-compania.yml";
   const dia=c=>c.repaso?`repaso a fondo los ${esc(c.repaso)}`:"sin día de repaso";
   const fila=c=>{ const s=store.companies[c.ticker.toUpperCase()];
-    return `<li><span class="wco">${s?monoHtml(s,"sm"):""}<span><b>${esc(c.nombre)}</b> <small>${esc(c.ticker)}</small><span class="wsub">${dia(c)}${c.alta?` · alta ${esc(fecha(c.alta))}`:""}${c.reactivada?` · reactivada ${esc(fecha(c.reactivada))}`:""}</span></span></span>
+    return `<li data-q="${esc(c.nombre+" "+c.ticker)}"><span class="wco">${s?monoHtml(s,"sm"):""}<span><b>${esc(c.nombre)}</b> <small>${esc(c.ticker)}</small><span class="wsub">${dia(c)}${c.alta?` · alta ${esc(fecha(c.alta))}`:""}${c.reactivada?` · reactivada ${esc(fecha(c.reactivada))}`:""}</span></span></span>
       <button type="button" data-coarch="${esc(c.ticker)}">Archivar</button></li>`; };
-  const filaA=c=>`<li><span><b>${esc(c.nombre)}</b> <small>${esc(c.ticker)}</small><span class="wsub">archivada el ${esc(fecha(c.archivada.desde))}${c.archivada.motivo?` · ${esc(c.archivada.motivo)}`:""}</span></span>
+  const filaA=c=>`<li data-q="${esc(c.nombre+" "+c.ticker)}"><span><b>${esc(c.nombre)}</b> <small>${esc(c.ticker)}</small><span class="wsub">archivada el ${esc(fecha(c.archivada.desde))}${c.archivada.motivo?` · ${esc(c.archivada.motivo)}`:""}</span></span>
       <button type="button" data-coreact="${esc(c.ticker)}">Reactivar</button></li>`;
+  const lupa='<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 20l-4.2-4.2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
   return `<section class="card" id="ajCos"><h2>Compañías</h2>
+    <label class="cosearch" title="Buscar por nombre o ticker">${lupa}<input type="search" id="coBuscar" placeholder="Buscar compañía…" autocomplete="off" aria-label="Buscar compañía"></label>
     <p class="sub">Aparta las compañías que ya no sigues sin borrarlas. Una compañía <b>archivada</b> desaparece de las listas, el robot deja de actualizarla y la revisión de la mañana se la salta (no gasta nada en ella); sus datos, tu análisis y tus supuestos se guardan tal cual. Al <b>reactivarla</b>, se descargan sus datos y la revisión de la mañana siguiente le hace el repaso completo de las 10 pestañas, igual que a una compañía nueva.</p>
     ${tok?"":`<p class="note">Para archivar o reactivar desde aquí conecta GitHub (arriba). Sin conexión: <a href="${esc(wf)}" target="_blank" rel="noopener">workflow «Archivar o reactivar compañía»</a> en GitHub Actions.</p>`}
-    <h3 class="ajh">En seguimiento (${act.length})</h3><ul class="ajlist">${act.map(fila).join("")}</ul>
-    <h3 class="ajh">Archivadas (${arc.length})</h3>${arc.length?`<ul class="ajlist">${arc.map(filaA).join("")}</ul>`:`<p class="note" style="margin:0">Ninguna.</p>`}
+    <details class="fgrp cogrp" data-cogrp="act" open><summary class="fgh"><h3 class="ajh" style="margin:0">En seguimiento</h3><span class="fcnt" data-cocnt>${act.length}</span></summary>
+      <ul class="ajlist">${act.map(fila).join("")}</ul><p class="note conone" hidden>Ninguna coincide con la búsqueda.</p></details>
+    <details class="fgrp cogrp" data-cogrp="arc"><summary class="fgh"><h3 class="ajh" style="margin:0">Archivadas</h3><span class="fcnt" data-cocnt>${arc.length}</span></summary>
+      ${arc.length?`<ul class="ajlist">${arc.map(filaA).join("")}</ul><p class="note conone" hidden>Ninguna coincide con la búsqueda.</p>`:`<p class="note" style="margin:0">Ninguna.</p>`}</details>
     <p class="note" id="coMsg" style="margin:8px 0 0"></p></section>`; }
+/* buscador de Ajustes → Compañías: filtra sin repintar (no se pierde el foco) y abre los grupos con resultados */
+function coFiltrar(q){
+  const n=s=>String(s||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase(); q=n(q).trim();
+  document.querySelectorAll("#ajCos .cogrp").forEach(g=>{
+    const lis=[...g.querySelectorAll(".ajlist>li")]; let vis=0;
+    lis.forEach(li=>{ const ok=!q||n(li.dataset.q).includes(q); li.hidden=!ok; if(ok) vis++; });
+    const c=g.querySelector("[data-cocnt]"); if(c) c.textContent=q?`${vis} de ${lis.length}`:String(lis.length);
+    const none=g.querySelector(".conone"); if(none) none.hidden=!(q&&lis.length&&!vis);
+    if(q){ if(!g.dataset.prev) g.dataset.prev=g.open?"1":"0"; g.open=vis>0; }
+    else if(g.dataset.prev){ g.open=g.dataset.prev==="1"; delete g.dataset.prev; } }); }
 async function ghCompanies(fn,msg){
   const R=ghRepo(); if(!R||!ghToken()) throw new Error("Conecta GitHub en Ajustes para archivar o reactivar desde aquí.");
   const url=`/repos/${R.o}/${R.r}/contents/companies.json`, g=await gh(url+"?ref=main"); if(!g.ok) throw new Error(ghErr(g.status,g.j));
@@ -4685,6 +4708,7 @@ function drawFootball(){
 }
 /* «Ver más» de cada supuesto: se recuerda cuál dejaste abierto mientras navegas */
 const ASMORE=new Set();
+document.addEventListener("input",e=>{ if(e.target&&e.target.id==="coBuscar") coFiltrar(e.target.value); });
 document.addEventListener("toggle",e=>{ const d=e.target; if(d&&d.matches&&d.matches("details.asmore")){ const k=d.dataset.more; if(d.open) ASMORE.add(k); else ASMORE.delete(k); } },true);
 /* ---------- referencia del WACC: CAPM con datos oficiales y de mercado ---------- */
 let MKT;
