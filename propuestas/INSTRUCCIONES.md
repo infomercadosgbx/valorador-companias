@@ -116,7 +116,7 @@ La revisión no se limita al 8-K de resultados. En cada ejecución, y para cada 
 
 - En `https://data.sec.gov/submissions/CIK<10 dígitos>.json` (cabecera User-Agent «Valorador smaosviviendas@gmail.com»), busca los 8-K presentados dentro de la ventana (las últimas 24 h; el martes, 72 h) que no sean el de resultados ya revisado: Item 1.01 (contratos), 2.01 (compras y ventas), 2.03 (deuda nueva), 5.02 (cambios en la dirección), 7.01 y 8.01 (notas de prensa y otros hechos), etc.
 - Mira también la sala de prensa de la web de inversores de la compañía en la misma ventana.
-- Solo cuenta si es material, con el criterio de `ACTUALIZACION_COMPLETA.md`, apartado 5, punto 3. `motivo`: «Nota de prensa del <fecha>: <titular corto>».
+- Solo cuenta si es material, con el criterio de `ACTUALIZACION_COMPLETA.md`, apartado 5, punto 5. `motivo`: «Nota de prensa del <fecha>: <titular corto>».
 
 ### 7.3 Llamada con analistas (*earnings call*)
 
@@ -163,7 +163,7 @@ Las notas técnicas (nivel `info`) no hace falta resolverlas: la web ya no las e
 ### 8.3 Qué criterio se propone y cuándo
 
 - **Supuestos del DCF (`v.*`):** solo si mueven el valor por acción un 5% o más. Mídelo con `node scripts/impacto_dcf.mjs <T>` (usa el mismo motor que la web); el script de aplicación vuelve a medirlo y descarta lo que no llegue.
-- **Tesis, negocio, MOAT, crecimiento, directiva, riesgos y sus puntuaciones (`texto`):** solo con una novedad material (criterio de `ACTUALIZACION_COMPLETA.md`, apartado 5, punto 3). Se aplican solos si pasan la verificación.
+- **Tesis, negocio, MOAT, crecimiento, directiva, riesgos y sus puntuaciones (`texto`):** solo con una novedad material (criterio de `ACTUALIZACION_COMPLETA.md`, apartado 5, punto 5). Se aplican solos si pasan la verificación.
 - **Veredicto:** solo con una novedad material; siempre lo decide el usuario.
 - **Cuándo le llega al usuario:**
   - Con resultados o un 10-Q/10-K nuevo (`urgente: true`): ese mismo día.
