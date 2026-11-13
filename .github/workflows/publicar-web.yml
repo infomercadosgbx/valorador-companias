@@ -42,7 +42,7 @@ jobs:
       - name: Preparar el sitio
         run: |
           mkdir _site
-          cp index.html valorador.html resultados.html cuenta.js companies.json ajustes.json logo.svg favicon.ico manifest.webmanifest _site/
+          cp index.html valorador.html resultados.html cuenta.js companies.json ajustes.json fuentes.json logo.svg favicon.ico manifest.webmanifest _site/
           cp -r iconos _site/
           cp -r data analysis manual _site/
           if [ -d logos ]; then cp -r logos _site/; fi
