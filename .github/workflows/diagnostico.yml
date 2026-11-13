@@ -35,7 +35,7 @@ jobs:
           from fetcher.sec_client import SecClient
           from fetcher.main import load_companies
           t=os.environ["TICKER"].upper(); q=os.environ["BUSCAR"].lower()
-          c=next(x for x in load_companies() if x["ticker"].upper()==t)
+          c=next(x for x in load_companies(archivadas=True) if x["ticker"].upper()==t)
           cf=SecClient().companyfacts(c["cik"])
           rows=[]
           for tx,facts in cf["facts"].items():

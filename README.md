@@ -60,9 +60,19 @@ Qué hace el robot (`fetcher/add_company.py`):
 - Añade la compañía al final de `companies.json` (ticker, nombre, CIK, color y monograma).
 - Descarga sus datos como cada noche (SEC, precio, histórico, logo, segmentos, directivos, riesgos del 10-K) y crea `analysis/<TICKER>.json` y `manual/<TICKER>.json`.
 - Prepara el punto de partida del DCF con las cifras reales de los últimos 12 meses: ingresos base, crecimiento a partir del CAGR de 3 años moderándose, margen EBITDA, amortizaciones, capex, pago en acciones, tipo impositivo efectivo (entre 15% y 25%) y BPA. WACC 9%, crecimiento perpetuo 3% y múltiplos estándar. Acciones, caja y deuda siguen a la SEC. La web marca la compañía como «recién añadida» hasta que rellenes «Análisis a».
-- Hace un commit `Alta de compañía: <TICKER>`. Si el ticker ya estaba en la lista, solo actualiza sus datos.
+- Le asigna su día de **repaso semanal a fondo** (`repaso`: el día de martes a viernes con menos compañías) y anota la fecha de `alta`.
+- Hace un commit `Alta de compañía: <TICKER>`. Si el ticker ya estaba en la lista, solo actualiza sus datos; si estaba **archivada**, la reactiva.
 
-Para **quitar** una compañía, borra su línea de `companies.json` (los archivos de `data/`, `analysis/` y `manual/` pueden quedarse como archivo histórico o borrarse).
+A la mañana siguiente, la revisión programada le hace el **repaso completo** con el mismo nivel que al resto: configura sus webs oficiales, sala de prensa y medios sectoriales, revisa las 10 pestañas con la SEC, la web de la compañía y la prensa sectorial, audita los datos y lo verifica todo con un segundo agente (`propuestas/ACTUALIZACION_COMPLETA.md`, apartado 0 bis). Tú pones los supuestos del DCF.
+
+## Archivar una compañía (sin borrarla)
+
+La lista es dinámica: las compañías que dejas de seguir se **archivan**, no se borran, por si vuelven.
+
+- **Desde la web:** Ajustes → **Compañías** → «Archivar» (pide un motivo opcional) o «Reactivar». Necesita GitHub conectado en Ajustes (para reactivar, con permiso de *Actions*).
+- **Desde GitHub:** Actions → **Archivar o reactivar compañía** → ticker y acción.
+
+Una compañía archivada queda en `companies.json` con `"archivada": {"desde", "motivo"}`. El robot nocturno no la descarga, la revisión de la mañana no la revisa y desaparece de las listas de la web, así que no gasta nada; sus archivos de `data/`, `analysis/`, `manual/` y sus propuestas se conservan tal cual. Al reactivarla se descargan sus datos al momento y la mañana siguiente recibe el repaso completo, revisando todo lo publicado mientras estuvo archivada y conservando tus supuestos.
 
 ## Comparativa con competidores e informe PDF
 

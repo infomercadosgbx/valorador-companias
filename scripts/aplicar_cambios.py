@@ -334,7 +334,7 @@ def main():
     hoy = a.hoy or datetime.now(ZoneInfo("Europe/Madrid")).date().isoformat()
     cos = json.loads((ROOT / "companies.json").read_text(encoding="utf-8"))
     cos = cos if isinstance(cos, list) else next(v for v in cos.values() if isinstance(v, list))
-    ts = [c["ticker"].upper() for c in cos] if a.todas else [t.upper() for t in a.tickers]
+    ts = [c["ticker"].upper() for c in cos if not c.get("archivada")] if a.todas else [t.upper() for t in a.tickers]
     if not ts:
         ap.error("indica un ticker o --todas")
     out = [procesar(t, hoy, a.sabado) for t in ts]

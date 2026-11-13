@@ -176,3 +176,55 @@ def test_alta_de_compania(tmp_path):
     with pytest.raises(A.NoSoportada):
         A.add("ZZZZ", root=root, client=client)
     assert len(json.loads((root / "companies.json").read_text())["companies"]) == 3
+
+
+def test_archivar_y_reactivar(tmp_path):
+    """Una compañía archivada no se descarga ni entra en el índice, pero conserva sus archivos;
+    al reactivarla vuelve con fecha de reactivación y día de repaso."""
+    from fetcher import add_company as A
+    from fetcher import archivo
+    root = _repo(tmp_path)
+    rev = [fact("2026-09-30", 10, start="2026-07-01")]
+    client = FakeClient({"0000000001": (companyfacts({"Revenues": rev}), submissions([])),
+                         "0000000002": (companyfacts({"Revenues": rev}), submissions([]))})
+    M.run(root=root, client=client, provider=NoPriceProvider(), price_warning="x")
+    antes = (root / "data" / "BAD.json").read_text()
+    c = archivo.archivar("bad", "Ya no la sigo", root=root)
+    assert c["archivada"]["motivo"] == "Ya no la sigo"
+    assert [x["ticker"] for x in M.load_companies(root)] == ["OK"]
+    assert [x["ticker"] for x in M.load_companies(root, archivadas=True)] == ["OK", "BAD"]
+    pedidos = []
+
+    class Cuenta(FakeClient):
+        def companyfacts(self, cik):
+            pedidos.append(cik)
+            return super().companyfacts(cik)
+    M.run(root=root, client=Cuenta(client.data), provider=NoPriceProvider(), price_warning="x")
+    assert "0000000002" not in pedidos                                    # no se gasta nada en ella
+    assert (root / "data" / "BAD.json").read_text() == antes              # y sus datos se conservan
+    idx = json.loads((root / "data" / "index.json").read_text())
+    assert [x["ticker"] for x in idx["companias"]] == ["OK"]
+    cj = json.loads((root / "companies.json").read_text())
+    assert A.dia_repaso(cj) == "martes"
+    c = archivo.reactivar("BAD", root=root, client=client, hoy=__import__("datetime").date(2026, 11, 20))
+    assert "archivada" not in c and c["reactivada"] == "2026-11-20" and c["repaso"] in A.DIAS_REPASO
+    assert [x["ticker"] for x in M.load_companies(root)] == ["OK", "BAD"]
+    idx = json.loads((root / "data" / "index.json").read_text())
+    assert [x["ticker"] for x in idx["companias"]] == ["OK", "BAD"]
+
+
+def test_alta_de_una_archivada_la_reactiva(tmp_path):
+    from fetcher import add_company as A
+    from fetcher import archivo
+    root = _repo(tmp_path)
+    rev = [fact("2026-09-30", 10, start="2026-07-01")]
+
+    class C(FakeClient):
+        def company_tickers(self):
+            return {"0": {"cik_str": 1, "ticker": "OK", "title": "Ok"}, "1": {"cik_str": 2, "ticker": "BAD", "title": "Bad"}}
+    client = C({"0000000001": (companyfacts({"Revenues": rev}), submissions([])),
+                "0000000002": (companyfacts({"Revenues": rev}), submissions([]))})
+    archivo.archivar("BAD", root=root)
+    comp, added = A.add("BAD", root=root, client=client)
+    assert added is False and "archivada" not in comp and comp.get("reactivada")
+    assert len(json.loads((root / "companies.json").read_text())["companies"]) == 2

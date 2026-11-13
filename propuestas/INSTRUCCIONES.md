@@ -6,7 +6,7 @@ Tú **nunca** escribes en `analysis/` ni en `data/`. Preparas la propuesta en `p
 
 ## 1. Qué compañías revisar
 
-Para cada compañía de `companies.json`:
+Para cada compañía **activa** de `companies.json` (las que tienen `archivada` no se revisan: ver `ACTUALIZACION_COMPLETA.md`, apartado 0 bis, que también explica el repaso completo de las compañías nuevas o reactivadas):
 
 - `data/<T>.json` → `ultimo_8k_resultados.accn` es el último 8-K de resultados (Item 2.02) que ha detectado el robot.
 - `propuestas/_estado.json` → `revisado.<T>.accn` es el último ya revisado.

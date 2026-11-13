@@ -45,8 +45,11 @@ def _client_tickers(root, ticker):
             out.append(t)
     return out
 
-def load_companies(root=ROOT):
-    return json.loads((root / "companies.json").read_text(encoding="utf-8"))["companies"]
+def load_companies(root=ROOT, archivadas=False):
+    """Compañías de companies.json. Las archivadas («archivada»: {desde, motivo}) se saltan por defecto:
+    el robot no gasta peticiones en ellas y sus datos y análisis se quedan como estaban hasta reactivarlas."""
+    cos = json.loads((root / "companies.json").read_text(encoding="utf-8"))["companies"]
+    return cos if archivadas else [c for c in cos if not c.get("archivada")]
 
 
 def _stable(obj):

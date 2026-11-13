@@ -7,9 +7,23 @@ El resultado es siempre una **propuesta** en `propuestas/<T>.json`; tú **nunca*
 
 ## 0. Alcance y punto de partida
 
-- Compañías: las que pida el usuario; «todas» = todas las de `companies.json`, una detrás de otra, con un commit por compañía (así el avance no se pierde si algo falla).
+- Compañías: las que pida el usuario; «todas» = todas las **activas** de `companies.json` (las que no tienen `archivada`), una detrás de otra, con un commit por compañía (así el avance no se pierde si algo falla).
 - Ventana de revisión: desde `analysis/<T>.json → meta.asOf` hasta hoy. Si `asOf` falta o tiene más de 6 meses, usa los últimos 6 meses.
 - Si ya existe `propuestas/<T>.json` (por ejemplo, una revisión tras resultados sin aplicar), **intégrala**: conserva sus cambios salvo los que mejores con información más reciente, y une sus `fuentes`.
+
+## 0 bis. Compañías nuevas o reactivadas: el mismo nivel desde el primer día
+
+Una compañía que entra en la lista (`companies.json → alta`, puesta por el workflow «Añadir compañía») o que vuelve tras estar archivada (`reactivada`) tiene que quedar **con la misma calidad que las que ya se siguen**. Si su fecha de `alta` o `reactivada` es posterior a `propuestas/_estado.json → repaso_completo.<T>` (o no hay), la revisión de la mañana le hace, ese mismo día y antes que nada:
+
+1. **Configuración** (en `companies.json`, la única vez que la tarea toca ese archivo, y solo estos campos de esa compañía): `webs_oficiales` (productos, relación con inversores, día del inversor, blog técnico, casos de clientes, pipeline; compruébalas con WebFetch), `newsroom` (feed RSS de la sala de prensa, o `gnews:site:<dominio>` si no tiene), `medios` sectoriales (ids de `fetcher/news.py`), `alias` si se la conoce por otros nombres, y `repaso` si falta (el día con menos compañías activas). Conserva el formato de una compañía por línea (`fetcher/add_company.py → dump_companies`).
+2. **Repaso completo de las 10 pestañas** con este documento (apartados 1 a 4) y el apartado 7.1 (fuentes del repaso): ventana de 6 meses en una compañía nueva; desde `archivada.desde` (o `meta.asOf`) en una reactivada, revisando todo lo publicado mientras estuvo archivada. En una reactivada, conserva el análisis y los supuestos del usuario y actualiza lo que haya cambiado.
+3. **Auditoría oficial** (`INSTRUCCIONES.md`, 8.7), calidad del dato (8.2) con todos sus avisos, y la verificación independiente de todo (8.5).
+4. **Consenso de analistas** en `manual/<T>.json` (5 bis) y, si hay resultados recientes, la traducción de la nota (5).
+5. Los supuestos del DCF los pone el usuario: deja el punto de partida automático y, en el `resumen`, una línea con los datos que necesita para fijarlos (ingresos, márgenes, crecimiento guiado, consenso).
+
+La propuesta es `urgente: true` (le llega ese día), `alcance: "completa"`, `motivo` «Alta de <nombre>» o «Reactivación de <nombre>». Al terminar, anota `propuestas/_estado.json → repaso_completo.<T> = {fecha, motivo: "alta" | "reactivada"}`. Commit: `Alta completa: <T>` o `Reactivación completa: <T>`.
+
+**Compañías archivadas** (`archivada: {desde, motivo}`): no se revisan, no se proponen cambios ni se aplican; su propuesta y su cola se quedan como estaban hasta que vuelva.
 
 Lee antes de buscar nada fuera:
 
@@ -125,16 +139,9 @@ Cómo se hace la revisión de internet:
 
 ## 7. Repaso semanal a fondo por sector (tarea programada: martes a viernes)
 
-Cada compañía se repasa **a fondo una vez por semana**, por grupos del mismo sector para aprovechar las mismas fuentes sectoriales. Es el momento de mejorar las pestañas más valiosas (**Negocio, MOAT y Crecimiento**) y de poner al día la tesis y los textos del veredicto, aunque no haya noticias.
+Cada compañía **activa** se repasa **a fondo una vez por semana**, el día que marca `companies.json → repaso` (martes a viernes), agrupadas por sector para aprovechar las mismas fuentes sectoriales. Es el momento de mejorar las pestañas más valiosas (**Negocio, MOAT y Crecimiento**) y de poner al día la tesis y los textos del veredicto, aunque no haya noticias.
 
-| Día | Grupo | Compañías |
-|---|---|---|
-| Martes | Nube e IA | AMZN, GOOGL, AVGO |
-| Miércoles | Software | ORCL, PATH, APP |
-| Jueves | Consumo y salud | RDDT, PEP, MRNA |
-| Viernes | Energía | VST, CVX |
-
-Las compañías que se añadan después entran en el grupo de su sector (o en el día con menos compañías). **Tras unos resultados**, la compañía tiene además este repaso completo al día siguiente, sea el día que sea (con los apartados 1–7 de `INSTRUCCIONES.md`). Si el día que toca ya hubo repaso tras resultados en los últimos 3 días, se salta.
+Reparto actual (13-nov-2026; manda siempre `companies.json`): martes AMZN, GOOGL, AVGO (nube e IA); miércoles ORCL, PATH, APP (software); jueves RDDT, PEP, MRNA (consumo y salud); viernes VST (energía). Las archivadas no se repasan. Las nuevas reciben el día con menos compañías (lo pone el alta; si falta, la tarea, apartado 0 bis). **Tras unos resultados**, la compañía tiene además este repaso completo al día siguiente, sea el día que sea (con los apartados 1–7 de `INSTRUCCIONES.md`). Si el día que toca ya hubo repaso tras resultados en los últimos 3 días, se salta.
 
 ### 7.1 Fuentes del repaso, por orden
 

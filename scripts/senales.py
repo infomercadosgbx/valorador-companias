@@ -116,7 +116,8 @@ def objetivos(data: dict, desde: date) -> list[str]:
 
 def lista_companias() -> list[dict]:
     cos = rd(ROOT / "companies.json", []) or []
-    return cos if isinstance(cos, list) else next((v for v in cos.values() if isinstance(v, list)), [])
+    cos = cos if isinstance(cos, list) else next((v for v in cos.values() if isinstance(v, list)), [])
+    return [c for c in cos if not c.get("archivada")]   # las archivadas no se revisan
 
 
 def calcular(hoy: date) -> list[dict]:

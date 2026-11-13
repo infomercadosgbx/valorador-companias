@@ -46,7 +46,7 @@ def kv(s: str | None) -> dict:
 def companias() -> list[str]:
     cos = json.loads((ROOT / "companies.json").read_text(encoding="utf-8"))
     cos = cos if isinstance(cos, list) else next(v for v in cos.values() if isinstance(v, list))
-    return [c["ticker"] for c in cos]
+    return [c["ticker"] for c in cos if not c.get("archivada")]
 
 
 def entrada(hoy, gmail: dict, gmail_cos: dict, nota: str | None) -> str:

@@ -1301,6 +1301,7 @@ const DATA_V=["price","lo52","hi52","cMean","cLow","cHigh"];
 const MODEL_SEC=[["shares","Acciones"],["cash","Caja"],["debt","Deuda"]];
 const M6=1e6;
 let TEMPLATE={}, store={companies:{},current:null}, cur=null, EDIT=false, TAB="overview";
+let COS_ALL=[], ARCHIVADAS=[];   /* companies.json completo y las compañías archivadas (no se cargan ni se revisan) */
 const lsGet=k=>{try{return localStorage.getItem(k);}catch(e){return null;}};
 const lsSet=(k,v)=>{try{ if(v==null) localStorage.removeItem(k); else localStorage.setItem(k,v); return true;}catch(e){return false;}};
 const DRAFT=t=>"valorador.borrador."+t;
@@ -2913,6 +2914,8 @@ function ajustesHtml(){
      <div class="carbtns"><button type="button" data-cexp>⬇ Exportar cartera</button><label class="btnlike">⬆ Importar cartera<input type="file" accept="application/json,.json" id="carImp" hidden></label></div>
    </section>
 
+   ${companiasHtml()}
+
    <section class="card"><h2>Favoritas</h2><p class="sub">Tienes ${watchRows().filter(r=>r.fav).length} favoritas.</p><div class="carbtns"><button type="button" data-home="favoritas">★ Gestionar favoritas</button></div></section>
 
    <section class="card"><h2>Avisos aprobados</h2><p class="sub">Los avisos y notas técnicas que apruebas se guardan en el análisis de cada compañía y se ven en Fuentes → Cifras clave y calidad del dato, donde puedes devolverlos a la cabecera.${revs?` Además hay ${revs} marcas antiguas guardadas solo en este navegador.`:""}</p>
@@ -2924,6 +2927,64 @@ function ajustesHtml(){
    </section>
 `;
 }
+/* ===== Compañías en seguimiento y archivadas (Ajustes → Compañías) =====
+   Archivar no borra nada: la compañía se queda en companies.json con «archivada»: {desde, motivo}; el robot y la
+   tarea de la mañana se la saltan y sus datos y análisis se conservan. Reactivar lanza el workflow
+   «Archivar o reactivar compañía» (descarga sus datos) y la mañana siguiente recibe el repaso completo. */
+const DIAS_REPASO=["martes","miércoles","jueves","viernes"];
+function diaRepaso(list){ const act=list.filter(c=>!c.archivada&&DIAS_REPASO.includes(c.repaso)), n={}; DIAS_REPASO.forEach(d=>n[d]=act.filter(c=>c.repaso===d).length);
+  return DIAS_REPASO.slice().sort((a,b)=>n[a]-n[b]||DIAS_REPASO.indexOf(a)-DIAS_REPASO.indexOf(b))[0]; }
+function pyJson(v){ if(v===null||typeof v!=="object") return JSON.stringify(v);
+  if(Array.isArray(v)) return "["+v.map(pyJson).join(", ")+"]";
+  return "{"+Object.entries(v).filter(([,x])=>x!==undefined).map(([k,x])=>JSON.stringify(k)+": "+pyJson(x)).join(", ")+"}"; }
+function dumpCompanies(cj){ return '{\n  "_nota": '+JSON.stringify(cj._nota||"")+',\n  "companies": [\n'+cj.companies.map(c=>"    "+pyJson(c)).join(",\n")+"\n  ]\n}\n"; }
+function companiasHtml(){
+  const act=COS_ALL.filter(c=>!c.archivada), arc=ARCHIVADAS, tok=ghToken(), wf=repoUrl()+"/actions/workflows/archivar-compania.yml";
+  const dia=c=>c.repaso?`repaso a fondo los ${esc(c.repaso)}`:"sin día de repaso";
+  const fila=c=>{ const s=store.companies[c.ticker.toUpperCase()];
+    return `<li><span class="wco">${s?monoHtml(s,"sm"):""}<span><b>${esc(c.nombre)}</b> <small>${esc(c.ticker)}</small><span class="wsub">${dia(c)}${c.alta?` · alta ${esc(fecha(c.alta))}`:""}${c.reactivada?` · reactivada ${esc(fecha(c.reactivada))}`:""}</span></span></span>
+      <button type="button" data-coarch="${esc(c.ticker)}">Archivar</button></li>`; };
+  const filaA=c=>`<li><span><b>${esc(c.nombre)}</b> <small>${esc(c.ticker)}</small><span class="wsub">archivada el ${esc(fecha(c.archivada.desde))}${c.archivada.motivo?` · ${esc(c.archivada.motivo)}`:""}</span></span>
+      <button type="button" data-coreact="${esc(c.ticker)}">Reactivar</button></li>`;
+  return `<section class="card" id="ajCos"><h2>Compañías</h2>
+    <p class="sub">Aparta las compañías que ya no sigues sin borrarlas. Una compañía <b>archivada</b> desaparece de las listas, el robot deja de actualizarla y la revisión de la mañana se la salta (no gasta nada en ella); sus datos, tu análisis y tus supuestos se guardan tal cual. Al <b>reactivarla</b>, se descargan sus datos y la revisión de la mañana siguiente le hace el repaso completo de las 10 pestañas, igual que a una compañía nueva.</p>
+    ${tok?"":`<p class="note">Para archivar o reactivar desde aquí conecta GitHub (arriba). Sin conexión: <a href="${esc(wf)}" target="_blank" rel="noopener">workflow «Archivar o reactivar compañía»</a> en GitHub Actions.</p>`}
+    <h3 class="ajh">En seguimiento (${act.length})</h3><ul class="ajlist">${act.map(fila).join("")}</ul>
+    <h3 class="ajh">Archivadas (${arc.length})</h3>${arc.length?`<ul class="ajlist">${arc.map(filaA).join("")}</ul>`:`<p class="note" style="margin:0">Ninguna.</p>`}
+    <p class="note" id="coMsg" style="margin:8px 0 0"></p></section>`; }
+async function ghCompanies(fn,msg){
+  const R=ghRepo(); if(!R||!ghToken()) throw new Error("Conecta GitHub en Ajustes para archivar o reactivar desde aquí.");
+  const url=`/repos/${R.o}/${R.r}/contents/companies.json`, g=await gh(url+"?ref=main"); if(!g.ok) throw new Error(ghErr(g.status,g.j));
+  const raw=new TextDecoder().decode(Uint8Array.from(atob(g.j.content.replace(/\s/g,"")),ch=>ch.charCodeAt(0)));
+  const cj=JSON.parse(raw); fn(cj);
+  const bytes=new TextEncoder().encode(dumpCompanies(cj)); let bin=""; for(let i=0;i<bytes.length;i+=8192) bin+=String.fromCharCode.apply(null,bytes.subarray(i,i+8192));
+  const r=await gh(url,{method:"PUT",body:JSON.stringify({message:msg,content:btoa(bin),branch:"main",sha:g.j.sha})}); if(!r.ok) throw new Error(ghErr(r.status,r.j));
+  return cj; }
+async function archivarCo(t){
+  const c=COS_ALL.find(x=>x.ticker===t); if(!c) return;
+  const motivo=prompt(`Archivar ${c.nombre} (${t}).\n\nDejará de actualizarse y de revisarse, pero se guardan sus datos y tu análisis. Puedes reactivarla cuando quieras.\n\nMotivo (opcional):`,"");
+  if(motivo===null) return; const m=$("coMsg"); if(m) m.textContent="Archivando…";
+  try{
+    const cj=await ghCompanies(j=>{ const x=j.companies.find(y=>y.ticker===t); if(x) x.archivada={desde:hoyIso(),motivo:motivo.trim()}; },`Compañía archivada: ${t}`);
+    COS_ALL=cj.companies; ARCHIVADAS=cj.companies.filter(x=>x.archivada);
+    delete store.companies[t.toUpperCase()];
+    if(store.current===t.toUpperCase()){ const ks=Object.keys(store.companies); store.current=ks[0]; cur=store.companies[ks[0]]; renderHeader(); }
+    renderWatch(); toast(`${c.nombre} archivada. La web publicada se actualiza en 1–2 minutos.`);
+  }catch(e){ if(m) m.textContent=e.message||String(e); } }
+async function reactivarCo(t){
+  const c=ARCHIVADAS.find(x=>x.ticker===t); if(!c) return;
+  if(!confirm(`Reactivar ${c.nombre} (${t})?\n\nSe descargan sus datos ahora y la revisión de la mañana siguiente le hace el repaso completo de las 10 pestañas.`)) return;
+  const m=$("coMsg"); if(m) m.textContent="Reactivando…"; const R=ghRepo();
+  try{
+    if(!R||!ghToken()) throw new Error("Conecta GitHub en Ajustes para reactivar desde aquí.");
+    const r=await gh(`/repos/${R.o}/${R.r}/actions/workflows/archivar-compania.yml/dispatches`,{method:"POST",body:JSON.stringify({ref:"main",inputs:{ticker:t,accion:"reactivar",motivo:""}})});
+    if(r.ok||r.status===204){ if(m) m.textContent=`Reactivando ${c.nombre}: GitHub está descargando sus datos. Aparecerá en las listas en unos minutos (recarga la página).`; return; }
+    /* sin permiso de Actions: se reactiva en companies.json y los datos llegan con la actualización de la noche */
+    const cj=await ghCompanies(j=>{ const x=j.companies.find(y=>y.ticker===t); if(x){ delete x.archivada; x.reactivada=hoyIso(); if(!x.repaso) x.repaso=diaRepaso(j.companies); } },`Compañía reactivada: ${t}`);
+    COS_ALL=cj.companies; ARCHIVADAS=cj.companies.filter(x=>x.archivada); renderWatch();
+    toast(`${c.nombre} reactivada. Sus datos llegan con la actualización de esta noche.`);
+  }catch(e){ if(m) m.textContent=e.message||String(e); } }
+
 /* Catálogo de fuentes (fuentes.json) + estado en vivo de los feeds (data/_noticias_estado.json).
    Oficiales = Parte A y C; internet = Parte B. Se carga al abrir Ajustes. */
 let FUENTES_CACHE=null;
@@ -5390,6 +5451,8 @@ document.addEventListener("click",e=>{
   const ts=e.target.closest("[data-themeset]"); if(ts){ lsSet("valorador.tema",ts.dataset.themeset); applyTheme(ts.dataset.themeset); renderWatch(); return; }
   const ft=e.target.closest("[data-favt]"); if(ft){ const c=store.companies[ft.dataset.favt]; if(c){ c.meta.fav=!c.meta.fav; saveFavs(); renderHeader(); renderWatch(); } return; }
   if(e.target.closest("[data-gosetup]")){ const g=$("ajGh"); if(g){ g.scrollIntoView({behavior:"smooth",block:"start"}); setTimeout(()=>{const i=$("ghTok"); if(i) i.focus();},300); } return; }
+  { const b=e.target.closest("[data-coarch]"); if(b){ archivarCo(b.dataset.coarch); return; } }
+  { const b=e.target.closest("[data-coreact]"); if(b){ reactivarCo(b.dataset.coreact); return; } }
   if(e.target.closest("[data-revreset]")){ try{ const ks=[]; for(let i=0;i<localStorage.length;i++){ const k=localStorage.key(i)||""; if(k.startsWith("valorador.avisorev.")) ks.push(k); } ks.forEach(k=>localStorage.removeItem(k)); }catch(_){} renderHeader(); renderWatch(); return; }
   const ce=e.target.closest("[data-cedit]"); if(ce){ CEDIT=+ce.dataset.cedit; renderWatch(); setTimeout(()=>{ const f=$("carEdit"); if(f) f.scrollIntoView({behavior:"smooth",block:"center"}); },50); return; }
   const cd=e.target.closest("[data-cdel]"); if(cd){ const C=carLoad(), p=C.posiciones[+cd.dataset.cdel]; if(p&&confirmLite(`¿Eliminar la posición en ${p.t}?`)){ C.posiciones.splice(+cd.dataset.cdel,1); carSave(C); CEDIT=null; renderWatch(); } return; }
@@ -5634,7 +5697,8 @@ async function boot(){
     INDICE=idx;
     TEMPLATE=tpl||{};
     getJSON("i18n/riesgos_es.json").then(j=>{ RIESGOS_ES=(j&&j.t)||{}; if(TAB==="risk"&&!WATCH&&!REPORT) renderTab(); }).catch(()=>{});
-    const rows=await Promise.all(cos.companies.map(async co=>{ const t=co.ticker.toUpperCase();
+    COS_ALL=cos.companies.slice(); ARCHIVADAS=cos.companies.filter(co=>co.archivada);
+    const rows=await Promise.all(cos.companies.filter(co=>!co.archivada).map(async co=>{ const t=co.ticker.toUpperCase();
       const [an,d,man,prop]=await Promise.all([getJSON(`analysis/${t}.json`).catch(()=>null),getJSON(`data/${t}.json`).catch(()=>null),getJSON(`manual/${t}.json`).catch(()=>null),getJSON(`propuestas/${t}.json`).catch(()=>null)]);
       const c=buildCompany(co,an,d,man); c._prop=prop&&Array.isArray(prop.cambios)&&prop.cambios.length?prop:null; return [t,c]; }));
     rows.forEach(([t,c])=>{store.companies[t]=c;});

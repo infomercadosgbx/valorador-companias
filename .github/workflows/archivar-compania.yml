@@ -1,0 +1,68 @@
+name: Archivar o reactivar compañía
+
+# Aparta una compañía que ya no sigues (sin borrarla) o vuelve a activarla.
+# Actions → «Archivar o reactivar compañía» → Run workflow. También se hace desde la web: Ajustes → Compañías.
+on:
+  workflow_dispatch:
+    inputs:
+      ticker:
+        description: "Ticker de la compañía (por ejemplo CVX)"
+        required: true
+      accion:
+        description: "Qué hacer"
+        type: choice
+        options: [archivar, reactivar]
+        default: archivar
+      motivo:
+        description: "Motivo (opcional, solo al archivar)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+# Comparte cola con la actualización nocturna para no pisar sus commits
+concurrency:
+  group: actualizar-datos
+  cancel-in-progress: false
+
+jobs:
+  archivo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Archivar o reactivar
+        env:
+          SEC_USER_AGENT: ${{ vars.SEC_USER_AGENT || secrets.SEC_USER_AGENT }}
+          FINNHUB_API_KEY: ${{ secrets.FINNHUB_API_KEY }}
+          TWELVEDATA_API_KEY: ${{ secrets.TWELVEDATA_API_KEY }}
+          MARKETAUX_API_KEY: ${{ secrets.MARKETAUX_API_KEY }}
+          REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
+          REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
+          REDDIT_USUARIO: ${{ secrets.REDDIT_USUARIO || 'Infomercadosgbx' }}
+          TICKER: ${{ inputs.ticker }}
+          ACCION: ${{ inputs.accion }}
+          MOTIVO: ${{ inputs.motivo }}
+        run: |
+          if [[ ! "$TICKER" =~ ^[A-Za-z0-9.\ -]{1,12}$ ]]; then echo "::error title=Ticker no válido::$TICKER"; exit 3; fi
+          python -m fetcher.archivo "$ACCION" "$(echo "$TICKER" | tr -d ' ')" --motivo "$MOTIVO"
+
+      - name: Guardar en el repositorio
+        run: |
+          git config user.name "valorador-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add companies.json data analysis manual
+          if [ -d logos ]; then git add logos; fi
+          if git diff --cached --quiet; then echo "Sin cambios."; exit 0; fi
+          T=$(echo "${{ inputs.ticker }}" | tr '[:lower:]' '[:upper:]' | tr -cd 'A-Z0-9.-')
+          if [ "${{ inputs.accion }}" = "archivar" ]; then git commit -m "Compañía archivada: $T"; else git commit -m "Compañía reactivada: $T"; fi
+          git pull --rebase --quiet
+          git push

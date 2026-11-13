@@ -150,6 +150,21 @@ def seed_dcf(data: dict, tpl_v: dict):
     return v, hechos
 
 
+DIAS_REPASO = ["martes", "miércoles", "jueves", "viernes"]
+
+
+def dia_repaso(cj, sector_de=None) -> str:
+    """Día del repaso semanal a fondo para una compañía que entra: el de su sector si ya hay alguna
+    activa del mismo sector con menos de 4 ese día; si no, el día con menos compañías activas."""
+    activas = [c for c in cj["companies"] if not c.get("archivada") and c.get("repaso") in DIAS_REPASO]
+    carga = {d: sum(1 for c in activas if c["repaso"] == d) for d in DIAS_REPASO}
+    if sector_de:
+        for c in activas:
+            if c.get("sector") == sector_de and carga[c["repaso"]] < 4:
+                return c["repaso"]
+    return min(DIAS_REPASO, key=lambda d: (carga[d], DIAS_REPASO.index(d)))
+
+
 def add(ticker: str, nombre=None, color=None, root=ROOT, client=None):
     ticker = ticker.strip().upper()
     if not re.fullmatch(r"[A-Z0-9][A-Z0-9.\-]{0,9}", ticker):
@@ -160,6 +175,12 @@ def add(ticker: str, nombre=None, color=None, root=ROOT, client=None):
     sec_ticker, cik, title = resolve(client, ticker)
     exists = next((c for c in cj["companies"] if c["ticker"].upper() in (ticker, sec_ticker) or c["cik"] == cik), None)
     if exists:
+        if exists.get("archivada"):   # estaba archivada: se reactiva, con sus datos y su análisis de antes
+            from . import archivo
+            exists = archivo.reactivar(exists["ticker"], root=root, client=client)
+            summary(f"♻️ **{exists['nombre']} ({exists['ticker']})** estaba archivada y se ha reactivado. Se han descargado "
+                    f"sus datos; la próxima revisión de la mañana le hará el repaso completo de todas las pestañas.")
+            return exists, False
         summary(f"ℹ️ **{exists['nombre']} ({exists['ticker']})** ya estaba en la lista. Se actualizan sus datos.")
         M.run(only=[exists["ticker"]], root=root, client=client)
         return exists, False
@@ -167,7 +188,9 @@ def add(ticker: str, nombre=None, color=None, root=ROOT, client=None):
     check_filer(subs, ticker)
     name = nombre or clean_name(title or subs.get("name", ticker))
     comp = {"ticker": ticker, "slug": re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-"), "nombre": name, "cik": cik,
-            "color": color or None, "monograma": monogram(name), "medios": NEWS.medios_por_sic(subs.get("sic"))}
+            "color": color or None, "monograma": monogram(name), "medios": NEWS.medios_por_sic(subs.get("sic")),
+            "alta": date.today().isoformat()}   # la revisión de la mañana le hace el repaso completo (calidad de alta)
+    comp["repaso"] = dia_repaso(cj)
     cj["companies"].append(comp)
     cfile.write_text(dump_companies(cj), encoding="utf-8")
 
@@ -210,7 +233,8 @@ def add(ticker: str, nombre=None, color=None, root=ROOT, client=None):
             f"- Datos de la SEC hasta {data.get('referencia_fecha_datos')}; precio {((data.get('precio') or {}).get('valor'))}\n"
             f"- DCF inicial: {'; '.join(hechos) or 'plantilla'}\n"
             f"- Avisos de datos: {len(avisos)}\n"
-            f"- Siguiente paso: abre la web, elige {name} y pulsa «Editar» para escribir tu análisis.")
+            f"- Siguiente paso: la próxima revisión de la mañana le hace el repaso completo de las 10 pestañas "
+            f"(SEC, webs oficiales, prensa sectorial) y le asigna su día de repaso semanal; tú pones los supuestos del DCF.")
     return comp, True
 
 
