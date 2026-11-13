@@ -16,6 +16,6 @@ jobs:
             "https://feeds.finance.yahoo.com/rss/2.0/headline?s=APP&region=US&lang=en-US" \
             "https://www.nasdaq.com/feed/rssoutbound?symbol=APP" \
             "https://seekingalpha.com/api/sa/combined/APP.xml" ; do
-            code=$(curl -s -o out.txt -w "%{http_code}" -A "valorador-companias/1.0 (+https://github.com/infomercadosgbx/valorador-companias)" --max-time 20 "$u")
+            code=$(curl -s -o out.txt -w "%{http_code}" -A "valorador-companias/1.0 (+https://github.com/infomercadosgbx/valorador-companias)" --http1.1 --max-time 20 "$u" || true)
             echo "### $code $u"; echo '```'; head -c 700 out.txt; echo; echo '```'
-          done >> "$GITHUB_STEP_SUMMARY"
+          done
