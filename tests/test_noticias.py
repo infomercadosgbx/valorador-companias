@@ -152,3 +152,10 @@ def test_stocktwits_cuenta_alcistas_y_bajistas():
     r = stocktwits_real("APP", opener=lambda req, timeout=0: _R(j), sleep=lambda s: None)
     assert (r["mensajes"], r["alcistas"], r["bajistas"], r["pct_alcista"], r["seguidores"]) == (4, 2, 1, 67, 26037)
     assert (r["desde"], r["hasta"]) == ("2026-11-11", "2026-11-13")
+
+
+def test_avisos_de_bufetes_solo_el_mas_reciente():
+    out = N.combinar([[n("Pomerantz Law Firm Announces Class Action Against AppLovin", "Morningstar", "2026-11-12"),
+                       n("APP DEADLINE ALERT: AppLovin Investors with Substantial Losses", "Benzinga", "2026-11-11"),
+                       n("AppLovin beats estimates", "Reuters", "2026-11-10")]], today=HOY.replace(day=13))
+    assert [x["titular"] for x in out] == ["Pomerantz Law Firm Announces Class Action Against AppLovin", "AppLovin beats estimates"]

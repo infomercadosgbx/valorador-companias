@@ -275,8 +275,8 @@ class GoogleNews:
     nombre = "Google News"
     URL = "https://news.google.com/rss/search"
     SITIOS_EN = ["reuters.com", "bloomberg.com", "ft.com", "wsj.com", "cnbc.com", "marketwatch.com",
-                 "barrons.com", "theinformation.com", "morningstar.com", "apnews.com", "investing.com"]
-    SITIOS_ES = ["expansion.com", "cincodias.elpais.com", "eleconomista.es", "elconfidencial.com", "es.investing.com"]
+                 "barrons.com", "theinformation.com", "apnews.com", "axios.com", "nytimes.com", "economist.com"]
+    SITIOS_ES = ["expansion.com", "cincodias.elpais.com", "eleconomista.es", "elconfidencial.com", "lavanguardia.com", "elmundo.es"]
 
     def __init__(self, opener=None, dias=7, sleep=time.sleep, pausa=1.0):
         self._open, self.dias, self._sleep, self.pausa = opener, dias, sleep, pausa
@@ -379,6 +379,13 @@ TOPE_OTRO = 6
 TOPE_OFICIAL = 6
 
 
+# Avisos repetidos de bufetes que buscan demandantes («class action», «deadline alert»…): llegan
+# decenas por compañía y tapan las noticias. Se deja solo el más reciente.
+RUIDO_BUFETES = re.compile(r"class action|deadline alert|investors? (with|who) (substantial )?loss|law firm|"
+                           r"securities fraud|shareholder alert|investor alert|lead plaintiff|rosen law|pomerantz|"
+                           r"bragar eagel|levi & korsinsky|glancy|faruqi|bronstein|kessler topaz|robbins geller", re.I)
+
+
 def combinar(fuentes: list, previas: list | None = None, today=None, limite=LIMITE, dias=VENTANA_DIAS) -> list:
     """Une todas las fuentes y lo de noches anteriores: quita duplicados (misma URL o titular),
     descarta lo antiguo, limita cada medio para que haya variedad y deja como mucho `limite`."""
@@ -401,6 +408,15 @@ def combinar(fuentes: list, previas: list | None = None, today=None, limite=LIMI
         n.setdefault("tipo", "prensa")
         unicas.append(n)
     unicas.sort(key=lambda n: n.get("fecha") or "", reverse=True)
+    bufete = False
+    filtradas = []
+    for n in unicas:
+        if not n.get("oficial") and RUIDO_BUFETES.search(n["titular"]):
+            if bufete:
+                continue
+            bufete = True
+        filtradas.append(n)
+    unicas = filtradas
     out, cnt, oficiales = [], {}, 0
     for n in unicas:                                    # 1.ª pasada: topes por medio
         if n.get("oficial"):
