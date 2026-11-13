@@ -1,10 +1,10 @@
 {
  "ticker": "PEP",
- "creada": "2026-11-11",
- "alcance": "internet",
- "motivo": "Novedades del 6-nov-2026: KFC renueva con PepsiCo en ocho mercados internacionales; 9-nov-2026: ~1.000 despidos en Norteamérica",
+ "creada": "2026-11-13",
+ "alcance": "auditoria_oficial",
+ "motivo": "Novedades del 6/9-nov-2026 (KFC y despidos) más auditoría oficial de las pestañas del 13-nov",
  "informe_accn": "0000077476-26-000050",
- "resumen": "Revisión de internet del 6 al 9-nov. KFC mantiene a PepsiCo como socio de bebidas en Australia, India, Reino Unido, España, Alemania, Francia, Países Bajos y Bélgica, aunque en EE. UU. pasa a Coca-Cola desde enero de 2027. Limita el daño de la pérdida de KFC en EE. UU.; no se publican importes ni duración. Se propone reflejarlo en los clientes conocidos y en las noticias; no cambia la tesis. Beverage Digest (de pago) no se pudo leer. Revisión del 9 al 11-nov: el 9-nov PepsiCo anunció a sus empleados (memo del consejero delegado de Norteamérica, Ram Krishnan) la eliminación de unos 1.000 puestos en Norteamérica durante la semana, para «simplificar estructuras y decidir más rápido»; no se publican costes ni ahorros. Se propone reflejarlo en el riesgo de ejecución de la reestructuración y en noticias.",
+ "resumen": "Dos tramos. (1) Revisión de internet del 6 al 11-nov: KFC mantiene a PepsiCo como socio de bebidas en Australia, India, Reino Unido, España, Alemania, Francia, Países Bajos y Bélgica, aunque en EE. UU. pasa a Coca-Cola desde enero de 2027 (limita el daño; sin importes ni duración), y el 9-nov PepsiCo anunció ~1.000 despidos en Norteamérica (memo de Ram Krishnan). Se reflejaron en clientes, riesgo de reestructuración y noticias; no cambia la tesis. (2) Auditoría oficial del 13-nov: las cifras del 3T26 de las pestañas cuadran con la nota de resultados del 8-oct-2026 (8-K, Ex. 99.1) y el 10-Q: ingresos 25.274 M$ (+5,6%; orgánico +3,1%), BPA publicado 2,23 $ y BPA core 2,34 $ (+2%), guía 2026 orgánico ~3% y BPA core a divisa constante +1–2% (antes +4–6%), retribución 8.900 M$, y los seis segmentos del 3T26 (PBNA 7.706, PFNA 6.504, EMEA 5.413, LatAm Foods 3.021, IFB 1.401, APAC Foods 1.229 M$) coinciden con data/PEP.json. Única corrección de la auditoría: faltaba la próxima fecha de resultados en el Resumen (meta.nextEarnings). Aviso para el usuario (no se fuerza): la tesis/veredicto citan ~137 $ y data/PEP.json → precio es 142,26 $ a 12-nov; es cotización, no documento oficial.",
  "fuentes": [
   {
    "t": "BeverageDaily: PepsiCo renueva con KFC en ocho mercados tras perder EE. UU.",
@@ -20,6 +20,21 @@
    "t": "Transport Topics (Bloomberg): PepsiCo eliminará unos 1.000 puestos en Norteamérica",
    "u": "https://www.ttnews.com/articles/pepsi-cuts-1000-north-america",
    "d": "9-nov-2026"
+  },
+  {
+   "t": "Nota de resultados 3T26 (8-K, Ex. 99.1)",
+   "u": "https://www.sec.gov/Archives/edgar/data/77476/000007747626000050/q320268-kxexhibit991.htm",
+   "d": "8-oct-2026"
+  },
+  {
+   "t": "10-Q tercer trimestre 2026 (SEC EDGAR)",
+   "u": "https://www.sec.gov/Archives/edgar/data/77476/000007747626000048/pep-20260905.htm",
+   "d": "8-oct-2026"
+  },
+  {
+   "t": "data/PEP.json → resultados_previstos (próxima fecha de resultados)",
+   "u": "https://finnhub.io/docs/api/earnings-calendar",
+   "d": "12-nov-2026"
   }
  ],
  "cambios": [

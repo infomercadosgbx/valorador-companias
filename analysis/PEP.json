@@ -7,7 +7,8 @@
   "hq": "Purchase, Nueva York",
   "founded": "1965",
   "employees": "~319.000",
-  "asOf": "9-nov-2026"
+  "asOf": "13-nov-2026",
+  "nextEarnings": "1-feb-2027 (4T26, estimada)"
  },
  "overview": {
   "thesis": "Un líder mundial de snacks y bebidas con marcas de primer nivel, atascado en Norteamérica: crece al 3% orgánico, recorta su guía de BPA por la inflación de costes y cotiza a mínimos de varios años. A ~137 $ paga un 4,3% de dividendo y descuenta poco crecimiento; la recuperación depende de la reestructuración en EE. UU.",
@@ -843,6 +844,35 @@
     ]
    },
    "origen": "git ae77dda2d8"
+  }
+ ],
+ "cambios_auto": [
+  {
+   "fecha": "2026-11-13",
+   "campo": "meta.nextEarnings",
+   "despues": "1-feb-2027 (4T26, estimada)",
+   "porque": "Faltaba la próxima fecha de resultados en el Resumen; el catalizador de febrero ya existe, pero el campo estaba vacío.",
+   "fuente": {
+    "t": "data/PEP.json → resultados_previstos (Finnhub)",
+    "u": "https://finnhub.io/docs/api/earnings-calendar",
+    "d": "12-nov-2026"
+   },
+   "verificacion": "data→resultados_previstos: 2027-02-01, 4T26.",
+   "motivo": "Novedades del 6/9-nov-2026 (KFC y despidos) más auditoría oficial de las pestañas del 13-nov"
+  },
+  {
+   "fecha": "2026-11-13",
+   "campo": "meta.asOf",
+   "antes": "9-nov-2026",
+   "despues": "13-nov-2026",
+   "porque": "Fecha de la auditoría oficial.",
+   "fuente": {
+    "t": "Auditoría oficial de pestañas",
+    "u": "https://www.sec.gov/Archives/edgar/data/77476/000007747626000050/q320268-kxexhibit991.htm",
+    "d": "13-nov-2026"
+   },
+   "verificacion": "Fecha de la auditoría oficial.",
+   "motivo": "Novedades del 6/9-nov-2026 (KFC y despidos) más auditoría oficial de las pestañas del 13-nov"
   }
  ]
 }

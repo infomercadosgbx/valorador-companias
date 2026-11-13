@@ -83,16 +83,16 @@
  },
  "business": {
   "model": "Vende publicidad dentro de las conversaciones: los anunciantes pagan por llegar a comunidades con intereses muy concretos. Además licencia su archivo de conversaciones para entrenar modelos de IA.\nNo paga por el contenido ni por la moderación, que hacen voluntarios. Casi no necesita inversión en activos.",
-  "customers": "Anunciantes de marca y de rendimiento (grandes cuentas, pymes vía autoservicio y agencias), empresas de IA que compran acceso a los datos, y usuarios que no pagan. El 79% de los ingresos viene de EE. UU.",
-  "segNote": "Ingresos del 2T26 por tipo, en M$. Por geografía: EE. UU. 638 M$ e internacional 167 M$.",
+  "customers": "Anunciantes de marca y de rendimiento (grandes cuentas, pymes vía autoservicio y agencias), empresas de IA que compran acceso a los datos, y usuarios que no pagan. El 80% de los ingresos viene de EE. UU.",
+  "segNote": "Ingresos del 3T26 por tipo, en M$. Por geografía: EE. UU. 719 M$ e internacional 176 M$.",
   "segments": [
    {
     "n": "Publicidad",
-    "v": 762
+    "v": 847
    },
    {
     "n": "Otros (licencias de datos)",
-    "v": 43
+    "v": 48
    }
   ],
   "customerTypes": [
@@ -127,7 +127,7 @@
    {
     "n": "Conversión en caja",
     "s": 4,
-    "note": "FCF del 32% de los ingresos en 2T26"
+    "note": "FCF del 41% de los ingresos en 3T26"
    },
    {
     "n": "Recurrencia de ingresos",
@@ -137,12 +137,12 @@
    {
     "n": "Diversificación",
     "s": 2,
-    "note": "95% publicidad; 79% EE. UU."
+    "note": "95% publicidad; 80% EE. UU."
    },
    {
     "n": "Balance",
     "s": 5,
-    "note": "2.786 M$ de caja y sin deuda financiera"
+    "note": "3.033 M$ de caja y sin deuda financiera"
    }
   ],
   "phase": 2,
@@ -263,7 +263,7 @@
  "growth": {
   "score": 3.5,
   "scoreNote": "Los ingresos crecen al 53% gracias al ingreso por usuario (+36%) y al exterior (+67%), pero la guía del 4T26 baja al 38–42% y los usuarios diarios pueden caer por la pérdida de visitas desde Google.",
-  "tam": "Publicidad digital mundial: Meta factura más de 160.000 M$ al año; Reddit, unos 3.400 M$. El ARPU internacional (2,26 $) es una quinta parte del de EE. UU. (11,85 $).",
+  "tam": "Publicidad digital mundial: Meta factura más de 160.000 M$ al año; Reddit, unos 3.400 M$. El ARPU internacional (2,43 $) es una quinta parte del de EE. UU. (13,82 $).",
   "guidance": "4T26: ingresos de 1.000–1.030 M$ (+38–42%; el consenso esperaba 1.046 M$) y EBITDA ajustado de 480–510 M$. Usuarios diarios: posible caída de un porcentaje de dos dígitos frente a los 130 M del 3T26 si siguen bajando las visitas desde buscadores.",
   "drivers": [
    {
@@ -284,7 +284,7 @@
     "h": "2026–2028",
     "st": "en marcha",
     "k": "Usuarios intl. +24% · ingresos +67%",
-    "peso": "ARPU intl. 2,26 $ vs 11,85 $ en EE. UU.",
+    "peso": "ARPU intl. 2,43 $ vs 13,82 $ en EE. UU.",
     "d": "Con traducción automática el contenido en inglés llega a otros idiomas. Fuera de EE. UU. el ARPU es una quinta parte, así que hay mucho margen para monetizar.",
     "ev": "Usuarios diarios internacionales e ingresos fuera de EE. UU.",
     "r": "Usuarios menos valiosos para los anunciantes y competencia local."
@@ -1646,6 +1646,312 @@
    },
    "verificacion": "Lectura del 13-nov con API pública de StockTwits (data→redes, fecha 2026-11-13).",
    "motivo": "Actualización completa (desde el 5-nov-2026)"
+  },
+  {
+   "fecha": "2026-11-13",
+   "campo": "business.segNote",
+   "antes": "Ingresos del 2T26 por tipo, en M$. Por geografía: EE. UU. 638 M$ e internacional 167 M$.",
+   "despues": "Ingresos del 3T26 por tipo, en M$. Por geografía: EE. UU. 719 M$ e internacional 176 M$.",
+   "porque": "La nota y los importes eran del 2T26; se ponen al 3T26 (EE. UU. 638→719, intl. 167→176 M$)",
+   "fuente": {
+    "t": "Carta a accionistas 3T26 (Ex. 99.2): EE. UU. 718,9 M$ e intl. 176,1 M$",
+    "u": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000114/exhibit992q326.htm",
+    "d": "29-oct-2026"
+   },
+   "verificacion": "Ex.99.2: EE. UU. 718,9 M$ e intl. 176,1 M$ (3T26).",
+   "motivo": "Auditoría oficial de las pestañas (SEC y compañía)"
+  },
+  {
+   "fecha": "2026-11-13",
+   "campo": "business.segments",
+   "antes": [
+    {
+     "n": "Publicidad",
+     "v": 762
+    },
+    {
+     "n": "Otros (licencias de datos)",
+     "v": 43
+    }
+   ],
+   "despues": [
+    {
+     "n": "Publicidad",
+     "v": 847
+    },
+    {
+     "n": "Otros (licencias de datos)",
+     "v": 48
+    }
+   ],
+   "porque": "Eran cifras del 2T26 (762/43); el 3T26 es publicidad 847 M$ y otros 48 M$",
+   "fuente": {
+    "t": "Nota de resultados 3T26 (Ex. 99.1): publicidad 847 M$, otros 48 M$",
+    "u": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000114/earningspressreleaseq326.htm",
+    "d": "29-oct-2026"
+   },
+   "verificacion": "Ex.99.1: publicidad 847 M$, otros 48 M$ (3T26).",
+   "motivo": "Auditoría oficial de las pestañas (SEC y compañía)"
+  },
+  {
+   "fecha": "2026-11-13",
+   "campo": "business.customers",
+   "antes": "Anunciantes de marca y de rendimiento (grandes cuentas, pymes vía autoservicio y agencias), empresas de IA que compran acceso a los datos, y usuarios que no pagan. El 79% de los ingresos viene de EE. UU.",
+   "despues": "Anunciantes de marca y de rendimiento (grandes cuentas, pymes vía autoservicio y agencias), empresas de IA que compran acceso a los datos, y usuarios que no pagan. El 80% de los ingresos viene de EE. UU.",
+   "porque": "En el 3T26 EE. UU. aporta 719 de 895 M$ (80%), no el 79% del 2T26",
+   "fuente": {
+    "t": "Carta a accionistas 3T26 (Ex. 99.2): EE. UU. 718,9 de 895,0 M$",
+    "u": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000114/exhibit992q326.htm",
+    "d": "29-oct-2026"
+   },
+   "verificacion": "Ex.99.2: EE. UU. 718,9 de 895,0 M$ = 80%.",
+   "motivo": "Auditoría oficial de las pestañas (SEC y compañía)"
+  },
+  {
+   "fecha": "2026-11-13",
+   "campo": "business.quality",
+   "antes": [
+    {
+     "n": "Márgenes",
+     "s": 4,
+     "note": "Margen bruto 91%, EBITDA ajustado 43%, neto 31%"
+    },
+    {
+     "n": "Retorno sobre capital",
+     "s": 5,
+     "note": "Capex de ~7 M$ al año"
+    },
+    {
+     "n": "Conversión en caja",
+     "s": 4,
+     "note": "FCF del 32% de los ingresos en 2T26"
+    },
+    {
+     "n": "Recurrencia de ingresos",
+     "s": 2,
+     "note": "Depende del gasto publicitario y del tráfico de búsqueda"
+    },
+    {
+     "n": "Diversificación",
+     "s": 2,
+     "note": "95% publicidad; 79% EE. UU."
+    },
+    {
+     "n": "Balance",
+     "s": 5,
+     "note": "2.786 M$ de caja y sin deuda financiera"
+    }
+   ],
+   "despues": [
+    {
+     "n": "Márgenes",
+     "s": 4,
+     "note": "Margen bruto 91%, EBITDA ajustado 43%, neto 31%"
+    },
+    {
+     "n": "Retorno sobre capital",
+     "s": 5,
+     "note": "Capex de ~7 M$ al año"
+    },
+    {
+     "n": "Conversión en caja",
+     "s": 4,
+     "note": "FCF del 41% de los ingresos en 3T26"
+    },
+    {
+     "n": "Recurrencia de ingresos",
+     "s": 2,
+     "note": "Depende del gasto publicitario y del tráfico de búsqueda"
+    },
+    {
+     "n": "Diversificación",
+     "s": 2,
+     "note": "95% publicidad; 80% EE. UU."
+    },
+    {
+     "n": "Balance",
+     "s": 5,
+     "note": "3.033 M$ de caja y sin deuda financiera"
+    }
+   ],
+   "porque": "Caja (2.786 M$), FCF (32% en 2T26) y % EE. UU. (79%) eran del 2T26; se ponen al 3T26 (caja 3.033 M$, FCF 41%, EE. UU. 80%)",
+   "fuente": {
+    "t": "Carta a accionistas 3T26 (Ex. 99.2): caja 3.033 M$, FCF margin 41%, EE. UU. 80%",
+    "u": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000114/exhibit992q326.htm",
+    "d": "29-oct-2026"
+   },
+   "verificacion": "Ex.99.1/99.2: caja 3.033 M$, FCF margin 41%, EE. UU. 80%, deuda 0; resto y puntuaciones sin cambios.",
+   "motivo": "Auditoría oficial de las pestañas (SEC y compañía)"
+  },
+  {
+   "fecha": "2026-11-13",
+   "campo": "growth.tam",
+   "antes": "Publicidad digital mundial: Meta factura más de 160.000 M$ al año; Reddit, unos 3.400 M$. El ARPU internacional (2,26 $) es una quinta parte del de EE. UU. (11,85 $).",
+   "despues": "Publicidad digital mundial: Meta factura más de 160.000 M$ al año; Reddit, unos 3.400 M$. El ARPU internacional (2,43 $) es una quinta parte del de EE. UU. (13,82 $).",
+   "porque": "El ARPU por región era del 2T26 (2,26/11,85 $); el del 3T26 es 2,43 $ (intl.) y 13,82 $ (EE. UU.)",
+   "fuente": {
+    "t": "Carta a accionistas 3T26 (Ex. 99.2): ARPU intl. 2,43 $ y EE. UU. 13,82 $",
+    "u": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000114/exhibit992q326.htm",
+    "d": "29-oct-2026"
+   },
+   "verificacion": "Ex.99.2: ARPU EE. UU. 13,82 $ e intl. 2,43 $ (3T26).",
+   "motivo": "Auditoría oficial de las pestañas (SEC y compañía)"
+  },
+  {
+   "fecha": "2026-11-13",
+   "campo": "growth.drivers",
+   "antes": [
+    {
+     "n": "Más ingresos por usuario (Reddit Max)",
+     "impact": 5,
+     "h": "2026–2027",
+     "st": "en marcha",
+     "k": "Ingresos +53% en 3T26 (895 M$)",
+     "peso": "~95% de los ingresos es publicidad",
+     "d": "Reddit monetiza poco frente a Meta. Con Reddit Max (uso ×3 en un trimestre), anuncios de compra (+95%) y vídeo, los anunciantes pagan más por usuario. La guía del 4T26 es de 1.000–1.030 M$ (+38–42%).",
+     "ev": "ARPU por región y crecimiento de los ingresos publicitarios.",
+     "r": "Caída de usuarios: la guía del 4T26 contempla un descenso de dos dígitos por menos visitas desde Google.",
+     "u": "https://www.fool.com/earnings/call-transcripts/2026/10/30/reddit-rddt-q3-2026-earnings-call-transcript/"
+    },
+    {
+     "n": "Crecimiento internacional",
+     "impact": 4,
+     "h": "2026–2028",
+     "st": "en marcha",
+     "k": "Usuarios intl. +24% · ingresos +67%",
+     "peso": "ARPU intl. 2,26 $ vs 11,85 $ en EE. UU.",
+     "d": "Con traducción automática el contenido en inglés llega a otros idiomas. Fuera de EE. UU. el ARPU es una quinta parte, así que hay mucho margen para monetizar.",
+     "ev": "Usuarios diarios internacionales e ingresos fuera de EE. UU.",
+     "r": "Usuarios menos valiosos para los anunciantes y competencia local."
+    },
+    {
+     "n": "Licencias de datos para IA",
+     "impact": 3,
+     "h": "2026",
+     "st": "en marcha",
+     "k": "Google ~60 M$ al año",
+     "peso": "~5% de los ingresos",
+     "d": "Google y OpenAI pagan por usar las conversaciones de Reddit para entrenar sus modelos. Los contratos se renegocian en 2026 y Reddit quiere un precio ligado al uso.",
+     "ev": "Renovaciones y nuevos acuerdos; evolución de «otros ingresos».",
+     "r": "Que no se renueve con Google o que el precio baje.",
+     "u": "https://www.sherwood.news/business/reddit-bounces-on-report-that-its-in-talks-with-google-openai-on-fresh-data"
+    },
+    {
+     "n": "Solo con sesión iniciada",
+     "impact": 3,
+     "h": "4T26–2027",
+     "st": "temprano",
+     "k": "Más del 80% de la monetización",
+     "d": "Reddit irá hacia una experiencia solo para usuarios registrados: más interacción, mejor segmentación de anuncios y protección de sus datos frente a quien los copia para entrenar IA. En la conferencia Invest de Yahoo Finance (12-nov) Huffman insistió en que empujar a iniciar sesión es parte del giro hacia la personalización. Pierde alcance a cambio de usuarios más valiosos.",
+     "ev": "Usuarios diarios con sesión iniciada y en la app, que publica por región.",
+     "r": "Las visitas desde Google caen (más de 1 M menos por semana en octubre por AI Overviews; Similarweb estima −13% de visitas globales, sobre todo de usuarios sin sesión): los usuarios diarios podrían bajar un porcentaje de dos dígitos en el 4T26.",
+     "peso": "prueba fuera de EE. UU. en el 4T26",
+     "u": "https://finnhub.io/api/news?id=de6653923780bf0e4b4a30f8579775dd662163faa2deae19487578972200d457"
+    },
+    {
+     "n": "Anuncios en el buscador y compras (Reddit Reviews)",
+     "impact": 2,
+     "h": "2027",
+     "st": "temprano",
+     "k": "Prueba con pocos anunciantes desde el 3-nov · Reviews con ~10.000 productos",
+     "peso": "sin ingresos propios todavía",
+     "d": "Dos palancas para monetizar las búsquedas dentro de Reddit: anuncios junto a los resultados del buscador interno (prueba con un grupo reducido de anunciantes) y Reddit Reviews, páginas de producto que resumen con IA lo que dicen los usuarios (en EE. UU. y fuera a lo largo de 2027; de momento sin anuncios ni comisión). Además, un acuerdo con Qloo para afinar la segmentación por intereses.",
+     "ev": "Ampliación de la prueba de anuncios en el buscador y si Reviews acaba llevando anuncios.",
+     "r": "Prueba temprana sin precio ni medición publicados; los anunciantes aún piden pruebas de que funciona todo el año (Digiday).",
+     "u": "https://techcrunch.com/2026/11/03/reddit-tests-ads-in-search-results-as-traffic-declines-and-growth-concerns-mount/"
+    },
+    {
+     "n": "Recompras",
+     "impact": 2,
+     "h": "Continuo",
+     "st": "en marcha",
+     "k": "Programa de 1.000 M$",
+     "peso": "~100 M$ en el 3T26 a menos de 150 $",
+     "d": "Compensan la dilución del pago en acciones.",
+     "ev": "Acciones en circulación.",
+     "r": "Poco efecto si el pago en acciones sigue alto."
+    }
+   ],
+   "despues": [
+    {
+     "n": "Más ingresos por usuario (Reddit Max)",
+     "impact": 5,
+     "h": "2026–2027",
+     "st": "en marcha",
+     "k": "Ingresos +53% en 3T26 (895 M$)",
+     "peso": "~95% de los ingresos es publicidad",
+     "d": "Reddit monetiza poco frente a Meta. Con Reddit Max (uso ×3 en un trimestre), anuncios de compra (+95%) y vídeo, los anunciantes pagan más por usuario. La guía del 4T26 es de 1.000–1.030 M$ (+38–42%).",
+     "ev": "ARPU por región y crecimiento de los ingresos publicitarios.",
+     "r": "Caída de usuarios: la guía del 4T26 contempla un descenso de dos dígitos por menos visitas desde Google.",
+     "u": "https://www.fool.com/earnings/call-transcripts/2026/10/30/reddit-rddt-q3-2026-earnings-call-transcript/"
+    },
+    {
+     "n": "Crecimiento internacional",
+     "impact": 4,
+     "h": "2026–2028",
+     "st": "en marcha",
+     "k": "Usuarios intl. +24% · ingresos +67%",
+     "peso": "ARPU intl. 2,43 $ vs 13,82 $ en EE. UU.",
+     "d": "Con traducción automática el contenido en inglés llega a otros idiomas. Fuera de EE. UU. el ARPU es una quinta parte, así que hay mucho margen para monetizar.",
+     "ev": "Usuarios diarios internacionales e ingresos fuera de EE. UU.",
+     "r": "Usuarios menos valiosos para los anunciantes y competencia local."
+    },
+    {
+     "n": "Licencias de datos para IA",
+     "impact": 3,
+     "h": "2026",
+     "st": "en marcha",
+     "k": "Google ~60 M$ al año",
+     "peso": "~5% de los ingresos",
+     "d": "Google y OpenAI pagan por usar las conversaciones de Reddit para entrenar sus modelos. Los contratos se renegocian en 2026 y Reddit quiere un precio ligado al uso.",
+     "ev": "Renovaciones y nuevos acuerdos; evolución de «otros ingresos».",
+     "r": "Que no se renueve con Google o que el precio baje.",
+     "u": "https://www.sherwood.news/business/reddit-bounces-on-report-that-its-in-talks-with-google-openai-on-fresh-data"
+    },
+    {
+     "n": "Solo con sesión iniciada",
+     "impact": 3,
+     "h": "4T26–2027",
+     "st": "temprano",
+     "k": "Más del 80% de la monetización",
+     "d": "Reddit irá hacia una experiencia solo para usuarios registrados: más interacción, mejor segmentación de anuncios y protección de sus datos frente a quien los copia para entrenar IA. En la conferencia Invest de Yahoo Finance (12-nov) Huffman insistió en que empujar a iniciar sesión es parte del giro hacia la personalización. Pierde alcance a cambio de usuarios más valiosos.",
+     "ev": "Usuarios diarios con sesión iniciada y en la app, que publica por región.",
+     "r": "Las visitas desde Google caen (más de 1 M menos por semana en octubre por AI Overviews; Similarweb estima −13% de visitas globales, sobre todo de usuarios sin sesión): los usuarios diarios podrían bajar un porcentaje de dos dígitos en el 4T26.",
+     "peso": "prueba fuera de EE. UU. en el 4T26",
+     "u": "https://finnhub.io/api/news?id=de6653923780bf0e4b4a30f8579775dd662163faa2deae19487578972200d457"
+    },
+    {
+     "n": "Anuncios en el buscador y compras (Reddit Reviews)",
+     "impact": 2,
+     "h": "2027",
+     "st": "temprano",
+     "k": "Prueba con pocos anunciantes desde el 3-nov · Reviews con ~10.000 productos",
+     "peso": "sin ingresos propios todavía",
+     "d": "Dos palancas para monetizar las búsquedas dentro de Reddit: anuncios junto a los resultados del buscador interno (prueba con un grupo reducido de anunciantes) y Reddit Reviews, páginas de producto que resumen con IA lo que dicen los usuarios (en EE. UU. y fuera a lo largo de 2027; de momento sin anuncios ni comisión). Además, un acuerdo con Qloo para afinar la segmentación por intereses.",
+     "ev": "Ampliación de la prueba de anuncios en el buscador y si Reviews acaba llevando anuncios.",
+     "r": "Prueba temprana sin precio ni medición publicados; los anunciantes aún piden pruebas de que funciona todo el año (Digiday).",
+     "u": "https://techcrunch.com/2026/11/03/reddit-tests-ads-in-search-results-as-traffic-declines-and-growth-concerns-mount/"
+    },
+    {
+     "n": "Recompras",
+     "impact": 2,
+     "h": "Continuo",
+     "st": "en marcha",
+     "k": "Programa de 1.000 M$",
+     "peso": "~100 M$ en el 3T26 a menos de 150 $",
+     "d": "Compensan la dilución del pago en acciones.",
+     "ev": "Acciones en circulación.",
+     "r": "Poco efecto si el pago en acciones sigue alto."
+    }
+   ],
+   "porque": "Solo se actualiza el ARPU por región del motor «Crecimiento internacional» (2,26/11,85 → 2,43/13,82 $ del 3T26); el resto se conserva",
+   "fuente": {
+    "t": "Carta a accionistas 3T26 (Ex. 99.2): ARPU intl. 2,43 $ vs EE. UU. 13,82 $",
+    "u": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000114/exhibit992q326.htm",
+    "d": "29-oct-2026"
+   },
+   "verificacion": "Solo cambia el ARPU por región del motor «Crecimiento internacional» (2,43/13,82 $, Ex.99.2); resto de motores idénticos a analysis.",
+   "motivo": "Auditoría oficial de las pestañas (SEC y compañía)"
   }
  ]
 }

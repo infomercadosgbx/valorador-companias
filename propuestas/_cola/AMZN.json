@@ -1,0 +1,38 @@
+{
+ "ticker": "AMZN",
+ "creada": "2026-11-13",
+ "alcance": "auditoria_oficial",
+ "motivo": "Auditoría oficial de las pestañas (SEC y compañía)",
+ "informe_accn": "0001018724-26-000038",
+ "resumen": "Auditoría oficial de las pestañas de Amazon frente al 8-K (Ex. 99.1) y el 10-Q del 3T26. Resumen, Finanzas, Directiva y casi todo Negocio cuadran con la SEC (ventas 201.944 M$, AWS 46.0 B/+39,3% y 17.773 M$ de beneficio, beneficio operativo 28.076 M$, publicidad 19.637 M$, FCF 12 meses −42.357 M$, cartera de AWS 578.000 M$, deuda a largo plazo 173.125 M$, segmentos 2025). Se corrigen tres cosas de la pestaña Negocio que se habían quedado en el 2T26 o que el 10-Q actualiza: la nota de «Conversión en caja» (FCF −7.600 → −42.357 M$), la de «Balance» (123.000/128.900 → 114.226/180.332 M$) y el contrato de OpenAI, que el 10-Q amplía de 38.000 a ~138.000 M$ (ampliación de 100.000 M$ en el 1T26). En Riesgos y Veredicto se alinean las cifras de deuda con las de la SEC (68.851 M$ en dic-25 → 180.332 M$ en sep-26).",
+ "fuentes": [
+  {
+   "t": "Nota de resultados 3T26 (8-K, Ex. 99.1)",
+   "u": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000038/amzn-20260930xex991.htm",
+   "d": "29-oct-2026"
+  },
+  {
+   "t": "10-Q 3T26 (nota de ingresos pendientes de reconocer y balance)",
+   "u": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/amzn-20260930.htm",
+   "d": "30-oct-2026"
+  }
+ ],
+ "cambios": [
+  {
+   "campo": "verdict.bear",
+   "valor": [
+    "FCF negativo y capex de ~220.000 M$",
+    "Deuda casi triplicada en 2026 (180.332 M$ en sep-26)",
+    "Azure y Google Cloud crecen más rápido",
+    "Juicio de la FTC en marzo de 2027"
+   ],
+   "tipo": "criterio",
+   "porque": "Coherencia: la cifra de deuda citada (179.952 M$) se alinea con la de la SEC (180.332 M$)",
+   "fuente": {
+    "t": "10-Q 3T26 (balance) y data/AMZN.json",
+    "u": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/amzn-20260930.htm",
+    "d": "30-oct-2026"
+   }
+  }
+ ]
+}

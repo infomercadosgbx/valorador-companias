@@ -7,7 +7,8 @@
   "hq": "Houston, Texas",
   "founded": "1879",
   "employees": "~40.000",
-  "asOf": "1-nov-2026"
+  "asOf": "13-nov-2026",
+  "nextEarnings": "28-ene-2027 (4T26, estimada)"
  },
  "overview": {
   "thesis": "Una de las dos grandes petroleras de EE. UU., con Hess ya integrada y en máximos históricos gracias al petróleo de guerra (Brent ~113 $). Genera caja récord, pero a ~235 $ el precio ya descuenta un crudo alto durante años: buena empresa, precio exigente si el petróleo se normaliza.",
@@ -563,6 +564,12 @@
     "u": "https://www.sec.gov/Archives/edgar/data/0000093410/000009341026000196/a09302026ex9918-k.htm"
    },
    {
+    "cat": "Formularios SEC",
+    "t": "10-Q tercer trimestre 2026",
+    "d": "05-nov-2026",
+    "u": "https://www.sec.gov/Archives/edgar/data/93410/000009341026000200/cvx-20260930.htm"
+   },
+   {
     "cat": "Presentaciones",
     "t": "Presentación de resultados 3T26 (PDF)",
     "d": "30-oct-2026",
@@ -713,6 +720,93 @@
     "u": "https://www.sec.gov/Archives/edgar/data/93410/000009341021000009/cvx-20201231.htm",
     "d": "25-feb-2021"
    }
+  }
+ ],
+ "cambios_auto": [
+  {
+   "fecha": "2026-11-13",
+   "campo": "sources.docs",
+   "antes": [
+    {
+     "cat": "Resultados trimestrales",
+     "t": "Nota de prensa de resultados 3T26 (8-K, Exhibit 99.1)",
+     "d": "30-oct-2026",
+     "u": "https://www.sec.gov/Archives/edgar/data/0000093410/000009341026000196/a09302026ex9918-k.htm"
+    },
+    {
+     "cat": "Presentaciones",
+     "t": "Presentación de resultados 3T26 (PDF)",
+     "d": "30-oct-2026",
+     "u": "https://chevroncorp.gcs-web.com/static-files/01bc23b1-43e8-4c09-9e47-6e24614391ce"
+    },
+    {
+     "cat": "Transcripciones",
+     "t": "Llamada de resultados 3T26 (The Motley Fool)",
+     "d": "30-oct-2026",
+     "u": "https://www.fool.com/earnings/call-transcripts/2026/10/30/chevron-cvx-q3-2026-earnings-call-transcript/"
+    }
+   ],
+   "despues": [
+    {
+     "cat": "Resultados trimestrales",
+     "t": "Nota de prensa de resultados 3T26 (8-K, Exhibit 99.1)",
+     "d": "30-oct-2026",
+     "u": "https://www.sec.gov/Archives/edgar/data/0000093410/000009341026000196/a09302026ex9918-k.htm"
+    },
+    {
+     "cat": "Formularios SEC",
+     "t": "10-Q tercer trimestre 2026",
+     "d": "05-nov-2026",
+     "u": "https://www.sec.gov/Archives/edgar/data/93410/000009341026000200/cvx-20260930.htm"
+    },
+    {
+     "cat": "Presentaciones",
+     "t": "Presentación de resultados 3T26 (PDF)",
+     "d": "30-oct-2026",
+     "u": "https://chevroncorp.gcs-web.com/static-files/01bc23b1-43e8-4c09-9e47-6e24614391ce"
+    },
+    {
+     "cat": "Transcripciones",
+     "t": "Llamada de resultados 3T26 (The Motley Fool)",
+     "d": "30-oct-2026",
+     "u": "https://www.fool.com/earnings/call-transcripts/2026/10/30/chevron-cvx-q3-2026-earnings-call-transcript/"
+    }
+   ],
+   "porque": "El 10-Q del 3T26 ya está presentado (5-nov-2026) y es el documento oficial principal del trimestre; faltaba en Fuentes.",
+   "fuente": {
+    "t": "10-Q tercer trimestre 2026 (SEC EDGAR)",
+    "u": "https://www.sec.gov/Archives/edgar/data/93410/000009341026000200/cvx-20260930.htm",
+    "d": "05-nov-2026"
+   },
+   "verificacion": "Única entrada nueva: 10-Q 3T26 (accn 0000093410-26-000200, presentado 5-nov-2026), confirmado en submissions SEC; URL 200; resto de docs sin cambios.",
+   "motivo": "Auditoría oficial de las pestañas (SEC y compañía)"
+  },
+  {
+   "fecha": "2026-11-13",
+   "campo": "meta.nextEarnings",
+   "despues": "28-ene-2027 (4T26, estimada)",
+   "porque": "Faltaba la próxima fecha de resultados en el Resumen; según el calendario, 28-ene-2027 (ya está como catalizador).",
+   "fuente": {
+    "t": "data/CVX.json → resultados_previstos (Finnhub)",
+    "u": "https://finnhub.io/docs/api/earnings-calendar",
+    "d": "12-nov-2026"
+   },
+   "verificacion": "data→resultados_previstos: 2027-01-28, 4T26.",
+   "motivo": "Auditoría oficial de las pestañas (SEC y compañía)"
+  },
+  {
+   "fecha": "2026-11-13",
+   "campo": "meta.asOf",
+   "antes": "1-nov-2026",
+   "despues": "13-nov-2026",
+   "porque": "Fecha de la auditoría oficial.",
+   "fuente": {
+    "t": "Auditoría oficial de pestañas",
+    "u": "https://www.sec.gov/Archives/edgar/data/93410/000009341026000196/a09302026ex9918-k.htm",
+    "d": "13-nov-2026"
+   },
+   "verificacion": "Fecha de la auditoría oficial.",
+   "motivo": "Auditoría oficial de las pestañas (SEC y compañía)"
   }
  ]
 }

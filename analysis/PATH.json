@@ -44,7 +44,7 @@
   ],
   "catalysts": [
    {
-    "d": "1-dic-26",
+    "d": "3-dic-26",
     "t": "Resultados del 3T FY27: guía de 440–445 M$ de ingresos y ARR de 1.992–1.997 M$."
    },
    {
@@ -798,6 +798,22 @@
     ]
    },
    "origen": "git 6c739a0ab0"
+  }
+ ],
+ "cambios_auto": [
+  {
+   "fecha": "2026-11-13",
+   "campo": "overview.catalysts.0.d",
+   "antes": "1-dic-26",
+   "despues": "3-dic-26",
+   "porque": "El calendario oficial (data → resultados_previstos) sitúa los resultados del 3T FY27 el 3-dic-26, no el 1-dic.",
+   "fuente": {
+    "t": "Calendario de resultados (data/PATH.json → resultados_previstos, Finnhub)",
+    "u": "https://finnhub.io/docs/api/earnings-calendar",
+    "d": "12-nov-2026"
+   },
+   "verificacion": "data→resultados_previstos: 2026-12-03, 3T FY27 (catalizador de resultados).",
+   "motivo": "Auditoría oficial de las pestañas (SEC y compañía)"
   }
  ]
 }

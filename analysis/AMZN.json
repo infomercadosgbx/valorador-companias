@@ -123,7 +123,7 @@
    {
     "n": "Conversión en caja",
     "s": 1,
-    "note": "FCF de −7.600 M$ en 12 meses por el capex"
+    "note": "FCF de −42.357 M$ en 12 meses por el capex"
    },
    {
     "n": "Recurrencia de ingresos",
@@ -138,7 +138,7 @@
    {
     "n": "Balance",
     "s": 4,
-    "note": "123.000 M$ de caja frente a 128.900 M$ de deuda"
+    "note": "114.226 M$ de caja frente a 180.332 M$ de deuda (SEC, sep-26)"
    }
   ],
   "phase": 2,
@@ -153,8 +153,8 @@
     },
     {
      "k": "Grandes contratos de IA",
-     "v": "148.000 M$",
-     "d": "Anthropic (110.000) y OpenAI (38.000)"
+     "v": "≥248.000 M$",
+     "d": "Anthropic ≥110.000 (su folleto) y OpenAI ~138.000 (38.000 + ampliación de 100.000 en 1T26, 10-Q)"
     },
     {
      "k": "AWS, ritmo anual",
@@ -167,18 +167,19 @@
      "n": "Anthropic",
      "sector": "IA",
      "cifra": "110.000 M$ hasta abr-36",
-     "d": "Según su folleto de salida a bolsa, debe a Amazon 110.000 M$ entre may-26 y abr-36; si gasta menos, paga la diferencia. Amazon invierte hasta 25.000 M$ más en la compañía.",
+     "d": "Según su folleto de salida a bolsa, debe a Amazon 110.000 M$ entre may-26 y abr-36; si gasta menos, paga la diferencia. Amazon invierte hasta 25.000 M$ más en la compañía. El 10-Q del 3T26 añade una ampliación del compromiso de «más de 100.000 M$ a 10 años» acordada en el 2T26.",
      "u": "https://investmentnews.com/equities/anthropics-landmark-ipo-filing-shows-12-fold-revenue-jump-518b-compute-bill/268391",
      "f": "sep-26",
-     "fu": "Folleto de Anthropic (InvestmentNews)"
+     "fu": "Folleto de Anthropic (InvestmentNews) y 10-Q 3T26"
     },
     {
      "n": "OpenAI",
      "sector": "IA",
-     "cifra": "38.000 M$",
-     "d": "Contrato de computación para usar servidores de AWS con chips de Nvidia.",
-     "u": "https://parameter.io/amazon-amzn-stock-openai-signs-38-billion-cloud-computing-deal-with-aws/",
-     "f": "nov-25"
+     "cifra": "≈138.000 M$ (8 años)",
+     "d": "Contrato de computación en AWS: al inicial de 38.000 M$ (nov-25) se sumó en el 1T26 una ampliación de 100.000 M$ a 8 años que incluye obligaciones por los chips de AWS.",
+     "u": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/amzn-20260930.htm",
+     "f": "sep-26",
+     "fu": "10-Q 3T26 (nota de ingresos pendientes)"
     },
     {
      "n": "Empresas en AWS",
@@ -490,7 +491,7 @@
    "cat": "Financiero",
    "p": 3,
    "i": 3,
-   "note": "Deuda de 68.396 M$ (dic-25) a 179.952 M$ (sep-26) según la SEC: casi se triplica en nueve meses para pagar el capex"
+   "note": "Deuda de 68.851 M$ (dic-25) a 180.332 M$ (sep-26) según la SEC: casi se triplica en nueve meses para pagar el capex"
   }
  ],
  "v": {
@@ -1182,6 +1183,337 @@
     ]
    },
    "origen": "git 7e2f5b6686"
+  }
+ ],
+ "cambios_auto": [
+  {
+   "fecha": "2026-11-13",
+   "campo": "business.quality",
+   "antes": [
+    {
+     "n": "Márgenes",
+     "s": 3,
+     "note": "Margen operativo ~13%; AWS ~39%"
+    },
+    {
+     "n": "Retorno sobre capital",
+     "s": 3,
+     "note": "Alto en AWS y publicidad; diluido por el capex"
+    },
+    {
+     "n": "Conversión en caja",
+     "s": 1,
+     "note": "FCF de −7.600 M$ en 12 meses por el capex"
+    },
+    {
+     "n": "Recurrencia de ingresos",
+     "s": 4,
+     "note": "Prime y contratos plurianuales de AWS"
+    },
+    {
+     "n": "Diversificación",
+     "s": 5,
+     "note": "Comercio, nube, publicidad y suscripciones en todo el mundo"
+    },
+    {
+     "n": "Balance",
+     "s": 4,
+     "note": "123.000 M$ de caja frente a 128.900 M$ de deuda"
+    }
+   ],
+   "despues": [
+    {
+     "n": "Márgenes",
+     "s": 3,
+     "note": "Margen operativo ~13%; AWS ~39%"
+    },
+    {
+     "n": "Retorno sobre capital",
+     "s": 3,
+     "note": "Alto en AWS y publicidad; diluido por el capex"
+    },
+    {
+     "n": "Conversión en caja",
+     "s": 1,
+     "note": "FCF de −42.357 M$ en 12 meses por el capex"
+    },
+    {
+     "n": "Recurrencia de ingresos",
+     "s": 4,
+     "note": "Prime y contratos plurianuales de AWS"
+    },
+    {
+     "n": "Diversificación",
+     "s": 5,
+     "note": "Comercio, nube, publicidad y suscripciones en todo el mundo"
+    },
+    {
+     "n": "Balance",
+     "s": 4,
+     "note": "114.226 M$ de caja frente a 180.332 M$ de deuda (SEC, sep-26)"
+    }
+   ],
+   "porque": "Las notas de «Conversión en caja» (FCF −7.600 M$) y «Balance» (123.000/128.900 M$) eran del 2T26; se ponen al 3T26 según la SEC",
+   "fuente": {
+    "t": "Nota de resultados 3T26 (8-K, Ex. 99.1): FCF 12 meses −42.357 M$ y balance a 30-sep-2026",
+    "u": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000038/amzn-20260930xex991.htm",
+    "d": "29-oct-2026"
+   },
+   "verificacion": "FCF TTM −42.357 M$ (8-K Ex.99.1) y balance caja 114.226 / deuda 180.332 M$ (data SEC, sep-26); resto de notas y puntuaciones sin cambios.",
+   "motivo": "Auditoría oficial de las pestañas (SEC y compañía)"
+  },
+  {
+   "fecha": "2026-11-13",
+   "campo": "business.clients.kpis",
+   "antes": [
+    {
+     "k": "Cartera de AWS",
+     "v": "578.000 M$",
+     "d": "sep-26; crece a tres dígitos"
+    },
+    {
+     "k": "Grandes contratos de IA",
+     "v": "148.000 M$",
+     "d": "Anthropic (110.000) y OpenAI (38.000)"
+    },
+    {
+     "k": "AWS, ritmo anual",
+     "v": "184.000 M$",
+     "d": "3T26, +39,3%"
+    }
+   ],
+   "despues": [
+    {
+     "k": "Cartera de AWS",
+     "v": "578.000 M$",
+     "d": "sep-26; crece a tres dígitos"
+    },
+    {
+     "k": "Grandes contratos de IA",
+     "v": "≥248.000 M$",
+     "d": "Anthropic ≥110.000 (su folleto) y OpenAI ~138.000 (38.000 + ampliación de 100.000 en 1T26, 10-Q)"
+    },
+    {
+     "k": "AWS, ritmo anual",
+     "v": "184.000 M$",
+     "d": "3T26, +39,3%"
+    }
+   ],
+   "porque": "El 10-Q refleja la ampliación del compromiso de OpenAI en 100.000 M$ (1T26): el total pasa de 38.000 a ~138.000 M$",
+   "fuente": {
+    "t": "10-Q 3T26 (nota de ingresos pendientes): ampliación OpenAI +100.000 M$ a 8 años",
+    "u": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/amzn-20260930.htm",
+    "d": "30-oct-2026"
+   },
+   "verificacion": "10-Q 3T26: OpenAI 38.000+100.000 (8 años)=~138.000; IA ≥248.000 (110.000 Anthropic folleto + 138.000); cartera AWS 578.000 M$; AWS 46 B×4=184.000 (+39%).",
+   "motivo": "Auditoría oficial de las pestañas (SEC y compañía)"
+  },
+  {
+   "fecha": "2026-11-13",
+   "campo": "business.clients.conocidos",
+   "antes": [
+    {
+     "n": "Anthropic",
+     "sector": "IA",
+     "cifra": "110.000 M$ hasta abr-36",
+     "d": "Según su folleto de salida a bolsa, debe a Amazon 110.000 M$ entre may-26 y abr-36; si gasta menos, paga la diferencia. Amazon invierte hasta 25.000 M$ más en la compañía.",
+     "u": "https://investmentnews.com/equities/anthropics-landmark-ipo-filing-shows-12-fold-revenue-jump-518b-compute-bill/268391",
+     "f": "sep-26",
+     "fu": "Folleto de Anthropic (InvestmentNews)"
+    },
+    {
+     "n": "OpenAI",
+     "sector": "IA",
+     "cifra": "38.000 M$",
+     "d": "Contrato de computación para usar servidores de AWS con chips de Nvidia.",
+     "u": "https://parameter.io/amazon-amzn-stock-openai-signs-38-billion-cloud-computing-deal-with-aws/",
+     "f": "nov-25"
+    },
+    {
+     "n": "Empresas en AWS",
+     "sector": "Todos",
+     "cifra": "Bedrock: tokens ×17 en un año",
+     "d": "Capital One, IBM, Robinhood e Infor usan su nuevo servicio de seguridad de código; Mondelez, 3M, Southwest Airlines y DXC, su asistente Amazon Quick. El gasto del Fortune 500 en Bedrock se multiplica casi por 7.",
+     "u": "https://www.fool.com/earnings/call-transcripts/2026/10/30/amazon-amzn-q3-2026-earnings-call-transcript/",
+     "fu": "Transcripción 3T26 (Motley Fool)",
+     "f": "oct-26"
+    },
+    {
+     "n": "Vendedores externos",
+     "sector": "Comercio",
+     "cifra": "Más de la mitad de las unidades",
+     "d": "Pagan comisiones, logística (Fulfillment by Amazon) y publicidad: segunda línea de ingresos del grupo."
+    },
+    {
+     "n": "Socios Prime",
+     "sector": "Consumo",
+     "cifra": "Cientos de millones",
+     "d": "Cuota anual o mensual que fideliza la compra y alimenta suscripciones y publicidad en Prime Video."
+    }
+   ],
+   "despues": [
+    {
+     "n": "Anthropic",
+     "sector": "IA",
+     "cifra": "110.000 M$ hasta abr-36",
+     "d": "Según su folleto de salida a bolsa, debe a Amazon 110.000 M$ entre may-26 y abr-36; si gasta menos, paga la diferencia. Amazon invierte hasta 25.000 M$ más en la compañía. El 10-Q del 3T26 añade una ampliación del compromiso de «más de 100.000 M$ a 10 años» acordada en el 2T26.",
+     "u": "https://investmentnews.com/equities/anthropics-landmark-ipo-filing-shows-12-fold-revenue-jump-518b-compute-bill/268391",
+     "f": "sep-26",
+     "fu": "Folleto de Anthropic (InvestmentNews) y 10-Q 3T26"
+    },
+    {
+     "n": "OpenAI",
+     "sector": "IA",
+     "cifra": "≈138.000 M$ (8 años)",
+     "d": "Contrato de computación en AWS: al inicial de 38.000 M$ (nov-25) se sumó en el 1T26 una ampliación de 100.000 M$ a 8 años que incluye obligaciones por los chips de AWS.",
+     "u": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/amzn-20260930.htm",
+     "f": "sep-26",
+     "fu": "10-Q 3T26 (nota de ingresos pendientes)"
+    },
+    {
+     "n": "Empresas en AWS",
+     "sector": "Todos",
+     "cifra": "Bedrock: tokens ×17 en un año",
+     "d": "Capital One, IBM, Robinhood e Infor usan su nuevo servicio de seguridad de código; Mondelez, 3M, Southwest Airlines y DXC, su asistente Amazon Quick. El gasto del Fortune 500 en Bedrock se multiplica casi por 7.",
+     "u": "https://www.fool.com/earnings/call-transcripts/2026/10/30/amazon-amzn-q3-2026-earnings-call-transcript/",
+     "fu": "Transcripción 3T26 (Motley Fool)",
+     "f": "oct-26"
+    },
+    {
+     "n": "Vendedores externos",
+     "sector": "Comercio",
+     "cifra": "Más de la mitad de las unidades",
+     "d": "Pagan comisiones, logística (Fulfillment by Amazon) y publicidad: segunda línea de ingresos del grupo."
+    },
+    {
+     "n": "Socios Prime",
+     "sector": "Consumo",
+     "cifra": "Cientos de millones",
+     "d": "Cuota anual o mensual que fideliza la compra y alimenta suscripciones y publicidad en Prime Video."
+    }
+   ],
+   "porque": "Actualiza la entrada de OpenAI (38.000 → ~138.000 M$) con la ampliación que recoge el 10-Q del 3T26",
+   "fuente": {
+    "t": "10-Q 3T26 (nota de ingresos pendientes): ampliación OpenAI +100.000 M$",
+    "u": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/amzn-20260930.htm",
+    "d": "30-oct-2026"
+   },
+   "verificacion": "Solo cambia OpenAI 38.000→~138.000 (10-Q: +100.000 M$/8 años, 1T26) y la nota de Anthropic (10-Q: +100.000 M$/10 años, 2T26); resto sin alterar.",
+   "motivo": "Auditoría oficial de las pestañas (SEC y compañía)"
+  },
+  {
+   "fecha": "2026-11-13",
+   "campo": "risks",
+   "antes": [
+    {
+     "n": "El capex no rinde lo esperado",
+     "cat": "Financiero",
+     "p": 3,
+     "i": 4,
+     "note": "FCF de −42.357 M$ en 12 meses (sep-26); capex de ~220.000 M$ en 2026 y «bastante más» en 2027"
+    },
+    {
+     "n": "Pierde cuota en la nube",
+     "cat": "Competencia",
+     "p": 3,
+     "i": 4,
+     "note": "Azure (+43%) y Google Cloud (+82%) crecen más rápido"
+    },
+    {
+     "n": "Juicio antimonopolio de la FTC",
+     "cat": "Regulatorio",
+     "p": 3,
+     "i": 3,
+     "note": "Juicio fijado para marzo de 2027"
+    },
+    {
+     "n": "Dependencia de Anthropic",
+     "cat": "Comercial",
+     "p": 3,
+     "i": 3,
+     "note": "Gran cliente y participación con ganancias contables muy volátiles"
+    },
+    {
+     "n": "Márgenes del comercio y aranceles",
+     "cat": "Mercado",
+     "p": 3,
+     "i": 2,
+     "note": "Margen internacional de solo ~4%"
+    },
+    {
+     "n": "Coste de memoria y chips",
+     "cat": "Operativo",
+     "p": 3,
+     "i": 2,
+     "note": "La dirección lo citó al subir la guía de capex"
+    },
+    {
+     "n": "Más deuda",
+     "cat": "Financiero",
+     "p": 3,
+     "i": 3,
+     "note": "Deuda de 68.396 M$ (dic-25) a 179.952 M$ (sep-26) según la SEC: casi se triplica en nueve meses para pagar el capex"
+    }
+   ],
+   "despues": [
+    {
+     "n": "El capex no rinde lo esperado",
+     "cat": "Financiero",
+     "p": 3,
+     "i": 4,
+     "note": "FCF de −42.357 M$ en 12 meses (sep-26); capex de ~220.000 M$ en 2026 y «bastante más» en 2027"
+    },
+    {
+     "n": "Pierde cuota en la nube",
+     "cat": "Competencia",
+     "p": 3,
+     "i": 4,
+     "note": "Azure (+43%) y Google Cloud (+82%) crecen más rápido"
+    },
+    {
+     "n": "Juicio antimonopolio de la FTC",
+     "cat": "Regulatorio",
+     "p": 3,
+     "i": 3,
+     "note": "Juicio fijado para marzo de 2027"
+    },
+    {
+     "n": "Dependencia de Anthropic",
+     "cat": "Comercial",
+     "p": 3,
+     "i": 3,
+     "note": "Gran cliente y participación con ganancias contables muy volátiles"
+    },
+    {
+     "n": "Márgenes del comercio y aranceles",
+     "cat": "Mercado",
+     "p": 3,
+     "i": 2,
+     "note": "Margen internacional de solo ~4%"
+    },
+    {
+     "n": "Coste de memoria y chips",
+     "cat": "Operativo",
+     "p": 3,
+     "i": 2,
+     "note": "La dirección lo citó al subir la guía de capex"
+    },
+    {
+     "n": "Más deuda",
+     "cat": "Financiero",
+     "p": 3,
+     "i": 3,
+     "note": "Deuda de 68.851 M$ (dic-25) a 180.332 M$ (sep-26) según la SEC: casi se triplica en nueve meses para pagar el capex"
+    }
+   ],
+   "porque": "Las cifras de deuda del riesgo «Más deuda» (68.396/179.952 M$) no coincidían con la SEC; se ponen las de data (68.851/180.332 M$)",
+   "fuente": {
+    "t": "10-Q 3T26 (balance) y data/AMZN.json (deuda SEC: LTD noncurrent+current+short-term borrowings)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/amzn-20260930.htm",
+    "d": "30-oct-2026"
+   },
+   "verificacion": "Solo cambia la nota de «Más deuda»: 68.851 (dic-25) y 180.332 M$ (sep-26) coinciden con data/AMZN.json; resto de riesgos y puntuaciones sin cambios.",
+   "motivo": "Auditoría oficial de las pestañas (SEC y compañía)"
   }
  ]
 }

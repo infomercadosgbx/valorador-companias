@@ -1,0 +1,38 @@
+{
+ "ticker": "CVX",
+ "creada": "2026-11-13",
+ "alcance": "auditoria_oficial",
+ "motivo": "Auditoría oficial de las pestañas (SEC y compañía)",
+ "informe_accn": "0000093410-26-000196",
+ "resumen": "Auditoría oficial de Chevron. Las cifras del 3T26 de las pestañas cuadran con la nota de resultados del 30-oct-2026 (8-K, Ex. 99.1): beneficio declarado 9.924 M$ (5,06 $/acción), beneficio ajustado 10.361 M$ (5,28 $/acción), FCF ajustado 14.243 M$, producción 3.980 MBOED, dividendo 1,78 $/trimestre, Venezuela y acuerdo de Bakken. Tres correcciones de coherencia con los documentos oficiales: (1) el 10-Q del 3T26 ya está presentado (5-nov-2026) y no figuraba en Fuentes; (2) faltaba la próxima fecha de resultados en el Resumen; (3) la nota del análisis decía que las cifras de la SEC solo llegaban al 2T26, lo que ya no es cierto. No cambia la tesis ni el veredicto. Aviso para el usuario (no se fuerza): la tesis y el veredicto citan ~235 $ (máximo del 30-oct) mientras data/CVX.json → precio es 216,35 $ a 12-nov; es cotización, no documento oficial, y la decide el usuario.",
+ "fuentes": [
+  {
+   "t": "Nota de resultados 3T26 (8-K, Ex. 99.1)",
+   "u": "https://www.sec.gov/Archives/edgar/data/93410/000009341026000196/a09302026ex9918-k.htm",
+   "d": "30-oct-2026"
+  },
+  {
+   "t": "10-Q tercer trimestre 2026 (SEC EDGAR)",
+   "u": "https://www.sec.gov/Archives/edgar/data/93410/000009341026000200/cvx-20260930.htm",
+   "d": "05-nov-2026"
+  },
+  {
+   "t": "data/CVX.json → resultados_previstos (próxima fecha de resultados)",
+   "u": "https://finnhub.io/docs/api/earnings-calendar",
+   "d": "12-nov-2026"
+  }
+ ],
+ "cambios": [
+  {
+   "campo": "notes",
+   "valor": "Chevron no publica beneficio operativo: el valorador lo aproxima como beneficio antes de impuestos + intereses (EBIT). Las cifras de la SEC ya incluyen el 3T26 (10-Q presentado el 5-nov-2026); los datos del 3T26 de este análisis se tomaron de la nota de resultados del 30-oct-2026 y coinciden con el 10-Q. El modelo arranca de unos ingresos de 2026 de ~245.000 M$ (crudo alto) y supone una normalización en 2027–2028.",
+   "tipo": "criterio",
+   "porque": "La nota decía que las cifras de la SEC solo llegaban al 2T26, lo que ya no es cierto: el 10-Q del 3T26 está presentado.",
+   "fuente": {
+    "t": "10-Q tercer trimestre 2026 (SEC EDGAR)",
+    "u": "https://www.sec.gov/Archives/edgar/data/93410/000009341026000200/cvx-20260930.htm",
+    "d": "05-nov-2026"
+   }
+  }
+ ]
+}

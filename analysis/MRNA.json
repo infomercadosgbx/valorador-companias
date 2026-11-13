@@ -8,7 +8,7 @@
   "employees": "~4.700 (dic-25, 18 países)",
   "asOf": "13-nov-2026",
   "fav": false,
-  "nextEarnings": "Feb-2027 (4T26, fecha por confirmar)"
+  "nextEarnings": "11-feb-2027 (4T26, estimada)"
  },
  "overview": {
   "thesis": "La acción ha multiplicado por diez en un año por intismeran, su terapia personalizada contra el cáncer con Merck: en fase 3 redujo un 42% el riesgo de recaída en melanoma operado, aunque la supervivencia aún no es significativa. A 258 $ (~104.000 M$ de capitalización frente a unos 2.300 M$ de ventas en 2026), el precio descuenta un éxito comercial amplio en varios tumores que todavía no está aprobado.",
@@ -128,7 +128,7 @@
    {
     "n": "Conversión en caja",
     "s": 1,
-    "note": "Caja operativa de −2.715 M$ en 9M26 (incluye 950 M$ del acuerdo con GSK)"
+    "note": "Caja operativa de −2.715 M$ en 9M26 (incluye los 950 M$ pagados en julio por el acuerdo con Arbutus/Genevant)"
    },
    {
     "n": "Recurrencia de ingresos",
@@ -602,7 +602,7 @@
    "cat": "Regulatorio",
    "p": 3,
    "i": 3,
-   "note": "Perdió una patente europea frente a Pfizer/BioNTech (sep-26) y CureVac la ha demandado en 2026; cerró acuerdos con Arbutus/Genevant (950 M$) y GSK"
+   "note": "Perdió una patente europea frente a Pfizer/BioNTech (sep-26) y CureVac la ha demandado en 2026; cerró acuerdos con Arbutus/Genevant (950 M$) y GSK (sin pagos). Queda abierta la apelación del caso 28 U.S.C. 1498: podría obligar a pagar hasta 1.300 M$ más, sin provisión al 30-sep-26."
   },
   {
    "n": "Fracaso de la vacuna de norovirus",
@@ -1181,6 +1181,48 @@
    },
    "verificacion": "Fecha de la revisión, 13-nov-2026, coincide con la de hoy y es posterior a la fuente del 12-nov.",
    "motivo": "Novedades del 12-nov-2026: Analyst Day con costes de caja de ~4.000 M$ en 2027"
+  },
+  {
+   "fecha": "2026-11-13",
+   "campo": "business.quality.2.note",
+   "antes": "Caja operativa de −2.715 M$ en 9M26 (incluye 950 M$ del acuerdo con GSK)",
+   "despues": "Caja operativa de −2.715 M$ en 9M26 (incluye los 950 M$ pagados en julio por el acuerdo con Arbutus/Genevant)",
+   "porque": "El pago de 950 M$ fue a Arbutus/Genevant (10-Q Nota 12), no a GSK; el acuerdo con GSK (28-oct) no implica pagos.",
+   "fuente": {
+    "t": "10-Q 3T26, Nota 12 (Compromisos y contingencias)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000197/mrna-20260930.htm",
+    "d": "06-nov-2026"
+   },
+   "verificacion": "10-Q Nota 12: pago de 950 M$ a Arbutus/Genevant (jul-2026), no a GSK; caja operativa 9M26 −2.715 M$ confirmada.",
+   "motivo": "Auditoría oficial de las pestañas (SEC y compañía)"
+  },
+  {
+   "fecha": "2026-11-13",
+   "campo": "risks.9.note",
+   "antes": "Perdió una patente europea frente a Pfizer/BioNTech (sep-26) y CureVac la ha demandado en 2026; cerró acuerdos con Arbutus/Genevant (950 M$) y GSK",
+   "despues": "Perdió una patente europea frente a Pfizer/BioNTech (sep-26) y CureVac la ha demandado en 2026; cerró acuerdos con Arbutus/Genevant (950 M$) y GSK (sin pagos). Queda abierta la apelación del caso 28 U.S.C. 1498: podría obligar a pagar hasta 1.300 M$ más, sin provisión al 30-sep-26.",
+   "porque": "El 10-Q (Nota 12) revela una contingencia de hasta 1.300 M$ por la apelación del caso 1498 que el riesgo no recogía.",
+   "fuente": {
+    "t": "10-Q 3T26, Nota 12 (Compromisos y contingencias)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000197/mrna-20260930.htm",
+    "d": "06-nov-2026"
+   },
+   "verificacion": "10-Q Nota 12: patente europea EP 3.590.949 revocada (sep-26), demanda de CureVac (2026), acuerdos Arbutus/Genevant (950 M$) y GSK (sin pagos) y §1498 hasta 1.300 M$ sin provisión al 30-sep.",
+   "motivo": "Auditoría oficial de las pestañas (SEC y compañía)"
+  },
+  {
+   "fecha": "2026-11-13",
+   "campo": "meta.nextEarnings",
+   "antes": "Feb-2027 (4T26, fecha por confirmar)",
+   "despues": "11-feb-2027 (4T26, estimada)",
+   "porque": "El calendario oficial (data → resultados_previstos) concreta los resultados del 4T26 el 11-feb-2027.",
+   "fuente": {
+    "t": "Calendario de resultados (data/MRNA.json → resultados_previstos, Finnhub)",
+    "u": "https://finnhub.io/docs/api/earnings-calendar",
+    "d": "12-nov-2026"
+   },
+   "verificacion": "data→resultados_previstos: 2027-02-11, 4T26.",
+   "motivo": "Auditoría oficial de las pestañas (SEC y compañía)"
   }
  ]
 }

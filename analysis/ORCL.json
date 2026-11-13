@@ -9,7 +9,7 @@
   "asOf": "9-nov-2026",
   "fav": false,
   "autogenerado": "2026-11-02",
-  "nextEarnings": "8-dic-2026 (Finnhub)"
+  "nextEarnings": "14-dic-2026 (Finnhub)"
  },
  "overview": {
   "thesis": "Oracle se ha convertido en uno de los grandes constructores de nube para IA: cartera de 664.000 M$ y nube de infraestructura creciendo +121%. A ~126 $ (−52% desde máximos) el mercado duda de la financiación: caja libre negativa hasta 2028, 125.000 M$ de deuda y mucha dependencia de OpenAI. Barata si cumple el plan de 2030; cara si la IA se enfría.",
@@ -46,7 +46,7 @@
   ],
   "catalysts": [
    {
-    "d": "8-dic-26 (estimada)",
+    "d": "14-dic-26 (estimada)",
     "t": "Resultados del 2T FY27: guía de ingresos +30–34%, nube +65–71% y BPA ajustado 1,85–1,93 $."
    },
    {
@@ -1188,6 +1188,34 @@
    },
    "verificacion": "Nuevos: dos noticias de data/ORCL.json → noticias (Yahoo 12-nov: subida del 9% el miércoles tras CoreWeave; Benzinga 11-nov: CoreWeave reanima el rally de IA); el historico_precio da +8,8% el 11-nov (117,98→128,38 $). Los 7 elementos existentes no cambian.",
    "motivo": "Novedades del 11-nov-2026: Oracle sube un 8,8% con los resultados de CoreWeave"
+  },
+  {
+   "fecha": "2026-11-13",
+   "campo": "meta.nextEarnings",
+   "antes": "8-dic-2026 (Finnhub)",
+   "despues": "14-dic-2026 (Finnhub)",
+   "porque": "El calendario oficial (data → resultados_previstos) da el 14-dic-2026 para el 2T FY27, no el 8-dic.",
+   "fuente": {
+    "t": "Calendario de resultados (data/ORCL.json → resultados_previstos, Finnhub)",
+    "u": "https://finnhub.io/docs/api/earnings-calendar",
+    "d": "12-nov-2026"
+   },
+   "verificacion": "data→resultados_previstos: 2026-12-14, 2T FY27.",
+   "motivo": "Auditoría oficial de las pestañas (SEC y compañía)"
+  },
+  {
+   "fecha": "2026-11-13",
+   "campo": "overview.catalysts.0.d",
+   "antes": "8-dic-26 (estimada)",
+   "despues": "14-dic-26 (estimada)",
+   "porque": "Alinear el catalizador de resultados del 2T FY27 con el calendario (data → resultados_previstos: 14-dic-2026).",
+   "fuente": {
+    "t": "Calendario de resultados (data/ORCL.json → resultados_previstos, Finnhub)",
+    "u": "https://finnhub.io/docs/api/earnings-calendar",
+    "d": "12-nov-2026"
+   },
+   "verificacion": "Catalizador de resultados 2T FY27 alineado con data (14-dic-2026).",
+   "motivo": "Auditoría oficial de las pestañas (SEC y compañía)"
   }
  ]
 }
