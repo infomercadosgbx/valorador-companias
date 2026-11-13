@@ -51,13 +51,6 @@ jobs:
               print(f"| {co['ticker']} | {'✅' if items else '❌'} | {len(items)} | {url or ''} | {(err or '')[:150]} |")
               for n in items[:2]:
                   print(f"| | | | {n['fecha']} · {n['titular'][:80]} | |")
-          cand = pathlib.Path("scripts/_candidatos_salas.json")
-          if cand.exists():
-              print("\n## Candidatas (temporal)\n")
-              for tk, us in json.loads(cand.read_text()).items():
-                  for u in us:
-                      items, url, err = N.leer_sala([u])
-                      print(f"- {tk} {'✅' if items else '❌'} {len(items)} {u} → {url or ''} {(err or '')[:120]}")
           print("\n## Enlaces de Finnhub\n")
           import json, pathlib
           dat = json.loads(pathlib.Path(f"data/{t}.json").read_text(encoding="utf-8")) if pathlib.Path(f"data/{t}.json").exists() else {}

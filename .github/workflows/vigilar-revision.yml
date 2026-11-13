@@ -1,0 +1,46 @@
+name: Vigilar la revisión de la mañana
+
+# Comprueba que la tarea programada «Valorador · revisión tras resultados y novedades» (07:41, lunes a
+# sábado) ha terminado: siempre escribe la entrada del día en propuestas/registro_fuentes.md.
+# Si a las ~09:40 de Madrid no está, comenta el Issue de avisos (llega por email).
+on:
+  schedule:
+    - cron: "37 8 * * 1-6"     # 08:37 UTC = 09:37 en invierno (10:37 en verano)
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  vigilar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Comprobar el registro de hoy
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          hoy=$(TZ=Europe/Madrid date +%F)
+          if grep -q "^## $hoy" propuestas/registro_fuentes.md 2>/dev/null; then
+            echo "La revisión de la mañana ha terminado ($hoy)."; exit 0
+          fi
+          ultimo=$(git log -1 --format='%ci · %s' -- propuestas/ 2>/dev/null || echo "—")
+          cat > "$RUNNER_TEMP/aviso.md" <<EOF
+          ### ⚠️ La revisión de la mañana no ha terminado ($hoy)
+
+          A las $(TZ=Europe/Madrid date +%H:%M) no hay entrada de hoy en \`propuestas/registro_fuentes.md\`, que la tarea programada «Valorador · revisión tras resultados y novedades» escribe siempre al final.
+
+          Puede que no haya arrancado, que haya fallado a mitad o que no haya podido hacer push. Último cambio en propuestas/: $ultimo.
+
+          Qué hacer: en Claude, abre las tareas programadas y mira la última ejecución, o lánzala a mano.
+          EOF
+          sed -i 's/^          //' "$RUNNER_TEMP/aviso.md"
+          gh label create aviso --color F59E0B --description "Avisos automáticos del valorador" --force >/dev/null 2>&1 || true
+          titulo="Valorador: avisos"
+          fijo=$(gh issue list --label aviso --state open --limit 1 --json number --jq '.[0].number // empty')
+          if [ -n "$fijo" ]; then
+            gh issue comment "$fijo" --body-file "$RUNNER_TEMP/aviso.md"
+          else
+            gh issue create --title "$titulo" --label aviso --body-file "$RUNNER_TEMP/aviso.md"
+          fi
