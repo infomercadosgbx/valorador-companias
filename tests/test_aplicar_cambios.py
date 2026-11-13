@@ -70,22 +70,22 @@ def test_criterio_disfrazado_de_hecho_no_se_aplica(repo):
 
 def test_criterio_sin_resultados_va_a_la_cola_y_sale_el_sabado(repo):
     m, root = repo
-    _prop(root, [{"campo": "risks", "valor": [], "tipo": "criterio", "porque": "x"}])
+    _prop(root, [{"campo": "verdict.summary", "valor": "x", "tipo": "criterio", "porque": "x"}])
     m.procesar("VST", "2026-11-12", False)
     assert not (root / "propuestas/VST.json").exists()
     assert (root / "propuestas/_cola/VST.json").exists()
     m.procesar("VST", "2026-11-14", True)
     p = _rd(root / "propuestas/VST.json")
-    assert p["cambios"][0]["campo"] == "risks" and p["creada"] == "2026-11-14"
+    assert p["cambios"][0]["campo"] == "verdict.summary" and p["creada"] == "2026-11-14"
     assert p["motivo"].startswith("Revisión semanal")
     assert not (root / "propuestas/_cola/VST.json").exists()
 
 
 def test_criterio_urgente_queda_para_hoy(repo):
     m, root = repo
-    _prop(root, [{"campo": "risks", "valor": [], "tipo": "criterio"}], urgente=True)
+    _prop(root, [{"campo": "verdict.summary", "valor": "x", "tipo": "criterio"}], urgente=True)
     m.procesar("VST", "2026-11-12", False)
-    assert _rd(root / "propuestas/VST.json")["cambios"][0]["campo"] == "risks"
+    assert _rd(root / "propuestas/VST.json")["cambios"][0]["campo"] == "verdict.summary"
 
 
 def test_supuesto_dcf_pequeno_se_descarta(repo):
@@ -128,3 +128,54 @@ def test_w_id_igual_que_la_web():
     for a in an["avisos_aprobados"]:
         cod = a["id"].split(".", 1)[0]
         assert m.w_id(cod, a["mensaje"]) == a["id"]
+
+
+def test_texto_verificado_se_aplica_solo(repo):
+    """Tesis, riesgos, MOAT… se aplican solos si pasan la verificación (13-nov-2026)."""
+    m, root = repo
+    _prop(root, [{"campo": "overview.thesis", "valor": "Nueva tesis", "tipo": "texto", "verificacion": OK}])
+    r = m.procesar("VST", "2026-11-12", False)
+    assert _rd(root / "analysis/VST.json")["overview"]["thesis"] == "Nueva tesis"
+    assert r["aplicados"] == ["overview.thesis"]
+
+
+def test_texto_sin_verificar_no_se_aplica(repo):
+    m, root = repo
+    antes = _rd(root / "analysis/VST.json")["overview"]["thesis"]
+    _prop(root, [{"campo": "overview.thesis", "valor": "X", "tipo": "texto", "verificacion": {"ok": False, "nota": "No lo dice la fuente"}}])
+    m.procesar("VST", "2026-11-12", False)
+    assert _rd(root / "analysis/VST.json")["overview"]["thesis"] == antes
+    assert _rd(root / "propuestas/VST.json")["cambios"][0]["fallo_verificacion"] == "No lo dice la fuente"
+
+
+def test_riesgo_con_salto_grande_espera_al_usuario(repo):
+    m, root = repo
+    riesgos = _rd(root / "analysis/VST.json")["risks"]
+    nuevo = [dict(x) for x in riesgos]
+    nuevo[0]["p"] = 1 if float(nuevo[0]["p"]) >= 3 else 5
+    _prop(root, [{"campo": "risks", "valor": nuevo, "tipo": "texto", "verificacion": OK}], urgente=True)
+    r = m.procesar("VST", "2026-11-12", False)
+    assert _rd(root / "analysis/VST.json")["risks"] == riesgos
+    assert r["hoy"] == ["risks"]
+    assert "Cambio grande" in _rd(root / "propuestas/VST.json")["cambios"][0]["espera_usuario"]
+
+
+def test_riesgo_con_salto_pequeno_se_aplica(repo):
+    m, root = repo
+    riesgos = _rd(root / "analysis/VST.json")["risks"]
+    nuevo = [dict(x) for x in riesgos]
+    nuevo[0]["p"] = float(nuevo[0]["p"]) + (1 if float(nuevo[0]["p"]) < 5 else -1)
+    nuevo[0]["note"] = "Nota nueva"
+    _prop(root, [{"campo": "risks", "valor": nuevo, "tipo": "texto", "verificacion": OK}])
+    m.procesar("VST", "2026-11-12", False)
+    assert _rd(root / "analysis/VST.json")["risks"][0]["note"] == "Nota nueva"
+
+
+def test_veredicto_y_dcf_nunca_se_aplican_solos(repo):
+    m, root = repo
+    an = _rd(root / "analysis/VST.json")
+    _prop(root, [{"campo": "verdict.rating", "valor": "Vender", "tipo": "texto", "verificacion": OK},
+                 {"campo": "notes", "valor": "x", "tipo": "texto", "verificacion": OK}], urgente=True)
+    m.procesar("VST", "2026-11-12", False)
+    an2 = _rd(root / "analysis/VST.json")
+    assert an2["verdict"] == an["verdict"] and an2.get("notes") == an.get("notes")

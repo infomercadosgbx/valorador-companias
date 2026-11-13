@@ -11,16 +11,18 @@ rellenado `verificacion` en cada cambio.
 Qué hace, por compañía:
 1. Quita los ajustes por hechos posteriores caducados (hay un 10-Q/10-K nuevo).
 2. Aprueba los avisos de calidad del dato que el robot ha explicado (`avisos_resueltos`).
-3. Aplica a analysis/<T>.json los cambios de HECHOS con `verificacion.ok = true`
-   y los anota en `cambios_auto` (la web los enseña y permite deshacerlos).
-4. Los cambios de CRITERIO:
+3. Aplica a analysis/<T>.json los cambios de HECHOS y de TEXTOS de las pestañas
+   (tesis, negocio, MOAT, crecimiento, directiva, riesgos) con `verificacion.ok = true`
+   y los anota en `cambios_auto` (la web los enseña y permite deshacerlos). Una
+   puntuación que salta más de un punto espera al usuario.
+4. Los cambios de CRITERIO (DCF, veredicto, notas, comparables):
    - v.* (supuestos del DCF): solo siguen si mueven el valor por acción ≥ 5 %.
    - Con resultados o novedad grave (`urgente`, o impacto ≥ 10 %): quedan en la
      propuesta para hoy. Si no, van a la cola semanal propuestas/_cola/<T>.json,
      que se publica el sábado (--sabado).
 5. Los hechos que no superan la verificación quedan en la propuesta de hoy, con el motivo.
 
-Nunca toca data/ ni los campos de criterio de analysis/.
+Nunca toca data/, los supuestos del DCF ni el veredicto de analysis/.
 """
 from __future__ import annotations
 
@@ -51,7 +53,21 @@ HECHOS = [
     r"social\.(pulse|videos|pulseFuente)(\..*)?",
     r"ajustes_posteriores",
 ]
+# Textos y puntuaciones de las pestañas que el robot también aplica solo, tras la misma
+# verificación independiente (el usuario lo pidió el 13-nov-2026). Quedan siempre para el
+# usuario: los supuestos del DCF (v.*), el veredicto (verdict.*), sus notas (notes) y los
+# comparables de la valoración (peers).
+TEXTOS = [
+    r"overview\.thesis",
+    r"business\.(quality|phase|phaseNote)(\..*)?",
+    r"moat(\..*)?",
+    r"growth\.(score|scoreNote|drivers)(\..*)?",
+    r"mgmt\.(note|scores)(\..*)?",
+    r"risks(\..*)?",
+    r"sources\.(web|ir)(\..*)?",
+]
 PROHIBIDOS = {"cambios_auto", "avisos_aprobados", "veredictos"}
+SALTO_MAX = 1         # una puntuación (1-5) que se mueve más que esto espera al usuario
 UMBRAL_DCF = 5.0      # % mínimo de cambio en el valor para proponer supuestos del DCF
 UMBRAL_GRAVE = 10.0   # % a partir del cual no se espera al sábado
 MAX_REGISTRO = 120
@@ -59,6 +75,38 @@ MAX_REGISTRO = 120
 
 def es_hecho(campo: str) -> bool:
     return any(re.fullmatch(p, campo) for p in HECHOS)
+
+
+def es_texto(campo: str) -> bool:
+    return any(re.fullmatch(p, campo) for p in TEXTOS)
+
+
+def _puntos(v, ruta="") -> dict:
+    """Puntuaciones numéricas (s, p, i, threat, score) de un valor, indexadas por nombre."""
+    out = {}
+    if isinstance(v, (int, float)) and not isinstance(v, bool) and ruta:
+        out[ruta] = float(v)
+    elif isinstance(v, dict):
+        for k, x in v.items():
+            if k in ("s", "p", "i", "threat", "score") and isinstance(x, (int, float, str)):
+                try:
+                    out[f"{ruta}.{k}"] = float(x)
+                except ValueError:
+                    pass
+    elif isinstance(v, list):
+        for j, x in enumerate(v):
+            nombre = x.get("n", j) if isinstance(x, dict) else j
+            out.update(_puntos(x, f"{ruta}[{nombre}]"))
+    return out
+
+
+def salto_grande(antes, despues) -> str | None:
+    """Devuelve la puntuación que se mueve más de SALTO_MAX puntos, si la hay."""
+    a, d = _puntos(antes, "·"), _puntos(despues, "·")
+    for k, x in d.items():
+        if k in a and abs(x - a[k]) > SALTO_MAX:
+            return f"{k.lstrip('·.')} pasa de {a[k]:g} a {x:g}"
+    return None
 
 
 def rd(p: Path, default=None):
@@ -202,7 +250,13 @@ def procesar(t: str, hoy: str, sabado: bool) -> dict:
                 res["descartados"].append(f"{campo} (no se propone)")
                 continue
             ver = c.get("verificacion") or {}
-            if c.get("tipo") == "hecho" and es_hecho(campo):
+            hecho = c.get("tipo") == "hecho" and es_hecho(campo)
+            texto = es_texto(campo)
+            salto = salto_grande(get_path(an, campo), c.get("valor")) if texto else None
+            if salto:
+                c["espera_usuario"] = f"Cambio grande de puntuación: {salto}"
+                criterio.append(c)
+            elif hecho or texto:
                 if ver.get("ok") is True:
                     antes = copy.deepcopy(get_path(an, campo))
                     if json.dumps(antes, sort_keys=True, ensure_ascii=False) == json.dumps(c.get("valor"), sort_keys=True, ensure_ascii=False):

@@ -141,9 +141,12 @@ Marca cada cambio con `tipo`:
 | `tipo` | Campos | Qué pasa |
 |---|---|---|
 | `"hecho"` | `overview.keyFacts`, `overview.catalysts`, `overview.summary`, `meta.asOf`, `meta.nextEarnings`, `meta.employees`, `business.model`, `business.customers`, `business.customerTypes`, `business.clients`, `business.segments`, `business.segNote`, `growth.guidance`, `growth.tam`, `mgmt.call`, `mgmt.people`, `mgmt.vote`, `mgmt.alloc`, `fin_manual`, `sources.docs`, `sources.news`, `social.*`, `ajustes_posteriores` | Se aplica solo si pasa la verificación |
-| `"criterio"` | Todo lo demás: `v.*` (supuestos del DCF), `verdict.*`, `risks`, `moat.*`, `overview.thesis`, `business.quality`, `business.phase*`, `growth.score`, `growth.scoreNote`, `growth.drivers`, `mgmt.scores`, `mgmt.note`, `peers` | Lo decide el usuario |
+| `"texto"` | `overview.thesis`, `business.quality`, `business.phase*`, `moat.*`, `growth.score`, `growth.scoreNote`, `growth.drivers`, `mgmt.note`, `mgmt.scores`, `risks`, `sources.web`, `sources.ir` | Se aplica solo si pasa la verificación, salvo que una puntuación (1–5) salte más de un punto: entonces espera al usuario |
+| `"criterio"` | `v.*` (supuestos del DCF), `verdict.*`, `notes`, `peers` | Lo decide siempre el usuario |
 
-Un hecho es lo que dice un documento (una cifra, una fecha, una guía, un nombramiento, una cita de la dirección). Si el texto incluye una valoración tuya («la guía es conservadora», «el riesgo sube»), sepáralo: el dato va como hecho y la valoración en un campo de criterio. El script ignora el `tipo` si el campo no está en la lista de hechos: lo trata como criterio.
+Un hecho es lo que dice un documento (una cifra, una fecha, una guía, un nombramiento, una cita de la dirección). Un texto es tu lectura de las pestañas (tesis, MOAT, riesgos…) a partir de hechos citados: cada afirmación debe apoyarse en una fuente de `fuente` o `fuentes`, y no puede contradecir `data/<T>.json`. El script decide por el campo, no por el `tipo`: un campo de criterio nunca se aplica solo aunque lo marques como hecho o texto.
+
+Cambia los textos solo con una novedad material (apartado 8.3) y conserva lo que sigue siendo válido: reescribe el riesgo, la fuente del MOAT o el motor de crecimiento afectado, no la lista entera de cero. Las puntuaciones se mueven como mucho un punto por novedad.
 
 ### 8.2 Avisos de calidad del dato
 
@@ -160,7 +163,8 @@ Las notas técnicas (nivel `info`) no hace falta resolverlas: la web ya no las e
 ### 8.3 Qué criterio se propone y cuándo
 
 - **Supuestos del DCF (`v.*`):** solo si mueven el valor por acción un 5% o más. Mídelo con `node scripts/impacto_dcf.mjs <T>` (usa el mismo motor que la web); el script de aplicación vuelve a medirlo y descarta lo que no llegue.
-- **Riesgos, MOAT, veredicto, tesis y puntuaciones:** solo con una novedad material (criterio de `ACTUALIZACION_COMPLETA.md`, apartado 5, punto 3).
+- **Tesis, negocio, MOAT, crecimiento, directiva, riesgos y sus puntuaciones (`texto`):** solo con una novedad material (criterio de `ACTUALIZACION_COMPLETA.md`, apartado 5, punto 3). Se aplican solos si pasan la verificación.
+- **Veredicto:** solo con una novedad material; siempre lo decide el usuario.
 - **Cuándo le llega al usuario:**
   - Con resultados o un 10-Q/10-K nuevo (`urgente: true`): ese mismo día.
   - Con una novedad grave (`urgente: true`): ese mismo día. Grave es un movimiento del precio de más del 10% en un día con causa clara, un cambio de guía, una compra o venta relevante, la salida del consejero delegado o del director financiero, o lo que vigila `seguimientos.json` (p. ej. el préstamo del DOE a Vistra). También, sin marcarlo, cuando los supuestos mueven el valor un 10% o más.
@@ -172,10 +176,10 @@ Si después del cierre del último 10-Q/10-K hay hechos que cambian acciones, ca
 
 ### 8.5 Verificación con un segundo agente
 
-Lanza un agente nuevo (herramienta Agent, `subagent_type: "general-purpose"`) que **no** haya redactado la propuesta, con este encargo: para cada compañía con `propuestas/<T>.json`, y para cada cambio con `tipo: "hecho"` sin `procesado` y cada entrada de `avisos_resueltos`:
+Lanza un agente nuevo (herramienta Agent, `subagent_type: "general-purpose"`) que **no** haya redactado la propuesta, con este encargo: para cada compañía con `propuestas/<T>.json`, y para cada cambio con `tipo: "hecho"` o `"texto"` sin `procesado`, cada entrada de `avisos_resueltos` y cada precio objetivo cambiado hoy en `manual/<T>.json`:
 
 1. Abrir la fuente citada (`fuente.u`; si sec.gov no es accesible, la misma nota en la web de la compañía, Business Wire o PR Newswire).
-2. Comprobar que **cada número, fecha y nombre** del `valor` (o de la `comprobacion`) aparece en la fuente o en `data/<T>.json`, con el mismo significado, y que el texto no afirma nada que la fuente no diga.
+2. Comprobar que **cada número, fecha y nombre** del `valor` (o de la `comprobacion`) aparece en la fuente o en `data/<T>.json`, con el mismo significado, y que el texto no afirma nada que la fuente no diga. En los `texto`, además: que cada afirmación de hecho (contrato, cifra, cuota, nombramiento, demanda) esté en las fuentes citadas, que la novedad sea material y posterior a lo que ya decía el análisis, que no contradiga `data/<T>.json` y que no se haya borrado contenido válido sin motivo. Si el precio objetivo de `manual/<T>.json` no cuadra con su fuente, devolverlo al valor anterior (`git checkout manual/<T>.json`) y decirlo en el resumen.
 3. Escribir en el cambio `"verificacion": {"ok": true|false, "nota": "<qué comprobó o qué no cuadra, una línea>"}`. Con una sola cifra que no cuadre, `ok: false`. Para `avisos_resueltos`, si no cuadra, quitar la entrada y decirlo en el resumen.
 
 El agente solo escribe el campo `verificacion` (y quita avisos no comprobados): no cambia valores ni añade cambios.
