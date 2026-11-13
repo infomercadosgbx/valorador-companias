@@ -254,7 +254,12 @@ def from_newsroom(company, cache: "FeedCache") -> list:
                              "url": url or (urls if isinstance(urls, str) else urls[0]), "tipo": "nota_prensa",
                              "ok": err is None, "titulares": len(items), "error": err}
     medio = f"{company.get('nombre') or company['ticker']} (sala de prensa)"
-    return [dict(n, medio=medio, tipo="nota_prensa", via="Sala de prensa de la compañía") for n in cache.items[fid]]
+    return [dict(n, medio=medio, tipo="nota_prensa", via="Sala de prensa de la compañía") for n in cache.items[fid]
+            if not EMPLEO.search(n["titular"])]
+
+
+# Ofertas de empleo que se cuelan en las búsquedas por dominio («… at Chevron - Chevron Careers»)
+EMPLEO = re.compile(r"\bcareers?\b|\bjob(s)?\b|\bhiring\b|\binternship\b", re.I)
 
 
 # ---------------------------------------------------------------- enlaces de Finnhub
