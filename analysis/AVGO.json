@@ -830,12 +830,6 @@
    "mensaje": "Gastos por intereses: «InterestExpenseNonoperating» termina el 2025-11-02; solo se usa para años antiguos."
   },
   {
-   "id": "amortizacion_incompleta.Amortizaciones (D&A) # # #: la amortización de intangibles de esos años no está ",
-   "fecha": "2026-11-06",
-   "nivel": "aviso",
-   "mensaje": "Amortizaciones (D&A) 2020, 2021, 2022: la amortización de intangibles de esos años no está en una etiqueta estándar de la SEC; se dejan vacíos (y el EBITDA de esos años) en lugar de mostrar solo la depreciación."
-  },
-  {
    "id": "amortizacion_por_componentes.Amortizaciones (D&A): la compañía no usa la etiqueta combinada; se suman depreci",
    "fecha": "2026-11-06",
    "nivel": "info",
@@ -864,6 +858,12 @@
    "fecha": "2026-11-06",
    "nivel": "info",
    "mensaje": "Split de 10×1 detectado en 2024: las acciones y el BPA de los años anteriores se ajustan para que sean comparables."
+  },
+  {
+   "id": "amortizacion_incompleta.Amortizaciones (D&A) # # #: la amortización de intangibles de esos años no está ",
+   "fecha": "2026-11-13",
+   "nivel": "aviso",
+   "mensaje": "Amortizaciones (D&A) 2020, 2021, 2022: la amortización de intangibles de esos años no está en una etiqueta estándar de la SEC; se dejan vacíos (y el EBITDA de esos años) en lugar de mostrar solo la depreciación."
   }
  ],
  "veredictos": [
