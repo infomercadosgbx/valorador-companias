@@ -83,13 +83,20 @@ Al hacer push, el workflow «Rehacer informes» regenera los informes y sus PDF 
 
 ## 5 bis. Precios objetivo de los analistas
 
-No hay ninguna API gratuita con precios objetivo (Finnhub y Alpha Vantage los cobran), así que los apuntas tú tras los resultados, cuando los analistas revisan sus objetivos:
+No hay ninguna API gratuita con precios objetivo (Finnhub y Alpha Vantage los cobran), así que los apuntas tú. Cuándo:
+
+- tras los resultados, cuando los analistas revisan sus objetivos;
+- **cada día que `python scripts/senales.py --json` traiga titulares en `precio_objetivo`** para una compañía (un consenso nuevo de Fintel, «Lowers/Raises Price Target», «Upgrades», «Initiates»…), aunque la compañía no tenga señal para la revisión de internet. Es barato: lee esos titulares y, si hace falta, una búsqueda; no abre la revisión completa;
+- si la cifra de `manual/<T>.json` tiene más de 30 días.
+
+Cómo:
 
 1. Busca el consenso actual en una fuente fiable y reciente (Investing.com, MarketBeat, TipRanks, Nasdaq, prensa financiera con la cifra de cada banco). Debe ser **posterior a la nota de resultados**.
 2. Escribe directamente en `manual/<T>.json` (es un dato de mercado, no criterio del usuario): `precio_objetivo_medio`, `precio_objetivo_bajo`, `precio_objetivo_alto`, `num_analistas` si lo da la fuente, `fecha` («12-nov-2026») y `fuente` (medio y fecha; si los extremos son de bancos concretos, nómbralos).
 3. Añade al final de `historial_objetivo` la pareja `["AAAA-MM-DD", media]` si la media cambió. No borres los puntos anteriores: la web los usa para comparar la evolución del consenso con la de tu valor.
-4. Si no encuentras una fuente que te convenza, no lo cambies: la web ya avisa de que el dato es antiguo.
-5. Va en el mismo commit que la propuesta.
+4. Si solo hay cambios de bancos concretos sin una media nueva, no inventes la media: deja la anterior y añade en `fuente` los cambios («Guggenheim, de 170 a 140 $, 10-nov»). Con un consenso agregado nuevo (Fintel, MarketBeat, TipRanks, Investing), actualiza la media aunque solo haya cambiado un analista.
+5. Si no encuentras una fuente que te convenza, no lo cambies: la web ya avisa de que el dato es antiguo.
+6. Va en el mismo commit que la propuesta (o en el del día si no hay propuesta).
 
 ## 6. Guardar
 
@@ -116,7 +123,7 @@ La revisión no se limita al 8-K de resultados. En cada ejecución, y para cada 
 
 - En `https://data.sec.gov/submissions/CIK<10 dígitos>.json` (cabecera User-Agent «Valorador smaosviviendas@gmail.com»), busca los 8-K presentados dentro de la ventana (las últimas 24 h; el martes, 72 h) que no sean el de resultados ya revisado: Item 1.01 (contratos), 2.01 (compras y ventas), 2.03 (deuda nueva), 5.02 (cambios en la dirección), 7.01 y 8.01 (notas de prensa y otros hechos), etc.
 - Mira también la sala de prensa de la web de inversores de la compañía en la misma ventana.
-- Solo cuenta si es material, con el criterio de `ACTUALIZACION_COMPLETA.md`, apartado 5, punto 5. `motivo`: «Nota de prensa del <fecha>: <titular corto>».
+- Solo cuenta si es material, con el criterio de `ACTUALIZACION_COMPLETA.md`, apartado 5, punto 6. `motivo`: «Nota de prensa del <fecha>: <titular corto>».
 
 ### 7.3 Llamada con analistas (*earnings call*)
 
@@ -163,7 +170,7 @@ Las notas técnicas (nivel `info`) no hace falta resolverlas: la web ya no las e
 ### 8.3 Qué criterio se propone y cuándo
 
 - **Supuestos del DCF (`v.*`):** solo si mueven el valor por acción un 5% o más. Mídelo con `node scripts/impacto_dcf.mjs <T>` (usa el mismo motor que la web); el script de aplicación vuelve a medirlo y descarta lo que no llegue.
-- **Tesis, negocio, MOAT, crecimiento, directiva, riesgos y sus puntuaciones (`texto`):** solo con una novedad material (criterio de `ACTUALIZACION_COMPLETA.md`, apartado 5, punto 5). Se aplican solos si pasan la verificación.
+- **Tesis, negocio, MOAT, crecimiento, directiva, riesgos y sus puntuaciones (`texto`):** solo con una novedad material (criterio de `ACTUALIZACION_COMPLETA.md`, apartado 5, punto 6). Se aplican solos si pasan la verificación.
 - **Veredicto:** solo con una novedad material; siempre lo decide el usuario.
 - **Cuándo le llega al usuario:**
   - Con resultados o un 10-Q/10-K nuevo (`urgente: true`): ese mismo día.
