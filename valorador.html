@@ -2001,7 +2001,7 @@ function carRows(){
 }
 const HOMEV=[["inicio","Inicio","⌂"],["favoritas","Favoritas","★"],["lista","Lista de seguimiento","📋"],["cartera","Cartera","💼"]];
 function homeNav(){ return `<div class="homenav" role="tablist">${HOMEV.map(([k,l,i])=>`<button type="button" role="tab" data-home="${k}" aria-selected="${WVIEW===k}">${i} ${l}</button>`).join("")}</div>`; }
-function homeHead(t,p){ return `<div class="tabhead"><div><div class="eyebrow">Valorador</div><h2>${t}</h2>${p?`<p>${p}</p>`:""}</div></div>${homeNav()}`; }
+function homeHead(t,p){ return `<div class="tabhead"><div><div class="eyebrow">Valorador</div><h2>${t}</h2>${p?`<p>${p}</p>`:""}</div></div>`; }
 /* ================= MAPA DEL MERCADO (widget oficial de TradingView) =================
    Contenido de un tercero, solo se muestra: no entra en /data ni se mezcla con las cifras oficiales.
    Plegado por defecto y cargado al abrirlo; la web recuerda si lo dejaste abierto y qué índice. */
