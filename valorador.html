@@ -2835,7 +2835,7 @@ function favoritasHtml(){
      <button type="button" class="fopen" data-wopen="${esc(r.k)}">${monoHtml(r.c,"sm")}<span><b>${esc(r.name)}</b> <small>${esc(r.k)}</small></span></button>
      <div class="fnum"><span>${money(r.price)} ${fin(r.day)?sg(r.day):""}</span><span class="note">valor ${money(r.fv)} · ${fin(r.pot)?sg(r.pot):"–"}</span></div>
      <div>${r.rating?ratingPill(r.rating):""}</div></div>`;
-  return homeHead("Favoritas","Pulsa ★ para marcar o quitar y el nombre para abrir su análisis. Se recuerdan en este navegador.")+`
+  return homeNav()+`
    ${F.length?`<section class="card"><h2>Tus favoritas</h2><div class="fgrid">${F.map(card).join("")}</div></section>`:`<section class="card"><p class="empty">Aún no tienes favoritas: márcalas con ★ en la lista de abajo.</p></section>`}
    <section class="card"><h2>Todas las compañías</h2><div class="fgrid">${W.filter(r=>!r.fav).map(card).join("")||'<p class="note">Todas son favoritas.</p>'}</div></section>`;
 }
@@ -2892,7 +2892,7 @@ function carteraHtml(){
      <label>Precio medio ($)<input name="pm" type="number" step="any" min="0" required value="${ed?esc(ed.precio):""}" placeholder="250,00"></label>
      <label>Fecha de compra<input name="f" type="date" value="${ed?esc(ed.fecha||""):""}"></label>
      <div class="carbtns"><button type="submit" class="primary">${ed?"Guardar cambios":"Añadir posición"}</button>${ed?`<button type="button" data-cancel>Cancelar</button>`:""}</div></form>`;
-  return `<div class="tabhead"><div><div class="eyebrow">Valorador</div><h2>Cartera</h2><p>Tus posiciones con el precio actual y el valor de tu modelo. Se guarda solo en este navegador.</p></div></div>${homeNav()}
+  return `${homeNav()}
   ${rows.length?`<div class="kpis">
     ${kpi("Valor de la cartera",usd(tot),`<span class="note">coste ${usd(cost)} · ${rows.length} posiciones</span>`,true)}
     ${kpi("Ganancia / pérdida",`<span class="${pl>=0?"up":"dn"}">${pl>=0?"+":"−"}${nf(Math.abs(pl),0)} $</span>`,sg(plp))}
@@ -2949,7 +2949,7 @@ function watchHtml(){
   const below=rows.filter(r=>fin(r.toBuy)&&r.toBuy<=0), soon=rows.filter(r=>fin(r.eDays)&&r.eDays>=0&&r.eDays<=14), rev=rows.filter(r=>r.stale||r.isNew);
   const th=(k,l,left)=>`<th data-wsort="${k}" class="${WSORT===k?"on"+(WASC?" asc":""):""}"${left?' style="text-align:left"':""}>${l}</th>`;
   const sg=v=>!fin(v)?"–":`<span style="color:${v>=0?"var(--goodText)":"var(--critText)"}">${v>=0?"+":"−"}${nf(Math.abs(v),1)}%</span>`;
-  return `<div class="tabhead"><div><div class="eyebrow">Valorador</div><h2>Lista de seguimiento</h2><p>Precio, valor de tu modelo, puntuación y lo que toca vigilar. Pulsa una columna para ordenar y una fila para abrir la compañía.</p></div></div>${homeNav()}
+  return `${homeNav()}
   <div class="kpis">
     ${kpi("Compañías",String(rows.length),`<span class="note">${rows.filter(r=>r.fav).length} favoritas</span>`)}
     ${kpi("Por debajo de tu precio de compra",String(below.length),`<span class="note">${below.map(r=>esc(r.name)).join(", ")||"ninguna"}</span>`)}
