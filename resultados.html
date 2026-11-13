@@ -627,7 +627,7 @@ async function load(){
   if(!COS.some(c=>c.ticker===t)) t=COS[0].ticker;
   CO=COS.find(c=>c.ticker===t);
   $("selT").innerHTML=COS.map(c=>`<option value="${esc(c.ticker)}"${c.ticker===t?" selected":""}>${esc(c.nombre)} (${esc(c.ticker)})</option>`).join("");
-  $("back").href=`valorador.html#overview`; lsSet("valorador.resultados.t",t);
+  $("back").href=`valorador.html#${encodeURIComponent(t)}/resumen`; lsSet("valorador.resultados.t",t);
   try{ IDX=await getJSON(`data/resultados/${t}/index.json`); }catch(e){ IDX=null; }
   const list=(IDX&&IDX.informes)||[];
   if(!list.length){ $("selP").hidden=true; $("sheets").innerHTML=`<div class="loading">Todavía no hay informe de resultados de ${esc(CO.nombre)}. Se genera en la próxima actualización (o pulsa «Actualizar resultados»).</div>`; window.__listo=true; return; }
