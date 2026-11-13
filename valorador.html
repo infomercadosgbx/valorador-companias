@@ -523,13 +523,14 @@ details.asmore>.asrow{margin-top:8px}
 .segit .si{width:20px;text-align:center;flex:none} .segit .st{display:flex;flex-direction:column;gap:1px;flex:1;min-width:0}
 .segit .st b{font-weight:600;font-size:13.5px} .segit .st small{font-size:12px;color:var(--muted)}
 .segit[aria-current=true]{background:var(--surface2)} .segit[aria-current=true] .st b{color:var(--accent)}
-.ihsegbar{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden}
-.ihsegbar .segit{all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;gap:12px;padding:16px 22px;color:var(--ink)}
-.ihsegbar .segit+.segit{border-left:1px solid var(--line)} .ihsegbar .segit:hover{background:var(--surface2)}
-.ihsegbar .segit:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
-.ihsegbar .si{font-size:18px;width:24px} .ihsegbar .st b{font-size:15px} .ihsegbar .st small{font-size:12.5px}
-.ihsegbar .sa{color:var(--muted);flex:none}
-@media (max-width:760px){.ihsegbar{grid-template-columns:1fr}.ihsegbar .segit+.segit{border-left:0;border-top:1px solid var(--line)}}
+.segbar{display:none;order:9;flex:1 1 100%;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;padding-top:2px}
+body.home-inicio .segbar{display:grid}
+.appbar .segbar .segit{all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;gap:12px;padding:10px 16px;border-radius:10px;background:var(--bar2);border:1px solid #24344D;color:#fff}
+.appbar .segbar .segit:hover{border-color:#3A4A63;background:#1C2B45}
+.appbar .segbar .segit:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.segbar .si{font-size:16px;width:22px} .segbar .st b{font-size:14px;color:#fff} .segbar .st small{font-size:12px;color:var(--barMuted)}
+.segbar .sa{color:var(--barMuted);flex:none} .segbar .sh{display:none}
+@media (max-width:760px){.segbar{gap:6px}.appbar .segbar .segit{padding:8px 10px;gap:8px}.segbar .st small,.segbar .sa{display:none}.segbar .st b{font-size:12.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.segbar .st{min-width:0}.segbar .lg{display:none}.segbar .sh{display:inline}.segbar .si{display:none}.appbar .segbar .segit{justify-content:center}}
 #main span.up:not(.pill),#main b.up{color:var(--goodText)} #main span.dn:not(.pill),#main b.dn{color:var(--critText)}
 .toolbar{margin-left:auto}
 @media (max-width:760px){.appbar .brand{order:1} .appbar .toolbar{order:2;margin-left:auto} .appbar .switch{order:3;flex:1 1 100%} .appbar .favs{order:4;flex-basis:100%} .appbar .brand::after{display:none} #btnHome .ml,#btnMore .ml,#btnTools .ml,.appbar .caret{display:none}}
@@ -1169,6 +1170,7 @@ button.ihchip{cursor:pointer}button.ihchip:hover{border-color:var(--ink2)}
     <div class="brand"><img src="logo.svg" alt="" width="26" height="26">Valorador</div>
     <button type="button" class="switch" id="btnSwitch" aria-haspopup="listbox" aria-expanded="false" aria-controls="picker"></button>
     <div class="favs" id="favPills" role="group" aria-label="Compañías favoritas"></div>
+    <nav class="segbar" id="segBar" aria-label="Tu seguimiento"></nav>
     <div class="toolbar">
       <button type="button" id="btnHome" data-home="inicio" aria-pressed="false" title="Inicio: el mercado hoy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h5v-6h4v6h5V9.5"/></svg> <span class="ml">Inicio</span></button>
       <div class="menuwrap"><button type="button" id="btnTools" data-menu="toolsMenu" aria-haspopup="menu" aria-expanded="false" title="Editar el análisis e informes"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2.4-.6-.6-2.4z"/></svg> <span class="ml">Herramientas</span> <span class="caret" aria-hidden="true">▾</span></button>
@@ -2613,12 +2615,13 @@ function ihPulso(){
     <div class="ihp4">${vixc}${ofr}${man("move","MOVE · bonos",2)}${man("naaim","NAAIM",1)}</div>
     ${aaii}
   </section>`; }
+function fillSegBar(){ const b=$("segBar"); if(b) try{ b.innerHTML=segItemsHtml(true); }catch(e){} }
 function segItemsHtml(bar){
   const W=watchRows(), favs=W.filter(r=>r.fav).length, below=W.filter(r=>fin(r.toBuy)&&r.toBuy<=0).length;
   const {rows,tot}=carRows(), cost=rows.reduce((a,r)=>a+r.cost,0);
   const fl=bar?`<svg class="sa" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>`:"";
   const it=(k,i,t,sub)=>`<button type="button" ${bar?"":`role="menuitem" aria-current="${WATCH&&WVIEW===k}"`} class="segit" data-home="${k}"><span class="si" aria-hidden="true">${i}</span><span class="st"><b>${t}</b><small>${sub}</small></span>${fl}</button>`;
-  return it("lista","📋","Lista de seguimiento",`${W.length} compañía${W.length===1?"":"s"} · ${below} en zona de compra`)
+  return it("lista","📋",bar?`<span class="lg">Lista de seguimiento</span><span class="sh">Seguimiento</span>`:"Lista de seguimiento",`${W.length} compañía${W.length===1?"":"s"} · ${below} en zona de compra`)
     +it("favoritas","★","Favoritas",favs?`${favs} compañía${favs>1?"s":""}`:"Aún no tienes")
     +it("cartera","💼","Cartera",rows.length?`${nf(tot,0)} $ · ${tot>=cost?"+":"−"}${nf(Math.abs(cost>0?(tot/cost-1)*100:0),1)}%`:"Sin posiciones todavía"); }
 /* ---------- mercados en cuatro temas ---------- */
@@ -2821,13 +2824,12 @@ function ihClick(a){
   if(a.startsWith("ag:")) return ihAgModal(a.slice(3)); }
 
 function ihPintar(){ /* bloques que cambian con el precio en vivo */
-  const h=$("ihHero"), p=$("ihPulsoEsp"), m=$("ihMerc"); if(h) h.innerHTML=ihHero(); if(p) p.innerHTML=ihPulso(); const sg=$("ihSeg"); if(sg) sg.innerHTML=segItemsHtml(true); if(m) m.innerHTML=ihMercados(); }
+  const h=$("ihHero"), p=$("ihPulsoEsp"), m=$("ihMerc"); if(h) h.innerHTML=ihHero(); if(p) p.innerHTML=ihPulso(); fillSegBar(); if(m) m.innerHTML=ihMercados(); }
 function inicioHtml(){
   if(!MKH.cargado) return `<div class="ih"><section class="ihcard"><p class="note">Cargando el mercado…</p></section></div>`;
   if(!MKH.d) return `<div class="ih"><section class="ihcard"><h2>Mercado hoy</h2><p class="note">${esc(MKH.err||"Sin datos.")}</p></section></div>`;
   return `<div class="ih" id="ihWrap">
     <div id="ihHero">${ihHero()}</div>
-    <nav id="ihSeg" class="ihsegbar" aria-label="Tu seguimiento">${segItemsHtml(true)}</nav>
     <div id="ihPulsoEsp">${ihPulso()}</div>
     <div id="ihMerc">${ihMercados()}</div>
     <div id="tipWrap">${ihTipos()}</div>
@@ -2986,6 +2988,7 @@ function watchHtml(){
 }
 function renderWatch(){
   killCharts(); document.body.classList.add("watch"); $("btnHome").setAttribute("aria-pressed","true");
+  document.body.classList.toggle("home-inicio",WVIEW==="inicio"); if(WVIEW==="inicio") fillSegBar();
   const m=$("main"); m.style.setProperty("--tc","var(--tcx)");
   if(WVIEW==="cartera"){ m.innerHTML=carteraHtml(); requestAnimationFrame(()=>{ setDefaults(); drawCartera(); }); return; }
   if(WVIEW==="inicio"){
@@ -3002,7 +3005,7 @@ function renderWatch(){
     mk("ch_w_pot",{type:"bar",data:{labels:rows.map(r=>r.name),datasets:[{data:rows.map(r=>+r.pot.toFixed(1)),backgroundColor:rows.map(r=>r.pot>=0?V("--good"):V("--crit"))}]},
       options:{indexAxis:"y",plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>`${c.parsed.x>=0?"+":""}${nf(c.parsed.x,1)}%`}}},scales:{x:{...axisY({suf:"%",zero:true})},y:{grid:{display:false},border:{display:false}}}}}); });
 }
-function exitWatch(){ WATCH=false; document.body.classList.remove("watch"); $("btnHome").setAttribute("aria-pressed","false"); renderTabs();
+function exitWatch(){ WATCH=false; document.body.classList.remove("watch","home-inicio"); $("btnHome").setAttribute("aria-pressed","false"); renderTabs();
   if(["#seguimiento","#cartera","#inicio","#favoritas","#ajustes"].includes(location.hash)){ try{history.replaceState(null,"","#"+TAB);}catch(e){} } }
 function reportCover(){
   const vz=valuation(cur), s=scorecard(cur,vz), b=brandOf(cur), v=cur.v, P=cur._data&&cur._data.precio, ref=cur._data&&cur._data.referencia_fecha_datos;
