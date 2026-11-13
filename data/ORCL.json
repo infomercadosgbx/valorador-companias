@@ -15251,11 +15251,11 @@
  "precio": {
   "minimo_52s": 109.21,
   "maximo_52s": 250.25,
-  "beta": 1.815662,
-  "valor": 127.11,
-  "cierre_anterior": 128.38,
+  "beta": 1.8166806,
+  "valor": 125.35,
+  "cierre_anterior": 127.11,
   "moneda": "USD",
-  "fecha": "2026-11-12",
+  "fecha": "2026-11-13",
   "fuente": "Finnhub (API oficial, plan gratuito)",
   "url": "https://finnhub.io/"
  },
@@ -15350,7 +15350,174 @@
    }
   ]
  },
+ "presentaciones_sec": [
+  {
+   "formulario": "424B5",
+   "descripcion": "folleto de una emisión (424B)",
+   "fecha_presentacion": "2026-11-04",
+   "accn": "0001193125-26-445847",
+   "url_indice": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526445847/0001193125-26-445847-index.htm",
+   "url_documento": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526445847/d181425d424b5.htm",
+   "fuente": "SEC EDGAR · 424B5"
+  },
+  {
+   "formulario": "424B2",
+   "descripcion": "folleto de una emisión (424B)",
+   "fecha_presentacion": "2026-11-04",
+   "accn": "0001193125-26-445846",
+   "url_indice": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526445846/0001193125-26-445846-index.htm",
+   "url_documento": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526445846/d181336d424b2.htm",
+   "fuente": "SEC EDGAR · 424B2"
+  },
+  {
+   "formulario": "424B5",
+   "descripcion": "folleto de una emisión (424B)",
+   "fecha_presentacion": "2026-11-02",
+   "accn": "0001193125-26-442729",
+   "url_indice": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526442729/0001193125-26-442729-index.htm",
+   "url_documento": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526442729/d181425d424b5.htm",
+   "fuente": "SEC EDGAR · 424B5"
+  },
+  {
+   "formulario": "424B2",
+   "descripcion": "folleto de una emisión (424B)",
+   "fecha_presentacion": "2026-11-02",
+   "accn": "0001193125-26-442722",
+   "url_indice": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526442722/0001193125-26-442722-index.htm",
+   "url_documento": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526442722/d181336d424b2.htm",
+   "fuente": "SEC EDGAR · 424B2"
+  },
+  {
+   "formulario": "S-3ASR",
+   "descripcion": "registro automático de emisión (S-3ASR)",
+   "fecha_presentacion": "2026-11-02",
+   "accn": "0001193125-26-442669",
+   "url_indice": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526442669/0001193125-26-442669-index.htm",
+   "url_documento": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526442669/d181173ds3asr.htm",
+   "fuente": "SEC EDGAR · S-3ASR"
+  }
+ ],
  "noticias": [
+  {
+   "titular": "Department of Veterans Affairs and Department of War Go-Live on Oracle Health Information Network to Expand Nationwide Health Information Exchange - Oracle",
+   "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNXzduSTEtV1A4WURMS2kyTURtUzZUWHlSdTJTaVBNLV9uQnNxQ1RDQ3EycHRYTGZhZGM0TUE5YXM3Mm5jcjNDSDlHWWpyWGVwQ1dNd0FHbHJHUHhZMHk3a1pKUVFsNHcxUHB4Ylh1N0ZXeEZVMXJUdFZnZGhlb1ZaLWc4REpSdDRmenlqa1pBSVUtM3JINjk3bXhOQ3RaZE1UeC1TZ2RieXNuZkg4UkEweE5MVWxlc0ZiZk12NnNEYTNkNlg0eXpScUZhVGZndXY2UkVaeg?oc=5",
+   "fecha": "2026-11-13",
+   "resumen": "Department of Veterans Affairs and Department of War Go-Live on Oracle Health Information Network to Expand Nationwide Health Information Exchange Oracle",
+   "medio": "Oracle (sala de prensa)",
+   "tipo": "nota_prensa",
+   "via": "Sala de prensa de la compañía"
+  },
+  {
+   "titular": "Oracle Looks Cheap After The Selloff, But New Mexico Is The Risk",
+   "url": "https://seekingalpha.com/article/4967787-oracle-looks-cheap-after-the-selloff-but-new-mexico-is-the-risk",
+   "fecha": "2026-11-13",
+   "resumen": "Analyst rates Oracle Corporation a Buy: at about $127, shares trade near 6x the fiscal 2030 EPS target, pricing in substantial execution risk.",
+   "medio": "Seeking Alpha",
+   "tipo": "prensa",
+   "via": "Marketaux",
+   "sentimiento": {
+    "puntuacion": 0.011,
+    "etiqueta": "Neutral"
+   }
+  },
+  {
+   "titular": "11 AI Stocks to Buy on Dips: 'Don't Waste a Good Sell-Off,' Analyst Says",
+   "medio": "Benzinga",
+   "url": "https://www.benzinga.com/analyst-stock-ratings/analyst-color/26/11/63237574/hsbc-ai-stocks-buy-dip-oracle-alphabet-vertiv-ge-vernova",
+   "fecha": "2026-11-13",
+   "resumen": "HSBC argues that the correction in equity markets is &#34;overdone,&#34; and names 11 Buy-rated AI stocks to buy on the dip.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=9e25e4d1f539d00a245e8a09d8783622f0a4cb0190b295e6d5eec032543f95f3"
+  },
+  {
+   "titular": "Cerebras (CBRS) Stock Is Trending Pre-Market: Here's Why",
+   "medio": "Benzinga",
+   "url": "https://www.benzinga.com/markets/equities/26/11/63230833/cerebras-stock-surges-premarket-q3-results-microsoft-deal",
+   "fecha": "2026-11-13",
+   "resumen": "Cerebras shares surged 19.39% premarket as raised revenue guidance and a Microsoft cloud deal boosted investor optimism.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=f6b8581d2bc2110374dba6373034e1e7b3b52720b243d4977a5fa345cb2e9e96"
+  },
+  {
+   "titular": "5 Multibagger Stocks to Buy According to Wall Street",
+   "medio": "Yahoo Finance",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/5-multibagger-stocks-buy-according-213206089.html",
+   "fecha": "2026-11-13",
+   "resumen": "Wall Street’s AI trade just had one of its worst weeks in years. Politics and inflation hit it at the same time. The Nasdaq Composite posted its deepest one-day drop since April 2025 last week, after Democrats swept the midterm elections and investors began weighing tougher scrut",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=3119f9d3c7b56b7f881bae02501d4065366b2cebc3aa053009d80800f96d9167"
+  },
+  {
+   "titular": "Cerebras stock surges on Microsoft deal: What it means for Nvidia",
+   "medio": "Yahoo Finance",
+   "url": "https://finance.yahoo.com/video/cerebras-stock-surges-on-microsoft-deal-what-it-means-for-nvidia-213123807.html",
+   "fecha": "2026-11-13",
+   "resumen": "Deirdre Bosa outlines how various AI companies are storming the AI castle and searching for Nvidia (NVDA) alternatives, such as Cerebras' (CBRS) deal with Microsoft (MSFT).",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=b749c047c398794b579255970d097d582b48edc9bbfde7b80ffe7cacfa983674"
+  },
+  {
+   "titular": "Why Stephens Upgraded Oracle (ORCL)",
+   "medio": "Yahoo Finance",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/why-stephens-upgraded-oracle-orcl-213119416.html",
+   "fecha": "2026-11-13",
+   "resumen": "We just published a list of the 10 Stocks With Insane Upside According to Reddit and Oracle (NYSE:ORCL) ranked 10th on this list. US stocks edged lower Thursday, snapping a rebound that had lifted the S&P 500 1.3% a day earlier. The S&P 500 fell 0.35% to 7,592.40, the Dow Jones I",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=a3c77c9d231e681459afcd641faf5389b58b5775525bf2978708d65a522e9cb1"
+  },
+  {
+   "titular": "AMD Stock Looks Poised to Revisit Its All-Time Highs",
+   "medio": "Yahoo Finance",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/amd-stock-looks-poised-revisit-211600722.html",
+   "fecha": "2026-11-13",
+   "resumen": "Advanced Micro Devices’ (AMD) stock looks poised to revisit its all-time highs. The market has already bought into its growth story. Now, the next opportunity may lie in how much of that growth turns into profits. After a triple-digit gain in 2026, the stock has pulled back from ",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=98e125de089b200da0bf67210ca3f9734d84ef2bf83e9127721ea03b430e4eed"
+  },
+  {
+   "titular": "HSBC Sees Room for a Big Rebound in Bloom Energy Stock",
+   "medio": "Yahoo Finance",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/hsbc-sees-room-big-rebound-192349658.html",
+   "fecha": "2026-11-13",
+   "resumen": "The next test is whether rising orders generate cash.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=3d5651b3fbeecdcb1cc71521a60aa8eedd88f874261382894f4204086951c505"
+  },
+  {
+   "titular": "HSBC Says Buy the Dip in These 11 Stocks -- Alphabet and Oracle Top the List",
+   "medio": "Yahoo Finance",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/hsbc-says-buy-dip-11-185515397.html",
+   "fecha": "2026-11-13",
+   "resumen": "Alphabet and Oracle Are Among HSBC's Top Stocks to Buy After the Selloff",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=41ad63f4a971868b1dac34ab948ea98f411df94edc990b65f2d357af70183969"
+  },
+  {
+   "titular": "Oracle Helps Casa de Peregrinos Deliver 10,000 Thanksgiving Turkeys Across Doña Ana County - Oracle",
+   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOX2g5alpLcTJRVy1qWGFJaVZBNWlRME1taVhOb3BjV2hxQ3VmZ1RpNnRncDVyVENkT0RWdGZMbmZoNUQ2N1oyX3FVbVlWajZId2szSEZxUm5XV0RYbGl0R0s3YmQ2dUNiS3ZwSm1uSElzaFFDOS1ZQkVHb0ItS1F6VDh3Q2tPODloRlhabHZEZTdVdWcweE1wN0FxLTBCX3oxTFNkQXhLMF9wdmh0NlB6Y2hudw?oc=5",
+   "fecha": "2026-11-12",
+   "resumen": "Oracle Helps Casa de Peregrinos Deliver 10,000 Thanksgiving Turkeys Across Doña Ana County Oracle",
+   "medio": "Oracle (sala de prensa)",
+   "tipo": "nota_prensa",
+   "via": "Sala de prensa de la compañía"
+  },
+  {
+   "titular": "Fortnum & Mason Enables Quality at Scale with Oracle Cloud - Oracle",
+   "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPZGgwNjFXUDI3ZU55ZGxMa0Y0REJEMDNPeVY0Vlh3UV9PQVQ4dEZqaUhlMXgydmVQRHk4cXVZSWtKczJzRmI3dTRwZkpxbFoxRmFnMkc4dVg5MUhzM3Q1T0NfaTRUYnptZndldVNzUlVocjR0Qmp5UFFSclYwc0p3ZW5pakZVUHJGS1p0Qy1SdlR1VzdmSGV4Q09CYmc1R1hfbE1CNFBTRVlmbXZIMzZFd2pvbnc5UUZjWmc?oc=5",
+   "fecha": "2026-11-12",
+   "resumen": "Fortnum & Mason Enables Quality at Scale with Oracle Cloud Oracle",
+   "medio": "Oracle (sala de prensa)",
+   "tipo": "nota_prensa",
+   "via": "Sala de prensa de la compañía"
+  },
   {
    "titular": "Investors Heavily Search Oracle Corporation (ORCL): Here is What You Need to Know",
    "url": "https://www.zacks.com/stock/news/3028491/investors-heavily-search-oracle-corporation-orcl-here-is-what-you-need-to-know?cid=CS-ZC-FT-fundamental_analysis|most_searched_stocks-3028491",
@@ -15367,29 +15534,32 @@
   {
    "titular": "Most Active S&P 500 Stocks: KDP, Ford, AT&T Lead Today's Session",
    "medio": "ChartMill",
-   "url": "https://finnhub.io/api/news?id=6742dcbd48e2366e2592ab59fab328827edb4980f3a2b2eccc99ae44821125fa",
+   "url": "https://www.chartmill.com/news/F/Chartmill-58624-Most-Active-SP-500-Stocks-KDP-Ford-ATT-Lead-Todays-Session",
    "fecha": "2026-11-12",
    "resumen": "Keurig Dr Pepper, Ford, and AT&T led S&P 500 share volume in today's session, with price moves from Alphabet's 2.53% gain to KDP's 6.1% decline.",
    "tipo": "prensa",
-   "via": "Finnhub"
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=6742dcbd48e2366e2592ab59fab328827edb4980f3a2b2eccc99ae44821125fa"
   },
   {
    "titular": "S&P 500 Top Movers: Gainers and Losers on Nov. 12, 2026",
    "medio": "ChartMill",
-   "url": "https://finnhub.io/api/news?id=8d72580f24855ff04af7f0752cd818ab15909885e271639988acb5b9006eddb8",
+   "url": "https://www.chartmill.com/news/MOS/Chartmill-58621-SP-500-Top-Movers-Gainers-and-Losers-on-Nov-12-2026",
    "fecha": "2026-11-12",
    "resumen": "S&P 500 top movers for Nov. 12, 2026: AVGO, AMD, SWKS and energy names gained, while SMCI, GPN, NVDA and other technology shares declined.",
    "tipo": "prensa",
-   "via": "Finnhub"
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=8d72580f24855ff04af7f0752cd818ab15909885e271639988acb5b9006eddb8"
   },
   {
    "titular": "IREN: A Liquidity Crisis Is Brewing",
    "medio": "Seeking Alpha",
-   "url": "https://finnhub.io/api/news?id=565faa0fe9b70d29625e829410544491f0171a2559ebaec8f966234ba0147e65",
+   "url": "https://seekingalpha.com/article/4967335-iren-a-liquidity-crisis-is-brewing",
    "fecha": "2026-11-12",
    "resumen": "IREN is downgraded to a Strong Sell considering its $6 billion funding gap is about 70% of market cap and could spark a liquidity crisis and wipe out equity.",
    "tipo": "prensa",
-   "via": "Finnhub"
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=565faa0fe9b70d29625e829410544491f0171a2559ebaec8f966234ba0147e65"
   },
   {
    "titular": "Mapping the Market: Oracle shares may be in for a rally",
@@ -15401,157 +15571,53 @@
    "via": "Google News"
   },
   {
-   "titular": "5 Best AI Stocks to Buy After Wells Fargo’s Outlook Upgrade",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=d38c33807c1e8c5d79e51ca69dfb0d22ba7f506ffa05081b4f0b6ae2aec52a00",
-   "fecha": "2026-11-12",
-   "resumen": "Wells Fargo is no longer telling investors to stay away from the AI infrastructure trade. In a new note, analysts led by Ohsung Kwon raised the firm’s view on US AI infrastructure to neutral from negative. The change follows a deep selloff. Semiconductor shares trade about 38% be",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Cerebras Adds Microsoft Partnership to Diversify Beyond OpenAI",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=41e3ece335125d7e2e166abbe2335ebedeb7aa18c334657b5f55d3330dae27ab",
-   "fecha": "2026-11-12",
-   "resumen": "The artificial-intelligence chip maker bested expectations and its share price climbed in after-hours trading.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Cerebras Delivers Earnings Beat. Market Rewards the Stock.",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=ca0c56b38befc94419ed9e3c20e2820bdaf9c049560a69c6055fdf208823f041",
-   "fecha": "2026-11-12",
-   "resumen": "The artificial-intelligence chip maker bested expectations and its share price climbed in after-hours trading.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "AI Debt Binge Hits a Wall As Global Bond Markets Reach Saturation Point, Wells Fargo Warns",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=9cc5160a2ebbc741b7bb755b0106c2e460c494be74f1523adbd24f7348b85482",
-   "fecha": "2026-11-12",
-   "resumen": "Wells Fargo warns that massive corporate borrowing to fund AI infrastructure is straining the $15 trillion investment-grade bond market, and investors are pushing back.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "AI Chipmaker Cerebras Tops Q3 Views, Adds Big Customers",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=0f94657ecbcbc78e7edbe78badf96cff81e5b71c849705653761951a8faffc43",
-   "fecha": "2026-11-12",
-   "resumen": "AI chipmaker Cerebras beat expectations for the third quarter and with its Q4 outlook. Cerebras stock jumped.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Cerebras Earnings Must Prove the Chip Maker Can Expand Beyond OpenAI",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=ecd00c91c4b3e2ffee28197c254771c88be32d3ec63bae59c1d5834b3b702efc",
-   "fecha": "2026-11-12",
-   "resumen": "Wall Street analysts are expecting adjusted revenue of $215 million in the third quarter.",
-   "tipo": "prensa",
-   "via": "Finnhub"
+   "titular": "Utilities Achieve Record Peak Energy AI-Powered Demand Reduction with Oracle - Oracle",
+   "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOdUJGSktDQUdselJ5ZHh0WG40MXJ6WXhsdjYyN3NYVXlWYlBrOThVQS1lWVI1VkpFSmpBYThycTVOdG8yMlBjLXJLRXhYVWtpZE1SbVk2VHM0ZFNpVDJMR0UzNEstRGpuOG5JTVFONENUbks3cjN3TElTcWE0eW5uUzRVMmRyODN3c0xNT2hZa0U4U0JBLXRJd2ZWa1pjOVdoejN3WXhESThKbnZWYXhQNg?oc=5",
+   "fecha": "2026-11-11",
+   "resumen": "Utilities Achieve Record Peak Energy AI-Powered Demand Reduction with Oracle Oracle",
+   "medio": "Oracle (sala de prensa)",
+   "tipo": "nota_prensa",
+   "via": "Sala de prensa de la compañía"
   },
   {
    "titular": "Michael Burry’s Portfolio: What the ‘Big Short’ Investor Owns Now",
    "medio": "Benzinga",
-   "url": "https://finnhub.io/api/news?id=33dc235efa2140b0421c33e823f138ed217e700e27c7f19eaecb353aa8599ce8",
+   "url": "https://www.benzinga.com/trading-ideas/long-ideas/26/11/63171116/michael-burrys-portfolio-what-the-big-short-investor-owns-now",
    "fecha": "2026-11-11",
    "resumen": "Michael Burry expanded bets on Lululemon, Adobe, Sprouts, PayPal, MercadoLibre and JD.com, favoring buybacks and beaten-down value stocks.",
    "tipo": "prensa",
-   "via": "Finnhub"
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=33dc235efa2140b0421c33e823f138ed217e700e27c7f19eaecb353aa8599ce8"
   },
   {
    "titular": "S&P 500 Most Active Stocks on Nov. 11, 2026: Semiconductor and Tech Names Dominate",
    "medio": "ChartMill",
-   "url": "https://finnhub.io/api/news?id=45f0cdb466f24946a3518dbe4409736c9f91709fe4c0cfaf72d0141bfdba5b74",
+   "url": "https://www.chartmill.com/news/F/Chartmill-58549-SP-500-Most-Active-Stocks-on-Nov-11-2026-Semiconductor-and-Tech-Names-Dominate",
    "fecha": "2026-11-11",
    "resumen": "On Nov. 11, 2026, NVIDIA, Intel and AMD were among the most active S&P 500 stocks, with semiconductor and technology names dominating trading.",
    "tipo": "prensa",
-   "via": "Finnhub"
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=45f0cdb466f24946a3518dbe4409736c9f91709fe4c0cfaf72d0141bfdba5b74"
   },
   {
    "titular": "S&P 500 Gap Movers in Today's Session",
    "medio": "ChartMill",
-   "url": "https://finnhub.io/api/news?id=ff199ee58a9a3a48d9fa57923f914e3dae7d3343b43499c9b9f8d053dc623505",
+   "url": "https://www.chartmill.com/news/CLX/Chartmill-58543-SP-500-Gap-Movers-in-Todays-Session",
    "fecha": "2026-11-11",
    "resumen": "S&P 500 gap movers in today's session include gap-up leaders BE, LITE, DELL, MU, STX and gap-down names TPR, ABNB, CLX, with price moves and recent performance.",
    "tipo": "prensa",
-   "via": "Finnhub"
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=ff199ee58a9a3a48d9fa57923f914e3dae7d3343b43499c9b9f8d053dc623505"
   },
   {
    "titular": "CoreWeave: Things Aren't The Same (Rating Downgrade)",
    "medio": "Seeking Alpha",
-   "url": "https://finnhub.io/api/news?id=d3f8720578303219306b61e938cdecf811bf43d221c0bb09223657865178fd70",
+   "url": "https://seekingalpha.com/article/4966616-coreweave-things-arent-the-same-rating-downgrade",
    "fecha": "2026-11-11",
    "resumen": "CoreWeave is downgraded at current levels because October and November set new lows and lower highs for the stock. Discover more on CRWV in this update.",
    "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "ServiceNow Stock Climbs: What's Going On?",
-   "medio": "Benzinga",
-   "url": "https://finnhub.io/api/news?id=9b25f9a8ec2a77eed758778b8561879afd60e8cbc5a7aeb677da60b5337287c0",
-   "fecha": "2026-11-11",
-   "resumen": "ServiceNow Inc. (NYSE: NOW) shares are rising Wednesday as a tech-led rebound lifts software stocks. Here&#39;s what you should know.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Michael Burry Says Jensen’s Affair Won’t Sink Nvidia, But Regulators Might",
-   "medio": "Benzinga",
-   "url": "https://finnhub.io/api/news?id=7d84a18606abc39e7449a8f5b0f7b008e67df92e9a199b3c63a9db0a99308bee",
-   "fecha": "2026-11-11",
-   "resumen": "Michael Burry says Nvidia’s scandal could intensify antitrust and China scrutiny, weakening its advantage.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "10 Information Technology Stocks Whale Activity In Today’s Session",
-   "medio": "Benzinga",
-   "url": "https://finnhub.io/api/news?id=fb3006007a53e91d443263f110987bccafef48a57873cb16b47d89855e4cd6b8",
-   "fecha": "2026-11-11",
-   "resumen": "This whale alert can help traders discover the next big trading opportunities.\nWhales are entities with large sums of money and we track their transactions here at Benzinga on our options activity scanner.\nTraders will",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Cyclicals Lead Sectors In Wednesday Trading As Defensives Trail",
-   "medio": "Benzinga",
-   "url": "https://finnhub.io/api/news?id=b2893f36405b9b90f237df63e12ecab04af5e997b7fd2ebe357a34f9974022bb",
-   "fecha": "2026-11-11",
-   "resumen": "Five sectors are higher and six are lower in Wednesday&#39;s regular session, with cyclical sectors holding two of the top three positions. Technology sits well clear of the rest, separated from the next sector by a margin several times wider than any other gap in the table.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Tech Stocks Add Over $500 Billion as CoreWeave's Blockbuster Results Rescue AI Rally",
-   "medio": "Benzinga",
-   "url": "https://finnhub.io/api/news?id=79541fc85d8a4aa27503b0a9fb8cb86d0519efdef1d519d22e7ea18ab2ca963e",
-   "fecha": "2026-11-11",
-   "resumen": "CoreWeave (CRWV) jumped after third-quarter margins beat and a lighter funding plan, sparking a $500 billion rally in AI chip, memory and power stocks.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "The AI Trade Deconstructed: AI Builders, AI Suppliers And AI Product Firms",
-   "medio": "Seeking Alpha",
-   "url": "https://finnhub.io/api/news?id=6641435c945aad1cf70f3b81616bbc6fff2ba528969271678dc9abad88a172ce",
-   "fecha": "2026-11-11",
-   "resumen": "",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "AI In 2027: 20 Questions For The Global Economy",
-   "medio": "Seeking Alpha",
-   "url": "https://finnhub.io/api/news?id=8a5480e954805b2076cffdbc48627ab2955bd58914fe433081d713009fd60b84",
-   "fecha": "2026-11-11",
-   "resumen": "The AI boom is reshaping growth, productivity, trade, jobs and markets. Read more here.",
-   "tipo": "prensa",
-   "via": "Finnhub"
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=d3f8720578303219306b61e938cdecf811bf43d221c0bb09223657865178fd70"
   },
   {
    "titular": "Oracle’s stock is totally misunderstood and should be a ‘go-to’ AI play, says this analyst",
@@ -15572,44 +15638,44 @@
    "via": "RSS de Seeking Alpha"
   },
   {
-   "titular": "Oracle Corporation (ORCL) Is Joining the $1.2 Trillion AI Spending Boom: Is the Risk Being Overlooked?",
-   "url": "https://www.insidermonkey.com/news/oracle-corporation-orcl-is-joining-the-1-2-trillion-ai-spending-boom-is-the-risk-being-overlooked-1864107/",
-   "fecha": "2026-11-10",
-   "resumen": "Moon Capital Management an investment management company, recently released its Q3 2026 investor letter. A copy of the letter can be downloaded here.",
-   "medio": "insidermonkey.com",
+   "titular": "ServiceNow Stock Climbs: What's Going On?",
+   "medio": "Benzinga",
+   "url": "https://www.benzinga.com/trading-ideas/movers/26/11/63158241/servicenow-stock-climbs-whats-going-on",
+   "fecha": "2026-11-11",
+   "resumen": "ServiceNow Inc. (NYSE: NOW) shares are rising Wednesday as a tech-led rebound lifts software stocks. Here&#39;s what you should know.",
    "tipo": "prensa",
-   "via": "Marketaux",
-   "sentimiento": {
-    "puntuacion": -0.296,
-    "etiqueta": "Algo bajista"
-   }
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=9b25f9a8ec2a77eed758778b8561879afd60e8cbc5a7aeb677da60b5337287c0"
   },
   {
-   "titular": "S&P 500 Most Active Stocks in Today's Session: SMCI, AT&T, Ford Lead Volume",
-   "medio": "ChartMill",
-   "url": "https://finnhub.io/api/news?id=f21ed546c52d7960595fde31e65328748e7d5dfb9b9a22e9d26f1190275c2277",
-   "fecha": "2026-11-10",
-   "resumen": "S&P 500 most-active list led by Super Micro Computer, AT&T and Ford by volume; the ten stocks ranged from a 3.65% gain to a 3.81% decline.",
+   "titular": "Michael Burry Says Jensen’s Affair Won’t Sink Nvidia, But Regulators Might",
+   "medio": "Benzinga",
+   "url": "https://www.benzinga.com/markets/tech/26/11/63156711/michael-burry-says-jensens-affair-wont-sink-nvidia-but-regulators-might",
+   "fecha": "2026-11-11",
+   "resumen": "Michael Burry says Nvidia’s scandal could intensify antitrust and China scrutiny, weakening its advantage.",
    "tipo": "prensa",
-   "via": "Finnhub"
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=7d84a18606abc39e7449a8f5b0f7b008e67df92e9a199b3c63a9db0a99308bee"
   },
   {
-   "titular": "Oracle CFO Hilary Maxson: We have five large data centers under construction already in U.S.",
-   "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOT3EyTng3QXl4R2lueVBCa0ZCa0ZvMTEyRWhtVm1DdmlkRGFNcDFDYURyaTltQmNDbzBCMTVfc3d5SThWR2pFOXpGWkdjbmJnM3lFTTJRU1JaX3c2TzJMNTlVUjVqREhTTHFucTU3bDZNMXJKNGpUby1fZlJZZlo5SDBJMVR2cGZ2S2N5dHN2QlM5UHFxQ2hLblNlZVdKSlFXSlJEc1Q4eGpFYXRSWWx1T3RnaW9OUVFzb0pFWUhQRDltOWl4bUdiQkkxeGVKZw?oc=5",
-   "fecha": "2026-11-10",
+   "titular": "10 Information Technology Stocks Whale Activity In Today’s Session",
+   "medio": "Benzinga",
+   "url": "https://www.benzinga.com/markets/options/26/11/63155861/10-information-technology-stocks-whale-activity-today-s-session",
+   "fecha": "2026-11-11",
+   "resumen": "This whale alert can help traders discover the next big trading opportunities.\nWhales are entities with large sums of money and we track their transactions here at Benzinga on our options activity scanner.\nTraders will",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=fb3006007a53e91d443263f110987bccafef48a57873cb16b47d89855e4cd6b8"
+  },
+  {
+   "titular": "The AI Trade Deconstructed: AI Builders, AI Suppliers And AI Product Firms",
+   "medio": "Seeking Alpha",
+   "url": "https://seekingalpha.com/article/4966441-ai-trade-deconstructed-ai-builders-ai-suppliers-ai-product-firms",
+   "fecha": "2026-11-11",
    "resumen": "",
-   "medio": "CNBC",
    "tipo": "prensa",
-   "via": "Google News"
-  },
-  {
-   "titular": "Watch CNBC's full interview with Oracle CFO Hilary Maxson",
-   "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPMEZXanpDTEdUOHBWRlQ5REJUN1FQcDNpN3k1RktSVkh0MTgzemxmcmdINVQ4RzlLZnpRLTVGcjJ6ZUluRHBQWE52UnVRQ3VaNnJjbzZxSHNaSjZ0UElvZHpjOUZWdzE2VS1OaXBuR1B3WFJpeDYxdFBMaEVmcDQ0WUlCSWNlMkswODZZNjVyWUo0bmc3VDB4VUhXajVBd3pu?oc=5",
-   "fecha": "2026-11-10",
-   "resumen": "",
-   "medio": "CNBC",
-   "tipo": "prensa",
-   "via": "Google News"
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=6641435c945aad1cf70f3b81616bbc6fff2ba528969271678dc9abad88a172ce"
   },
   {
    "titular": "8-K a la SEC: Otros hechos relevantes",
@@ -15636,11 +15702,11 @@
    "fuente": "StockTwits (API pública)",
    "url": "https://stocktwits.com/symbol/ORCL",
    "mensajes": 30,
-   "alcistas": 6,
-   "bajistas": 0,
-   "pct_alcista": 100,
-   "seguidores": 73311,
-   "desde": "2026-11-12",
+   "alcistas": 9,
+   "bajistas": 2,
+   "pct_alcista": 82,
+   "seguidores": 73310,
+   "desde": "2026-11-13",
    "hasta": "2026-11-13",
    "fecha": "2026-11-13"
   }
@@ -15663,7 +15729,7 @@
    },
    "Google News": {
     "ok": true,
-    "titulares": 11
+    "titulares": 10
    },
    "Seeking Alpha": {
     "ok": true,
@@ -15671,11 +15737,15 @@
    },
    "Marketaux": {
     "ok": true,
-    "titulares": 2
+    "titulares": 3
    },
    "RSS de medios": {
     "ok": true,
     "titulares": 3
+   },
+   "Sala de prensa": {
+    "ok": true,
+    "titulares": 9
    },
    "StockTwits": {
     "ok": true,
@@ -15685,10 +15755,6 @@
  },
  "historico_precio": {
   "serie": [
-   [
-    "2021-08-12",
-    89.81
-   ],
    [
     "2021-08-13",
     90.38
@@ -20964,14 +21030,18 @@
    [
     "2026-11-12",
     127.11
+   ],
+   [
+    "2026-11-13",
+    125.35
    ]
   ],
   "fuente": "Twelve Data (API oficial, plan gratuito)",
   "url": "https://twelvedata.com/",
-  "fecha": "2026-11-12",
+  "fecha": "2026-11-13",
   "ajuste": "splits"
  },
- "generado": "2026-11-13T11:25:15+00:00",
+ "generado": "2026-11-13T23:51:46+00:00",
  "peers": {
   "fuente_lista": "manual",
   "fuente_cifras": "SEC EDGAR (companyfacts, UDM) · precio Finnhub",
@@ -20993,13 +21063,13 @@
    "informe": "10-Q",
    "informe_fecha": "2026-09-11",
    "url": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526389274/0001193125-26-389274-index.htm",
-   "precio": 127.11,
-   "capitalizacion": 384347082960.0,
-   "ev": 472607082960.0,
-   "per": 20.31,
-   "precio_ventas": 5.35,
-   "ev_ebitda": 13.93,
-   "rentabilidad_fcf": -7.47,
+   "precio": 125.35,
+   "capitalizacion": 379025307600.0,
+   "ev": 467285307600.0,
+   "per": 20.03,
+   "precio_ventas": 5.28,
+   "ev_ebitda": 13.77,
+   "rentabilidad_fcf": -7.58,
    "deuda_neta_ebitda": 2.6,
    "ticker": "ORCL",
    "nombre": "Oracle",
@@ -21033,12 +21103,12 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-28",
     "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526436133/0001193125-26-436133-index.htm",
-    "precio": 523,
-    "capitalizacion": 3883899750696,
-    "ev": 3854871750696,
-    "per": 27.23,
-    "precio_ventas": 11.21,
-    "ev_ebitda": 18.74,
+    "precio": 523.88,
+    "capitalizacion": 3890434801901.76,
+    "ev": 3861406801901.76,
+    "per": 27.28,
+    "precio_ventas": 11.23,
+    "ev_ebitda": 18.77,
     "rentabilidad_fcf": 1.54,
     "deuda_neta_ebitda": -0.14
    },
@@ -21069,13 +21139,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-30",
     "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/0001018724-26-000040-index.htm",
-    "precio": 267.44,
-    "capitalizacion": 2891865708556.64,
-    "ev": 2957591708556.64,
-    "per": 21.46,
-    "precio_ventas": 3.63,
-    "ev_ebitda": 16.1,
-    "rentabilidad_fcf": -1.62,
+    "precio": 266.66,
+    "capitalizacion": 2883431460677.9604,
+    "ev": 2949157460677.9604,
+    "per": 21.39,
+    "precio_ventas": 3.62,
+    "ev_ebitda": 16.05,
+    "rentabilidad_fcf": -1.63,
     "deuda_neta_ebitda": 0.36
    },
    {
@@ -21105,12 +21175,12 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-29",
     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/0001652044-26-000084-index.htm",
-    "precio": 298.7,
-    "capitalizacion": 3672217800000.0,
-    "ev": 3533237800000.0,
-    "per": 15.58,
-    "precio_ventas": 7.8,
-    "ev_ebitda": 19.1,
+    "precio": 295.77,
+    "capitalizacion": 3636196380000.0,
+    "ev": 3497216380000.0,
+    "per": 15.43,
+    "precio_ventas": 7.72,
+    "ev_ebitda": 18.91,
     "rentabilidad_fcf": 0.54,
     "deuda_neta_ebitda": -0.75
    },
@@ -21154,13 +21224,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-08-27",
     "url": "https://www.sec.gov/Archives/edgar/data/1108524/000110852426000190/0001108524-26-000190-index.htm",
-    "precio": 217.57,
-    "capitalizacion": 179060110000.0,
-    "ev": 206945110000.0,
-    "per": 18.53,
+    "precio": 217.84,
+    "capitalizacion": 179282320000.0,
+    "ev": 207167320000.0,
+    "per": 18.56,
     "precio_ventas": 4.08,
-    "ev_ebitda": 16.35,
-    "rentabilidad_fcf": 8.46,
+    "ev_ebitda": 16.37,
+    "rentabilidad_fcf": 8.45,
     "deuda_neta_ebitda": 2.2
    },
    {
@@ -21190,13 +21260,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-22",
     "url": "https://www.sec.gov/Archives/edgar/data/51143/000005114326000095/0000051143-26-000095-index.htm",
-    "precio": 244.67,
-    "capitalizacion": 231242707359.34998,
-    "ev": 278813707359.35,
-    "per": 20.7,
-    "precio_ventas": 3.31,
-    "ev_ebitda": 15.72,
-    "rentabilidad_fcf": 6.34,
+    "precio": 247.13,
+    "capitalizacion": 233567704539.65,
+    "ev": 281138704539.65,
+    "per": 20.91,
+    "precio_ventas": 3.34,
+    "ev_ebitda": 15.86,
+    "rentabilidad_fcf": 6.27,
     "deuda_neta_ebitda": 2.68
    }
   ]

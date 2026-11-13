@@ -20956,11 +20956,11 @@
  "precio": {
   "minimo_52s": 270.7,
   "maximo_52s": 408.61,
-  "beta": 1.2444797,
-  "valor": 298.7,
-  "cierre_anterior": 293.45,
+  "beta": 1.2419382,
+  "valor": 295.77,
+  "cierre_anterior": 298.7,
   "moneda": "USD",
-  "fecha": "2026-11-12",
+  "fecha": "2026-11-13",
   "fuente": "Finnhub (API oficial, plan gratuito)",
   "url": "https://finnhub.io/"
  },
@@ -21055,7 +21055,127 @@
    }
   ]
  },
+ "presentaciones_sec": [
+  {
+   "formulario": "424B2",
+   "descripcion": "folleto de una emisión (424B)",
+   "fecha_presentacion": "2026-11-04",
+   "accn": "0001193125-26-447343",
+   "url_indice": "https://www.sec.gov/Archives/edgar/data/1652044/000119312526447343/0001193125-26-447343-index.htm",
+   "url_documento": "https://www.sec.gov/Archives/edgar/data/1652044/000119312526447343/d125079d424b2.htm",
+   "fuente": "SEC EDGAR · 424B2"
+  },
+  {
+   "formulario": "424B5",
+   "descripcion": "folleto de una emisión (424B)",
+   "fecha_presentacion": "2026-11-02",
+   "accn": "0001193125-26-442515",
+   "url_indice": "https://www.sec.gov/Archives/edgar/data/1652044/000119312526442515/0001193125-26-442515-index.htm",
+   "url_documento": "https://www.sec.gov/Archives/edgar/data/1652044/000119312526442515/d125079d424b5.htm",
+   "fuente": "SEC EDGAR · 424B5"
+  }
+ ],
  "noticias": [
+  {
+   "titular": "Claim your Google Cloud Credits in Google AI Studio",
+   "url": "https://blog.google/innovation-and-ai/technology/developers-tools/google-cloud-credits-gdp-ai-studio/",
+   "fecha": "2026-11-13",
+   "resumen": "Claim your Google Cloud Credits in Google AI Studio",
+   "medio": "Alphabet (sala de prensa)",
+   "tipo": "nota_prensa",
+   "via": "Sala de prensa de la compañía"
+  },
+  {
+   "titular": "Connect Google Wallet to Gemini for personal finance insights",
+   "url": "https://blog.google/innovation-and-ai/products/gemini-app/google-wallet-gemini-app/",
+   "fecha": "2026-11-13",
+   "resumen": "All Gemini app users in the U.S. can connect Google Wallet to get responses informed by their spending habits.",
+   "medio": "Alphabet (sala de prensa)",
+   "tipo": "nota_prensa",
+   "via": "Sala de prensa de la compañía"
+  },
+  {
+   "titular": "Alphabet: 265 Billion Reasons Not To Worry About The CapEx Burn",
+   "url": "https://seekingalpha.com/article/4967818-alphabet-265-billion-reasons-not-to-worry-about-the-capex-burn",
+   "fecha": "2026-11-13",
+   "resumen": "Alphabet delivered a rare double miss, but the post-earnings pullback is a compelling entry point. See why I rate GOOGL stock as Strong Buy. Click to read my analysis.",
+   "medio": "Seeking Alpha",
+   "tipo": "prensa",
+   "via": "Marketaux",
+   "sentimiento": {
+    "puntuacion": 0.533,
+    "etiqueta": "Alcista"
+   }
+  },
+  {
+   "titular": "11 AI Stocks to Buy on Dips: 'Don't Waste a Good Sell-Off,' Analyst Says",
+   "medio": "Benzinga",
+   "url": "https://www.benzinga.com/analyst-stock-ratings/analyst-color/26/11/63237574/hsbc-ai-stocks-buy-dip-oracle-alphabet-vertiv-ge-vernova",
+   "fecha": "2026-11-13",
+   "resumen": "HSBC argues that the correction in equity markets is &#34;overdone,&#34; and names 11 Buy-rated AI stocks to buy on the dip.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=9e25e4d1f539d00a245e8a09d8783622f0a4cb0190b295e6d5eec032543f95f3"
+  },
+  {
+   "titular": "What's Going On With AMD Stock Today?",
+   "medio": "Benzinga",
+   "url": "https://www.benzinga.com/markets/tech/26/11/63234451/whats-going-on-with-amd-stock-today-2",
+   "fecha": "2026-11-13",
+   "resumen": "AMD stock jumped over 30% in five days as Nvidia CEO Jensen Huang’s exit accelerated AI chip diversification. See why experts project $77B in AMD data-center sales by 2027.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=e525ffa48fb1a0a561415de622b995437cdaeb9cf4cb855405ba7b39d2499d37"
+  },
+  {
+   "titular": "Broadcom Is 'Very, Very Capable,' Analyst Says As NVIDIA's Troubles Mount",
+   "medio": "Benzinga",
+   "url": "https://www.benzinga.com/markets/tech/26/11/63234374/broadcom-is-very-very-capable-analyst-says-as-nvidias-troubles-mount",
+   "fecha": "2026-11-13",
+   "resumen": "Broadcom (AVGO) is gaining ground in the AI chip race as tech giants look beyond NVIDIA amid leadership challenges and custom chip demand.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=1276a02068fe47f1f72e82ff17005db57c39008868bbc4045a8dfd9986580857"
+  },
+  {
+   "titular": "NVIDIA's Board Was 'Very Deferential' To Jensen Huang: Expert",
+   "medio": "Benzinga",
+   "url": "https://www.benzinga.com/markets/tech/26/11/63232830/nvidias-board-was-very-deferential-to-jensen-huang-expert",
+   "fecha": "2026-11-13",
+   "resumen": "Is NVIDIA a bargain at 10x forward earnings or a value trap? Analysts weigh AI demand against Jensen Huang’s exit and competition.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=db0773f3c0a6be7f8224029b248b579712775ca6f470d3d221feed5b5ff92719"
+  },
+  {
+   "titular": "NVIDIA’s Shakeup Clouds Copper’s AI Boom",
+   "medio": "Benzinga",
+   "url": "https://www.benzinga.com/markets/commodities/26/11/63231752/nvidias-shakeup-clouds-coppers-ai-boom",
+   "fecha": "2026-11-13",
+   "resumen": "Jensen Huang’s exit sparks a 38% NVIDIA plunge. Discover how key-person risk, fiber optics, and stalled data centers threaten AI copper boom.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=371ee4be922f6794ff91d352e5f9b564362f3fe82e9aceafc6c3fd817b424946"
+  },
+  {
+   "titular": "Reported Earlier, South Korea Says Google Removed Map Coordinates, Will Delete Military And Security Facility Street View Imagery Under February Data Export Permit",
+   "medio": "Benzinga",
+   "url": "https://www.benzinga.com/news/26/11/63230584/reported-earlier-south-korea-says-google-removed-map-coordinates-will-delete-military-and-security-f",
+   "fecha": "2026-11-13",
+   "resumen": "-Reuters ",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=7695b4923e124a910b0f74eb5c5ecb61bd3ba4c5478fd856942db38081c8cbf0"
+  },
+  {
+   "titular": "Apple, Alphabet and Uber survived major founder transitions. Nvidia will be a harder test",
+   "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPclVxcFBCTWFtTWFWLWdjeVdMZ3c3Qk9IczZvam1GcHBXWkktSWV5N2l5NFBtaEpkSGh1X3J3Z0llMWxrQkJuX1ZITHhvZGs0YUxfaHRCbjY2b0ZLVzVydnNZM0JISmhRLWk1ejBja0hZRTNQZDI0MTgteGZfUWdLRlh4YmdYd9IBiwFBVV95cUxQcm1VMmJ4a1BxMXVTME9FSjZ2WHI4alZmRTM2d0pyZHBtMW9felFxTVJBUVk3SkMtZXFRWkp2dkRZYS1XeHQ0SzY5TnNYSDB4V3JPd082eGpXVUZiaWZBcEc3d0pSVWVtZXl5ZXcwSXpIYkp1eFlrVGNfUm94T0xaUUJKQW5IMklDdVFN?oc=5",
+   "fecha": "2026-11-13",
+   "resumen": "",
+   "medio": "CNBC",
+   "tipo": "prensa",
+   "via": "Google News"
+  },
   {
    "titular": "Alphabet’s Wing to Build New Texas Factory for Delivery Drones",
    "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOZndfY1NQZk1HN3VPR3RQVDgyb3NJSFJNN0kyN3BmVW8tUl9sQTl4cVpXLTZwX3BDZFNDUGd5LV9KUGx1SUx1UjNZd216UmVySlZHcEhWdmJNU0VSM2NDVElCSTREVmw4Q2ZVaFV2VEc3NGpOMU1sZTh2UjVsX2NzUVZ4UDlhb19xTlN3N3lpSzIyeDlTcG43OUNTaXNQTm1pMm9CLUo2MGhxTVk?oc=5",
@@ -21066,61 +21186,121 @@
    "via": "Google News"
   },
   {
-   "titular": "Broadcom Just Gained 25% in a Week: Take Profits, or Buy More?",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=0d3682859d665a72b8d6b77db44ce280e453e474a2f747c60505b44e78b8cbd7",
+   "titular": "Muse's gains slow in October, while Google's volumes remain 'robust,' Wells Fargo says",
+   "url": "https://seekingalpha.com/symbol/GOOGL/news?source=feed_symbol_GOOGL",
    "fecha": "2026-11-13",
-   "resumen": "Key TakeawaysBroadcom stock is up 25% in the past week as chip stocks rebounded and Nvidia’s CEO exit sent investors to rivals like AMD. Nvidia’s turmoil gives AI buyers a reason to want a second supplier, and Broadcom helps design and supplies Alphabet’s custom TPU chips.",
+   "resumen": "",
+   "medio": "Seeking Alpha",
    "tipo": "prensa",
-   "via": "Finnhub"
+   "via": "RSS de Seeking Alpha"
   },
   {
-   "titular": "Zacks Earnings Trends Highlights: Micron, Nvidia and Alphabet",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=e131fde0e366f2887f087ee50bb84bf1ba10a2d173856d8f9e7552fde9bac136",
+   "titular": "Anthropic: Why You Should Consider Pre-IPO Ownership Via Alphabet",
+   "url": "https://seekingalpha.com/article/4967882-anthropic-you-should-consider-pre-ipo-ownership-via-alphabet?source=feed_symbol_GOOGL",
    "fecha": "2026-11-13",
-   "resumen": "Q3 earnings growth remains broad-based, with MU and NVDA driving tech gains as positive estimate revisions signal improving 2027 prospects.",
+   "resumen": "",
+   "medio": "Seeking Alpha",
    "tipo": "prensa",
-   "via": "Finnhub"
+   "via": "RSS de Seeking Alpha"
   },
   {
-   "titular": "3 Undervalued Stocks To Own In November 2026",
+   "titular": "Cerebras stock surges on Microsoft deal: What it means for Nvidia",
    "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=f25d49330479c0006cbb452b7e7a0030322ea4fa5225572fcd588ebcfd2e753c",
+   "url": "https://finance.yahoo.com/video/cerebras-stock-surges-on-microsoft-deal-what-it-means-for-nvidia-213123807.html",
    "fecha": "2026-11-13",
-   "resumen": "Bond yields are climbing again as investors price in more Federal Reserve rate hikes, which puts pressure on highly valued stocks and makes cash today more valuable than distant profits. That shift draws attention to companies that already produce solid cash flows yet trade at di",
+   "resumen": "Deirdre Bosa outlines how various AI companies are storming the AI castle and searching for Nvidia (NVDA) alternatives, such as Cerebras' (CBRS) deal with Microsoft (MSFT).",
    "tipo": "prensa",
-   "via": "Finnhub"
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=b749c047c398794b579255970d097d582b48edc9bbfde7b80ffe7cacfa983674"
   },
   {
-   "titular": "Michael Burry Sees A ‘Mechanical Bid’ Under NVDA Stock – Even As He Questions Nvidia’s Succession Plan And Asia Sales",
+   "titular": "Alphabet (GOOGL) Faces Uber Deal Talk, Space Chip Test And €1.66 Billion Fine",
    "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=e28594a89803a55647afd3535b8ec5fc6b2c786a4149348ecf57d62f7a78957b",
+   "url": "https://finance.yahoo.com/technology/ai/articles/alphabet-googl-faces-uber-deal-211021625.html",
    "fecha": "2026-11-13",
-   "resumen": "Burry said a “mechanical bid” driven by fund flows and preset investment rules overwhelmed sellers at Thursday’s open.",
+   "resumen": "Alphabet (NasdaqGS:GOOGL) is reportedly exploring a potential tie-up with Uber that could combine the rideshare network with Waymo's autonomous technology. Google has unveiled \"Project Suncatcher\", an orbital experiment designed to test its AI accelerator chips in space-based dat",
    "tipo": "prensa",
-   "via": "Finnhub"
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=de8892ffbae6467e690f5b019f88cf81ff687af9eef424277c82c14142a477c8"
   },
   {
-   "titular": "American Electric Power Company (AEP) Stock Looks Above Fair Value On Dividends",
+   "titular": "Alibaba’s (BABA) AI Growth Prospects Remain Masked by Short-Term Challenges",
    "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=7766cee1973a4821db01b71e4fe90c131b331b0183e4940ba336d43011e33178",
+   "url": "https://finance.yahoo.com/technology/ai/articles/alibaba-baba-ai-growth-prospects-205249409.html",
    "fecha": "2026-11-13",
-   "resumen": "American Electric Power Company has delivered a strong share price run in recent years, and the question now is whether that move still lines up with the dividend checks investors expect to collect from here. Over the past 3 years, American Electric Power Company has returned 84.",
+   "resumen": "Alibaba Group Holding Limited (BABA) offers promising artificial intelligence (AI) growth prospects, but its short-term struggles continue to weigh on the stock. The Chinese tech giant has failed to gain traction following its regulatory nightmare in 2020. In the past 12 months a",
    "tipo": "prensa",
-   "via": "Finnhub"
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=22bbe28f5c60d124cadc05f21bf12af3503807cdffe917024fe515ab7fe5ea93"
   },
   {
-   "titular": "Should You Buy Alphabet Stock Now That Google Will Let Customers Run Its AI Chips in Their Own Data Centers?",
+   "titular": "Inside Jim Cramer’s Charitable Trust: 5 Stocks He Actually Owns",
    "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=65d72a35d6bd8753f397a3e903a5bba97273876b4c189482e737a2395d9d5608",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/inside-jim-cramer-charitable-trust-203302856.html",
    "fecha": "2026-11-13",
-   "resumen": "The search giant's turning its AI chips into hardware it sells. Is the stock a buy around 28% below its peak?",
+   "resumen": "Jim Cramer started his Charitable Trust in 2005 with $3 million of his own money. According to CNBC, Cramer’s own investment is at risk, and the trust distributes its investment income and realized capital gains to charity. The CNBC Investing Club gives subscribers a way to follo",
    "tipo": "prensa",
-   "via": "Finnhub"
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=770781c3648449b4bd5eadeb2eefe4f00628b6042ce6b2f31d7035af97e7600b"
   },
   {
-   "titular": "Google Will Now Tell You Exactly How Much It’s Crediting You For Invalid Traffic",
+   "titular": "Anthropic’s Best Financial Metric Is Also Its Biggest Risk",
+   "medio": "Yahoo Finance",
+   "url": "https://finance.yahoo.com/m/51e6bed3-7414-3720-93c3-da1f75ffbe18/anthropic%E2%80%99s-best-financial.html",
+   "fecha": "2026-11-13",
+   "resumen": "Pricing power is one of its greatest strengths. Preserving it may be it’s toughest test.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=c6a570608cc5d5bbffa31b2d0167a6e2288b61ef069ad400f37ee536375f3696"
+  },
+  {
+   "titular": "Wall Street Is Writing Off Nvidia Stock. Here's Why That's a Mistake.",
+   "medio": "Yahoo Finance",
+   "url": "https://www.fool.com/investing/2026/11/13/wall-street-is-writing-off-nvidia-stock-heres-why/",
+   "fecha": "2026-11-13",
+   "resumen": "Analysts are cooling a bit on Nvidia.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=1f25b50d7e18813c5b771a8af6168f7a90d2427c93ce1bcc134deb531f9c209f"
+  },
+  {
+   "titular": "5 new Google Flow Tools designed by visual artists",
+   "url": "https://blog.google/innovation-and-ai/models-and-research/google-labs/new-google-flow-tools/",
+   "fecha": "2026-11-12",
+   "resumen": "Designed by filmmakers and visual artists, five new Google Flow Tools will help you bring your next story to life.",
+   "medio": "Alphabet (sala de prensa)",
+   "tipo": "nota_prensa",
+   "via": "Sala de prensa de la compañía"
+  },
+  {
+   "titular": "Google Search gets a major upgrade with Gemini 4 Hydrogen",
+   "url": "https://blog.google/products-and-platforms/products/search/gemini-4-hydrogen-search-upgrade/",
+   "fecha": "2026-11-12",
+   "resumen": "We are bringing Gemini 4 Hydrogen to Google Search globally to provide you with more helpful, visual, and intuitive responses.",
+   "medio": "Alphabet (sala de prensa)",
+   "tipo": "nota_prensa",
+   "via": "Sala de prensa de la compañía"
+  },
+  {
+   "titular": "Gemini 4 Hydrogen: everyday coding and agentic workflows for developers",
+   "url": "https://blog.google/innovation-and-ai/technology/developers-tools/build-with-gemini-4-hydrogen/",
+   "fecha": "2026-11-12",
+   "resumen": "Build faster with Gemini 4 Hydrogen, Google’s new model for cost-efficient agentic coding and debugging. Start building in Google AI Studio today.",
+   "medio": "Alphabet (sala de prensa)",
+   "tipo": "nota_prensa",
+   "via": "Sala de prensa de la compañía"
+  },
+  {
+   "titular": "Introducing Gemini 4 Hydrogen",
+   "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/",
+   "fecha": "2026-11-12",
+   "resumen": "Today, we’re introducing Gemini 4 Hydrogen, our daily driver for agentic workflows",
+   "medio": "Alphabet (sala de prensa)",
+   "tipo": "nota_prensa",
+   "via": "Sala de prensa de la compañía"
+  },
+  {
+   "titular": "Google Will Now Tell You Exactly How Much It’s Saving You On Invalid Traffic",
    "url": "https://www.adexchanger.com/platforms/google-will-now-tell-you-exactly-how-much-its-crediting-you-for-invalid-traffic/",
    "fecha": "2026-11-12",
    "resumen": "Digital advertisers have always wondered exactly how much of their ad budgets they’re wasting on bots. Now, Google will tell them. Today, Google Ads announced it’s adding a new feature called the Invalid Traffic Overview Card to its user interface. For the first time, it breaks d",
@@ -21166,159 +21346,12 @@
   {
    "titular": "YLDE: This Could Be A Good Fund For Income Investors, But Underperformance Is Possible",
    "medio": "Seeking Alpha",
-   "url": "https://finnhub.io/api/news?id=a2acf2514dfb60e7c5724269ffe2421d5b6e1b567cc8575fd679750d55d95e1c",
+   "url": "https://seekingalpha.com/article/4967585-ylde-this-could-be-a-good-fund-for-income-investors-but-underperformance-is-possible",
    "fecha": "2026-11-12",
    "resumen": "Analyst sees YLDE as a fixed-income alternative, with a 7.23% yield and rising distributions, though it may lag the S&P 500 in bull markets.",
    "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "MGK: The Hyperscalers Are On Sale",
-   "medio": "Seeking Alpha",
-   "url": "https://finnhub.io/api/news?id=23b8ed47b7aa89601c6c491f0c31b62aab28fc0d49a5336575c0512b6b2b38a1",
-   "fecha": "2026-11-12",
-   "resumen": "Analyst rates MGK ETF a Strong Buy: it offers accumulation near its 200-day average as hyperscalers may turn AI capex into revenue and earnings growth.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Tracking Mario Gabelli's Gabelli Funds 13F Portfolio - Q3 2026 Update",
-   "medio": "Seeking Alpha",
-   "url": "https://finnhub.io/api/news?id=7bd28dfd11723edb2efe993243c92ae5417a254590e3c5c6ddd8db9f9e734390",
-   "fecha": "2026-11-12",
-   "resumen": "Gabelli Fundsâ Q3 2026 13F portfolio fell to $15.10 billion across 1,200+ positions, trimming Nvidia and Alphabet while adding Microsoft. See more here.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Nvidia: Worth Less Without Jensen (Rating Downgrade)",
-   "medio": "Seeking Alpha",
-   "url": "https://finnhub.io/api/news?id=8dec41de0ca71a5b8e86be76d697987ee686eb6e2834ab56235bca12dedb2ebc",
-   "fecha": "2026-11-12",
-   "resumen": "Analyst sees Nvidia Corporation as a toss-up after Jensen Huang's resignation: at 10x FY28 EPS, AI chip demand and supply constraints could support upside.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "S&P 500 Top Movers: Gainers and Losers on Nov. 12, 2026",
-   "medio": "ChartMill",
-   "url": "https://finnhub.io/api/news?id=8d72580f24855ff04af7f0752cd818ab15909885e271639988acb5b9006eddb8",
-   "fecha": "2026-11-12",
-   "resumen": "S&P 500 top movers for Nov. 12, 2026: AVGO, AMD, SWKS and energy names gained, while SMCI, GPN, NVDA and other technology shares declined.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Anthropic's Office, Microsoft's Legacy, Filled Moats, And A Potent AI Threat",
-   "medio": "Seeking Alpha",
-   "url": "https://finnhub.io/api/news?id=8d868004f317bc5ce1ad588c35a437fd8f330c6e516ebbff6298441985226638",
-   "fecha": "2026-11-12",
-   "resumen": "Analyst rates Microsoft Corporation a Hold: AI rivals could erode its Office moat and pressure margins over time; immediate threats are limited.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "EVT: This Could Be A Good Fund For Income Seekers, But It Has Some Headwinds",
-   "medio": "Seeking Alpha",
-   "url": "https://finnhub.io/api/news?id=595cbe08eaa3bb60f4146df379b07a483eeed1000f801e422b8f1d260efe658f",
-   "fecha": "2026-11-12",
-   "resumen": "The Eaton Vance Tax-Advantaged Dividend Income Fund delivers an 8.21% yield, primarily through U.S. dividend-paying equities and some fixed income.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "Alphabet Kicks Off Asia Bond Sale as AI Firms Face Scrutiny",
-   "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNaGZ5Z0pKYS0wTHBjSE5aYVVqTDgzdzZTQkRaY2ZpNDJWalNEU1hicGEzX3FJd2pjUGNjalZ3dzVyM1Z5RTJSaVNyTGtxR0VCQ3JlU3lZOXg0eXUyWTFsaVQ3Y1ZhOXhMM19OLTN2bGJ4Q094OFM4V1VmVi16eFpFcVhkTkVNbkNZeDd5UnpEZU1CbVRJZHY1SF9yOG4zSVpPbVRVYnhwSkROWVNLX2Iw?oc=5",
-   "fecha": "2026-11-12",
-   "resumen": "",
-   "medio": "Bloomberg",
-   "tipo": "prensa",
-   "via": "Google News"
-  },
-  {
-   "titular": "Alphabet raises $3.8 billion in first Hong Kong, Singapore dollar bonds",
-   "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQSkZJZGdvOEZWNkZuZ3pSWXU4QUktR01VVWpXc1I3OWtjQnFYaEtRMHVjdUJCblRxdDh2Wm0tbmJQN0gtWVN6b3dnVFlMVGM1Qk8ydHgtb0tndU5xblJGOTVxRWFFYjdjdDJIQkcwckZqMnNDUkZlNE56dzVGd0dMMVFaZUMydjZPaTVkcmRGQU1sZXlscUx0UkRINlpVZk9QYXFiZElNSlc1cG5JTHYwTVplbzM5b0FLOHZLelZZWnlxcGpEdEstNi0zSFprUQ?oc=5",
-   "fecha": "2026-11-12",
-   "resumen": "",
-   "medio": "Reuters",
-   "tipo": "prensa",
-   "via": "Google News"
-  },
-  {
-   "titular": "Google and Samsung to Release AI Smart Glasses in December",
-   "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNVksxWWMteVJxMEtIa0tBcjdZUXY0MGlvbGlNQWZVMGtESVliVFlwODlpWUJESHNLYmlMOFpvV3lEeVNoREdheHpDS3JQUjVqWkNYT0I2RzRrS1I5ckY3MGJqWXRrc2dEVEZhUEFxVXpxRzBvVE5ONEZhZldCbndjY1d0LVFPaEpqaGRWQmFET3lJRWlmZ1ZNQk01RFpGLWZsX0I5eDhTTm5CTWRqQXpoZ29EWFZPMURyMVFFSi1Uc3ZCT2hXeDdr?oc=5",
-   "fecha": "2026-11-12",
-   "resumen": "",
-   "medio": "Bloomberg",
-   "tipo": "prensa",
-   "via": "Google News"
-  },
-  {
-   "titular": "Modi’s Top Ally Sees Google Project on Track, New Data Centers",
-   "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNV2tnZE84R1d2N0NJaHQta2FPR2VETmdmWVNTbHVOUkd6ZzNmaGxTZFl2bHYtSTdXZjdHc2F1NjBRWjItcTI2VWRIZ0M1amJhLWRFWnZieFVIbVRXSUpsaC1wYjE2TGlmNEF6TG5yMi1xc0w0Qm9hdDV3S2lhNjJqWVRVZ24zLXc0V1JSQndCNEI4WDRDZVJSSllIZjNfdW9iS2FCblZLMHJHQmpYSGhab25mOG94ZmJCWkJEOTFPVXdJUQ?oc=5",
-   "fecha": "2026-11-12",
-   "resumen": "",
-   "medio": "Bloomberg",
-   "tipo": "prensa",
-   "via": "Google News"
-  },
-  {
-   "titular": "OpenAI, Google, Anthropic hit with lawsuit seeking halt to frontier AI development",
-   "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPWTR4ak5BdnRmV3hzYTZOcVhBYklWU01YRmtLak03b2hmeC1PMTd5blRQWUkxR2Q1ZXZWRC0xNkNxVDVoN2VOdTVlX1hFMXgwS1Y5TW1fUGt4NThQaEhRVFdna1YxUDhLTnBYUFJ6WTlFajlLM1BZTTRwNk5sWFMydkZtMlJNUnU4MWlDcUN6QmNtVHdUT1pLNXd6QXc4QVk0WmMtM1JxWU5XVC1PUGRIMVJNY2wzN1Z1d2N6WWJkbw?oc=5",
-   "fecha": "2026-11-12",
-   "resumen": "",
-   "medio": "Reuters",
-   "tipo": "prensa",
-   "via": "Google News"
-  },
-  {
-   "titular": "Setback for Google as EU Court adviser backs $1.7 billion antitrust fine",
-   "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQNm13elhGVjJBZFpZVlZDbDB2VGROQ3B6bFJ5dW1QcVNXdGV4cUVNWWMtQXRuVEt0YVNQMF80d3dsTFpEVFd5ZUFGdVVmU29wX243MFljWEd3cEtFZTFpQmhidE8ycFNmWXpiMTJmQnk0b1lLb3BfZkk5SC1SVDIwdE9saWREU0Nyb2ZYb2pnaDRhZWQxN2JKX0FNVkoxZEg5cTR4T0I1Sms?oc=5",
-   "fecha": "2026-11-12",
-   "resumen": "",
-   "medio": "Reuters",
-   "tipo": "prensa",
-   "via": "Google News"
-  },
-  {
-   "titular": "Google Faces Renewed Risk of EU Penalty Over AdSense Platform",
-   "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOSkxNa3pfaWluQ0hPV3ZHLU5zeTYxYmlGR1JDYVBuREI4M0ZUWHcyYzA4UVJLREZJVHhOU1NheXhJOFR4THhKVzVqZWFvMmJSUUdId3RTNkZMWFg1bjNLRlF5dHRPaWFuc2hnN3lsdXdjb1E2aU91UHgwaUFiOGYxR2tYbXF6ODBna3d6TFFTUFBQMnFUWlQ0c3B2OA?oc=5",
-   "fecha": "2026-11-12",
-   "resumen": "",
-   "medio": "WSJ",
-   "tipo": "prensa",
-   "via": "Google News"
-  },
-  {
-   "titular": "AlphaGenome 2: la nueva IA de Google que predice cómo los cambios en el ADN pueden desencadenar enfermedades",
-   "url": "https://news.google.com/rss/articles/CBMijAJBVV95cUxNNFhibFJyZ2VERjhrTmNmSWxfTGhycExFaTVscVltUlZVdkhsNExrYkd3aWNCaHpfRkpoN2N3YmVNY1RkMnNIOU5VaElud1NVRS12RDNQbHJhNlZGb2Zmd09FMDA2M0llZWpGSFFmc0VycC1wMDVsMFI5T0hoQ0ZYbTEzblpkQnVaNjVSaDJuX3pLQ2RMZnNSOXJGV0VHakdXNFJxRk52RWdSb0YzVFdwSFhCb0Z5alVOeTJYWE84QjJWcGl2WDAzWE12MzBvSW1uZk9hNEpRYjlqVnVUWnZ6UTI5QmNLT09uRVQ4STktclhPMHJYc0JtZlJDQkNjZ3o4OHR6b3JaOFJTSG9O0gH3AUFVX3lxTE5QRVhtcmFyUEZiMUZkemVxVzAyZXhVNV9UZ3ZoRjFidXVURDBQbGJSX0Y3ZmpfX05Kd2hDU3hXSTk2WUktVHM4amZvY3ZZUFFkWkRTaWM3Q0s5cGpTU3VsX3NEODNVdG5qM01RdHN1YTdUWXBlQXBRTTZJa1hkblRHdXJsNGhDOW9SZUhoVWo5MkFmbVpWNThuTDBKTjc2Q2cwZjF2NHMwbXpLOW1HaUdxeGp3QzJMREs1Sm5QWEdWamxlMWc3SW1OWlJBeGVsa2l5cEQ0YTNWcFVrWlhaYmVnbndsSDBkclJONGtSRG9Bb052QS1WOHM?oc=5",
-   "fecha": "2026-11-12",
-   "resumen": "",
-   "medio": "El Economista",
-   "tipo": "prensa",
-   "via": "Google News"
-  },
-  {
-   "titular": "Google’s AI Ad Losses Are Meta’s Gain; Chatbot Ad Formats Are Starting To Multiply",
-   "url": "https://www.adexchanger.com/daily-news-roundup/wednesday-11112026/",
-   "fecha": "2026-11-11",
-   "resumen": "Too Close To The Sun Google has become its own worst enemy. The company’s stock price dropped more than 10% after its Q3 earnings call last month, mostly due to a major slowdown in search advertising growth. The culprit: Google’s own AI Mode. But not every tech company doubling d",
-   "medio": "AdExchanger",
-   "tipo": "sectorial",
-   "via": "RSS del medio"
-  },
-  {
-   "titular": "Treasury Secretary Relocates to Military Base Amid Iranian Threats; Google Tests “Hydrogen” AI",
-   "url": "https://www2.stockmarketwatch.com/stock-market-news/treasury-secretary-relocates-to-military-base-amid-iranian-threats-google-tests-hydrogen-ai/74522/",
-   "fecha": "2026-11-11",
-   "resumen": "U.S. Treasury Secretary Scott Bessent has moved his primary residence to a secure military base following credible intelligence regarding Iranian plots",
-   "medio": "thestockmarketwatch.com",
-   "tipo": "prensa",
-   "via": "Marketaux",
-   "sentimiento": {
-    "puntuacion": 0.545,
-    "etiqueta": "Alcista"
-   }
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=a2acf2514dfb60e7c5724269ffe2421d5b6e1b567cc8575fd679750d55d95e1c"
   },
   {
    "titular": "8-K a la SEC: Otros hechos relevantes",
@@ -21340,7 +21373,7 @@
   }
  ],
  "noticias_sentimiento": {
-  "puntuacion": 0.509,
+  "puntuacion": 0.505,
   "etiqueta": "Alcista",
   "noticias": 3,
   "fuente": "Alpha Vantage / Marketaux (puntuación media de las noticias del último mes)"
@@ -21350,10 +21383,10 @@
    "fuente": "StockTwits (API pública)",
    "url": "https://stocktwits.com/symbol/GOOGL",
    "mensajes": 30,
-   "alcistas": 10,
+   "alcistas": 6,
    "bajistas": 3,
-   "pct_alcista": 77,
-   "seguidores": 239364,
+   "pct_alcista": 67,
+   "seguidores": 239452,
    "desde": "2026-11-13",
    "hasta": "2026-11-13",
    "fecha": "2026-11-13"
@@ -21379,7 +21412,7 @@
    },
    "Google News": {
     "ok": true,
-    "titulares": 32
+    "titulares": 30
    },
    "Seeking Alpha": {
     "ok": true,
@@ -21393,6 +21426,10 @@
     "ok": true,
     "titulares": 8
    },
+   "Sala de prensa": {
+    "ok": true,
+    "titulares": 20
+   },
    "StockTwits": {
     "ok": true,
     "mensajes": 30
@@ -21401,10 +21438,6 @@
  },
  "historico_precio": {
   "serie": [
-   [
-    "2021-08-12",
-    137.194
-   ],
    [
     "2021-08-13",
     137.7275
@@ -26680,14 +26713,18 @@
    [
     "2026-11-12",
     298.7
+   ],
+   [
+    "2026-11-13",
+    295.77
    ]
   ],
   "fuente": "Twelve Data (API oficial, plan gratuito)",
   "url": "https://twelvedata.com/",
-  "fecha": "2026-11-12",
+  "fecha": "2026-11-13",
   "ajuste": "splits"
  },
- "generado": "2026-11-13T11:22:21+00:00",
+ "generado": "2026-11-13T23:49:09+00:00",
  "peers": {
   "fuente_lista": "manual",
   "fuente_cifras": "SEC EDGAR (companyfacts, UDM) · precio Finnhub",
@@ -26709,12 +26746,12 @@
    "informe": "10-Q",
    "informe_fecha": "2026-10-29",
    "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/0001652044-26-000084-index.htm",
-   "precio": 298.7,
-   "capitalizacion": 3672217800000.0,
-   "ev": 3533237800000.0,
-   "per": 15.58,
-   "precio_ventas": 7.8,
-   "ev_ebitda": 19.1,
+   "precio": 295.77,
+   "capitalizacion": 3636196380000.0,
+   "ev": 3497216380000.0,
+   "per": 15.43,
+   "precio_ventas": 7.72,
+   "ev_ebitda": 18.91,
    "rentabilidad_fcf": 0.54,
    "deuda_neta_ebitda": -0.75,
    "ticker": "GOOGL",
@@ -26749,13 +26786,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-22",
     "url": "https://www.sec.gov/Archives/edgar/data/1326801/000162828026066773/0001628280-26-066773-index.htm",
-    "precio": 623.61,
-    "capitalizacion": 1604548530000.0,
-    "ev": 1605768530000.0,
-    "per": 21.32,
-    "precio_ventas": 6.64,
-    "ev_ebitda": 15.4,
-    "rentabilidad_fcf": 1.79,
+    "precio": 641.69,
+    "capitalizacion": 1651068370000.0002,
+    "ev": 1652288370000.0002,
+    "per": 21.94,
+    "precio_ventas": 6.83,
+    "ev_ebitda": 15.84,
+    "rentabilidad_fcf": 1.74,
     "deuda_neta_ebitda": 0.01
    },
    {
@@ -26785,12 +26822,12 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-28",
     "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526436133/0001193125-26-436133-index.htm",
-    "precio": 523,
-    "capitalizacion": 3883899750696,
-    "ev": 3854871750696,
-    "per": 27.23,
-    "precio_ventas": 11.21,
-    "ev_ebitda": 18.74,
+    "precio": 523.88,
+    "capitalizacion": 3890434801901.76,
+    "ev": 3861406801901.76,
+    "per": 27.28,
+    "precio_ventas": 11.23,
+    "ev_ebitda": 18.77,
     "rentabilidad_fcf": 1.54,
     "deuda_neta_ebitda": -0.14
    },
@@ -26821,13 +26858,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-30",
     "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/0001018724-26-000040-index.htm",
-    "precio": 267.44,
-    "capitalizacion": 2891865708556.64,
-    "ev": 2957591708556.64,
-    "per": 21.46,
-    "precio_ventas": 3.63,
-    "ev_ebitda": 16.1,
-    "rentabilidad_fcf": -1.62,
+    "precio": 266.66,
+    "capitalizacion": 2883431460677.9604,
+    "ev": 2949157460677.9604,
+    "per": 21.39,
+    "precio_ventas": 3.62,
+    "ev_ebitda": 16.05,
+    "rentabilidad_fcf": -1.63,
     "deuda_neta_ebitda": 0.36
    },
    {
@@ -26857,13 +26894,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-30",
     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000116/0001713445-26-000116-index.htm",
-    "precio": 99.55,
-    "capitalizacion": 20095187389.75,
-    "ev": 17061755389.75,
-    "per": 20.26,
-    "precio_ventas": 6.51,
-    "ev_ebitda": 18.45,
-    "rentabilidad_fcf": 5.96,
+    "precio": 98.45,
+    "capitalizacion": 19873141120.25,
+    "ev": 16839709120.25,
+    "per": 20.04,
+    "precio_ventas": 6.43,
+    "ev_ebitda": 18.21,
+    "rentabilidad_fcf": 6.03,
     "deuda_neta_ebitda": -3.28
    },
    {
@@ -26893,13 +26930,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-29",
     "url": "https://www.sec.gov/Archives/edgar/data/1506293/000150629326000153/0001506293-26-000153-index.htm",
-    "precio": 19.12,
-    "capitalizacion": 11140306240.0,
-    "ev": 9670285240.0,
-    "per": 62.47,
+    "precio": 19.15,
+    "capitalizacion": 11157785800.0,
+    "ev": 9687764800.0,
+    "per": 62.57,
     "precio_ventas": 2.38,
-    "ev_ebitda": 41.94,
-    "rentabilidad_fcf": 11.33,
+    "ev_ebitda": 42.01,
+    "rentabilidad_fcf": 11.31,
     "deuda_neta_ebitda": -6.37
    },
    {
@@ -26929,13 +26966,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-11-05",
     "url": "https://www.sec.gov/Archives/edgar/data/1564408/000156440826000067/0001564408-26-000067-index.htm",
-    "precio": 5.22,
-    "capitalizacion": 9188442360.0,
-    "ev": 9798011360.0,
+    "precio": 5.26,
+    "capitalizacion": 9258851880.0,
+    "ev": 9868420880.0,
     "per": null,
-    "precio_ventas": 1.4,
-    "ev_ebitda": 160.86,
-    "rentabilidad_fcf": 8.45,
+    "precio_ventas": 1.41,
+    "ev_ebitda": 162.02,
+    "rentabilidad_fcf": 8.39,
     "deuda_neta_ebitda": 10.01
    }
   ]

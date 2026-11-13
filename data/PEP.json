@@ -12891,11 +12891,11 @@
  "precio": {
   "minimo_52s": 123.47,
   "maximo_52s": 171.48,
-  "beta": 0.30616832,
-  "valor": 142.26,
-  "cierre_anterior": 143.94,
+  "beta": 0.30527863,
+  "valor": 145.44,
+  "cierre_anterior": 142.26,
   "moneda": "USD",
-  "fecha": "2026-11-12",
+  "fecha": "2026-11-13",
   "fuente": "Finnhub (API oficial, plan gratuito)",
   "url": "https://finnhub.io/"
  },
@@ -12990,7 +12990,75 @@
    }
   ]
  },
+ "presentaciones_sec": [
+  {
+   "formulario": "424B2",
+   "descripcion": "folleto de una emisión (424B)",
+   "fecha_presentacion": "2026-10-13",
+   "accn": "0001104659-26-115547",
+   "url_indice": "https://www.sec.gov/Archives/edgar/data/77476/000110465926115547/0001104659-26-115547-index.htm",
+   "url_documento": "https://www.sec.gov/Archives/edgar/data/77476/000110465926115547/tm2626837-2_424b2.htm",
+   "fuente": "SEC EDGAR · 424B2"
+  },
+  {
+   "formulario": "424B2",
+   "descripcion": "folleto de una emisión (424B)",
+   "fecha_presentacion": "2026-10-09",
+   "accn": "0001104659-26-114806",
+   "url_indice": "https://www.sec.gov/Archives/edgar/data/77476/000110465926114806/0001104659-26-114806-index.htm",
+   "url_documento": "https://www.sec.gov/Archives/edgar/data/77476/000110465926114806/tm2626837-1_424b2.htm",
+   "fuente": "SEC EDGAR · 424B2"
+  }
+ ],
  "noticias": [
+  {
+   "titular": "PepsiCo (NASDAQ:PEP) Breakout Setup Shows Technical Strength",
+   "medio": "ChartMill",
+   "url": "https://www.chartmill.com/news/PEP/Chartmill-58663-PepsiCo-NASDAQPEP-Breakout-Setup-Shows-Technical-Strength",
+   "fecha": "2026-11-13",
+   "resumen": "PepsiCo (PEP) clears a technical breakout screen with solid ratings, a defined trigger above resistance, and a logical stop below support.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=38cdc134f7fe139b8c4c209daac240e52cbab5439789da0025edd878e2c4f2f7"
+  },
+  {
+   "titular": "PepsiCo Inc. stock outperforms competitors on strong trading day",
+   "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxOTnR3NE1CbGxJbzhKenVvZzhWX2ozZU1TOGZmZnZTM0ZyRXZEWjRUUVpMb0lQYm5xSEVJc2ItUi0tcEtqWnFZNlBUTVFKWFRUeHYyWkhKbzFOMVh1RF9XVERpeVBFdFdZN0hUNmo1MThFdWJHQ3NKZEVfMFBuUnp1SUI0Y0FMbktWSUhKdTc5T3daT2MtcldDTDZpWEQzR195VW1QdDNENG8tUFRZZXVkbkRXb0RxZGZ5SXM1V2NmZmo3NnpncGFTNkFBUGpnQUVXOGc0eGZqSlA?oc=5",
+   "fecha": "2026-11-13",
+   "resumen": "",
+   "medio": "MarketWatch",
+   "tipo": "prensa",
+   "via": "Google News"
+  },
+  {
+   "titular": "A $9.2 Billion Fund Dumps These 3 Stocks",
+   "medio": "Yahoo Finance",
+   "url": "https://www.tikr.com/blog/a-9-2-billion-fund-dumps-these-3-stocks?ref=yahoofinance&tlnk=yf-261113-73q37c26&.tsrc=rss",
+   "fecha": "2026-11-13",
+   "resumen": "Key TakeawaysA fund with $9. 2 billion in US stocks sold all of its Edwards Lifesciences, PepsiCo and ServiceNow shares in the third quarter, about a tenth of its portfolio at June 30.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=9d827ab7274cc18e6cd579e36a9662ea84909d7efc258e0f218b55b78335b4b1"
+  },
+  {
+   "titular": "Procter & Gamble or PepsiCo: The One Dividend Stock I’d Hold for the Next 20 Years",
+   "medio": "Yahoo Finance",
+   "url": "https://www.tikr.com/blog/procter-gamble-or-pepsico-the-one-dividend-stock-id-hold-for-the-next-20-years?ref=yahoofinancedividend&tlnk=yf-261113-mwffm7fr&.tsrc=rss",
+   "fecha": "2026-11-13",
+   "resumen": "Key TakeawaysProcter & Gamble declared its $1. 0885 quarterly dividend in October, while PepsiCo cut its 2026 core EPS growth outlook and lost KFC’s U.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=01f27d753b648a3a3900ba77abc28bf2e166550ba61d52354d72c2facaab9169"
+  },
+  {
+   "titular": "Tostitos® gives iconic SCOOPS!® a zesty twist with SCOOPS!® Hint of Lime Flavored Tortilla Chips - PepsiCo",
+   "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxNbThyeTA4NXAtLWcxVWRZc2gxS2J5TkpKNVM0Wml0dXpyaVJpb1AyTHpYN3BKc0dVTE1ORlN5N2pLZXc5YTBuRldDNWlfZnlveDktc0JRUHhNUjNVTnpPM3JuMkZpdFN2MUlsUUkwMmJOTTRtY3lqZkxlb292RUp2djFabDMxRWRXb194UnFlaUlaVXg5R2JhY0JzX2RBS3ZRUDFobVRRdHA5YWVpa2hiWnFHc3VhM1cySng4ckdoOUM4eEVyOW1HOWVhRVU2VGFZbHhhemZmOHpKZVp2?oc=5",
+   "fecha": "2026-11-12",
+   "resumen": "Tostitos® gives iconic SCOOPS!® a zesty twist with SCOOPS!® Hint of Lime Flavored Tortilla Chips PepsiCo",
+   "medio": "PepsiCo (sala de prensa)",
+   "tipo": "nota_prensa",
+   "via": "Sala de prensa de la compañía"
+  },
   {
    "titular": "PepsiCo Inc. stock underperforms Thursday when compared to competitors",
    "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxPY0luY0NrWUpTWUpZOXdHTE5nZjMxNThZV1pCWWxWN3hwRHJVY0FvcnJqR2VZdVF1SzVVV2pYY29RU2JTSF9feC1jUENaQ1czOEtQMFUyVi00OTVwMU1sRlc0dXVFZ1M2SDFWT09Zd0kzZVh2NkllcU9DaGF1WjBDNkpNWW9INUYzQ3FxNnBSaDUzQnNxUk1FWTdEcmI4YS15bU5nZXltcEoxWHRKd0ZVTHk1akRDRGNlWk1ZaFlpdVg3OVIwV2tMczNMM05LZzN4TENRQU41c05uZTZNeG52Nw?oc=5",
@@ -13003,65 +13071,61 @@
   {
    "titular": "A $1,500,000 Portfolio in Clorox, Kimberly-Clark and PepsiCo Pays $67,627 a Year in Dividends. Here’s What Happens if One Cuts",
    "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=af8d55b0bca1e26583a3e0d54bf7907968fc69357e2c34c5b35d92b324c55db7",
+   "url": "https://www.tikr.com/blog/a-1500000-portfolio-in-clorox-kimberly-clark-and-pepsico-pays-67128-a-year-in-dividends-heres-what-happens-if-one-cuts?ref=yahoofinancedividend&tlnk=yf-261112-2x74qxgx&.tsrc=rss",
    "fecha": "2026-11-12",
    "resumen": "Key TakeawaysA $1. 5 million portfolio split evenly across Clorox, Kimberly-Clark and PepsiCo pays $67,627 a year in dividends at today’s prices, or about $5,640 a month.",
    "tipo": "prensa",
-   "via": "Finnhub"
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=af8d55b0bca1e26583a3e0d54bf7907968fc69357e2c34c5b35d92b324c55db7"
   },
   {
    "titular": "After Selling Poppi For $1.95B, The Ellsworths Are Back With Another Startup. But What Comes After A Billion-Dollar Exit?",
    "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=3bcabe5d33ee5cd8a7087c03f226ae840253470f00adca398a387065e52cc89c",
+   "url": "https://finance.yahoo.com/small-business/articles/selling-poppi-1-95b-ellsworths-183007893.html",
    "fecha": "2026-11-12",
    "resumen": "Just 18 months after selling their soda company for nearly $2 billion, the founders are back with another beverage brand, this time hoping to shake up the $13 billion hydration market. Allison and Stephen Ellsworth, the husband-and-wife team behind Poppi,...",
    "tipo": "prensa",
-   "via": "Finnhub"
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=3bcabe5d33ee5cd8a7087c03f226ae840253470f00adca398a387065e52cc89c"
   },
   {
    "titular": "Which Gives You More Of A Profit Rebound, Mondelez Or Hershey?",
    "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=1d8853f58a01d429d3ec39e4bb769d1c62e878acde28a4b9e395377d80eb64a8",
+   "url": "https://www.trefis.com/stock/mdlz/articles/624538/which-gives-you-more-of-a-profit-rebound-mondelez-or-hershey/2026-11-12",
    "fecha": "2026-11-12",
    "resumen": "For questions about this article or underlying research, email help@trefis.com.",
    "tipo": "prensa",
-   "via": "Finnhub"
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=1d8853f58a01d429d3ec39e4bb769d1c62e878acde28a4b9e395377d80eb64a8"
   },
   {
    "titular": "Coca-Cola Stock Hits 52-Week High: Should You Buy Now or Wait?",
    "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=63dd2ced977c45ae6518e783d76b70e4c53aa92b58d060c3e698405c6684abb2",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/coca-cola-stock-hits-52-154300742.html",
    "fecha": "2026-11-12",
    "resumen": "KO's strong revenue growth, rising volumes, brand innovation and upbeat 2026 outlook bolster its prospects, but a premium valuation warrants caution.",
    "tipo": "prensa",
-   "via": "Finnhub"
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=63dd2ced977c45ae6518e783d76b70e4c53aa92b58d060c3e698405c6684abb2"
   },
   {
-   "titular": "BIG3 Names Veteran PepsiCo Sports Executive Adam Harter President of Business Operations",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=93be5b5881d50b290dfe298cc3e629fac6ee331dc5390a3d25fff21d9e33f291",
-   "fecha": "2026-11-12",
-   "resumen": "LOS ANGELES, November 12, 2026--The BIG3, the premier global 3-on-3 professional basketball league, today announced the appointment of Adam Harter as President of Business Operations of BIG3 Basketball, LLC. Effective immediately, Harter, who spent more than two decades leading s",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "PepsiCo (PEP) Plans 1,000 North America Job Cuts In Elliott Backed Turnaround",
-   "medio": "Yahoo Finance",
-   "url": "https://finnhub.io/api/news?id=3a686f3288a4f0b84bdaabbfcb9f2fa387d949333fcaa5d4740727051122e760",
-   "fecha": "2026-11-12",
-   "resumen": "PepsiCo (NasdaqGS:PEP) plans to cut about 1,000 jobs across its North American units as part of a turnaround effort. The layoffs follow pressure from activist investor Elliott Investment Management, which has been pushing for sharper cost and productivity measures. Management is ",
-   "tipo": "prensa",
-   "via": "Finnhub"
+   "titular": "Mercedes-AMG PETRONAS F1 Team and Kimi Antonelli claim Formula 1 world titles - PepsiCo",
+   "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQNzZFaFQycnh3T0Y1eFBwaTRYZ3puWHNuaGFBampUcE9xUU4zd2pfMGdqU0pIR1dHTEQ2VnNiOG1jdHJNNnhtR3QyUVVrS204S2o2amFWTjdqU1g2bFZWWnJkVjFBMmVPNzFOWW9ETC0xS0tGeVFLRXpld2tvZWkzS0RjN3ktLUdhZlUtV2xDNXZPbmU1R1JVUw?oc=5",
+   "fecha": "2026-11-11",
+   "resumen": "Mercedes-AMG PETRONAS F1 Team and Kimi Antonelli claim Formula 1 world titles PepsiCo",
+   "medio": "PepsiCo (sala de prensa)",
+   "tipo": "nota_prensa",
+   "via": "Sala de prensa de la compañía"
   },
   {
    "titular": "Cyclicals Lead Sectors In Wednesday Trading As Defensives Trail",
    "medio": "Benzinga",
-   "url": "https://finnhub.io/api/news?id=b2893f36405b9b90f237df63e12ecab04af5e997b7fd2ebe357a34f9974022bb",
+   "url": "https://www.benzinga.com/etfs/sector-etfs/26/11/63148059/cyclicals-lead-sectors-in-wednesday-trading-as-defensives-trail",
    "fecha": "2026-11-11",
    "resumen": "Five sectors are higher and six are lower in Wednesday&#39;s regular session, with cyclical sectors holding two of the top three positions. Technology sits well clear of the rest, separated from the next sector by a margin several times wider than any other gap in the table.",
    "tipo": "prensa",
-   "via": "Finnhub"
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=b2893f36405b9b90f237df63e12ecab04af5e997b7fd2ebe357a34f9974022bb"
   },
   {
    "titular": "PepsiCo reúne en Burgos a agricultores y expertos para abordar el reto del relevo generacional en el campo",
@@ -13071,6 +13135,15 @@
    "medio": "El Confidencial",
    "tipo": "prensa",
    "via": "Google News"
+  },
+  {
+   "titular": "What's on the gameday menu? PepsiCo snacks, sips and team spirit - PepsiCo",
+   "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNU1BYUXFzNW9tZHhwaFUzLWFrajI5OWxfNXNMclNJWVU5R29oLUhFdXBBUm5MT3pyUDFHRkpnc1JZUGxyNUpFaW1rdEtEQnJhRF9HXzBMWlBJVTB2THJyRDJEUXlCVlBQX292WWh4ajNPWHJYUTBiZG5zMkNvc2VyNGpB?oc=5",
+   "fecha": "2026-11-10",
+   "resumen": "What's on the gameday menu? PepsiCo snacks, sips and team spirit PepsiCo",
+   "medio": "PepsiCo (sala de prensa)",
+   "tipo": "nota_prensa",
+   "via": "Sala de prensa de la compañía"
   },
   {
    "titular": "PepsiCo layoffs: 1,000 jobs reportedly slashed as CEO pushes soda giant to ‘be faster’ and ‘more capable’",
@@ -13088,29 +13161,32 @@
   {
    "titular": "The Most Important Market Shift Of The Decade Is Already Underway",
    "medio": "Seeking Alpha",
-   "url": "https://finnhub.io/api/news?id=2355a323b3adf31596f84792929f31a24faab7dbe44dd1535953e0ab9291d5ea",
+   "url": "https://seekingalpha.com/article/4965988-most-important-market-shift-of-decade-is-already-underway",
    "fecha": "2026-11-10",
    "resumen": "A market rotation could drive outperformance over 3, 5, and 10 years as investors overlook AI's long-term beneficiaries. Discover more in this market outlook.",
    "tipo": "prensa",
-   "via": "Finnhub"
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=2355a323b3adf31596f84792929f31a24faab7dbe44dd1535953e0ab9291d5ea"
   },
   {
    "titular": "11 Of 11 Sectors Fall In Tuesday Trading As Leaders Move Together",
    "medio": "Benzinga",
-   "url": "https://finnhub.io/api/news?id=100eea2b1f29d1ff263c2d959daa9cc8df79bf19c651b273ef0f9e361267946f",
+   "url": "https://www.benzinga.com/etfs/sector-etfs/26/11/63100567/11-of-11-sectors-fall-in-tuesday-trading-as-leaders-move-together",
    "fecha": "2026-11-10",
    "resumen": "All 11 sectors are lower in Tuesday&#39;s regular session, with Financials, Consumer Staples and Consumer Discretionary at the top of the table. The leaders are clustered rather than separated, with the first three sectors grouped within a narrow range of performance.",
    "tipo": "prensa",
-   "via": "Finnhub"
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=100eea2b1f29d1ff263c2d959daa9cc8df79bf19c651b273ef0f9e361267946f"
   },
   {
    "titular": "PepsiCo Moves to Simplify Business, Cut 1,000 Jobs in North America",
    "medio": "Benzinga",
-   "url": "https://finnhub.io/api/news?id=0fa730ef68e5101f1c4621c967abc6565748399f7d6f53451e5d56d4d52f5b89",
+   "url": "https://www.benzinga.com/markets/large-cap/26/11/63080851/pepsico-moves-to-simplify-business-cut-1000-jobs-in-north-america",
    "fecha": "2026-11-10",
    "resumen": "PepsiCo plans to cut roughly 1,000 North American jobs to streamline operations amid regional sales volume declines and margin pressure.",
    "tipo": "prensa",
-   "via": "Finnhub"
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=0fa730ef68e5101f1c4621c967abc6565748399f7d6f53451e5d56d4d52f5b89"
   },
   {
    "titular": "PepsiCo despedirá a 1.000 empleados en Norteamérica para impulsar su crecimiento",
@@ -13120,6 +13196,15 @@
    "medio": "Cinco Días",
    "tipo": "prensa",
    "via": "Google News"
+  },
+  {
+   "titular": "When sweet meets heat: Inside PepsiCo’s approach to the swicy trend - PepsiCo",
+   "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE1WTTJYaVF6ZFB2WWpJYmlvWEF4ekZid0FLaU11MkZOYmQ0MFNPWjZabnowcnRnT2JMOVFmLXY0SUo4VzJnV0puLXNfbW5WWnZ0NHhMVU91eGpERDhNQ1FockZSZTdiNHdTeS1PQVFJcWktRURHcTBvZDNwUHM?oc=5",
+   "fecha": "2026-11-09",
+   "resumen": "When sweet meets heat: Inside PepsiCo’s approach to the swicy trend PepsiCo",
+   "medio": "PepsiCo (sala de prensa)",
+   "tipo": "nota_prensa",
+   "via": "Sala de prensa de la compañía"
   },
   {
    "titular": "PepsiCo (PEP) Announces 1,000 Job Cuts in North America Amid Efficiency Drive",
@@ -13137,38 +13222,42 @@
   {
    "titular": "PepsiCo to cut about 1,000 jobs as North American business struggles",
    "medio": "CNBC",
-   "url": "https://finnhub.io/api/news?id=c4b3c1078e2d8fe4b9137b1eda152eb0a0d5304f910a89dd13633a886c4464cf",
+   "url": "https://www.cnbc.com/2026/11/09/pepsico-north-america-job-cuts.html",
    "fecha": "2026-11-09",
    "resumen": "PepsiCo plans to cut about 1,000 jobs across North America as it streamlines operations and works to revive sales in its home market.",
    "tipo": "prensa",
-   "via": "Finnhub"
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=c4b3c1078e2d8fe4b9137b1eda152eb0a0d5304f910a89dd13633a886c4464cf"
   },
   {
    "titular": "'PepsiCo Is Cutting Around 1,000 Jobs Across North America' - WSJ Live",
    "medio": "Benzinga",
-   "url": "https://finnhub.io/api/news?id=e7b667a4c0e1fc726be4da253700aae17017c3540cfce143678f23727e418557",
+   "url": "https://www.benzinga.com/news/26/11/63060170/pepsico-cutting-around-1-000-jobs-across-north-america-wsj-live",
    "fecha": "2026-11-09",
    "resumen": "https://www.wsj.com/livecoverage/stock-market-today-dow-sp-500-nasdaq-11-09-2026/card/pepsico-is-cutting-around-1-000-jobs-across-north-america-5rZJNkcu4ac56Sg8MkJZ?mod=Searchresults&amp;pos=1&amp;page=1",
    "tipo": "prensa",
-   "via": "Finnhub"
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=e7b667a4c0e1fc726be4da253700aae17017c3540cfce143678f23727e418557"
   },
   {
    "titular": "'The Trump Administration Proposed Narrowing Who’s Eligible To Receive Federal Food Assistance, A Change That Officials Estimate Could Block 6.3 Million People From Using The Supplemental Nutrition Assistance Program' - Bloomberg Law",
    "medio": "Benzinga",
-   "url": "https://finnhub.io/api/news?id=4f689a410991929291ffff889dcdc809ac4e6bf154369c128da42fcd9fa4d9c8",
+   "url": "https://www.benzinga.com/news/26/11/63058912/the-trump-administration-proposed-narrowing-whos-eligible-to-receive-federal-food-assistance-a-change-that-officials-estimate-could-block-6-3-million-people-from-using-the-supplemental-nutr",
    "fecha": "2026-11-09",
    "resumen": "https://news.bloomberglaw.com/health-law-and-business/trump-plan-would-strip-food-aid-benefits-from-6-3-million-people",
    "tipo": "prensa",
-   "via": "Finnhub"
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=4f689a410991929291ffff889dcdc809ac4e6bf154369c128da42fcd9fa4d9c8"
   },
   {
    "titular": "11 Of 11 Sectors Rise Monday As Growth Leads",
    "medio": "Benzinga",
-   "url": "https://finnhub.io/api/news?id=0ae16468fb2d0b7cab7abf03424bf96c001876248f24bcc858b43baf9aed5a1a",
+   "url": "https://www.benzinga.com/etfs/sector-etfs/26/11/63044502/11-of-11-sectors-rise-monday-as-growth-leads",
    "fecha": "2026-11-09",
    "resumen": "All 11 sectors are higher in Monday’s regular session, with growth sectors holding two of the top three positions. The leaders are separated rather than clustered, with no single gap clearly standing apart from the other breaks across the table.",
    "tipo": "prensa",
-   "via": "Finnhub"
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=0ae16468fb2d0b7cab7abf03424bf96c001876248f24bcc858b43baf9aed5a1a"
   },
   {
    "titular": "PepsiCo to cut some jobs in North America",
@@ -13199,72 +13288,10 @@
   },
   {
    "titular": "Poppi founders are going after PepsiCo's Gatorade with new beverage startup Jetty",
-   "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNbE53ekFOUDUweW5DdFVyNWpzTTVabTJacFZrOGxBQ19zOWJaOExQb0h1d2k0NUlncm1zSE9keTMwelJIcFhKRU14LTZqYjlwY3BXOHpSUmxtMEs2a19vcnJnNzZCU093OU04czZETXpWSF93enVPc3FUN0NwbVJkWWtn?oc=5",
+   "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNbE53ekFOUDUweW5DdFVyNWpzTTVabTJacFZrOGxBQ19zOWJaOExQb0h1d2k0NUlncm1zSE9keTMwelJIcFhKRU14LTZqYjlwY3BXOHpSUmxtMEs2a19vcnJnNzZCU093OU04czZETXpWSF93enVPc3FUN0NwbVJkWWtn0gGHAUFVX3lxTE5LZHQ1d0hvMDBjak94YURzRlhIdnhNVDdTeUVsMC03QzltbjZ2RVJTd3J1eXR0Y2hJY3NSekh2dVFGZm1zRS11N28wWTlzRFpJcGpkTG01R0dhY01vZW0xeS0tR1k4S2pqRkhLbWlEb29jaGdSUXdKbWFhRF9mOUFKQjdhbHd3RQ?oc=5",
    "fecha": "2026-11-08",
    "resumen": "",
    "medio": "CNBC",
-   "tipo": "prensa",
-   "via": "Google News"
-  },
-  {
-   "titular": "Former Paraguayan President Impeached Amid Banking Crisis; PepsiCo (PEP) Dividend Sustainability Remains Strong",
-   "url": "https://www.gurufocus.com/news/9184094/former-paraguayan-president-impeached-amid-banking-crisis-pepsico-pep-dividend-sustainability-remains-strong",
-   "fecha": "2026-11-07",
-   "resumen": "On November 07, 2026, former Paraguayan President Santiago Peña was impeached by Congress following a banking crisis linked to Ueno Bank that disrupted access",
-   "medio": "gurufocus.com",
-   "tipo": "prensa",
-   "via": "Marketaux",
-   "sentimiento": {
-    "puntuacion": 0.541,
-    "etiqueta": "Alcista"
-   }
-  },
-  {
-   "titular": "AI Stock Meltdown: Why This May Not Be The Bubble Burst",
-   "medio": "Seeking Alpha",
-   "url": "https://finnhub.io/api/news?id=998a82e544672e7c1cecd86bf05b7241771189ef61249f64ce289c741a3a1b1a",
-   "fecha": "2026-11-07",
-   "resumen": "Nasdaq 100 and AI stocks are plunging as semiconductors sink deeper into a bear market. Read here for a detailed analysis.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "I'm Buying Dividend Aristocrat Bargains For Resilient Income",
-   "medio": "Seeking Alpha",
-   "url": "https://finnhub.io/api/news?id=5a91507ddb7c29ac901beece37791085fb0690816ed6212ed5057d81eff19b61",
-   "fecha": "2026-11-06",
-   "resumen": "",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "SCHD: A Place To Hide In Turbulent Times",
-   "medio": "Seeking Alpha",
-   "url": "https://finnhub.io/api/news?id=77703634b35f8b59e4844e55e1a01a1054aa09184d988865a5bc9e44ee1861f9",
-   "fecha": "2026-11-05",
-   "resumen": "The Schwab US Dividend Equity ETF remains one of the best ways for investors to retain equity exposure, in a broadly diversified way. Read more on SCHD here.",
-   "tipo": "prensa",
-   "via": "Finnhub"
-  },
-  {
-   "titular": "PepsiCo: 4.2% Yield And 53 Years Of Dividend Growth In An Anti-Bubble (NASDAQ:PEP)",
-   "url": "https://seekingalpha.com/article/4961996-pepsi-4-2-percent-yield-and-53-years-of-dividend-growth-in-an-anti-bubble",
-   "fecha": "2026-11-04",
-   "resumen": "PepsiCo offers a rare value for dividend growth investors, with a high yield, low P/E, stronger cash flow, and upside potential. Read why PEP stock is a buy.",
-   "medio": "Seeking Alpha",
-   "tipo": "prensa",
-   "via": "Marketaux",
-   "sentimiento": {
-    "puntuacion": 0.382,
-    "etiqueta": "Alcista"
-   }
-  },
-  {
-   "titular": "India says PepsiCo, Monster marketed with 'energy drink' label to dupe consumers",
-   "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNUDhDUE4wNmt4SlJOXzNpSzZRdUZmaGsxM09sUFdndVZJbUxSaXhiRFpubE9tNWtURmZISGdneEdxaWk5a2hjREQyTVlNd0x1Q0ZXTXZMVmZrMjNzem5Pc3RycWpWNHNweDVvSWZEaU9qV1YtdEVQbm9UUEctNm5RNVVLaldmNF9fLUwteEdFTXZwYVoybFhzY254RGpsMS1fMHNQZExWd2tNS1JsZUdSTkF0azZLYmljSVJ4MXBoQQ?oc=5",
-   "fecha": "2026-11-04",
-   "resumen": "",
-   "medio": "Reuters",
    "tipo": "prensa",
    "via": "Google News"
   },
@@ -13278,22 +13305,17 @@
    "tipo": "prensa"
   }
  ],
- "noticias_sentimiento": {
-  "puntuacion": 0.308,
-  "etiqueta": "Algo alcista",
-  "noticias": 4,
-  "fuente": "Alpha Vantage / Marketaux (puntuación media de las noticias del último mes)"
- },
+ "noticias_sentimiento": null,
  "redes": {
   "stocktwits": {
    "fuente": "StockTwits (API pública)",
    "url": "https://stocktwits.com/symbol/PEP",
    "mensajes": 30,
-   "alcistas": 9,
-   "bajistas": 2,
-   "pct_alcista": 82,
-   "seguidores": 24224,
-   "desde": "2026-11-08",
+   "alcistas": 6,
+   "bajistas": 3,
+   "pct_alcista": 67,
+   "seguidores": 24219,
+   "desde": "2026-11-09",
    "hasta": "2026-11-13",
    "fecha": "2026-11-13"
   }
@@ -13328,6 +13350,10 @@
     "ok": true,
     "titulares": 0
    },
+   "Sala de prensa": {
+    "ok": true,
+    "titulares": 8
+   },
    "StockTwits": {
     "ok": true,
     "mensajes": 30
@@ -13336,10 +13362,6 @@
  },
  "historico_precio": {
   "serie": [
-   [
-    "2021-08-12",
-    155.07
-   ],
    [
     "2021-08-13",
     156.52
@@ -18615,14 +18637,18 @@
    [
     "2026-11-12",
     142.26
+   ],
+   [
+    "2026-11-13",
+    145.44
    ]
   ],
   "fuente": "Twelve Data (API oficial, plan gratuito)",
   "url": "https://twelvedata.com/",
-  "fecha": "2026-11-12",
+  "fecha": "2026-11-13",
   "ajuste": "splits"
  },
- "generado": "2026-11-13T11:24:02+00:00",
+ "generado": "2026-11-13T23:50:57+00:00",
  "peers": {
   "fuente_lista": "manual",
   "fuente_cifras": "SEC EDGAR (companyfacts, UDM) · precio Finnhub",
@@ -18644,13 +18670,13 @@
    "informe": "10-Q",
    "informe_fecha": "2026-10-08",
    "url": "https://www.sec.gov/Archives/edgar/data/77476/000007747626000048/0000077476-26-000048-index.htm",
-   "precio": 142.26,
-   "capitalizacion": 193863547747.91998,
-   "ev": 234581547747.91998,
-   "per": 17.79,
-   "precio_ventas": 1.97,
-   "ev_ebitda": 12.53,
-   "rentabilidad_fcf": 5.4,
+   "precio": 145.44,
+   "capitalizacion": 198197064420.48,
+   "ev": 238915064420.48,
+   "per": 18.19,
+   "precio_ventas": 2.02,
+   "ev_ebitda": 12.76,
+   "rentabilidad_fcf": 5.28,
    "deuda_neta_ebitda": 2.18,
    "ticker": "PEP",
    "nombre": "PepsiCo",
@@ -18684,13 +18710,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-28",
     "url": "https://www.sec.gov/Archives/edgar/data/21344/000162828026067844/0001628280-26-067844-index.htm",
-    "precio": 97.44,
-    "capitalizacion": 419177363522.39996,
-    "ev": 447038363522.39996,
-    "per": 28.65,
-    "precio_ventas": 8.21,
-    "ev_ebitda": 27.33,
-    "rentabilidad_fcf": 3.41,
+    "precio": 99.25,
+    "capitalizacion": 426963806748.75,
+    "ev": 454824806748.75,
+    "per": 29.19,
+    "precio_ventas": 8.36,
+    "ev_ebitda": 27.81,
+    "rentabilidad_fcf": 3.35,
     "deuda_neta_ebitda": 1.7
    },
    {
@@ -18720,13 +18746,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-11-09",
     "url": "https://www.sec.gov/Archives/edgar/data/1418135/000141813526000066/0001418135-26-000066-index.htm",
-    "precio": 35.42,
-    "capitalizacion": 48204790557.0,
-    "ev": 71349790557.0,
-    "per": 29.27,
-    "precio_ventas": 2.08,
-    "ev_ebitda": 15.63,
-    "rentabilidad_fcf": 4.83,
+    "precio": 36.34,
+    "capitalizacion": 49456863039.00001,
+    "ev": 72601863039.0,
+    "per": 30.03,
+    "precio_ventas": 2.14,
+    "ev_ebitda": 15.9,
+    "rentabilidad_fcf": 4.71,
     "deuda_neta_ebitda": 5.07
    },
    {
@@ -18756,13 +18782,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-29",
     "url": "https://www.sec.gov/Archives/edgar/data/1103982/000162828026068256/0001628280-26-068256-index.htm",
-    "precio": 66.56,
-    "capitalizacion": 84254202506.24,
-    "ev": 100678202506.24,
-    "per": 20.66,
-    "precio_ventas": 2.11,
-    "ev_ebitda": 14.68,
-    "rentabilidad_fcf": 4.34,
+    "precio": 67.54,
+    "capitalizacion": 85494724117.66,
+    "ev": 101918724117.66,
+    "per": 20.96,
+    "precio_ventas": 2.14,
+    "ev_ebitda": 14.87,
+    "rentabilidad_fcf": 4.28,
     "deuda_neta_ebitda": 2.4
    },
    {
@@ -18792,13 +18818,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-11-06",
     "url": "https://www.sec.gov/Archives/edgar/data/865752/000110465926123503/0001104659-26-123503-index.htm",
-    "precio": 45.57,
-    "capitalizacion": 89203818285.54,
-    "ev": 85499566285.54,
-    "per": 41.08,
-    "precio_ventas": 9.31,
-    "ev_ebitda": 29.96,
-    "rentabilidad_fcf": 2.15,
+    "precio": 46.46,
+    "capitalizacion": 90946003896.12,
+    "ev": 87241751896.12,
+    "per": 41.88,
+    "precio_ventas": 9.49,
+    "ev_ebitda": 30.57,
+    "rentabilidad_fcf": 2.11,
     "deuda_neta_ebitda": -1.3
    },
    {
@@ -18828,13 +18854,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-11-05",
     "url": "https://www.sec.gov/Archives/edgar/data/1341766/000134176626000062/0001341766-26-000062-index.htm",
-    "precio": 31.89,
-    "capitalizacion": 7990240694.01,
-    "ev": 7964326694.01,
-    "per": 25.2,
-    "precio_ventas": 2.52,
-    "ev_ebitda": 17.65,
-    "rentabilidad_fcf": 3.37,
+    "precio": 32.42,
+    "capitalizacion": 8123035537.780001,
+    "ev": 8097121537.780001,
+    "per": 25.62,
+    "precio_ventas": 2.56,
+    "ev_ebitda": 17.95,
+    "rentabilidad_fcf": 3.31,
     "deuda_neta_ebitda": -0.06
    },
    {
@@ -18864,13 +18890,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-09-23",
     "url": "https://www.sec.gov/Archives/edgar/data/40704/000162828026063201/0001628280-26-063201-index.htm",
-    "precio": 33.52,
-    "capitalizacion": 17922713066.88,
-    "ev": 30903613066.88,
+    "precio": 34.32,
+    "capitalizacion": 18350462782.08,
+    "ev": 31331362782.08,
     "per": null,
-    "precio_ventas": 0.98,
-    "ev_ebitda": 88.32,
-    "rentabilidad_fcf": 8.63,
+    "precio_ventas": 1.0,
+    "ev_ebitda": 89.54,
+    "rentabilidad_fcf": 8.43,
     "deuda_neta_ebitda": 37.1
    }
   ]
