@@ -1,0 +1,21 @@
+name: Probar fuentes abiertas (temporal)
+on: workflow_dispatch
+permissions:
+  contents: read
+jobs:
+  probar:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          for u in \
+            "https://news.google.com/rss/search?q=%22AppLovin%22+when:3d&hl=en-US&gl=US&ceid=US:en" \
+            "https://news.google.com/rss/search?q=%22Amazon%22+when:3d&hl=es&gl=ES&ceid=ES:es" \
+            "https://api.stocktwits.com/api/2/streams/symbol/APP.json" \
+            "https://www.reddit.com/r/stocks/search.json?q=AppLovin&restrict_sr=1&sort=new&t=week" \
+            "https://www.reddit.com/search.json?q=AppLovin&sort=new&t=week" \
+            "https://feeds.finance.yahoo.com/rss/2.0/headline?s=APP&region=US&lang=en-US" \
+            "https://www.nasdaq.com/feed/rssoutbound?symbol=APP" \
+            "https://seekingalpha.com/api/sa/combined/APP.xml" ; do
+            code=$(curl -s -o out.txt -w "%{http_code}" -A "valorador-companias/1.0 (+https://github.com/infomercadosgbx/valorador-companias)" --max-time 20 "$u")
+            echo "### $code $u"; echo '```'; head -c 700 out.txt; echo; echo '```'
+          done >> "$GITHUB_STEP_SUMMARY"
