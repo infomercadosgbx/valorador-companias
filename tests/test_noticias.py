@@ -28,8 +28,8 @@ def test_combinar_tope_por_medio_limite_30_y_8k():
     oficial = [n("8-K a la SEC: Resultados", "SEC · 8-K (oficial)", oficial=True)]
     out = N.combinar([yahoo, otros, oficial], today=HOY)
     assert len(out) == 30
-    assert sum(x["medio"] == "Yahoo Finance" for x in out) <= 10       # tope a Yahoo
-    assert sum(x["medio"] == "Benzinga" for x in out) == 6              # tope al resto
+    assert sum(x["medio"] == "Yahoo Finance" for x in out) <= 12       # tope duro a Yahoo
+    assert sum(x["medio"] == "Benzinga" for x in out) >= 6              # primero el tope; luego se rellena
     assert any(x.get("oficial") for x in out) and any(x["medio"] == "Utility Dive" for x in out)
     assert [x["fecha"] for x in out] == sorted([x["fecha"] for x in out], reverse=True)
 

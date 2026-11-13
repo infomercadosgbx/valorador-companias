@@ -205,7 +205,9 @@ MEDIOS_DOMINIO = {"benzinga.com": "Benzinga", "fool.com": "Motley Fool", "zacks.
                   "finance.yahoo.com": "Yahoo Finance", "seekingalpha.com": "Seeking Alpha", "marketwatch.com": "MarketWatch",
                   "investing.com": "Investing.com", "barrons.com": "Barron's", "reuters.com": "Reuters", "forbes.com": "Forbes",
                   "businessinsider.com": "Business Insider", "nasdaq.com": "Nasdaq", "investors.com": "Investor's Business Daily",
-                  "thestreet.com": "TheStreet", "techcrunch.com": "TechCrunch", "theverge.com": "The Verge"}
+                  "thestreet.com": "TheStreet", "techcrunch.com": "TechCrunch", "theverge.com": "The Verge",
+                  "bloomberg.com": "Bloomberg", "ft.com": "Financial Times", "wsj.com": "WSJ", "economist.com": "The Economist",
+                  "nytimes.com": "The New York Times", "theinformation.com": "The Information", "apnews.com": "AP"}
 
 
 def _medio_dominio(dom):
@@ -372,8 +374,8 @@ def apis_from_env():
 
 
 # ---------------------------------------------------------------- mezcla
-TOPE_MEDIO = {"Yahoo Finance": 10}
-TOPE_DURO = {"Yahoo Finance": 15}     # ni siquiera rellenando, si faltan otros medios
+TOPE_MEDIO = {"Yahoo Finance": 6}
+TOPE_DURO = {"Yahoo Finance": 12}     # ni siquiera rellenando, si faltan otros medios
 NOMBRES_ANTIGUOS = {"Yahoo": "Yahoo Finance", "SeekingAlpha": "Seeking Alpha"}
 TOPE_OTRO = 6
 TOPE_OFICIAL = 6
