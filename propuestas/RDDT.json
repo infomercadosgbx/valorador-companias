@@ -2,7 +2,6 @@
  "ticker": "RDDT",
  "creada": "2026-11-13",
  "alcance": "completa",
- "urgente": true,
  "motivo": "Actualización completa (desde el 5-nov-2026)",
  "informe_accn": "0001713445-26-000114",
  "resumen": "Sin resultados ni 8-K nuevos en la ventana (5–13-nov); el último informe sigue siendo el 10-Q del 3T26. Novedades: prueba de anuncios en el buscador interno (3-nov), lanzamiento de Reddit Reviews con ~10.000 productos (10-nov), acuerdo con Qloo para segmentación, nuevo CTO declarado ante la SEC (Amit Puntambekar, formulario 3 del 10-nov) y ventas de la consejera Porter Gale fuera de plan. El 12-nov la acción cayó un 5,8% (99,55 $) por un dato de Similarweb de −13% de visitas, que confirma el riesgo principal. No cambia el DCF (167 $ por acción) ni la recomendación; el precio está en el límite de compra de 100 $. Consenso manual actualizado: media de 156,95 $ (Fintel, 9-nov; −10,4%) y Guggenheim baja a 140 $. No se leyeron Reuters, FT, Bloomberg ni WSJ con sesión: solo alertas de Gmail (ninguna sobre Reddit).",
@@ -30,425 +29,6 @@
  ],
  "cambios": [
   {
-   "campo": "overview.thesis",
-   "valor": "Sigue creciendo al 40–50% con márgenes de software y 3.030 M$ de caja, pero el riesgo principal ya se está cumpliendo: Google le envía cada vez menos visitas (Similarweb: −13% de visitas globales) y sus usuarios diarios pueden caer en el 4T. Su respuesta es sacar más de quien ya entra: anuncios en su propio buscador y Reddit Reviews. A ~100 $ el precio sigue descontando crecimiento cero.",
-   "tipo": "texto",
-   "porque": "Novedades del 3 al 12-nov: prueba de anuncios en el buscador, lanzamiento de Reddit Reviews y nuevo dato de Similarweb sobre visitas; precio actualizado (99,55 $ el 12-nov).",
-   "fuente": {
-    "t": "Yahoo Finance (vía data/RDDT.json → noticias): «Reddit Sinks 6% as Traffic Falls 13% on Google’s AI Overviews»",
-    "u": "https://finnhub.io/api/news?id=9d47b1ae171b5a8410f8ae80809a252406b4e155f7787b0764d8ce550aa3917e",
-    "d": "12-nov-2026"
-   }
-  },
-  {
-   "campo": "overview.catalysts",
-   "valor": [
-    {
-     "d": "4T26",
-     "t": "Prueba de acceso solo con sesión iniciada en algunos países fuera de EE. UU.: menos alcance a cambio de más usuarios que monetizan."
-    },
-    {
-     "d": "4T26",
-     "t": "Prueba de anuncios en el buscador interno de Reddit (desde el 3-nov, con un grupo reducido de anunciantes): primer inventario publicitario nuevo tras la caída del tráfico de Google."
-    },
-    {
-     "d": "Nov-26 a 2027",
-     "t": "Reddit Reviews: reseñas de ~10.000 productos resumidas con IA a partir de las conversaciones, en EE. UU. en las próximas semanas y fuera de EE. UU. a lo largo de 2027. Por ahora sin anuncios ni comisión."
-    },
-    {
-     "d": "3-feb-27",
-     "t": "Resultados del 4T26: ¿cuánto caen los usuarios diarios? La previsión de la dirección es una caída de dos dígitos si sigue la tendencia."
-    },
-    {
-     "d": "Mar-27",
-     "t": "Cierre del acceso público a su API de datos: más poder para negociar licencias."
-    },
-    {
-     "d": "En curso",
-     "t": "Renovación de las licencias de datos con Google (~60 M$ al año) y OpenAI; sin acuerdo garantizado."
-    }
-   ],
-   "tipo": "hecho",
-   "porque": "Dos lanzamientos nuevos en la ventana: anuncios en el buscador (3-nov) y Reddit Reviews (10-nov).",
-   "fuente": {
-    "t": "TechCrunch: Reddit tests ads in search results",
-    "u": "https://techcrunch.com/2026/11/03/reddit-tests-ads-in-search-results-as-traffic-declines-and-growth-concerns-mount/",
-    "d": "3-nov-2026"
-   }
-  },
-  {
-   "campo": "meta.asOf",
-   "valor": "13-nov-2026",
-   "tipo": "hecho",
-   "porque": "Cierre de la actualización completa.",
-   "fuente": {
-    "t": "Actualización completa",
-    "u": "https://github.com/infomercadosgbx/valorador-companias",
-    "d": "13-nov-2026"
-   }
-  },
-  {
-   "campo": "growth.drivers",
-   "valor": [
-    {
-     "n": "Más ingresos por usuario (Reddit Max)",
-     "impact": 5,
-     "h": "2026–2027",
-     "st": "en marcha",
-     "k": "Ingresos +53% en 3T26 (895 M$)",
-     "peso": "~95% de los ingresos es publicidad",
-     "d": "Reddit monetiza poco frente a Meta. Con Reddit Max (uso ×3 en un trimestre), anuncios de compra (+95%) y vídeo, los anunciantes pagan más por usuario. La guía del 4T26 es de 1.000–1.030 M$ (+38–42%).",
-     "ev": "ARPU por región y crecimiento de los ingresos publicitarios.",
-     "r": "Caída de usuarios: la guía del 4T26 contempla un descenso de dos dígitos por menos visitas desde Google.",
-     "u": "https://www.fool.com/earnings/call-transcripts/2026/10/30/reddit-rddt-q3-2026-earnings-call-transcript/"
-    },
-    {
-     "n": "Crecimiento internacional",
-     "impact": 4,
-     "h": "2026–2028",
-     "st": "en marcha",
-     "k": "Usuarios intl. +24% · ingresos +67%",
-     "peso": "ARPU intl. 2,26 $ vs 11,85 $ en EE. UU.",
-     "d": "Con traducción automática el contenido en inglés llega a otros idiomas. Fuera de EE. UU. el ARPU es una quinta parte, así que hay mucho margen para monetizar.",
-     "ev": "Usuarios diarios internacionales e ingresos fuera de EE. UU.",
-     "r": "Usuarios menos valiosos para los anunciantes y competencia local."
-    },
-    {
-     "n": "Licencias de datos para IA",
-     "impact": 3,
-     "h": "2026",
-     "st": "en marcha",
-     "k": "Google ~60 M$ al año",
-     "peso": "~5% de los ingresos",
-     "d": "Google y OpenAI pagan por usar las conversaciones de Reddit para entrenar sus modelos. Los contratos se renegocian en 2026 y Reddit quiere un precio ligado al uso.",
-     "ev": "Renovaciones y nuevos acuerdos; evolución de «otros ingresos».",
-     "r": "Que no se renueve con Google o que el precio baje.",
-     "u": "https://www.sherwood.news/business/reddit-bounces-on-report-that-its-in-talks-with-google-openai-on-fresh-data"
-    },
-    {
-     "n": "Solo con sesión iniciada",
-     "impact": 3,
-     "h": "4T26–2027",
-     "st": "temprano",
-     "k": "Más del 80% de la monetización",
-     "d": "Reddit irá hacia una experiencia solo para usuarios registrados: más interacción, mejor segmentación de anuncios y protección de sus datos frente a quien los copia para entrenar IA. En la conferencia Invest de Yahoo Finance (12-nov) Huffman insistió en que empujar a iniciar sesión es parte del giro hacia la personalización. Pierde alcance a cambio de usuarios más valiosos.",
-     "ev": "Usuarios diarios con sesión iniciada y en la app, que publica por región.",
-     "r": "Las visitas desde Google caen (más de 1 M menos por semana en octubre por AI Overviews; Similarweb estima −13% de visitas globales, sobre todo de usuarios sin sesión): los usuarios diarios podrían bajar un porcentaje de dos dígitos en el 4T26.",
-     "peso": "prueba fuera de EE. UU. en el 4T26",
-     "u": "https://finnhub.io/api/news?id=de6653923780bf0e4b4a30f8579775dd662163faa2deae19487578972200d457"
-    },
-    {
-     "n": "Anuncios en el buscador y compras (Reddit Reviews)",
-     "impact": 2,
-     "h": "2027",
-     "st": "temprano",
-     "k": "Prueba con pocos anunciantes desde el 3-nov · Reviews con ~10.000 productos",
-     "peso": "sin ingresos propios todavía",
-     "d": "Dos palancas para monetizar las búsquedas dentro de Reddit: anuncios junto a los resultados del buscador interno (prueba con un grupo reducido de anunciantes) y Reddit Reviews, páginas de producto que resumen con IA lo que dicen los usuarios (en EE. UU. y fuera a lo largo de 2027; de momento sin anuncios ni comisión). Además, un acuerdo con Qloo para afinar la segmentación por intereses.",
-     "ev": "Ampliación de la prueba de anuncios en el buscador y si Reviews acaba llevando anuncios.",
-     "r": "Prueba temprana sin precio ni medición publicados; los anunciantes aún piden pruebas de que funciona todo el año (Digiday).",
-     "u": "https://techcrunch.com/2026/11/03/reddit-tests-ads-in-search-results-as-traffic-declines-and-growth-concerns-mount/"
-    },
-    {
-     "n": "Recompras",
-     "impact": 2,
-     "h": "Continuo",
-     "st": "en marcha",
-     "k": "Programa de 1.000 M$",
-     "peso": "~100 M$ en el 3T26 a menos de 150 $",
-     "d": "Compensan la dilución del pago en acciones.",
-     "ev": "Acciones en circulación.",
-     "r": "Poco efecto si el pago en acciones sigue alto."
-    }
-   ],
-   "tipo": "texto",
-   "porque": "Motor nuevo (anuncios en el buscador, Reddit Reviews, Qloo) y dato de Similarweb en el motor «Solo con sesión iniciada».",
-   "fuente": {
-    "t": "TechCrunch: Reddit tests ads in search results",
-    "u": "https://techcrunch.com/2026/11/03/reddit-tests-ads-in-search-results-as-traffic-declines-and-growth-concerns-mount/",
-    "d": "3-nov-2026"
-   }
-  },
-  {
-   "campo": "mgmt.people",
-   "valor": [
-    {
-     "n": "Steve Huffman",
-     "role": "Cofundador y CEO",
-     "since": "2015",
-     "note": "Volvió como CEO en 2015 y llevó la empresa a bolsa en 2024."
-    },
-    {
-     "n": "Jen Wong",
-     "role": "Directora de operaciones",
-     "since": "2018",
-     "note": "Responsable del negocio publicitario."
-    },
-    {
-     "n": "Drew Vollero",
-     "role": "Director financiero",
-     "since": "2020",
-     "note": "Ha llevado a la empresa a beneficios y al programa de recompras."
-    },
-    {
-     "n": "Amit Puntambekar",
-     "role": "Director de tecnología (CTO)",
-     "since": "2026",
-     "note": "Consta como directivo en el formulario 3 presentado el 10-nov-2026 (fecha del hecho: 28-oct-2026), con 19.704 acciones de clase A, de ellas 18.606 en RSU. Cofundó QuickFire Networks, que compró Facebook."
-    },
-    {
-     "n": "Advance (Newhouse)",
-     "role": "Mayor accionista",
-     "since": "2006",
-     "note": "~22% del capital; vota con Huffman por pacto."
-    }
-   ],
-   "tipo": "hecho",
-   "porque": "Nuevo directivo declarado ante la SEC (formulario 3).",
-   "fuente": {
-    "t": "Formulario 3 de Amit Puntambekar (SEC)",
-    "u": "https://www.sec.gov/Archives/edgar/data/1713445/000216468226000007/0002164682-26-000007-index.htm",
-    "d": "10-nov-2026"
-   }
-  },
-  {
-   "campo": "mgmt.note",
-   "valor": "Huffman controla cerca del 70,7% del voto gracias a un pacto con Advance (familia Newhouse), que posee ~22% del capital. Su participación económica propia es del 3%. Las acciones de clase B tienen 10 votos. Tras los resultados, la consejera Porter Gale vendió 10.000 acciones entre el 3 y el 6-nov a 96–100 $, fuera de un plan 10b5-1; no hay compras de directivos en el mercado desde mayo.",
-   "tipo": "texto",
-   "porque": "Formularios 4 de la ventana (data/RDDT.json → directivos).",
-   "fuente": {
-    "t": "Formulario 4 de Gale Mary Porter (SEC)",
-    "u": "https://www.sec.gov/Archives/edgar/data/1713445/000192458126000011/0001924581-26-000011-index.htm",
-    "d": "10-nov-2026"
-   }
-  },
-  {
-   "campo": "risks",
-   "valor": [
-    {
-     "n": "Menos tráfico desde Google",
-     "cat": "Competencia",
-     "p": 5,
-     "i": 5,
-     "note": "Ya ocurre: las visitas desde Google caen más de 1 M por semana en octubre por AI Overviews y AI Mode; Similarweb estima −13% de visitas globales (la acción cayó un 6% el 12-nov)"
-    },
-    {
-     "n": "Caída de usuarios diarios",
-     "cat": "Operativo",
-     "p": 4,
-     "i": 4,
-     "note": "130,3 M en 3T26 (+12%, se esperaban 134 M); podrían bajar un porcentaje de dos dígitos en el 4T26"
-    },
-    {
-     "n": "Desaceleración del crecimiento",
-     "cat": "Operativo",
-     "p": 4,
-     "i": 3,
-     "note": "+61% (2T26) → +53% (3T26) → +38–42% guiado para el 4T26"
-    },
-    {
-     "n": "Renovación de licencias de IA",
-     "cat": "Comercial",
-     "p": 3,
-     "i": 3,
-     "note": "Informaciones de que podría cortar el acceso de Google a sus datos"
-    },
-    {
-     "n": "Dilución por pago en acciones",
-     "cat": "Financiero",
-     "p": 3,
-     "i": 2,
-     "note": "~340 M$ al año de pago en acciones"
-    },
-    {
-     "n": "Dependencia de moderadores voluntarios",
-     "cat": "Operativo",
-     "p": 2,
-     "i": 3,
-     "note": "Las protestas de 2023 mostraron el riesgo"
-    },
-    {
-     "n": "Litigios con empresas de IA",
-     "cat": "Legal",
-     "p": 2,
-     "i": 2,
-     "note": "Ganó una decisión clave contra Anthropic en septiembre"
-    },
-    {
-     "n": "Control del voto",
-     "cat": "Gobierno",
-     "p": 2,
-     "i": 2,
-     "note": "Huffman y Advance deciden las votaciones"
-    }
-   ],
-   "tipo": "texto",
-   "porque": "El dato de Similarweb confirma el riesgo principal; probabilidad e impacto ya están en 5.",
-   "fuente": {
-    "t": "Yahoo Finance (vía data/RDDT.json → noticias)",
-    "u": "https://finnhub.io/api/news?id=9d47b1ae171b5a8410f8ae80809a252406b4e155f7787b0764d8ce550aa3917e",
-    "d": "12-nov-2026"
-   }
-  },
-  {
-   "campo": "verdict.watch",
-   "valor": [
-    "Usuarios diarios del 4T26 y de los que inician sesión (feb-27)",
-    "Resultado de la prueba de acceso solo con sesión fuera de EE. UU.",
-    "Renovación de las licencias de datos",
-    "Crecimiento del ARPU por encima del 30%",
-    "Anuncios en el buscador y Reddit Reviews: si la prueba se amplía y empieza a generar ingresos"
-   ],
-   "tipo": "criterio",
-   "porque": "Nueva palanca de monetización que conviene seguir; no cambia la recomendación.",
-   "fuente": {
-    "t": "TechCrunch",
-    "u": "https://techcrunch.com/2026/11/03/reddit-tests-ads-in-search-results-as-traffic-declines-and-growth-concerns-mount/",
-    "d": "3-nov-2026"
-   }
-  },
-  {
-   "campo": "notes",
-   "valor": "Cotización de 99,55 $ del 12-nov-2026 (−5,8% en el día tras el dato de Similarweb; 105,66 $ el 11-nov). Mínimo tras resultados: 90,97 $ el 2-nov. El precio está justo en el «comprar por debajo de» de 100 $.",
-   "tipo": "criterio",
-   "porque": "Precio actualizado frente al de la nota anterior (91,73 $ del 30-oct).",
-   "fuente": {
-    "t": "data/RDDT.json → historico_precio (Twelve Data)",
-    "u": "https://twelvedata.com/",
-    "d": "12-nov-2026"
-   }
-  },
-  {
-   "campo": "sources.docs",
-   "valor": [
-    {
-     "cat": "Formularios SEC",
-     "t": "Formulario 3: Amit Puntambekar, director de tecnología",
-     "d": "10-nov-2026",
-     "u": "https://www.sec.gov/Archives/edgar/data/1713445/000216468226000007/0002164682-26-000007-index.htm"
-    },
-    {
-     "cat": "Resultados trimestrales",
-     "t": "Nota de prensa de resultados 3T26 (8-K, Exhibit 99.1)",
-     "d": "29-oct-2026",
-     "u": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000114/earningspressreleaseq326.htm"
-    },
-    {
-     "cat": "Formularios SEC",
-     "t": "10-Q tercer trimestre 2026",
-     "d": "30-oct-2026",
-     "u": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000116/rddt-20260930.htm"
-    },
-    {
-     "cat": "Transcripciones",
-     "t": "Transcripción de la llamada de resultados 3T26 (Motley Fool)",
-     "d": "30-oct-2026",
-     "u": "https://www.fool.com/earnings/call-transcripts/2026/10/30/reddit-rddt-q3-2026-earnings-call-transcript/"
-    },
-    {
-     "cat": "Resultados trimestrales",
-     "t": "Nota de prensa de resultados 2T26 (PDF)",
-     "d": "30-jul-2026",
-     "u": "https://s203.q4cdn.com/380862485/files/doc_financials/2026/q2/Q2-26-Earnings-Press-Release.pdf"
-    },
-    {
-     "cat": "Resultados trimestrales",
-     "t": "Nota de prensa de resultados 4T25 y año 2025 (PDF)",
-     "d": "05-feb-2026",
-     "u": "https://s203.q4cdn.com/380862485/files/doc_financials/2025/q4/Q4-25-Earnings-Press-Release.pdf"
-    },
-    {
-     "cat": "Formularios SEC",
-     "t": "10-Q segundo trimestre 2026",
-     "d": "jul-2026",
-     "u": "https://www.sec.gov/Archives/edgar/data/0001713445/000171344526000100/rddt-20260630.htm"
-    },
-    {
-     "cat": "Formularios SEC",
-     "t": "10-K ejercicio 2025",
-     "d": "feb-2026",
-     "u": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000022/rddt-20251231.htm"
-    },
-    {
-     "cat": "Formularios SEC",
-     "t": "S-1 de la salida a bolsa",
-     "d": "feb-2024",
-     "u": "https://www.sec.gov/Archives/edgar/data/1713445/000162828024006294/reddits-1q423.htm"
-    },
-    {
-     "cat": "Transcripciones",
-     "t": "Resumen de la llamada de resultados 2T26 (Quartr)",
-     "d": "30-jul-2026",
-     "u": "https://quartr.com/events/reddit-inc-rddt-q2-2026_FLW4MEuM"
-    },
-    {
-     "cat": "Gobierno corporativo",
-     "t": "Quién es dueño de Reddit (accionistas y voto)",
-     "d": "sep-2026",
-     "u": "https://aifundingtracker.com/who-owns-reddit/"
-    }
-   ],
-   "tipo": "hecho",
-   "porque": "Nuevos documentos oficiales del 3T26 y el formulario 3 del nuevo CTO.",
-   "fuente": {
-    "t": "SEC EDGAR",
-    "u": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1713445",
-    "d": "13-nov-2026"
-   }
-  },
-  {
-   "campo": "sources.news",
-   "valor": [
-    {
-     "t": "Reddit prueba anuncios en los resultados de su buscador",
-     "src": "TechCrunch",
-     "u": "https://techcrunch.com/2026/11/03/reddit-tests-ads-in-search-results-as-traffic-declines-and-growth-concerns-mount/"
-    },
-    {
-     "t": "Detalles de la prueba de anuncios en el buscador",
-     "src": "PPC Land",
-     "u": "https://ppc.land/reddit-tests-ads-in-its-search-results-for-the-first-time/"
-    },
-    {
-     "t": "Reddit Reviews: reseñas con IA de ~10.000 productos, sin anuncios",
-     "src": "Android Authority",
-     "u": "https://androidauthority.com/reddit-reviews-ai-powered-product-reviews-3733511"
-    },
-    {
-     "t": "Reddit Reviews: sin comisión y expansión fuera de EE. UU. en 2027",
-     "src": "The Next Web",
-     "u": "https://thenextweb.com/news/reddit-reviews-ai-product-summaries-no-cut-tnw"
-    },
-    {
-     "t": "Reddit se apoya en Qloo para afinar la segmentación",
-     "src": "AdExchanger",
-     "u": "https://www.adexchanger.com/marketers/reddit-taps-qloo-to-strengthen-its-predictive-targeting/"
-    },
-    {
-     "t": "Créditos publicitarios del 4T y dudas de los anunciantes",
-     "src": "Digiday",
-     "u": "https://digiday.com/marketing/reddit-dangles-seasonal-ad-credits-but-advertisers-still-want-better-proof-it-works-all-year-round/"
-    },
-    {
-     "t": "La acción cae un 6% por un −13% de visitas según Similarweb",
-     "src": "Yahoo Finance",
-     "u": "https://finnhub.io/api/news?id=9d47b1ae171b5a8410f8ae80809a252406b4e155f7787b0764d8ce550aa3917e"
-    },
-    {
-     "t": "Guggenheim mantiene compra y baja el objetivo a 140 $",
-     "src": "Benzinga",
-     "u": "https://finnhub.io/api/news?id=da1c40a26332d7c7b516bfd7075e567ac815f1b23f73c76c858af91c4ae2f98f"
-    }
-   ],
-   "tipo": "hecho",
-   "porque": "Noticias de calidad de la ventana 5–13-nov.",
-   "fuente": {
-    "t": "data/RDDT.json → noticias",
-    "u": "https://github.com/infomercadosgbx/valorador-companias/blob/main/data/RDDT.json",
-    "d": "13-nov-2026"
-   }
-  },
-  {
    "campo": "social.pulse",
    "valor": [
     {
@@ -473,18 +53,43 @@
     "t": "StockTwits (data/RDDT.json → redes)",
     "u": "https://stocktwits.com/symbol/RDDT",
     "d": "13-nov-2026"
-   }
+   },
+   "verificacion": {
+    "ok": false,
+    "nota": "Cifras de StockTwits correctas (6 alcistas de 10 con opinión, 60%, 12–13-nov), pero «el debate gira en torno al dato de Similarweb» no está respaldado por data→redes ni por fuente citada."
+   },
+   "fallo_verificacion": "Cifras de StockTwits correctas (6 alcistas de 10 con opinión, 60%, 12–13-nov), pero «el debate gira en torno al dato de Similarweb» no está respaldado por data→redes ni por fuente citada.",
+   "procesado": "2026-11-13"
   },
   {
-   "campo": "social.pulseFuente",
-   "valor": "Lectura del 13-nov-2026 con la API pública de StockTwits (data/RDDT.json → redes) y titulares de la semana; Reddit, X y YouTube sin medición propia.",
-   "tipo": "hecho",
-   "porque": "Nueva lectura.",
+   "campo": "verdict.watch",
+   "valor": [
+    "Usuarios diarios del 4T26 y de los que inician sesión (feb-27)",
+    "Resultado de la prueba de acceso solo con sesión fuera de EE. UU.",
+    "Renovación de las licencias de datos",
+    "Crecimiento del ARPU por encima del 30%",
+    "Anuncios en el buscador y Reddit Reviews: si la prueba se amplía y empieza a generar ingresos"
+   ],
+   "tipo": "criterio",
+   "porque": "Nueva palanca de monetización que conviene seguir; no cambia la recomendación.",
    "fuente": {
-    "t": "StockTwits",
-    "u": "https://stocktwits.com/symbol/RDDT",
-    "d": "13-nov-2026"
-   }
+    "t": "TechCrunch",
+    "u": "https://techcrunch.com/2026/11/03/reddit-tests-ads-in-search-results-as-traffic-declines-and-growth-concerns-mount/",
+    "d": "3-nov-2026"
+   },
+   "procesado": "2026-11-13"
+  },
+  {
+   "campo": "notes",
+   "valor": "Cotización de 99,55 $ del 12-nov-2026 (−5,8% en el día tras el dato de Similarweb; 105,66 $ el 11-nov). Mínimo tras resultados: 90,97 $ el 2-nov. El precio está justo en el «comprar por debajo de» de 100 $.",
+   "tipo": "criterio",
+   "porque": "Precio actualizado frente al de la nota anterior (91,73 $ del 30-oct).",
+   "fuente": {
+    "t": "data/RDDT.json → historico_precio (Twelve Data)",
+    "u": "https://twelvedata.com/",
+    "d": "12-nov-2026"
+   },
+   "procesado": "2026-11-13"
   }
  ]
 }
