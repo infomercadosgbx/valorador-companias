@@ -11450,7 +11450,7 @@
    "compradores": [
     "BURKE JAMES A"
    ],
-   "desde": "2026-05-13"
+   "desde": "2026-05-14"
   },
   "operaciones": [
    {
@@ -12598,8 +12598,8 @@
    "hora_codigo": "amc",
    "trimestre": 4,
    "anio": 2026,
-   "bpa_estimado": 2.1126,
-   "ingresos_estimados": 6089787495
+   "bpa_estimado": 2.0654,
+   "ingresos_estimados": 6015191784
   },
   "sorpresas": [
    {
@@ -12930,6 +12930,20 @@
   "noticias": 4,
   "fuente": "Alpha Vantage / Marketaux (puntuación media de las noticias del último mes)"
  },
+ "redes": {
+  "stocktwits": {
+   "fuente": "StockTwits (API pública)",
+   "url": "https://stocktwits.com/symbol/VST",
+   "mensajes": 30,
+   "alcistas": 11,
+   "bajistas": 0,
+   "pct_alcista": 100,
+   "seguidores": 18770,
+   "desde": "2026-11-11",
+   "hasta": "2026-11-13",
+   "fecha": "2026-11-13"
+  }
+ },
  "noticias_fuentes": {
   "medios_sectoriales": [
    "Utility Dive",
@@ -12944,6 +12958,14 @@
     "ok": true,
     "titulares": 80
    },
+   "Google News": {
+    "ok": true,
+    "titulares": 57
+   },
+   "Seeking Alpha": {
+    "ok": true,
+    "titulares": 25
+   },
    "Marketaux": {
     "ok": true,
     "titulares": 3
@@ -12951,6 +12973,10 @@
    "RSS de medios": {
     "ok": true,
     "titulares": 0
+   },
+   "StockTwits": {
+    "ok": true,
+    "mensajes": 30
    }
   }
  },
@@ -18242,11 +18268,11 @@
   "fecha": "2026-11-12",
   "ajuste": "splits"
  },
- "generado": "2026-11-12T23:53:33+00:00",
+ "generado": "2026-11-13T09:34:06+00:00",
  "peers": {
   "fuente_lista": "manual",
   "fuente_cifras": "SEC EDGAR (companyfacts, UDM) · precio Finnhub",
-  "actualizado": "2026-11-12",
+  "actualizado": "2026-11-13",
   "propia": {
    "ingresos": 20588000000,
    "crecimiento": 19.76,
@@ -18491,7 +18517,7 @@
     "0001692819-26-000023",
     "0001692819-26-000025"
    ],
-   "revisado": "2026-11-12"
+   "revisado": "2026-11-13"
   }
  ],
  "perfil": {
