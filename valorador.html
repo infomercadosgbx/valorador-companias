@@ -609,6 +609,21 @@ details.asmore>.asrow{margin-top:8px}
 .ajrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px}
 .ajst{font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:999px}.ajst.ok{background:color-mix(in srgb,var(--good) 16%,var(--surface));color:var(--goodText)}.ajst.no{background:var(--surface2);color:var(--ink2);border:1px solid var(--line)}
 .ajh{font-size:13px;margin:14px 0 6px;font-family:var(--f-body);font-weight:700}
+.fgrp{margin:0 0 16px;padding:0 0 4px;border-bottom:1px solid var(--line)}.fgrp:last-of-type{border-bottom:0}
+.fgh{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:10px 0 2px}
+.fpart{font-size:11px;color:var(--muted);font-weight:700;margin-left:auto}
+.fgofi,.fgint{font-size:10.5px;font-weight:800;padding:2px 8px;border-radius:999px;letter-spacing:.02em}
+.fgofi{background:color-mix(in srgb,var(--good) 18%,var(--surface));color:var(--goodText)}.fgofi.alt{background:color-mix(in srgb,var(--tcx) 16%,var(--surface));color:var(--tcx)}
+.fgint{background:var(--surface2);color:var(--ink2);border:1px solid var(--line)}
+.flist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:7px}
+.flist>li{display:flex;flex-direction:column;gap:1px}
+.fsrc{display:flex;align-items:center;gap:7px;flex-wrap:wrap;font-size:13px}
+.ftag{font-size:10px;font-weight:700;padding:1px 6px;border-radius:6px;background:var(--surface2);color:var(--ink2);border:1px solid var(--line)}
+.ftag.crit{background:color-mix(in srgb,var(--crit) 14%,var(--surface));color:var(--critText);border-color:transparent}
+.ftag.warn{background:color-mix(in srgb,var(--warn,#c8900a) 16%,var(--surface));color:var(--ink2);border-color:transparent}
+.ftag.good{background:color-mix(in srgb,var(--good) 14%,var(--surface));color:var(--goodText);border-color:transparent}
+.ftag.muted{background:var(--surface2);color:var(--muted)}
+.fgood{color:var(--goodText);font-weight:700}.fbad{color:var(--critText);font-weight:700}
 .ajlist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}.ajlist li{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:8px 10px;border:1px solid var(--line);border-radius:8px}
 .ajlist small{color:var(--muted)}
 .menusep{display:block;height:1px;background:var(--line);margin:4px 0}
@@ -2896,8 +2911,44 @@ function ajustesHtml(){
    <section class="card"><h2>Avisos aprobados</h2><p class="sub">Los avisos y notas técnicas que apruebas se guardan en el análisis de cada compañía y se ven en Fuentes → Cifras clave y calidad del dato, donde puedes devolverlos a la cabecera.${revs?` Además hay ${revs} marcas antiguas guardadas solo en este navegador.`:""}</p>
      ${revs?`<div class="carbtns"><button type="button" data-revreset>Borrar las marcas antiguas de este navegador</button></div>`:""}</section>
 
-   <section class="card"><h2>Datos y fuentes</h2><p class="sub">Cifras de la SEC (EDGAR, XBRL), cotización y perfil de Finnhub, histórico de Twelve Data, bono a 10 años del Tesoro de EE. UU. e indicadores de mercado de FRED, OFR, Cboe y AAII. El robot actualiza cada noche laborable tras el cierre de EE. UU.</p></section>
+   <section class="card" id="ajFuentesCard"><h2>Datos y fuentes</h2>
+     <p class="sub">De dónde sale cada cosa. Las <b>cifras</b> y los <b>hechos</b> salen siempre de fuentes oficiales (SEC y la propia compañía); «lo que se dice en internet» solo decide qué compañía revisar y da contexto, nunca una cifra. El robot actualiza cada noche laborable tras el cierre de EE. UU.</p>
+     <div id="ajFuentes"><p class="note" style="margin:0">Cargando el catálogo de fuentes…</p></div>
+   </section>
 `;
+}
+/* Catálogo de fuentes (fuentes.json) + estado en vivo de los feeds (data/_noticias_estado.json).
+   Oficiales = Parte A y C; internet = Parte B. Se carga al abrir Ajustes. */
+let FUENTES_CACHE=null;
+async function cargarFuentes(){
+  const box=$("ajFuentes"); if(!box) return;
+  let cat=FUENTES_CACHE;
+  if(!cat){
+    try{ cat=await getJSON("fuentes.json"); }
+    catch(e){ box.innerHTML=`<p class="note" style="margin:0">No se pudo cargar <code>fuentes.json</code>.</p>`; return; }
+    let estado={}; try{ estado=(await getJSON("data/_noticias_estado.json")).medios||{}; }catch(e){}
+    cat._estado=estado; FUENTES_CACHE=cat;
+  }
+  const estado=cat._estado||{};
+  const vivos=Object.values(estado);
+  const okN=vivos.filter(m=>m.ok).length, malN=vivos.filter(m=>!m.ok);
+  const badge=g=>{ if(g.autoridad==="máxima") return `<span class="fgofi">Oficial</span>`;
+    if(g.autoridad==="alta") return `<span class="fgofi alt">API oficial</span>`;
+    return `<span class="fgint">Contexto</span>`; };
+  const ru={alto:["Ruido alto","crit"],medio:["Ruido medio","warn"],bajo:["Ruido bajo","good"],"solo-tono":["Solo tono","muted"]};
+  const fila=f=>{ const nom=f.u?`<a href="${esc(f.u)}" target="_blank" rel="noopener">${esc(f.n)}</a>`:`<b>${esc(f.n)}</b>`;
+    const tags=[f.clave?`<span class="ftag">clave en Secrets</span>`:"", f.ruido&&ru[f.ruido]?`<span class="ftag ${ru[f.ruido][1]}">${ru[f.ruido][0]}</span>`:""].join("");
+    return `<li><div class="fsrc">${nom}${tags}</div><span class="note">${esc(f.uso)}</span></li>`; };
+  const grupo=g=>`<div class="fgrp"><div class="fgh">${badge(g)}<h3 class="ajh" style="margin:0">${esc(g.titulo)}</h3><span class="fpart">Parte ${esc(g.parte)}</span></div>
+    <p class="note" style="margin:2px 0 8px">${esc(g.resumen)}</p>
+    <ul class="flist">${g.fuentes.map(fila).join("")}</ul>
+    ${g.google_news_sitios?`<p class="note" style="margin:6px 0 0"><b>Google News</b> solo busca en: ${[...g.google_news_sitios.internacional,...g.google_news_sitios.espana].map(s=>`<code>${esc(s)}</code>`).join(" · ")}</p>`:""}</div>`;
+  const medios=`<div class="fgrp"><h3 class="ajh">Medios sectoriales en vivo (Parte B)</h3>
+    <p class="note" style="margin:0 0 6px">${okN} de ${vivos.length} feeds funcionando${malN.length?`. Caídos ahora: ${malN.map(m=>esc(m.medio)).join(", ")}.`:"."} Un feed caído no genera avisos en las compañías.</p>
+    <div class="scroll"><table class="wtable" style="font-size:.86rem"><thead><tr><th style="text-align:left">Medio</th><th style="text-align:left">Tipo</th><th>Titulares</th><th>Estado</th></tr></thead><tbody>
+    ${vivos.sort((a,b)=>a.medio.localeCompare(b.medio)).map(m=>`<tr><td style="text-align:left"><a href="${esc(m.url)}" target="_blank" rel="noopener">${esc(m.medio)}</a></td><td style="text-align:left">${m.tipo==="nota_prensa"?"Nota de prensa":"Sectorial"}</td><td>${m.ok?nf(m.titulares||0,0):"–"}</td><td>${m.ok?'<span class="fgood">OK</span>':'<span class="fbad">Caído</span>'}</td></tr>`).join("")}
+    </tbody></table></div></div>`;
+  box.innerHTML=cat.grupos.map(grupo).join("")+medios+`<p class="note" style="margin:10px 0 0">Catálogo actualizado el ${esc(cat.actualizado||"")}. Se edita en <code>fuentes.json</code> del repositorio.</p>`;
 }
 function carteraHtml(){
   const {C,rows,tot}=carRows(), cost=rows.reduce((a,r)=>a+r.cost,0), pl=tot-cost, plp=cost>0?(tot/cost-1)*100:NaN;
@@ -3008,7 +3059,7 @@ function renderWatch(){
       if(ag&&ag.dataset.gen!==gen){ if($("tipWrap")) $("tipWrap").innerHTML=ihTipos(); ag.innerHTML=ihAgenda(); ag.dataset.gen=gen; if(AGCAL.abierto) agCalCargar(); } return; }
     m.innerHTML=inicioHtml(); if(MAPA.abierto) mapaCargar(); if($("agWrap")) $("agWrap").dataset.gen=(MKH.d&&MKH.d.generado)||""; if(AGCAL.abierto) agCalCargar(); return; }
   if(WVIEW==="favoritas"){ m.innerHTML=favoritasHtml(); return; }
-  if(WVIEW==="ajustes"){ m.innerHTML=ajustesHtml(); return; }
+  if(WVIEW==="ajustes"){ m.innerHTML=ajustesHtml(); cargarFuentes(); return; }
   m.innerHTML=watchHtml();
   requestAnimationFrame(()=>{ setDefaults(); const rows=watchRows().filter(r=>fin(r.pot)).sort((a,b)=>b.pot-a.pot);
     mk("ch_w_pot",{type:"bar",data:{labels:rows.map(r=>r.name),datasets:[{data:rows.map(r=>+r.pot.toFixed(1)),backgroundColor:rows.map(r=>r.pot>=0?V("--good"):V("--crit"))}]},

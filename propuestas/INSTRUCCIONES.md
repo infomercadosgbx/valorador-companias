@@ -137,6 +137,21 @@ Presentaciones en conferencias de inversores, *investor day* y cartas a accionis
 
 Si no hay nada nuevo en ninguna de las cuatro, no se hace nada con esa compañía. Commit: `Propuesta: <T> tras <10-Q 3T26 | nota de prensa | llamada 3T26>`.
 
+### 7.5 Lista de comprobación de fuentes oficiales (cada ejecución, todas las compañías)
+
+La parte A no se da por hecha hasta recorrer, para cada compañía, esta lista. El objetivo es que **ninguna presentación oficial pase sin mirarse**. Marca en el resumen lo que miraste aunque no haya cambios (basta «oficial al día»):
+
+1. **8-K de resultados (Item 2.02):** `data/<T>.json → ultimo_8k_resultados.accn` frente a `_estado.json → revisado.<T>.accn` (apartado 1).
+2. **10-Q / 10-K:** `data/<T>.json → ultimo_informe.accn` frente a `_estado.json → informe.<T>.accn` (apartado 7.1). Si es nuevo: MD&A, notas (deuda y vencimientos, segmentos, RPO/backlog, litigios, impuestos, remuneración en acciones, adquisiciones, **hechos posteriores al cierre**) y riesgos (Item 1A).
+3. **Otros 8-K** de la ventana (`data/<T>.json → ultimas_noticias` con `medio` «SEC · 8-K» y submissions): 1.01, 2.01, 2.03, 5.02, 7.01, 8.01 (apartado 7.2).
+4. **Otras presentaciones a la SEC:** `data/<T>.json → presentaciones_sec` (formulario 3, 13D, DEF 14A, PRE/DEF 14C, S-1/S-3/424B, S-4/425, OPA, correcciones, retrasos). Lo material va a la propuesta.
+5. **Formularios 4:** `data/<T>.json → directivos`. Solo lo material (ventas o compras fuera de plan 10b5-1, o de un volumen fuera de lo normal) a `mgmt.note`.
+6. **Sala de prensa / blog de la compañía** (`companies.json → newsroom`): notas de prensa oficiales no cubiertas por un 8-K.
+7. **Llamada con analistas pendiente:** `_estado.json → llamada_pendiente` (apartado 7.3).
+8. **Seguimientos:** `seguimientos.json` y `data/<T>.json → seguimientos` (hallazgos nuevos o estado distinto de «sin_cambios»).
+
+Toda cifra o hecho que entre en la propuesta por esta vía lleva su enlace oficial (SEC o la compañía) y fecha, y se marca `hecho` (o `texto` si es tu lectura a partir de esos hechos).
+
 ## 8. Verificación y aplicación automática (parte C)
 
 Cuando ya está escrita la propuesta del día (resultados, 10-Q/10-K, otros 8-K, llamadas e internet), se verifica y se aplica lo que sea un hecho comprobado. El objetivo: que al usuario solo le lleguen sus decisiones de criterio y lo que el robot no haya podido comprobar.
@@ -196,4 +211,17 @@ El agente solo escribe el campo `verificacion` (y quita avisos no comprobados): 
 1. `python scripts/aplicar_cambios.py --todas` (el sábado, `--todas --sabado`). Imprime por compañía qué se ha aplicado, qué falla la verificación, qué queda para hoy, qué va a la cola y qué se ha descartado.
 2. Valida los JSON tocados con `python -m json.tool` y ejecuta `python -m pytest -q tests/test_aplicar_cambios.py`.
 3. Commit en `main`: `Aplicado automáticamente: <T1> (<n> cambios), <T2> (…)` y, si quedan propuestas o cola, `Propuestas: …`. Push.
+
+### 8.7 Auditoría oficial rotatoria de las pestañas (una compañía al día)
+
+Para que lo que dicen las pestañas siga anclado en documentos oficiales y no se quede viejo, cada ejecución audita **a fondo una compañía**, por turno (la de `meta.asOf` más antiguo entre las que no tienen propuesta urgente pendiente hoy; en empate, orden alfabético). No depende de que haya noticias: es un repaso de coherencia con la SEC.
+
+Para la compañía elegida, compara cada pestaña de `analysis/<T>.json` con el **último 10-K, el último 10-Q y la última nota de resultados** y con `data/<T>.json`, y propón corrección donde:
+
+- una cifra de `overview.keyFacts`, `business.*`, `growth.guidance` o `mgmt.call` no coincida con `data/<T>.json` o con el documento (→ `hecho`);
+- un cliente, segmento, contrato, cartera de pedidos (RPO/backlog), plan de capital o riesgo del 10-K/10-Q no esté reflejado, o uno que figura ya no sea válido (→ `texto`; las puntuaciones se mueven como mucho un punto);
+- un catalizador tenga fecha pasada, o falte la próxima fecha de resultados (→ `hecho`);
+- una afirmación de una pestaña no tenga ninguna fuente oficial detrás: reescríbela con la cita, o déjala en el resumen como «sin respaldo oficial» para el usuario si no encuentras el documento.
+
+Cada cambio, con su `fuente` oficial (SEC o la compañía) y fecha. No reescribas una pestaña entera: corrige solo lo que falla y conserva lo válido. Todo pasa por la verificación del apartado 8.5 y se aplica con 8.6. Si la compañía ya está perfectamente al día, dilo en el resumen («auditoría oficial de <T>: sin cambios») y no fuerces ninguno. En el resumen, nombra siempre a qué compañía le tocó la auditoría de hoy.
 
