@@ -516,10 +516,17 @@ details.asmore>.asrow{margin-top:8px}
 .kpi .src{margin-top:2px}
 .menuwrap{position:relative} .menu{position:fixed;z-index:60;min-width:220px;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,.18);padding:6px;display:flex;flex-direction:column;gap:2px}
 .menu button{all:unset;cursor:pointer;padding:9px 12px;border-radius:7px;font-size:13.5px;color:var(--ink)} .menu button:hover,.menu button:focus-visible{background:var(--surface2)}
-#btnMore.on{background:var(--tcx);color:#fff;border-color:var(--tcx)}
+#btnTools.on{background:var(--tcx);color:#fff;border-color:var(--tcx)}
+#btnSeg,#btnTools{display:inline-flex;align-items:center;gap:6px} .appbar .caret{font-size:10px;opacity:.7;margin-left:-2px}
+.menu .segitems{display:flex;flex-direction:column;gap:2px}
+.menu button.segit{display:flex;align-items:center;gap:10px;padding:8px 12px}
+.segit .si{width:20px;text-align:center;flex:none} .segit .st{display:flex;flex-direction:column;gap:1px;flex:1;min-width:0}
+.segit .st b{font-weight:600;font-size:13.5px} .segit .st small{font-size:12px;color:var(--muted)}
+.segit[aria-current=true]{background:var(--surface2)} .segit[aria-current=true] .st b{color:var(--accent)}
+.segmenu{min-width:270px}
 #main span.up:not(.pill),#main b.up{color:var(--goodText)} #main span.dn:not(.pill),#main b.dn{color:var(--critText)}
 .toolbar{margin-left:auto}
-@media (max-width:760px){.appbar .brand{order:1} .appbar .toolbar{order:2;margin-left:auto} .appbar .switch{order:3;flex:1 1 100%} .appbar .favs{order:4;flex-basis:100%} .appbar .brand::after{display:none} #btnHome .ml,#btnMore .ml{display:none}}
+@media (max-width:760px){.appbar .brand{order:1} .appbar .toolbar{order:2;margin-left:auto} .appbar .switch{order:3;flex:1 1 100%} .appbar .favs{order:4;flex-basis:100%} .appbar .brand::after{display:none} #btnHome .ml,#btnMore .ml,#btnSeg .ml,#btnTools .ml,.appbar .caret{display:none}}
 .favs[hidden]{display:none!important}
 .htiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
 .htile{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:6px;padding:20px;border:1px solid var(--line);border-radius:14px;background:var(--surface);box-shadow:var(--shadow);min-height:150px;transition:transform .12s,border-color .12s}
@@ -1157,12 +1164,19 @@ button.ihchip{cursor:pointer}button.ihchip:hover{border-color:var(--ink2)}
     <button type="button" class="switch" id="btnSwitch" aria-haspopup="listbox" aria-expanded="false" aria-controls="picker"></button>
     <div class="favs" id="favPills" role="group" aria-label="Compañías favoritas"></div>
     <div class="toolbar">
-      <button type="button" id="btnHome" data-home="inicio" aria-pressed="false" title="Inicio: favoritas, seguimiento, cartera y ajustes"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h5v-6h4v6h5V9.5"/></svg> <span class="ml">Inicio</span></button>
-      <div class="menuwrap"><button type="button" id="btnMore" aria-haspopup="menu" aria-expanded="false" title="Más acciones">⋯ <span class="ml">Más</span></button>
-        <div class="menu" id="moreMenu" role="menu" hidden>
+      <button type="button" id="btnHome" data-home="inicio" aria-pressed="false" title="Inicio: el mercado hoy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h5v-6h4v6h5V9.5"/></svg> <span class="ml">Inicio</span></button>
+      <div class="menuwrap"><button type="button" id="btnSeg" data-menu="segMenu" aria-haspopup="menu" aria-expanded="false" title="Lista de seguimiento, favoritas y cartera"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13"/><path d="M3 6h.01M3 12h.01M3 18h.01"/></svg> <span class="ml">Seguimiento</span> <span class="caret" aria-hidden="true">▾</span></button>
+        <div class="menu segmenu" id="segMenu" role="menu" hidden></div></div>
+      <div class="menuwrap"><button type="button" id="btnTools" data-menu="toolsMenu" aria-haspopup="menu" aria-expanded="false" title="Editar el análisis e informes"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2.4-.6-.6-2.4z"/></svg> <span class="ml">Herramientas</span> <span class="caret" aria-hidden="true">▾</span></button>
+        <div class="menu" id="toolsMenu" role="menu" hidden>
           <button type="button" role="menuitem" id="btnEdit" aria-pressed="false">✎ Editar</button>
+          <span class="menusep" role="separator"></span>
           <button type="button" role="menuitem" id="btnReport">⎙ Informe PDF</button>
           <button type="button" role="menuitem" id="btnResults">▤ Informe de resultados</button>
+        </div></div>
+      <div class="menuwrap"><button type="button" id="btnMore" data-menu="moreMenu" aria-haspopup="menu" aria-expanded="false" title="Más">⋯ <span class="ml">Más</span></button>
+        <div class="menu" id="moreMenu" role="menu" hidden>
+          <div class="segitems"></div>
           <span class="menusep" role="separator"></span>
           <button type="button" role="menuitem" id="btnAjustes" data-home="ajustes">⚙ Ajustes</button>
         </div></div>
@@ -2595,17 +2609,13 @@ function ihPulso(){
     <div class="ihp4">${vixc}${ofr}${man("move","MOVE · bonos",2)}${man("naaim","NAAIM",1)}</div>
     ${aaii}
   </section>`; }
-function ihEspacio(){
+function segItemsHtml(){
   const W=watchRows(), favs=W.filter(r=>r.fav).length, below=W.filter(r=>fin(r.toBuy)&&r.toBuy<=0).length;
   const {rows,tot}=carRows(), cost=rows.reduce((a,r)=>a+r.cost,0);
-  const flecha=`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg>`;
-  return `<section class="ihesp" aria-label="Tu espacio">
-    <button type="button" class="ihlista" data-home="lista"><span class="ihlh"><span class="ihlt">Lista de seguimiento</span>${flecha}</span>
-      <span class="ihl3"><span><b>${W.length}</b>compañías</span><span><b>${below}</b>en zona de compra</span><span><b>${favs}</b>favorita${favs===1?"":"s"}</span></span></button>
-    <div class="ihesp2"><button type="button" data-home="favoritas"><b>Favoritas</b><span>${favs?`${favs} compañía${favs>1?"s":""}`:"Aún no tienes"}</span></button>
-      <button type="button" data-home="cartera"><b>Cartera</b><span>${rows.length?`${nf(tot,0)} $ · ${tot>=cost?"+":"−"}${nf(Math.abs(cost>0?(tot/cost-1)*100:0),1)}%`:"Sin posiciones todavía"}</span></button></div>
-  </section>`; }
-
+  const it=(k,i,t,sub)=>`<button type="button" role="menuitem" class="segit" data-home="${k}" aria-current="${WATCH&&WVIEW===k}"><span class="si" aria-hidden="true">${i}</span><span class="st"><b>${t}</b><small>${sub}</small></span></button>`;
+  return it("lista","📋","Lista de seguimiento",`${W.length} compañía${W.length===1?"":"s"} · ${below} en zona de compra`)
+    +it("favoritas","★","Favoritas",favs?`${favs} compañía${favs>1?"s":""}`:"Aún no tienes")
+    +it("cartera","💼","Cartera",rows.length?`${nf(tot,0)} $ · ${tot>=cost?"+":"−"}${nf(Math.abs(cost>0?(tot/cost-1)*100:0),1)}%`:"Sin posiciones todavía"); }
 /* ---------- mercados en cuatro temas ---------- */
 function ihTema(g){ const I=((MKH.d&&MKH.d.indicadores)||[]).filter(i=>i.grupo===g);
   if(g==="volatilidad"){ const k=I.findIndex(i=>i.id==="vxn"); I.splice(k>=0?k+1:I.length,0,ihMove()); }
@@ -2806,13 +2816,13 @@ function ihClick(a){
   if(a.startsWith("ag:")) return ihAgModal(a.slice(3)); }
 
 function ihPintar(){ /* bloques que cambian con el precio en vivo */
-  const h=$("ihHero"), p=$("ihPulsoEsp"), m=$("ihMerc"); if(h) h.innerHTML=ihHero(); if(p) p.innerHTML=ihPulso()+ihEspacio(); if(m) m.innerHTML=ihMercados(); }
+  const h=$("ihHero"), p=$("ihPulsoEsp"), m=$("ihMerc"); if(h) h.innerHTML=ihHero(); if(p) p.innerHTML=ihPulso(); if(m) m.innerHTML=ihMercados(); }
 function inicioHtml(){
   if(!MKH.cargado) return `<div class="ih"><section class="ihcard"><p class="note">Cargando el mercado…</p></section></div>`;
-  if(!MKH.d) return `<div class="ih"><section class="ihcard"><h2>Mercado hoy</h2><p class="note">${esc(MKH.err||"Sin datos.")}</p></section><div id="ihPulsoEsp" class="ihrow2">${ihEspacio()}</div></div>`;
+  if(!MKH.d) return `<div class="ih"><section class="ihcard"><h2>Mercado hoy</h2><p class="note">${esc(MKH.err||"Sin datos.")}</p></section></div>`;
   return `<div class="ih" id="ihWrap">
     <div id="ihHero">${ihHero()}</div>
-    <div id="ihPulsoEsp" class="ihrow2">${ihPulso()}${ihEspacio()}</div>
+    <div id="ihPulsoEsp">${ihPulso()}</div>
     <div id="ihMerc">${ihMercados()}</div>
     <div id="tipWrap">${ihTipos()}</div>
     <div id="agWrap">${ihAgenda()}</div>
@@ -5299,7 +5309,7 @@ document.addEventListener("click",e=>{
   const sn=e.target.closest("[data-sens]"); if(sn){SENSMODE=sn.dataset.sens; lsSet("valorador.sens",SENSMODE); renderValOut(); return;}
   const px=e.target.closest("[data-peerx]"); if(px){PEERX=px.dataset.peerx; lsSet("valorador.peerx",PEERX); if(TAB==="valuation") renderValOut(); else renderTab(); return;}
   const hm=e.target.closest("[data-home]"); if(hm){ const v=hm.dataset.home; if(v==="salir"){ exitWatch(); renderTab(); try{history.replaceState(null,"","#"+TAB);}catch(_){} return; }
-    { const mm=$("moreMenu"); if(mm&&!mm.hidden){ mm.hidden=true; $("btnMore").setAttribute("aria-expanded","false"); } }
+    closeMenus();
     WVIEW=v; WATCH=true; CEDIT=null; renderWatch(); try{history.replaceState(null,"","#"+(v==="lista"?"seguimiento":v));}catch(_){} window.scrollTo(0,0); return; }
   const ts=e.target.closest("[data-themeset]"); if(ts){ lsSet("valorador.tema",ts.dataset.themeset); applyTheme(ts.dataset.themeset); renderWatch(); return; }
   const ft=e.target.closest("[data-favt]"); if(ft){ const c=store.companies[ft.dataset.favt]; if(c){ c.meta.fav=!c.meta.fav; saveFavs(); renderHeader(); renderWatch(); } return; }
@@ -5367,21 +5377,26 @@ document.addEventListener("click",e=>{
     if(a==="sAdd"){f.q.series.push({n:"Nueva serie",values:f.q.labels.map(()=>null)});}
     save(); renderTab(); }
 });
-$("btnEdit").addEventListener("click",()=>{EDIT=!EDIT; $("btnEdit").classList.toggle("on",EDIT); $("btnEdit").setAttribute("aria-pressed",EDIT); $("btnEdit").textContent=EDIT?"✓ Terminar edición":"✎ Editar"; $("btnMore").classList.toggle("on",EDIT); $("btnMore").querySelector(".ml").textContent=EDIT?"Editando":"Más"; renderTab();});
+$("btnEdit").addEventListener("click",()=>{EDIT=!EDIT; $("btnEdit").classList.toggle("on",EDIT); $("btnEdit").setAttribute("aria-pressed",EDIT); $("btnEdit").textContent=EDIT?"✓ Terminar edición":"✎ Editar"; $("btnTools").classList.toggle("on",EDIT); $("btnTools").querySelector(".ml").textContent=EDIT?"Editando":"Herramientas"; renderTab();});
 const THEMES=[["auto","automático"],["light","claro"],["dark","oscuro"]];
 function applyTheme(t){ if(t==="light"||t==="dark") document.documentElement.setAttribute("data-theme",t); else document.documentElement.removeAttribute("data-theme"); }
 applyTheme(lsGet("valorador.tema")||"auto");
-document.body.appendChild($("moreMenu"));
+["segMenu","toolsMenu","moreMenu"].forEach(id=>document.body.appendChild($(id)));
 function confirmLite(msg){ try{ return window.confirm(msg); }catch(e){ return true; } }
 document.addEventListener("submit",ev=>{ if(ev.target.id!=="carForm") return; ev.preventDefault(); const f=new FormData(ev.target), C=carLoad();
   const p={t:String(f.get("t")),acciones:+String(f.get("n")).replace(",","."),precio:+String(f.get("pm")).replace(",","."),fecha:String(f.get("f")||"")};
   if(!p.t||!(p.acciones>0)||!(p.precio>0)) return; if(CEDIT!=null) C.posiciones[CEDIT]=p; else C.posiciones.push(p); carSave(C); CEDIT=null; renderWatch(); });
 document.addEventListener("change",ev=>{ if(ev.target.id!=="carImp"||!ev.target.files[0]) return; const rd=new FileReader(); rd.onload=()=>{ try{ const j=JSON.parse(rd.result); if(!Array.isArray(j.posiciones)) throw 0;
   carSave({posiciones:j.posiciones.filter(p=>p&&p.t&&+p.acciones>0&&+p.precio>0),efectivo:+j.efectivo||0}); renderWatch(); }catch(e){ alert("El archivo no es una cartera exportada desde el valorador."); } }; rd.readAsText(ev.target.files[0]); });
-$("btnMore").addEventListener("click",ev=>{ ev.stopPropagation(); const m=$("moreMenu"); m.hidden=!m.hidden;
-  if(!m.hidden){ const r=$("btnMore").getBoundingClientRect(); const w=m.offsetWidth||230; m.style.top=(r.bottom+6)+"px"; m.style.left=Math.max(8,Math.min(r.right-w,window.innerWidth-w-8))+"px"; } $("btnMore").setAttribute("aria-expanded",!m.hidden); });
-document.addEventListener("click",ev=>{ const m=$("moreMenu"); if(m&&!m.hidden&&(!ev.target.closest(".menuwrap,#moreMenu")||ev.target.closest(".menu button"))){ m.hidden=true; $("btnMore").setAttribute("aria-expanded","false"); } });
-document.addEventListener("keydown",ev=>{ if(ev.key==="Escape"&&$("mkpop")){ mkPopClose(true); return; } if(ev.key==="Escape"){ const m=$("moreMenu"); if(m&&!m.hidden){ m.hidden=true; $("btnMore").setAttribute("aria-expanded","false"); $("btnMore").focus(); } } });
+/* Menús de la barra: Seguimiento (selector), Herramientas y Más. Solo uno abierto a la vez. */
+const MENUS=[["btnSeg","segMenu"],["btnTools","toolsMenu"],["btnMore","moreMenu"]];
+function closeMenus(focusBtn){ MENUS.forEach(([b,m])=>{ const el=$(m); if(el&&!el.hidden){ el.hidden=true; $(b).setAttribute("aria-expanded","false"); if(focusBtn) $(b).focus(); } }); }
+function fillSeg(){ let h=""; try{ h=segItemsHtml(); }catch(e){ h=`<button type="button" role="menuitem" data-home="lista">📋 Lista de seguimiento</button><button type="button" role="menuitem" data-home="favoritas">★ Favoritas</button><button type="button" role="menuitem" data-home="cartera">💼 Cartera</button>`; }
+  $("segMenu").innerHTML=h; $("moreMenu").querySelector(".segitems").innerHTML=h; }
+MENUS.forEach(([b,id])=>$(b).addEventListener("click",ev=>{ ev.stopPropagation(); const m=$(id), open=m.hidden; closeMenus(); if(!open) return;
+  if(id!=="toolsMenu") fillSeg(); m.hidden=false; const r=$(b).getBoundingClientRect(); const w=m.offsetWidth||230; m.style.top=(r.bottom+6)+"px"; m.style.left=Math.max(8,Math.min(r.right-w,window.innerWidth-w-8))+"px"; $(b).setAttribute("aria-expanded","true"); }));
+document.addEventListener("click",ev=>{ if(!ev.target.closest(".menuwrap,.menu")||ev.target.closest(".menu button")) closeMenus(); });
+document.addEventListener("keydown",ev=>{ if(ev.key==="Escape"&&$("mkpop")){ mkPopClose(true); return; } if(ev.key==="Escape") closeMenus(true); });
 document.addEventListener("pointerdown",e=>{ if($("mkpop")&&!e.target.closest("#mkpop")&&!e.target.closest("[data-mki]")) mkPopClose(); },true);
 addEventListener("resize",()=>mkPopClose()); addEventListener("scroll",e=>{ if(innerWidth>560&&$("mkpop")&&!(e.target&&e.target.closest&&e.target.closest("#mkpop"))) mkPopClose(); },true);
 try{ matchMedia("(prefers-color-scheme: dark)").addEventListener("change",()=>{ if(MAPA.abierto&&$("mkmapBox")) mapaCargar(); }); }catch(e){}
