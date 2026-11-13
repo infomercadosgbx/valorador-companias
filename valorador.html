@@ -611,6 +611,13 @@ details.asmore>.asrow{margin-top:8px}
 .ajh{font-size:13px;margin:14px 0 6px;font-family:var(--f-body);font-weight:700}
 .fgrp{margin:0 0 16px;padding:0 0 4px;border-bottom:1px solid var(--line)}.fgrp:last-of-type{border-bottom:0}
 .fgh{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:10px 0 2px}
+summary.fgh{cursor:pointer;list-style:none;padding:6px 0;border-radius:8px}
+summary.fgh::-webkit-details-marker{display:none}
+summary.fgh::before{content:"";width:7px;height:7px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:rotate(-45deg);transition:transform .15s;margin:0 4px 0 2px;flex:none}
+details[open]>summary.fgh::before{transform:rotate(45deg)}
+summary.fgh:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+details.fgrp>:not(summary){margin-left:20px}
+.fcnt{font-size:11px;color:var(--muted)}
 .fpart{font-size:11px;color:var(--muted);font-weight:700;margin-left:auto}
 .fgofi,.fgint{font-size:10.5px;font-weight:800;padding:2px 8px;border-radius:999px;letter-spacing:.02em}
 .fgofi{background:color-mix(in srgb,var(--good) 18%,var(--surface));color:var(--goodText)}.fgofi.alt{background:color-mix(in srgb,var(--tcx) 16%,var(--surface));color:var(--tcx)}
@@ -2939,15 +2946,15 @@ async function cargarFuentes(){
   const fila=f=>{ const nom=f.u?`<a href="${esc(f.u)}" target="_blank" rel="noopener">${esc(f.n)}</a>`:`<b>${esc(f.n)}</b>`;
     const tags=[f.clave?`<span class="ftag">clave en Secrets</span>`:"", f.ruido&&ru[f.ruido]?`<span class="ftag ${ru[f.ruido][1]}">${ru[f.ruido][0]}</span>`:""].join("");
     return `<li><div class="fsrc">${nom}${tags}</div><span class="note">${esc(f.uso)}</span></li>`; };
-  const grupo=g=>`<div class="fgrp"><div class="fgh">${badge(g)}<h3 class="ajh" style="margin:0">${esc(g.titulo)}</h3><span class="fpart">Parte ${esc(g.parte)}</span></div>
+  const grupo=g=>`<details class="fgrp"><summary class="fgh">${badge(g)}<h3 class="ajh" style="margin:0">${esc(g.titulo)}</h3><span class="fcnt">${g.fuentes.length} fuentes</span><span class="fpart">Parte ${esc(g.parte)}</span></summary>
     <p class="note" style="margin:2px 0 8px">${esc(g.resumen)}</p>
     <ul class="flist">${g.fuentes.map(fila).join("")}</ul>
-    ${g.google_news_sitios?`<p class="note" style="margin:6px 0 0"><b>Google News</b> solo busca en: ${[...g.google_news_sitios.internacional,...g.google_news_sitios.espana].map(s=>`<code>${esc(s)}</code>`).join(" · ")}</p>`:""}</div>`;
-  const medios=`<div class="fgrp"><h3 class="ajh">Medios sectoriales en vivo (Parte B)</h3>
-    <p class="note" style="margin:0 0 6px">${okN} de ${vivos.length} feeds funcionando${malN.length?`. Caídos ahora: ${malN.map(m=>esc(m.medio)).join(", ")}.`:"."} Un feed caído no genera avisos en las compañías.</p>
+    ${g.google_news_sitios?`<p class="note" style="margin:6px 0 0"><b>Google News</b> solo busca en: ${[...g.google_news_sitios.internacional,...g.google_news_sitios.espana].map(s=>`<code>${esc(s)}</code>`).join(" · ")}</p>`:""}</details>`;
+  const medios=`<details class="fgrp"><summary class="fgh"><span class="fgint">En vivo</span><h3 class="ajh" style="margin:0">Medios sectoriales y agencias</h3><span class="fcnt">${okN} de ${vivos.length} OK</span><span class="fpart">Parte B</span></summary>
+    <p class="note" style="margin:2px 0 6px">${okN} de ${vivos.length} feeds funcionando${malN.length?`. Caídos ahora: ${malN.map(m=>esc(m.medio)).join(", ")}.`:"."} Un feed caído no genera avisos en las compañías.</p>
     <div class="scroll"><table class="wtable" style="font-size:.86rem"><thead><tr><th style="text-align:left">Medio</th><th style="text-align:left">Tipo</th><th>Titulares</th><th>Estado</th></tr></thead><tbody>
     ${vivos.sort((a,b)=>a.medio.localeCompare(b.medio)).map(m=>`<tr><td style="text-align:left"><a href="${esc(m.url)}" target="_blank" rel="noopener">${esc(m.medio)}</a></td><td style="text-align:left">${m.tipo==="nota_prensa"?"Nota de prensa":"Sectorial"}</td><td>${m.ok?nf(m.titulares||0,0):"–"}</td><td>${m.ok?'<span class="fgood">OK</span>':'<span class="fbad">Caído</span>'}</td></tr>`).join("")}
-    </tbody></table></div></div>`;
+    </tbody></table></div></details>`;
   box.innerHTML=cat.grupos.map(grupo).join("")+medios+`<p class="note" style="margin:10px 0 0">Catálogo actualizado el ${esc(cat.actualizado||"")}. Se edita en <code>fuentes.json</code> del repositorio.</p>`;
 }
 function carteraHtml(){
