@@ -730,6 +730,19 @@
    "fecha": "2026-11-05",
    "nivel": "info",
    "mensaje": "Acciones: se usan las diluidas medias del 3T26 (202 M)."
+  },
+  {
+   "id": "deuda_asumida_cero.Deuda financiera: no hay ninguna etiqueta vigente; se asume #",
+   "fecha": "2026-11-13",
+   "nivel": "aviso",
+   "mensaje": "Deuda financiera: no hay ninguna etiqueta vigente; se asume 0.",
+   "por": "robot",
+   "comprobacion": "Balance del 10-Q a 30-sep-2026: el pasivo total (380 M$) solo incluye proveedores (110 M$), arrendamientos operativos (8 M$ + 23 M$), gastos devengados y otros (239 M$) y otros pasivos a largo plazo (0,07 M$); no hay deuda financiera. Del crédito revolving de 500 M$ solo hay 5,7 M$ en cartas de crédito y quedan disponibles 494,3 M$: no hay préstamos dispuestos. La deuda 0 es correcta.",
+   "fuente": {
+    "t": "10-Q 3T26 de Reddit (balance y nota del crédito revolving)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000116/rddt-20260930.htm",
+    "d": "30-oct-2026"
+   }
   }
  ],
  "veredictos": [

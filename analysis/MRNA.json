@@ -6,7 +6,7 @@
   "hq": "Cambridge, Massachusetts",
   "founded": "2010",
   "employees": "~4.700 (dic-25, 18 países)",
-  "asOf": "7-nov-2026",
+  "asOf": "13-nov-2026",
   "fav": false,
   "nextEarnings": "Feb-2027 (4T26, fecha por confirmar)"
  },
@@ -49,10 +49,6 @@
   ],
   "catalysts": [
    {
-    "d": "12-nov-26",
-    "t": "Analyst Day: plan a varios años, objetivos financieros (equilibrio de caja, hasta ahora en 2028) y visita a la planta de intismeran en Marlborough. Puede traer catalizadores importantes; revisar el análisis después."
-   },
-   {
     "d": "Fin de 2026",
     "t": "Solicitud de aprobación (BLA) de intismeran en melanoma junto con Merck; aprobación posible en 2027."
    },
@@ -71,6 +67,14 @@
    {
     "d": "Sin fecha",
     "t": "Pautas de la FDA para volver a presentar la vacuna combinada gripe/COVID y decisiones en Japón, Reino Unido y Australia."
+   },
+   {
+    "d": "Feb-2027",
+    "t": "Resultados del 4T26: la compañía dará la guía formal de 2027."
+   },
+   {
+    "d": "2027",
+    "t": "La planta de Marlborough (Massachusetts) pasa a ser el centro de suministro mundial de intismeran, si se aprueba."
    }
   ]
  },
@@ -298,7 +302,7 @@
   "score": 4,
   "scoreNote": "Ingresos +29% en el 3T26 (Europa de 16 M$ a 314 M$) y guía de +15% a +25% en 2026, tras caer de 19.263 M$ (2022) a 1.944 M$ (2025). El salto grande depende de intismeran: aprobación posible en 2027 y ampliación a otros tumores.",
   "tam": "Vacunas respiratorias (COVID, gripe, VRS y combinadas), oncología (terapias personalizadas junto a la inmunoterapia, empezando por el melanoma tras cirugía) y enfermedades raras metabólicas.",
-  "guidance": "2026: ingresos +15% a +25% (antes hasta +10%), mitad EE. UU. y mitad internacional; coste de ventas ~1.700 M$ (incluye 900 M$ del acuerdo judicial); I+D ~2.700 M$ (antes ~2.900 M$); gastos generales ~1.000 M$; capex ~200 M$; caja de 8.100–8.300 M$ a fin de año (antes 4.700–5.200 M$). En enero apuntaba a gastos de 4.200–4.600 M$ en 2027 y a equilibrio de caja en 2028.",
+  "guidance": "2026: ingresos +15% a +25% (antes hasta +10%), mitad EE. UU. y mitad internacional; ~10 puntos más de margen bruto sin el acuerdo judicial; coste de ventas ~1.700 M$ (incluye 900 M$ del acuerdo judicial); I+D ~2.700 M$ (antes ~2.900 M$); gastos generales ~1.000 M$; capex ~200 M$; caja de 8.100–8.300 M$ a fin de año (antes 4.700–5.200 M$) y liquidez total de ~9.000 M$ con el crédito disponible. Analyst Day (12-nov-2026): costes de caja de ~4.000 M$ en 2027 y de ~4.000–4.500 M$ al año de 2027 a 2030; la guía formal de 2027 llegará con los resultados del 4T26.",
   "drivers": [
    {
     "n": "Intismeran en melanoma",
@@ -726,6 +730,16 @@
   ],
   "news": [
    {
+    "t": "Moderna presenta su siguiente fase de crecimiento en el Analyst Day (nota de la compañía)",
+    "src": "ACCESS Newswire / Yahoo Finance · 12-nov-2026",
+    "u": "https://finance.yahoo.com/healthcare/articles/moderna-outlines-next-phase-growth-120000477.html"
+   },
+   {
+    "t": "La acción cae un 7% por unos costes de caja de ~4.000 M$ en 2027",
+    "src": "TIKR · 12-nov-2026",
+    "u": "https://www.tikr.com/blog/moderna-sinks-7-as-analyst-day-cancer-push-brings-4-billion-in-cash-costs-in-2027"
+   },
+   {
     "t": "Transcripción de la llamada 3T26",
     "src": "Motley Fool",
     "u": "https://www.fool.com/earnings/call-transcripts/2026/11/06/moderna-mrna-q3-2026-earnings-call-transcript/"
@@ -985,6 +999,190 @@
     ]
    },
    "origen": "git 511270a713"
+  }
+ ],
+ "cambios_auto": [
+  {
+   "fecha": "2026-11-13",
+   "campo": "overview.catalysts",
+   "antes": [
+    {
+     "d": "12-nov-26",
+     "t": "Analyst Day: plan a varios años, objetivos financieros (equilibrio de caja, hasta ahora en 2028) y visita a la planta de intismeran en Marlborough. Puede traer catalizadores importantes; revisar el análisis después."
+    },
+    {
+     "d": "Fin de 2026",
+     "t": "Solicitud de aprobación (BLA) de intismeran en melanoma junto con Merck; aprobación posible en 2027."
+    },
+    {
+     "d": "12-dic-26",
+     "t": "Datos de mRNA-2808 (mieloma múltiple) en presentación oral en el congreso ASH."
+    },
+    {
+     "d": "2026",
+     "t": "Datos pivotales en acidemia propiónica (mRNA-3927)."
+    },
+    {
+     "d": "Sin fecha",
+     "t": "Fase 2 de intismeran en cáncer de riñón (depende de eventos) y datos de supervivencia más maduros de INTerpath-001."
+    },
+    {
+     "d": "Sin fecha",
+     "t": "Pautas de la FDA para volver a presentar la vacuna combinada gripe/COVID y decisiones en Japón, Reino Unido y Australia."
+    }
+   ],
+   "despues": [
+    {
+     "d": "Fin de 2026",
+     "t": "Solicitud de aprobación (BLA) de intismeran en melanoma junto con Merck; aprobación posible en 2027."
+    },
+    {
+     "d": "12-dic-26",
+     "t": "Datos de mRNA-2808 (mieloma múltiple) en presentación oral en el congreso ASH."
+    },
+    {
+     "d": "2026",
+     "t": "Datos pivotales en acidemia propiónica (mRNA-3927)."
+    },
+    {
+     "d": "Sin fecha",
+     "t": "Fase 2 de intismeran en cáncer de riñón (depende de eventos) y datos de supervivencia más maduros de INTerpath-001."
+    },
+    {
+     "d": "Sin fecha",
+     "t": "Pautas de la FDA para volver a presentar la vacuna combinada gripe/COVID y decisiones en Japón, Reino Unido y Australia."
+    },
+    {
+     "d": "Feb-2027",
+     "t": "Resultados del 4T26: la compañía dará la guía formal de 2027."
+    },
+    {
+     "d": "2027",
+     "t": "La planta de Marlborough (Massachusetts) pasa a ser el centro de suministro mundial de intismeran, si se aprueba."
+    }
+   ],
+   "porque": "El Analyst Day ya ha pasado; se añaden la guía de 2027 con el 4T26 y Marlborough en 2027",
+   "fuente": {
+    "t": "Nota de prensa de Moderna: «Moderna Outlines Next Phase of Growth at Analyst Day» (ACCESS Newswire)",
+    "u": "https://finance.yahoo.com/healthcare/articles/moderna-outlines-next-phase-growth-120000477.html",
+    "d": "12-nov-2026"
+   },
+   "verificacion": "Nota de Moderna del 12-nov: guía formal de 2027 con el 4T26 (data: resultados el 11-feb-2027) y Marlborough como centro mundial de intismeran en 2027; se retira el Analyst Day ya celebrado y el resto no cambia.",
+   "motivo": "Novedades del 12-nov-2026: Analyst Day con costes de caja de ~4.000 M$ en 2027"
+  },
+  {
+   "fecha": "2026-11-13",
+   "campo": "growth.guidance",
+   "antes": "2026: ingresos +15% a +25% (antes hasta +10%), mitad EE. UU. y mitad internacional; coste de ventas ~1.700 M$ (incluye 900 M$ del acuerdo judicial); I+D ~2.700 M$ (antes ~2.900 M$); gastos generales ~1.000 M$; capex ~200 M$; caja de 8.100–8.300 M$ a fin de año (antes 4.700–5.200 M$). En enero apuntaba a gastos de 4.200–4.600 M$ en 2027 y a equilibrio de caja en 2028.",
+   "despues": "2026: ingresos +15% a +25% (antes hasta +10%), mitad EE. UU. y mitad internacional; ~10 puntos más de margen bruto sin el acuerdo judicial; coste de ventas ~1.700 M$ (incluye 900 M$ del acuerdo judicial); I+D ~2.700 M$ (antes ~2.900 M$); gastos generales ~1.000 M$; capex ~200 M$; caja de 8.100–8.300 M$ a fin de año (antes 4.700–5.200 M$) y liquidez total de ~9.000 M$ con el crédito disponible. Analyst Day (12-nov-2026): costes de caja de ~4.000 M$ en 2027 y de ~4.000–4.500 M$ al año de 2027 a 2030; la guía formal de 2027 llegará con los resultados del 4T26.",
+   "porque": "Nuevos objetivos de costes de caja para 2027–2030 y liquidez de fin de año",
+   "fuente": {
+    "t": "Nota de prensa de Moderna: «Moderna Outlines Next Phase of Growth at Analyst Day» (ACCESS Newswire)",
+    "u": "https://finance.yahoo.com/healthcare/articles/moderna-outlines-next-phase-growth-120000477.html",
+    "d": "12-nov-2026"
+   },
+   "verificacion": "Nota de Moderna del 12-nov: ingresos 2026 +15% a +25%, ~10 puntos de margen bruto sin el acuerdo, liquidez total ~9.000 M$ con capacidad no dispuesta, costes de caja ~4.000 M$ en 2027 y 4.000–4.500 M$/año en 2027–2030 y guía 2027 con el 4T26; el resto del texto ya estaba en el análisis.",
+   "motivo": "Novedades del 12-nov-2026: Analyst Day con costes de caja de ~4.000 M$ en 2027"
+  },
+  {
+   "fecha": "2026-11-13",
+   "campo": "sources.news",
+   "antes": [
+    {
+     "t": "Transcripción de la llamada 3T26",
+     "src": "Motley Fool",
+     "u": "https://www.fool.com/earnings/call-transcripts/2026/11/06/moderna-mrna-q3-2026-earnings-call-transcript/"
+    },
+    {
+     "t": "Resultados 3T26 y transcripción",
+     "src": "MarketBeat",
+     "u": "https://www.marketbeat.com/earnings/reports/2026-11-6-moderna-inc-stock/"
+    },
+    {
+     "t": "INTerpath-001 en ESMO: supervivencia HR 0,77, aún no significativa",
+     "src": "OncLive",
+     "u": "https://www.onclive.com/view/adjuvant-intismeran-autogene-plus-pembrolizumab-improves-rfs-and-dmfs-in-melanoma"
+    },
+    {
+     "t": "La acción cae un 17% por la filtración de los datos de fase 3 (22-oct)",
+     "src": "EMJ",
+     "u": "https://www.emjreviews.com/?p=581522"
+    },
+    {
+     "t": "Fase 3 de intismeran: la acción sube un 177% en un día (19-ago)",
+     "src": "Motley Fool",
+     "u": "https://www.fool.com/investing/2026/08/19/why-moderna-stock-skyrocketed-today/"
+    },
+    {
+     "t": "Piper Sandler sube el precio objetivo a 230 $ (26-oct)",
+     "src": "Investing.com",
+     "u": "https://www.investing.com/news/stock-market-news/why-is-moderna-stock-surging-today-93CH-4995802"
+    }
+   ],
+   "despues": [
+    {
+     "t": "Moderna presenta su siguiente fase de crecimiento en el Analyst Day (nota de la compañía)",
+     "src": "ACCESS Newswire / Yahoo Finance · 12-nov-2026",
+     "u": "https://finance.yahoo.com/healthcare/articles/moderna-outlines-next-phase-growth-120000477.html"
+    },
+    {
+     "t": "La acción cae un 7% por unos costes de caja de ~4.000 M$ en 2027",
+     "src": "TIKR · 12-nov-2026",
+     "u": "https://www.tikr.com/blog/moderna-sinks-7-as-analyst-day-cancer-push-brings-4-billion-in-cash-costs-in-2027"
+    },
+    {
+     "t": "Transcripción de la llamada 3T26",
+     "src": "Motley Fool",
+     "u": "https://www.fool.com/earnings/call-transcripts/2026/11/06/moderna-mrna-q3-2026-earnings-call-transcript/"
+    },
+    {
+     "t": "Resultados 3T26 y transcripción",
+     "src": "MarketBeat",
+     "u": "https://www.marketbeat.com/earnings/reports/2026-11-6-moderna-inc-stock/"
+    },
+    {
+     "t": "INTerpath-001 en ESMO: supervivencia HR 0,77, aún no significativa",
+     "src": "OncLive",
+     "u": "https://www.onclive.com/view/adjuvant-intismeran-autogene-plus-pembrolizumab-improves-rfs-and-dmfs-in-melanoma"
+    },
+    {
+     "t": "La acción cae un 17% por la filtración de los datos de fase 3 (22-oct)",
+     "src": "EMJ",
+     "u": "https://www.emjreviews.com/?p=581522"
+    },
+    {
+     "t": "Fase 3 de intismeran: la acción sube un 177% en un día (19-ago)",
+     "src": "Motley Fool",
+     "u": "https://www.fool.com/investing/2026/08/19/why-moderna-stock-skyrocketed-today/"
+    },
+    {
+     "t": "Piper Sandler sube el precio objetivo a 230 $ (26-oct)",
+     "src": "Investing.com",
+     "u": "https://www.investing.com/news/stock-market-news/why-is-moderna-stock-surging-today-93CH-4995802"
+    }
+   ],
+   "porque": "Nota oficial del Analyst Day y reacción de la acción",
+   "fuente": {
+    "t": "Nota de prensa de Moderna: «Moderna Outlines Next Phase of Growth at Analyst Day» (ACCESS Newswire)",
+    "u": "https://finance.yahoo.com/healthcare/articles/moderna-outlines-next-phase-growth-120000477.html",
+    "d": "12-nov-2026"
+   },
+   "verificacion": "Nuevos: nota de Moderna del 12-nov (Yahoo/ACCESS Newswire) y TIKR 12-nov (caída del 7% por ~4.000 M$ de costes de caja en 2027); historico_precio da −7,0% el 12-nov (248,69→231,35 $). Los 6 elementos existentes no cambian.",
+   "motivo": "Novedades del 12-nov-2026: Analyst Day con costes de caja de ~4.000 M$ en 2027"
+  },
+  {
+   "fecha": "2026-11-13",
+   "campo": "meta.asOf",
+   "antes": "7-nov-2026",
+   "despues": "13-nov-2026",
+   "porque": "Fecha de la revisión",
+   "fuente": {
+    "t": "Nota de prensa de Moderna: «Moderna Outlines Next Phase of Growth at Analyst Day» (ACCESS Newswire)",
+    "u": "https://finance.yahoo.com/healthcare/articles/moderna-outlines-next-phase-growth-120000477.html",
+    "d": "12-nov-2026"
+   },
+   "verificacion": "Fecha de la revisión, 13-nov-2026, coincide con la de hoy y es posterior a la fuente del 12-nov.",
+   "motivo": "Novedades del 12-nov-2026: Analyst Day con costes de caja de ~4.000 M$ en 2027"
   }
  ]
 }
