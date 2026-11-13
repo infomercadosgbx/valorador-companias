@@ -221,6 +221,9 @@ def leer_sala(urls, opener=None, sleep=time.sleep):
     err = None
     for url in ([urls] if isinstance(urls, str) else list(urls or [])):
         try:
+            if url.startswith("gnews:"):          # sin RSS propio: búsqueda de Google News («gnews:site:chevron.com»)
+                q = url[6:] + " when:14d"
+                url = f"{GoogleNews.URL}?{urllib.parse.urlencode({'q': q, 'hl': 'en-US', 'gl': 'US', 'ceid': 'US:en'})}"
             raw = _http_get(url, opener=opener, sleep=sleep, reintentos=1)
             cabeza = raw[:600].lstrip().lower()
             if not (cabeza.startswith(b"<?xml") or b"<rss" in cabeza or b"<feed" in cabeza):

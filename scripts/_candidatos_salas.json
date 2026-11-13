@@ -1,8 +1,5 @@
-{"APP":["https://investors.applovin.com/rss/news-releases.xml","https://investors.applovin.com/rss/pressrelease.aspx","https://investors.applovin.com/","https://www.applovin.com/feed/","https://www.applovin.com/newsroom/","https://www.applovin.com/blog/rss.xml"],
-"VST":["https://investor.vistracorp.com/rss/news-releases.xml","https://investor.vistracorp.com/news-events/press-releases","https://investor.vistracorp.com/","https://vistracorp.com/feed/","https://vistracorp.com/newsroom/","https://vistracorp.com/news/feed/"],
-"AVGO":["https://investors.broadcom.com/rss/news-releases.xml","https://www.broadcom.com/company/news/rss","https://www.broadcom.com/company/news/financial-releases","https://www.broadcom.com/rss/news","https://investors.broadcom.com/"],
-"PEP":["https://www.pepsico.com/rss","https://www.pepsico.com/rss/press-releases","https://www.pepsico.com/newsroom","https://www.pepsico.com/newsroom/press-releases","https://contact.pepsico.com/rss/news-releases.xml","https://investors.pepsico.com/rss/news-releases.xml"],
-"CVX":["https://www.chevron.com/rss/newsroom","https://www.chevron.com/newsroom/rss","https://www.chevron.com/newsroom","https://www.chevron.com/rss","https://investor.chevron.com/rss/news-releases.xml","https://chevroncorp.gcs-web.com/rss/news-releases.xml"],
-"PATH":["https://ir.uipath.com/rss/news-releases.xml","https://ir.uipath.com/","https://ir.uipath.com/news-events/press-releases","https://www.uipath.com/newsroom/rss","https://www.uipath.com/blog/rss.xml","https://www.uipath.com/newsroom/rss.xml"],
-"ORCL":["https://www.oracle.com/news/rss/","https://www.oracle.com/news/rss.xml","https://www.oracle.com/rss/news.xml","https://investor.oracle.com/rss/news-releases.xml","https://investor.oracle.com/","https://blogs.oracle.com/rss"],
-"MRNA":["https://investors.modernatx.com/rss/news-releases.xml","https://news.modernatx.com/rss/news-releases.xml","https://news.modernatx.com/","https://investors.modernatx.com/","https://www.modernatx.com/en-US/media-center/all-media/rss","https://news.modernatx.com/rss.xml"]}
+{"AVGO":["gnews:site:broadcom.com","gnews:Broadcom site:businesswire.com OR site:prnewswire.com OR site:broadcom.com"],
+"PEP":["gnews:site:pepsico.com","gnews:PepsiCo site:prnewswire.com OR site:businesswire.com OR site:pepsico.com"],
+"CVX":["gnews:site:chevron.com","gnews:Chevron site:businesswire.com OR site:prnewswire.com OR site:chevron.com"],
+"ORCL":["gnews:site:oracle.com/news","gnews:Oracle site:prnewswire.com OR site:businesswire.com OR site:oracle.com"],
+"MRNA":["gnews:site:modernatx.com","gnews:Moderna site:businesswire.com OR site:globenewswire.com OR site:modernatx.com"]}
