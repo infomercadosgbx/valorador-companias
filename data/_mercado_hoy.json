@@ -1,6 +1,6 @@
 {
  "esquema": 2,
- "generado": "2026-11-13T22:46:25+00:00",
+ "generado": "2026-11-14T00:24:00+00:00",
  "grupos": {
   "bolsa": "Bolsa",
   "volatilidad": "Volatilidad y divisas",
@@ -608,17 +608,13 @@
    "unidad": "pts",
    "fuente": "Cboe",
    "corto": "Cboe VIX3M",
-   "valor": 20.06,
-   "anterior": 19.24,
-   "fecha": "2026-11-12",
+   "valor": 20.62,
+   "anterior": 20.06,
+   "fecha": "2026-11-13",
    "url": "https://www.cboe.com/tradable_products/vix/vix_historical_data/",
-   "var": 0.82,
-   "var_pct": 4.26,
+   "var": 0.56,
+   "var_pct": 2.79,
    "serie": [
-    [
-     "2026-08-13",
-     18.61
-    ],
     [
      "2026-08-14",
      18.46
@@ -874,6 +870,10 @@
     [
      "2026-11-12",
      20.06
+    ],
+    [
+     "2026-11-13",
+     20.62
     ]
    ]
   },
@@ -1442,17 +1442,13 @@
    "unidad": "pts",
    "fuente": "Cboe",
    "corto": "Cboe GVZ",
-   "valor": 25.91,
-   "anterior": 24.21,
-   "fecha": "2026-11-12",
+   "valor": 25.35,
+   "anterior": 25.91,
+   "fecha": "2026-11-13",
    "url": "https://www.cboe.com/tradable_products/vix/vix_historical_data/",
-   "var": 1.7,
-   "var_pct": 7.02,
+   "var": -0.56,
+   "var_pct": -2.16,
    "serie": [
-    [
-     "2026-08-13",
-     23.87
-    ],
     [
      "2026-08-14",
      23.92
@@ -1708,6 +1704,10 @@
     [
      "2026-11-12",
      25.91
+    ],
+    [
+     "2026-11-13",
+     25.35
     ]
    ]
   },
@@ -2003,12 +2003,12 @@
    "unidad": "",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 1.1023,
+   "valor": 1.1021,
    "anterior": 1.1025,
    "fecha": "2026-11-14",
    "url": "https://twelvedata.com/",
-   "var": -0.0002,
-   "var_pct": -0.01
+   "var": -0.0003,
+   "var_pct": -0.03
   },
   {
    "id": "usdjpy",
@@ -2019,12 +2019,12 @@
    "unidad": "",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 159.7154,
+   "valor": 159.6782,
    "anterior": 159.7726,
    "fecha": "2026-11-14",
    "url": "https://twelvedata.com/",
-   "var": -0.0572,
-   "var_pct": -0.04
+   "var": -0.0944,
+   "var_pct": -0.06
   },
   {
    "id": "gbpusd",
@@ -2035,12 +2035,12 @@
    "unidad": "",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 1.3212,
+   "valor": 1.3211,
    "anterior": 1.3212,
    "fecha": "2026-11-14",
    "url": "https://twelvedata.com/",
-   "var": 0.0,
-   "var_pct": 0.0
+   "var": -0.0001,
+   "var_pct": -0.01
   },
   {
    "id": "usdcny",
@@ -2051,7 +2051,7 @@
    "unidad": "",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 6.6718,
+   "valor": 6.6717,
    "anterior": 6.6719,
    "fecha": "2026-11-14",
    "url": "https://twelvedata.com/",
@@ -4621,11 +4621,11 @@
    "unidad": "$",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 3874.4238,
+   "valor": 3874.5322,
    "anterior": 3875.6833,
    "fecha": "2026-11-14",
    "url": "https://twelvedata.com/",
-   "var": -1.2595,
+   "var": -1.1511,
    "var_pct": -0.03
   },
   {
@@ -5544,12 +5544,12 @@
    "unidad": "$",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 68428.0,
-   "anterior": 71460.0,
-   "fecha": "2026-11-13",
+   "valor": 68366.0,
+   "anterior": 68314.0,
+   "fecha": "2026-11-14",
    "url": "https://twelvedata.com/",
-   "var": -3032.0,
-   "var_pct": -4.24
+   "var": 52.0,
+   "var_pct": 0.08
   },
   {
    "id": "ethereum",
@@ -5560,12 +5560,12 @@
    "unidad": "$",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 1931.78,
-   "anterior": 2019.74,
-   "fecha": "2026-11-13",
+   "valor": 1935.47,
+   "anterior": 1929.88,
+   "fecha": "2026-11-14",
    "url": "https://twelvedata.com/",
-   "var": -87.96,
-   "var_pct": -4.36
+   "var": 5.59,
+   "var_pct": 0.29
   }
  ],
  "sentimiento": {
@@ -5901,7 +5901,7 @@
      "fin": "2026-12-09",
      "proyecciones": true,
      "hora_madrid": "20:00",
-     "dias": 26,
+     "dias": 25,
      "comunicado": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261209a.htm",
      "rueda_prensa": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20261209.htm",
      "actas_fecha": "2026-12-30",
@@ -5912,7 +5912,7 @@
      "fin": "2027-01-27",
      "proyecciones": false,
      "hora_madrid": "20:00",
-     "dias": 75,
+     "dias": 74,
      "comunicado": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20270127a.htm",
      "rueda_prensa": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20270127.htm",
      "actas_fecha": "2027-02-17"
@@ -5922,7 +5922,7 @@
      "fin": "2027-03-17",
      "proyecciones": true,
      "hora_madrid": "19:00",
-     "dias": 124,
+     "dias": 123,
      "comunicado": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20270317a.htm",
      "rueda_prensa": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20270317.htm",
      "actas_fecha": "2027-04-07",
@@ -5933,7 +5933,7 @@
      "fin": "2027-04-28",
      "proyecciones": false,
      "hora_madrid": "20:00",
-     "dias": 166,
+     "dias": 165,
      "comunicado": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20270428a.htm",
      "rueda_prensa": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20270428.htm",
      "actas_fecha": "2027-05-19"
@@ -5944,7 +5944,7 @@
     "fin": "2026-10-28",
     "proyecciones": false,
     "hora_madrid": "19:00",
-    "dias": -16,
+    "dias": -17,
     "comunicado": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261028a.htm",
     "rueda_prensa": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20261028.htm",
     "actas_fecha": "2026-11-18",
@@ -6110,124 +6110,6 @@
   },
   "agenda": {
    "items": [
-    {
-     "id": "ipp",
-     "nombre": "Precios de producción (IPP)",
-     "fuente": "BLS",
-     "url": "https://www.bls.gov/ppi/",
-     "ultimo": "6,5% interanual (oct-26)",
-     "graficos": [
-      {
-       "id": "PPIFIS",
-       "nombre": "IPP demanda final",
-       "modo": "ia",
-       "puntos": [
-        [
-         "2024-11",
-         2.89
-        ],
-        [
-         "2024-12",
-         3.44
-        ],
-        [
-         "2025-01",
-         3.79
-        ],
-        [
-         "2025-02",
-         3.4
-        ],
-        [
-         "2025-03",
-         3.16
-        ],
-        [
-         "2025-04",
-         2.4
-        ],
-        [
-         "2025-05",
-         2.72
-        ],
-        [
-         "2025-06",
-         2.43
-        ],
-        [
-         "2025-07",
-         3.23
-        ],
-        [
-         "2025-08",
-         2.69
-        ],
-        [
-         "2025-09",
-         3.05
-        ],
-        [
-         "2025-10",
-         2.83
-        ],
-        [
-         "2025-11",
-         3.15
-        ],
-        [
-         "2025-12",
-         3.09
-        ],
-        [
-         "2026-01",
-         3.04
-        ],
-        [
-         "2026-02",
-         3.35
-        ],
-        [
-         "2026-03",
-         4.28
-        ],
-        [
-         "2026-04",
-         5.69
-        ],
-        [
-         "2026-05",
-         5.89
-        ],
-        [
-         "2026-06",
-         5.58
-        ],
-        [
-         "2026-07",
-         4.84
-        ],
-        [
-         "2026-08",
-         5.46
-        ],
-        [
-         "2026-09",
-         6.29
-        ],
-        [
-         "2026-10",
-         6.52
-        ]
-       ],
-       "url": "https://fred.stlouisfed.org/series/PPIFIS"
-      }
-     ],
-     "principal": true,
-     "fecha": "2026-11-13",
-     "hora_madrid": "14:30",
-     "siguiente": "2026-12-15",
-     "anterior": "2026-10-15"
-    },
     {
      "id": "ventas",
      "nombre": "Ventas minoristas",
@@ -7560,6 +7442,123 @@
      "fecha": "2026-12-10",
      "hora_madrid": "14:30",
      "anterior": "2026-11-10"
+    },
+    {
+     "id": "ipp",
+     "nombre": "Precios de producción (IPP)",
+     "fuente": "BLS",
+     "url": "https://www.bls.gov/ppi/",
+     "ultimo": "6,5% interanual (oct-26)",
+     "graficos": [
+      {
+       "id": "PPIFIS",
+       "nombre": "IPP demanda final",
+       "modo": "ia",
+       "puntos": [
+        [
+         "2024-11",
+         2.89
+        ],
+        [
+         "2024-12",
+         3.44
+        ],
+        [
+         "2025-01",
+         3.79
+        ],
+        [
+         "2025-02",
+         3.4
+        ],
+        [
+         "2025-03",
+         3.16
+        ],
+        [
+         "2025-04",
+         2.4
+        ],
+        [
+         "2025-05",
+         2.72
+        ],
+        [
+         "2025-06",
+         2.43
+        ],
+        [
+         "2025-07",
+         3.23
+        ],
+        [
+         "2025-08",
+         2.69
+        ],
+        [
+         "2025-09",
+         3.05
+        ],
+        [
+         "2025-10",
+         2.83
+        ],
+        [
+         "2025-11",
+         3.15
+        ],
+        [
+         "2025-12",
+         3.09
+        ],
+        [
+         "2026-01",
+         3.04
+        ],
+        [
+         "2026-02",
+         3.35
+        ],
+        [
+         "2026-03",
+         4.28
+        ],
+        [
+         "2026-04",
+         5.69
+        ],
+        [
+         "2026-05",
+         5.89
+        ],
+        [
+         "2026-06",
+         5.58
+        ],
+        [
+         "2026-07",
+         4.84
+        ],
+        [
+         "2026-08",
+         5.46
+        ],
+        [
+         "2026-09",
+         6.29
+        ],
+        [
+         "2026-10",
+         6.52
+        ]
+       ],
+       "url": "https://fred.stlouisfed.org/series/PPIFIS"
+      }
+     ],
+     "principal": true,
+     "fecha": "2026-12-15",
+     "hora_madrid": "14:30",
+     "anterior": "2026-11-13"
     }
    ],
    "fuente": "Fechas oficiales del BLS, el BEA, el Census y el Dpto. de Trabajo vía FRED",
