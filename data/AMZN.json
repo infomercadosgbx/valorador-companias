@@ -11635,9 +11635,41 @@
    "n_ventas": 58,
    "ventas_con_plan": 385530939.93,
    "compradores": [],
-   "desde": "2026-05-14"
+   "desde": "2026-05-17"
   },
   "operaciones": [
+   {
+    "fecha": "2026-11-13",
+    "codigo": "G",
+    "tipo": "Donación",
+    "acciones": 97404.0,
+    "precio": 0.0,
+    "importe": null,
+    "sentido": "venta",
+    "tras_operacion": 878551932.0,
+    "clase": "Common Stock, par value $.01  per share",
+    "persona": "BEZOS JEFFREY P",
+    "cargo": "Consejero, Executive Chair",
+    "plan_10b5_1": false,
+    "fecha_presentacion": "2026-11-16",
+    "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000044/0001018724-26-000044-index.htm"
+   },
+   {
+    "fecha": "2026-11-12",
+    "codigo": "G",
+    "tipo": "Donación",
+    "acciones": 674088.0,
+    "precio": 0.0,
+    "importe": null,
+    "sentido": "venta",
+    "tras_operacion": 878649336.0,
+    "clase": "Common Stock, par value $.01  per share",
+    "persona": "BEZOS JEFFREY P",
+    "cargo": "Consejero, Executive Chair",
+    "plan_10b5_1": false,
+    "fecha_presentacion": "2026-11-16",
+    "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000044/0001018724-26-000044-index.htm"
+   },
    {
     "fecha": "2026-11-02",
     "codigo": "S",
@@ -13145,6 +13177,42 @@
   ],
   "operaciones_por_filing": [
    {
+    "accn": "0001018724-26-000044",
+    "fecha_presentacion": "2026-11-16",
+    "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000044/0001018724-26-000044-index.htm",
+    "personas": [
+     {
+      "nombre": "BEZOS JEFFREY P",
+      "cargo": "Consejero, Executive Chair"
+     }
+    ],
+    "plan_10b5_1": false,
+    "operaciones": [
+     {
+      "fecha": "2026-11-12",
+      "codigo": "G",
+      "tipo": "Donación",
+      "acciones": 674088.0,
+      "precio": 0.0,
+      "importe": null,
+      "sentido": "venta",
+      "tras_operacion": 878649336.0,
+      "clase": "Common Stock, par value $.01  per share"
+     },
+     {
+      "fecha": "2026-11-13",
+      "codigo": "G",
+      "tipo": "Donación",
+      "acciones": 97404.0,
+      "precio": 0.0,
+      "importe": null,
+      "sentido": "venta",
+      "tras_operacion": 878551932.0,
+      "clase": "Common Stock, par value $.01  per share"
+     }
+    ]
+   },
+   {
     "accn": "0001018724-26-000042",
     "fecha_presentacion": "2026-11-12",
     "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000042/0001018724-26-000042-index.htm",
@@ -14582,7 +14650,7 @@
     ]
    }
   ],
-  "n_formularios": 29
+  "n_formularios": 30
  },
  "riesgos_10k": {
   "version": 4,
@@ -14618,11 +14686,11 @@
  "precio": {
   "minimo_52s": 196,
   "maximo_52s": 287.2,
-  "beta": 1.541797,
-  "valor": 266.66,
-  "cierre_anterior": 267.44,
+  "beta": 1.5381149,
+  "valor": 257.75,
+  "cierre_anterior": 266.66,
   "moneda": "USD",
-  "fecha": "2026-11-13",
+  "fecha": "2026-11-16",
   "fuente": "Finnhub (API oficial, plan gratuito)",
   "url": "https://finnhub.io/"
  },
@@ -14722,279 +14790,276 @@
   {
    "titular": "Amazon data center communities: Here’s what’s happening near data centers across the US in 2026",
    "url": "https://www.aboutamazon.com/news/aws/amazon-data-centers-locations-news?utm_source=rss",
-   "fecha": "2026-11-13",
+   "fecha": "2026-11-16",
    "resumen": "Get the latest updates on how Amazon supports small businesses, creates jobs, sets up sustainability initiatives, and develops educational programs near AWS data centers.",
    "medio": "Amazon (sala de prensa)",
    "tipo": "nota_prensa",
    "via": "Sala de prensa de la compañía"
   },
   {
-   "titular": "Investors Heavily Search Amazon.com, Inc. (AMZN): Here is What You Need to Know",
-   "url": "https://www.zacks.com/stock/news/3029335/investors-heavily-search-amazoncom-inc-amzn-here-is-what-you-need-to-know?cid=CS-ZC-FT-fundamental_analysis|most_searched_stocks-3029335",
-   "fecha": "2026-11-13",
-   "resumen": "Amazon (AMZN) has been one of the stocks most watched by Zacks.com users lately. So, it is worth exploring what lies ahead for the stock.",
-   "medio": "Zacks",
+   "titular": "Watch the teaser trailer for ‘Beast Games’ Season 3, coming to Prime Video December 16",
+   "url": "https://www.aboutamazon.com/news/entertainment/mr-beast-prime-video-beast-games-season-three?utm_source=rss",
+   "fecha": "2026-11-16",
+   "resumen": "MrBeast's competition series goes global, with competitors from 196 nations battling for $5 million.",
+   "medio": "Amazon (sala de prensa)",
+   "tipo": "nota_prensa",
+   "via": "Sala de prensa de la compañía"
+  },
+  {
+   "titular": "Robert Pattinson is the new James Bond",
+   "url": "https://www.aboutamazon.com/news/entertainment/james-bond-robert-pattinson-cast-amazon-mgm-film?utm_source=rss",
+   "fecha": "2026-11-16",
+   "resumen": "Denis Villeneuve is directing the Amazon MGM Studios film from a script by Steven Knight, with Amy Pascal and David Heyman producing and Tanya Lapointe executive producing.",
+   "medio": "Amazon (sala de prensa)",
+   "tipo": "nota_prensa",
+   "via": "Sala de prensa de la compañía"
+  },
+  {
+   "titular": "How DoorDash is using AWS to teach a delivery robot the rules of the road",
+   "url": "https://www.aboutamazon.com/stories/doordash-aws-autonomous-delivery-robot?utm_source=rss",
+   "fecha": "2026-11-16",
+   "resumen": "DoorDash Labs engineers are using Amazon Web Services to pack all the capabilities of an autonomous car into a robot a fraction of the size.",
+   "medio": "Amazon (sala de prensa)",
+   "tipo": "nota_prensa",
+   "via": "Sala de prensa de la compañía"
+  },
+  {
+   "titular": "Watch Arnold Schwarzenegger in Prime’s new holiday ad",
+   "url": "https://www.aboutamazon.com/news/retail/arnold-schwarzenegger-amazon-holiday-ad-santa?utm_source=rss",
+   "fecha": "2026-11-16",
+   "resumen": "“The Man with the Bag” star goes undercover as Santa Claus in New York City in Prime’s 2026 holiday ad, “Santa Schwarzenegger.”",
+   "medio": "Amazon (sala de prensa)",
+   "tipo": "nota_prensa",
+   "via": "Sala de prensa de la compañía"
+  },
+  {
+   "titular": "Blackstone Digital Infrastructure Trust acquires majority stake in AWS joint venture for $5bn",
+   "url": "https://www.datacenterdynamics.com/en/news/blackstone-digital-infrastructure-trust-acquires-majority-stake-in-aws-joint-venture-for-5bn/",
+   "fecha": "2026-11-16",
+   "resumen": "The publicly traded REIT’s inaugural deal covers 13 newly constructed powered shells",
+   "medio": "Data Center Dynamics",
+   "tipo": "sectorial",
+   "via": "RSS del medio"
+  },
+  {
+   "titular": "Planes Collide at Miami Airport, Weeks After Deadly Amazon Crash",
+   "url": "https://www.insurancejournal.com/news/southeast/2026/11/16/892732.htm",
+   "fecha": "2026-11-16",
+   "resumen": "A Copa Airlines passenger jet and a UPS aircraft collided while taxiing at Miami International Airport, just weeks after a fatal cargo-plane crash",
+   "medio": "insurancejournal.com",
    "tipo": "prensa",
    "via": "Marketaux",
    "sentimiento": {
-    "puntuacion": 0.0,
+    "puntuacion": -0.402,
+    "etiqueta": "Bajista"
+   }
+  },
+  {
+   "titular": "Amazon's Zoox Robotaxis Launch in Las Vegas via Uber App (AMZN)",
+   "url": "https://www.gurufocus.com/news/9201480/amazons-zoox-robotaxis-launch-in-las-vegas-via-uber-app-amzn",
+   "fecha": "2026-11-16",
+   "resumen": "On November 16, 2026, Amazon.com Inc (NASDAQ: AMZN) officially began deploying its Zoox autonomous robotaxis in Las Vegas, accessible through the Uber app. This",
+   "medio": "gurufocus.com",
+   "tipo": "prensa",
+   "via": "Marketaux",
+   "sentimiento": {
+    "puntuacion": 0.089,
     "etiqueta": "Neutral"
    }
   },
   {
-   "titular": "What's Going On With AMD Stock Today?",
-   "medio": "Benzinga",
-   "url": "https://www.benzinga.com/markets/tech/26/11/63234451/whats-going-on-with-amd-stock-today-2",
-   "fecha": "2026-11-13",
-   "resumen": "AMD stock jumped over 30% in five days as Nvidia CEO Jensen Huang’s exit accelerated AI chip diversification. See why experts project $77B in AMD data-center sales by 2027.",
+   "titular": "Dow Jones Top Losers: Caterpillar, NVIDIA and Amazon Decline in Nov. 16, 2026 Session",
+   "medio": "ChartMill",
+   "url": "https://www.chartmill.com/news/GS/Chartmill-58758-Dow-Jones-Top-Losers-Caterpillar-NVIDIA-and-Amazon-Decline-in-Nov-16-2026-Session",
+   "fecha": "2026-11-16",
+   "resumen": "Dow Jones components Caterpillar, NVIDIA, Amazon, Alphabet, Boeing and Goldman Sachs moved lower on Nov. 16, 2026. See the session's top decliners and price changes.",
    "tipo": "prensa",
    "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=e525ffa48fb1a0a561415de622b995437cdaeb9cf4cb855405ba7b39d2499d37"
+   "url_finnhub": "https://finnhub.io/api/news?id=f295e7fc05327889f13fb8e29ac77083ed626ffb7962f507e4d9673e2dd3e7b0"
   },
   {
-   "titular": "Broadcom Is 'Very, Very Capable,' Analyst Says As NVIDIA's Troubles Mount",
+   "titular": "Retail Investors Poured $1.6B Into Nvidia In 3 Days, But Many May Already Own More Of The Stock Than They Realize",
    "medio": "Benzinga",
-   "url": "https://www.benzinga.com/markets/tech/26/11/63234374/broadcom-is-very-very-capable-analyst-says-as-nvidias-troubles-mount",
-   "fecha": "2026-11-13",
-   "resumen": "Broadcom (AVGO) is gaining ground in the AI chip race as tech giants look beyond NVIDIA amid leadership challenges and custom chip demand.",
+   "url": "https://www.benzinga.com/personal-finance/management/26/11/63293429/retail-investors-poured-1-6b-into-nvidia-in-3-days-but-many-may-already-own-more-of-the-stock-than-they-realize",
+   "fecha": "2026-11-16",
+   "resumen": "Retail investors poured $1.6 billion into Nvidia (NASDAQ:NVDA) shares in just three trading days, buying aggressively as the chipmaker’s stock suffered a sharp sell-off. But some of those investors may already have",
    "tipo": "prensa",
    "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=1276a02068fe47f1f72e82ff17005db57c39008868bbc4045a8dfd9986580857"
+   "url_finnhub": "https://finnhub.io/api/news?id=71828e2017db7c5d94f469c341df47b0663a34a741388f397a7ec07e3cd3bfe3"
   },
   {
-   "titular": "NVIDIA's Board Was 'Very Deferential' To Jensen Huang: Expert",
+   "titular": "'US moves to tighten AI chip export rules' - Financial Times",
    "medio": "Benzinga",
-   "url": "https://www.benzinga.com/markets/tech/26/11/63232830/nvidias-board-was-very-deferential-to-jensen-huang-expert",
-   "fecha": "2026-11-13",
-   "resumen": "Is NVIDIA a bargain at 10x forward earnings or a value trap? Analysts weigh AI demand against Jensen Huang’s exit and competition.",
+   "url": "https://www.benzinga.com/news/26/11/63292997/us-moves-tighten-ai-chip-export-rules-financial-times",
+   "fecha": "2026-11-16",
+   "resumen": "https://www.ft.com/content/e5275763-d7e2-4857-8ac6-6b888111986a?syn-25a6b1a6=1",
    "tipo": "prensa",
    "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=db0773f3c0a6be7f8224029b248b579712775ca6f470d3d221feed5b5ff92719"
+   "url_finnhub": "https://finnhub.io/api/news?id=52ce0cf113fde1986466bfa1a7dc93cd2b43c1fb304968c77504711c8fc38139"
   },
   {
-   "titular": "'Amazon’s plan to own the world’s product data and fight AI shopping agents' - Reuters Exclusive",
+   "titular": "Scott Galloway Says He's Gone Broke Twice, Built Wealth 3 Times. Now He's Warning Americans To Stop Being Earners, Start Owning Assets",
    "medio": "Benzinga",
-   "url": "https://www.benzinga.com/news/26/11/63232649/amazon-s-plan-own-world-s-product-data-and-fight-ai-shopping-agents-reuters-exclusive",
-   "fecha": "2026-11-13",
-   "resumen": "https://www.reuters.com/business/media-telecom/amazons-plan-own-worlds-product-data-fight-ai-shopping-agents-2026-11-13/",
+   "url": "https://www.benzinga.com/personal-finance/management/26/11/63292683/scott-galloway-says-hes-gone-broke-twice-built-wealth-3-times-now-hes-warning-americans-to-stop-being-earners-start-owning-assets",
+   "fecha": "2026-11-16",
+   "resumen": "He went broke twice and built wealth three times.\n\n\n\nScott Galloway, an NYU Stern professor and entrepreneur, thought he would start a company and sell it for millions, so putting $2,000 into a retirement account seemed",
    "tipo": "prensa",
    "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=1438697f3822790efba81430c4fd6cd6fc2329e3eb7e9bafc6e676754e656212"
+   "url_finnhub": "https://finnhub.io/api/news?id=f11d584b75922bbec478956c3d2c7044dca9830e2ed6aab22b523be0018fd41b"
   },
   {
-   "titular": "Kevin O’Leary Backs Elon Musk’s Starlink as United CEO Calls It ‘Biggest Near-Term Competitive Advantage’ in 100 Years, Says Amazon Leo Is ‘A Mistake’",
+   "titular": "Steve Eisman Says Slower AI Spending Could Help Big Tech and Hurt CoreWeave",
    "medio": "Benzinga",
-   "url": "https://www.benzinga.com/markets/tech/26/11/63231543/kevin-oleary-backs-elon-musks-starlink-as-united-ceo-calls-it-biggest-near-term-competitive-advantage-in-100-years-says-amazon-leo-is-a-mistake",
-   "fecha": "2026-11-13",
-   "resumen": "Kevin O’Leary backs Starlink as United’s CEO touts its Wi-Fi lead, rapid rollout and edge over Delta’s Amazon Leo choice.",
+   "url": "https://www.benzinga.com/markets/prediction-markets/26/11/63291088/coreweave-ai-slowdown",
+   "fecha": "2026-11-16",
+   "resumen": "Steve Eisman says slower AI spending could expose CoreWeave’s debt-heavy model even as lower capex helps Big Tech.",
    "tipo": "prensa",
    "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=0cb96f83339fa42a7ea8fe9901bfb3674ded118b9f3a6a1b9084345d5e3aa0b7"
+   "url_finnhub": "https://finnhub.io/api/news?id=ed85ec3e01b31bb18fe893840becb435fca1a6f8ae10031088bc0dce085e0f80"
   },
   {
-   "titular": "Ed Bastian Says Delta Will Take ‘Nuanced’ Approach to AI Agents, Warns Oil Shock May Not Be ‘Behind Us’",
+   "titular": "'OpenAI Explored $5 Billion–Plus Acquisition of Startup That Decodes How AI ‘Thinks’' - The Information",
    "medio": "Benzinga",
-   "url": "https://www.benzinga.com/news/travel/26/11/63231528/ed-bastian-says-delta-will-be-nuanced-in-its-approach-to-ai-agents-looking-for-cheaper-fares-warns-oil-shock-may-not-be-behind-us",
-   "fecha": "2026-11-13",
-   "resumen": "Delta CEO Ed Bastian says Delta will cautiously adopt AI agents, prioritizing privacy and learning while seeking productivity gains.",
+   "url": "https://www.benzinga.com/m/26/11/63289928/openai-explored-5-billion-plus-acquisition-startup-decodes-how-ai-thinks-information",
+   "fecha": "2026-11-16",
+   "resumen": "https://www.theinformation.com/articles/openai-explored-5-billion-plus-acquisition-startup-decodes-ai-thinks",
    "tipo": "prensa",
    "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=3b8563f1b836abedcf7ade98f2e3b1a4d9f44cef2b67dc6bcaa1109a8b934c85"
+   "url_finnhub": "https://finnhub.io/api/news?id=a9e5af4b3baee0b83ac831949f856ffa78693c23b5b9f11b61902c6b9666d1b4"
   },
   {
-   "titular": "EXCLUSIVE: Amazon’s plan to own the world’s product data and fight AI shopping agents",
-   "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQY2FJOXhDLWZqYzRxQ3BNVGRyeDNGWGZYU0VwNm5PV09tWGVwRklHdGFQaDRGWEQwM3pBZ1g2X0lYQVFGUU9RdHhyVk9kSnhrcWxob3o2ZUVNTE5SWW5OSWtkZEVlZm83ZUdrZHJ6X1N6bjhqT2F2WWxpWXVaUGhBZldsU0N5MEhjS19yR1pJcFlDN2N4ekpfWDZmR1FPT3k4eGY0bkdEQldjVnVZX21BYlVXX0h4d1JwbFVSaQ?oc=5",
-   "fecha": "2026-11-13",
+   "titular": "Uber Riders in Vegas Can Now Get Driverless Zoox Robotaxi",
+   "medio": "Benzinga",
+   "url": "https://www.benzinga.com/markets/tech/26/11/63287514/uber-riders-in-vegas-can-now-get-driverless-zoox-robotaxi",
+   "fecha": "2026-11-16",
+   "resumen": "Uber launches Zoox robotaxis in Las Vegas, expands Best Buy electronics delivery in Canada, and backs 5,000 EVs in India.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=df5af0362763225312d2be29117f9aee1949a721fc41692d9469e79e1a3eee92"
+  },
+  {
+   "titular": "Blackstone Digital Infrastructure Trust to Acquire Data Center Portfolio from Amazon for $5 Billion",
+   "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPYndUelZNd1UyOUZYQ1lmZVZYQmJ5SE9KNExiVV9hYUFpdlpTQ19lUnVyMFJJMF9VSjMtam9uT0ZCQnhrUzlCWWlJT0wxOW5Oak5jSTRkRTFTV3dlcUcxdDZJRjdjVW9pekpRb3pocUdweV83eUh5UzlFLXdQQ1FtaVlkNm1OblY0c3A2UGl3S24wbERRWEdIb2FUbmNKZjhZQjdPd3MwenVTLWdLTjZmT1l1bUY1cjlWRTY1bzRUWUJFSENTb0NQTlY4RGFjYjJXOXNPTGQ0d1RqZw?oc=5",
+   "fecha": "2026-11-16",
    "resumen": "",
-   "medio": "Reuters",
+   "medio": "WSJ",
    "tipo": "prensa",
    "via": "Google News"
   },
   {
-   "titular": "Amazon revives deal with troubled data centre venture backed by Rick Perry",
-   "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxORUJReUY4aWVzV1dsSmNsdDlBQ29HTTBlZEFTaFRGSmlPX0FnOWZwZTdwTHRBNmY0bV9kYWRKU0hVaDdTOFdDcFF6Ty1SVEZUMFdDWUJqNjFQcnMyTk1vR2QyM3lvZXk3RXlqVzhpR2NFZXFkY1NYcnNnOVJyYlU1dlJnaVI?oc=5",
-   "fecha": "2026-11-13",
+   "titular": "Blackstone REIT to Buy Amazon Data Centers in $5 Billion Deal",
+   "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxONmdvREdrMXNHU3B6VVdldWdxVWswUnNjeXU4T2xGTlFfeDkyRzg0YkRweTdtZnhJNEZQcDRIMkR0NEw4Zk5QVzFfVllmMlI2OHFZeFRUMnVLRzIzSUY1U0RVSnZma2lZQjZORXIxSjZYck1fMExpMDVncXRka0dPby1tSW14SU40eDUtTnR2SmU2N0lNN243MkRlM01xQmpJeGtXT2wwelpPcXhET1lnQg?oc=5",
+   "fecha": "2026-11-16",
+   "resumen": "",
+   "medio": "Bloomberg",
+   "tipo": "prensa",
+   "via": "Google News"
+  },
+  {
+   "titular": "Vulcan Rocket Mishap Hurts Amazon’s Satellite Aspirations",
+   "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPbWFvZXRFV05GQ1p5aXJpNGlkVTM0RGozcHF5YjdSX1NRV0kxYVQyMDRQcVpsZl9LWm1OVTVmU29nR24xTzA0SHo3Mk1GREUzRDBOZDNJYzNRWERJaTh5X0xrQmpDZ1ZJZVBjdFFBUXVBWi1aSVpWUF9WcXRHYk1EUg?oc=5",
+   "fecha": "2026-11-16",
+   "resumen": "",
+   "medio": "Barron's",
+   "tipo": "prensa",
+   "via": "Google News"
+  },
+  {
+   "titular": "Uber Starts Offering Amazon’s Driverless Zoox Rides in Las Vegas",
+   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOcXdqaVIzMmoxQXdXNG9EZWtCMnpSNTB4Z1duZEEzUGt2N2p1SUZpc1IzNTJKb2VwUVIxZVBDTFNfU1hSNVdFT0JuN25zOHdCc1J6YUgyUTV1LXV6ZjRpcnk2YVpQS0RmMTZsSk1hamVNbUp3cjVjWWQzQ041SG5OZnZuLUVubzFqa1Uyb2lqZEEtZTA2QmdQLVptNkt4UlRXRi1KS01sV1BIaFF4Vk15WE9WcU53Zw?oc=5",
+   "fecha": "2026-11-16",
+   "resumen": "",
+   "medio": "Bloomberg",
+   "tipo": "prensa",
+   "via": "Google News"
+  },
+  {
+   "titular": "Pattinson. Robert Pattinson: Amazon unveils the next James Bond",
+   "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNNlNCRlZGLUNDR2FBc2RDRWVzcEY2eldjWlJkSnR2Ukp2UERLVXRfYUd1aWZmYk4yTXNnUGwydHF2N2hKZUo1VFNqWjhITkxjckt6TFhCN1E2YmlDcFgxVlA1Tks2Qm40NWJvaFZKbUlPNHVOSFVyOEtZTnJ2RVJVS1dsZEU?oc=5",
+   "fecha": "2026-11-16",
    "resumen": "",
    "medio": "Financial Times",
    "tipo": "prensa",
    "via": "Google News"
   },
   {
-   "titular": "Amazon: AI Bet Getting Riskier",
-   "url": "https://seekingalpha.com/article/4967796-amazon-ai-bet-getting-riskier?source=feed_symbol_AMZN",
-   "fecha": "2026-11-13",
+   "titular": "SpaceX Rival's Rocket Failure Destroys 40 Amazon Satellites",
+   "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQYjFiUTduZWFLVmlUemd4SmlPYUpnSG9QLWpycTFfbmxpMEwtd1MxbnJpVU1vYnNoMlYtSG8xOEJjOThHQnI3NWQ0NVlybzAtbG5XbnJfR1o0d3M5ZjJaMTA4RVNrdVlmR2duc0ljd2VYTl80ajAyME1HMjU5VWRrb2hkSGdPdzNHc0JHRnktMG5tc29aTjAwN09OSUpSLU1KNTM3ZlllUFZJOHNrRkE?oc=5",
+   "fecha": "2026-11-16",
    "resumen": "",
-   "medio": "Seeking Alpha",
-   "tipo": "prensa",
-   "via": "RSS de Seeking Alpha"
-  },
-  {
-   "titular": "Amazon's plan to take on AI agents is to scoop up all the shopping data",
-   "url": "https://seekingalpha.com/symbol/AMZN/news?source=feed_symbol_AMZN",
-   "fecha": "2026-11-13",
-   "resumen": "",
-   "medio": "Seeking Alpha",
-   "tipo": "prensa",
-   "via": "RSS de Seeking Alpha"
-  },
-  {
-   "titular": "Cerebras stock surges on Microsoft deal: What it means for Nvidia",
-   "medio": "Yahoo Finance",
-   "url": "https://finance.yahoo.com/video/cerebras-stock-surges-on-microsoft-deal-what-it-means-for-nvidia-213123807.html",
-   "fecha": "2026-11-13",
-   "resumen": "Deirdre Bosa outlines how various AI companies are storming the AI castle and searching for Nvidia (NVDA) alternatives, such as Cerebras' (CBRS) deal with Microsoft (MSFT).",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=b749c047c398794b579255970d097d582b48edc9bbfde7b80ffe7cacfa983674"
-  },
-  {
-   "titular": "Alibaba’s (BABA) AI Growth Prospects Remain Masked by Short-Term Challenges",
-   "medio": "Yahoo Finance",
-   "url": "https://finance.yahoo.com/technology/ai/articles/alibaba-baba-ai-growth-prospects-205249409.html",
-   "fecha": "2026-11-13",
-   "resumen": "Alibaba Group Holding Limited (BABA) offers promising artificial intelligence (AI) growth prospects, but its short-term struggles continue to weigh on the stock. The Chinese tech giant has failed to gain traction following its regulatory nightmare in 2020. In the past 12 months a",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=22bbe28f5c60d124cadc05f21bf12af3503807cdffe917024fe515ab7fe5ea93"
-  },
-  {
-   "titular": "Sector Update: Consumer Stocks Mixed Late Afternoon",
-   "medio": "Yahoo Finance",
-   "url": "https://finance.yahoo.com/markets/stocks/articles/sector-consumer-stocks-mixed-afternoon-204247882.html",
-   "fecha": "2026-11-13",
-   "resumen": "Consumer stocks were mixed late Friday afternoon, with the State Street Consumer Staples Select Sect",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=377481e8996c0e10b5c8220d2adebaa9baea179035e5ccb61147b28920ad88d8"
-  },
-  {
-   "titular": "Amazon Prime and Uber Eats partnership: $0 delivery fees on $25+ orders for Prime members",
-   "medio": "Yahoo Finance",
-   "url": "https://finance.yahoo.com/personal-finance/credit-cards/article/amazon-prime-and-uber-eats-partnership-0-delivery-fees-on-25-orders-for-prime-members-190333148.html",
-   "fecha": "2026-11-13",
-   "resumen": "As of November 5, 2026, Amazon has partnered with Uber Eats to offer Amazon Prime members a new benefit: $0 delivery fees on qualifying orders of $25 or more.",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=54c9e65c2148f98694aec210e32a8507d2a2d62131fc006202a05b6037e49f34"
-  },
-  {
-   "titular": "Jensen Huang fallout at Nvidia, Anthropic ready for IPO, United bans AI agents",
-   "medio": "Yahoo Finance",
-   "url": "https://finance.yahoo.com/video/jensen-huang-fallout-at-nvidia-anthropic-ready-for-ipo-united-bans-ai-agents-184327833.html",
-   "fecha": "2026-11-13",
-   "resumen": "Host and Kelly Intelligence Founder, CEO & CCO, Kevin Kelly, and his panel of experts weigh in on what comes next for Jensen Huang and Nvidia (NVDA), and United Airlines (UAL) banning AI agents, citing data concerns and federal regulations. Plus, what questions remain for Anthrop",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=27812cb7dd12f487d092de8097e4eed1f102e53168b09cb988f043e06a56048a"
-  },
-  {
-   "titular": "Sector Update: Consumer Stocks Mixed in Afternoon Trading",
-   "medio": "Yahoo Finance",
-   "url": "https://finance.yahoo.com/markets/stocks/articles/sector-consumer-stocks-mixed-afternoon-183352371.html",
-   "fecha": "2026-11-13",
-   "resumen": "Consumer stocks were mixed Friday afternoon, with the State Street Consumer Staples Select Sector SP",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=9746c97187b14923b7e1e29a78209021aca36d8e6943d64cf4e32d82ea06421f"
-  },
-  {
-   "titular": "How Amazon is building an internet network 400 miles above Earth",
-   "url": "https://www.aboutamazon.com/stories/how-amazon-leo-satellite-internet-works?utm_source=rss",
-   "fecha": "2026-11-12",
-   "resumen": "See how Amazon's growing constellation of custom-built satellites will work together to bring internet connectivity anywhere on the planet.",
-   "medio": "Amazon (sala de prensa)",
-   "tipo": "nota_prensa",
-   "via": "Sala de prensa de la compañía"
-  },
-  {
-   "titular": "Amazon in the community: Service, community, and commitment at HQ2",
-   "url": "https://www.aboutamazon.com/news/community/amazon-arlington-virginia-news?utm_source=rss",
-   "fecha": "2026-11-12",
-   "resumen": "Learn how we invest in the community, help power the local economy, and support our employees in the National Capital Region.",
-   "medio": "Amazon (sala de prensa)",
-   "tipo": "nota_prensa",
-   "via": "Sala de prensa de la compañía"
-  },
-  {
-   "titular": "Amazon in the community: Here’s what’s happening in Seattle, Bellevue, and the Puget Sound",
-   "url": "https://www.aboutamazon.com/news/community/amazon-seattle-bellevue-puget-sound-news?utm_source=rss",
-   "fecha": "2026-11-12",
-   "resumen": "Learn how we invest in the community, help power the local economy, and support our employees in the Puget Sound region.",
-   "medio": "Amazon (sala de prensa)",
-   "tipo": "nota_prensa",
-   "via": "Sala de prensa de la compañía"
-  },
-  {
-   "titular": "The best books of 2026, according to the Amazon Editors",
-   "url": "https://www.aboutamazon.com/news/books-and-authors/best-books-of-the-year-2026?utm_source=rss",
-   "fecha": "2026-11-12",
-   "resumen": "Min Jin Lee’s ‘American Hagwon,’ her anticipated follow-up to ‘Pachinko,’ comes in at No. 1 from Amazon’s wide selection this year.",
-   "medio": "Amazon (sala de prensa)",
-   "tipo": "nota_prensa",
-   "via": "Sala de prensa de la compañía"
-  },
-  {
-   "titular": "Amazon ranks No. 1 on Forbes’ list of America’s Best Companies for 2027",
-   "url": "https://www.aboutamazon.com/news/workplace/amazon-forbes-best-companies-2027?utm_source=rss",
-   "fecha": "2026-11-12",
-   "resumen": "The annual ranking evaluates U.S. companies across metrics like employee sentiment, customer sentiment, and innovation. Here’s how Amazon earned the top spot.",
-   "medio": "Amazon (sala de prensa)",
-   "tipo": "nota_prensa",
-   "via": "Sala de prensa de la compañía"
-  },
-  {
-   "titular": "AWS launches Chile cloud region for \"select customers\"",
-   "url": "https://www.datacenterdynamics.com/en/news/aws-launches-chile-cloud-region-for-select-customers/",
-   "fecha": "2026-11-12",
-   "resumen": "General availability to follow",
-   "medio": "Data Center Dynamics",
-   "tipo": "sectorial",
-   "via": "RSS del medio"
-  },
-  {
-   "titular": "MGK: The Hyperscalers Are On Sale",
-   "medio": "Seeking Alpha",
-   "url": "https://seekingalpha.com/article/4967581-mgk-the-hyperscalers-are-on-sale",
-   "fecha": "2026-11-12",
-   "resumen": "Analyst rates MGK ETF a Strong Buy: it offers accumulation near its 200-day average as hyperscalers may turn AI capex into revenue and earnings growth.",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=23b8ed47b7aa89601c6c491f0c31b62aab28fc0d49a5336575c0512b6b2b38a1"
-  },
-  {
-   "titular": "Tracking Mario Gabelli's Gabelli Funds 13F Portfolio - Q3 2026 Update",
-   "medio": "Seeking Alpha",
-   "url": "https://seekingalpha.com/article/4967547-mario-gabelli-gabelli-funds-13f-portfolio-q3-2026-update",
-   "fecha": "2026-11-12",
-   "resumen": "Gabelli Fundsâ Q3 2026 13F portfolio fell to $15.10 billion across 1,200+ positions, trimming Nvidia and Alphabet while adding Microsoft. See more here.",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=7bd28dfd11723edb2efe993243c92ae5417a254590e3c5c6ddd8db9f9e734390"
-  },
-  {
-   "titular": "Amazon Leo acelera el despliegue: lanzará 40 nuevos satélites para competir con Starlink",
-   "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOWUdPQlA5X1pTUWpIWFFiMHI5VVhGSTdtMUlEU25IOXNsaTNfaXZrN0xTMjNaRDBMSThQVlNhV2o5b3V3NGphbWp0WWJHV0FrSXpDSzBfSVJnSXRDMWZoUzk3UUtBSVNxeGVuMzBqSHBoVUdmay1QM1dVU1g0QnBJZEZIbHhDQVRsMGYzVlBCamRIVUVzQ1pSUVU4V1g0dUhmVVBGRGJYMDhnYlpRX0HSAcIBQVVfeXFMT19jRW5IZHBBTE5XdDFoVWNheVB3Nkg2Z1doNVFqd2t5TjVXLUtYdlQ3Y0ZHdTI3aGMxMzJvdWRGZFJZbnFLT21MYV8zdU5GWk8yblZoc1k5RFJWOFJsTWxTNTZXZmQ4ZWpsNUo2Ni1KVHk1OXdCa2p5Y0VJdlJQRkV0MlowbjVrS1BJRUZYZnlVOGY4cjBNdHhmc2xFTzVWN2V5aXlwcUF0WVZWWndTZ1loNTA1ME80VGNxeXFhcTg5MHc?oc=5",
-   "fecha": "2026-11-12",
-   "resumen": "",
-   "medio": "Cinco Días",
+   "medio": "Bloomberg",
    "tipo": "prensa",
    "via": "Google News"
   },
   {
-   "titular": "Amazon Alexa Tablet 12 Pro, 11 y 8: ¿cuál merece la pena comprar?",
-   "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOX3NLM0ZKNS0tMml0amt3NXRUZmNocUxtZHhGUW9KdTlpejVYMEJVeEQ4ZUpUMF9naEFTLU1KckNORXRaNHZuaXExNmM2SWNydnI3OU1USHVyLVNKOTdXTGdlci15NWYyRHB1OVlDMk5VQS11TFNIRDF0ejdWb1JIYVQ1WjJ6RlZpbE5yVkRIOW04WEFoZk9PVENpbE9VcXdPN1h5UGl5LU5DelVJZVlNeHRVcDk0UHpCdUMyTU9CdGE1TDTSAcgBQVVfeXFMT2NqQUY2czA5VHVSaVVfVWNfR3Yxc09VZHd0M2VyT1BRMFkwSjktMER4Zk1kaVNpVGtHdi1fdlBCWUJmWGMwNlRTVjU5cmlzdFc5dWtXT1JXWlhiSnliSHZIMFhkSVN2Wkdab2wwVVA4WG91NUJQdVg5QkxJSEJZazBicWtkZFRnTjNnRTZoVHAzYzN4MmZITTlXWC1UTndDOUp4Q195YmdZOTZTRmZFNW4wOGNWVjJNdkdaRXhFQnlSZGVSVWowMHY?oc=5",
-   "fecha": "2026-11-12",
+   "titular": "Amazon vows to fight the company's first North American union contract at a Canadian warehouse",
+   "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNNXdITnU2RmZGXzFuMDh5UkpGVVM5Nm5QdjNYdlF3Vzk1dWtySF83ZlNTbnhTcllwZkVVT0x0dVp0XzU4U0daYkxiQnVUckFmTlB3a3J2SDVJcGhsd0EwM0xoZWZpZFZFX0JyR1VVYlM0eXp1QlE4ZWFleGZkY0dQMHl1bGQybXRJbWR4N1JZcXA?oc=5",
+   "fecha": "2026-11-16",
+   "resumen": "",
+   "medio": "AP",
+   "tipo": "prensa",
+   "via": "Google News"
+  },
+  {
+   "titular": "Pope Leo XIV travels into the Peruvian Amazon and demands justice for environmental defenders",
+   "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxPX1p1cTZpN2FjdkZ6ZElLNks1ZUNtOVQ2VWI3X2NkSDQ3Z3ExM1pxbk56UVB1ZUt1STc3NVgzTThDN2dBRWw0T3JZNVRXZ3l4bTh3NUt5NEtjbkRDT1dVeHBKYXpHVW5UaEtXY2ZwREVaYW1iOHRlZFlwZWI1eVdmNk9fNFJsV0l5UVFnV1QxMUtyX19uWFBzZjNSNFJoRzVUdXo0UHpRSTFWVWJGelVoV0dsX3BPZTM3bTNkM0s5cmRYdEZIMjhuSkNrcUhncDNpVXVvWUpIZVcyRzUxYTBRbVpWTWtrdw?oc=5",
+   "fecha": "2026-11-16",
+   "resumen": "",
+   "medio": "AP",
+   "tipo": "prensa",
+   "via": "Google News"
+  },
+  {
+   "titular": "Blackstone compra a Amazon una cartera de centros de datos valorada en 5.000 millones",
+   "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPdjBKN091NmM5UmZrSWU4amVxYVZVWTNmVHdUZUlYSENJb2Z4UmNGT0xQMl82V2ZIWVh0TE8yQ0pZc1lMdldZb0JMY01HR1hMbG14QVlmZE5TWWoyZzM2SjRjOU1jbGJQdUFUQzVjRDdmTlRacWdMa2YyMWFSTHZYcDRrQ0psbmZ4OWVKclAxWko5Q2ItY05acjFnQ25CMU5pUjE2aUNTZi15ZE5GTWc?oc=5",
+   "fecha": "2026-11-16",
+   "resumen": "",
+   "medio": "El Confidencial",
+   "tipo": "prensa",
+   "via": "Google News"
+  },
+  {
+   "titular": "Amazon Prime Video",
+   "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1iOU1SYUtJRXN5NV9ybjUwQS1lMUFtVUk3N2RVd0tFTHBaMjd3SjdKaDE1SDNDdi15OS1OeDRSVmJzVTFfeTJ6NHJrMTdVYWxsczFfUjlJYnJwYldxNG5Yd2N4MDZ6MGxZYWVWME1MTQ?oc=5",
+   "fecha": "2026-11-16",
+   "resumen": "",
+   "medio": "SincroGuia TV",
+   "tipo": "prensa",
+   "via": "Google News"
+  },
+  {
+   "titular": "Red Carpet Amazon Channel",
+   "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPY25CMkRhQjZpRDM4M0pvb3BZalZWWXZ1UldpbWhMUnNqUnBoaHZjcHNHWGJObjMzb3o5VWhsblVtVlFHcjVSSVNRdkhoREpWOVdvbUg5NHE0Y3FiV0FZX19GS2NydF9TYWkyZXVRSjFJTUhJM1ZzSzVXSUtZR1ZldVZpanp0SEFmVTg3WGFZUGh6VmVWWkdF?oc=5",
+   "fecha": "2026-11-16",
    "resumen": "",
    "medio": "La Vanguardia",
    "tipo": "prensa",
    "via": "Google News"
   },
   {
-   "titular": "Pola Jankowska, psicóloga: \"Tratamos a las parejas como un pedido de Amazon; si algo no nos gusta, lo reemplazamos\"",
-   "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPOTNhTzhxNUsxZHRzdzN3dmlXeTVhVEc0aHhrVWJDOEpHb01YeHdjSDBmMjdZeDFhQ1pXRGhjc0ZtX1d6VmlGTmlvWHZJY2d3bG5EaHdVWm1neTFtbzFqdHIxQzJJSU5BU2x6ZXp0a2I1SXNET01MSHRJeEEyMEpNaWV1TmlfR3M0LW1QVW1R?oc=5",
-   "fecha": "2026-11-12",
+   "titular": "Jonu Play Amazon Channel",
+   "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQNFcwbUJvbGFpMV9BalM5UlQ5bjYtSDdJdFpLQV9ud1ZYVE5uNHFuZlVhVlF0UFlsZXR0SWJBSmozNlZyc1N4RmZFbTExWWpoLTJvY0o4cnhFSDY1Y3lSVS1wTE93Z2hGSWpZaHlhNU0wb1k3Y2JFYm01NVYwT0NlVUNFUEh6VnN4Tl80dE1nTWVTeW5pLXc?oc=5",
+   "fecha": "2026-11-16",
    "resumen": "",
-   "medio": "El Mundo",
+   "medio": "La Vanguardia",
+   "tipo": "prensa",
+   "via": "Google News"
+  },
+  {
+   "titular": "Robert Pattinson es el nuevo James Bond: Amazon MGM confirma al séptimo 007 y pone a Denis Villeneuve tras la cámara",
+   "url": "https://news.google.com/rss/articles/CBMijAJBVV95cUxOSVBESHNCeGJ5d0JsVjlwSW53ZFRaYUdnWkRTMldYODZHeGRIdnMzaTV6YmZUaUM3SnUwdFFvdFM5ZXhBZy1VZkF6NTIxOWs2aHZVM3ZRcXFYcUNacDBhT2g4dkZtOXJGVDBjOWs0a0FzRHc2Z1V0eDFZMjFRenZFQlNGMDQzdVBtQ24yQV9vZXVEZjJyOUc3RGhhNnlVeVp6dEZfNWNPWG1zOTM5NnpNR2FwN2VWNGpsR2V2RmhlZDZFTEVadUdFQzcwWl82VTFWQXlVeVNNcExFeEZleThRXzVxRGxOai1Rckk1QzZJQzlWRllfMHU3MC15N19PMkU4YXRXZVJNMFNwM0Nn0gH3AUFVX3lxTE92REF5VUI1NWpTVjhYaDB4bDcwZW10Q3M3MjFSLWl0RXZ0QWI2Y3k5YnllbEdMYVlsVlV4SGVjakQ4c3BBLVI3R2JuaThoQTVOQlBHb2gtZ2tYV0c1M0pLS3MxczNydXU0eUFKUUFwcHNJVlUtZlI2SDJvQXpOaXhva25TUXlsOE1yVUR4dGRob0w5WHRTdjVZczZqeDZheHZEYmczWTI2aWdTN3RYTXNqV2RQR2lYeWlaOThrUEkzVkhMRGxmNEVVZno2SkVySzJPWUZfV3BEWU9WR0VjcmRSTDZJSWlwcVZ3ZDFXZnlkNldnam1BYjQ?oc=5",
+   "fecha": "2026-11-16",
+   "resumen": "",
+   "medio": "El Economista",
+   "tipo": "prensa",
+   "via": "Google News"
+  },
+  {
+   "titular": "Infinity+ plan familiar Amazon Channel",
+   "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOV2hqVlpHZEw1MmpvajNIMjZCdU9ZaEpsSl9YZWxkTzdmTWhGYjRBamZYTXItaUhIQ1pYck9DRncyNHVzalpjd2hkM0JucDBieDZ5Y0hBb2N5WkVqSURyZkd0NTJNVE1SMXZ0RE00YnpWR2pCZ1Y4Y0JpTGRJRnRBbmp4N3ZDd3MxelNRLXpNbm9aVDI2cUNhenhQeFk4djIwZEJkZ0phbw?oc=5",
+   "fecha": "2026-11-16",
+   "resumen": "",
+   "medio": "La Vanguardia",
    "tipo": "prensa",
    "via": "Google News"
   },
@@ -15014,13 +15079,13 @@
    "fuente": "StockTwits (API pública)",
    "url": "https://stocktwits.com/symbol/AMZN",
    "mensajes": 30,
-   "alcistas": 11,
-   "bajistas": 4,
-   "pct_alcista": 73,
-   "seguidores": 711419,
-   "desde": "2026-11-13",
-   "hasta": "2026-11-13",
-   "fecha": "2026-11-13"
+   "alcistas": 5,
+   "bajistas": 2,
+   "pct_alcista": 71,
+   "seguidores": 711733,
+   "desde": "2026-11-16",
+   "hasta": "2026-11-16",
+   "fecha": "2026-11-16"
   }
  },
  "noticias_fuentes": {
@@ -15041,23 +15106,23 @@
    },
    "Google News": {
     "ok": true,
-    "titulares": 41
+    "titulares": 67
    },
    "Seeking Alpha": {
     "ok": true,
-    "titulares": 19
+    "titulares": 22
    },
    "Marketaux": {
     "ok": true,
-    "titulares": 1
+    "titulares": 2
    },
    "RSS de medios": {
     "ok": true,
-    "titulares": 0
+    "titulares": 1
    },
    "Sala de prensa": {
     "ok": true,
-    "titulares": 10
+    "titulares": 9
    },
    "StockTwits": {
     "ok": true,
@@ -15067,10 +15132,6 @@
  },
  "historico_precio": {
   "serie": [
-   [
-    "2021-08-13",
-    164.6985
-   ],
    [
     "2021-08-16",
     164.9495
@@ -20346,18 +20407,22 @@
    [
     "2026-11-13",
     266.66
+   ],
+   [
+    "2026-11-16",
+    257.75
    ]
   ],
   "fuente": "Twelve Data (API oficial, plan gratuito)",
   "url": "https://twelvedata.com/",
-  "fecha": "2026-11-13",
+  "fecha": "2026-11-16",
   "ajuste": "splits"
  },
- "generado": "2026-11-13T23:49:44+00:00",
+ "generado": "2026-11-16T23:52:53+00:00",
  "peers": {
   "fuente_lista": "manual",
   "fuente_cifras": "SEC EDGAR (companyfacts, UDM) · precio Finnhub",
-  "actualizado": "2026-11-13",
+  "actualizado": "2026-11-16",
   "propia": {
    "ingresos": 797455000000,
    "crecimiento": 15.35,
@@ -20375,13 +20440,13 @@
    "informe": "10-Q",
    "informe_fecha": "2026-10-30",
    "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/0001018724-26-000040-index.htm",
-   "precio": 266.66,
-   "capitalizacion": 2883431460677.9604,
-   "ev": 2949537460677.9604,
-   "per": 21.39,
-   "precio_ventas": 3.62,
-   "ev_ebitda": 16.05,
-   "rentabilidad_fcf": -1.63,
+   "precio": 257.75,
+   "capitalizacion": 2787086398371.5,
+   "ev": 2853192398371.5,
+   "per": 20.68,
+   "precio_ventas": 3.49,
+   "ev_ebitda": 15.53,
+   "rentabilidad_fcf": -1.68,
    "deuda_neta_ebitda": 0.36,
    "ticker": "AMZN",
    "nombre": "Amazon",
@@ -20392,7 +20457,7 @@
     "ticker": "WMT",
     "nombre": "Walmart",
     "cik": "0000104169",
-    "calculado": "2026-11-09",
+    "calculado": "2026-11-16",
     "soportada": true,
     "version": 3,
     "logo": "logos/WMT.png",
@@ -20409,26 +20474,26 @@
     "ebitda": 47373000000,
     "fcf": 13509000000,
     "caja": 11529000000,
-    "deuda": 39932000000,
+    "deuda": 50411000000,
     "acciones": 7933746241,
     "periodo_fin": "2026-07-31",
     "informe": "10-Q",
     "informe_fecha": "2026-08-28",
     "url": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000154/0000104169-26-000154-index.htm",
-    "precio": 128.09,
-    "capitalizacion": 1016233556009.6901,
-    "ev": 1044636556009.6901,
-    "per": 46.03,
+    "precio": 128.41,
+    "capitalizacion": 1018772354806.8099,
+    "ev": 1057654354806.8099,
+    "per": 46.15,
     "precio_ventas": 1.4,
-    "ev_ebitda": 22.05,
+    "ev_ebitda": 22.33,
     "rentabilidad_fcf": 1.33,
-    "deuda_neta_ebitda": 0.6
+    "deuda_neta_ebitda": 0.82
    },
    {
     "ticker": "COST",
     "nombre": "Costco Wholesale",
     "cik": "0000909832",
-    "calculado": "2026-11-09",
+    "calculado": "2026-11-16",
     "soportada": true,
     "version": 3,
     "logo": "logos/COST.png",
@@ -20451,20 +20516,20 @@
     "informe": "10-K",
     "informe_fecha": "2026-10-07",
     "url": "https://www.sec.gov/Archives/edgar/data/909832/000090983226000093/0000909832-26-000093-index.htm",
-    "precio": 1106.21,
-    "capitalizacion": 490194117157.29004,
-    "ev": 475055117157.29004,
-    "per": 53.13,
-    "precio_ventas": 1.62,
-    "ev_ebitda": 33.08,
-    "rentabilidad_fcf": 1.91,
+    "precio": 1113.74,
+    "capitalizacion": 493530881155.26,
+    "ev": 478391881155.26,
+    "per": 53.49,
+    "precio_ventas": 1.63,
+    "ev_ebitda": 33.32,
+    "rentabilidad_fcf": 1.9,
     "deuda_neta_ebitda": -1.05
    },
    {
     "ticker": "MSFT",
     "nombre": "Microsoft",
     "cik": "0000789019",
-    "calculado": "2026-11-09",
+    "calculado": "2026-11-16",
     "soportada": true,
     "version": 3,
     "logo": "logos/MSFT.png",
@@ -20487,20 +20552,20 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-28",
     "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526436133/0001193125-26-436133-index.htm",
-    "precio": 523.88,
-    "capitalizacion": 3890434801901.76,
-    "ev": 3861406801901.76,
-    "per": 27.28,
-    "precio_ventas": 11.23,
-    "ev_ebitda": 18.77,
-    "rentabilidad_fcf": 1.54,
+    "precio": 517.99,
+    "capitalizacion": 3846694515990.48,
+    "ev": 3817666515990.48,
+    "per": 26.97,
+    "precio_ventas": 11.1,
+    "ev_ebitda": 18.56,
+    "rentabilidad_fcf": 1.56,
     "deuda_neta_ebitda": -0.14
    },
    {
     "ticker": "GOOGL",
     "nombre": "Alphabet",
     "cik": "0001652044",
-    "calculado": "2026-11-08",
+    "calculado": "2026-11-16",
     "soportada": true,
     "version": 3,
     "logo": "logos/GOOGL.png",
@@ -20523,20 +20588,20 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-29",
     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/0001652044-26-000084-index.htm",
-    "precio": 295.77,
-    "capitalizacion": 3636196380000.0,
-    "ev": 3497216380000.0,
-    "per": 15.43,
-    "precio_ventas": 7.72,
-    "ev_ebitda": 18.91,
-    "rentabilidad_fcf": 0.54,
+    "precio": 283.72,
+    "capitalizacion": 3488053680000.0005,
+    "ev": 3349073680000.0005,
+    "per": 14.8,
+    "precio_ventas": 7.4,
+    "ev_ebitda": 18.11,
+    "rentabilidad_fcf": 0.57,
     "deuda_neta_ebitda": -0.75
    },
    {
     "ticker": "EBAY",
     "nombre": "EBAY",
     "cik": "0001065088",
-    "calculado": "2026-11-09",
+    "calculado": "2026-11-16",
     "soportada": true,
     "version": 3,
     "logo": "logos/EBAY.png",
@@ -20559,10 +20624,10 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-29",
     "url": "https://www.sec.gov/Archives/edgar/data/1065088/000106508826000212/0001065088-26-000212-index.htm",
-    "precio": 120.92,
-    "capitalizacion": 53083880000.0,
-    "ev": 58650880000.0,
-    "per": 25.29,
+    "precio": 120.89,
+    "capitalizacion": 53070710000.0,
+    "ev": 58637710000.0,
+    "per": 25.28,
     "precio_ventas": 4.28,
     "ev_ebitda": 19.37,
     "rentabilidad_fcf": 4.54,
@@ -20572,7 +20637,7 @@
     "ticker": "ORCL",
     "nombre": "Oracle",
     "cik": "0001341439",
-    "calculado": "2026-11-09",
+    "calculado": "2026-11-16",
     "soportada": true,
     "version": 3,
     "logo": "logos/ORCL.png",
@@ -20595,13 +20660,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-09-11",
     "url": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526389274/0001193125-26-389274-index.htm",
-    "precio": 125.35,
-    "capitalizacion": 379025307600.0,
-    "ev": 467285307600.0,
-    "per": 20.03,
-    "precio_ventas": 5.28,
-    "ev_ebitda": 13.77,
-    "rentabilidad_fcf": -7.58,
+    "precio": 119.09,
+    "capitalizacion": 360096720240.0,
+    "ev": 448356720240.0,
+    "per": 19.03,
+    "precio_ventas": 5.02,
+    "ev_ebitda": 13.21,
+    "rentabilidad_fcf": -7.98,
     "deuda_neta_ebitda": 2.6
    }
   ]

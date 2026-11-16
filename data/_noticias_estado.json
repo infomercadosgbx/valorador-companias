@@ -6,7 +6,7 @@
    "url": "https://www.nextplatform.com/feed/",
    "tipo": "sectorial",
    "ok": true,
-   "titulares": 87,
+   "titulares": 88,
    "error": null
   },
   "dcd": {
@@ -38,7 +38,7 @@
    "url": "https://feed.businesswire.com/rss/home/?rss=G1QFDERJXkJeEFtRWQ==",
    "tipo": "nota_prensa",
    "ok": true,
-   "titulares": 36,
+   "titulares": 37,
    "error": null
   },
   "prnewswire": {
@@ -69,9 +69,9 @@
    "medio": "CIO Dive",
    "url": "https://www.ciodive.com/feeds/news/",
    "tipo": "sectorial",
-   "ok": true,
-   "titulares": 10,
-   "error": null
+   "ok": false,
+   "titulares": 0,
+   "error": "TimeoutError: The read operation timed out"
   },
   "theregister": {
    "medio": "The Register",
@@ -206,7 +206,7 @@
    "url": "https://news.google.com/rss/search?q=site%3Abroadcom.com%2Fcompany%2Fnews+when%3A14d&hl=en-US&gl=US&ceid=US%3Aen",
    "tipo": "nota_prensa",
    "ok": true,
-   "titulares": 21,
+   "titulares": 22,
    "error": null
   },
   "sala:PEP": {
@@ -214,7 +214,7 @@
    "url": "https://news.google.com/rss/search?q=site%3Apepsico.com%2Fnewsroom+when%3A14d&hl=en-US&gl=US&ceid=US%3Aen",
    "tipo": "nota_prensa",
    "ok": true,
-   "titulares": 8,
+   "titulares": 7,
    "error": null
   },
   "sala:PATH": {
@@ -230,16 +230,16 @@
    "url": "https://news.google.com/rss/search?q=site%3Aoracle.com%2Fnews+when%3A14d&hl=en-US&gl=US&ceid=US%3Aen",
    "tipo": "nota_prensa",
    "ok": true,
-   "titulares": 9,
+   "titulares": 8,
    "error": null
   },
   "sala:MRNA": {
    "medio": "Sala de prensa de Moderna",
-   "url": "https://news.google.com/rss/search?q=site%3Amodernatx.com+when%3A14d&hl=en-US&gl=US&ceid=US%3Aen",
+   "url": "gnews:site:modernatx.com",
    "tipo": "nota_prensa",
-   "ok": true,
-   "titulares": 26,
-   "error": null
+   "ok": false,
+   "titulares": 0,
+   "error": "https://news.google.com/rss/search?q=site%3Amodernatx.com+when%3A14d&hl=en-US&gl=US&ceid=US%3Aen: HTTPError: HTTP Error 429: Too Many Requests"
   }
  },
  "apis": [
@@ -247,5 +247,5 @@
   "Seeking Alpha",
   "Marketaux"
  ],
- "generado": "2026-11-13T23:52:17+00:00"
+ "generado": "2026-11-16T23:58:04+00:00"
 }

@@ -9927,7 +9927,7 @@
    "n_ventas": 14,
    "ventas_con_plan": 62406107.96,
    "compradores": [],
-   "desde": "2026-05-14"
+   "desde": "2026-05-17"
   },
   "operaciones": [
    {
@@ -11680,11 +11680,11 @@
  "precio": {
   "minimo_52s": 9.2,
   "maximo_52s": 19.84,
-  "beta": 1.080571,
-  "valor": 13.27,
-  "cierre_anterior": 13.1,
+  "beta": 1.0802487,
+  "valor": 13.14,
+  "cierre_anterior": 13.27,
   "moneda": "USD",
-  "fecha": "2026-11-13",
+  "fecha": "2026-11-16",
   "fuente": "Finnhub (API oficial, plan gratuito)",
   "url": "https://finnhub.io/"
  },
@@ -11746,14 +11746,6 @@
   },
   "sorpresas": [
    {
-    "periodo": "2025-12-31",
-    "trimestre": 3,
-    "anio": 2026,
-    "bpa_real": 0.16,
-    "bpa_estimado": 0.149,
-    "sorpresa_pct": 7.3826
-   },
-   {
     "periodo": "2026-03-31",
     "trimestre": 4,
     "anio": 2026,
@@ -11776,11 +11768,32 @@
     "bpa_real": 0.15,
     "bpa_estimado": 0.1517,
     "sorpresa_pct": -1.1206
+   },
+   {
+    "periodo": "2027-09-30",
+    "trimestre": 3,
+    "anio": 2027,
+    "bpa_real": 0.11,
+    "bpa_estimado": 0.1954,
+    "sorpresa_pct": -43.7052
    }
   ]
  },
  "presentaciones_sec": [],
  "noticias": [
+  {
+   "titular": "Is Trending Stock UiPath, Inc. (PATH) a Buy Now?",
+   "url": "https://www.zacks.com/stock/news/3030105/is-trending-stock-uipath-inc-path-a-buy-now?cid=CS-ZC-FT-fundamental_analysis|most_searched_stocks-3030105",
+   "fecha": "2026-11-16",
+   "resumen": "Recently, Zacks.com users have been paying close attention to UiPath (PATH). This makes it worthwhile to examine what the stock has in store.",
+   "medio": "Zacks",
+   "tipo": "prensa",
+   "via": "Marketaux",
+   "sentimiento": {
+    "puntuacion": 0.0,
+    "etiqueta": "Neutral"
+   }
+  },
   {
    "titular": "Fastly vs. UiPath: Which Artificial Intelligence Stock Is a Better Buy Going into 2027?",
    "medio": "Yahoo Finance",
@@ -12041,32 +12054,12 @@
    "tipo": "prensa",
    "via": "Finnhub",
    "url_finnhub": "https://finnhub.io/api/news?id=594edbcfe146386df8e302249ad9ab777a6b222764c8e81038fa2ac7792dc1e8"
-  },
-  {
-   "titular": "Trading Halt: Halt status updated at 10:10:00 AM ET: Quotation Resumption: IPO security released for quotation",
-   "medio": "Benzinga",
-   "url": "https://www.benzinga.com/quote/IOND",
-   "fecha": "2026-10-16",
-   "resumen": "",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=7042819f9e418abdd4277182cc456c9eac16a176d29a0bf54767394806b237ae"
-  },
-  {
-   "titular": "Palantir: The Growth Investor's Case For Buying At A Premium",
-   "medio": "Seeking Alpha",
-   "url": "https://seekingalpha.com/article/4954751-palantir-the-growth-investors-case-for-buying-at-a-premium",
-   "fecha": "2026-10-16",
-   "resumen": "Palantir Technologies has delivered accelerating revenue growth and expanding operating margins, driving a 29.37% stock surge since March. I rate the PLTR stock as a buy.",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=d74eb2fe97b4af82fbeaf69e7d10b8e1d0aaafd59670a5cf1257b3bafc441675"
   }
  ],
  "noticias_sentimiento": {
-  "puntuacion": 0.145,
+  "puntuacion": 0.121,
   "etiqueta": "Neutral",
-  "noticias": 5,
+  "noticias": 6,
   "fuente": "Alpha Vantage / Marketaux (puntuación media de las noticias del último mes)"
  },
  "redes": {
@@ -12077,10 +12070,10 @@
    "alcistas": 14,
    "bajistas": 0,
    "pct_alcista": 100,
-   "seguidores": 33250,
-   "desde": "2026-11-12",
-   "hasta": "2026-11-13",
-   "fecha": "2026-11-13"
+   "seguidores": 33242,
+   "desde": "2026-11-15",
+   "hasta": "2026-11-16",
+   "fecha": "2026-11-16"
   }
  },
  "noticias_fuentes": {
@@ -12093,11 +12086,11 @@
   "proveedores": {
    "Finnhub": {
     "ok": true,
-    "titulares": 41
+    "titulares": 35
    },
    "Google News": {
     "ok": true,
-    "titulares": 55
+    "titulares": 56
    },
    "Seeking Alpha": {
     "ok": true,
@@ -12123,10 +12116,6 @@
  },
  "historico_precio": {
   "serie": [
-   [
-    "2021-08-13",
-    62.0
-   ],
    [
     "2021-08-16",
     60.03
@@ -17402,18 +17391,22 @@
    [
     "2026-11-13",
     13.27
+   ],
+   [
+    "2026-11-16",
+    13.14
    ]
   ],
   "fuente": "Twelve Data (API oficial, plan gratuito)",
   "url": "https://twelvedata.com/",
-  "fecha": "2026-11-13",
+  "fecha": "2026-11-16",
   "ajuste": "splits"
  },
- "generado": "2026-11-13T23:51:22+00:00",
+ "generado": "2026-11-16T23:57:09+00:00",
  "peers": {
   "fuente_lista": "manual",
   "fuente_cifras": "SEC EDGAR (companyfacts, UDM) · precio Finnhub",
-  "actualizado": "2026-11-13",
+  "actualizado": "2026-11-16",
   "propia": {
    "ingresos": 1720858000,
    "crecimiento": 14.98,
@@ -17431,13 +17424,13 @@
    "informe": "10-Q",
    "informe_fecha": "2026-09-08",
    "url": "https://www.sec.gov/Archives/edgar/data/1734722/000173472226000050/0001734722-26-000050-index.htm",
-   "precio": 13.27,
-   "capitalizacion": 6940382510.0,
-   "ev": 5656392510.0,
-   "per": 19.18,
-   "precio_ventas": 4.03,
-   "ev_ebitda": 31.61,
-   "rentabilidad_fcf": 5.23,
+   "precio": 13.14,
+   "capitalizacion": 6872390820.0,
+   "ev": 5588400820.0,
+   "per": 18.99,
+   "precio_ventas": 3.99,
+   "ev_ebitda": 31.23,
+   "rentabilidad_fcf": 5.28,
    "deuda_neta_ebitda": -7.18,
    "ticker": "PATH",
    "nombre": "UiPath",
@@ -17448,7 +17441,7 @@
     "ticker": "NOW",
     "nombre": "ServiceNow",
     "cik": "0001373715",
-    "calculado": "2026-11-09",
+    "calculado": "2026-11-16",
     "soportada": true,
     "version": 3,
     "logo": "logos/NOW.png",
@@ -17465,26 +17458,26 @@
     "ebitda": 2760000000,
     "fcf": 4750000000,
     "caja": 4607000000,
-    "deuda": 5438000000,
+    "deuda": 7524000000,
     "acciones": 1038000000,
     "periodo_fin": "2026-09-30",
     "informe": "10-Q",
     "informe_fecha": "2026-10-28",
     "url": "https://www.sec.gov/Archives/edgar/data/1373715/000137371526000096/0001373715-26-000096-index.htm",
-    "precio": 102.25,
-    "capitalizacion": 106135500000.0,
-    "ev": 106966500000.0,
-    "per": 73.45,
-    "precio_ventas": 6.88,
-    "ev_ebitda": 38.76,
-    "rentabilidad_fcf": 4.48,
-    "deuda_neta_ebitda": 0.3
+    "precio": 99.37,
+    "capitalizacion": 103146060000.0,
+    "ev": 106063060000.0,
+    "per": 71.38,
+    "precio_ventas": 6.68,
+    "ev_ebitda": 38.43,
+    "rentabilidad_fcf": 4.61,
+    "deuda_neta_ebitda": 1.06
    },
    {
     "ticker": "CRM",
     "nombre": "Salesforce",
     "cik": "0001108524",
-    "calculado": "2026-11-09",
+    "calculado": "2026-11-16",
     "soportada": true,
     "version": 3,
     "logo": "logos/CRM.png",
@@ -17507,20 +17500,20 @@
     "informe": "10-Q",
     "informe_fecha": "2026-08-27",
     "url": "https://www.sec.gov/Archives/edgar/data/1108524/000110852426000190/0001108524-26-000190-index.htm",
-    "precio": 217.84,
-    "capitalizacion": 179282320000.0,
-    "ev": 207167320000.0,
-    "per": 18.56,
-    "precio_ventas": 4.08,
-    "ev_ebitda": 16.37,
-    "rentabilidad_fcf": 8.45,
+    "precio": 214.83,
+    "capitalizacion": 176805090000.0,
+    "ev": 204690090000.0,
+    "per": 18.3,
+    "precio_ventas": 4.02,
+    "ev_ebitda": 16.17,
+    "rentabilidad_fcf": 8.57,
     "deuda_neta_ebitda": 2.2
    },
    {
     "ticker": "MSFT",
     "nombre": "Microsoft",
     "cik": "0000789019",
-    "calculado": "2026-11-09",
+    "calculado": "2026-11-16",
     "soportada": true,
     "version": 3,
     "logo": "logos/MSFT.png",
@@ -17543,20 +17536,20 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-28",
     "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526436133/0001193125-26-436133-index.htm",
-    "precio": 523.88,
-    "capitalizacion": 3890434801901.76,
-    "ev": 3861406801901.76,
-    "per": 27.28,
-    "precio_ventas": 11.23,
-    "ev_ebitda": 18.77,
-    "rentabilidad_fcf": 1.54,
+    "precio": 517.99,
+    "capitalizacion": 3846694515990.48,
+    "ev": 3817666515990.48,
+    "per": 26.97,
+    "precio_ventas": 11.1,
+    "ev_ebitda": 18.56,
+    "rentabilidad_fcf": 1.56,
     "deuda_neta_ebitda": -0.14
    },
    {
     "ticker": "PEGA",
     "nombre": "Pegasystems",
     "cik": "0001013857",
-    "calculado": "2026-11-09",
+    "calculado": "2026-11-16",
     "soportada": true,
     "version": 3,
     "logo": "logos/PEGA.png",
@@ -17579,20 +17572,20 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-20",
     "url": "https://www.sec.gov/Archives/edgar/data/1013857/000101385726000058/0001013857-26-000058-index.htm",
-    "precio": 32.43,
-    "capitalizacion": 5307608764.35,
-    "ev": 4997897764.35,
-    "per": 18.01,
-    "precio_ventas": 3.04,
-    "ev_ebitda": 26.78,
-    "rentabilidad_fcf": 8.33,
+    "precio": 32.3,
+    "capitalizacion": 5286332503.5,
+    "ev": 4976621503.5,
+    "per": 17.93,
+    "precio_ventas": 3.02,
+    "ev_ebitda": 26.67,
+    "rentabilidad_fcf": 8.37,
     "deuda_neta_ebitda": -1.66
    },
    {
     "ticker": "APPN",
     "nombre": "Appian",
     "cik": "0001441683",
-    "calculado": "2026-11-09",
+    "calculado": "2026-11-16",
     "soportada": true,
     "version": 3,
     "logo": "logos/APPN.png",
@@ -17615,20 +17608,20 @@
     "informe": "10-Q",
     "informe_fecha": "2026-11-05",
     "url": "https://www.sec.gov/Archives/edgar/data/1441683/000144168326000061/0001441683-26-000061-index.htm",
-    "precio": 54.51,
-    "capitalizacion": 3897465000.0,
-    "ev": 4007918000.0,
+    "precio": 55.58,
+    "capitalizacion": 3973970000.0,
+    "ev": 4084423000.0,
     "per": null,
-    "precio_ventas": 4.62,
-    "ev_ebitda": 141.8,
-    "rentabilidad_fcf": 0.99,
+    "precio_ventas": 4.71,
+    "ev_ebitda": 144.51,
+    "rentabilidad_fcf": 0.97,
     "deuda_neta_ebitda": 3.91
    },
    {
     "ticker": "GTLB",
     "nombre": "Gitlab",
     "cik": "0001653482",
-    "calculado": "2026-11-09",
+    "calculado": "2026-11-16",
     "soportada": true,
     "version": 3,
     "logo": "logos/GTLB.png",
@@ -17651,13 +17644,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-09-02",
     "url": "https://www.sec.gov/Archives/edgar/data/1653482/000162828026059943/0001628280-26-059943-index.htm",
-    "precio": 47.73,
-    "capitalizacion": 8052194189.999999,
-    "ev": 7825703189.999999,
+    "precio": 47.33,
+    "capitalizacion": 7984712990.0,
+    "ev": 7758221990.0,
     "per": null,
-    "precio_ventas": 7.63,
+    "precio_ventas": 7.57,
     "ev_ebitda": null,
-    "rentabilidad_fcf": 2.65,
+    "rentabilidad_fcf": 2.68,
     "deuda_neta_ebitda": null
    }
   ]
