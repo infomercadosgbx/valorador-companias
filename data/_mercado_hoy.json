@@ -1,6 +1,6 @@
 {
  "esquema": 2,
- "generado": "2026-11-14T00:24:00+00:00",
+ "generado": "2026-11-16T09:42:54+00:00",
  "grupos": {
   "bolsa": "Bolsa",
   "volatilidad": "Volatilidad y divisas",
@@ -330,17 +330,13 @@
    "unidad": "pts",
    "fuente": "Cboe",
    "corto": "Cboe · S&P 500 a 30 días",
-   "valor": 18.7,
-   "anterior": 17.49,
-   "fecha": "2026-11-12",
+   "valor": 19.3,
+   "anterior": 18.7,
+   "fecha": "2026-11-13",
    "url": "https://www.cboe.com/tradable_products/vix/vix_historical_data/",
-   "var": 1.21,
-   "var_pct": 6.92,
+   "var": 0.6,
+   "var_pct": 3.21,
    "serie": [
-    [
-     "2026-08-14",
-     14.25
-    ],
     [
      "2026-08-17",
      15.19
@@ -596,6 +592,10 @@
     [
      "2026-11-12",
      18.7
+    ],
+    [
+     "2026-11-13",
+     19.3
     ]
    ]
   },
@@ -2003,12 +2003,12 @@
    "unidad": "",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 1.1021,
-   "anterior": 1.1025,
-   "fecha": "2026-11-14",
+   "valor": 1.1008,
+   "anterior": 1.1021,
+   "fecha": "2026-11-16",
    "url": "https://twelvedata.com/",
-   "var": -0.0003,
-   "var_pct": -0.03
+   "var": -0.0013,
+   "var_pct": -0.12
   },
   {
    "id": "usdjpy",
@@ -2019,12 +2019,12 @@
    "unidad": "",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 159.6782,
-   "anterior": 159.7726,
-   "fecha": "2026-11-14",
+   "valor": 159.527,
+   "anterior": 159.6015,
+   "fecha": "2026-11-16",
    "url": "https://twelvedata.com/",
-   "var": -0.0944,
-   "var_pct": -0.06
+   "var": -0.0746,
+   "var_pct": -0.05
   },
   {
    "id": "gbpusd",
@@ -2035,12 +2035,12 @@
    "unidad": "",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 1.3211,
-   "anterior": 1.3212,
-   "fecha": "2026-11-14",
+   "valor": 1.3189,
+   "anterior": 1.3214,
+   "fecha": "2026-11-16",
    "url": "https://twelvedata.com/",
-   "var": -0.0001,
-   "var_pct": -0.01
+   "var": -0.0025,
+   "var_pct": -0.19
   },
   {
    "id": "usdcny",
@@ -2051,12 +2051,12 @@
    "unidad": "",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 6.6717,
-   "anterior": 6.6719,
-   "fecha": "2026-11-14",
+   "valor": 6.6668,
+   "anterior": 6.6704,
+   "fecha": "2026-11-16",
    "url": "https://twelvedata.com/",
-   "var": -0.0002,
-   "var_pct": -0.0
+   "var": -0.0036,
+   "var_pct": -0.05
   },
   {
    "id": "us3m",
@@ -4621,12 +4621,12 @@
    "unidad": "$",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 3874.5322,
-   "anterior": 3875.6833,
-   "fecha": "2026-11-14",
+   "valor": 3857.3724,
+   "anterior": 3880.5192,
+   "fecha": "2026-11-16",
    "url": "https://twelvedata.com/",
-   "var": -1.1511,
-   "var_pct": -0.03
+   "var": -23.1468,
+   "var_pct": -0.6
   },
   {
    "id": "plata",
@@ -5544,12 +5544,12 @@
    "unidad": "$",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 68366.0,
-   "anterior": 68314.0,
-   "fecha": "2026-11-14",
+   "valor": 64287.36,
+   "anterior": 65351.05,
+   "fecha": "2026-11-16",
    "url": "https://twelvedata.com/",
-   "var": 52.0,
-   "var_pct": 0.08
+   "var": -1063.69,
+   "var_pct": -1.63
   },
   {
    "id": "ethereum",
@@ -5560,12 +5560,12 @@
    "unidad": "$",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 1935.47,
-   "anterior": 1929.88,
-   "fecha": "2026-11-14",
+   "valor": 1796.01,
+   "anterior": 1835.35,
+   "fecha": "2026-11-16",
    "url": "https://twelvedata.com/",
-   "var": 5.59,
-   "var_pct": 0.29
+   "var": -39.34,
+   "var_pct": -2.14
   }
  ],
  "sentimiento": {
@@ -5579,7 +5579,7 @@
    "url": "https://www.financialresearch.gov/financial-stress-index/"
   },
   "miedo_codicia": {
-   "valor": 27.5,
+   "valor": 27.8,
    "etiqueta": "Miedo",
    "fecha": "2026-11-13",
    "n_componentes": 5,
@@ -5602,7 +5602,7 @@
      "descripcion": "S&P 500 frente a su media de 125 sesiones. Por encima, codicia.",
      "puntuacion": 14.7,
      "etiqueta": "Miedo extremo",
-     "bruto": -0.004,
+     "bruto": -0.0038,
      "fuente": "ETF SPY · Twelve Data",
      "url": "https://twelvedata.com/"
     },
@@ -5610,9 +5610,9 @@
      "id": "volatilidad",
      "nombre": "Volatilidad",
      "descripcion": "VIX frente a su media de 50 sesiones. Si sube por encima, miedo.",
-     "puntuacion": 25.6,
-     "etiqueta": "Miedo",
-     "bruto": 0.0861,
+     "puntuacion": 21.8,
+     "etiqueta": "Miedo extremo",
+     "bruto": 0.1148,
      "fuente": "VIX · Cboe",
      "url": "https://www.cboe.com/tradable_products/vix/vix_historical_data/"
     },
@@ -5632,7 +5632,7 @@
      "descripcion": "Rentabilidad a 20 sesiones de la bolsa menos la del bono a 10 años. Si ganan los bonos, miedo.",
      "puntuacion": 23.6,
      "etiqueta": "Miedo extremo",
-     "bruto": -1.0731,
+     "bruto": -1.0574,
      "fuente": "Bolsa y bono a 10 años (Tesoro y FRED)",
      "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve"
     },
@@ -5640,9 +5640,9 @@
      "id": "put_call",
      "nombre": "Ratio put/call",
      "descripcion": "Media de 5 sesiones del ratio put/call total del Cboe. Muchas puts, miedo.",
-     "puntuacion": 58.0,
+     "puntuacion": 63.0,
      "etiqueta": "Codicia",
-     "bruto": 0.918,
+     "bruto": 0.898,
      "fuente": "Cboe · estadísticas diarias",
      "url": "https://www.cboe.com/us/options/market_statistics/daily/"
     }
@@ -5886,7 +5886,7 @@
     ],
     [
      "2026-11-13",
-     27.5
+     27.8
     ]
    ],
    "metodo": "Media de los componentes disponibles, cada uno puntuado de 0 a 100 según su percentil frente a los dos últimos años de sesiones (el put/call, por tramos fijos). Misma receta que el índice de CNN, sin los dos componentes de amplitud de la NYSE, que no tienen fuente gratuita."
@@ -5901,7 +5901,7 @@
      "fin": "2026-12-09",
      "proyecciones": true,
      "hora_madrid": "20:00",
-     "dias": 25,
+     "dias": 23,
      "comunicado": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261209a.htm",
      "rueda_prensa": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20261209.htm",
      "actas_fecha": "2026-12-30",
@@ -5912,7 +5912,7 @@
      "fin": "2027-01-27",
      "proyecciones": false,
      "hora_madrid": "20:00",
-     "dias": 74,
+     "dias": 72,
      "comunicado": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20270127a.htm",
      "rueda_prensa": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20270127.htm",
      "actas_fecha": "2027-02-17"
@@ -5922,7 +5922,7 @@
      "fin": "2027-03-17",
      "proyecciones": true,
      "hora_madrid": "19:00",
-     "dias": 123,
+     "dias": 121,
      "comunicado": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20270317a.htm",
      "rueda_prensa": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20270317.htm",
      "actas_fecha": "2027-04-07",
@@ -5933,7 +5933,7 @@
      "fin": "2027-04-28",
      "proyecciones": false,
      "hora_madrid": "20:00",
-     "dias": 165,
+     "dias": 163,
      "comunicado": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20270428a.htm",
      "rueda_prensa": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20270428.htm",
      "actas_fecha": "2027-05-19"
@@ -5944,7 +5944,7 @@
     "fin": "2026-10-28",
     "proyecciones": false,
     "hora_madrid": "19:00",
-    "dias": -17,
+    "dias": -19,
     "comunicado": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261028a.htm",
     "rueda_prensa": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20261028.htm",
     "actas_fecha": "2026-11-18",
@@ -5958,7 +5958,7 @@
   "fed": {
    "inferior": 3.75,
    "superior": 4.0,
-   "fecha": "2026-11-13",
+   "fecha": "2026-11-15",
    "fuente": "Reserva Federal vía FRED",
    "url": "https://fred.stlouisfed.org/series/DFEDTARU",
    "efectivo": {
@@ -7621,6 +7621,10 @@
    [
     "2026-11-12",
     0.89
+   ],
+   [
+    "2026-11-13",
+    0.85
    ]
   ]
  }
