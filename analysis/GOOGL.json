@@ -7,10 +7,11 @@
   "hq": "Mountain View, California",
   "founded": "1998",
   "employees": "204.757",
-  "asOf": "13-nov-2026"
+  "asOf": "17-nov-2026",
+  "repasoFondo": "17-nov-2026"
  },
  "overview": {
-  "thesis": "Gran negocio en plena fase de inversión: Cloud se duplica, pero el capex se come el flujo de caja y la búsqueda se frena. A ~283 $ sigue por encima de la zona de compra (255 $): mantener.",
+  "thesis": "Gran negocio en plena fase de inversión: Cloud se duplica (+103%), pero el capex se come el flujo de caja (51.355 M$ de capex frente a 42.290 M$ de caja operativa en el 3T26) y la Búsqueda crece menos (+12%). La clave es que la IA rentabilice esa inversión sin canibalizar los anuncios.",
   "summary": "Matriz de Google. Gana dinero sobre todo con publicidad (Búsqueda, YouTube y webs de terceros) y cada vez más con la nube: Google Cloud vende infraestructura, chips TPU, modelos Gemini y Workspace.\nEs la empresa que más invierte en infraestructura de IA: entre 195.000 y 205.000 M$ de capex en 2026, y más en 2027.",
   "keyFacts": [
    {
@@ -566,7 +567,7 @@
   "conviction": 3,
   "buyBelow": 255,
   "horizon": "12–24 meses",
-  "summary": "Uno de los mejores negocios del mundo en mitad de un ciclo de inversión enorme. Cloud crece al 103% con margen del 36% y una cartera de 560.800 M$, pero la Búsqueda se frena (+12%), el FCF es negativo y la empresa ha dejado de recomprar y emite deuda y acciones. Tras caer de 325 $ a ~283 $, el mercado ya descuenta parte del riesgo, pero aún no hay margen de seguridad: mantener y comprar por debajo de 255 $.",
+  "summary": "Uno de los mejores negocios del mundo en mitad de un ciclo de inversión enorme. Cloud crece al 103% con margen del 36% y una cartera de 560.800 M$, pero la Búsqueda se frena (+12%), el FCF es negativo y la empresa ha dejado de recomprar y emite deuda y acciones. El mercado ya descuenta parte del riesgo, pero aún no hay margen de seguridad frente al precio de compra (255 $): mantener.",
   "bull": [
    "Cloud +103% con margen del 36% y cartera de 560.800 M$",
    "Consultas en máximos de cinco años; Gemini con 1.000 M de usuarios",
@@ -1169,6 +1170,61 @@
    },
    "verificacion": "fuente.u = data/GOOGL.json ultimo_informe.url_documento (10-Q presentado el 2026-10-29 (SEC)), responde 200; único cambio meta.asOf=13-nov-2026; la auditoría 87b795b del 13-nov-2026 lo revisó: ya al día, sin cambios.",
    "motivo": "Auditoría oficial de las pestañas (SEC y compañía) y revisión de internet del 13-nov-2026"
+  },
+  {
+   "fecha": "2026-11-17",
+   "campo": "overview.thesis",
+   "antes": "Gran negocio en plena fase de inversión: Cloud se duplica, pero el capex se come el flujo de caja y la búsqueda se frena. A ~283 $ sigue por encima de la zona de compra (255 $): mantener.",
+   "despues": "Gran negocio en plena fase de inversión: Cloud se duplica (+103%), pero el capex se come el flujo de caja (51.355 M$ de capex frente a 42.290 M$ de caja operativa en el 3T26) y la Búsqueda crece menos (+12%). La clave es que la IA rentabilice esa inversión sin canibalizar los anuncios.",
+   "porque": "La tesis citaba el precio de la acción (regla 8.1); se reescribe sin precio, con el capex y la caja operativa del 3T26 de la SEC.",
+   "fuente": {
+    "t": "10-Q del 3T26 (datos SEC en data/GOOGL.json)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/goog-20260930.htm",
+    "d": "29-oct-2026"
+   },
+   "verificacion": "Capex 51.355 M$ y caja operativa 42.290 M$ del 3T26 cuadran con data/GOOGL.json; Cloud +103% y Búsqueda +12% ya en el análisis; sin precio de la acción.",
+   "motivo": "Repaso semanal a fondo (nube e IA)"
+  },
+  {
+   "fecha": "2026-11-17",
+   "campo": "verdict.summary",
+   "antes": "Uno de los mejores negocios del mundo en mitad de un ciclo de inversión enorme. Cloud crece al 103% con margen del 36% y una cartera de 560.800 M$, pero la Búsqueda se frena (+12%), el FCF es negativo y la empresa ha dejado de recomprar y emite deuda y acciones. Tras caer de 325 $ a ~283 $, el mercado ya descuenta parte del riesgo, pero aún no hay margen de seguridad: mantener y comprar por debajo de 255 $.",
+   "despues": "Uno de los mejores negocios del mundo en mitad de un ciclo de inversión enorme. Cloud crece al 103% con margen del 36% y una cartera de 560.800 M$, pero la Búsqueda se frena (+12%), el FCF es negativo y la empresa ha dejado de recomprar y emite deuda y acciones. El mercado ya descuenta parte del riesgo, pero aún no hay margen de seguridad frente al precio de compra (255 $): mantener.",
+   "porque": "Se quita la referencia a la cotización (325 $ → ~283 $), que ya no está al día; se conserva la comparación con el precio de compra del usuario.",
+   "fuente": {
+    "t": "10-Q del 3T26",
+    "u": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/goog-20260930.htm",
+    "d": "29-oct-2026"
+   },
+   "verificacion": "Solo se quita la cotización (325 → ~283 $); se mantiene el precio de compra del usuario (255 $) y el resto del texto ya existente.",
+   "motivo": "Repaso semanal a fondo (nube e IA)"
+  },
+  {
+   "fecha": "2026-11-17",
+   "campo": "meta.asOf",
+   "antes": "13-nov-2026",
+   "despues": "17-nov-2026",
+   "porque": "Repaso semanal a fondo con la lista de comprobación completa: sin novedad material.",
+   "fuente": {
+    "t": "10-Q del 3T26",
+    "u": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/goog-20260930.htm",
+    "d": "29-oct-2026"
+   },
+   "verificacion": "Fecha de revisión; el 10-Q del 3T26 citado existe en EDGAR.",
+   "motivo": "Repaso semanal a fondo (nube e IA)"
+  },
+  {
+   "fecha": "2026-11-17",
+   "campo": "meta.repasoFondo",
+   "despues": "17-nov-2026",
+   "porque": "Repaso semanal a fondo (nube e IA).",
+   "fuente": {
+    "t": "10-Q del 3T26",
+    "u": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/goog-20260930.htm",
+    "d": "29-oct-2026"
+   },
+   "verificacion": "Fecha de revisión; el 10-Q del 3T26 citado existe en EDGAR.",
+   "motivo": "Repaso semanal a fondo (nube e IA)"
   }
  ]
 }

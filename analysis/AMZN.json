@@ -7,7 +7,8 @@
   "hq": "Seattle, Washington",
   "founded": "1994",
   "employees": "1.638.000 (sep-26)",
-  "asOf": "13-nov-2026"
+  "asOf": "17-nov-2026",
+  "repasoFondo": "17-nov-2026"
  },
  "overview": {
   "thesis": "AWS se acelera (+39%) con una cartera de 578.000 M$ y Amazon gasta 220.000 M$ al año en centros de datos: el flujo de caja libre de 12 meses es de −42.400 M$. Tras subir un 8% desde los resultados, a ~259 $ cotiza algo por encima de lo que refleja el modelo base.",
@@ -54,6 +55,10 @@
    {
     "d": "27–30 nov",
     "t": "Black Friday (27-nov) y Cyber Monday (30-nov): primera lectura de la campaña de Navidad que recoge la guía del 4T26."
+   },
+   {
+    "d": "4T26 (antes del 31-dic)",
+    "t": "Cierre de la operación con Blackstone Digital Infrastructure Trust: compra el 75,1% de dos sociedades con 13 centros de datos nuevos (647 MW, Indiana y Misisipi) por un valor bruto de 5.000 M$; Amazon conserva el 24,9% y los alquila 12 años (32 con prórrogas)."
    },
    {
     "d": "4T26",
@@ -319,11 +324,12 @@
     "impact": 2,
     "h": "2027+",
     "st": "temprano",
-    "k": "~1.000 M$ más de coste por trimestre",
+    "k": "Fallo del Vulcan (15-nov): 40 satélites perdidos",
     "peso": "opcionalidad",
-    "d": "Constelación de satélites para competir con Starlink: el servicio arranca este año; la mayor parte del coste se lleva a gasto en el 4T26 y se capitaliza desde 2027.",
+    "d": "Constelación de satélites para competir con Starlink: necesita más de 3.300 satélites. El 15-nov-2026 el cohete Vulcan de ULA falló a los 10 minutos de vuelo y perdió los 40 satélites que llevaba (habrían sido 436 lanzados en total). Amazon depende de que ULA termine la investigación y de que el New Glenn de Blue Origin vuelva a volar. La mayor parte del coste se lleva a gasto en el 4T26 y se capitaliza desde 2027.",
     "ev": "Lanzamientos y primeros clientes comerciales.",
-    "r": "Retrasos y coste muy alto frente a Starlink."
+    "r": "Retrasos en los lanzamientos (Vulcan y New Glenn parados) y coste muy alto frente a Starlink.",
+    "u": "https://spaceflightnow.com/2026/11/15/ula-suffers-first-total-mission-failure-with-loss-of-vulcan-rocket-carrying-40-amazon-leo-satellites/"
    }
   ]
  },
@@ -564,7 +570,9 @@
    "Campaña de Navidad: Black Friday (27-nov) y Cyber Monday (30-nov)",
    "Plan de capex para 2027",
    "Vuelta del FCF a positivo",
-   "Valor contable de Anthropic"
+   "Valor contable de Anthropic",
+   "Cierre de la venta del 75,1% de 13 centros de datos a Blackstone (4T26)",
+   "Investigación del fallo del Vulcan y nuevo calendario de Amazon Leo"
   ]
  },
  "notes": "Actualizado el 31-oct-2026 con los resultados del 3T26. Ingresos base 2026: 584.069 M$ de los tres primeros trimestres (SEC) + 243.500 M$ del punto medio de la guía del 4T. Acciones, caja y deuda siguen al dato de la SEC. El DCF no incluye el valor de la participación en Anthropic. El consenso de precio objetivo (manual) es anterior a los resultados.",
@@ -628,6 +636,16 @@
    }
   ],
   "news": [
+   {
+    "t": "Blackstone Digital Infrastructure Trust compra el 75,1% de 13 centros de datos de Amazon (647 MW) por un valor bruto de 5.000 M$; Amazon los alquila 12 años",
+    "src": "SEC · 8-K de BXDC · 16-nov-2026",
+    "u": "https://www.sec.gov/Archives/edgar/data/2100161/000119312526461954/d115778d8k.htm"
+   },
+   {
+    "t": "Falla el Vulcan de ULA y se pierden 40 satélites de Amazon Leo",
+    "src": "Spaceflight Now · 15-nov-2026",
+    "u": "https://spaceflightnow.com/2026/11/15/ula-suffers-first-total-mission-failure-with-loss-of-vulcan-rocket-carrying-40-amazon-leo-satellites/"
+   },
    {
     "t": "Resumen de la llamada de resultados 3T26",
     "src": "Yahoo Finance / MarketBeat",
@@ -1528,6 +1546,360 @@
    },
    "verificacion": "fuente.u = data/AMZN.json ultimo_informe.url_documento (10-Q presentado el 2026-10-30 (SEC)), responde 200; único cambio meta.asOf=13-nov-2026; la auditoría 87b795b del 13-nov-2026 lo revisó: con cambios aplicados (contratos IA, balance y FCF 3T26).",
    "motivo": "Auditoría oficial de las pestañas (SEC y compañía) y revisión de internet del 13-nov-2026"
+  },
+  {
+   "fecha": "2026-11-17",
+   "campo": "overview.catalysts",
+   "antes": [
+    {
+     "d": "Feb-27",
+     "t": "Resultados 4T26 (guía: ventas 240.000–247.000 M$ y beneficio operativo 28.500–33.500 M$) y cifra de capex para 2027."
+    },
+    {
+     "d": "27–30 nov",
+     "t": "Black Friday (27-nov) y Cyber Monday (30-nov): primera lectura de la campaña de Navidad que recoge la guía del 4T26."
+    },
+    {
+     "d": "4T26",
+     "t": "Inicio del servicio de Amazon Leo (satélites); acuerdo estratégico con AT&T."
+    },
+    {
+     "d": "Mar-27",
+     "t": "Juicio antimonopolio de la FTC sobre sus prácticas de precios."
+    },
+    {
+     "d": "Fin 2027",
+     "t": "Trainium disponible fuera de AWS, según la directiva."
+    },
+    {
+     "d": "En curso",
+     "t": "Revalorizaciones de su participación en Anthropic, que mueven mucho el beneficio neto."
+    }
+   ],
+   "despues": [
+    {
+     "d": "Feb-27",
+     "t": "Resultados 4T26 (guía: ventas 240.000–247.000 M$ y beneficio operativo 28.500–33.500 M$) y cifra de capex para 2027."
+    },
+    {
+     "d": "27–30 nov",
+     "t": "Black Friday (27-nov) y Cyber Monday (30-nov): primera lectura de la campaña de Navidad que recoge la guía del 4T26."
+    },
+    {
+     "d": "4T26 (antes del 31-dic)",
+     "t": "Cierre de la operación con Blackstone Digital Infrastructure Trust: compra el 75,1% de dos sociedades con 13 centros de datos nuevos (647 MW, Indiana y Misisipi) por un valor bruto de 5.000 M$; Amazon conserva el 24,9% y los alquila 12 años (32 con prórrogas)."
+    },
+    {
+     "d": "4T26",
+     "t": "Inicio del servicio de Amazon Leo (satélites); acuerdo estratégico con AT&T."
+    },
+    {
+     "d": "Mar-27",
+     "t": "Juicio antimonopolio de la FTC sobre sus prácticas de precios."
+    },
+    {
+     "d": "Fin 2027",
+     "t": "Trainium disponible fuera de AWS, según la directiva."
+    },
+    {
+     "d": "En curso",
+     "t": "Revalorizaciones de su participación en Anthropic, que mueven mucho el beneficio neto."
+    }
+   ],
+   "porque": "Nuevo hito: Amazon aporta 13 centros de datos a dos sociedades conjuntas de las que Blackstone Digital Infrastructure Trust compra el 75,1% (valor bruto 5.000 M$, cierre previsto en el 4T26) y los alquila 12 años.",
+   "fuente": {
+    "t": "8-K de Blackstone Digital Infrastructure Trust (Item 1.01)",
+    "u": "https://www.sec.gov/Archives/edgar/data/2100161/000119312526461954/d115778d8k.htm",
+    "d": "16-nov-2026"
+   },
+   "verificacion": "8-K de BXDC: 75,1% de dos sociedades, 13 centros de datos nuevos, 647 MW en Indiana y Misisipi, valor bruto 5.000 M$, Amazon retiene 24,9%, alquiler 12 años (32 con prórrogas); cierre límite 31-dic-2026. Resto de la lista sin cambios.",
+   "motivo": "Revisión semanal: Auditoría oficial de las pestañas (SEC y compañía) · Repaso semanal a fondo (nube e IA)"
+  },
+  {
+   "fecha": "2026-11-17",
+   "campo": "growth.drivers",
+   "antes": [
+    {
+     "n": "AWS e inteligencia artificial",
+     "impact": 5,
+     "h": "2026–2028",
+     "st": "en marcha",
+     "k": "+39,3% en 3T26 · cartera 578.000 M$",
+     "peso": "~60% del beneficio operativo",
+     "d": "AWS acelera por sexto trimestre seguido (46.000 M$ en el 3T26, margen del 38,7%) por la demanda de cómputo para IA. Los compromisos de sus chips Trainium se multiplican por más de 20, venderá Trainium fuera de AWS desde finales de 2027 y Jassy proyecta crecer más del 40% en 2027 y 2028.",
+     "ev": "Crecimiento y margen de AWS; cartera de contratos; capex.",
+     "r": "Capex de ~220.000 M$ en 2026 y «bastante más» en 2027; la IA tiene menos margen que el negocio clásico de AWS.",
+     "u": "https://www.fool.com/earnings/call-transcripts/2026/10/30/amazon-amzn-q3-2026-earnings-call-transcript/"
+    },
+    {
+     "n": "Publicidad",
+     "impact": 4,
+     "h": "Continuo",
+     "st": "maduro",
+     "k": "19.600 M$ en 3T26 (+12%)",
+     "peso": "vuelve a «la parte alta de la decena» en el 4T",
+     "d": "Anuncios en la tienda y en Prime Video, con margen muy alto. El 3T26 creció solo un 12% porque el Prime Day pasó al 2T (le restó ~8,5 puntos); en el 4T entra la NBA en Prime.",
+     "ev": "Crecimiento de «Advertising services».",
+     "r": "Saturación de anuncios en la tienda que empeore la experiencia.",
+     "u": "https://www.fool.com/earnings/call-transcripts/2026/10/30/amazon-amzn-q3-2026-earnings-call-transcript/"
+    },
+    {
+     "n": "Participación en Anthropic",
+     "impact": 3,
+     "h": "2026–2027",
+     "st": "en marcha",
+     "k": "110.000 M$ comprometidos en AWS",
+     "d": "Amazon es accionista y principal proveedor de nube de Anthropic, que usa sus chips Trainium. Gana por dos lados: ingresos de AWS y revalorización de la participación.",
+     "ev": "Ganancias contables por la participación y anuncios de capacidad para Anthropic.",
+     "r": "Anthropic depende de seguir financiándose: perdió más de 8.000 M$ operativos en 2025."
+    },
+    {
+     "n": "Prime y suscripciones",
+     "impact": 2,
+     "h": "Continuo",
+     "st": "maduro",
+     "k": "+12% en 2T26",
+     "d": "Cuotas recurrentes que fidelizan la compra y financian Prime Video.",
+     "ev": "Ingresos por suscripciones.",
+     "r": "Subidas de precio que provoquen bajas."
+    },
+    {
+     "n": "Amazon Leo (internet por satélite)",
+     "impact": 2,
+     "h": "2027+",
+     "st": "temprano",
+     "k": "~1.000 M$ más de coste por trimestre",
+     "peso": "opcionalidad",
+     "d": "Constelación de satélites para competir con Starlink: el servicio arranca este año; la mayor parte del coste se lleva a gasto en el 4T26 y se capitaliza desde 2027.",
+     "ev": "Lanzamientos y primeros clientes comerciales.",
+     "r": "Retrasos y coste muy alto frente a Starlink."
+    }
+   ],
+   "despues": [
+    {
+     "n": "AWS e inteligencia artificial",
+     "impact": 5,
+     "h": "2026–2028",
+     "st": "en marcha",
+     "k": "+39,3% en 3T26 · cartera 578.000 M$",
+     "peso": "~60% del beneficio operativo",
+     "d": "AWS acelera por sexto trimestre seguido (46.000 M$ en el 3T26, margen del 38,7%) por la demanda de cómputo para IA. Los compromisos de sus chips Trainium se multiplican por más de 20, venderá Trainium fuera de AWS desde finales de 2027 y Jassy proyecta crecer más del 40% en 2027 y 2028.",
+     "ev": "Crecimiento y margen de AWS; cartera de contratos; capex.",
+     "r": "Capex de ~220.000 M$ en 2026 y «bastante más» en 2027; la IA tiene menos margen que el negocio clásico de AWS.",
+     "u": "https://www.fool.com/earnings/call-transcripts/2026/10/30/amazon-amzn-q3-2026-earnings-call-transcript/"
+    },
+    {
+     "n": "Publicidad",
+     "impact": 4,
+     "h": "Continuo",
+     "st": "maduro",
+     "k": "19.600 M$ en 3T26 (+12%)",
+     "peso": "vuelve a «la parte alta de la decena» en el 4T",
+     "d": "Anuncios en la tienda y en Prime Video, con margen muy alto. El 3T26 creció solo un 12% porque el Prime Day pasó al 2T (le restó ~8,5 puntos); en el 4T entra la NBA en Prime.",
+     "ev": "Crecimiento de «Advertising services».",
+     "r": "Saturación de anuncios en la tienda que empeore la experiencia.",
+     "u": "https://www.fool.com/earnings/call-transcripts/2026/10/30/amazon-amzn-q3-2026-earnings-call-transcript/"
+    },
+    {
+     "n": "Participación en Anthropic",
+     "impact": 3,
+     "h": "2026–2027",
+     "st": "en marcha",
+     "k": "110.000 M$ comprometidos en AWS",
+     "d": "Amazon es accionista y principal proveedor de nube de Anthropic, que usa sus chips Trainium. Gana por dos lados: ingresos de AWS y revalorización de la participación.",
+     "ev": "Ganancias contables por la participación y anuncios de capacidad para Anthropic.",
+     "r": "Anthropic depende de seguir financiándose: perdió más de 8.000 M$ operativos en 2025."
+    },
+    {
+     "n": "Prime y suscripciones",
+     "impact": 2,
+     "h": "Continuo",
+     "st": "maduro",
+     "k": "+12% en 2T26",
+     "d": "Cuotas recurrentes que fidelizan la compra y financian Prime Video.",
+     "ev": "Ingresos por suscripciones.",
+     "r": "Subidas de precio que provoquen bajas."
+    },
+    {
+     "n": "Amazon Leo (internet por satélite)",
+     "impact": 2,
+     "h": "2027+",
+     "st": "temprano",
+     "k": "Fallo del Vulcan (15-nov): 40 satélites perdidos",
+     "peso": "opcionalidad",
+     "d": "Constelación de satélites para competir con Starlink: necesita más de 3.300 satélites. El 15-nov-2026 el cohete Vulcan de ULA falló a los 10 minutos de vuelo y perdió los 40 satélites que llevaba (habrían sido 436 lanzados en total). Amazon depende de que ULA termine la investigación y de que el New Glenn de Blue Origin vuelva a volar. La mayor parte del coste se lleva a gasto en el 4T26 y se capitaliza desde 2027.",
+     "ev": "Lanzamientos y primeros clientes comerciales.",
+     "r": "Retrasos en los lanzamientos (Vulcan y New Glenn parados) y coste muy alto frente a Starlink.",
+     "u": "https://spaceflightnow.com/2026/11/15/ula-suffers-first-total-mission-failure-with-loss-of-vulcan-rocket-carrying-40-amazon-leo-satellites/"
+    }
+   ],
+   "porque": "Amazon Leo: el Vulcan de ULA falló el 15-nov-2026 y se perdieron 40 satélites; retrasa el despliegue. El resto de motores no cambia.",
+   "fuente": {
+    "t": "Spaceflight Now: falla el Vulcan con 40 satélites de Amazon Leo",
+    "u": "https://spaceflightnow.com/2026/11/15/ula-suffers-first-total-mission-failure-with-loss-of-vulcan-rocket-carrying-40-amazon-leo-satellites/",
+    "d": "15-nov-2026"
+   },
+   "verificacion": "Spaceflight Now 15-nov-2026: fallo a los 10 min, 40 satélites perdidos, habrían sido 436, >3.300 necesarios, espera a la investigación de ULA y a que vuelva a volar New Glenn. Solo cambia el driver de Amazon Leo (se sustituye el KPI de ~1.000 M$/trimestre por el fallo).",
+   "motivo": "Revisión semanal: Auditoría oficial de las pestañas (SEC y compañía) · Repaso semanal a fondo (nube e IA)"
+  },
+  {
+   "fecha": "2026-11-17",
+   "campo": "verdict.watch",
+   "antes": [
+    "Campaña de Navidad: Black Friday (27-nov) y Cyber Monday (30-nov)",
+    "Plan de capex para 2027",
+    "Vuelta del FCF a positivo",
+    "Valor contable de Anthropic"
+   ],
+   "despues": [
+    "Campaña de Navidad: Black Friday (27-nov) y Cyber Monday (30-nov)",
+    "Plan de capex para 2027",
+    "Vuelta del FCF a positivo",
+    "Valor contable de Anthropic",
+    "Cierre de la venta del 75,1% de 13 centros de datos a Blackstone (4T26)",
+    "Investigación del fallo del Vulcan y nuevo calendario de Amazon Leo"
+   ],
+   "porque": "Se añaden dos hitos de la semana: el cierre de la operación con Blackstone y el calendario de Amazon Leo tras el fallo del Vulcan.",
+   "fuente": {
+    "t": "8-K de Blackstone Digital Infrastructure Trust (Item 1.01)",
+    "u": "https://www.sec.gov/Archives/edgar/data/2100161/000119312526461954/d115778d8k.htm",
+    "d": "16-nov-2026"
+   },
+   "verificacion": "Dos añadidos respaldados por el 8-K de BXDC y la noticia de Spaceflight Now; el resto se conserva.",
+   "motivo": "Revisión semanal: Auditoría oficial de las pestañas (SEC y compañía) · Repaso semanal a fondo (nube e IA)"
+  },
+  {
+   "fecha": "2026-11-17",
+   "campo": "sources.news",
+   "antes": [
+    {
+     "t": "Resumen de la llamada de resultados 3T26",
+     "src": "Yahoo Finance / MarketBeat",
+     "u": "https://finance.yahoo.com/markets/stocks/articles/amazon-com-q3-earnings-call-001416198.html"
+    },
+    {
+     "t": "Por qué subió tras el 2T26 (cartera de AWS y capex)",
+     "src": "INDmoney",
+     "u": "https://www.indmoney.com/blog/us-stocks/amazon-q2-earnings-results-why-amzn-stock-jumped-analysis"
+    },
+    {
+     "t": "Consenso de BPA y precio objetivo",
+     "src": "Yahoo Finance / Barchart",
+     "u": "https://finance.yahoo.com/markets/stocks/articles/expect-amazon-com-q3-2026-110710701.html"
+    },
+    {
+     "t": "El juicio de la FTC se aplaza a marzo de 2027",
+     "src": "MLex",
+     "u": "https://www.mlex.com/mlex/amp/articles/2422758"
+    },
+    {
+     "t": "Phillip Securities mejora a Comprar (objetivo 330 $) por la visibilidad de la demanda de AWS",
+     "src": "24/7 Wall St.",
+     "u": "https://247wallst.com/investing/2026/11/02/amazon-climbs-5-as-upgrade-fuels-post-earnings-rebound-on-aws-strength/"
+    },
+    {
+     "t": "Más de 100 funciones de compra con Alexa+",
+     "src": "Retail Dive",
+     "u": "https://www.retaildive.com/news/amazon-adds-alexa-ai-shopping-functions/873602/"
+    },
+    {
+     "t": "Gafas inteligentes para miles de repartidores",
+     "src": "Supply Chain Dive",
+     "u": "https://www.supplychaindive.com/news/amazon-deploys-thousands-of-smart-glasses-to-delivery"
+    },
+    {
+     "t": "Evercore ISI: la acción podría casi duplicarse si vuelven sus múltiplos",
+     "src": "Tiger Brokers",
+     "u": "https://www.itiger.com/news/1160112152"
+    }
+   ],
+   "despues": [
+    {
+     "t": "Blackstone Digital Infrastructure Trust compra el 75,1% de 13 centros de datos de Amazon (647 MW) por un valor bruto de 5.000 M$; Amazon los alquila 12 años",
+     "src": "SEC · 8-K de BXDC · 16-nov-2026",
+     "u": "https://www.sec.gov/Archives/edgar/data/2100161/000119312526461954/d115778d8k.htm"
+    },
+    {
+     "t": "Falla el Vulcan de ULA y se pierden 40 satélites de Amazon Leo",
+     "src": "Spaceflight Now · 15-nov-2026",
+     "u": "https://spaceflightnow.com/2026/11/15/ula-suffers-first-total-mission-failure-with-loss-of-vulcan-rocket-carrying-40-amazon-leo-satellites/"
+    },
+    {
+     "t": "Resumen de la llamada de resultados 3T26",
+     "src": "Yahoo Finance / MarketBeat",
+     "u": "https://finance.yahoo.com/markets/stocks/articles/amazon-com-q3-earnings-call-001416198.html"
+    },
+    {
+     "t": "Por qué subió tras el 2T26 (cartera de AWS y capex)",
+     "src": "INDmoney",
+     "u": "https://www.indmoney.com/blog/us-stocks/amazon-q2-earnings-results-why-amzn-stock-jumped-analysis"
+    },
+    {
+     "t": "Consenso de BPA y precio objetivo",
+     "src": "Yahoo Finance / Barchart",
+     "u": "https://finance.yahoo.com/markets/stocks/articles/expect-amazon-com-q3-2026-110710701.html"
+    },
+    {
+     "t": "El juicio de la FTC se aplaza a marzo de 2027",
+     "src": "MLex",
+     "u": "https://www.mlex.com/mlex/amp/articles/2422758"
+    },
+    {
+     "t": "Phillip Securities mejora a Comprar (objetivo 330 $) por la visibilidad de la demanda de AWS",
+     "src": "24/7 Wall St.",
+     "u": "https://247wallst.com/investing/2026/11/02/amazon-climbs-5-as-upgrade-fuels-post-earnings-rebound-on-aws-strength/"
+    },
+    {
+     "t": "Más de 100 funciones de compra con Alexa+",
+     "src": "Retail Dive",
+     "u": "https://www.retaildive.com/news/amazon-adds-alexa-ai-shopping-functions/873602/"
+    },
+    {
+     "t": "Gafas inteligentes para miles de repartidores",
+     "src": "Supply Chain Dive",
+     "u": "https://www.supplychaindive.com/news/amazon-deploys-thousands-of-smart-glasses-to-delivery"
+    },
+    {
+     "t": "Evercore ISI: la acción podría casi duplicarse si vuelven sus múltiplos",
+     "src": "Tiger Brokers",
+     "u": "https://www.itiger.com/news/1160112152"
+    }
+   ],
+   "porque": "Dos noticias de impacto de la semana: venta y alquiler de 13 centros de datos a Blackstone (8-K en la SEC) y fallo del Vulcan con 40 satélites de Amazon Leo.",
+   "fuente": {
+    "t": "8-K de Blackstone Digital Infrastructure Trust (Item 1.01)",
+    "u": "https://www.sec.gov/Archives/edgar/data/2100161/000119312526461954/d115778d8k.htm",
+    "d": "16-nov-2026"
+   },
+   "verificacion": "Dos noticias nuevas: titular del 8-K de BXDC (75,1%, 13 centros, 647 MW, 5.000 M$, 12 años) y del fallo del Vulcan (40 satélites) cuadran con sus fuentes; resto sin cambios.",
+   "motivo": "Revisión semanal: Auditoría oficial de las pestañas (SEC y compañía) · Repaso semanal a fondo (nube e IA)"
+  },
+  {
+   "fecha": "2026-11-17",
+   "campo": "meta.asOf",
+   "antes": "13-nov-2026",
+   "despues": "17-nov-2026",
+   "porque": "Repaso semanal a fondo con la lista de comprobación completa.",
+   "fuente": {
+    "t": "10-Q del 3T26",
+    "u": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/amzn-20260930.htm",
+    "d": "30-oct-2026"
+   },
+   "verificacion": "Fecha de revisión; el 10-Q del 3T26 citado existe en EDGAR.",
+   "motivo": "Revisión semanal: Auditoría oficial de las pestañas (SEC y compañía) · Repaso semanal a fondo (nube e IA)"
+  },
+  {
+   "fecha": "2026-11-17",
+   "campo": "meta.repasoFondo",
+   "despues": "17-nov-2026",
+   "porque": "Repaso semanal a fondo (nube e IA).",
+   "fuente": {
+    "t": "10-Q del 3T26",
+    "u": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/amzn-20260930.htm",
+    "d": "30-oct-2026"
+   },
+   "verificacion": "Fecha de revisión; el 10-Q del 3T26 citado existe en EDGAR.",
+   "motivo": "Revisión semanal: Auditoría oficial de las pestañas (SEC y compañía) · Repaso semanal a fondo (nube e IA)"
   }
  ]
 }
