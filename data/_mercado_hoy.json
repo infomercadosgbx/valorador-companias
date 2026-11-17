@@ -1,6 +1,6 @@
 {
  "esquema": 2,
- "generado": "2026-11-17T13:08:04+00:00",
+ "generado": "2026-11-17T14:26:09+00:00",
  "grupos": {
   "bolsa": "Bolsa",
   "volatilidad": "Volatilidad y divisas",
@@ -2003,12 +2003,12 @@
    "unidad": "",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 1.0994,
+   "valor": 1.0992,
    "anterior": 1.1004,
    "fecha": "2026-11-17",
    "url": "https://twelvedata.com/",
-   "var": -0.0011,
-   "var_pct": -0.1
+   "var": -0.0013,
+   "var_pct": -0.12
   },
   {
    "id": "usdjpy",
@@ -2019,12 +2019,12 @@
    "unidad": "",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 159.2862,
+   "valor": 159.3396,
    "anterior": 159.4727,
    "fecha": "2026-11-17",
    "url": "https://twelvedata.com/",
-   "var": -0.1865,
-   "var_pct": -0.12
+   "var": -0.1331,
+   "var_pct": -0.08
   },
   {
    "id": "gbpusd",
@@ -2035,12 +2035,12 @@
    "unidad": "",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 1.3198,
+   "valor": 1.3199,
    "anterior": 1.3187,
    "fecha": "2026-11-17",
    "url": "https://twelvedata.com/",
-   "var": 0.0011,
-   "var_pct": 0.08
+   "var": 0.0012,
+   "var_pct": 0.09
   },
   {
    "id": "usdcny",
@@ -2051,12 +2051,12 @@
    "unidad": "",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 6.6667,
+   "valor": 6.6657,
    "anterior": 6.666,
    "fecha": "2026-11-17",
    "url": "https://twelvedata.com/",
-   "var": 0.0007,
-   "var_pct": 0.01
+   "var": -0.0002,
+   "var_pct": -0.0
   },
   {
    "id": "us3m",
@@ -4621,12 +4621,12 @@
    "unidad": "$",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 3861.0317,
+   "valor": 3863.3188,
    "anterior": 3864.4353,
    "fecha": "2026-11-17",
    "url": "https://twelvedata.com/",
-   "var": -3.4036,
-   "var_pct": -0.09
+   "var": -1.1165,
+   "var_pct": -0.03
   },
   {
    "id": "plata",
@@ -5544,12 +5544,12 @@
    "unidad": "$",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 65134.0,
+   "valor": 65009.89,
    "anterior": 64882.87,
    "fecha": "2026-11-17",
    "url": "https://twelvedata.com/",
-   "var": 251.13,
-   "var_pct": 0.39
+   "var": 127.02,
+   "var_pct": 0.2
   },
   {
    "id": "ethereum",
@@ -5560,12 +5560,12 @@
    "unidad": "$",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 1826.36,
+   "valor": 1824.0,
    "anterior": 1820.67,
    "fecha": "2026-11-17",
    "url": "https://twelvedata.com/",
-   "var": 5.69,
-   "var_pct": 0.31
+   "var": 3.33,
+   "var_pct": 0.18
   }
  ],
  "sentimiento": {
@@ -5963,7 +5963,7 @@
    "url": "https://fred.stlouisfed.org/series/DFEDTARU",
    "efectivo": {
     "valor": 3.88,
-    "fecha": "2026-11-13",
+    "fecha": "2026-11-16",
     "url": "https://fred.stlouisfed.org/series/EFFR"
    },
    "ultimo_cambio": {
@@ -6115,17 +6115,13 @@
      "nombre": "Ventas minoristas",
      "fuente": "Census",
      "url": "https://www.census.gov/retail/index.html",
-     "ultimo": "+0,8% en el mes (sep-26)",
+     "ultimo": "+0,2% en el mes (oct-26)",
      "graficos": [
       {
        "id": "RSAFS",
        "nombre": "Ventas minoristas, variación en el mes",
        "modo": "mm",
        "puntos": [
-        [
-         "2024-10",
-         0.86
-        ],
         [
          "2024-11",
          0.57
@@ -6168,15 +6164,15 @@
         ],
         [
          "2025-09",
-         0.08
+         0.03
         ],
         [
          "2025-10",
-         -0.02
+         -0.03
         ],
         [
          "2025-11",
-         0.67
+         0.72
         ],
         [
          "2025-12",
@@ -6212,11 +6208,15 @@
         ],
         [
          "2026-08",
-         1.29
+         1.45
         ],
         [
          "2026-09",
-         0.77
+         0.83
+        ],
+        [
+         "2026-10",
+         0.21
         ]
        ],
        "url": "https://fred.stlouisfed.org/series/RSAFS"
