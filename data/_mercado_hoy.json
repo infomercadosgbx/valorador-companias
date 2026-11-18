@@ -1,6 +1,6 @@
 {
  "esquema": 2,
- "generado": "2026-11-17T22:57:18+00:00",
+ "generado": "2026-11-18T00:37:03+00:00",
  "grupos": {
   "bolsa": "Bolsa",
   "volatilidad": "Volatilidad y divisas",
@@ -1164,17 +1164,13 @@
    "unidad": "pts",
    "fuente": "Cboe",
    "corto": "Cboe OVX",
-   "valor": 49.59,
-   "anterior": 50.28,
-   "fecha": "2026-11-16",
+   "valor": 49.9,
+   "anterior": 49.59,
+   "fecha": "2026-11-17",
    "url": "https://www.cboe.com/tradable_products/vix/vix_historical_data/",
-   "var": -0.69,
-   "var_pct": -1.37,
+   "var": 0.31,
+   "var_pct": 0.63,
    "serie": [
-    [
-     "2026-08-17",
-     52.92
-    ],
     [
      "2026-08-18",
      47.17
@@ -1430,6 +1426,10 @@
     [
      "2026-11-16",
      49.59
+    ],
+    [
+     "2026-11-17",
+     49.9
     ]
    ]
   },
@@ -2003,12 +2003,12 @@
    "unidad": "",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 1.0999,
+   "valor": 1.0989,
    "anterior": 1.1009,
    "fecha": "2026-11-18",
    "url": "https://twelvedata.com/",
-   "var": -0.001,
-   "var_pct": -0.09
+   "var": -0.0021,
+   "var_pct": -0.19
   },
   {
    "id": "usdjpy",
@@ -2019,12 +2019,12 @@
    "unidad": "",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 159.4359,
+   "valor": 159.5277,
    "anterior": 159.3372,
    "fecha": "2026-11-18",
    "url": "https://twelvedata.com/",
-   "var": 0.0988,
-   "var_pct": 0.06
+   "var": 0.1906,
+   "var_pct": 0.12
   },
   {
    "id": "gbpusd",
@@ -2035,12 +2035,12 @@
    "unidad": "",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 1.321,
+   "valor": 1.3203,
    "anterior": 1.3216,
    "fecha": "2026-11-18",
    "url": "https://twelvedata.com/",
-   "var": -0.0006,
-   "var_pct": -0.04
+   "var": -0.0012,
+   "var_pct": -0.09
   },
   {
    "id": "usdcny",
@@ -2051,12 +2051,12 @@
    "unidad": "",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 6.6664,
+   "valor": 6.6668,
    "anterior": 6.6661,
    "fecha": "2026-11-18",
    "url": "https://twelvedata.com/",
-   "var": 0.0003,
-   "var_pct": 0.0
+   "var": 0.0007,
+   "var_pct": 0.01
   },
   {
    "id": "us3m",
@@ -4621,12 +4621,12 @@
    "unidad": "$",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 3850.2704,
+   "valor": 3821.9576,
    "anterior": 3846.8026,
    "fecha": "2026-11-18",
    "url": "https://twelvedata.com/",
-   "var": 3.4678,
-   "var_pct": 0.09
+   "var": -24.845,
+   "var_pct": -0.65
   },
   {
    "id": "plata",
@@ -5544,12 +5544,12 @@
    "unidad": "$",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 64833.18,
-   "anterior": 64882.87,
-   "fecha": "2026-11-17",
+   "valor": 64807.68,
+   "anterior": 64947.35,
+   "fecha": "2026-11-18",
    "url": "https://twelvedata.com/",
-   "var": -49.69,
-   "var_pct": -0.08
+   "var": -139.67,
+   "var_pct": -0.22
   },
   {
    "id": "ethereum",
@@ -5560,12 +5560,12 @@
    "unidad": "$",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 1817.39,
-   "anterior": 1820.67,
-   "fecha": "2026-11-17",
+   "valor": 1820.21,
+   "anterior": 1824.88,
+   "fecha": "2026-11-18",
    "url": "https://twelvedata.com/",
-   "var": -3.28,
-   "var_pct": -0.18
+   "var": -4.67,
+   "var_pct": -0.26
   }
  ],
  "sentimiento": {
@@ -5901,7 +5901,7 @@
      "fin": "2026-12-09",
      "proyecciones": true,
      "hora_madrid": "20:00",
-     "dias": 22,
+     "dias": 21,
      "comunicado": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261209a.htm",
      "rueda_prensa": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20261209.htm",
      "actas_fecha": "2026-12-30",
@@ -5912,7 +5912,7 @@
      "fin": "2027-01-27",
      "proyecciones": false,
      "hora_madrid": "20:00",
-     "dias": 71,
+     "dias": 70,
      "comunicado": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20270127a.htm",
      "rueda_prensa": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20270127.htm",
      "actas_fecha": "2027-02-17"
@@ -5922,7 +5922,7 @@
      "fin": "2027-03-17",
      "proyecciones": true,
      "hora_madrid": "19:00",
-     "dias": 120,
+     "dias": 119,
      "comunicado": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20270317a.htm",
      "rueda_prensa": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20270317.htm",
      "actas_fecha": "2027-04-07",
@@ -5933,7 +5933,7 @@
      "fin": "2027-04-28",
      "proyecciones": false,
      "hora_madrid": "20:00",
-     "dias": 162,
+     "dias": 161,
      "comunicado": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20270428a.htm",
      "rueda_prensa": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20270428.htm",
      "actas_fecha": "2027-05-19"
@@ -5944,10 +5944,11 @@
     "fin": "2026-10-28",
     "proyecciones": false,
     "hora_madrid": "19:00",
-    "dias": -20,
+    "dias": -21,
     "comunicado": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261028a.htm",
     "rueda_prensa": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20261028.htm",
     "actas_fecha": "2026-11-18",
+    "actas": "https://www.federalreserve.gov/monetarypolicy/fomcminutes20261028.htm",
     "decision": {
      "pb": 0,
      "texto": "Mantuvo los tipos"
@@ -6110,124 +6111,6 @@
   },
   "agenda": {
    "items": [
-    {
-     "id": "ventas",
-     "nombre": "Ventas minoristas",
-     "fuente": "Census",
-     "url": "https://www.census.gov/retail/index.html",
-     "ultimo": "+0,2% en el mes (oct-26)",
-     "graficos": [
-      {
-       "id": "RSAFS",
-       "nombre": "Ventas minoristas, variación en el mes",
-       "modo": "mm",
-       "puntos": [
-        [
-         "2024-11",
-         0.57
-        ],
-        [
-         "2024-12",
-         0.89
-        ],
-        [
-         "2025-01",
-         -0.68
-        ],
-        [
-         "2025-02",
-         -0.48
-        ],
-        [
-         "2025-03",
-         1.61
-        ],
-        [
-         "2025-04",
-         0.1
-        ],
-        [
-         "2025-05",
-         -1.43
-        ],
-        [
-         "2025-06",
-         0.93
-        ],
-        [
-         "2025-07",
-         0.92
-        ],
-        [
-         "2025-08",
-         0.3
-        ],
-        [
-         "2025-09",
-         0.03
-        ],
-        [
-         "2025-10",
-         -0.03
-        ],
-        [
-         "2025-11",
-         0.72
-        ],
-        [
-         "2025-12",
-         0.11
-        ],
-        [
-         "2026-01",
-         -0.62
-        ],
-        [
-         "2026-02",
-         0.87
-        ],
-        [
-         "2026-03",
-         1.66
-        ],
-        [
-         "2026-04",
-         0.59
-        ],
-        [
-         "2026-05",
-         1.04
-        ],
-        [
-         "2026-06",
-         0.2
-        ],
-        [
-         "2026-07",
-         -0.41
-        ],
-        [
-         "2026-08",
-         1.45
-        ],
-        [
-         "2026-09",
-         0.83
-        ],
-        [
-         "2026-10",
-         0.21
-        ]
-       ],
-       "url": "https://fred.stlouisfed.org/series/RSAFS"
-      }
-     ],
-     "principal": false,
-     "fecha": "2026-11-17",
-     "hora_madrid": "14:30",
-     "siguiente": "2026-12-16",
-     "anterior": "2026-10-15"
-    },
     {
      "id": "vivienda",
      "nombre": "Viviendas iniciadas",
@@ -7559,6 +7442,123 @@
      "fecha": "2026-12-15",
      "hora_madrid": "14:30",
      "anterior": "2026-11-13"
+    },
+    {
+     "id": "ventas",
+     "nombre": "Ventas minoristas",
+     "fuente": "Census",
+     "url": "https://www.census.gov/retail/index.html",
+     "ultimo": "+0,2% en el mes (oct-26)",
+     "graficos": [
+      {
+       "id": "RSAFS",
+       "nombre": "Ventas minoristas, variación en el mes",
+       "modo": "mm",
+       "puntos": [
+        [
+         "2024-11",
+         0.57
+        ],
+        [
+         "2024-12",
+         0.89
+        ],
+        [
+         "2025-01",
+         -0.68
+        ],
+        [
+         "2025-02",
+         -0.48
+        ],
+        [
+         "2025-03",
+         1.61
+        ],
+        [
+         "2025-04",
+         0.1
+        ],
+        [
+         "2025-05",
+         -1.43
+        ],
+        [
+         "2025-06",
+         0.93
+        ],
+        [
+         "2025-07",
+         0.92
+        ],
+        [
+         "2025-08",
+         0.3
+        ],
+        [
+         "2025-09",
+         0.03
+        ],
+        [
+         "2025-10",
+         -0.03
+        ],
+        [
+         "2025-11",
+         0.72
+        ],
+        [
+         "2025-12",
+         0.11
+        ],
+        [
+         "2026-01",
+         -0.62
+        ],
+        [
+         "2026-02",
+         0.87
+        ],
+        [
+         "2026-03",
+         1.66
+        ],
+        [
+         "2026-04",
+         0.59
+        ],
+        [
+         "2026-05",
+         1.04
+        ],
+        [
+         "2026-06",
+         0.2
+        ],
+        [
+         "2026-07",
+         -0.41
+        ],
+        [
+         "2026-08",
+         1.45
+        ],
+        [
+         "2026-09",
+         0.83
+        ],
+        [
+         "2026-10",
+         0.21
+        ]
+       ],
+       "url": "https://fred.stlouisfed.org/series/RSAFS"
+      }
+     ],
+     "principal": false,
+     "fecha": "2026-12-16",
+     "hora_madrid": "14:30",
+     "anterior": "2026-11-17"
     }
    ],
    "fuente": "Fechas oficiales del BLS, el BEA, el Census y el Dpto. de Trabajo vía FRED",
