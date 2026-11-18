@@ -1,0 +1,112 @@
+{
+ "ticker": "ORCL",
+ "creada": "2026-11-18",
+ "alcance": "repaso_semanal",
+ "motivo": "Repaso semanal a fondo (software)",
+ "informe_accn": "0001193125-26-387905",
+ "resumen": "Repaso semanal a fondo de Oracle (18-nov). Movimientos ≥5% en la ventana: +8,8% el 11-nov por los resultados de CoreWeave (alivio sobre la deuda de la IA) y −5,0% el 16-nov, día en que Bloomberg publicó que HSBC vendió su tramo de 300 M$ del préstamo de 18.000 M$ de Project Jupiter (Nuevo México) en torno al 85% de la par, en una sesión de caídas generales de la tecnología. Sin 8-K ni presentaciones nuevas desde el 8-K y los folletos del 4-nov; formularios 4 sin ventas fuera de plan. El 23-nov vence el plazo para decidir el permiso de emisiones de Project Jupiter. Se quitan las referencias al precio de la tesis y del veredicto (regla 8.1), se añade el aviso de fuerza mayor de septiembre al riesgo de ejecución y se ponen enlaces reales en las noticias. Consenso: TIKR da una media de 236 $ (12-nov) y DBS baja de 310 a 290 $. No se pudieron abrir investor.oracle.com ni oracle.com/news con WebFetch; Gmail sin alertas que nombren a Oracle. Nada de la semana obliga a cambiar tus supuestos ni tu precio de compra (100 $); la próxima prueba son los resultados del 2T FY27 (fecha aún sin anunciar, estimada el 14-dic). Comparación: el DCF del modelo da hoy 87,18 $ por acción (impacto_dcf), por debajo de tu precio de compra (100 $), con la acción a 115 $ (17-nov) y el consenso en 236 $: la distancia entre tu modelo y el consenso es muy grande; quizá quieras revisar si el precio de compra sigue encajando con tu DCF.",
+ "fuentes": [
+  {
+   "t": "The Motley Fool, 11-nov-2026",
+   "u": "https://fool.com/investing/2026/11/11/why-oracle-stock-is-up-today"
+  },
+  {
+   "t": "FourWeekMBA (Bloomberg), 16-nov-2026",
+   "u": "https://fourweekmba.com/ai-hsbc-sold-300m-oracle-tied-loan-in-mid-80s-45m-below-par/"
+  },
+  {
+   "t": "TechCrunch, 24-sep-2026",
+   "u": "https://techcrunch.com/2026/09/24/oracle-sends-force-majeure-notice-on-its-new-mexico-stargate-data-center/"
+  },
+  {
+   "t": "TIKR, 12-nov-2026",
+   "u": "https://www.tikr.com/blog/dbss-290-oracle-target-still-implies-126-upside-even-after-a-cut"
+  }
+ ],
+ "cambios": [
+  {
+   "campo": "risks",
+   "valor": [
+    {
+     "n": "Concentración en OpenAI",
+     "cat": "Cliente",
+     "p": 4,
+     "i": 5,
+     "note": "En torno a la mitad de la cartera está ligada a OpenAI (ERP Today); un recorte de sus planes golpearía ingresos y capex ya comprometido"
+    },
+    {
+     "n": "Financiación y deuda",
+     "cat": "Financiero",
+     "p": 4,
+     "i": 4,
+     "note": "125.000 M$ de deuda, caja libre negativa hasta el 2S FY28 y bonos nuevos con cupones de hasta el 8,65%"
+    },
+    {
+     "n": "Dilución",
+     "cat": "Financiero",
+     "p": 3,
+     "i": 3,
+     "note": "30.000 M$ en acciones desde junio (ATM de 20.000 M$ y 10.000 M$ en noviembre); el tope de 20.000 M$ hasta FY30 ya está agotado"
+    },
+    {
+     "n": "Ejecución de centros de datos",
+     "cat": "Operativo",
+     "p": 3,
+     "i": 4,
+     "note": "Permisos (Nuevo México), electricidad (Wisconsin) y suministro de GPU; cada retraso aplaza ingresos. En Project Jupiter (Nuevo México) Oracle envió en septiembre un aviso de fuerza mayor al promotor por el retraso del gasoducto y del permiso de emisiones; dice que el proyecto sigue en plazo y sigue como inquilino principal"
+    },
+    {
+     "n": "Margen de la infraestructura de IA",
+     "cat": "Mercado",
+     "p": 3,
+     "i": 4,
+     "note": "El margen bruto baja; si el precio del alquiler de GPU cae, el capex no rinde lo previsto"
+    },
+    {
+     "n": "Obsolescencia de las GPU",
+     "cat": "Operativo",
+     "p": 4,
+     "i": 3,
+     "note": "Microsoft no renueva el alquiler de 2023 (GPU Nvidia de generación anterior para Bing) y apaga esa capacidad (Bloomberg, 6-nov-26). Oracle responde que la capacidad que vencía en su 1T se renovó o revendió con una prima del 20%"
+    },
+    {
+     "n": "Software clásico frente a la IA",
+     "cat": "Competencia",
+     "p": 2,
+     "i": 3,
+     "note": "Software −3% y aplicaciones +10%: la IA puede presionar el modelo por usuario"
+    }
+   ],
+   "tipo": "texto",
+   "porque": "Se añade al riesgo de ejecución el aviso de fuerza mayor de Project Jupiter y la respuesta de Oracle (sigue en plazo); probabilidad e impacto sin cambios.",
+   "fuente": {
+    "t": "TechCrunch (Bloomberg), 24-sep-2026",
+    "u": "https://techcrunch.com/2026/09/24/oracle-sends-force-majeure-notice-on-its-new-mexico-stargate-data-center/",
+    "d": "24-sep-2026"
+   },
+   "verificacion": {
+    "ok": false,
+    "nota": "La fuente no atribuye el aviso de fuerza mayor al retraso del gasoducto y del permiso (dice que permite retrasar pagos si no abre en 2028), y lo de que sigue como inquilino principal lo dicen fuentes de Bloomberg, no Oracle; Oracle solo dice que sigue en plazo."
+   },
+   "fallo_verificacion": "La fuente no atribuye el aviso de fuerza mayor al retraso del gasoducto y del permiso (dice que permite retrasar pagos si no abre en 2028), y lo de que sigue como inquilino principal lo dicen fuentes de Bloomberg, no Oracle; Oracle solo dice que sigue en plazo.",
+   "procesado": "2026-11-18"
+  },
+  {
+   "campo": "verdict.summary",
+   "valor": "Oracle ha pasado de empresa de software madura a constructor de centros de datos para IA. Los resultados del 1T FY27 son fuertes (ingresos +30%, infraestructura +121%, cartera de 664.000 M$ y guía al alza), pero la caja libre es negativa, la deuda llega a 135.000 M$ tras noviembre y los accionistas han absorbido 30.000 M$ en acciones nuevas desde junio. La acción ya descuenta parte del riesgo y es muy sensible a cualquier señal sobre la financiación de la IA (subió un 9% el 11-nov con los resultados de CoreWeave y bajó después con la venta con descuento de un tramo del préstamo de Project Jupiter). Si cumple el plan de 2030 vale bastante más; con un recorte prudente del plan, el modelo queda por debajo del precio de compra. Mantener; comprar por debajo del precio de compra o cuando la caja libre empiece a girar.",
+   "tipo": "texto",
+   "porque": "El resumen citaba el precio (~126 $) y el valor del modelo; se reescribe sin precio (regla 8.1) y con la reacción de la semana.",
+   "fuente": {
+    "t": "The Motley Fool, 11-nov-2026",
+    "u": "https://fool.com/investing/2026/11/11/why-oracle-stock-is-up-today",
+    "d": "11-nov-2026"
+   },
+   "verificacion": {
+    "ok": false,
+    "nota": "Sin precio en $, pero «bajó después con la venta con descuento de un tramo del préstamo» no lo dice ninguna fuente citada: data/ORCL.json muestra la caída (125,35→115,00 $ del 13 al 17-nov) y FourWeekMBA no menciona reacción de la acción. El +9% del 11-nov sí cuadra."
+   },
+   "fallo_verificacion": "Sin precio en $, pero «bajó después con la venta con descuento de un tramo del préstamo» no lo dice ninguna fuente citada: data/ORCL.json muestra la caída (125,35→115,00 $ del 13 al 17-nov) y FourWeekMBA no menciona reacción de la acción. El +9% del 11-nov sí cuadra.",
+   "procesado": "2026-11-18"
+  }
+ ]
+}
