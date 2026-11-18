@@ -6,13 +6,14 @@
   "hq": "Austin, Texas",
   "founded": "1977",
   "employees": "~160.000",
-  "asOf": "13-nov-2026",
+  "asOf": "18-nov-2026",
   "fav": false,
   "autogenerado": "2026-11-02",
-  "nextEarnings": "14-dic-2026 (Finnhub)"
+  "nextEarnings": "14-dic-2026 (Finnhub)",
+  "repasoFondo": "18-nov-2026"
  },
  "overview": {
-  "thesis": "Oracle se ha convertido en uno de los grandes constructores de nube para IA: cartera de 664.000 M$ y nube de infraestructura creciendo +121%. A ~126 $ (−52% desde máximos) el mercado duda de la financiación: caja libre negativa hasta 2028, 125.000 M$ de deuda y mucha dependencia de OpenAI. Barata si cumple el plan de 2030; cara si la IA se enfría.",
+  "thesis": "Oracle se ha convertido en uno de los grandes constructores de nube para IA: cartera de 664.000 M$ y nube de infraestructura creciendo +121%. El mercado duda de la financiación: caja libre negativa hasta 2028, 125.000 M$ de deuda y mucha dependencia de OpenAI. Gana si cumple el plan de 2030; pierde si la IA se enfría o la obra se retrasa.",
   "summary": "Vende la base de datos y el software de gestión empresarial más usados por grandes empresas (Oracle Database, Fusion, NetSuite, sanidad) y, desde 2024, alquila centros de datos con GPU para entrenar e inferir modelos de IA (OCI), con OpenAI como gran cliente.\nEl ejercicio fiscal acaba el 31 de mayo: el 1T FY27 va de junio a agosto de 2026. La nube ya es el 60% de los ingresos y la infraestructura crece a tres dígitos, financiada con deuda, ampliaciones de capital y prepagos de clientes.",
   "keyFacts": [
    {
@@ -50,6 +51,10 @@
     "t": "Resultados del 2T FY27: guía de ingresos +30–34%, nube +65–71% y BPA ajustado 1,85–1,93 $."
    },
    {
+    "d": "23-nov-26",
+    "t": "Plazo del departamento de medio ambiente de Nuevo México para decidir el permiso de calidad del aire de las pilas de combustible de Project Jupiter (2,45 GW). El gasoducto que lo abastece se retrasa al 1-feb-2027."
+   },
+   {
     "d": "2T FY27",
     "t": "Primeras entregas de sistemas NVIDIA Vera a clientes y avance de Abilene (618 MW entregados, 6 de 8 edificios)."
    },
@@ -58,12 +63,12 @@
     "t": "Capex de 90.000–95.000 M$ (máximo 70.000 M$ netos de prepagos); pico en FY27–FY28."
    },
    {
-    "d": "2026–2027",
-    "t": "Permiso de emisiones en Nuevo México y conexión eléctrica en Wisconsin (fuera de la guía del FY27)."
-   },
-   {
     "d": "2S FY28",
     "t": "Objetivo de volver a caja libre positiva; ≥30.000 M$ en FY29."
+   },
+   {
+    "d": "2027",
+    "t": "Conexión eléctrica en Wisconsin (fuera de la guía del FY27)."
    }
   ]
  },
@@ -592,7 +597,7 @@
    "Infraestructura de IA acelerando (+121%) con GPU al 97,9% de uso",
    "Base de datos en todas las nubes: +353%",
    "Objetivos 2030 claros (225.000 M$ de ingresos, BPA ≥21 $) y guía del FY27 al alza",
-   "Precio −52% desde máximos y tope de financiación anunciado"
+   "Tope de financiación en mercado anunciado en el día del inversor (20.000 M$ hasta FY30)"
   ],
   "bear": [
    "Caja libre negativa hasta el 2S FY28 y deuda de ~135.000 M$",
@@ -605,9 +610,10 @@
    "Caja operativa, capex y prepagos de cada trimestre",
    "Conversión de la cartera en ingresos y peso de OpenAI",
    "Margen bruto y operativo de OCI",
-   "Permisos y electricidad en Nuevo México y Wisconsin",
+   "Permiso de emisiones de Project Jupiter (plazo 23-nov) y electricidad en Wisconsin",
    "Calificación crediticia y coste de los bonos",
-   "Renovación o reventa de la capacidad de GPU antigua que deja Microsoft"
+   "Renovación o reventa de la capacidad de GPU antigua que deja Microsoft",
+   "Apetito de los bancos por la deuda de sus centros de datos (HSBC vendió su tramo del préstamo de Project Jupiter por debajo de la par)"
   ]
  },
  "notes": "Supuestos del DCF (4-nov-2026): ingresos +34% en FY27 (guía), +30%, +28%, +25% y +10%: 188.000 M$ en FY30 frente a los 225.000 M$ de la compañía. Capex del 78% de las ventas en FY27 bajando al 12%: más prudente que la guía (caja libre positiva en FY30 en vez de 2S FY28). WACC del 10,5% por la beta (1,8) y el riesgo de crédito. El valor terminal pesa todo el valor, porque los primeros años la caja libre es negativa.",
@@ -642,24 +648,29 @@
   ],
   "news": [
    {
-    "t": "Oracle sube un 9% el 11-nov con el rebote de la IA tras los resultados de CoreWeave",
-    "src": "Yahoo Finance · 12-nov-2026",
-    "u": "https://finnhub.io/api/news?id=e8437646b6f7f6a655063258550971b1d1ac442b82dbfc1376f2729dcdf7f364"
+    "t": "Oracle sube un 9% el 11-nov: los resultados de CoreWeave alivian el miedo a la deuda de la IA",
+    "src": "The Motley Fool",
+    "u": "https://fool.com/investing/2026/11/11/why-oracle-stock-is-up-today"
    },
    {
-    "t": "Los resultados de CoreWeave reaniman las tecnológicas de IA",
-    "src": "Benzinga · 11-nov-2026",
-    "u": "https://finnhub.io/api/news?id=79541fc85d8a4aa27503b0a9fb8cb86d0519efdef1d519d22e7ea18ab2ca963e"
+    "t": "HSBC vende con descuento (en torno al 85%) su tramo de 300 M$ del préstamo de 18.000 M$ de Project Jupiter (según Bloomberg)",
+    "src": "FourWeekMBA",
+    "u": "https://fourweekmba.com/ai-hsbc-sold-300m-oracle-tied-loan-in-mid-80s-45m-below-par/"
+   },
+   {
+    "t": "DBS baja su objetivo de 310 a 290 $ y mantiene comprar; consenso medio de 236 $",
+    "src": "TIKR",
+    "u": "https://www.tikr.com/blog/dbss-290-oracle-target-still-implies-126-upside-even-after-a-cut"
+   },
+   {
+    "t": "Oracle envía un aviso de fuerza mayor por Project Jupiter (Nuevo México)",
+    "src": "TechCrunch",
+    "u": "https://techcrunch.com/2026/09/24/oracle-sends-force-majeure-notice-on-its-new-mexico-stargate-data-center/"
    },
    {
     "t": "Microsoft no renueva el alquiler de capacidad de IA de 2023 y lo va apagando (según Bloomberg)",
     "src": "MarketScale",
     "u": "https://www.marketscale.com/industries/software-and-technology/microsoft-winding-down-oracle-ai-cloud-capacity-deal"
-   },
-   {
-    "t": "Oracle cae un 4% tras la noticia de Microsoft",
-    "src": "Yahoo Finance",
-    "u": "https://finnhub.io/api/news?id=27cd75d0d38118909e5c40f15da08c3efc77a226fcf38ad4b8f9d97a70f515a4"
    },
    {
     "t": "S&P rebaja a Oracle a BBB-, a un escalón del bono basura",
@@ -680,11 +691,6 @@
     "t": "Bono de 25.000 M$ con la deuda en 130.000 M$",
     "src": "StartupMap",
     "u": "https://startupmap.iamsterdam.com/news/note/oracle-taps-25b-bond-as-debt-hits-130b-and-rating-slips-to-junk-s-edge"
-   },
-   {
-    "t": "Financiación de 16.300 M$ para un centro en Michigan",
-    "src": "Rallies",
-    "u": "https://rallies.ai/news/oracle-drops-as-163b-michigan-ai-data-center-financing-spotlights-funding-strain"
    }
   ]
  },
@@ -1230,6 +1236,268 @@
    },
    "verificacion": "fuente.u = data/ORCL.json ultimo_informe.url_documento (10-Q presentado el 2026-09-11 (SEC)), responde 200; único cambio meta.asOf=13-nov-2026; la auditoría 87b795b del 13-nov-2026 lo revisó: con cambios aplicados (próxima fecha de resultados).",
    "motivo": "Auditoría oficial de las pestañas (SEC y compañía) y revisión de internet del 13-nov-2026"
+  },
+  {
+   "fecha": "2026-11-18",
+   "campo": "overview.thesis",
+   "antes": "Oracle se ha convertido en uno de los grandes constructores de nube para IA: cartera de 664.000 M$ y nube de infraestructura creciendo +121%. A ~126 $ (−52% desde máximos) el mercado duda de la financiación: caja libre negativa hasta 2028, 125.000 M$ de deuda y mucha dependencia de OpenAI. Barata si cumple el plan de 2030; cara si la IA se enfría.",
+   "despues": "Oracle se ha convertido en uno de los grandes constructores de nube para IA: cartera de 664.000 M$ y nube de infraestructura creciendo +121%. El mercado duda de la financiación: caja libre negativa hasta 2028, 125.000 M$ de deuda y mucha dependencia de OpenAI. Gana si cumple el plan de 2030; pierde si la IA se enfría o la obra se retrasa.",
+   "porque": "La tesis citaba el precio de la acción (regla 8.1); se reescribe sin precio con las cifras del 1T FY27 ya en el análisis.",
+   "fuente": {
+    "t": "10-Q del 1T FY27",
+    "u": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526389274/orcl-20260831.htm",
+    "d": "11-sep-2026"
+   },
+   "verificacion": "Sin precio de la acción; cartera 664.000 M$, OCI +121%, deuda 125.000 M$ y caja libre negativa hasta 2028 ya en el análisis/10-Q 1T FY27.",
+   "motivo": "Repaso semanal a fondo (software)"
+  },
+  {
+   "fecha": "2026-11-18",
+   "campo": "overview.catalysts",
+   "antes": [
+    {
+     "d": "14-dic-26 (estimada)",
+     "t": "Resultados del 2T FY27: guía de ingresos +30–34%, nube +65–71% y BPA ajustado 1,85–1,93 $."
+    },
+    {
+     "d": "2T FY27",
+     "t": "Primeras entregas de sistemas NVIDIA Vera a clientes y avance de Abilene (618 MW entregados, 6 de 8 edificios)."
+    },
+    {
+     "d": "FY27",
+     "t": "Capex de 90.000–95.000 M$ (máximo 70.000 M$ netos de prepagos); pico en FY27–FY28."
+    },
+    {
+     "d": "2026–2027",
+     "t": "Permiso de emisiones en Nuevo México y conexión eléctrica en Wisconsin (fuera de la guía del FY27)."
+    },
+    {
+     "d": "2S FY28",
+     "t": "Objetivo de volver a caja libre positiva; ≥30.000 M$ en FY29."
+    }
+   ],
+   "despues": [
+    {
+     "d": "14-dic-26 (estimada)",
+     "t": "Resultados del 2T FY27: guía de ingresos +30–34%, nube +65–71% y BPA ajustado 1,85–1,93 $."
+    },
+    {
+     "d": "23-nov-26",
+     "t": "Plazo del departamento de medio ambiente de Nuevo México para decidir el permiso de calidad del aire de las pilas de combustible de Project Jupiter (2,45 GW). El gasoducto que lo abastece se retrasa al 1-feb-2027."
+    },
+    {
+     "d": "2T FY27",
+     "t": "Primeras entregas de sistemas NVIDIA Vera a clientes y avance de Abilene (618 MW entregados, 6 de 8 edificios)."
+    },
+    {
+     "d": "FY27",
+     "t": "Capex de 90.000–95.000 M$ (máximo 70.000 M$ netos de prepagos); pico en FY27–FY28."
+    },
+    {
+     "d": "2S FY28",
+     "t": "Objetivo de volver a caja libre positiva; ≥30.000 M$ en FY29."
+    },
+    {
+     "d": "2027",
+     "t": "Conexión eléctrica en Wisconsin (fuera de la guía del FY27)."
+    }
+   ],
+   "porque": "Se concreta el permiso de Nuevo México con su plazo (23-nov) y el retraso del gasoducto a 1-feb-2027; Wisconsin queda como catalizador aparte.",
+   "fuente": {
+    "t": "TechCrunch: Oracle sends force majeure notice on its New Mexico Stargate data center (24-sep-2026)",
+    "u": "https://techcrunch.com/2026/09/24/oracle-sends-force-majeure-notice-on-its-new-mexico-stargate-data-center/",
+    "d": "24-sep-2026"
+   },
+   "verificacion": "TechCrunch 24-sep: plazo del 23-nov para el permiso de calidad del aire de las pilas de combustible (Bloom), campus de 2,45 GW, gasoducto retrasado al 1-feb-2027; Wisconsin se mantiene aparte.",
+   "motivo": "Repaso semanal a fondo (software)"
+  },
+  {
+   "fecha": "2026-11-18",
+   "campo": "sources.news",
+   "antes": [
+    {
+     "t": "Oracle sube un 9% el 11-nov con el rebote de la IA tras los resultados de CoreWeave",
+     "src": "Yahoo Finance · 12-nov-2026",
+     "u": "https://finnhub.io/api/news?id=e8437646b6f7f6a655063258550971b1d1ac442b82dbfc1376f2729dcdf7f364"
+    },
+    {
+     "t": "Los resultados de CoreWeave reaniman las tecnológicas de IA",
+     "src": "Benzinga · 11-nov-2026",
+     "u": "https://finnhub.io/api/news?id=79541fc85d8a4aa27503b0a9fb8cb86d0519efdef1d519d22e7ea18ab2ca963e"
+    },
+    {
+     "t": "Microsoft no renueva el alquiler de capacidad de IA de 2023 y lo va apagando (según Bloomberg)",
+     "src": "MarketScale",
+     "u": "https://www.marketscale.com/industries/software-and-technology/microsoft-winding-down-oracle-ai-cloud-capacity-deal"
+    },
+    {
+     "t": "Oracle cae un 4% tras la noticia de Microsoft",
+     "src": "Yahoo Finance",
+     "u": "https://finnhub.io/api/news?id=27cd75d0d38118909e5c40f15da08c3efc77a226fcf38ad4b8f9d97a70f515a4"
+    },
+    {
+     "t": "S&P rebaja a Oracle a BBB-, a un escalón del bono basura",
+     "src": "The Next Web",
+     "u": "https://thenextweb.com/news/oracle-sp-downgrade-ai-spending-junk-risk"
+    },
+    {
+     "t": "Oracle ha perdido un 60% desde su anterior día del inversor",
+     "src": "Motley Fool",
+     "u": "https://www.fool.com/investing/2026/10/27/oracle-stock-has-lost-60-since-its-last-investor-day-is-it-a-buy-before-wednesday/"
+    },
+    {
+     "t": "Oracle sigue presionada pese a sus planes para FY30",
+     "src": "TipRanks",
+     "u": "https://tipranks.com/news/article/oracle-stock-orcl-remains-under-pressure-despite-big-fiscal-2030-plans"
+    },
+    {
+     "t": "Bono de 25.000 M$ con la deuda en 130.000 M$",
+     "src": "StartupMap",
+     "u": "https://startupmap.iamsterdam.com/news/note/oracle-taps-25b-bond-as-debt-hits-130b-and-rating-slips-to-junk-s-edge"
+    },
+    {
+     "t": "Financiación de 16.300 M$ para un centro en Michigan",
+     "src": "Rallies",
+     "u": "https://rallies.ai/news/oracle-drops-as-163b-michigan-ai-data-center-financing-spotlights-funding-strain"
+    }
+   ],
+   "despues": [
+    {
+     "t": "Oracle sube un 9% el 11-nov: los resultados de CoreWeave alivian el miedo a la deuda de la IA",
+     "src": "The Motley Fool",
+     "u": "https://fool.com/investing/2026/11/11/why-oracle-stock-is-up-today"
+    },
+    {
+     "t": "HSBC vende con descuento (en torno al 85%) su tramo de 300 M$ del préstamo de 18.000 M$ de Project Jupiter (según Bloomberg)",
+     "src": "FourWeekMBA",
+     "u": "https://fourweekmba.com/ai-hsbc-sold-300m-oracle-tied-loan-in-mid-80s-45m-below-par/"
+    },
+    {
+     "t": "DBS baja su objetivo de 310 a 290 $ y mantiene comprar; consenso medio de 236 $",
+     "src": "TIKR",
+     "u": "https://www.tikr.com/blog/dbss-290-oracle-target-still-implies-126-upside-even-after-a-cut"
+    },
+    {
+     "t": "Oracle envía un aviso de fuerza mayor por Project Jupiter (Nuevo México)",
+     "src": "TechCrunch",
+     "u": "https://techcrunch.com/2026/09/24/oracle-sends-force-majeure-notice-on-its-new-mexico-stargate-data-center/"
+    },
+    {
+     "t": "Microsoft no renueva el alquiler de capacidad de IA de 2023 y lo va apagando (según Bloomberg)",
+     "src": "MarketScale",
+     "u": "https://www.marketscale.com/industries/software-and-technology/microsoft-winding-down-oracle-ai-cloud-capacity-deal"
+    },
+    {
+     "t": "S&P rebaja a Oracle a BBB-, a un escalón del bono basura",
+     "src": "The Next Web",
+     "u": "https://thenextweb.com/news/oracle-sp-downgrade-ai-spending-junk-risk"
+    },
+    {
+     "t": "Oracle ha perdido un 60% desde su anterior día del inversor",
+     "src": "Motley Fool",
+     "u": "https://www.fool.com/investing/2026/10/27/oracle-stock-has-lost-60-since-its-last-investor-day-is-it-a-buy-before-wednesday/"
+    },
+    {
+     "t": "Oracle sigue presionada pese a sus planes para FY30",
+     "src": "TipRanks",
+     "u": "https://tipranks.com/news/article/oracle-stock-orcl-remains-under-pressure-despite-big-fiscal-2030-plans"
+    },
+    {
+     "t": "Bono de 25.000 M$ con la deuda en 130.000 M$",
+     "src": "StartupMap",
+     "u": "https://startupmap.iamsterdam.com/news/note/oracle-taps-25b-bond-as-debt-hits-130b-and-rating-slips-to-junk-s-edge"
+    }
+   ],
+   "porque": "Noticias de impacto de la semana con el enlace real del artículo; se quitan los enlaces de Finnhub sin artículo localizado.",
+   "fuente": {
+    "t": "The Motley Fool, 11-nov-2026",
+    "u": "https://fool.com/investing/2026/11/11/why-oracle-stock-is-up-today",
+    "d": "11-nov-2026"
+   },
+   "verificacion": "Motley Fool: +9,3% intradía el 11-nov por CoreWeave (cierre +8,8% en data/ORCL.json); HSBC 300 M$ del préstamo de 18.000 M$ a ~85 (Bloomberg 16-nov); TIKR DBS 310→290 y consenso 236 $. Se quitan también el enlace de Rallies (Michigan) sin explicarlo en «porque».",
+   "motivo": "Repaso semanal a fondo (software)"
+  },
+  {
+   "fecha": "2026-11-18",
+   "campo": "verdict.bull",
+   "antes": [
+    "Cartera de 664.000 M$ y nuevos contratos sin capital propio (prepagos y hardware del cliente)",
+    "Infraestructura de IA acelerando (+121%) con GPU al 97,9% de uso",
+    "Base de datos en todas las nubes: +353%",
+    "Objetivos 2030 claros (225.000 M$ de ingresos, BPA ≥21 $) y guía del FY27 al alza",
+    "Precio −52% desde máximos y tope de financiación anunciado"
+   ],
+   "despues": [
+    "Cartera de 664.000 M$ y nuevos contratos sin capital propio (prepagos y hardware del cliente)",
+    "Infraestructura de IA acelerando (+121%) con GPU al 97,9% de uso",
+    "Base de datos en todas las nubes: +353%",
+    "Objetivos 2030 claros (225.000 M$ de ingresos, BPA ≥21 $) y guía del FY27 al alza",
+    "Tope de financiación en mercado anunciado en el día del inversor (20.000 M$ hasta FY30)"
+   ],
+   "porque": "Se quita el punto basado en la caída de la cotización (regla 8.1) y se mantiene el tope de financiación como argumento.",
+   "fuente": {
+    "t": "10-Q del 1T FY27",
+    "u": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526389274/orcl-20260831.htm",
+    "d": "11-sep-2026"
+   },
+   "verificacion": "Se quita el punto de precio (−52%); el tope de 20.000 M$ hasta FY30 ya estaba en el análisis (ojo: risks lo da por agotado, así que como argumento a favor es flojo).",
+   "motivo": "Repaso semanal a fondo (software)"
+  },
+  {
+   "fecha": "2026-11-18",
+   "campo": "verdict.watch",
+   "antes": [
+    "Caja operativa, capex y prepagos de cada trimestre",
+    "Conversión de la cartera en ingresos y peso de OpenAI",
+    "Margen bruto y operativo de OCI",
+    "Permisos y electricidad en Nuevo México y Wisconsin",
+    "Calificación crediticia y coste de los bonos",
+    "Renovación o reventa de la capacidad de GPU antigua que deja Microsoft"
+   ],
+   "despues": [
+    "Caja operativa, capex y prepagos de cada trimestre",
+    "Conversión de la cartera en ingresos y peso de OpenAI",
+    "Margen bruto y operativo de OCI",
+    "Permiso de emisiones de Project Jupiter (plazo 23-nov) y electricidad en Wisconsin",
+    "Calificación crediticia y coste de los bonos",
+    "Renovación o reventa de la capacidad de GPU antigua que deja Microsoft",
+    "Apetito de los bancos por la deuda de sus centros de datos (HSBC vendió su tramo del préstamo de Project Jupiter por debajo de la par)"
+   ],
+   "porque": "Permiso de Project Jupiter con fecha y señal de los bancos sobre la deuda de sus centros de datos.",
+   "fuente": {
+    "t": "FourWeekMBA (Bloomberg), 16-nov-2026",
+    "u": "https://fourweekmba.com/ai-hsbc-sold-300m-oracle-tied-loan-in-mid-80s-45m-below-par/",
+    "d": "16-nov-2026"
+   },
+   "verificacion": "Plazo del 23-nov (TechCrunch) y venta de HSBC por debajo de la par (FourWeekMBA/Bloomberg 16-nov) cuadran; resto igual.",
+   "motivo": "Repaso semanal a fondo (software)"
+  },
+  {
+   "fecha": "2026-11-18",
+   "campo": "meta.asOf",
+   "antes": "13-nov-2026",
+   "despues": "18-nov-2026",
+   "porque": "Repaso semanal a fondo del 18-nov con la lista de comprobación completa.",
+   "fuente": {
+    "t": "10-Q del 1T FY27",
+    "u": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526389274/orcl-20260831.htm",
+    "d": "11-sep-2026"
+   },
+   "verificacion": "Fecha del repaso de hoy, formato correcto.",
+   "motivo": "Repaso semanal a fondo (software)"
+  },
+  {
+   "fecha": "2026-11-18",
+   "campo": "meta.repasoFondo",
+   "despues": "18-nov-2026",
+   "porque": "Repaso semanal a fondo (software).",
+   "fuente": {
+    "t": "10-Q del 1T FY27",
+    "u": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526389274/orcl-20260831.htm",
+    "d": "11-sep-2026"
+   },
+   "verificacion": "Fecha del repaso de hoy, formato correcto.",
+   "motivo": "Repaso semanal a fondo (software)"
   }
  ]
 }

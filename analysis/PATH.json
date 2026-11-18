@@ -7,10 +7,12 @@
   "hq": "Nueva York",
   "founded": "2005 (Bucarest)",
   "employees": "~3.800",
-  "asOf": "13-nov-2026"
+  "asOf": "18-nov-2026",
+  "nextEarnings": "3-dic-2026 (tras el cierre; confirmada)",
+  "repasoFondo": "18-nov-2026"
  },
  "overview": {
-  "thesis": "El líder de la automatización con robots de software intenta convertirse en el «director de orquesta» de los agentes de IA. Rentable, sin deuda y con recompras, cotiza a ~14 $ (−87% desde máximos) y unas 3 veces las ventas: barata si la IA agéntica amplía su mercado; trampa si los agentes de OpenAI, Microsoft o Salesforce la sustituyen.",
+  "thesis": "El líder de la automatización con robots de software intenta convertirse en el «director de orquesta» de los agentes de IA. Rentable, sin deuda y con recompras: gana si la IA agéntica amplía su mercado y la ARR vuelve a acelerar; pierde si los agentes de OpenAI, Microsoft o Salesforce la sustituyen.",
   "summary": "Vende una plataforma para automatizar tareas de oficina: «robots» de software (RPA) que copian lo que hace una persona en las aplicaciones, y desde 2025 agentes de IA y Maestro, que coordina agentes, robots y personas en un mismo proceso. Cobra por suscripción (ARR de 1.938 M$, +12%).\nTras años de pérdidas, gana dinero en GAAP desde hace cuatro trimestres y genera ~425 M$ de caja libre al año. El crecimiento se ha frenado al 10–15% y el mercado duda de que la IA generativa no convierta la RPA en una función más de los grandes modelos.",
   "keyFacts": [
    {
@@ -45,7 +47,7 @@
   "catalysts": [
    {
     "d": "3-dic-26",
-    "t": "Resultados del 3T FY27: guía de 440–445 M$ de ingresos y ARR de 1.992–1.997 M$."
+    "t": "Resultados del 3T FY27 (jueves, tras el cierre; llamada a las 17:00 ET, fecha confirmada el 5-nov): guía de 440–445 M$ de ingresos y ARR de 1.992–1.997 M$."
    },
    {
     "d": "Ene-27",
@@ -287,7 +289,7 @@
     "st": "en marcha",
     "k": "ARR de IA >250 M$",
     "peso": "IA en 18 de los 20 mayores contratos",
-    "d": "UiPath pasa de automatizar tareas con robots a orquestar agentes de IA (Maestro). Los contratos con IA son mayores y le abren el presupuesto de IA de las empresas.",
+    "d": "UiPath pasa de automatizar tareas con robots a orquestar agentes de IA (Maestro). Los contratos con IA son mayores y le abren el presupuesto de IA de las empresas. En noviembre de 2026 entró como socio de lanzamiento de Gemini for Healthcare de Google Cloud: Gemini puede lanzar y seguir automatizaciones y agentes de UiPath a través de su servidor MCP (en vista previa, sin clientes ni cifras publicadas).",
     "ev": "ARR de IA y nueva ARR neta (37 M$ en el 2T FY27).",
     "r": "Que Microsoft, Salesforce o ServiceNow integren agentes y dejen poco hueco.",
     "u": "https://www.marketbeat.com/instant-alerts/transcript-uipath-q2-earnings-call-highlights-2026-09-03/"
@@ -561,7 +563,7 @@
    "Fundador con el control de los votos y ventas de directivos"
   ],
   "watch": [
-   "Nueva ARR en el 3T FY27 (1-dic): por encima de 50 M$ sería reaceleración",
+   "Nueva ARR en el 3T FY27 (3-dic): por encima de 50 M$ sería reaceleración",
    "ARR de IA y adopción de Maestro",
    "Retención neta por encima del 110%",
    "Pago en acciones bajando hacia el 10% de las ventas"
@@ -592,6 +594,11 @@
    }
   ],
   "news": [
+   {
+    "t": "UiPath, socio de lanzamiento de Gemini for Healthcare de Google Cloud (servidor MCP en vista previa)",
+    "src": "Google Cloud (nota de prensa)",
+    "u": "https://www.googlecloudpresscorner.com/2026-11-10-UiPath-Accelerates-Enterprise-AI-Transformation-with-Google-Clouds-Gemini-for-Healthcare"
+   },
    {
     "t": "DA Davidson rebaja a infraponderar (objetivo 10 $) por el precio de la IA",
     "src": "CoinCentral",
@@ -828,6 +835,317 @@
    },
    "verificacion": "fuente.u = data/PATH.json ultimo_informe.url_documento (10-Q presentado el 2026-09-08 (SEC)), responde 200; único cambio meta.asOf=13-nov-2026; la auditoría 87b795b del 13-nov-2026 lo revisó: con cambios aplicados (próxima fecha de resultados).",
    "motivo": "Auditoría oficial de las pestañas (SEC y compañía) y revisión de internet del 13-nov-2026"
+  },
+  {
+   "fecha": "2026-11-18",
+   "campo": "overview.thesis",
+   "antes": "El líder de la automatización con robots de software intenta convertirse en el «director de orquesta» de los agentes de IA. Rentable, sin deuda y con recompras, cotiza a ~14 $ (−87% desde máximos) y unas 3 veces las ventas: barata si la IA agéntica amplía su mercado; trampa si los agentes de OpenAI, Microsoft o Salesforce la sustituyen.",
+   "despues": "El líder de la automatización con robots de software intenta convertirse en el «director de orquesta» de los agentes de IA. Rentable, sin deuda y con recompras: gana si la IA agéntica amplía su mercado y la ARR vuelve a acelerar; pierde si los agentes de OpenAI, Microsoft o Salesforce la sustituyen.",
+   "porque": "La tesis citaba el precio de la acción (regla 8.1); se reescribe sin precio, misma idea.",
+   "fuente": {
+    "t": "10-Q del 2T FY27",
+    "u": "https://www.sec.gov/Archives/edgar/data/1734722/000173472226000050/path-20260731.htm",
+    "d": "8-sep-2026"
+   },
+   "verificacion": "Sin precio de la acción; rentable, sin deuda y con recompras ya en el análisis; misma idea.",
+   "motivo": "Repaso semanal a fondo (software)"
+  },
+  {
+   "fecha": "2026-11-18",
+   "campo": "meta.nextEarnings",
+   "despues": "3-dic-2026 (tras el cierre; confirmada)",
+   "porque": "UiPath anunció el 5-nov la fecha de resultados del 3T FY27.",
+   "fuente": {
+    "t": "UiPath Announces Third Quarter Fiscal 2027 Financial Results Conference Call (5-nov-2026)",
+    "u": "https://investingnews.com/uipath-announces-third-quarter-fiscal-2027-financial-results-conference-call/",
+    "d": "5-nov-2026"
+   },
+   "verificacion": "Nota del 5-nov: resultados del 3T FY27 el jueves 3-dic-2026 tras el cierre.",
+   "motivo": "Repaso semanal a fondo (software)"
+  },
+  {
+   "fecha": "2026-11-18",
+   "campo": "overview.catalysts",
+   "antes": [
+    {
+     "d": "3-dic-26",
+     "t": "Resultados del 3T FY27: guía de 440–445 M$ de ingresos y ARR de 1.992–1.997 M$."
+    },
+    {
+     "d": "Ene-27",
+     "t": "Cierre del ejercicio: superar los 2.000 M$ de ARR (guía 2.065–2.070 M$)."
+    },
+    {
+     "d": "2027",
+     "t": "Precio por transacción o por resultado en los agentes: prueba de si la IA se puede cobrar."
+    },
+    {
+     "d": "En curso",
+     "t": "Nuevo director financiero (Hitesh Ramani) y pago en acciones hacia el 8–10% de las ventas."
+    }
+   ],
+   "despues": [
+    {
+     "d": "3-dic-26",
+     "t": "Resultados del 3T FY27 (jueves, tras el cierre; llamada a las 17:00 ET, fecha confirmada el 5-nov): guía de 440–445 M$ de ingresos y ARR de 1.992–1.997 M$."
+    },
+    {
+     "d": "Ene-27",
+     "t": "Cierre del ejercicio: superar los 2.000 M$ de ARR (guía 2.065–2.070 M$)."
+    },
+    {
+     "d": "2027",
+     "t": "Precio por transacción o por resultado en los agentes: prueba de si la IA se puede cobrar."
+    },
+    {
+     "d": "En curso",
+     "t": "Nuevo director financiero (Hitesh Ramani) y pago en acciones hacia el 8–10% de las ventas."
+    }
+   ],
+   "porque": "Fecha de resultados confirmada por la compañía (3-dic, llamada a las 17:00 ET).",
+   "fuente": {
+    "t": "UiPath, 5-nov-2026",
+    "u": "https://investingnews.com/uipath-announces-third-quarter-fiscal-2027-financial-results-conference-call/",
+    "d": "5-nov-2026"
+   },
+   "verificacion": "Nota del 5-nov: 3-dic, jueves, tras el cierre, llamada a las 17:00 ET; resto igual al análisis.",
+   "motivo": "Repaso semanal a fondo (software)"
+  },
+  {
+   "fecha": "2026-11-18",
+   "campo": "growth.drivers",
+   "antes": [
+    {
+     "n": "Agentes de IA y Maestro",
+     "impact": 4,
+     "h": "2026–2028",
+     "st": "en marcha",
+     "k": "ARR de IA >250 M$",
+     "peso": "IA en 18 de los 20 mayores contratos",
+     "d": "UiPath pasa de automatizar tareas con robots a orquestar agentes de IA (Maestro). Los contratos con IA son mayores y le abren el presupuesto de IA de las empresas.",
+     "ev": "ARR de IA y nueva ARR neta (37 M$ en el 2T FY27).",
+     "r": "Que Microsoft, Salesforce o ServiceNow integren agentes y dejen poco hueco.",
+     "u": "https://www.marketbeat.com/instant-alerts/transcript-uipath-q2-earnings-call-highlights-2026-09-03/"
+    },
+    {
+     "n": "Grandes clientes",
+     "impact": 3,
+     "h": "Continuo",
+     "st": "maduro",
+     "k": "Clientes >1 M$: 387 (+21%)",
+     "peso": "retención neta del 109%",
+     "d": "Los grandes clientes amplían el uso y concentran la ARR; la retención neta mejora (109% frente a 106% a principios de año).",
+     "ev": "Clientes de más de 1 M$ y retención neta.",
+     "r": "Recortes de presupuesto de TI en banca y seguros."
+    },
+    {
+     "n": "Nuevos precios",
+     "impact": 3,
+     "h": "2027",
+     "st": "temprano",
+     "k": "Por transacción y por resultado",
+     "d": "Cobrar por uso o por resultado en lugar de por licencia puede subir el ingreso por cliente a medida que los agentes hacen más trabajo.",
+     "ev": "Peso de los contratos con los nuevos precios.",
+     "r": "Ingresos menos previsibles durante la transición."
+    },
+    {
+     "n": "Test y soluciones verticales",
+     "impact": 2,
+     "h": "2026–2027",
+     "st": "temprano",
+     "k": "Dark Testing Factory",
+     "peso": "sanidad, banca, energía",
+     "d": "Soluciones empaquetadas (facturas, reclamaciones médicas, pruebas de software) que se venden más rápido que la plataforma genérica.",
+     "ev": "Contratos ganados con soluciones verticales.",
+     "r": "Competencia de especialistas de cada sector."
+    },
+    {
+     "n": "Recompras",
+     "impact": 2,
+     "h": "Continuo",
+     "st": "maduro",
+     "k": "Pago en acciones objetivo 8–10% de ventas",
+     "d": "Reducen las acciones y compensan parte del pago en acciones.",
+     "ev": "Acciones en circulación.",
+     "r": "Dilución si el pago en acciones no baja."
+    }
+   ],
+   "despues": [
+    {
+     "n": "Agentes de IA y Maestro",
+     "impact": 4,
+     "h": "2026–2028",
+     "st": "en marcha",
+     "k": "ARR de IA >250 M$",
+     "peso": "IA en 18 de los 20 mayores contratos",
+     "d": "UiPath pasa de automatizar tareas con robots a orquestar agentes de IA (Maestro). Los contratos con IA son mayores y le abren el presupuesto de IA de las empresas. En noviembre de 2026 entró como socio de lanzamiento de Gemini for Healthcare de Google Cloud: Gemini puede lanzar y seguir automatizaciones y agentes de UiPath a través de su servidor MCP (en vista previa, sin clientes ni cifras publicadas).",
+     "ev": "ARR de IA y nueva ARR neta (37 M$ en el 2T FY27).",
+     "r": "Que Microsoft, Salesforce o ServiceNow integren agentes y dejen poco hueco.",
+     "u": "https://www.marketbeat.com/instant-alerts/transcript-uipath-q2-earnings-call-highlights-2026-09-03/"
+    },
+    {
+     "n": "Grandes clientes",
+     "impact": 3,
+     "h": "Continuo",
+     "st": "maduro",
+     "k": "Clientes >1 M$: 387 (+21%)",
+     "peso": "retención neta del 109%",
+     "d": "Los grandes clientes amplían el uso y concentran la ARR; la retención neta mejora (109% frente a 106% a principios de año).",
+     "ev": "Clientes de más de 1 M$ y retención neta.",
+     "r": "Recortes de presupuesto de TI en banca y seguros."
+    },
+    {
+     "n": "Nuevos precios",
+     "impact": 3,
+     "h": "2027",
+     "st": "temprano",
+     "k": "Por transacción y por resultado",
+     "d": "Cobrar por uso o por resultado en lugar de por licencia puede subir el ingreso por cliente a medida que los agentes hacen más trabajo.",
+     "ev": "Peso de los contratos con los nuevos precios.",
+     "r": "Ingresos menos previsibles durante la transición."
+    },
+    {
+     "n": "Test y soluciones verticales",
+     "impact": 2,
+     "h": "2026–2027",
+     "st": "temprano",
+     "k": "Dark Testing Factory",
+     "peso": "sanidad, banca, energía",
+     "d": "Soluciones empaquetadas (facturas, reclamaciones médicas, pruebas de software) que se venden más rápido que la plataforma genérica.",
+     "ev": "Contratos ganados con soluciones verticales.",
+     "r": "Competencia de especialistas de cada sector."
+    },
+    {
+     "n": "Recompras",
+     "impact": 2,
+     "h": "Continuo",
+     "st": "maduro",
+     "k": "Pago en acciones objetivo 8–10% de ventas",
+     "d": "Reducen las acciones y compensan parte del pago en acciones.",
+     "ev": "Acciones en circulación.",
+     "r": "Dilución si el pago en acciones no baja."
+    }
+   ],
+   "porque": "Se añade al motor de agentes la alianza con Google Cloud para Gemini for Healthcare (10-nov); estado e impacto sin cambios.",
+   "fuente": {
+    "t": "Google Cloud Press Corner, 10-nov-2026",
+    "u": "https://www.googlecloudpresscorner.com/2026-11-10-UiPath-Accelerates-Enterprise-AI-Transformation-with-Google-Clouds-Gemini-for-Healthcare",
+    "d": "10-nov-2026"
+   },
+   "verificacion": "Google Cloud 10-nov: UiPath socio de lanzamiento de Gemini for Healthcare; Gemini lanza y sigue automatizaciones y agentes vía UiPath MCP Server en vista previa; sin clientes ni cifras. Impacto/estado sin cambios.",
+   "motivo": "Repaso semanal a fondo (software)"
+  },
+  {
+   "fecha": "2026-11-18",
+   "campo": "sources.news",
+   "antes": [
+    {
+     "t": "DA Davidson rebaja a infraponderar (objetivo 10 $) por el precio de la IA",
+     "src": "CoinCentral",
+     "u": "https://coincentral.com/is-uipath-path-stock-a-sell-after-this-downgrade"
+    },
+    {
+     "t": "UiPath apunta a 2.000 M$ de ARR con la orquestación de agentes",
+     "src": "MarketBeat",
+     "u": "https://www.marketbeat.com/instant-alerts/event-uipath-targets-2b-arr-with-ai-orchestration-push-at-investor-day-2026-09-23/"
+    },
+    {
+     "t": "Resultados 2T FY27: ingresos +13%",
+     "src": "Nasdaq",
+     "u": "https://www.nasdaq.com/press-release/uipath-reports-second-quarter-fiscal-2027-financial-results-2026-09-03"
+    },
+    {
+     "t": "Cae un 87% desde máximos por la competencia de la IA",
+     "src": "Techleap",
+     "u": "https://finder.techleap.nl/news/feed/uipath-shares-down-87-as-agentic-ai-boom-reshapes-automation-market"
+    }
+   ],
+   "despues": [
+    {
+     "t": "UiPath, socio de lanzamiento de Gemini for Healthcare de Google Cloud (servidor MCP en vista previa)",
+     "src": "Google Cloud (nota de prensa)",
+     "u": "https://www.googlecloudpresscorner.com/2026-11-10-UiPath-Accelerates-Enterprise-AI-Transformation-with-Google-Clouds-Gemini-for-Healthcare"
+    },
+    {
+     "t": "DA Davidson rebaja a infraponderar (objetivo 10 $) por el precio de la IA",
+     "src": "CoinCentral",
+     "u": "https://coincentral.com/is-uipath-path-stock-a-sell-after-this-downgrade"
+    },
+    {
+     "t": "UiPath apunta a 2.000 M$ de ARR con la orquestación de agentes",
+     "src": "MarketBeat",
+     "u": "https://www.marketbeat.com/instant-alerts/event-uipath-targets-2b-arr-with-ai-orchestration-push-at-investor-day-2026-09-23/"
+    },
+    {
+     "t": "Resultados 2T FY27: ingresos +13%",
+     "src": "Nasdaq",
+     "u": "https://www.nasdaq.com/press-release/uipath-reports-second-quarter-fiscal-2027-financial-results-2026-09-03"
+    },
+    {
+     "t": "Cae un 87% desde máximos por la competencia de la IA",
+     "src": "Techleap",
+     "u": "https://finder.techleap.nl/news/feed/uipath-shares-down-87-as-agentic-ai-boom-reshapes-automation-market"
+    }
+   ],
+   "porque": "Nota de prensa oficial de la semana.",
+   "fuente": {
+    "t": "Google Cloud Press Corner, 10-nov-2026",
+    "u": "https://www.googlecloudpresscorner.com/2026-11-10-UiPath-Accelerates-Enterprise-AI-Transformation-with-Google-Clouds-Gemini-for-Healthcare",
+    "d": "10-nov-2026"
+   },
+   "verificacion": "Nueva nota de Google Cloud 10-nov cuadra con la fuente; resto sin cambios.",
+   "motivo": "Repaso semanal a fondo (software)"
+  },
+  {
+   "fecha": "2026-11-18",
+   "campo": "verdict.watch",
+   "antes": [
+    "Nueva ARR en el 3T FY27 (1-dic): por encima de 50 M$ sería reaceleración",
+    "ARR de IA y adopción de Maestro",
+    "Retención neta por encima del 110%",
+    "Pago en acciones bajando hacia el 10% de las ventas"
+   ],
+   "despues": [
+    "Nueva ARR en el 3T FY27 (3-dic): por encima de 50 M$ sería reaceleración",
+    "ARR de IA y adopción de Maestro",
+    "Retención neta por encima del 110%",
+    "Pago en acciones bajando hacia el 10% de las ventas"
+   ],
+   "porque": "La fecha de resultados del punto de nueva ARR era el 1-dic; la confirmada es el 3-dic.",
+   "fuente": {
+    "t": "UiPath, 5-nov-2026",
+    "u": "https://investingnews.com/uipath-announces-third-quarter-fiscal-2027-financial-results-conference-call/",
+    "d": "5-nov-2026"
+   },
+   "verificacion": "Fecha corregida a 3-dic según la nota del 5-nov; resto igual.",
+   "motivo": "Repaso semanal a fondo (software)"
+  },
+  {
+   "fecha": "2026-11-18",
+   "campo": "meta.asOf",
+   "antes": "13-nov-2026",
+   "despues": "18-nov-2026",
+   "porque": "Repaso semanal a fondo del 18-nov con la lista de comprobación completa.",
+   "fuente": {
+    "t": "10-Q del 2T FY27",
+    "u": "https://www.sec.gov/Archives/edgar/data/1734722/000173472226000050/path-20260731.htm",
+    "d": "8-sep-2026"
+   },
+   "verificacion": "Fecha del repaso de hoy, formato correcto.",
+   "motivo": "Repaso semanal a fondo (software)"
+  },
+  {
+   "fecha": "2026-11-18",
+   "campo": "meta.repasoFondo",
+   "despues": "18-nov-2026",
+   "porque": "Repaso semanal a fondo (software).",
+   "fuente": {
+    "t": "10-Q del 2T FY27",
+    "u": "https://www.sec.gov/Archives/edgar/data/1734722/000173472226000050/path-20260731.htm",
+    "d": "8-sep-2026"
+   },
+   "verificacion": "Fecha del repaso de hoy, formato correcto.",
+   "motivo": "Repaso semanal a fondo (software)"
   }
  ]
 }
