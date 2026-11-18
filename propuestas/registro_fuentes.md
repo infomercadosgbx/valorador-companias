@@ -2,6 +2,28 @@
 
 Una entrada por día (la más reciente arriba). La escribe la tarea programada de la mañana con `python scripts/registro_fuentes.py`. Sirve para ver qué aporta cada fuente y decidir qué quitar o añadir.
 
+## 2026-11-18
+
+_Lo útil salió de la búsqueda web: Reuters (vía Euronext) para las conversaciones de AppLovin sobre Criteo, The Motley Fool y TechCrunch/FourWeekMBA para Oracle, y las notas oficiales de UiPath (fecha de resultados) y Google Cloud (Gemini for Healthcare); la SEC confirmó que no hay 8-K materiales nuevos (el 8-K de Vistra del 16-nov es un pago menor del TRA). Gmail solo trajo boletines generales sin alertas de las compañías repasadas; ruido en Finnhub/Benzinga/ChartMill. WebFetch no pudo abrir las webs de inversores de AppLovin, UiPath y Oracle ni Yahoo Finance._
+
+- **Alertas en Gmail** (infomercados.gbx@gmail.com, últimas 24 h): Bloomberg 4, MarketWatch 1, Morningstar 3, CNBC 0, Reuters 0, FT 0, Investing 2, Otros 0.
+- **Titulares nuevos en 24 h (todas las compañías):** Finnhub 79, Google News 0, Seeking Alpha 5, Marketaux 10, Medios sectoriales y agencias 8.
+- **Fuentes con fallo** (nº de compañías): Google News 10, Marketaux 1, Sala de prensa 4.
+- **Compañías con señal para la revisión de internet:** PEP (1 publicación(es) en la sala de prensa de la compañía).
+
+| Compañía | Titulares 24 h | Finnhub | Google News | Seeking Alpha | Marketaux | Medios sectoriales y agencias | StockTwits | Reddit 7 d | Alertas Gmail |
+|---|---:|---:|---:|---:|---:|---:|---|---|---:|
+| APP | 10 | 8 | 0 | 1 | 1 | 0 | 100 % alc. | — | 0 |
+| GOOGL | 24 | 9 | 0 | 2 | 1 | 6 | 86 % alc. | — | 0 |
+| RDDT | 5 | 5 | 0 | 0 | 0 | 0 | 88 % alc. | — | 0 |
+| AMZN | 21 | 11 | 0 | 1 | 3 | 2 | 90 % alc. | — | 0 |
+| VST | 6 | 6 | 0 | 0 | 0 | 0 | 100 % alc. | — | 0 |
+| AVGO | 13 | 10 | 0 | 1 | 2 | 0 | 94 % alc. | — | 0 |
+| PEP | 6 | 6 | 0 | 0 | 0 | 0 | 40 % alc. | — | 0 |
+| PATH | 1 | 1 | 0 | 0 | 0 | 0 | 91 % alc. | — | 0 |
+| ORCL | 18 | 15 | 0 | 0 | 3 | 0 | 93 % alc. | — | 0 |
+| MRNA | 8 | 8 | 0 | 0 | 0 | 0 | 55 % alc. | — | 0 |
+
 ## 2026-11-17
 
 _Lo útil salió de la SEC (8-K de Moderna y 8-K de Blackstone Digital Infrastructure Trust sobre los centros de datos de Amazon) y de búsquedas web (Spaceflight Now para el fallo del Vulcan; TIKR y 24/7 Wall St. para Broadcom). Gmail solo trajo boletines generales (Nvidia, Anthropic) sin alertas que nombren a las compañías repasadas; ruido en Finnhub/Benzinga y ChartMill. WebFetch no pudo abrir el blog de Google, aboutamazon.com, broadcom.com ni Yahoo Finance (URLs no aparecidas en búsquedas)._
