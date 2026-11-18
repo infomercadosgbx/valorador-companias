@@ -9387,12 +9387,12 @@
   "fuente": "SEC EDGAR · formularios 4",
   "resumen": {
    "compras_mercado": 0,
-   "ventas_mercado": 72125104.39,
+   "ventas_mercado": 69543641.99,
    "n_compras": 0,
-   "n_ventas": 17,
-   "ventas_con_plan": 71691225.47,
+   "n_ventas": 16,
+   "ventas_con_plan": 69109763.07000001,
    "compradores": [],
-   "desde": "2026-05-17"
+   "desde": "2026-05-19"
   },
   "operaciones": [
    {
@@ -10642,54 +10642,6 @@
     "plan_10b5_1": false,
     "fecha_presentacion": "2026-05-22",
     "url": "https://www.sec.gov/Archives/edgar/data/1682852/000119312526237309/0001193125-26-237309-index.htm"
-   },
-   {
-    "fecha": "2026-05-15",
-    "codigo": "M",
-    "tipo": "Ejercicio de opciones",
-    "acciones": 37226.0,
-    "precio": 19.15,
-    "importe": 712877.9,
-    "sentido": "compra",
-    "tras_operacion": 1515223.0,
-    "clase": "Common Stock",
-    "persona": "Hoge Stephen",
-    "cargo": "President",
-    "plan_10b5_1": true,
-    "fecha_presentacion": "2026-05-18",
-    "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000103/0001682852-26-000103-index.htm"
-   },
-   {
-    "fecha": "2026-05-15",
-    "codigo": "M",
-    "tipo": "Ejercicio de opciones",
-    "acciones": 16110.0,
-    "precio": 19.15,
-    "importe": 308506.5,
-    "sentido": "compra",
-    "tras_operacion": 1531333.0,
-    "clase": "Common Stock",
-    "persona": "Hoge Stephen",
-    "cargo": "President",
-    "plan_10b5_1": true,
-    "fecha_presentacion": "2026-05-18",
-    "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000103/0001682852-26-000103-index.htm"
-   },
-   {
-    "fecha": "2026-05-15",
-    "codigo": "S",
-    "tipo": "Venta en mercado",
-    "acciones": 53336.0,
-    "precio": 48.4,
-    "importe": 2581462.4,
-    "sentido": "venta",
-    "tras_operacion": 1477997.0,
-    "clase": "Common Stock",
-    "persona": "Hoge Stephen",
-    "cargo": "President",
-    "plan_10b5_1": true,
-    "fecha_presentacion": "2026-05-18",
-    "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000103/0001682852-26-000103-index.htm"
    }
   ],
   "operaciones_por_filing": [
@@ -11939,56 +11891,9 @@
       "clase": "Common Stock"
      }
     ]
-   },
-   {
-    "accn": "0001682852-26-000103",
-    "fecha_presentacion": "2026-05-18",
-    "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000103/0001682852-26-000103-index.htm",
-    "personas": [
-     {
-      "nombre": "Hoge Stephen",
-      "cargo": "President"
-     }
-    ],
-    "plan_10b5_1": true,
-    "operaciones": [
-     {
-      "fecha": "2026-05-15",
-      "codigo": "M",
-      "tipo": "Ejercicio de opciones",
-      "acciones": 37226.0,
-      "precio": 19.15,
-      "importe": 712877.9,
-      "sentido": "compra",
-      "tras_operacion": 1515223.0,
-      "clase": "Common Stock"
-     },
-     {
-      "fecha": "2026-05-15",
-      "codigo": "M",
-      "tipo": "Ejercicio de opciones",
-      "acciones": 16110.0,
-      "precio": 19.15,
-      "importe": 308506.5,
-      "sentido": "compra",
-      "tras_operacion": 1531333.0,
-      "clase": "Common Stock"
-     },
-     {
-      "fecha": "2026-05-15",
-      "codigo": "S",
-      "tipo": "Venta en mercado",
-      "acciones": 53336.0,
-      "precio": 48.4,
-      "importe": 2581462.4,
-      "sentido": "venta",
-      "tras_operacion": 1477997.0,
-      "clase": "Common Stock"
-     }
-    ]
    }
   ],
-  "n_formularios": 29
+  "n_formularios": 28
  },
  "riesgos_10k": {
   "version": 4,
@@ -12042,10 +11947,10 @@
   "minimo_52s": 22.28,
   "maximo_52s": 280.8,
   "beta": 1.2511127,
-  "valor": 215.27,
-  "cierre_anterior": 223.37,
+  "valor": 206.8,
+  "cierre_anterior": 215.27,
   "moneda": "USD",
-  "fecha": "2026-11-16",
+  "fecha": "2026-11-17",
   "fuente": "Finnhub (API oficial, plan gratuito)",
   "url": "https://finnhub.io/"
  },
@@ -12102,8 +12007,8 @@
    "hora_codigo": "amc",
    "trimestre": 4,
    "anio": 2026,
-   "bpa_estimado": -2.3337,
-   "ingresos_estimados": 570678606
+   "bpa_estimado": -2.3941,
+   "ingresos_estimados": 556228613
   },
   "sorpresas": [
    {
@@ -12153,6 +12058,86 @@
  ],
  "noticias": [
   {
+   "titular": "S&P 500 Stocks Gapping Down in Today's Session",
+   "medio": "ChartMill",
+   "url": "https://www.chartmill.com/news/APP/Chartmill-58831-SP-500-Stocks-Gapping-Down-in-Todays-Session",
+   "fecha": "2026-11-17",
+   "resumen": "Several S&P 500 stocks gapped down in today's session, including Salesforce, Intuit, Workday, ServiceNow, Humana, Datadog, Moody's, AppLovin, Bloom Energy, and Moderna.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=0585e8bd922b9b78f82af936e01ab6cdeb8dab187e878df5b28377a2e8b5b50d"
+  },
+  {
+   "titular": "Morgan Stanley Maintains Equal-Weight on Moderna, Raises Price Target to $200",
+   "medio": "Benzinga",
+   "url": "https://www.benzinga.com/news/26/11/63333808/morgan-stanley-maintains-equal-weight-moderna-raises-price-target-200",
+   "fecha": "2026-11-17",
+   "resumen": "Morgan Stanley  analyst Terence Flynn   maintains Moderna (NASDAQ:MRNA) with a Equal-Weight and raises the price target from $95 to $200.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=4771f828bb755b7bf0e9e2f4a4f18afe30d850363608333f489a0772d9f18d00"
+  },
+  {
+   "titular": "JPMorgan Still Sees Moderna Overvalued Despite Raising Its Target",
+   "medio": "Yahoo Finance",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/jpmorgan-still-sees-moderna-overvalued-174522489.html",
+   "fecha": "2026-11-17",
+   "resumen": "The firm sees a gap between Moderna's $87.1 billion market value and what its pipeline can justify",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=72d5c966f06ca199536e85079feb152f75dc866b91d8039fbaff9f88ed5f98fb"
+  },
+  {
+   "titular": "Moderna's INT Outlook Strengthens After Phase 3 Melanoma Data, Morgan Stanley Says",
+   "medio": "Yahoo Finance",
+   "url": "https://finance.yahoo.com/healthcare/articles/moderna-apos-int-outlook-strengthens-162216732.html",
+   "fecha": "2026-11-17",
+   "resumen": "Moderna's (MRNA) phase 3 adjuvant melanoma data establishes clinical proof of concept for individual",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=66a88e972ea7942d35eccdd3a475dfe1235fba42e55addb4c1420a25aaa35c60"
+  },
+  {
+   "titular": "Drug and Gene Delivery Devices - Global Strategic Business Report 2026: Capitalize on 8.1% CAGR to Secure the $1.2 Billion Market by 2032 as AbbVie, Moderna, Pfizer and Novartis Accelerate",
+   "medio": "Yahoo Finance",
+   "url": "https://finance.yahoo.com/healthcare/articles/drug-gene-delivery-devices-global-150200572.html",
+   "fecha": "2026-11-17",
+   "resumen": "Boost ROI through next-gen delivery platforms that differentiate biologics, extend patent life, enable precision therapies and meet demand for non-invasive, connected care.Dublin, Nov. 17, 2026 (GLOBE NEWSWIRE) -- \"Drug and Gene Delivery Devices - Global Strategic Business Report",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=f6160d6f1a76ed6f278c3fda312f99421031278e526ab47a4115947c9ad355da"
+  },
+  {
+   "titular": "Biotechnology Market Companies 2027 Analysis: Amgen, Gilead, Regeneron, Vertex and Moderna Post Strong 2026 Results as Billion-Dollar Deals Reshape a Market Headed for USD 6.34 Trillion by 2035",
+   "medio": "Yahoo Finance",
+   "url": "https://finance.yahoo.com/healthcare/articles/biotechnology-market-companies-2027-analysis-150000375.html",
+   "fecha": "2026-11-17",
+   "resumen": "Regeneron Grows 36%, Gilead Spends About USD 12.7 Billion on Four Deals and Pharma Buyers Race to Refill Pipelines: Precedence Research Company Intelligence on Leaders, Investments and DevelopmentsOttawa, Nov. 17, 2026 (GLOBE NEWSWIRE) -- The global biotechnology market is valued",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=7cc14baa024674eab6a4db0c98f5ac483e587145f710fd118d4c0982e814d166"
+  },
+  {
+   "titular": "AI, Innovation and Optimism Take Center Stage at Baron Capital's 33rd Annual Investment Conference",
+   "medio": "Yahoo Finance",
+   "url": "https://finance.yahoo.com/technology/ai/articles/ai-innovation-optimism-center-stage-133000628.html",
+   "fecha": "2026-11-17",
+   "resumen": "NEW YORK, November 17, 2026--Baron Capital, a premier New York-based growth equity investment management firm with a 44-year track record of long-term, fundamental, research-driven investing, hosted its 33rd Annual Baron Investment Conference at Lincoln Center's Metropolitan Oper",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=8bbf2de032b91e01ca96432fd0c829220270e07da96cd352dd7ba6383553aa72"
+  },
+  {
+   "titular": "What iShares Biotechnology ETF (IBB) Bought: Gilead Leads on Nov. 13",
+   "medio": "Yahoo Finance",
+   "url": "https://finance.yahoo.com/healthcare/articles/ishares-biotechnology-etf-ibb-bought-110502911.html",
+   "fecha": "2026-11-17",
+   "resumen": "The fund added $84.9 million in new buying across 232 positions, led by $7.7 million of Gilead Sciences.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=17449836f3ef3db017ba6a7a32fac137804fd440c93334567fa8f844c430084d"
+  },
+  {
    "titular": "8-K a la SEC: Acuerdo relevante; nueva deuda u obligación financiera",
    "medio": "SEC · 8-K (oficial)",
    "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000208/mrna-20261109.htm",
@@ -12186,66 +12171,6 @@
     "puntuacion": 0.16,
     "etiqueta": "Algo alcista"
    }
-  },
-  {
-   "titular": "Flagship Pioneering expands to UK with £100m AI-native lab",
-   "medio": "Yahoo Finance",
-   "url": "https://www.pharmaceutical-technology.com/news/flagship-pioneering-uk-expansion-100m-ai-native-lab/",
-   "fecha": "2026-11-16",
-   "resumen": "The Moderna creator’s investment in the UK marks another sign of turning tides for the UK life sciences sector, following prior big pharma funding pullouts.",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=ad15d7f747535e4209ac9b3a2fd3dd9d10fef4394f169b4b438e0593dfb6d6df"
-  },
-  {
-   "titular": "Moderna Is Up Over 600% This Year. Here’s What Jim Cramer Learned in His Exclusive",
-   "medio": "Yahoo Finance",
-   "url": "https://247wallst.com/investing/2026/11/16/moderna-is-up-over-600-this-year-heres-what-jim-cramer-learned-in-his-exclusive/",
-   "fecha": "2026-11-16",
-   "resumen": "One melanoma headline turned a $63 stock into a market darling, and Moderna's CEO just told Jim Cramer when patients could get the shot. Does the price already bake in the cancer breakthrough, or is the next catalyst still ahead?",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=8449ab859c2f3644ba4efb7a982d358ef073416abbffb1c7a6a07297cb5522c8"
-  },
-  {
-   "titular": "Dr. Robert Langer, Co-Founder of Moderna, Joins PolarityBio’s Board of Directors",
-   "medio": "Yahoo Finance",
-   "url": "https://finance.yahoo.com/healthcare/articles/dr-robert-langer-co-founder-130000926.html",
-   "fecha": "2026-11-16",
-   "resumen": "Renowned biotechnology pioneer brings expertise in tissue engineering, regenerative medicine and translating scientific discoveries into commercial therapies to PolarityBio SkinTE® granted FDA Priority Review with PDUFA target action date of March 16, 2027 SALT LAKE CITY, Nov. 16",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=632f19c40dba0c1a0cdce406ab3098e8e4130232278f4fd683125a284a698756"
-  },
-  {
-   "titular": "Flagship's Afeyan Sees UK Bet Creating Next Moderna",
-   "medio": "Yahoo Finance",
-   "url": "https://finance.yahoo.com/video/flagships-afeyan-sees-uk-bet-113516829.html",
-   "fecha": "2026-11-16",
-   "resumen": "Flagship Pioneering founder and CEO Noubar Afeyan says the biotech venture firm hopes its new UK investment can grow to as much as £600 million \"relatively soon,\" as it establishes its first full-scale company-creation operation outside the US. Speaking on Bloomberg's \"The Pulse ",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=edfe663900058f39a87b01cd28ab2063e13840f03048d248e590fdfa9acd3712"
-  },
-  {
-   "titular": "What Invesco S&P 500 Equal Weight ETF (RSP) Bought: Moderna Leads on Nov. 12",
-   "medio": "Yahoo Finance",
-   "url": "https://finance.yahoo.com/markets/stocks/articles/invesco-p-500-equal-weight-110506567.html",
-   "fecha": "2026-11-16",
-   "resumen": "The fund added $319.5 million in gross purchases, lifting all 503 positions and making no sales.",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=372849855454ba43706f8d1e2f075d88fcced76e25b8fa1afc98e90c25c10afe"
-  },
-  {
-   "titular": "Flagship Pioneering Launches Flagship Origination Lab in London to Create AI-Native Platform Companies in the U.K.",
-   "medio": "Yahoo Finance",
-   "url": "https://finance.yahoo.com/technology/ai/articles/flagship-pioneering-launches-flagship-origination-070000910.html",
-   "fecha": "2026-11-16",
-   "resumen": "Flagship Pioneering, a scientific innovation engine for transformative platforms and products, today announced the establishment of Flagship Origination Lab, U.K., its first dedicated company creation unit outside of the U.S. Based in London, the Lab will conceive, test, fund, an",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=b10e86efb07e1be293643f0345cdcdff83d59baabd5f4544d54c78aec1469b03"
   },
   {
    "titular": "8-K a la SEC: Cambios en directivos o consejeros",
@@ -12425,28 +12350,6 @@
    "url_finnhub": "https://finnhub.io/api/news?id=4b6e7e9ee293a5892be5922c2159d3b2fd8682a7b7465976d0cf38d9b250a668"
   },
   {
-   "titular": "Moderna chasing ‘holy grail’ of cancer prevention",
-   "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPY21iQTBwT3RDZFg4dE1lRkszNHVOVTA2SEd6bWdjNjRSQVJhUWRkY19TblByWHREN1RhQWJqRTJuaUlnOGV5RzJUMHVGOHd2azQyZ1BIdVg5SVU1VUJ2RDMwNWdxZ0lMR0NuX3JNQWRzeFpYS3lQTnpzRVNPTkRzZkh2dTE?oc=5",
-   "fecha": "2026-11-10",
-   "resumen": "",
-   "medio": "Financial Times",
-   "tipo": "prensa",
-   "via": "Google News"
-  },
-  {
-   "titular": "MRNA Maintained by Goldman Sachs -- Price Target Raised to $195",
-   "url": "https://www.gurufocus.com/news/9185692/mrna-maintained-by-goldman-sachs-price-target-raised-to-195",
-   "fecha": "2026-11-09",
-   "resumen": "Moderna Inc. Analyst Rating Update On October 30, 2023, Moderna Inc. (MRNA) received a rating update from Goldman Sachs, which maintained a Neutral rating on",
-   "medio": "gurufocus.com",
-   "tipo": "prensa",
-   "via": "Marketaux",
-   "sentimiento": {
-    "puntuacion": 0.213,
-    "etiqueta": "Algo alcista"
-   }
-  },
-  {
    "titular": "8-K a la SEC: Resultados",
    "medio": "SEC · 8-K (oficial)",
    "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000194/mrna-20261106.htm",
@@ -12457,9 +12360,9 @@
   }
  ],
  "noticias_sentimiento": {
-  "puntuacion": 0.225,
+  "puntuacion": 0.228,
   "etiqueta": "Algo alcista",
-  "noticias": 5,
+  "noticias": 4,
   "fuente": "Alpha Vantage / Marketaux (puntuación media de las noticias del último mes)"
  },
  "redes": {
@@ -12467,13 +12370,13 @@
    "fuente": "StockTwits (API pública)",
    "url": "https://stocktwits.com/symbol/MRNA",
    "mensajes": 30,
-   "alcistas": 2,
-   "bajistas": 3,
-   "pct_alcista": 40,
-   "seguidores": 117803,
-   "desde": "2026-11-16",
-   "hasta": "2026-11-16",
-   "fecha": "2026-11-16"
+   "alcistas": 6,
+   "bajistas": 5,
+   "pct_alcista": 55,
+   "seguidores": 117805,
+   "desde": "2026-11-17",
+   "hasta": "2026-11-18",
+   "fecha": "2026-11-18"
   }
  },
  "noticias_fuentes": {
@@ -12489,7 +12392,7 @@
    },
    "Google News": {
     "ok": false,
-    "error": "HTTPError: HTTP Error 429: Too Many Requests"
+    "error": "HTTPError: HTTP Error 503: Service Unavailable"
    },
    "Seeking Alpha": {
     "ok": true,
@@ -12506,7 +12409,7 @@
    "Sala de prensa": {
     "ok": false,
     "titulares": 0,
-    "error": "https://news.google.com/rss/search?q=site%3Amodernatx.com+when%3A14d&hl=en-US&gl=US&ceid=US%3Aen: HTTPError: HTTP Error 429: Too Many Requests"
+    "error": "https://news.google.com/rss/search?q=site%3Amodernatx.com+when%3A14d&hl=en-US&gl=US&ceid=US%3Aen: HTTPError: HTTP Error 503: Service Unavailable"
    },
    "StockTwits": {
     "ok": true,
@@ -12516,10 +12419,6 @@
  },
  "historico_precio": {
   "serie": [
-   [
-    "2021-08-16",
-    373.86
-   ],
    [
     "2021-08-17",
     401.86
@@ -17795,18 +17694,22 @@
    [
     "2026-11-16",
     215.27
+   ],
+   [
+    "2026-11-17",
+    206.8
    ]
   ],
   "fuente": "Twelve Data (API oficial, plan gratuito)",
   "url": "https://twelvedata.com/",
-  "fecha": "2026-11-16",
+  "fecha": "2026-11-17",
   "ajuste": "splits"
  },
- "generado": "2026-11-16T23:57:49+00:00",
+ "generado": "2026-11-18T00:10:08+00:00",
  "peers": {
   "fuente_lista": "manual",
   "fuente_cifras": "SEC EDGAR (companyfacts, UDM) · precio Finnhub",
-  "actualizado": "2026-11-16",
+  "actualizado": "2026-11-18",
   "propia": {
    "ingresos": 2525000000,
    "crecimiento": 13.13,
@@ -17824,13 +17727,13 @@
    "informe": "10-Q",
    "informe_fecha": "2026-11-06",
    "url": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000197/0001682852-26-000197-index.htm",
-   "precio": 215.27,
-   "capitalizacion": 87102757288.25,
-   "ev": 85480757288.25,
+   "precio": 206.8,
+   "capitalizacion": 83675617630.0,
+   "ev": 82053617630.0,
    "per": null,
-   "precio_ventas": 34.5,
+   "precio_ventas": 33.14,
    "ev_ebitda": null,
-   "rentabilidad_fcf": -2.26,
+   "rentabilidad_fcf": -2.35,
    "deuda_neta_ebitda": null,
    "ticker": "MRNA",
    "nombre": "Moderna",
@@ -17864,13 +17767,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-11-03",
     "url": "https://www.sec.gov/Archives/edgar/data/78003/000007800326000127/0000078003-26-000127-index.htm",
-    "precio": 28.86,
-    "capitalizacion": 164497778734.38,
-    "ev": 216156778734.38,
-    "per": 40.78,
-    "precio_ventas": 2.59,
-    "ev_ebitda": 16.05,
-    "rentabilidad_fcf": 7.16,
+    "precio": 28.47,
+    "capitalizacion": 162274835778.50998,
+    "ev": 213933835778.50998,
+    "per": 40.23,
+    "precio_ventas": 2.55,
+    "ev_ebitda": 15.89,
+    "rentabilidad_fcf": 7.26,
     "deuda_neta_ebitda": 3.84
    },
    {
@@ -17900,13 +17803,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-11-04",
     "url": "https://www.sec.gov/Archives/edgar/data/310158/000031015826000248/0000310158-26-000248-index.htm",
-    "precio": 144.46,
-    "capitalizacion": 356129392088.48004,
-    "ev": 400256392088.48004,
-    "per": 145.18,
-    "precio_ventas": 5.29,
-    "ev_ebitda": 39.54,
-    "rentabilidad_fcf": 4.14,
+    "precio": 143.37,
+    "capitalizacion": 353442274288.56,
+    "ev": 397569274288.56,
+    "per": 144.09,
+    "precio_ventas": 5.25,
+    "ev_ebitda": 39.27,
+    "rentabilidad_fcf": 4.17,
     "deuda_neta_ebitda": 4.36
    },
    {
@@ -17936,9 +17839,9 @@
     "informe": "10-Q",
     "informe_fecha": "2026-11-05",
     "url": "https://www.sec.gov/Archives/edgar/data/1000694/000100069426000022/0001000694-26-000022-index.htm",
-    "precio": 8.06,
-    "capitalizacion": 1329972612.5400002,
-    "ev": 999697612.5400002,
+    "precio": 7.96,
+    "capitalizacion": 1313471711.64,
+    "ev": 983196711.6400001,
     "per": null,
     "precio_ventas": null,
     "ev_ebitda": null,
@@ -17972,13 +17875,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-30",
     "url": "https://www.sec.gov/Archives/edgar/data/872589/000087258926000034/0000872589-26-000034-index.htm",
-    "precio": 952.4,
-    "capitalizacion": 89482846764.0,
-    "ev": 82168746764.0,
-    "per": 18.57,
-    "precio_ventas": 5.3,
-    "ev_ebitda": 15.28,
-    "rentabilidad_fcf": 4.28,
+    "precio": 957.76,
+    "capitalizacion": 89986446153.6,
+    "ev": 82672346153.6,
+    "per": 18.68,
+    "precio_ventas": 5.33,
+    "ev_ebitda": 15.37,
+    "rentabilidad_fcf": 4.25,
     "deuda_neta_ebitda": -1.36
    },
    {
@@ -18008,13 +17911,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-11-03",
     "url": "https://www.sec.gov/Archives/edgar/data/875320/000087532026000291/0000875320-26-000291-index.htm",
-    "precio": 537.79,
-    "capitalizacion": 136350025700.45999,
-    "ev": 134543325700.45999,
-    "per": 34.29,
-    "precio_ventas": 10.53,
-    "ev_ebitda": 29.63,
-    "rentabilidad_fcf": 2.35,
+    "precio": 534.2,
+    "capitalizacion": 135439825450.80002,
+    "ev": 133633125450.80002,
+    "per": 34.07,
+    "precio_ventas": 10.46,
+    "ev_ebitda": 29.43,
+    "rentabilidad_fcf": 2.36,
     "deuda_neta_ebitda": -0.4
    },
    {
@@ -18044,13 +17947,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-30",
     "url": "https://www.sec.gov/Archives/edgar/data/882095/000088209526000039/0000882095-26-000039-index.htm",
-    "precio": 167.58,
-    "capitalizacion": 207855944934.12003,
-    "ev": 227649944934.12003,
+    "precio": 170.26,
+    "capitalizacion": 211180052419.63998,
+    "ev": 230974052419.63998,
     "per": null,
-    "precio_ventas": 6.71,
-    "ev_ebitda": 648.58,
-    "rentabilidad_fcf": 6.63,
+    "precio_ventas": 6.81,
+    "ev_ebitda": 658.05,
+    "rentabilidad_fcf": 6.53,
     "deuda_neta_ebitda": 56.39
    }
   ]
