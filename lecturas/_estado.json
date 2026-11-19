@@ -395,8 +395,7 @@
     "u": "https://www.sec.gov/Archives/edgar/data/1730168/000173016826000076/avgo-08022026x8kxex99.htm",
     "fecha": "2026-09-02",
     "ok": true,
-    "nuevo": true,
-    "caracteres": 23405
+    "nuevo": false
    },
    {
     "archivo": "lecturas/AVGO/sec_10q_0001730168-26-000080.txt",
@@ -404,8 +403,7 @@
     "u": "https://www.sec.gov/Archives/edgar/data/1730168/000173016826000080/avgo-20260802.htm",
     "fecha": "2026-09-10",
     "ok": true,
-    "nuevo": true,
-    "caracteres": 195354
+    "nuevo": false
    }
   ],
   "web": {
@@ -414,7 +412,8 @@
     "t": "Relación con inversores",
     "u": "https://investors.broadcom.com",
     "codigo": 0,
-    "revisado": "2026-11-19T18:01Z",
+    "via": "http",
+    "revisado": "2026-11-19T18:18Z",
     "ok": false,
     "error": "TimeoutError: The read operation timed out",
     "ultimo_ok": null
@@ -424,29 +423,31 @@
     "t": "Productos (semiconductores y software)",
     "u": "https://www.broadcom.com/products",
     "codigo": 200,
-    "revisado": "2026-11-19T18:01Z",
+    "via": "navegador",
+    "revisado": "2026-11-19T18:18Z",
     "ok": true,
-    "caracteres": 8,
-    "enlaces": 0,
-    "poco_texto": true,
+    "caracteres": 16757,
+    "enlaces": 120,
+    "poco_texto": false,
     "cambio": true,
-    "ultimo_cambio": "2026-11-19T18:01Z"
+    "ultimo_cambio": "2026-11-19T18:18Z"
    },
    "https://www.broadcom.com/company/news": {
     "archivo": "lecturas/AVGO/web_www-broadcom-com-company-news.txt",
     "t": "Noticias de Broadcom",
     "u": "https://www.broadcom.com/company/news",
     "codigo": 200,
-    "revisado": "2026-11-19T18:01Z",
+    "via": "navegador",
+    "revisado": "2026-11-19T18:18Z",
     "ok": true,
-    "caracteres": 8,
-    "enlaces": 0,
-    "poco_texto": true,
+    "caracteres": 12879,
+    "enlaces": 92,
+    "poco_texto": false,
     "cambio": true,
-    "ultimo_cambio": "2026-11-19T18:01Z"
+    "ultimo_cambio": "2026-11-19T18:18Z"
    }
   },
-  "revisado": "2026-11-19T18:01Z"
+  "revisado": "2026-11-19T18:18Z"
  },
  "PEP": {
   "sec": [
@@ -456,8 +457,7 @@
     "u": "https://www.sec.gov/Archives/edgar/data/77476/000007747626000050/q320268-kxexhibit991.htm",
     "fecha": "2026-10-08",
     "ok": true,
-    "nuevo": true,
-    "caracteres": 50122
+    "nuevo": false
    },
    {
     "archivo": "lecturas/PEP/sec_10q_0000077476-26-000048.txt",
@@ -465,32 +465,36 @@
     "u": "https://www.sec.gov/Archives/edgar/data/77476/000007747626000048/pep-20260905.htm",
     "fecha": "2026-10-08",
     "ok": true,
-    "nuevo": true,
-    "caracteres": 148048
+    "nuevo": false
    }
   ],
   "web": {
-   "https://www.pepsico.com/our-brands": {
-    "archivo": "lecturas/PEP/web_www-pepsico-com-our-brands.txt",
+   "https://www.pepsico.com/brands": {
+    "archivo": "lecturas/PEP/web_www-pepsico-com-brands.txt",
     "t": "Marcas",
-    "u": "https://www.pepsico.com/our-brands",
-    "codigo": 404,
-    "revisado": "2026-11-19T18:01Z",
-    "ok": false,
-    "error": "HTTP 404",
-    "ultimo_ok": null
+    "u": "https://www.pepsico.com/brands",
+    "codigo": 200,
+    "via": "http",
+    "revisado": "2026-11-19T18:18Z",
+    "ok": true,
+    "caracteres": 2449,
+    "enlaces": 48,
+    "poco_texto": false,
+    "cambio": true,
+    "ultimo_cambio": "2026-11-19T18:18Z"
    },
    "https://www.pepsico.com/investors": {
     "archivo": "lecturas/PEP/web_www-pepsico-com-investors.txt",
     "t": "Relación con inversores",
     "u": "https://www.pepsico.com/investors",
     "codigo": 200,
-    "revisado": "2026-11-19T18:01Z",
+    "via": "http",
+    "revisado": "2026-11-19T18:18Z",
     "ok": true,
     "caracteres": 2510,
     "enlaces": 45,
     "poco_texto": false,
-    "cambio": true,
+    "cambio": false,
     "ultimo_cambio": "2026-11-19T18:01Z"
    },
    "https://www.pepsico.com/newsroom": {
@@ -498,16 +502,17 @@
     "t": "Sala de prensa",
     "u": "https://www.pepsico.com/newsroom",
     "codigo": 200,
-    "revisado": "2026-11-19T18:01Z",
+    "via": "http",
+    "revisado": "2026-11-19T18:18Z",
     "ok": true,
     "caracteres": 1966,
     "enlaces": 41,
     "poco_texto": false,
-    "cambio": true,
+    "cambio": false,
     "ultimo_cambio": "2026-11-19T18:01Z"
    }
   },
-  "revisado": "2026-11-19T18:01Z"
+  "revisado": "2026-11-19T18:18Z"
  },
  "PATH": {
   "sec": [
@@ -581,8 +586,7 @@
     "u": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526387905/orcl-ex99_1.htm",
     "fecha": "2026-09-10",
     "ok": true,
-    "nuevo": true,
-    "caracteres": 30347
+    "nuevo": false
    },
    {
     "archivo": "lecturas/ORCL/sec_10q_0001193125-26-389274.txt",
@@ -590,8 +594,7 @@
     "u": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526389274/orcl-20260831.htm",
     "fecha": "2026-09-11",
     "ok": true,
-    "nuevo": true,
-    "caracteres": 128653
+    "nuevo": false
    }
   ],
   "web": {
@@ -600,12 +603,13 @@
     "t": "Relación con inversores",
     "u": "https://investor.oracle.com",
     "codigo": 200,
-    "revisado": "2026-11-19T18:01Z",
+    "via": "http",
+    "revisado": "2026-11-19T18:18Z",
     "ok": true,
     "caracteres": 3232,
     "enlaces": 105,
     "poco_texto": false,
-    "cambio": true,
+    "cambio": false,
     "ultimo_cambio": "2026-11-19T18:01Z"
    },
    "https://www.oracle.com/cloud/": {
@@ -613,7 +617,8 @@
     "t": "Oracle Cloud (OCI y aplicaciones)",
     "u": "https://www.oracle.com/cloud/",
     "codigo": 403,
-    "revisado": "2026-11-19T18:01Z",
+    "via": "http",
+    "revisado": "2026-11-19T18:18Z",
     "ok": false,
     "error": "HTTP 403",
     "ultimo_ok": null
@@ -623,16 +628,17 @@
     "t": "Noticias de Oracle",
     "u": "https://www.oracle.com/news/",
     "codigo": 200,
-    "revisado": "2026-11-19T18:01Z",
+    "via": "http",
+    "revisado": "2026-11-19T18:18Z",
     "ok": true,
     "caracteres": 2108,
     "enlaces": 120,
     "poco_texto": false,
-    "cambio": true,
+    "cambio": false,
     "ultimo_cambio": "2026-11-19T18:01Z"
    }
   },
-  "revisado": "2026-11-19T18:01Z"
+  "revisado": "2026-11-19T18:18Z"
  },
  "MRNA": {
   "sec": [

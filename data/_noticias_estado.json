@@ -227,11 +227,11 @@
   },
   "sala:ORCL": {
    "medio": "Sala de prensa de Oracle",
-   "url": "gnews:site:oracle.com/news",
+   "url": "https://news.google.com/rss/search?q=site%3Aoracle.com%2Fnews+when%3A14d&hl=en-US&gl=US&ceid=US%3Aen",
    "tipo": "nota_prensa",
-   "ok": false,
-   "titulares": 0,
-   "error": "https://news.google.com/rss/search?q=site%3Aoracle.com%2Fnews+when%3A14d&hl=en-US&gl=US&ceid=US%3Aen: HTTPError: HTTP Error 429: Too Many Requests"
+   "ok": true,
+   "titulares": 11,
+   "error": null
   },
   "sala:MRNA": {
    "medio": "Sala de prensa de Moderna",
@@ -247,5 +247,5 @@
   "Seeking Alpha",
   "Marketaux"
  ],
- "generado": "2026-11-19T18:01:53+00:00"
+ "generado": "2026-11-19T18:17:59+00:00"
 }
