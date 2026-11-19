@@ -1912,7 +1912,9 @@ function setDefaults(){ if(!window.Chart) return; const D=Chart.defaults;
   if(!window._plugReg){ try{ Chart.register(semanticPlugin,lastLabelPlugin); }catch(e){} window._plugReg=true; }
   D.font.family=getComputedStyle(document.body).fontFamily; D.font.size=11.5; D.color=V("--muted"); D.borderColor=V("--grid");
   D.maintainAspectRatio=false; D.animation=false; D.resizeDelay=0;
-  D.plugins.legend.labels.usePointStyle=true; D.plugins.legend.labels.boxWidth=8; D.plugins.legend.labels.boxHeight=8; D.plugins.legend.labels.color=V("--ink2");
+  /* nitidez: en pantallas 1x el lienzo se dibuja al doble y se reduce, para que leyendas y ejes no se vean pixelados */
+  D.devicePixelRatio=Math.max(2,window.devicePixelRatio||1);
+  D.plugins.legend.labels.usePointStyle=true; D.plugins.legend.labels.boxWidth=8; D.plugins.legend.labels.boxHeight=8; D.plugins.legend.labels.color=V("--ink2"); D.plugins.legend.labels.font={size:12,weight:"500"};
   D.plugins.tooltip.backgroundColor=V("--ink"); D.plugins.tooltip.titleColor=V("--bg"); D.plugins.tooltip.bodyColor=V("--bg"); D.plugins.tooltip.padding=8; D.plugins.tooltip.cornerRadius=6; D.plugins.tooltip.boxPadding=4;
   D.elements.bar.borderRadius=4; D.elements.bar.borderSkipped="start"; D.elements.line.borderWidth=2; D.elements.point.radius=0; D.elements.point.hoverRadius=5; D.elements.point.hitRadius=10; D.interaction={mode:"index",intersect:false}; D.layout={padding:{right:44}};
   D.datasets.bar.maxBarThickness=34; D.datasets.bar.categoryPercentage=.72; D.datasets.bar.barPercentage=.9; }
