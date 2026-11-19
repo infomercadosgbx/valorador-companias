@@ -9,6 +9,8 @@ La tarea «Valorador · revisión tras resultados y novedades» corre **de marte
 | **C · Repaso a fondo y mercado** | Una vez por semana por compañía (`companies.json → repaso`) | Webs oficiales, prensa, alertas de Gmail, analistas y redes; todas las pestañas al día | `ACTUALIZACION_COMPLETA.md`, apartados 5 y 7 |
 | **Cierre semanal** | Viernes, al final | Publicar la cola de decisiones del usuario y la comparación DCF / analistas | `ACTUALIZACION_COMPLETA.md`, apartado 8 |
 
+**Lectura de documentos:** la SEC y las webs oficiales se leen primero en `lecturas/<T>/` (copias en texto que deja el robot cada noche; estado en `lecturas/_estado.json`). WebFetch solo como último recurso y siempre después de una WebSearch que saque esa dirección (`INSTRUCCIONES.md`, 7.5).
+
 Compañías: solo las **activas** de `companies.json`. Las archivadas no se tocan. Las nuevas o reactivadas reciben el primer día el repaso completo (`ACTUALIZACION_COMPLETA.md`, apartado 0 bis).
 
 ## A · Lo oficial (cada día)

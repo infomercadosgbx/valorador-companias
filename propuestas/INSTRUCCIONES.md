@@ -16,7 +16,7 @@ Si no hay ninguna, termina sin hacer commit.
 
 ## 2. Qué leer (fuentes primarias primero)
 
-1. La nota de resultados: `ultimo_8k_resultados.url_ex99_1` (Exhibit 99.1) en sec.gov. Si sec.gov no es accesible desde tu entorno, usa la misma nota en la web de relación con inversores de la compañía o en un medio que la reproduzca (Business Wire, PR Newswire), y las cifras ya calculadas en `data/<T>.json`.
+1. La nota de resultados: `lecturas/<T>/sec_nota_resultados_<accn>.txt` (copia del Exhibit 99.1, `ultimo_8k_resultados.url_ex99_1`; ver 7.5). Si no está y sec.gov no es accesible desde tu entorno, usa la misma nota en la web de relación con inversores de la compañía o en un medio que la reproduzca (Business Wire, PR Newswire), y las cifras ya calculadas en `data/<T>.json`.
 2. La transcripción o los comentarios de la llamada con analistas (web de relación con inversores de la compañía, The Motley Fool u otra fuente fiable).
 3. Las cifras ya calculadas en `data/<T>.json` (ingresos, márgenes, caja, deuda, segmentos, previsiones, sorpresas) y la cotización actual (`precio.valor`).
 4. Prensa financiera solo para la reacción del mercado y cambios de precio objetivo.
@@ -111,7 +111,7 @@ La revisión no se limita al 8-K de resultados. En cada ejecución, y para cada 
 ### 7.1 Nuevo 10-Q o 10-K
 
 - Compara `data/<T>.json → ultimo_informe.accn` con `propuestas/_estado.json → informe.<T>.accn`. Si son distintos, es un informe periódico nuevo sin revisar.
-- Lee el documento (`ultimo_informe.url_documento`), sobre todo:
+- Lee el documento (`lecturas/<T>/sec_10q_<accn>.txt` o `sec_10k_<accn>.txt`, copia de `ultimo_informe.url_documento`; ver 7.5), sobre todo:
   - **MD&A** (*Management's Discussion and Analysis*, Item 2 del 10-Q y Item 7 del 10-K): explicación de la dirección sobre ingresos, márgenes y segmentos, tendencias, liquidez y fuentes de capital, capex previsto, recompras y dividendos, compromisos y cualquier previsión.
   - **Notas a los estados financieros** (*footnotes*): deuda y vencimientos, segmentos, ingresos pendientes de reconocer (RPO o *backlog*), compromisos y contingencias, litigios, impuestos, remuneración en acciones, adquisiciones o desinversiones y hechos posteriores al cierre.
   - **Factores de riesgo** (Item 1A): riesgos nuevos o cambiados frente al informe anterior.
@@ -138,6 +138,12 @@ Presentaciones en conferencias de inversores, *investor day* y cartas a accionis
 Si no hay nada nuevo en ninguna de las cuatro, no se hace nada con esa compañía. Commit: `Propuesta: <T> tras <10-Q 3T26 | nota de prensa | llamada 3T26>`.
 
 ### 7.5 Lista de comprobación de fuentes oficiales (cada ejecución, todas las compañías)
+
+**Cómo leer las fuentes oficiales (desde el 19-nov-2026).** La tarea corre sin nadie delante y WebFetch solo abre direcciones que hayan salido antes en una búsqueda: sec.gov y las webs de las compañías fallaban casi siempre. Por eso:
+1. **Primero `lecturas/<T>/`**, que deja cada noche el robot (`fetcher/lecturas.py`): `sec_nota_resultados_<accn>.txt` (Exhibit 99.1), `sec_10q_<accn>.txt` o `sec_10k_<accn>.txt` (completo: MD&A, notas, riesgos), `sec_8k_<accn>.txt` y otras presentaciones de los últimos 10 días, y `web_<sitio>.txt` por cada `companies.json → webs_oficiales` (texto y enlaces del mismo dominio). Se leen con Read o Grep, sin red. En `fuente` se cita la dirección original (la cabecera `# url:` del archivo), nunca la ruta local.
+2. `lecturas/_estado.json` dice qué falló (`ok: false`) o qué página se monta con JavaScript (`poco_texto: true`). Solo para esas, o para un enlace concreto que aparezca en la lista de enlaces de `web_*.txt`: **primero WebSearch** acotada al dominio (`allowed_domains`) para que la dirección aparezca en una búsqueda, **después WebFetch** de esa dirección. Nunca WebFetch de una dirección que no haya salido en la conversación.
+3. Si aun así no se puede leer, dilo en el resumen y en el registro de fuentes con el motivo (HTTP 403, sin texto…).
+
 
 La parte A no se da por hecha hasta recorrer, para cada compañía, esta lista. El objetivo es que **ninguna presentación oficial pase sin mirarse**. Marca en el resumen lo que miraste aunque no haya cambios (basta «oficial al día»):
 
@@ -202,7 +208,7 @@ Si después del cierre del último 10-Q/10-K hay hechos que cambian acciones, ca
 
 Lanza un agente nuevo (herramienta Agent, `subagent_type: "general-purpose"`) que **no** haya redactado la propuesta, con este encargo: para cada compañía con `propuestas/<T>.json`, y para cada cambio con `tipo: "hecho"` o `"texto"` sin `procesado`, cada entrada de `avisos_resueltos` y cada precio objetivo cambiado hoy en `manual/<T>.json`:
 
-1. Abrir la fuente citada (`fuente.u`; si sec.gov no es accesible, la misma nota en la web de la compañía, Business Wire o PR Newswire).
+1. Abrir la fuente citada (`fuente.u`): si es de sec.gov o de una web oficial, su copia en `lecturas/<T>/` (la cabecera `# url:` dice de qué dirección sale); si no, WebSearch y después WebFetch (7.5). Si nada abre, la misma nota en la web de la compañía, Business Wire o PR Newswire.
 2. Comprobar que **cada número, fecha y nombre** del `valor` (o de la `comprobacion`) aparece en la fuente o en `data/<T>.json`, con el mismo significado, y que el texto no afirma nada que la fuente no diga. En los `texto`, además: que cada afirmación de hecho (contrato, cifra, cuota, nombramiento, demanda) esté en las fuentes citadas, que la novedad sea material y posterior a lo que ya decía el análisis, que no contradiga `data/<T>.json` y que no se haya borrado contenido válido sin motivo. Si el precio objetivo de `manual/<T>.json` no cuadra con su fuente, devolverlo al valor anterior (`git checkout manual/<T>.json`) y decirlo en el resumen.
 3. Escribir en el cambio `"verificacion": {"ok": true|false, "nota": "<qué comprobó o qué no cuadra, una línea>"}`. Con una sola cifra que no cuadre, `ok: false`. Para `avisos_resueltos`, si no cuadra, quitar la entrada y decirlo en el resumen.
 

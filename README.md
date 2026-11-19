@@ -230,8 +230,9 @@ Las fuentes que no respondan aparecen en un aviso plegable al pie de la franja y
 1. Ejecuta los tests. Si fallan, no se toca ningún dato.
 2. Para cada compañía de `companies.json`: descarga `companyfacts` y `submissions` de data.sec.gov, aplica las reglas de extracción, valida y escribe `data/<TICKER>.json`.
 3. Pide precio y recomendaciones de analistas a Finnhub.
-4. Hace commit solo si cambió algún archivo (el sello de hora no cuenta como cambio).
-5. Si la SEC no devuelve nada para alguna compañía, el Action termina en rojo y abre un Issue (o comenta en el que ya esté abierto) con el error. Las demás compañías se actualizan igualmente.
+4. Copia en texto, en `lecturas/<TICKER>/`, los documentos oficiales que lee la revisión de la mañana: la última nota de resultados (Exhibit 99.1), el último 10-Q/10-K, los 8-K y otras presentaciones de los últimos 10 días y las webs de `companies.json → webs_oficiales`. La tarea de análisis no puede abrir sec.gov ni muchas webs de compañías por sí sola; así las lee sin red. `lecturas/_estado.json` dice qué fuente falla.
+5. Hace commit solo si cambió algún archivo (el sello de hora no cuenta como cambio).
+6. Si la SEC no devuelve nada para alguna compañía, el Action termina en rojo y abre un Issue (o comenta en el que ya esté abierto) con el error. Las demás compañías se actualizan igualmente.
 
 **Días de resultados.** Además, el mismo workflow se ejecuta de lunes a viernes a las 7:37 y 9:22 h de Nueva York (antes de la apertura) y a las 16:41 h (tras el cierre), pero solo actualiza las compañías que presentan ese día según el calendario de Finnhub (o las que presentaron el día anterior tras el cierre, para recoger el premercado). Si no presenta ninguna, termina sin hacer nada. Así el informe, su PDF y la reacción fuera de horario se generan solos; el botón «⟳ Actualizar resultados» sigue sirviendo para adelantarlo.
 
@@ -245,6 +246,7 @@ Las fuentes que no respondan aparecen en un aviso plegable al pie de la franja y
 | `analysis/<TICKER>.json` | Tus supuestos y textos: DCF, scorecard, veredicto, directiva, MOAT, riesgos, última presentación de resultados (`mgmt.call`) y series por segmento que la SEC no publica (`fin_manual`) | Tú, versionado en git |
 | `analysis/_plantilla.json` | Análisis en blanco para compañías nuevas | — |
 | `manual/<TICKER>.json` | Precios objetivo de los analistas (media, rango e historial) y estimaciones de resultados introducidos a mano (la web lo marca «manual») | Tú o la revisión tras resultados |
+| `lecturas/<TICKER>/` | Copia en texto de la última nota de resultados, el último 10-Q/10-K, los 8-K recientes y las webs oficiales (con su dirección original en la cabecera) | Solo el Action |
 | `data/resultados/<TICKER>/` | Informe de resultados de cada presentación (JSON y PDF) e histórico de segmentos | Solo el Action |
 | `data/estimaciones/<TICKER>/` | Foto del consenso de Finnhub antes de cada presentación | Solo el Action |
 | `resultados.html` | El informe de resultados (pantalla, impresión y PDF) | — |
