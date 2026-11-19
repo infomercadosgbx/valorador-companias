@@ -11887,12 +11887,12 @@
   "fuente": "SEC EDGAR · formularios 4",
   "resumen": {
    "compras_mercado": 0,
-   "ventas_mercado": 19646408.62,
+   "ventas_mercado": 16186599.86,
    "n_compras": 0,
-   "n_ventas": 55,
+   "n_ventas": 52,
    "ventas_con_plan": 4520718.77,
    "compradores": [],
-   "desde": "2026-05-18"
+   "desde": "2026-05-19"
   },
   "operaciones": [
    {
@@ -20901,102 +20901,9 @@
       "clase": "Class C Capital Stock"
      }
     ]
-   },
-   {
-    "accn": "0001168404-26-000025",
-    "fecha_presentacion": "2026-05-18",
-    "url": "https://www.sec.gov/Archives/edgar/data/1652044/000116840426000025/0001168404-26-000025-index.htm",
-    "personas": [
-     {
-      "nombre": "GV 2019 GP, L.L.C.",
-      "cargo": "Accionista >10%"
-     },
-     {
-      "nombre": "GV 2019 GP, L.P.",
-      "cargo": "Accionista >10%"
-     },
-     {
-      "nombre": "GV 2019, L.P.",
-      "cargo": "Accionista >10%"
-     },
-     {
-      "nombre": "GV 2021 GP, L.L.C.",
-      "cargo": "Accionista >10%"
-     },
-     {
-      "nombre": "GV 2021 GP, L.P.",
-      "cargo": "Accionista >10%"
-     },
-     {
-      "nombre": "GV 2021, L.P.",
-      "cargo": "Accionista >10%"
-     },
-     {
-      "nombre": "Alphabet Inc.",
-      "cargo": "Accionista >10%"
-     }
-    ],
-    "plan_10b5_1": false,
-    "operaciones": [
-     {
-      "fecha": "2026-05-14",
-      "codigo": "J",
-      "tipo": "Otra",
-      "acciones": 60077.0,
-      "precio": 0.0,
-      "importe": null,
-      "sentido": "venta",
-      "tras_operacion": 3138172.0,
-      "clase": "Class A Common Stock"
-     },
-     {
-      "fecha": "2026-05-14",
-      "codigo": "S",
-      "tipo": "Venta en mercado",
-      "acciones": 60077.0,
-      "precio": 23.0093,
-      "importe": 1382329.72,
-      "sentido": "venta",
-      "tras_operacion": 0.0,
-      "clase": "Class A Common Stock"
-     },
-     {
-      "fecha": "2026-05-15",
-      "codigo": "J",
-      "tipo": "Otra",
-      "acciones": 87475.0,
-      "precio": 0.0,
-      "importe": null,
-      "sentido": "venta",
-      "tras_operacion": 3050697.0,
-      "clase": "Class A Common Stock"
-     },
-     {
-      "fecha": "2026-05-15",
-      "codigo": "S",
-      "tipo": "Venta en mercado",
-      "acciones": 45410.0,
-      "precio": 23.2691,
-      "importe": 1056649.83,
-      "sentido": "venta",
-      "tras_operacion": 42065.0,
-      "clase": "Class A Common Stock"
-     },
-     {
-      "fecha": "2026-05-15",
-      "codigo": "S",
-      "tipo": "Venta en mercado",
-      "acciones": 42065.0,
-      "precio": 24.2679,
-      "importe": 1020829.21,
-      "sentido": "venta",
-      "tras_operacion": 0.0,
-      "clase": "Class A Common Stock"
-     }
-    ]
    }
   ],
-  "n_formularios": 92
+  "n_formularios": 91
  },
  "riesgos_10k": {
   "version": 4,
@@ -21037,13 +20944,13 @@
   "fuente": "SEC EDGAR · 10-K, Item 1A (comparación automática)"
  },
  "precio": {
-  "minimo_52s": 270.7,
+  "minimo_52s": 272.11,
   "maximo_52s": 408.61,
-  "beta": 1.2406266,
-  "valor": 280.2,
-  "cierre_anterior": 283.72,
+  "beta": 1.2341579,
+  "valor": 282.44,
+  "cierre_anterior": 280.2,
   "moneda": "USD",
-  "fecha": "2026-11-17",
+  "fecha": "2026-11-18",
   "fuente": "Finnhub (API oficial, plan gratuito)",
   "url": "https://finnhub.io/"
  },
@@ -21160,58 +21067,240 @@
  ],
  "noticias": [
   {
-   "titular": "How genome mapping can help researchers better understand disease",
-   "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/alphagenome-disease-research/",
-   "fecha": "2026-11-17",
-   "resumen": "A Google DeepMind research scientist explains the potential behind our AlphaGenome and AlphaGenome Atlas tools.",
+   "titular": "Introducing Gemini 4 Neon",
+   "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+   "fecha": "2026-11-18",
+   "resumen": "Today, we’re introducing Gemini 4 Neon",
    "medio": "Alphabet (sala de prensa)",
    "tipo": "nota_prensa",
    "via": "Sala de prensa de la compañía"
   },
   {
-   "titular": "See what 5 builders are making with Gemini 4 Carbon",
-   "url": "https://blog.google/products-and-platforms/products/gemini/gemini-4-carbon-builders/",
-   "fecha": "2026-11-17",
-   "resumen": "See what 5 builders are making with Gemini 4 Carbon.",
+   "titular": "Google for Mexico: Technology impact that goes beyond business",
+   "url": "https://blog.google/company-news/inside-google/around-the-globe/google-latin-america/google-for-mexico-2026-november/",
+   "fecha": "2026-11-18",
+   "resumen": "At this year’s Google for Mexico, we announced how our latest AI innovations and partnerships are translating into real-world growth across the country.",
    "medio": "Alphabet (sala de prensa)",
    "tipo": "nota_prensa",
    "via": "Sala de prensa de la compañía"
   },
   {
-   "titular": "Read the EmbeddingGemma 2 technical report.",
-   "url": "https://blog.google/innovation-and-ai/technology/developers-tools/embeddinggemma-2-technical-report/",
-   "fecha": "2026-11-17",
-   "resumen": "The Google EmbeddingGemma 2 technical report details our new multimodal model, covering its unified vector space and compact design. Read the report.",
+   "titular": "Las Vegas race week brings big rewards to Google Play",
+   "url": "https://blog.google/products-and-platforms/platforms/google-play/auction-google-play-las-vegas/",
+   "fecha": "2026-11-18",
+   "resumen": "Unlock digital perks via our rewards case and Use tab, or join The Auction by Google Play live in Las Vegas.",
    "medio": "Alphabet (sala de prensa)",
    "tipo": "nota_prensa",
    "via": "Sala de prensa de la compañía"
   },
   {
-   "titular": "Put Gemini to work for you",
-   "url": "https://blog.google/innovation-and-ai/products/gemini-app/tasks-in-gemini-free-new-features/",
-   "fecha": "2026-11-17",
-   "resumen": "Tasks in Gemini is now free of charge in six countries, with new features starting in the U.S. and deeper Google Workspace integration to get things done on your behalf.",
+   "titular": "Genie 4 is now available",
+   "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/genie-4-now-available-project-genie/",
+   "fecha": "2026-11-18",
+   "resumen": "We are rolling out a new Project Genie experience to eligible Google AI Ultra subscribers, opening access to our new Genie 4 world model.",
    "medio": "Alphabet (sala de prensa)",
    "tipo": "nota_prensa",
    "via": "Sala de prensa de la compañía"
   },
   {
-   "titular": "10 states team up with Google on free AI training",
-   "url": "https://blog.google/company-news/outreach-and-initiatives/grow-with-google/ai-training-state-partnerships/",
-   "fecha": "2026-11-17",
-   "resumen": "Free Google AI training and career certificates are now available across 10 states through local libraries and colleges.",
+   "titular": "Introducing Stitch Loop: A new way to build and evolve products",
+   "url": "https://blog.google/innovation-and-ai/models-and-research/google-labs/stitch-loop/",
+   "fecha": "2026-11-18",
+   "resumen": "Stitch Loop is an always-on product agent from Google Labs that works non-stop to help lean teams build better products.",
    "medio": "Alphabet (sala de prensa)",
    "tipo": "nota_prensa",
    "via": "Sala de prensa de la compañía"
   },
   {
-   "titular": "Temporary threads are now available in AI Mode in Search.",
-   "url": "https://blog.google/products-and-platforms/products/search/temporary-threads-ai-mode/",
-   "fecha": "2026-11-17",
-   "resumen": "Google AI Mode now offers temporary threads for private searches. Keep your history clean and avoid personalization. Try this new feature today.",
+   "titular": "The Gemini app is now available on lower-memory Android devices.",
+   "url": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-lower-memory-devices/",
+   "fecha": "2026-11-18",
+   "resumen": "The Google Gemini app now supports lower-memory Android devices. Access Gemini Live and custom image creation on your phone. Download the app today.",
    "medio": "Alphabet (sala de prensa)",
    "tipo": "nota_prensa",
    "via": "Sala de prensa de la compañía"
+  },
+  {
+   "titular": "Elementl Power partners with Google Cloud on AI suite to speed up nuclear siting and licensing",
+   "url": "https://www.datacenterdynamics.com/en/news/elementl-power-partners-with-google-cloud-on-ai-suite-to-speed-up-nuclear-siting-and-licensing/",
+   "fecha": "2026-11-18",
+   "resumen": "Builds on existing partnership with Google",
+   "medio": "Data Center Dynamics",
+   "tipo": "sectorial",
+   "via": "RSS del medio"
+  },
+  {
+   "titular": "Meta Makes Its Way To The Big(ish) Screen; Fubo’s Fraught Q3",
+   "url": "https://www.adexchanger.com/daily-news-roundup/wednesday-18112026/",
+   "fecha": "2026-11-18",
+   "resumen": "MeT∀ YouTube has become TV, video podcasts are following suit and now Meta is looking for its way into the living room. Meta has already been testing Instagram for TV built around long-form creator content. But it could make a bigger splash in the TV world through the acquisition",
+   "medio": "AdExchanger",
+   "tipo": "sectorial",
+   "via": "RSS del medio"
+  },
+  {
+   "titular": "Google’s AI feature in Search gets its own incognito mode",
+   "url": "https://techcrunch.com/2026/11/18/googles-ai-feature-in-search-gets-its-own-incognito-mode/",
+   "fecha": "2026-11-18",
+   "resumen": "Google's new temporary threads let users have conversations in AI Mode without adding them to their search history or influencing future recommendations.",
+   "medio": "TechCrunch",
+   "tipo": "sectorial",
+   "via": "RSS del medio"
+  },
+  {
+   "titular": "This AI Wave Is Spent - Time To Wait For The Next",
+   "medio": "Seeking Alpha",
+   "url": "https://seekingalpha.com/article/4969794-this-ai-wave-is-spent-time-to-wait-for-the-next",
+   "fecha": "2026-11-18",
+   "resumen": "Analyst sees AI infrastructure as risky: chip replacement and depreciation could squeeze software margins, while QQQ could correct as the economy grows.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=d82c8eafe7291245d64dc0cc5f5528db236c0954d377dc187e235fb4fe0160f1"
+  },
+  {
+   "titular": "Anthropic IPO: The Most Important AI Stock Has Arrived (And Is A Buy)",
+   "medio": "Seeking Alpha",
+   "url": "https://seekingalpha.com/article/4969758-anthropic-ipo-the-most-important-ai-stock-has-arrived-and-is-a-buy",
+   "fecha": "2026-11-18",
+   "resumen": "Anthropic is rated a Buy, as its $1.3 trillion IPO valuation equals 19x annualized revenue; furthermore, 100% growth could bring forward sales below 10x.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=7245e8985909e96e4f364dacce72b00b8e75d095e8a7b731acf789b59ea67eec"
+  },
+  {
+   "titular": "What Anthropic's IPO Reveals About The AI Buildout",
+   "medio": "Seeking Alpha",
+   "url": "https://seekingalpha.com/article/4969771-what-anthropic-ipo-reveals-about-ai-buildout",
+   "fecha": "2026-11-18",
+   "resumen": "Anthropicâs IPO comes as voters push to limit data center development and Nvidia raises its outlook under interim CEO Colette Kress.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=9ed51aa50d26bd3c6baa1aa06b2bf103c1a5a8274a3e6038552ba2dadee02166"
+  },
+  {
+   "titular": "Nvidia: Debunking The Positives From The Q3 Report",
+   "medio": "Seeking Alpha",
+   "url": "https://seekingalpha.com/article/4969725-nvidia-debunking-the-positives-from-the-q3-report",
+   "fecha": "2026-11-18",
+   "resumen": "",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=8ccbbadbea42b3f90a2e388c2421693a14ce049e12d7706a152621d1780e2ba2"
+  },
+  {
+   "titular": "Nvidia: Separating The Company From Former CEO Jensen Huang",
+   "medio": "Seeking Alpha",
+   "url": "https://seekingalpha.com/article/4969669-nvidia-separating-the-company-from-former-ceo-jensen-huang",
+   "fecha": "2026-11-18",
+   "resumen": "Analyst rates Nvidia Corporation stock a Buy for investors with a three-year horizon; a 30% leadership discount implies a $4.16T-$5.54T valuation.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=317af18feac057c110faba30bca814907da99edb68d30c67434541c2df20f630"
+  },
+  {
+   "titular": "Alphabet’s Waymo Pulls Robotaxis Off Freeways After California Ban",
+   "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPRjZYT0NJOTQ0cFNycUFXRjNPeC1mVjFOeXZUYi1zVng0S1JkUmcxZGNtS1huZFJ1dkxfNDR2czBrSXNROEh1cGFsdkVvcWlobTlzOGphLUt3YzlxLW5TYTEtbzhiSFZtNDFKRGZpNEJmNXR4ZzJfOWVJQXJuTExnVDhhTldoZzhkS09NN2FIVzVjUkRjdXoteEVYLUJiLTVl?oc=5",
+   "fecha": "2026-11-18",
+   "resumen": "",
+   "medio": "WSJ",
+   "tipo": "prensa",
+   "via": "Google News"
+  },
+  {
+   "titular": "Google Removes 19,000 Indonesia Pro-Government YouTube Channels",
+   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPMGk1WWs2M1NHNW1mUzBXcXBfYjNTNVQ0SXBfdTBRSHQ2a3ZlTFM1QUlxbUpPeWs0RTdKcm1tR2VsMlZTbHE2eWpOQ29XVlp0cHNJMTZ1UHBZNDdaUFlJWjdPY0tuN1B3UEN1V0ZKUmVCTEFPaHVGSzR5ZnVQSjZIaFNsd3VSaGhSdHNBb1VpVE4yb0xxbUhTanJOYVNxdnVMbmU1cjNRdUZxcFRpX2l0NXBNc1U?oc=5",
+   "fecha": "2026-11-18",
+   "resumen": "",
+   "medio": "Bloomberg",
+   "tipo": "prensa",
+   "via": "Google News"
+  },
+  {
+   "titular": "Waymo pauses robotaxi rides on US freeways after California ban",
+   "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQTkw0bE5kQUlYTVp4amxvbkwtbnc3ZmZTc0FUaWtiUmtmbkF6SldmOXpGOUt0T3BHRk0zOVN3QXpLQ0d3UDRwakVSblEwT3h1NHV5ekdyVHhCMDJBOGtsZEdaZDJzUGlYTlMxRGxXWjZmRDU5dnh1Y1NyY0duUlFmNEF5YjVxQV85aVBhTUw3UGptQ1hBSFJQSXpVRkg4VXd4VEdlak9MTDdjM1FOTVdzaHB4djl1Y21VSGtLU1hLcS1OTTdl?oc=5",
+   "fecha": "2026-11-18",
+   "resumen": "",
+   "medio": "Reuters",
+   "tipo": "prensa",
+   "via": "Google News"
+  },
+  {
+   "titular": "Waymo’s Speed Bump Is Bad News for Tesla Stock",
+   "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOb3Z6UTZPZ2hIcy13QTNTSDg1aF9mVXpabzdHVlMzN2prOVEwSEsyMEFNYTdjS2lOUm0za2tBVmhfdG55SFpwc3lINkhGMlJ5RGVJemNmTDQyX2t4U2MzSlRjUDljWEo4MEI2T0tseW9hM1JnUmZpTEV2eVlvUmpCNw?oc=5",
+   "fecha": "2026-11-18",
+   "resumen": "",
+   "medio": "Barron's",
+   "tipo": "prensa",
+   "via": "Google News"
+  },
+  {
+   "titular": "Quant rating on Soros Fund Management's top holdings: INTC, AMZN, TSM, GOOGL",
+   "url": "https://seekingalpha.com/symbol/GOOGL/news?source=feed_symbol_GOOGL",
+   "fecha": "2026-11-18",
+   "resumen": "",
+   "medio": "Seeking Alpha",
+   "tipo": "prensa",
+   "via": "RSS de Seeking Alpha"
+  },
+  {
+   "titular": "Why Anthropic says cybersecurity is one of its 'most important' opportunities",
+   "medio": "Yahoo Finance",
+   "url": "https://finance.yahoo.com/video/why-anthropic-says-cybersecurity-is-one-of-its-most-important-opportunities-214231043.html",
+   "fecha": "2026-11-18",
+   "resumen": "Deirdre Bosa outlines some thoughts on cybersecurity risks just ahead of Anthropic's (ANTH.PVT) long-awaited IPO.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=efae2816fa04de2869c7da6d26e41a249554a1593d0873967fdbbc3a263d2a29"
+  },
+  {
+   "titular": "Will Apollo's $40 billion for SpaceX to rent GPUs pay off?",
+   "medio": "Yahoo Finance",
+   "url": "https://finance.yahoo.com/video/will-apollos-40-billion-for-spacex-to-rent-gpus-pay-off-214146452.html",
+   "fecha": "2026-11-18",
+   "resumen": "Yahoo Finance's Deirdre Bosa and In the Loop host Ejaaz Ahamadeen discuss Apollo (APO) is lining up $40 billion in financing so SpaceX (SPCX) can rent GPUs as a neo cloud, funding CEO Elon Musk's wider ambitions. Disclosure: Yahoo is a portfolio company of funds managed by affili",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=e5bbc005df9d945b8cb0b4511d2c9395ae3fd94c79708395d6badb134f945313"
+  },
+  {
+   "titular": "AI agent swarms could turn major outages into identity risks: Anthropic investor",
+   "medio": "Yahoo Finance",
+   "url": "https://finance.yahoo.com/video/ai-agent-swarms-could-turn-major-outages-into-identity-risks-anthropic-investor-213612726.html",
+   "fecha": "2026-11-18",
+   "resumen": "Deirdre Bosa sits down with IVP General Partner Somesh Dash to discuss how evolving AI agents could turn outages into heightened identity risks. IVP is an investor in Anthropic (ANTH.PVT), which is set to go public via a mega-IPO this Thursday.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=949546e4e9eee68dd441567df847854add3e6e8db561475a7fe9caa62f957404"
+  },
+  {
+   "titular": "Amazon and Google Have a Stake",
+   "medio": "Yahoo Finance",
+   "url": "https://finance.yahoo.com/m/d531fa3b-8542-340b-825c-bb4b95cd1a7b/amazon-and-google-have-a-stake.html",
+   "fecha": "2026-11-18",
+   "resumen": "Amazon.com and Google could soon own more than 35% of Anthropic stock.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=8b2145bf38a6664ab367dc2a40b3ffedb16c8864f3c997df8c898995e5e4dd7b"
+  },
+  {
+   "titular": "Taiwan Semiconductor Stock (TSM) Looks Too Cheap for Its Growth Outlook",
+   "medio": "Yahoo Finance",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/taiwan-semiconductor-stock-tsm-looks-210800765.html",
+   "fecha": "2026-11-18",
+   "resumen": "Taiwan Semiconductor Manufacturing (TSM) stock looks too cheap for its growth outlook. The leading semiconductor foundry has fallen with the wider artificial intelligence (AI) trade. Shares are down roughly 26% since hitting an early-October peak of $487, pulled down by a semicon",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=577b730dc54eeee20d2020cd6580cd5560e373c9c34c7849e191068b5a5900a3"
+  },
+  {
+   "titular": "Here’s What a $1,000 Investment in Alphabet Stock Could Be Worth by 2035",
+   "medio": "Yahoo Finance",
+   "url": "https://www.fool.com/investing/2026/11/18/here-s-what-a-usd1-000-investment-in-alphabet-stock-could-be-worth-by-2035/",
+   "fecha": "2026-11-18",
+   "resumen": "Alphabet has several powerful growth engines, but how much could a $1,000 investment in the Google parent be worth by 2035? Here's what the numbers suggest.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=36571565e126705fb0420d02da21db22523b71f5fe325e7660fcf6e6580d7075"
   },
   {
    "titular": "Google inks 50MW geothermal PPA with Quaise in Oregon",
@@ -21241,198 +21330,6 @@
    "via": "RSS del medio"
   },
   {
-   "titular": "Waymo suspends freeway rides nationwide after California DMV order",
-   "url": "https://techcrunch.com/2026/11/17/waymo-suspends-freeway-rides-nationwide-after-california-dmv-order/",
-   "fecha": "2026-11-17",
-   "resumen": "The DMV said Waymo's freeway operations pose an imminent hazard to public safety. Restrictions will remain in place until Waymo can demonstrate that it has taken \"effective corrective actions\" to address the deficiencies.",
-   "medio": "TechCrunch",
-   "tipo": "sectorial",
-   "via": "RSS del medio"
-  },
-  {
-   "titular": "Google expands access to Gemini Tasks, which can help with calls, purchases",
-   "url": "https://techcrunch.com/2026/11/17/google-expands-access-to-gemini-tasks-which-can-help-with-calls-purchases/",
-   "fecha": "2026-11-17",
-   "resumen": "Gemini's Task mode can help users coordinate calls, log into websites, and even make purchases on the user's behalf.",
-   "medio": "TechCrunch",
-   "tipo": "sectorial",
-   "via": "RSS del medio"
-  },
-  {
-   "titular": "Google to keep Gemini chats for 2 months, up from 72 hours, even with history off",
-   "url": "https://techcrunch.com/2026/11/17/google-to-keep-gemini-chats-for-two-months-up-from-72-hours-even-with-history-off/",
-   "fecha": "2026-11-17",
-   "resumen": "Google's Gemini update extending chat retention will roll out globally over the coming weeks.",
-   "medio": "TechCrunch",
-   "tipo": "sectorial",
-   "via": "RSS del medio"
-  },
-  {
-   "titular": "Alphabet: Custom TPUs And The Multiyear Shift To AI Inference",
-   "url": "https://seekingalpha.com/article/4969189-alphabet-custom-tpus-and-the-multiyear-shift-to-ai-inference",
-   "fecha": "2026-11-17",
-   "resumen": "Alphabet is rated a Strong Buy, benefiting from potential Nvidia share losses and as a possible long-term AI winner.",
-   "medio": "Seeking Alpha",
-   "tipo": "prensa",
-   "via": "Marketaux",
-   "sentimiento": {
-    "puntuacion": 0.312,
-    "etiqueta": "Algo alcista"
-   }
-  },
-  {
-   "titular": "Lumentum Stock Climbs on Report of Looming U.S. Curbs on Chinese Data Center Gear",
-   "medio": "Benzinga",
-   "url": "https://www.benzinga.com/trading-ideas/movers/26/11/63338754/lumentum-stock-climbs-on-report-of-looming-us-curbs-on-chinese-data-center-gear",
-   "fecha": "2026-11-17",
-   "resumen": "Lumentum is trading higher Tuesday after a report the Trump administration will advance restrictions on Chinese data center equipment.",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=2ce81af28e6e96bae6e0952200fbe18a2cce903a2cb2e19f1537e1165efdcf58"
-  },
-  {
-   "titular": "DRAM: AI Bubble Burst Could Take Down The Memory Trade (Rating Downgrade)",
-   "medio": "Seeking Alpha",
-   "url": "https://seekingalpha.com/article/4968984-dram-ai-bubble-burst-could-take-down-the-memory-trade-downgrade",
-   "fecha": "2026-11-17",
-   "resumen": "Analyst rates Roundhill Memory ETF a Hold: DRAM's break below $45 support and stagnant recovery argue against buying the dip at 3.5x earnings.",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=c9f45939e7b04cb0be48efc16b80912d735e1ddeb845b3ef0a81ae3e1f92671a"
-  },
-  {
-   "titular": "Billionaire David Tepper Slashes Alphabet Stake by 46% and Initiates $172M Bet on Oracle",
-   "medio": "Benzinga",
-   "url": "https://www.benzinga.com/markets/hedge-funds/26/11/63336922/david-tepper-oracle-alphabet-stake",
-   "fecha": "2026-11-17",
-   "resumen": "David Tepper opens a $172M Oracle position while slashing Appaloosa&#39;s Alphabet stake by 46% in a major AI portfolio reshuffle.",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=c7d55ef87599f167a1a3c16a40815d04c0f5384b850f9c50d806b738908027e3"
-  },
-  {
-   "titular": "Quant ratings on Berkshire Hathaway’s top holdings: AAPL, AXP, KO, GOOGL, BAC",
-   "url": "https://seekingalpha.com/symbol/GOOGL/news?source=feed_symbol_GOOGL",
-   "fecha": "2026-11-17",
-   "resumen": "",
-   "medio": "Seeking Alpha",
-   "tipo": "prensa",
-   "via": "RSS de Seeking Alpha"
-  },
-  {
-   "titular": "Modeling Alphabet, Part 1: Search, Gemini, And YouTube",
-   "url": "https://seekingalpha.com/article/4968923-modeling-alphabet-part-1-search-gemini-youtube?source=feed_symbol_GOOGL",
-   "fecha": "2026-11-17",
-   "resumen": "",
-   "medio": "Seeking Alpha",
-   "tipo": "prensa",
-   "via": "RSS de Seeking Alpha"
-  },
-  {
-   "titular": "Alphabet vs. Amazon: Which Is the Better AI Cloud Stock to Own for the Next 5 Years?",
-   "medio": "Yahoo Finance",
-   "url": "https://www.fool.com/investing/2026/11/17/alphabet-amazon-better-ai-cloud-stock-5-years/",
-   "fecha": "2026-11-17",
-   "resumen": "It's hard not to like both businesses, but one offers the potential for a better return.",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=01307103916ee4152bc8edc598454be09db567d64df46755e6050235a229f151"
-  },
-  {
-   "titular": "3 Undervalued AI Stocks For November 2026",
-   "medio": "Yahoo Finance",
-   "url": "https://finance.yahoo.com/technology/ai/articles/3-undervalued-ai-stocks-november-211724115.html",
-   "fecha": "2026-11-17",
-   "resumen": "Fresh restrictions on China’s access to advanced AI chips have put a spotlight on where the real power sits in this new computing race: the companies that build and run the brains of modern software. That shift creates an opening for investors who want exposure to the AI boom whi",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=97a6fe1f14c1f8d46e1153e3b69d7ed876bb93559ae7be6a974a11336c56b6e9"
-  },
-  {
-   "titular": "Ibotta Appoints Kamelia Aryafar to Board of Directors",
-   "medio": "Yahoo Finance",
-   "url": "https://finance.yahoo.com/technology/ai/articles/ibotta-appoints-kamelia-aryafar-board-211500645.html",
-   "fecha": "2026-11-17",
-   "resumen": "DENVER, November 17, 2026--Ibotta, Inc. (NYSE: IBTA), North America’s leading digital promotions network, today announced the appointment of Kamelia Aryafar to its Board of Directors. Kamelia brings more than 15 years of experience researching and building AI for leading consumer",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=95a296503bec76009f6d4459df5c07809198c2c8a4a991d9a3bc5da9fb5e2609"
-  },
-  {
-   "titular": "Worried About Nvidia? 3 Artificial Intelligence (AI) Stocks That May Be Safer Buys Right Now",
-   "medio": "Yahoo Finance",
-   "url": "https://www.fool.com/investing/2026/11/17/worried-about-nvidia-3-artificial-intelligence-ai-stocks-that-may-be-safer-buys-right-now/",
-   "fecha": "2026-11-17",
-   "resumen": "These stocks have tremendous growth potential due to AI, modest valuations, and have less risk than Nvidia these days.",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=bf5cb75a6c66f2caa82cdcacc58a909be580efacfa25b7f7fae384eea471a67b"
-  },
-  {
-   "titular": "Ken Fisher Portfolio Review: 5 Highest-Conviction Technology Stocks for Long-Term Growth",
-   "medio": "Yahoo Finance",
-   "url": "https://finance.yahoo.com/technology/articles/ken-fisher-portfolio-review-5-202007199.html",
-   "fecha": "2026-11-17",
-   "resumen": "Ken Fisher, founder and former CEO of Fisher Asset Management, has historically maintained a constructive, growth-oriented view of technology stocks. His investment philosophy centers around companies with strong long-term growth potential and competitive advantages. Technology h",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=fb51337367a60410a9d085f0db4be7eb123ff6dfba88f12d5cf6090483ca6300"
-  },
-  {
-   "titular": "Prediction: SpaceX Stock Could Go Parabolic After Anthropic's IPO. Here's Why.",
-   "medio": "Yahoo Finance",
-   "url": "https://www.fool.com/investing/2026/11/17/prediction-spacex-stock-could-go-parabolic-after-anthropic-s-ipo-here-s-why/",
-   "fecha": "2026-11-17",
-   "resumen": "Anthropic is expected to list on the Nasdaq on Nov. 19.",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=f6e1c875d00534d9e29e64da878730885becb92dddb46487d6fbad666bf0671d"
-  },
-  {
-   "titular": "Big Brands Have Forgotten How To Advertise; How Many Ads Can A Chatbot Chuck?",
-   "url": "https://www.adexchanger.com/daily-news-roundup/big-brands-have-forgotten-how-to-advertise-how-many-ads-can-a-chatbot-chuck/",
-   "fecha": "2026-11-16",
-   "resumen": "Classic brands aren’t doing so hot lately; Google has some ad frequency problems to solve; and Twitch is going the short-form video route. The post Big Brands Have Forgotten How To Advertise; How Many Ads Can A Chatbot Chuck? appeared first on AdExchanger .",
-   "medio": "AdExchanger",
-   "tipo": "sectorial",
-   "via": "RSS del medio"
-  },
-  {
-   "titular": "Google Maps can now build trip itineraries with real-time details about each stop",
-   "url": "https://techcrunch.com/2026/11/16/google-maps-can-now-build-trip-itineraries-with-real-time-details-about-each-stop/",
-   "fecha": "2026-11-16",
-   "resumen": "You could use Ask Maps to plan a holiday shopping day trip or something more complex, like a three-day road trip featuring coastal hikes and oceanfront dining.",
-   "medio": "TechCrunch",
-   "tipo": "sectorial",
-   "via": "RSS del medio"
-  },
-  {
-   "titular": "Apaloosa adds Oracle, exits Advanced Micro, raises stake in NVIDIA, cuts in Alphabet among Q3 moves",
-   "url": "https://seekingalpha.com/news/4673369-apaloosa-adds-oracle-exits-advanced-micro-raises-stake-in-nvidia-cuts-in-alphabet-among-q3-moves",
-   "fecha": "2026-11-16",
-   "resumen": "Appaloosa took a new position in Oracle (ORCL) and exited Advanced Micro Devices (AMD), while raising stake in NVIDIA (NVDA) and reducing holdings in Alphabet (GOOG) (GOOGL), according to its latest 13F filing.",
-   "medio": "Seeking Alpha",
-   "tipo": "prensa",
-   "via": "Marketaux",
-   "sentimiento": {
-    "puntuacion": 0.099,
-    "etiqueta": "Neutral"
-   }
-  },
-  {
-   "titular": "Paulson & Co. adds NovaGold Resources, exits Alphabet, among Q3 moves",
-   "url": "https://seekingalpha.com/news/4673384-paulson-co-adds-novagold-resources-exits-alphabet-among-q3-moves",
-   "fecha": "2026-11-16",
-   "resumen": "Paulson & Co.'s 13F shows a new 27.2 million-share NovaGold position, 621,000 added PVH shares and an exit from Alphabet.",
-   "medio": "Seeking Alpha",
-   "tipo": "prensa",
-   "via": "Marketaux",
-   "sentimiento": {
-    "puntuacion": 0.148,
-    "etiqueta": "Neutral"
-   }
-  },
-  {
    "titular": "8-K a la SEC: Otros hechos relevantes",
    "medio": "SEC · 8-K (oficial)",
    "url": "https://www.sec.gov/Archives/edgar/data/1652044/000119312526449835/d174184d8k.htm",
@@ -21451,24 +21348,19 @@
    "tipo": "prensa"
   }
  ],
- "noticias_sentimiento": {
-  "puntuacion": 0.186,
-  "etiqueta": "Algo alcista",
-  "noticias": 3,
-  "fuente": "Alpha Vantage / Marketaux (puntuación media de las noticias del último mes)"
- },
+ "noticias_sentimiento": null,
  "redes": {
   "stocktwits": {
    "fuente": "StockTwits (API pública)",
    "url": "https://stocktwits.com/symbol/GOOGL",
    "mensajes": 30,
-   "alcistas": 12,
-   "bajistas": 2,
-   "pct_alcista": 86,
-   "seguidores": 240012,
-   "desde": "2026-11-17",
-   "hasta": "2026-11-17",
-   "fecha": "2026-11-17"
+   "alcistas": 5,
+   "bajistas": 1,
+   "pct_alcista": 83,
+   "seguidores": 240179,
+   "desde": "2026-11-18",
+   "hasta": "2026-11-18",
+   "fecha": "2026-11-18"
   }
  },
  "noticias_fuentes": {
@@ -21490,8 +21382,8 @@
     "titulares": 80
    },
    "Google News": {
-    "ok": false,
-    "error": "HTTPError: HTTP Error 503: Service Unavailable"
+    "ok": true,
+    "titulares": 22
    },
    "Seeking Alpha": {
     "ok": true,
@@ -21499,11 +21391,11 @@
    },
    "Marketaux": {
     "ok": true,
-    "titulares": 1
+    "titulares": 0
    },
    "RSS de medios": {
     "ok": true,
-    "titulares": 12
+    "titulares": 7
    },
    "Sala de prensa": {
     "ok": true,
@@ -21517,10 +21409,6 @@
  },
  "historico_precio": {
   "serie": [
-   [
-    "2021-08-17",
-    136.6615
-   ],
    [
     "2021-08-18",
     135.449
@@ -26796,18 +26684,22 @@
    [
     "2026-11-17",
     280.2
+   ],
+   [
+    "2026-11-18",
+    282.44
    ]
   ],
   "fuente": "Twelve Data (API oficial, plan gratuito)",
   "url": "https://twelvedata.com/",
-  "fecha": "2026-11-17",
+  "fecha": "2026-11-18",
   "ajuste": "splits"
  },
- "generado": "2026-11-17T23:59:12+00:00",
+ "generado": "2026-11-18T23:58:26+00:00",
  "peers": {
   "fuente_lista": "manual",
   "fuente_cifras": "SEC EDGAR (companyfacts, UDM) · precio Finnhub",
-  "actualizado": "2026-11-17",
+  "actualizado": "2026-11-18",
   "propia": {
    "ingresos": 471097000000,
    "crecimiento": 22.21,
@@ -26825,12 +26717,12 @@
    "informe": "10-Q",
    "informe_fecha": "2026-10-29",
    "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/0001652044-26-000084-index.htm",
-   "precio": 280.2,
-   "capitalizacion": 3444778800000.0,
-   "ev": 3305798800000.0,
-   "per": 14.62,
-   "precio_ventas": 7.31,
-   "ev_ebitda": 17.87,
+   "precio": 282.44,
+   "capitalizacion": 3472317360000.0,
+   "ev": 3333337360000.0,
+   "per": 14.73,
+   "precio_ventas": 7.37,
+   "ev_ebitda": 18.02,
    "rentabilidad_fcf": 0.57,
    "deuda_neta_ebitda": -0.75,
    "ticker": "GOOGL",
@@ -26865,13 +26757,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-22",
     "url": "https://www.sec.gov/Archives/edgar/data/1326801/000162828026066773/0001628280-26-066773-index.htm",
-    "precio": 618.87,
-    "capitalizacion": 1592352510000.0,
-    "ev": 1593572510000.0,
-    "per": 21.16,
-    "precio_ventas": 6.59,
-    "ev_ebitda": 15.28,
-    "rentabilidad_fcf": 1.8,
+    "precio": 616.38,
+    "capitalizacion": 1585945740000.0,
+    "ev": 1587165740000.0,
+    "per": 21.08,
+    "precio_ventas": 6.56,
+    "ev_ebitda": 15.22,
+    "rentabilidad_fcf": 1.81,
     "deuda_neta_ebitda": 0.01
    },
    {
@@ -26901,12 +26793,12 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-28",
     "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526436133/0001193125-26-436133-index.htm",
-    "precio": 506.24,
-    "capitalizacion": 3759436730004.48,
-    "ev": 3730408730004.48,
-    "per": 26.36,
-    "precio_ventas": 10.85,
-    "ev_ebitda": 18.14,
+    "precio": 508.29,
+    "capitalizacion": 3774660428836.08,
+    "ev": 3745632428836.08,
+    "per": 26.46,
+    "precio_ventas": 10.9,
+    "ev_ebitda": 18.21,
     "rentabilidad_fcf": 1.59,
     "deuda_neta_ebitda": -0.14
    },
@@ -26937,13 +26829,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-30",
     "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/0001018724-26-000040-index.htm",
-    "precio": 257.89,
-    "capitalizacion": 2788600237734.34,
-    "ev": 2854706237734.34,
-    "per": 20.69,
-    "precio_ventas": 3.5,
-    "ev_ebitda": 15.54,
-    "rentabilidad_fcf": -1.68,
+    "precio": 267.74,
+    "capitalizacion": 2895109650048.44,
+    "ev": 2961215650048.44,
+    "per": 21.48,
+    "precio_ventas": 3.63,
+    "ev_ebitda": 16.12,
+    "rentabilidad_fcf": -1.62,
     "deuda_neta_ebitda": 0.36
    },
    {
@@ -26973,13 +26865,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-30",
     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000116/0001713445-26-000116-index.htm",
-    "precio": 94.48,
-    "capitalizacion": 19071755947.600002,
-    "ev": 16038323947.600002,
-    "per": 19.23,
-    "precio_ventas": 6.17,
-    "ev_ebitda": 17.34,
-    "rentabilidad_fcf": 6.28,
+    "precio": 94.09,
+    "capitalizacion": 18993030452.05,
+    "ev": 15959598452.05,
+    "per": 19.15,
+    "precio_ventas": 6.15,
+    "ev_ebitda": 17.26,
+    "rentabilidad_fcf": 6.31,
     "deuda_neta_ebitda": -3.28
    },
    {
@@ -27009,13 +26901,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-29",
     "url": "https://www.sec.gov/Archives/edgar/data/1506293/000150629326000153/0001506293-26-000153-index.htm",
-    "precio": 18.07,
-    "capitalizacion": 10528521640.0,
-    "ev": 9058500640.0,
-    "per": 59.04,
-    "precio_ventas": 2.25,
-    "ev_ebitda": 39.28,
-    "rentabilidad_fcf": 11.99,
+    "precio": 17.69,
+    "capitalizacion": 10307113880.0,
+    "ev": 8837092880.0,
+    "per": 57.8,
+    "precio_ventas": 2.2,
+    "ev_ebitda": 38.32,
+    "rentabilidad_fcf": 12.25,
     "deuda_neta_ebitda": -6.37
    },
    {
@@ -27045,13 +26937,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-11-05",
     "url": "https://www.sec.gov/Archives/edgar/data/1564408/000156440826000067/0001564408-26-000067-index.htm",
-    "precio": 5.5,
-    "capitalizacion": 9681309000.0,
-    "ev": 10397080000.0,
+    "precio": 5.44,
+    "capitalizacion": 9575694720.0,
+    "ev": 10291465720.0,
     "per": null,
-    "precio_ventas": 1.47,
-    "ev_ebitda": 170.7,
-    "rentabilidad_fcf": 8.02,
+    "precio_ventas": 1.46,
+    "ev_ebitda": 168.96,
+    "rentabilidad_fcf": 8.11,
     "deuda_neta_ebitda": 11.75
    }
   ]

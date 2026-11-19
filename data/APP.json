@@ -9693,7 +9693,7 @@
    "n_ventas": 211,
    "ventas_con_plan": 133117371.6,
    "compradores": [],
-   "desde": "2026-05-18"
+   "desde": "2026-05-19"
   },
   "operaciones": [
    {
@@ -16144,11 +16144,11 @@
  "precio": {
   "minimo_52s": 225.1901,
   "maximo_52s": 738.01,
-  "beta": 2.3413289,
-  "valor": 398.94,
-  "cierre_anterior": 415.22,
+  "beta": 2.286044,
+  "valor": 390.91,
+  "cierre_anterior": 398.94,
   "moneda": "USD",
-  "fecha": "2026-11-17",
+  "fecha": "2026-11-18",
   "fuente": "Finnhub (API oficial, plan gratuito)",
   "url": "https://finnhub.io/"
  },
@@ -16256,6 +16256,49 @@
  ],
  "noticias": [
   {
+   "titular": "Digital Advertising Industry Snapshot Q3 2026",
+   "medio": "Seeking Alpha",
+   "url": "https://seekingalpha.com/article/4969720-digital-advertising-industry-snapshot-q3-2026",
+   "fecha": "2026-11-18",
+   "resumen": "Digital ad growth slowed to 16.1% in Q3 2026 from 20.2%; Google Searchâs incremental share fell to 27.6%, its lowest since Q2 2023.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=e41b509101ea3c9a2db7cbf21c0d4eb42882f02d6488fbe27ed8b1aba6920b8f"
+  },
+  {
+   "titular": "3 AI Stocks With Revenue Growth Up To 26%",
+   "medio": "Yahoo Finance",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/3-ai-stocks-revenue-growth-201109631.html",
+   "fecha": "2026-11-18",
+   "resumen": "Anthropic’s planned US$1.4t IPO has put fast growing, high conviction businesses back in the spotlight. Investors are watching how much value can build when revenue expansion and insider belief line up. That combination can be hard to find, which creates real FOMO when it shows u",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=0cd6744a30dbc68d637bb2581bcb669f9fda79f3cb7fea00c5123686e4fa3cc9"
+  },
+  {
+   "titular": "First Trust NASDAQ-100 Tech (QTEC) Sells $5.0 Million More Applovin on Nov. 16",
+   "medio": "Yahoo Finance",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/first-trust-nasdaq-100-tech-110546897.html",
+   "fecha": "2026-11-18",
+   "resumen": "The fund sold $136.0 million of stock and bought nothing, cutting 42 positions while adding none.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=cd527f85235b7c50827b782e2541c62b3621908306a81315e63773b95defa9e6"
+  },
+  {
+   "titular": "AppLovin: First Fundamental And Momentum Breakout Signal Since July",
+   "url": "https://seekingalpha.com/article/4969289-applovin-first-fundamental-and-momentum-breakout-signal-since-july",
+   "fecha": "2026-11-17",
+   "resumen": "AppLovin Corporation is attracting Wall Street's attention; however, investors may be missing the bigger picture with this tech stock.",
+   "medio": "Seeking Alpha",
+   "tipo": "prensa",
+   "via": "Marketaux",
+   "sentimiento": {
+    "puntuacion": 0.0,
+    "etiqueta": "Neutral"
+   }
+  },
+  {
    "titular": "First Trust NASDAQ-100 Tech (QTEC) Sells $8.9 Million More AppLovin on Nov. 13",
    "url": "https://www.gurufocus.com/news/9204596/first-trust-nasdaq100-tech-qtec-sells-89-million-more-applovin-on-nov-13",
    "fecha": "2026-11-17",
@@ -16269,14 +16312,14 @@
    }
   },
   {
-   "titular": "AppLovin: First Fundamental And Momentum Breakout Signal Since July",
-   "medio": "Seeking Alpha",
-   "url": "https://seekingalpha.com/article/4969289-applovin-first-fundamental-and-momentum-breakout-signal-since-july",
+   "titular": "SpaceX Stock Lands in Stanley Druckenmiller’s Duquesne Portfolio",
+   "medio": "Benzinga",
+   "url": "https://www.benzinga.com/markets/hedge-funds/26/11/63365857/spacex-stock-lands-in-stanley-druckenmillers-duquesne-portfolio",
    "fecha": "2026-11-17",
-   "resumen": "AppLovin Corporation is attracting Wall Street's attention; however, investors may be missing the bigger picture with this tech stock.",
+   "resumen": "Druckenmiller’s Duquesne bought a $30M SpaceX stake, halved Tesla call exposure, boosted Amazon and exited Alphabet in Q3.",
    "tipo": "prensa",
    "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=0455cd46ed7744173a056f42fd18f70be9b717c5b585da52613ea43edd274803"
+   "url_finnhub": "https://finnhub.io/api/news?id=56e70413da041e9ac01cd2496fe93af627cb31c9c19d1761b30a4c6aa62e201d"
   },
   {
    "titular": "S&P 500 Stocks Gapping Down in Today's Session",
@@ -16297,6 +16340,15 @@
    "tipo": "prensa",
    "via": "Finnhub",
    "url_finnhub": "https://finnhub.io/api/news?id=81c064af943a694e4c1cdc778ab62649b5c9dd0b9bbf835a4e1db549ee73c6b0"
+  },
+  {
+   "titular": "AppLovin among firms in talks to acquire Criteo, sources say",
+   "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPTmxHN0VieTNVM0NsYTduejJkMGJXZFVVZmk3Q0VXZHhHMHZmSkdoRzFfYld4dk1xaFhwbmUzVjJKcVJBNml1b2dLVjhGbmhXZjQ0UnNEWjc2TnhlMWxmal9EbTdPTWlEdFZ2T2w5WENOcy13RjhOTzJiOFRtV0hPU01uN0Y0bTZteGU3anNNZVVJTzNQd0hBQkpGQldQb050OUdwTUNsNHVDVlZ0SEE?oc=5",
+   "fecha": "2026-11-17",
+   "resumen": "",
+   "medio": "Reuters",
+   "tipo": "prensa",
+   "via": "Google News"
   },
   {
    "titular": "Criteo gets takeover interest from AppLovin, others - Reuters",
@@ -16348,16 +16400,6 @@
    "url_finnhub": "https://finnhub.io/api/news?id=ec3d09ca5df82fa8a5a2e6244117316b0822f7be5b14d7b449e1d275f1892309"
   },
   {
-   "titular": "Stanley Druckenmiller and 11 Other Big Funds Bought AppLovin Last Quarter, While 18 Sold. Who’s Right?",
-   "medio": "Yahoo Finance",
-   "url": "https://www.tikr.com/blog/stanley-druckenmiller-and-11-other-big-funds-bought-applovin-last-quarter-while-18-sold-whos-right?ref=yahoofinance&tlnk=yf-261117-372p957h&.tsrc=rss",
-   "fecha": "2026-11-17",
-   "resumen": "Key TakeawaysStanley Druckenmiller’s Duquesne Family Office and 11 other big funds bought AppLovin in the third quarter, and 18 sold, with Lone Pine Capital’s exit the biggest sale. The biggest buyers made real bets: Spruce House Investment Management put a quarter of its 13F sto",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=29810dc88e35ca5d4f696479d70d002c397ebb07b81cc0f38ee5dd07a88f2d73"
-  },
-  {
    "titular": "APP Investors Have Opportunity to Lead AppLovin Corporation Securities Fraud Lawsuit with SBS Law",
    "url": "http://www.businesswire.com/news/home/20261116934002/en/APP-Investors-Have-Opportunity-to-Lead-AppLovin-Corporation-Securities-Fraud-Lawsuit-with-SBS-Law/?feedref=JjAwJuNHiystnCoBq_hl-adS5VAKkf1zsgyV8tTPInVcgiwDl5F89IquLVWUqfRVgLxDkSKfgoruKb9yWl5as-PbWreMWuYBefATrZ0EPTVXw2Oldt-3VQjUwU4Zj5HZBSvR87oUDgbHejiywQBpbg==",
    "fecha": "2026-11-16",
@@ -16397,6 +16439,15 @@
    "url_finnhub": "https://finnhub.io/api/news?id=662414c25c9474bec666af30ce94256ee3a610e9418e0e6ce2a7e4a19bb299cb"
   },
   {
+   "titular": "AppLovin Corp. (APP) Stock Price Today - The Wall Street Journal",
+   "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1TZWNBby1fWElMQVEyZFBLWHFqLUMxdC0yQXkzMGFhTU1PVWNTQVFwaG53ZUNRNVFqcklDOVdjZzFibDRDOGtSamR6SWNiT184LTBn?oc=5",
+   "fecha": "2026-11-16",
+   "resumen": "",
+   "medio": "WSJ",
+   "tipo": "prensa",
+   "via": "Google News"
+  },
+  {
    "titular": "AppLovin: Completely Crushed The Bearish Thesis (Rating Upgrade)",
    "url": "https://seekingalpha.com/article/4968555-applovin-completely-crushed-the-bearish-thesis-rating-upgrade?source=feed_symbol_APP",
    "fecha": "2026-11-16",
@@ -16404,16 +16455,6 @@
    "medio": "Seeking Alpha",
    "tipo": "prensa",
    "via": "RSS de Seeking Alpha"
-  },
-  {
-   "titular": "Jefferies names top internet stocks to own through 2027",
-   "medio": "Yahoo Finance",
-   "url": "https://finance.yahoo.com/markets/stocks/articles/jefferies-names-top-internet-stocks-171505067.html",
-   "fecha": "2026-11-16",
-   "resumen": "Investing.com -- Jefferies has identified three internet stocks as top picks heading into 2027, highlighting AppLovin, Take-Two Interactive, and Spotify as names positioned for significant upside based on new product launches, improving unit economics, and attractive valuations.",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=becf648d2325d30c732aad67414c393bcd82a2795173a81cca40674ae94a1d6d"
   },
   {
    "titular": "S&P 500 Top Movers for Nov. 13, 2026: Charter Communications Leads Gainers, AMD Leads Losers",
@@ -16502,25 +16543,6 @@
    "url_finnhub": "https://finnhub.io/api/news?id=5947d488c343c7c82eb502fc520d8335865a6c6897b01e5e32c48572f725a3fe"
   },
   {
-   "titular": "AppLovin: The Best Part Of Its AI Story May Be Ahead",
-   "medio": "Seeking Alpha",
-   "url": "https://seekingalpha.com/article/4966434-applovin-the-best-part-of-its-ai-story-may-be-ahead",
-   "fecha": "2026-11-11",
-   "resumen": "AppLovin delivers robust Q3 growth, with revenue up 55% and adjusted EBITDA up 59%, driven by AI investments. Learn why APP stock is a buy.",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=f2b422670e77f56a19fa7dc4744fa28217ae2c72e295c4b30e100f0f7fda0057"
-  },
-  {
-   "titular": "AppLovin Corp. (APP) Stock Price Today - The Wall Street Journal",
-   "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1TZWNBby1fWElMQVEyZFBLWHFqLUMxdC0yQXkzMGFhTU1PVWNTQVFwaG53ZUNRNVFqcklDOVdjZzFibDRDOGtSamR6SWNiT184LTBn?oc=5",
-   "fecha": "2026-11-11",
-   "resumen": "",
-   "medio": "WSJ",
-   "tipo": "prensa",
-   "via": "Google News"
-  },
-  {
    "titular": "BPA básico (Operaciones continuadas) de AppLovin Corporation BDR (A1PP34)",
    "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9nRnNRMlJFMGdUbWUyaTNkQ2N6MVBSV0wwX28xNld5ZUc4SmNMSDBGb0NKTDh4RFIzVVF5cWEzSVJ1RXpBNUhXWnU1YzdpRWJjMzlXUUl2UFpvM1hUUzZLcWZUWjM3UTQxMzFzbG1WUVBUWG9HOGc?oc=5",
    "fecha": "2026-11-11",
@@ -16528,28 +16550,6 @@
    "medio": "Investing.com España",
    "tipo": "prensa",
    "via": "Google News"
-  },
-  {
-   "titular": "Análisis de Applovin | Opiniones de APP",
-   "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE5FMUEyZ05IUFJOZkVYYm81SHNERVpZT0NSR0VLeVoxVUcyZ1M2ZkdvQW50VDRqeDZmbE1sd3Z6T3puOFZZOGktZkF5U3ZSVGVrdlNUOU4wdjBPNEsxRTBNWXZR?oc=5",
-   "fecha": "2026-11-11",
-   "resumen": "",
-   "medio": "Investing.com España",
-   "tipo": "prensa",
-   "via": "Google News"
-  },
-  {
-   "titular": "Here is What to Know Beyond Why AppLovin Corporation (APP) is a Trending Stock",
-   "url": "https://www.zacks.com/stock/news/3027069/here-is-what-to-know-beyond-why-applovin-corporation-app-is-a-trending-stock?cid=CS-ZC-FT-fundamental_analysis|most_searched_stocks-3027069",
-   "fecha": "2026-11-10",
-   "resumen": "AppLovin (APP) has been one of the stocks most watched by Zacks.com users lately. So, it is worth exploring what lies ahead for the stock.",
-   "medio": "Zacks",
-   "tipo": "prensa",
-   "via": "Marketaux",
-   "sentimiento": {
-    "puntuacion": 0.0,
-    "etiqueta": "Neutral"
-   }
   },
   {
    "titular": "8-K a la SEC: Resultados; votaciones de la junta",
@@ -16572,13 +16572,13 @@
    "fuente": "StockTwits (API pública)",
    "url": "https://stocktwits.com/symbol/APP",
    "mensajes": 30,
-   "alcistas": 11,
-   "bajistas": 0,
-   "pct_alcista": 100,
-   "seguidores": 26012,
-   "desde": "2026-11-17",
-   "hasta": "2026-11-17",
-   "fecha": "2026-11-17"
+   "alcistas": 7,
+   "bajistas": 4,
+   "pct_alcista": 64,
+   "seguidores": 25993,
+   "desde": "2026-11-18",
+   "hasta": "2026-11-18",
+   "fecha": "2026-11-18"
   }
  },
  "noticias_fuentes": {
@@ -16594,8 +16594,8 @@
     "titulares": 80
    },
    "Google News": {
-    "ok": false,
-    "error": "HTTPError: HTTP Error 503: Service Unavailable"
+    "ok": true,
+    "titulares": 54
    },
    "Seeking Alpha": {
     "ok": true,
@@ -16603,7 +16603,7 @@
    },
    "Marketaux": {
     "ok": true,
-    "titulares": 2
+    "titulares": 3
    },
    "RSS de medios": {
     "ok": true,
@@ -16621,10 +16621,6 @@
  },
  "historico_precio": {
   "serie": [
-   [
-    "2021-08-17",
-    62.57
-   ],
    [
     "2021-08-18",
     63.77
@@ -21900,18 +21896,22 @@
    [
     "2026-11-17",
     398.94
+   ],
+   [
+    "2026-11-18",
+    390.91
    ]
   ],
   "fuente": "Twelve Data (API oficial, plan gratuito)",
   "url": "https://twelvedata.com/",
-  "fecha": "2026-11-17",
+  "fecha": "2026-11-18",
   "ajuste": "splits"
  },
- "generado": "2026-11-17T23:58:08+00:00",
+ "generado": "2026-11-18T23:57:57+00:00",
  "peers": {
   "fuente_lista": "manual",
   "fuente_cifras": "SEC EDGAR (companyfacts, UDM) · precio Finnhub",
-  "actualizado": "2026-11-17",
+  "actualizado": "2026-11-18",
   "propia": {
    "ingresos": 7608894000,
    "crecimiento": 63.35,
@@ -21929,13 +21929,13 @@
    "informe": "10-Q",
    "informe_fecha": "2026-11-04",
    "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000069/0001751008-26-000069-index.htm",
-   "precio": 398.94,
-   "capitalizacion": 132177598680.0,
-   "ev": 132520003680.0,
-   "per": 26.37,
-   "precio_ventas": 17.37,
-   "ev_ebitda": 21.9,
-   "rentabilidad_fcf": 3.71,
+   "precio": 390.91,
+   "capitalizacion": 129517083020.00002,
+   "ev": 129859488020.00002,
+   "per": 25.83,
+   "precio_ventas": 17.02,
+   "ev_ebitda": 21.46,
+   "rentabilidad_fcf": 3.78,
    "deuda_neta_ebitda": 0.06,
    "ticker": "APP",
    "nombre": "AppLovin",
@@ -21969,13 +21969,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-11-09",
     "url": "https://www.sec.gov/Archives/edgar/data/1671933/000167193326000116/0001671933-26-000116-index.htm",
-    "precio": 14.93,
-    "capitalizacion": 7020041210.0,
-    "ev": 5370373210.0,
-    "per": 21.31,
-    "precio_ventas": 2.35,
-    "ev_ebitda": 8.34,
-    "rentabilidad_fcf": 12.28,
+    "precio": 15.52,
+    "capitalizacion": 7297457440.0,
+    "ev": 5647789440.0,
+    "per": 22.15,
+    "precio_ventas": 2.44,
+    "ev_ebitda": 8.77,
+    "rentabilidad_fcf": 11.81,
     "deuda_neta_ebitda": -2.56
    },
    {
@@ -22005,13 +22005,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-22",
     "url": "https://www.sec.gov/Archives/edgar/data/1326801/000162828026066773/0001628280-26-066773-index.htm",
-    "precio": 618.87,
-    "capitalizacion": 1592352510000.0,
-    "ev": 1593572510000.0,
-    "per": 21.16,
-    "precio_ventas": 6.59,
-    "ev_ebitda": 15.28,
-    "rentabilidad_fcf": 1.8,
+    "precio": 616.38,
+    "capitalizacion": 1585945740000.0,
+    "ev": 1587165740000.0,
+    "per": 21.08,
+    "precio_ventas": 6.56,
+    "ev_ebitda": 15.22,
+    "rentabilidad_fcf": 1.81,
     "deuda_neta_ebitda": 0.01
    },
    {
@@ -22041,12 +22041,12 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-29",
     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/0001652044-26-000084-index.htm",
-    "precio": 280.2,
-    "capitalizacion": 3444778800000.0,
-    "ev": 3305798800000.0,
-    "per": 14.62,
-    "precio_ventas": 7.31,
-    "ev_ebitda": 17.87,
+    "precio": 282.44,
+    "capitalizacion": 3472317360000.0,
+    "ev": 3333337360000.0,
+    "per": 14.73,
+    "precio_ventas": 7.37,
+    "ev_ebitda": 18.02,
     "rentabilidad_fcf": 0.57,
     "deuda_neta_ebitda": -0.75
    },
@@ -22077,13 +22077,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-11-05",
     "url": "https://www.sec.gov/Archives/edgar/data/1810806/000181080626000055/0001810806-26-000055-index.htm",
-    "precio": 50.36,
-    "capitalizacion": 22351213785.239998,
-    "ev": 19704774785.239998,
+    "precio": 48.96,
+    "capitalizacion": 21729853592.64,
+    "ev": 19083414592.64,
     "per": null,
-    "precio_ventas": 10.25,
-    "ev_ebitda": 492.29,
-    "rentabilidad_fcf": 2.71,
+    "precio_ventas": 9.97,
+    "ev_ebitda": 476.76,
+    "rentabilidad_fcf": 2.79,
     "deuda_neta_ebitda": -66.12
    },
    {
@@ -22113,12 +22113,12 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-30",
     "url": "https://www.sec.gov/Archives/edgar/data/1819928/000110465926120666/0001104659-26-120666-index.htm",
-    "precio": 13.57,
-    "capitalizacion": 2119785006.96,
-    "ev": 1868933006.96,
-    "per": 32.82,
+    "precio": 13.56,
+    "capitalizacion": 2118222895.68,
+    "ev": 1867370895.68,
+    "per": 32.8,
     "precio_ventas": 2.7,
-    "ev_ebitda": 11.03,
+    "ev_ebitda": 11.02,
     "rentabilidad_fcf": 7.89,
     "deuda_neta_ebitda": -1.48
    },
@@ -22149,13 +22149,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-11-04",
     "url": "https://www.sec.gov/Archives/edgar/data/1595974/000159597426000041/0001595974-26-000041-index.htm",
-    "precio": 28.41,
-    "capitalizacion": 4078524485.88,
-    "ev": 4035612485.88,
-    "per": 22.55,
-    "precio_ventas": 5.32,
-    "ev_ebitda": 20.4,
-    "rentabilidad_fcf": 5.89,
+    "precio": 27.71,
+    "capitalizacion": 3978032858.28,
+    "ev": 3935120858.2800007,
+    "per": 22.0,
+    "precio_ventas": 5.19,
+    "ev_ebitda": 19.89,
+    "rentabilidad_fcf": 6.04,
     "deuda_neta_ebitda": -0.22
    },
    {
@@ -22185,13 +22185,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-11-09",
     "url": "https://www.sec.gov/Archives/edgar/data/1422930/000142293026000038/0001422930-26-000038-index.htm",
-    "precio": 20.48,
-    "capitalizacion": 1032519680.0,
-    "ev": 888058680.0,
+    "precio": 20.67,
+    "capitalizacion": 1042098720.0000001,
+    "ev": 897637720.0000001,
     "per": null,
-    "precio_ventas": 3.43,
-    "ev_ebitda": 46.07,
-    "rentabilidad_fcf": 6.46,
+    "precio_ventas": 3.46,
+    "ev_ebitda": 46.57,
+    "rentabilidad_fcf": 6.4,
     "deuda_neta_ebitda": -7.49
    }
   ]
