@@ -98,7 +98,11 @@ jobs:
         env:
           SEC_USER_AGENT: ${{ vars.SEC_USER_AGENT || secrets.SEC_USER_AGENT }}
           TICKERS: ${{ needs.elegir.outputs.tickers }}
-        run: python -m fetcher.lecturas ${TICKERS:+--only $TICKERS}
+        run: |
+          # Chromium para las webs hechas con JavaScript o que bloquean a los lectores simples.
+          pip install --quiet "playwright==1.64.1" || true
+          command -v google-chrome >/dev/null || python -m playwright install --with-deps chromium > /dev/null || true
+          python -m fetcher.lecturas ${TICKERS:+--only $TICKERS}
 
       - name: PDF de los informes de resultados
         continue-on-error: true

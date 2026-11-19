@@ -96,3 +96,29 @@ def test_borra_documentos_que_dejan_de_ser_los_ultimos(tmp_path):
     L.actualizar(root, sec=FakeSec(), web_get=lambda u: (200, WEB), hoy=date(2026, 11, 19), log=lambda *_: None)
     nombres = {p.name for p in (root / "lecturas" / "RDDT").iterdir()}
     assert "sec_10q_0001-27-000010.txt" in nombres and "sec_10q_0001-26-000116.txt" not in nombres
+
+
+def test_navegador_rescata_webs_con_javascript_o_bloqueadas(tmp_path):
+    root = _repo(tmp_path)
+    vacia = "<html><body><div id='app'></div><script>render()</script></body></html>"
+    llamadas = []
+
+    def nav(u):
+        llamadas.append(u)
+        return 200, WEB.replace("Reddit Pro for businesses.", "Reddit Pro for businesses. " + "Texto largo. " * 100)
+
+    def web(u):
+        return (200, vacia) if "blog" in u else (403, "")
+
+    est = L.actualizar(root, sec=FakeSec(), web_get=web, hoy=date(2026, 11, 19), log=lambda *_: None, navegador=nav)
+    w = est["RDDT"]["web"]
+    assert sorted(llamadas) == ["https://investor.redditinc.com", "https://redditinc.com/blog"]
+    for u in llamadas:
+        assert w[u]["ok"] and w[u]["via"] == "navegador" and not w[u]["poco_texto"]
+
+
+def test_sin_navegador_disponible_queda_como_fallo(tmp_path):
+    root = _repo(tmp_path)
+    est = L.actualizar(root, sec=FakeSec(), web_get=lambda u: (403, ""), hoy=date(2026, 11, 19),
+                       log=lambda *_: None, navegador=lambda u: (0, "navegador no disponible"))
+    assert all(not x["ok"] for x in est["RDDT"]["web"].values())

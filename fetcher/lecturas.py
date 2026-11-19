@@ -8,7 +8,8 @@ y las webs oficiales de las compañías fallaban casi siempre. Por eso el robot 
 - SEC: la última nota de resultados (8-K, Exhibit 99.1), el último 10-Q/10-K y los
   8-K y otras presentaciones de los últimos días (`data/<T>.json`).
 - Webs oficiales (`companies.json → webs_oficiales`): texto de la página y sus enlaces
-  del mismo dominio (productos, notas de prensa, presentaciones).
+  del mismo dominio (productos, notas de prensa, presentaciones). Si la descarga simple
+  falla o trae poco texto (páginas hechas con JavaScript), se repite con Chromium.
 
 Resultado en `lecturas/<T>/` y el estado de cada descarga en `lecturas/_estado.json`
 (ok, código HTTP, tamaño, fecha). Los documentos de la SEC no cambian: se descargan una
@@ -158,6 +159,61 @@ def _web_get(url: str, opener=urllib.request.urlopen) -> tuple[int, str]:
         return 0, f"{type(e).__name__}: {e}"
 
 
+class Navegador:
+    """Segundo intento con un navegador de verdad (Chromium vía Playwright) para las webs que
+    se montan con JavaScript, bloquean a los lectores simples o tardan en responder.
+    Se arranca solo si hace falta; si Playwright no está instalado, no hace nada."""
+
+    def __init__(self, log=print):
+        self._pw = self._browser = None
+        self._ok = None
+        self.log = log
+
+    def _arrancar(self) -> bool:
+        if self._ok is not None:
+            return self._ok
+        try:
+            from playwright.sync_api import sync_playwright
+            self._pw = sync_playwright().start()
+            try:
+                self._browser = self._pw.chromium.launch(channel="chrome")
+            except Exception:  # noqa: BLE001 — sin Chrome del sistema: el Chromium de Playwright
+                self._browser = self._pw.chromium.launch()
+            self._ok = True
+        except Exception as ex:  # noqa: BLE001
+            self.log(f"  Navegador no disponible: {ex}")
+            self._ok = False
+        return self._ok
+
+    def __call__(self, url: str) -> tuple[int, str]:
+        if not self._arrancar():
+            return 0, "navegador no disponible"
+        ctx = self._browser.new_context(user_agent=UA_WEB.replace(" valorador-companias", ""),
+                                        locale="en-US", viewport={"width": 1366, "height": 900})
+        try:
+            page = ctx.new_page()
+            r = page.goto(url, wait_until="domcontentloaded", timeout=60_000)
+            try:
+                page.wait_for_load_state("networkidle", timeout=15_000)
+            except Exception:  # noqa: BLE001 — páginas que nunca quedan en silencio
+                pass
+            page.wait_for_timeout(1_500)
+            return (r.status if r else 200), page.content()
+        except Exception as ex:  # noqa: BLE001
+            return 0, f"{type(ex).__name__}: {ex}"
+        finally:
+            ctx.close()
+
+    def cerrar(self):
+        try:
+            if self._browser:
+                self._browser.close()
+            if self._pw:
+                self._pw.stop()
+        except Exception:  # noqa: BLE001
+            pass
+
+
 def _escribir_si_cambia(path: Path, cuerpo: str, cabecera: str) -> bool:
     """Escribe cabecera + cuerpo si el cuerpo ha cambiado (la fecha de la cabecera no cuenta)."""
     h = hashlib.sha1(cuerpo.encode()).hexdigest()[:16]
@@ -169,7 +225,8 @@ def _escribir_si_cambia(path: Path, cuerpo: str, cabecera: str) -> bool:
     return True
 
 
-def actualizar(root: Path, only=None, sec=None, web_get=_web_get, hoy: date | None = None, log=print) -> dict:
+def actualizar(root: Path, only=None, sec=None, web_get=_web_get, hoy: date | None = None, log=print,
+               navegador=None) -> dict:
     hoy = hoy or date.today()
     ahora = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%MZ")
     base = root / "lecturas"
@@ -231,7 +288,16 @@ def actualizar(root: Path, only=None, sec=None, web_get=_web_get, hoy: date | No
             u = w["u"]
             nombre = f"web_{slug(u)}.txt"
             codigo, raw = web_get(u)
-            item = {"archivo": f"lecturas/{t}/{nombre}", "t": w.get("t"), "u": u, "codigo": codigo, "revisado": ahora}
+            via = "http"
+            corta = codigo and 200 <= codigo < 300 and raw and len(html_a_texto(raw)) < POCO_TEXTO
+            if navegador is not None and (not (codigo and 200 <= codigo < 300 and raw) or corta):
+                c2, r2 = navegador(u)
+                if c2 and 200 <= c2 < 300 and r2 and len(html_a_texto(r2)) > (len(html_a_texto(raw)) if corta else 0):
+                    codigo, raw, via = c2, r2, "navegador"
+                elif not corta:
+                    log(f"  {t}: web {u} → tampoco con navegador ({c2 or r2[:120]})")
+            item = {"archivo": f"lecturas/{t}/{nombre}", "t": w.get("t"), "u": u, "codigo": codigo, "via": via,
+                    "revisado": ahora}
             if codigo and 200 <= codigo < 300 and raw:
                 texto = html_a_texto(raw)[:MAX_WEB]
                 ls = enlaces(raw, u)
@@ -262,6 +328,7 @@ def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--only", nargs="*")
     ap.add_argument("--root", default=".")
+    ap.add_argument("--sin-navegador", action="store_true", help="no intentar con Chromium las webs que fallan")
     a = ap.parse_args(argv)
     try:
         from fetcher.sec_client import SecClient
@@ -269,7 +336,12 @@ def main(argv=None) -> int:
     except Exception as ex:  # noqa: BLE001
         print(f"Sin cliente de la SEC: {ex}", file=sys.stderr)
         sec = None
-    est = actualizar(Path(a.root), a.only, sec=sec)
+    nav = None if a.sin_navegador else Navegador()
+    try:
+        est = actualizar(Path(a.root), a.only, sec=sec, navegador=nav)
+    finally:
+        if nav:
+            nav.cerrar()
     fallos = [(t, x["u"]) for t, e in est.items() if not t.startswith("_")
               for x in list(e.get("sec", [])) + list((e.get("web") or {}).values()) if not x.get("ok")]
     print(f"Lecturas al día. Fuentes que fallan: {len(fallos)}")
