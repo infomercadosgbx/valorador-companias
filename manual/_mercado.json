@@ -7,35 +7,35 @@
     "_nota": "Valores sin fuente gratuita para la franja «Mercado hoy» del menú principal. Se pueden cambiar desde la propia web (botón «Apuntar valores») o aquí. La fecha es la del dato (AAAA-MM-DD). Deja null lo que no quieras mostrar. El campo url de cada indicador es el enlace «Consultar» de la web: cámbialo si prefieres otra página.",
     "naaim": {
       "valor": 92.52,
-      "fecha": "2026-08-12",
+      "fecha": "2026-08-19",
       "fuente": "NAAIM Exposure Index (semanal, miércoles)",
       "url": "https://naaim.org/programs/naaim-exposure-index/"
     },
     "cnn": {
-      "valor": 24,
-      "fecha": "2026-11-18",
+      "valor": 30,
+      "fecha": "2026-11-19",
       "fuente": "CNN Fear & Greed Index",
       "url": "https://edition.cnn.com/markets/fear-and-greed"
     },
     "move": {
-      "valor": 101.88,
-      "fecha": "2026-11-17",
+      "valor": 98.15,
+      "fecha": "2026-11-18",
       "fuente": "ICE BofA MOVE Index",
       "url": "https://www.investing.com/indices/ice-bofaml-move"
     },
     "aaii": {
-      "alcistas": 30.8,
-      "neutrales": 17.8,
-      "bajistas": 51.4,
-      "fecha": "2026-11-11",
+      "alcistas": 33.3,
+      "neutrales": 24.5,
+      "bajistas": 42.2,
+      "fecha": "2026-11-18",
       "_nota": "Solo si falla la lectura automática de aaii.com: si el dato manual es más reciente, la web usa este.",
       "url": "https://www.aaii.com/sentimentsurvey"
     },
     "fedwatch": {
       "mantener": 0,
       "bajar": null,
-      "subir": 87.4,
-      "fecha": "2026-11-18",
+      "subir": 90,
+      "fecha": "2026-11-19",
       "reunion": "2026-12-09",
       "url": "https://www.cmegroup.com/markets/interest-rates/cme-fedwatch-tool.html"
     }
