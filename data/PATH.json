@@ -11680,11 +11680,11 @@
  "precio": {
   "minimo_52s": 9.2,
   "maximo_52s": 19.84,
-  "beta": 1.0769985,
-  "valor": 11.73,
-  "cierre_anterior": 12.39,
+  "beta": 1.1125149,
+  "valor": 11.62,
+  "cierre_anterior": 11.73,
   "moneda": "USD",
-  "fecha": "2026-11-18",
+  "fecha": "2026-11-19",
   "fuente": "Finnhub (API oficial, plan gratuito)",
   "url": "https://finnhub.io/"
  },
@@ -11782,6 +11782,26 @@
  "presentaciones_sec": [],
  "noticias": [
   {
+   "titular": "Could You Have Spotted Netskope Stock's Doubling Early?",
+   "medio": "Yahoo Finance",
+   "url": "https://www.trefis.com/stock/ntsk/articles/626953/could-you-have-spotted-netskope-stocks-doubling-early/2026-11-19",
+   "fecha": "2026-11-19",
+   "resumen": "Today’s big story: Could Anthropic Stock Fall 25.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=3c67e7809031dd40f3986a0f09654727257d795c0933ed55c88fe7a38b35d94a"
+  },
+  {
+   "titular": "UiPath vs. Palantir Technologies: Comparing Modest Revenue Growth vs. Rapid Expansion",
+   "medio": "Yahoo Finance",
+   "url": "https://www.fool.com/coverage/charts/2026/11/18/uipath-vs-palantir-technologies-comparing-modest-revenue-growth-vs-rapid-expansion/",
+   "fecha": "2026-11-19",
+   "resumen": "Palantir's quarterly revenue has more than doubled over the past eight quarters, while UiPath's has stayed largely flat with recurring seasonal swings.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=8c2277131eb9f455a12d1e11c6719180b97afeb4479f500bef8566357b529101"
+  },
+  {
    "titular": "Slow Decisions Cost Majority of US Manufacturers and Distributors 4% of Annual Revenue, New Research Reveals",
    "url": "https://ir.uipath.com/news/detail/483/slow-decisions-cost-majority-of-us-manufacturers-and-distributors-4-of-annual-revenue-new-research-reveals",
    "fecha": "2026-11-18",
@@ -11798,6 +11818,19 @@
    "medio": "Seeking Alpha",
    "tipo": "prensa",
    "via": "RSS de Seeking Alpha"
+  },
+  {
+   "titular": "UiPath (PATH) Declines More Than Market: Some Information for Investors",
+   "url": "https://www.zacks.com/stock/news/3031434/uipath-path-declines-more-than-market-some-information-for-investors?cid=CS-ZC-FT-fundamental_analysis|yseop_template_6-3031434",
+   "fecha": "2026-11-17",
+   "resumen": "UiPath (PATH) concluded the recent trading session at $12.39, signifying a -5.71% move from its prior day's close.",
+   "medio": "Zacks",
+   "tipo": "prensa",
+   "via": "Marketaux",
+   "sentimiento": {
+    "puntuacion": 0.0,
+    "etiqueta": "Neutral"
+   }
   },
   {
    "titular": "UiPath Stock And Other Software Picks Built For Higher AI Costs",
@@ -11890,19 +11923,6 @@
    "medio": "UiPath (sala de prensa)",
    "tipo": "nota_prensa",
    "via": "Sala de prensa de la compañía"
-  },
-  {
-   "titular": "UiPath (PATH) Declines More Than Market: Some Information for Investors",
-   "url": "https://www.zacks.com/stock/news/3027570/uipath-path-declines-more-than-market-some-information-for-investors?cid=CS-ZC-FT-fundamental_analysis|yseop_template_6-3027570",
-   "fecha": "2026-11-10",
-   "resumen": "UiPath (PATH) reached $12.83 at the closing of the latest trading day, reflecting a -1.16% change compared to its last close.",
-   "medio": "Zacks",
-   "tipo": "prensa",
-   "via": "Marketaux",
-   "sentimiento": {
-    "puntuacion": 0.0,
-    "etiqueta": "Neutral"
-   }
   },
   {
    "titular": "CoreWeave (CRWV) Reports Q3 Loss, Tops Revenue Estimates",
@@ -12033,26 +12053,6 @@
     "puntuacion": 0.0,
     "etiqueta": "Neutral"
    }
-  },
-  {
-   "titular": "UiPath vs. SentinelOne: Which Technology Stock Is a Better Buy for 2027?",
-   "medio": "Yahoo Finance",
-   "url": "https://www.fool.com/coverage/better-buy/2026/11/02/uipath-vs-sentinelone-which-technology-stock-is-a-better-buy-for-2027/",
-   "fecha": "2026-11-02",
-   "resumen": "One profitable automation leader trades at a fraction of its high-growth cybersecurity rival, but growth comes with a steep price tag.",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=98c928434a890420f14fc05f2dce33881b752f0f24f1b6db1f038d3d3fc87826"
-  },
-  {
-   "titular": "ServiceNow vs. UiPath: Consistent Revenue Growth vs. Volatile Seasonal Trends",
-   "medio": "Yahoo Finance",
-   "url": "https://www.fool.com/coverage/charts/2026/11/02/servicenow-vs-uipath-consistent-revenue-growth-vs-volatile-seasonal-trends/",
-   "fecha": "2026-11-02",
-   "resumen": "ServiceNow has grown revenue every single quarter over two years, while UiPath swings between seasonal peaks and troughs -- a divergence that could reshape investor expectations.",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=de0efbe2aea029ccca82e85ced3807b3f6b1cf52875d9ae7ef029fb8ad8e3337"
   }
  ],
  "noticias_sentimiento": {
@@ -12066,12 +12066,12 @@
    "fuente": "StockTwits (API pública)",
    "url": "https://stocktwits.com/symbol/PATH",
    "mensajes": 30,
-   "alcistas": 8,
-   "bajistas": 0,
-   "pct_alcista": 100,
-   "seguidores": 33221,
+   "alcistas": 10,
+   "bajistas": 3,
+   "pct_alcista": 77,
+   "seguidores": 33214,
    "desde": "2026-11-18",
-   "hasta": "2026-11-18",
+   "hasta": "2026-11-19",
    "fecha": "2026-11-19"
   }
  },
@@ -12085,19 +12085,19 @@
   "proveedores": {
    "Finnhub": {
     "ok": true,
-    "titulares": 35
+    "titulares": 37
    },
    "Google News": {
-    "ok": false,
-    "error": "HTTPError: HTTP Error 429: Too Many Requests"
+    "ok": true,
+    "titulares": 54
    },
    "Seeking Alpha": {
     "ok": true,
     "titulares": 27
    },
    "Marketaux": {
-    "ok": false,
-    "error": "TimeoutError: The read operation timed out"
+    "ok": true,
+    "titulares": 2
    },
    "RSS de medios": {
     "ok": true,
@@ -12115,10 +12115,6 @@
  },
  "historico_precio": {
   "serie": [
-   [
-    "2021-08-18",
-    60.55
-   ],
    [
     "2021-08-19",
     60.37
@@ -17394,14 +17390,18 @@
    [
     "2026-11-18",
     11.73
+   ],
+   [
+    "2026-11-19",
+    11.61
    ]
   ],
   "fuente": "Twelve Data (API oficial, plan gratuito)",
   "url": "https://twelvedata.com/",
-  "fecha": "2026-11-18",
+  "fecha": "2026-11-19",
   "ajuste": "splits"
  },
- "generado": "2026-11-19T00:02:41+00:00",
+ "generado": "2026-11-19T17:59:40+00:00",
  "peers": {
   "fuente_lista": "manual",
   "fuente_cifras": "SEC EDGAR (companyfacts, UDM) · precio Finnhub",
@@ -17423,13 +17423,13 @@
    "informe": "10-Q",
    "informe_fecha": "2026-09-08",
    "url": "https://www.sec.gov/Archives/edgar/data/1734722/000173472226000050/0001734722-26-000050-index.htm",
-   "precio": 11.73,
-   "capitalizacion": 6134942490.0,
-   "ev": 4850952490.0,
-   "per": 16.95,
-   "precio_ventas": 3.57,
-   "ev_ebitda": 27.11,
-   "rentabilidad_fcf": 5.92,
+   "precio": 11.62,
+   "capitalizacion": 6077411060.0,
+   "ev": 4793421060.0,
+   "per": 16.79,
+   "precio_ventas": 3.53,
+   "ev_ebitda": 26.79,
+   "rentabilidad_fcf": 5.97,
    "deuda_neta_ebitda": -7.18,
    "ticker": "PATH",
    "nombre": "UiPath",
@@ -17463,13 +17463,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-28",
     "url": "https://www.sec.gov/Archives/edgar/data/1373715/000137371526000096/0001373715-26-000096-index.htm",
-    "precio": 90.59,
-    "capitalizacion": 94032420000.0,
-    "ev": 96949420000.0,
-    "per": 65.07,
-    "precio_ventas": 6.09,
-    "ev_ebitda": 35.13,
-    "rentabilidad_fcf": 5.05,
+    "precio": 89.52,
+    "capitalizacion": 92921760000.0,
+    "ev": 95838760000.0,
+    "per": 64.31,
+    "precio_ventas": 6.02,
+    "ev_ebitda": 34.72,
+    "rentabilidad_fcf": 5.11,
     "deuda_neta_ebitda": 1.06
    },
    {
@@ -17499,13 +17499,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-08-27",
     "url": "https://www.sec.gov/Archives/edgar/data/1108524/000110852426000190/0001108524-26-000190-index.htm",
-    "precio": 190.4,
-    "capitalizacion": 156699200000.0,
-    "ev": 184584200000.0,
-    "per": 16.22,
-    "precio_ventas": 3.57,
-    "ev_ebitda": 14.58,
-    "rentabilidad_fcf": 9.67,
+    "precio": 187.45,
+    "capitalizacion": 154271350000.0,
+    "ev": 182156350000.0,
+    "per": 15.97,
+    "precio_ventas": 3.51,
+    "ev_ebitda": 14.39,
+    "rentabilidad_fcf": 9.82,
     "deuda_neta_ebitda": 2.2
    },
    {
@@ -17535,12 +17535,12 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-28",
     "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526436133/0001193125-26-436133-index.htm",
-    "precio": 508.29,
-    "capitalizacion": 3774660428836.08,
-    "ev": 3745632428836.08,
-    "per": 26.46,
+    "precio": 508.62,
+    "capitalizacion": 3777111073038.24,
+    "ev": 3748083073038.24,
+    "per": 26.48,
     "precio_ventas": 10.9,
-    "ev_ebitda": 18.21,
+    "ev_ebitda": 18.22,
     "rentabilidad_fcf": 1.59,
     "deuda_neta_ebitda": -0.14
    },
@@ -17571,13 +17571,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-20",
     "url": "https://www.sec.gov/Archives/edgar/data/1013857/000101385726000058/0001013857-26-000058-index.htm",
-    "precio": 28.86,
-    "capitalizacion": 4723329908.7,
-    "ev": 4413618908.7,
-    "per": 16.02,
-    "precio_ventas": 2.7,
-    "ev_ebitda": 23.65,
-    "rentabilidad_fcf": 9.36,
+    "precio": 28.64,
+    "capitalizacion": 4687323928.8,
+    "ev": 4377612928.8,
+    "per": 15.9,
+    "precio_ventas": 2.68,
+    "ev_ebitda": 23.46,
+    "rentabilidad_fcf": 9.43,
     "deuda_neta_ebitda": -1.66
    },
    {
@@ -17607,12 +17607,12 @@
     "informe": "10-Q",
     "informe_fecha": "2026-11-05",
     "url": "https://www.sec.gov/Archives/edgar/data/1441683/000144168326000061/0001441683-26-000061-index.htm",
-    "precio": 54.06,
-    "capitalizacion": 3865290000.0,
-    "ev": 3975743000.0,
+    "precio": 54.02,
+    "capitalizacion": 3862430000.0,
+    "ev": 3972883000.0,
     "per": null,
-    "precio_ventas": 4.59,
-    "ev_ebitda": 140.66,
+    "precio_ventas": 4.58,
+    "ev_ebitda": 140.56,
     "rentabilidad_fcf": 1.0,
     "deuda_neta_ebitda": 3.91
    },
@@ -17643,13 +17643,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-09-02",
     "url": "https://www.sec.gov/Archives/edgar/data/1653482/000162828026059943/0001628280-26-059943-index.htm",
-    "precio": 44.5,
-    "capitalizacion": 7507283500.0,
-    "ev": 7280792500.0,
+    "precio": 44.71,
+    "capitalizacion": 7542711130.0,
+    "ev": 7316220130.0,
     "per": null,
-    "precio_ventas": 7.11,
+    "precio_ventas": 7.15,
     "ev_ebitda": null,
-    "rentabilidad_fcf": 2.85,
+    "rentabilidad_fcf": 2.83,
     "deuda_neta_ebitda": null
    }
   ]

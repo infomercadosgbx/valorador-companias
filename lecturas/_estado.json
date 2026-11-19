@@ -1,0 +1,719 @@
+{
+ "_nota": "Estado de las copias en texto de lecturas/<T>/ (fetcher/lecturas.py). ok=false o poco_texto=true: la tarea debe buscar esa fuente por otra vía y decirlo.",
+ "APP": {
+  "sec": [
+   {
+    "archivo": "lecturas/APP/sec_nota_resultados_0001751008-26-000068.txt",
+    "t": "Nota de resultados (8-K, Ex. 99.1)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000068/exhibit991-3q26earningspre.htm",
+    "fecha": "2026-11-04",
+    "ok": true,
+    "nuevo": true,
+    "caracteres": 18188
+   },
+   {
+    "archivo": "lecturas/APP/sec_10q_0001751008-26-000069.txt",
+    "t": "10-Q (último informe periódico)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000069/app-20260930.htm",
+    "fecha": "2026-11-04",
+    "ok": true,
+    "nuevo": true,
+    "caracteres": 262911
+   },
+   {
+    "archivo": "lecturas/APP/sec_pre14c_0001751008-26-000075.txt",
+    "t": "PRE 14C: decisión de accionistas por escrito (14C)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000075/app-2026xpre14c.htm",
+    "fecha": "2026-11-12",
+    "ok": true,
+    "nuevo": true,
+    "caracteres": 461849
+   }
+  ],
+  "web": {
+   "https://www.applovin.com": {
+    "archivo": "lecturas/APP/web_www-applovin-com.txt",
+    "t": "Web corporativa y productos",
+    "u": "https://www.applovin.com",
+    "codigo": 200,
+    "revisado": "2026-11-19T18:01Z",
+    "ok": true,
+    "caracteres": 3421,
+    "enlaces": 20,
+    "poco_texto": false,
+    "cambio": true,
+    "ultimo_cambio": "2026-11-19T18:01Z"
+   },
+   "https://investors.applovin.com": {
+    "archivo": "lecturas/APP/web_investors-applovin-com.txt",
+    "t": "Relación con inversores (presentaciones y cartas)",
+    "u": "https://investors.applovin.com",
+    "codigo": 200,
+    "revisado": "2026-11-19T18:01Z",
+    "ok": true,
+    "caracteres": 1303,
+    "enlaces": 21,
+    "poco_texto": false,
+    "cambio": true,
+    "ultimo_cambio": "2026-11-19T18:01Z"
+   },
+   "https://www.applovin.com/blog/": {
+    "archivo": "lecturas/APP/web_www-applovin-com-blog.txt",
+    "t": "Blog de la compañía",
+    "u": "https://www.applovin.com/blog/",
+    "codigo": 200,
+    "revisado": "2026-11-19T18:01Z",
+    "ok": true,
+    "caracteres": 5453,
+    "enlaces": 32,
+    "poco_texto": false,
+    "cambio": true,
+    "ultimo_cambio": "2026-11-19T18:01Z"
+   }
+  },
+  "revisado": "2026-11-19T18:01Z"
+ },
+ "GOOGL": {
+  "sec": [
+   {
+    "archivo": "lecturas/GOOGL/sec_nota_resultados_0001652044-26-000080.txt",
+    "t": "Nota de resultados (8-K, Ex. 99.1)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000080/googexhibit991q32026.htm",
+    "fecha": "2026-10-28",
+    "ok": true,
+    "nuevo": true,
+    "caracteres": 24782
+   },
+   {
+    "archivo": "lecturas/GOOGL/sec_10q_0001652044-26-000084.txt",
+    "t": "10-Q (último informe periódico)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/goog-20260930.htm",
+    "fecha": "2026-10-29",
+    "ok": true,
+    "nuevo": true,
+    "caracteres": 222510
+   },
+   {
+    "archivo": "lecturas/GOOGL/sec_424b5_0001193125-26-467927.txt",
+    "t": "424B5: folleto de una emisión (424B)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1652044/000119312526467927/d115240d424b5.htm",
+    "fecha": "2026-11-19",
+    "ok": true,
+    "nuevo": true,
+    "caracteres": 281673
+   }
+  ],
+  "web": {
+   "https://abc.xyz/investor/": {
+    "archivo": "lecturas/GOOGL/web_abc-xyz-investor.txt",
+    "t": "Relación con inversores (Alphabet)",
+    "u": "https://abc.xyz/investor/",
+    "codigo": 200,
+    "revisado": "2026-11-19T18:01Z",
+    "ok": true,
+    "caracteres": 1642,
+    "enlaces": 19,
+    "poco_texto": false,
+    "cambio": true,
+    "ultimo_cambio": "2026-11-19T18:01Z"
+   },
+   "https://blog.google": {
+    "archivo": "lecturas/GOOGL/web_blog-google.txt",
+    "t": "Blog de Google (productos)",
+    "u": "https://blog.google",
+    "codigo": 200,
+    "revisado": "2026-11-19T18:01Z",
+    "ok": true,
+    "caracteres": 11692,
+    "enlaces": 50,
+    "poco_texto": false,
+    "cambio": true,
+    "ultimo_cambio": "2026-11-19T18:01Z"
+   },
+   "https://cloud.google.com/blog": {
+    "archivo": "lecturas/GOOGL/web_cloud-google-com-blog.txt",
+    "t": "Blog de Google Cloud",
+    "u": "https://cloud.google.com/blog",
+    "codigo": 200,
+    "revisado": "2026-11-19T18:01Z",
+    "ok": true,
+    "caracteres": 5333,
+    "enlaces": 70,
+    "poco_texto": false,
+    "cambio": true,
+    "ultimo_cambio": "2026-11-19T18:01Z"
+   },
+   "https://deepmind.google/discover/blog/": {
+    "archivo": "lecturas/GOOGL/web_deepmind-google-discover-blog.txt",
+    "t": "Google DeepMind (modelos e investigación)",
+    "u": "https://deepmind.google/discover/blog/",
+    "codigo": 200,
+    "revisado": "2026-11-19T18:01Z",
+    "ok": true,
+    "caracteres": 7124,
+    "enlaces": 1,
+    "poco_texto": false,
+    "cambio": true,
+    "ultimo_cambio": "2026-11-19T18:01Z"
+   }
+  },
+  "revisado": "2026-11-19T18:01Z"
+ },
+ "RDDT": {
+  "sec": [
+   {
+    "archivo": "lecturas/RDDT/sec_nota_resultados_0001713445-26-000114.txt",
+    "t": "Nota de resultados (8-K, Ex. 99.1)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000114/earningspressreleaseq326.htm",
+    "fecha": "2026-10-29",
+    "ok": true,
+    "nuevo": true,
+    "caracteres": 21595
+   },
+   {
+    "archivo": "lecturas/RDDT/sec_10q_0001713445-26-000116.txt",
+    "t": "10-Q (último informe periódico)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000116/rddt-20260930.htm",
+    "fecha": "2026-10-30",
+    "ok": true,
+    "nuevo": true,
+    "caracteres": 331776
+   },
+   {
+    "archivo": "lecturas/RDDT/sec_3_0002164682-26-000007.txt",
+    "t": "3: alta de un directivo o consejero (formulario 3)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1713445/000216468226000007/xslF345X06/wk-form3_1794351861.xml",
+    "fecha": "2026-11-10",
+    "ok": true,
+    "nuevo": true,
+    "caracteres": 2949
+   }
+  ],
+  "web": {
+   "https://investor.redditinc.com": {
+    "archivo": "lecturas/RDDT/web_investor-redditinc-com.txt",
+    "t": "Relación con inversores (cartas a accionistas)",
+    "u": "https://investor.redditinc.com",
+    "codigo": 200,
+    "revisado": "2026-11-19T18:01Z",
+    "ok": true,
+    "caracteres": 2280,
+    "enlaces": 29,
+    "poco_texto": false,
+    "cambio": true,
+    "ultimo_cambio": "2026-11-19T18:01Z"
+   },
+   "https://redditinc.com/blog": {
+    "archivo": "lecturas/RDDT/web_redditinc-com-blog.txt",
+    "t": "Blog de Reddit Inc.",
+    "u": "https://redditinc.com/blog",
+    "codigo": 200,
+    "revisado": "2026-11-19T18:01Z",
+    "ok": true,
+    "caracteres": 2460,
+    "enlaces": 38,
+    "poco_texto": false,
+    "cambio": true,
+    "ultimo_cambio": "2026-11-19T18:01Z"
+   },
+   "https://business.reddit.com": {
+    "archivo": "lecturas/RDDT/web_business-reddit-com.txt",
+    "t": "Reddit para anunciantes (productos publicitarios)",
+    "u": "https://business.reddit.com",
+    "codigo": 200,
+    "revisado": "2026-11-19T18:01Z",
+    "ok": true,
+    "caracteres": 10696,
+    "enlaces": 65,
+    "poco_texto": false,
+    "cambio": true,
+    "ultimo_cambio": "2026-11-19T18:01Z"
+   }
+  },
+  "revisado": "2026-11-19T18:01Z"
+ },
+ "AMZN": {
+  "sec": [
+   {
+    "archivo": "lecturas/AMZN/sec_nota_resultados_0001018724-26-000038.txt",
+    "t": "Nota de resultados (8-K, Ex. 99.1)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000038/amzn-20260930xex991.htm",
+    "fecha": "2026-10-29",
+    "ok": true,
+    "nuevo": true,
+    "caracteres": 37642
+   },
+   {
+    "archivo": "lecturas/AMZN/sec_10q_0001018724-26-000040.txt",
+    "t": "10-Q (último informe periódico)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/amzn-20260930.htm",
+    "fecha": "2026-10-30",
+    "ok": true,
+    "nuevo": true,
+    "caracteres": 205330
+   }
+  ],
+  "web": {
+   "https://ir.aboutamazon.com": {
+    "archivo": "lecturas/AMZN/web_ir-aboutamazon-com.txt",
+    "t": "Relación con inversores",
+    "u": "https://ir.aboutamazon.com",
+    "codigo": 200,
+    "revisado": "2026-11-19T18:01Z",
+    "ok": true,
+    "caracteres": 1263,
+    "enlaces": 27,
+    "poco_texto": false,
+    "cambio": true,
+    "ultimo_cambio": "2026-11-19T18:01Z"
+   },
+   "https://www.aboutamazon.com/news": {
+    "archivo": "lecturas/AMZN/web_www-aboutamazon-com-news.txt",
+    "t": "Noticias de Amazon",
+    "u": "https://www.aboutamazon.com/news",
+    "codigo": 200,
+    "revisado": "2026-11-19T18:01Z",
+    "ok": true,
+    "caracteres": 2746,
+    "enlaces": 53,
+    "poco_texto": false,
+    "cambio": true,
+    "ultimo_cambio": "2026-11-19T18:01Z"
+   },
+   "https://aws.amazon.com/blogs/aws/": {
+    "archivo": "lecturas/AMZN/web_aws-amazon-com-blogs-aws.txt",
+    "t": "Blog de AWS (lanzamientos)",
+    "u": "https://aws.amazon.com/blogs/aws/",
+    "codigo": 200,
+    "revisado": "2026-11-19T18:01Z",
+    "ok": true,
+    "caracteres": 11497,
+    "enlaces": 120,
+    "poco_texto": false,
+    "cambio": true,
+    "ultimo_cambio": "2026-11-19T18:01Z"
+   },
+   "https://advertising.amazon.com": {
+    "archivo": "lecturas/AMZN/web_advertising-amazon-com.txt",
+    "t": "Amazon Ads",
+    "u": "https://advertising.amazon.com",
+    "codigo": 200,
+    "revisado": "2026-11-19T18:01Z",
+    "ok": true,
+    "caracteres": 10450,
+    "enlaces": 120,
+    "poco_texto": false,
+    "cambio": true,
+    "ultimo_cambio": "2026-11-19T18:01Z"
+   }
+  },
+  "revisado": "2026-11-19T18:01Z"
+ },
+ "VST": {
+  "sec": [
+   {
+    "archivo": "lecturas/VST/sec_nota_resultados_0001692819-26-000023.txt",
+    "t": "Nota de resultados (8-K, Ex. 99.1)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000023/vistra-20260930xearningsre.htm",
+    "fecha": "2026-11-06",
+    "ok": true,
+    "nuevo": true,
+    "caracteres": 32636
+   },
+   {
+    "archivo": "lecturas/VST/sec_10q_0001692819-26-000025.txt",
+    "t": "10-Q (último informe periódico)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/vistra-20260930.htm",
+    "fecha": "2026-11-09",
+    "ok": true,
+    "nuevo": true,
+    "caracteres": 282600
+   },
+   {
+    "archivo": "lecturas/VST/sec_8k_0001140361-26-044139.txt",
+    "t": "8-K a la SEC: Comunicación al mercado (Reg FD)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1692819/000114036126044139/ef20085745_8k.htm",
+    "fecha": "2026-11-16",
+    "ok": true,
+    "nuevo": true,
+    "caracteres": 4459
+   },
+   {
+    "archivo": "lecturas/VST/sec_8k_0001140361-26-042795.txt",
+    "t": "8-K a la SEC: Otros hechos relevantes",
+    "u": "https://www.sec.gov/Archives/edgar/data/1692819/000114036126042795/ef20085053_8k.htm",
+    "fecha": "2026-11-09",
+    "ok": true,
+    "nuevo": true,
+    "caracteres": 3169
+   },
+   {
+    "archivo": "lecturas/VST/sec_424b7_0001140361-26-042789.txt",
+    "t": "424B7: folleto de una emisión (424B)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1692819/000114036126042789/ny20084968x1_424b7.htm",
+    "fecha": "2026-11-09",
+    "ok": true,
+    "nuevo": true,
+    "caracteres": 105916
+   }
+  ],
+  "web": {
+   "https://investor.vistracorp.com": {
+    "archivo": "lecturas/VST/web_investor-vistracorp-com.txt",
+    "t": "Relación con inversores (presentaciones)",
+    "u": "https://investor.vistracorp.com",
+    "codigo": 200,
+    "revisado": "2026-11-19T18:01Z",
+    "ok": true,
+    "caracteres": 4355,
+    "enlaces": 46,
+    "poco_texto": false,
+    "cambio": true,
+    "ultimo_cambio": "2026-11-19T18:01Z"
+   },
+   "https://investor.vistracorp.com/financials": {
+    "archivo": "lecturas/VST/web_investor-vistracorp-com-financials.txt",
+    "t": "Resultados y presentaciones trimestrales",
+    "u": "https://investor.vistracorp.com/financials",
+    "codigo": 200,
+    "revisado": "2026-11-19T18:01Z",
+    "ok": true,
+    "caracteres": 3593,
+    "enlaces": 120,
+    "poco_texto": false,
+    "cambio": true,
+    "ultimo_cambio": "2026-11-19T18:01Z"
+   }
+  },
+  "revisado": "2026-11-19T18:01Z"
+ },
+ "AVGO": {
+  "sec": [
+   {
+    "archivo": "lecturas/AVGO/sec_nota_resultados_0001730168-26-000076.txt",
+    "t": "Nota de resultados (8-K, Ex. 99.1)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1730168/000173016826000076/avgo-08022026x8kxex99.htm",
+    "fecha": "2026-09-02",
+    "ok": true,
+    "nuevo": true,
+    "caracteres": 23405
+   },
+   {
+    "archivo": "lecturas/AVGO/sec_10q_0001730168-26-000080.txt",
+    "t": "10-Q (último informe periódico)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1730168/000173016826000080/avgo-20260802.htm",
+    "fecha": "2026-09-10",
+    "ok": true,
+    "nuevo": true,
+    "caracteres": 195354
+   }
+  ],
+  "web": {
+   "https://investors.broadcom.com": {
+    "archivo": "lecturas/AVGO/web_investors-broadcom-com.txt",
+    "t": "Relación con inversores",
+    "u": "https://investors.broadcom.com",
+    "codigo": 0,
+    "revisado": "2026-11-19T18:01Z",
+    "ok": false,
+    "error": "TimeoutError: The read operation timed out",
+    "ultimo_ok": null
+   },
+   "https://www.broadcom.com/products": {
+    "archivo": "lecturas/AVGO/web_www-broadcom-com-products.txt",
+    "t": "Productos (semiconductores y software)",
+    "u": "https://www.broadcom.com/products",
+    "codigo": 200,
+    "revisado": "2026-11-19T18:01Z",
+    "ok": true,
+    "caracteres": 8,
+    "enlaces": 0,
+    "poco_texto": true,
+    "cambio": true,
+    "ultimo_cambio": "2026-11-19T18:01Z"
+   },
+   "https://www.broadcom.com/company/news": {
+    "archivo": "lecturas/AVGO/web_www-broadcom-com-company-news.txt",
+    "t": "Noticias de Broadcom",
+    "u": "https://www.broadcom.com/company/news",
+    "codigo": 200,
+    "revisado": "2026-11-19T18:01Z",
+    "ok": true,
+    "caracteres": 8,
+    "enlaces": 0,
+    "poco_texto": true,
+    "cambio": true,
+    "ultimo_cambio": "2026-11-19T18:01Z"
+   }
+  },
+  "revisado": "2026-11-19T18:01Z"
+ },
+ "PEP": {
+  "sec": [
+   {
+    "archivo": "lecturas/PEP/sec_nota_resultados_0000077476-26-000050.txt",
+    "t": "Nota de resultados (8-K, Ex. 99.1)",
+    "u": "https://www.sec.gov/Archives/edgar/data/77476/000007747626000050/q320268-kxexhibit991.htm",
+    "fecha": "2026-10-08",
+    "ok": true,
+    "nuevo": true,
+    "caracteres": 50122
+   },
+   {
+    "archivo": "lecturas/PEP/sec_10q_0000077476-26-000048.txt",
+    "t": "10-Q (último informe periódico)",
+    "u": "https://www.sec.gov/Archives/edgar/data/77476/000007747626000048/pep-20260905.htm",
+    "fecha": "2026-10-08",
+    "ok": true,
+    "nuevo": true,
+    "caracteres": 148048
+   }
+  ],
+  "web": {
+   "https://www.pepsico.com/our-brands": {
+    "archivo": "lecturas/PEP/web_www-pepsico-com-our-brands.txt",
+    "t": "Marcas",
+    "u": "https://www.pepsico.com/our-brands",
+    "codigo": 404,
+    "revisado": "2026-11-19T18:01Z",
+    "ok": false,
+    "error": "HTTP 404",
+    "ultimo_ok": null
+   },
+   "https://www.pepsico.com/investors": {
+    "archivo": "lecturas/PEP/web_www-pepsico-com-investors.txt",
+    "t": "Relación con inversores",
+    "u": "https://www.pepsico.com/investors",
+    "codigo": 200,
+    "revisado": "2026-11-19T18:01Z",
+    "ok": true,
+    "caracteres": 2510,
+    "enlaces": 45,
+    "poco_texto": false,
+    "cambio": true,
+    "ultimo_cambio": "2026-11-19T18:01Z"
+   },
+   "https://www.pepsico.com/newsroom": {
+    "archivo": "lecturas/PEP/web_www-pepsico-com-newsroom.txt",
+    "t": "Sala de prensa",
+    "u": "https://www.pepsico.com/newsroom",
+    "codigo": 200,
+    "revisado": "2026-11-19T18:01Z",
+    "ok": true,
+    "caracteres": 1966,
+    "enlaces": 41,
+    "poco_texto": false,
+    "cambio": true,
+    "ultimo_cambio": "2026-11-19T18:01Z"
+   }
+  },
+  "revisado": "2026-11-19T18:01Z"
+ },
+ "PATH": {
+  "sec": [
+   {
+    "archivo": "lecturas/PATH/sec_nota_resultados_0001734722-26-000047.txt",
+    "t": "Nota de resultados (8-K, Ex. 99.1)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1734722/000173472226000047/path-2026731xex991.htm",
+    "fecha": "2026-09-03",
+    "ok": true,
+    "nuevo": true,
+    "caracteres": 29266
+   },
+   {
+    "archivo": "lecturas/PATH/sec_10q_0001734722-26-000050.txt",
+    "t": "10-Q (último informe periódico)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1734722/000173472226000050/path-20260731.htm",
+    "fecha": "2026-09-08",
+    "ok": true,
+    "nuevo": true,
+    "caracteres": 141989
+   }
+  ],
+  "web": {
+   "https://ir.uipath.com": {
+    "archivo": "lecturas/PATH/web_ir-uipath-com.txt",
+    "t": "Relación con inversores",
+    "u": "https://ir.uipath.com",
+    "codigo": 200,
+    "revisado": "2026-11-19T18:01Z",
+    "ok": true,
+    "caracteres": 6779,
+    "enlaces": 120,
+    "poco_texto": false,
+    "cambio": true,
+    "ultimo_cambio": "2026-11-19T18:01Z"
+   },
+   "https://www.uipath.com/product": {
+    "archivo": "lecturas/PATH/web_www-uipath-com-product.txt",
+    "t": "Catálogo de productos",
+    "u": "https://www.uipath.com/product",
+    "codigo": 200,
+    "revisado": "2026-11-19T18:01Z",
+    "ok": true,
+    "caracteres": 5240,
+    "enlaces": 120,
+    "poco_texto": false,
+    "cambio": true,
+    "ultimo_cambio": "2026-11-19T18:01Z"
+   },
+   "https://www.uipath.com/blog": {
+    "archivo": "lecturas/PATH/web_www-uipath-com-blog.txt",
+    "t": "Blog de UiPath",
+    "u": "https://www.uipath.com/blog",
+    "codigo": 200,
+    "revisado": "2026-11-19T18:01Z",
+    "ok": true,
+    "caracteres": 9684,
+    "enlaces": 120,
+    "poco_texto": false,
+    "cambio": true,
+    "ultimo_cambio": "2026-11-19T18:01Z"
+   }
+  },
+  "revisado": "2026-11-19T18:01Z"
+ },
+ "ORCL": {
+  "sec": [
+   {
+    "archivo": "lecturas/ORCL/sec_nota_resultados_0001193125-26-387905.txt",
+    "t": "Nota de resultados (8-K, Ex. 99.1)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526387905/orcl-ex99_1.htm",
+    "fecha": "2026-09-10",
+    "ok": true,
+    "nuevo": true,
+    "caracteres": 30347
+   },
+   {
+    "archivo": "lecturas/ORCL/sec_10q_0001193125-26-389274.txt",
+    "t": "10-Q (último informe periódico)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526389274/orcl-20260831.htm",
+    "fecha": "2026-09-11",
+    "ok": true,
+    "nuevo": true,
+    "caracteres": 128653
+   }
+  ],
+  "web": {
+   "https://investor.oracle.com": {
+    "archivo": "lecturas/ORCL/web_investor-oracle-com.txt",
+    "t": "Relación con inversores",
+    "u": "https://investor.oracle.com",
+    "codigo": 200,
+    "revisado": "2026-11-19T18:01Z",
+    "ok": true,
+    "caracteres": 3232,
+    "enlaces": 105,
+    "poco_texto": false,
+    "cambio": true,
+    "ultimo_cambio": "2026-11-19T18:01Z"
+   },
+   "https://www.oracle.com/cloud/": {
+    "archivo": "lecturas/ORCL/web_www-oracle-com-cloud.txt",
+    "t": "Oracle Cloud (OCI y aplicaciones)",
+    "u": "https://www.oracle.com/cloud/",
+    "codigo": 403,
+    "revisado": "2026-11-19T18:01Z",
+    "ok": false,
+    "error": "HTTP 403",
+    "ultimo_ok": null
+   },
+   "https://www.oracle.com/news/": {
+    "archivo": "lecturas/ORCL/web_www-oracle-com-news.txt",
+    "t": "Noticias de Oracle",
+    "u": "https://www.oracle.com/news/",
+    "codigo": 200,
+    "revisado": "2026-11-19T18:01Z",
+    "ok": true,
+    "caracteres": 2108,
+    "enlaces": 120,
+    "poco_texto": false,
+    "cambio": true,
+    "ultimo_cambio": "2026-11-19T18:01Z"
+   }
+  },
+  "revisado": "2026-11-19T18:01Z"
+ },
+ "MRNA": {
+  "sec": [
+   {
+    "archivo": "lecturas/MRNA/sec_nota_resultados_0001682852-26-000194.txt",
+    "t": "Nota de resultados (8-K, Ex. 99.1)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000194/exhibit9912026q3pressrelea.htm",
+    "fecha": "2026-11-06",
+    "ok": true,
+    "nuevo": true,
+    "caracteres": 19589
+   },
+   {
+    "archivo": "lecturas/MRNA/sec_10q_0001682852-26-000197.txt",
+    "t": "10-Q (último informe periódico)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000197/mrna-20260930.htm",
+    "fecha": "2026-11-06",
+    "ok": true,
+    "nuevo": true,
+    "caracteres": 150290
+   },
+   {
+    "archivo": "lecturas/MRNA/sec_8k_0001682852-26-000208.txt",
+    "t": "8-K a la SEC: Acuerdo relevante; nueva deuda u obligación financiera",
+    "u": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000208/mrna-20261109.htm",
+    "fecha": "2026-11-16",
+    "ok": true,
+    "nuevo": true,
+    "caracteres": 4788
+   },
+   {
+    "archivo": "lecturas/MRNA/sec_8k_0001682852-26-000205.txt",
+    "t": "8-K a la SEC: Cambios en directivos o consejeros",
+    "u": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000205/mrna-20261113.htm",
+    "fecha": "2026-11-13",
+    "ok": true,
+    "nuevo": true,
+    "caracteres": 5037
+   }
+  ],
+  "web": {
+   "https://investors.modernatx.com": {
+    "archivo": "lecturas/MRNA/web_investors-modernatx-com.txt",
+    "t": "Relación con inversores (presentaciones, Analyst Day)",
+    "u": "https://investors.modernatx.com",
+    "codigo": 200,
+    "revisado": "2026-11-19T18:01Z",
+    "ok": true,
+    "caracteres": 1976,
+    "enlaces": 36,
+    "poco_texto": false,
+    "cambio": true,
+    "ultimo_cambio": "2026-11-19T18:01Z"
+   },
+   "https://www.modernatx.com/research/product-pipeline": {
+    "archivo": "lecturas/MRNA/web_www-modernatx-com-research-product-pipeline.txt",
+    "t": "Cartera de productos (pipeline)",
+    "u": "https://www.modernatx.com/research/product-pipeline",
+    "codigo": 200,
+    "revisado": "2026-11-19T18:01Z",
+    "ok": true,
+    "caracteres": 3900,
+    "enlaces": 44,
+    "poco_texto": false,
+    "cambio": true,
+    "ultimo_cambio": "2026-11-19T18:01Z"
+   },
+   "https://news.modernatx.com": {
+    "archivo": "lecturas/MRNA/web_news-modernatx-com.txt",
+    "t": "Noticias de Moderna",
+    "u": "https://news.modernatx.com",
+    "codigo": 200,
+    "revisado": "2026-11-19T18:01Z",
+    "ok": true,
+    "caracteres": 1637,
+    "enlaces": 19,
+    "poco_texto": false,
+    "cambio": true,
+    "ultimo_cambio": "2026-11-19T18:01Z"
+   }
+  },
+  "revisado": "2026-11-19T18:01Z"
+ }
+}

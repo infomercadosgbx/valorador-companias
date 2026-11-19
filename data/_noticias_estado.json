@@ -38,7 +38,7 @@
    "url": "https://feed.businesswire.com/rss/home/?rss=G1QFDERJXkJeEFtRWQ==",
    "tipo": "nota_prensa",
    "ok": true,
-   "titulares": 35,
+   "titulares": 33,
    "error": null
   },
   "prnewswire": {
@@ -206,7 +206,7 @@
    "url": "https://news.google.com/rss/search?q=site%3Abroadcom.com%2Fcompany%2Fnews+when%3A14d&hl=en-US&gl=US&ceid=US%3Aen",
    "tipo": "nota_prensa",
    "ok": true,
-   "titulares": 10,
+   "titulares": 6,
    "error": null
   },
   "sala:PEP": {
@@ -227,11 +227,11 @@
   },
   "sala:ORCL": {
    "medio": "Sala de prensa de Oracle",
-   "url": "https://news.google.com/rss/search?q=site%3Aoracle.com%2Fnews+when%3A14d&hl=en-US&gl=US&ceid=US%3Aen",
+   "url": "gnews:site:oracle.com/news",
    "tipo": "nota_prensa",
-   "ok": true,
-   "titulares": 10,
-   "error": null
+   "ok": false,
+   "titulares": 0,
+   "error": "https://news.google.com/rss/search?q=site%3Aoracle.com%2Fnews+when%3A14d&hl=en-US&gl=US&ceid=US%3Aen: HTTPError: HTTP Error 429: Too Many Requests"
   },
   "sala:MRNA": {
    "medio": "Sala de prensa de Moderna",
@@ -247,5 +247,5 @@
   "Seeking Alpha",
   "Marketaux"
  ],
- "generado": "2026-11-19T00:04:30+00:00"
+ "generado": "2026-11-19T18:01:53+00:00"
 }
