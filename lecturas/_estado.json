@@ -411,12 +411,16 @@
     "archivo": "lecturas/AVGO/web_investors-broadcom-com.txt",
     "t": "Relación con inversores",
     "u": "https://investors.broadcom.com",
-    "codigo": 0,
-    "via": "http",
-    "revisado": "2026-11-19T18:18Z",
-    "ok": false,
-    "error": "TimeoutError: The read operation timed out",
-    "ultimo_ok": null
+    "codigo": 200,
+    "via": "navegador",
+    "revisado": "2026-11-19T18:23Z",
+    "u_leida": "https://www.broadcom.com/company/news/releases",
+    "ok": true,
+    "caracteres": 19306,
+    "enlaces": 120,
+    "poco_texto": false,
+    "cambio": true,
+    "ultimo_cambio": "2026-11-19T18:23Z"
    },
    "https://www.broadcom.com/products": {
     "archivo": "lecturas/AVGO/web_www-broadcom-com-products.txt",
@@ -424,12 +428,12 @@
     "u": "https://www.broadcom.com/products",
     "codigo": 200,
     "via": "navegador",
-    "revisado": "2026-11-19T18:18Z",
+    "revisado": "2026-11-19T18:23Z",
     "ok": true,
     "caracteres": 16757,
     "enlaces": 120,
     "poco_texto": false,
-    "cambio": true,
+    "cambio": false,
     "ultimo_cambio": "2026-11-19T18:18Z"
    },
    "https://www.broadcom.com/company/news": {
@@ -438,16 +442,16 @@
     "u": "https://www.broadcom.com/company/news",
     "codigo": 200,
     "via": "navegador",
-    "revisado": "2026-11-19T18:18Z",
+    "revisado": "2026-11-19T18:23Z",
     "ok": true,
     "caracteres": 12879,
     "enlaces": 92,
     "poco_texto": false,
-    "cambio": true,
+    "cambio": false,
     "ultimo_cambio": "2026-11-19T18:18Z"
    }
   },
-  "revisado": "2026-11-19T18:18Z"
+  "revisado": "2026-11-19T18:23Z"
  },
  "PEP": {
   "sec": [
@@ -604,7 +608,7 @@
     "u": "https://investor.oracle.com",
     "codigo": 200,
     "via": "http",
-    "revisado": "2026-11-19T18:18Z",
+    "revisado": "2026-11-19T18:23Z",
     "ok": true,
     "caracteres": 3232,
     "enlaces": 105,
@@ -616,12 +620,16 @@
     "archivo": "lecturas/ORCL/web_www-oracle-com-cloud.txt",
     "t": "Oracle Cloud (OCI y aplicaciones)",
     "u": "https://www.oracle.com/cloud/",
-    "codigo": 403,
-    "via": "http",
-    "revisado": "2026-11-19T18:18Z",
-    "ok": false,
-    "error": "HTTP 403",
-    "ultimo_ok": null
+    "codigo": 200,
+    "via": "navegador",
+    "revisado": "2026-11-19T18:23Z",
+    "u_leida": "https://blogs.oracle.com/cloud-infrastructure/",
+    "ok": true,
+    "caracteres": 29268,
+    "enlaces": 120,
+    "poco_texto": false,
+    "cambio": true,
+    "ultimo_cambio": "2026-11-19T18:23Z"
    },
    "https://www.oracle.com/news/": {
     "archivo": "lecturas/ORCL/web_www-oracle-com-news.txt",
@@ -629,7 +637,7 @@
     "u": "https://www.oracle.com/news/",
     "codigo": 200,
     "via": "http",
-    "revisado": "2026-11-19T18:18Z",
+    "revisado": "2026-11-19T18:23Z",
     "ok": true,
     "caracteres": 2108,
     "enlaces": 120,
@@ -638,7 +646,7 @@
     "ultimo_cambio": "2026-11-19T18:01Z"
    }
   },
-  "revisado": "2026-11-19T18:18Z"
+  "revisado": "2026-11-19T18:23Z"
  },
  "MRNA": {
   "sec": [
