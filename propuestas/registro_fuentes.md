@@ -2,6 +2,28 @@
 
 Una entrada por día (la más reciente arriba). La escribe la tarea programada de la mañana con `python scripts/registro_fuentes.py`. Sirve para ver qué aporta cada fuente y decidir qué quitar o añadir.
 
+## 2026-11-19
+
+_Lo útil salió de la búsqueda web: TipRanks para el consenso de Reddit y Moderna, Stocktwits para la rebaja de Bernstein a PepsiCo y TIKR para el contexto de Moderna; la SEC confirmó que no hay 8-K nuevos (formularios 4 de Wong, Hoge y Herrington, todos con plan 10b5-1). Gmail solo trajo boletines generales (Anthropic, Nvidia) sin alertas de las compañías repasadas; ruido en Finnhub/ChartMill/Benzinga. WebFetch no pudo abrir redditinc.com, pepsico.com, news.modernatx.com, MarketBeat ni sec.gov (permisos), y Google News falla en varias compañías._
+
+- **Alertas en Gmail** (infomercados.gbx@gmail.com, últimas 24 h): Bloomberg 4, MarketWatch 1, Morningstar 3, CNBC 0, Reuters 0, FT 1, Investing 2, Otros 0.
+- **Titulares nuevos en 24 h (todas las compañías):** Finnhub 74, Google News 19, Seeking Alpha 5, Marketaux 1, Medios sectoriales y agencias 6.
+- **Fuentes con fallo** (nº de compañías): Marketaux 2, Google News 1.
+- **Compañías con señal para la revisión de internet:** GOOGL (3 nota(s) de prensa o noticia(s) sectorial(es)); AMZN (2 nota(s) de prensa o noticia(s) sectorial(es), 1 publicación(es) en la sala de prensa de la compañía).
+
+| Compañía | Titulares 24 h | Finnhub | Google News | Seeking Alpha | Marketaux | Medios sectoriales y agencias | StockTwits | Reddit 7 d | Alertas Gmail |
+|---|---:|---:|---:|---:|---:|---:|---|---|---:|
+| APP | 3 | 3 | 0 | 0 | 0 | 0 | 64 % alc. | — | 0 |
+| GOOGL | 25 | 11 | 4 | 1 | 0 | 3 | 83 % alc. | — | 0 |
+| RDDT | 3 | 3 | 0 | 0 | 0 | 0 | 69 % alc. | — | 0 |
+| AMZN | 22 | 10 | 8 | 1 | 0 | 2 | 93 % alc. | — | 0 |
+| VST | 5 | 5 | 0 | 0 | 0 | 0 | 100 % alc. | — | 0 |
+| AVGO | 18 | 18 | 0 | 0 | 0 | 0 | 100 % alc. | — | 0 |
+| PEP | 11 | 7 | 3 | 1 | 0 | 0 | 14 % alc. | — | 0 |
+| PATH | 2 | 0 | 0 | 1 | 0 | 0 | 100 % alc. | — | 0 |
+| ORCL | 18 | 11 | 4 | 0 | 0 | 1 | 75 % alc. | — | 0 |
+| MRNA | 8 | 6 | 0 | 1 | 1 | 0 | 9 % alc. | — | 0 |
+
 ## 2026-11-18
 
 _Lo útil salió de la búsqueda web: Reuters (vía Euronext) para las conversaciones de AppLovin sobre Criteo, The Motley Fool y TechCrunch/FourWeekMBA para Oracle, y las notas oficiales de UiPath (fecha de resultados) y Google Cloud (Gemini for Healthcare); la SEC confirmó que no hay 8-K materiales nuevos (el 8-K de Vistra del 16-nov es un pago menor del TRA). Gmail solo trajo boletines generales sin alertas de las compañías repasadas; ruido en Finnhub/Benzinga/ChartMill. WebFetch no pudo abrir las webs de inversores de AppLovin, UiPath y Oracle ni Yahoo Finance._
