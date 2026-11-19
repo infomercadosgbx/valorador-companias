@@ -6,12 +6,13 @@
   "hq": "Cambridge, Massachusetts",
   "founded": "2010",
   "employees": "~4.700 (dic-25, 18 países)",
-  "asOf": "17-nov-2026",
+  "asOf": "19-nov-2026",
   "fav": false,
-  "nextEarnings": "11-feb-2027 (4T26, estimada)"
+  "nextEarnings": "11-feb-2027 (4T26, estimada)",
+  "repasoFondo": "19-nov-2026"
  },
  "overview": {
-  "thesis": "La acción ha multiplicado por diez en un año por intismeran, su terapia personalizada contra el cáncer con Merck: en fase 3 redujo un 42% el riesgo de recaída en melanoma operado, aunque la supervivencia aún no es significativa. A 258 $ (~104.000 M$ de capitalización frente a unos 2.300 M$ de ventas en 2026), el precio descuenta un éxito comercial amplio en varios tumores que todavía no está aprobado.",
+  "thesis": "Moderna se juega su futuro a intismeran, su terapia personalizada contra el cáncer con Merck: en fase 3 redujo un 42% el riesgo de recaída en melanoma operado, aunque la supervivencia aún no es significativa. La valoración ya descuenta un éxito comercial amplio en varios tumores que todavía no está aprobado, frente a unas ventas de ~2.240–2.430 M$ guiadas para 2026.",
   "summary": "Moderna vende vacunas de ARNm contra la COVID (Spikevax, mNEXSPIKE), el VRS (mRESVIA) y la gripe (mFLUSIVA, aprobada en EE. UU. en ago-26), y desarrolla terapias contra el cáncer y enfermedades raras. Tras el desplome de ventas posterior a la pandemia (de 19.263 M$ en 2022 a 1.944 M$ en 2025), vuelve a crecer en 2026 gracias a contratos de varios años con gobiernos (Reino Unido, Canadá, Australia, México) y ha recortado mucho el gasto. Su gran apuesta es intismeran, cuyo coste y beneficio comparte al 50% con Merck.",
   "keyFacts": [
    {
@@ -670,7 +671,7 @@
   "conviction": 2.5,
   "buyBelow": 50,
   "horizon": "12–24 meses",
-  "summary": "Muy buen 2026: fase 3 positiva de intismeran, aprobación de la vacuna de gripe, beneficio en el 3T26 y más caja. Pero el precio va muy por delante. Con supuestos generosos (ventas de ~7.900 M$ en 2031 y margen EBITDA del 35%), el DCF ponderado da ~55 $ por acción frente a 258 $; para justificar el precio harían falta crecimientos de más del 70% anual durante cinco años. La fase 3 deja dudas (supervivencia no significativa aún, sin efecto en los primeros seis meses) y el beneficio se reparte con Merck. El DCF a 5 años no recoge todo el valor de intismeran más allá de 2031: tómalo como referencia prudente. Reducir y esperar al Analyst Day del 12-nov y a la solicitud de aprobación.",
+  "summary": "Muy buen 2026: fase 3 positiva de intismeran, aprobación de la vacuna de gripe, beneficio en el 3T26 y más caja. Pero el precio va muy por delante: con supuestos generosos (ventas de ~9.300 M$ en 2031 y margen del 35% al final), el DCF ponderado da ~93 $ por acción, lejos de la cotización. La fase 3 deja dudas (supervivencia aún no significativa) y el beneficio se reparte con Merck. El DCF a 5 años no recoge todo el valor de intismeran más allá de 2031: tómalo como referencia prudente. Reducir y esperar a la solicitud de aprobación (antes de fin de año) y a los datos de mRNA-2808 en ASH (12-dic).",
   "bull": [
    "Fase 3 positiva de intismeran en melanoma (−42% de riesgo; −58% tras la vacunación) y solicitud de aprobación este año",
    "Posible ampliación a pulmón, vejiga y riñón, con Merck y Keytruda",
@@ -1415,6 +1416,61 @@
    },
    "verificacion": "Fecha de revisión; los 8-K del 13 y 16-nov-2026 existen en EDGAR.",
    "motivo": "8-K del 13 y 16-nov-2026: jubilación de la directora jurídica y enmienda del préstamo de Ares"
+  },
+  {
+   "fecha": "2026-11-19",
+   "campo": "overview.thesis",
+   "antes": "La acción ha multiplicado por diez en un año por intismeran, su terapia personalizada contra el cáncer con Merck: en fase 3 redujo un 42% el riesgo de recaída en melanoma operado, aunque la supervivencia aún no es significativa. A 258 $ (~104.000 M$ de capitalización frente a unos 2.300 M$ de ventas en 2026), el precio descuenta un éxito comercial amplio en varios tumores que todavía no está aprobado.",
+   "despues": "Moderna se juega su futuro a intismeran, su terapia personalizada contra el cáncer con Merck: en fase 3 redujo un 42% el riesgo de recaída en melanoma operado, aunque la supervivencia aún no es significativa. La valoración ya descuenta un éxito comercial amplio en varios tumores que todavía no está aprobado, frente a unas ventas de ~2.240–2.430 M$ guiadas para 2026.",
+   "porque": "Quita el precio (258 $) y la capitalización de la tesis (regla 8.1); conserva la idea con los datos oficiales de fase 3 y la guía de 2026.",
+   "fuente": {
+    "t": "Nota de resultados 3T26 (8-K, Ex. 99.1)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000194/exhibit9912026q3pressrelea.htm",
+    "d": "6-nov-2026"
+   },
+   "verificacion": "sec.gov no accesible; −42% de recaída, supervivencia no significativa y guía ~2.240–2.430 M$ cuadran con keyFacts de analysis (Ex. 99.1 3T26); sin precio ni capitalización.",
+   "motivo": "Repaso semanal a fondo (consumo y salud)"
+  },
+  {
+   "fecha": "2026-11-19",
+   "campo": "verdict.summary",
+   "antes": "Muy buen 2026: fase 3 positiva de intismeran, aprobación de la vacuna de gripe, beneficio en el 3T26 y más caja. Pero el precio va muy por delante. Con supuestos generosos (ventas de ~7.900 M$ en 2031 y margen EBITDA del 35%), el DCF ponderado da ~55 $ por acción frente a 258 $; para justificar el precio harían falta crecimientos de más del 70% anual durante cinco años. La fase 3 deja dudas (supervivencia no significativa aún, sin efecto en los primeros seis meses) y el beneficio se reparte con Merck. El DCF a 5 años no recoge todo el valor de intismeran más allá de 2031: tómalo como referencia prudente. Reducir y esperar al Analyst Day del 12-nov y a la solicitud de aprobación.",
+   "despues": "Muy buen 2026: fase 3 positiva de intismeran, aprobación de la vacuna de gripe, beneficio en el 3T26 y más caja. Pero el precio va muy por delante: con supuestos generosos (ventas de ~9.300 M$ en 2031 y margen del 35% al final), el DCF ponderado da ~93 $ por acción, lejos de la cotización. La fase 3 deja dudas (supervivencia aún no significativa) y el beneficio se reparte con Merck. El DCF a 5 años no recoge todo el valor de intismeran más allá de 2031: tómalo como referencia prudente. Reducir y esperar a la solicitud de aprobación (antes de fin de año) y a los datos de mRNA-2808 en ASH (12-dic).",
+   "porque": "El texto citaba 258 $, un DCF de ~55 $ y ventas de ~7.900 M$ en 2031 que ya no corresponden a los supuestos actuales (rev0 2.333 M$ y crecimientos 30/30/40/35/25%: ~9.300 M$; impacto_dcf: 93,17 $); el Analyst Day del 12-nov ya pasó.",
+   "fuente": {
+    "t": "Nota de resultados 3T26 (8-K, Ex. 99.1)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000194/exhibit9912026q3pressrelea.htm",
+    "d": "6-nov-2026"
+   },
+   "verificacion": "impacto_dcf 93,17 $ (~93 $); ventas 2031 = 2.333×1,30×1,30×1,40×1,35×1,25 = 9.315 M$ (~9.300); m5 35%; BLA fin de 2026 y ASH 12-dic en catalysts/mgmt.call; sin cifra de cotización.",
+   "motivo": "Repaso semanal a fondo (consumo y salud)"
+  },
+  {
+   "fecha": "2026-11-19",
+   "campo": "meta.asOf",
+   "antes": "17-nov-2026",
+   "despues": "19-nov-2026",
+   "porque": "Repaso semanal a fondo del 19-nov-2026: lista de comprobación oficial y de mercado recorrida.",
+   "fuente": {
+    "t": "10-Q del 3T26",
+    "u": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000197/mrna-20260930.htm",
+    "d": "6-nov-2026"
+   },
+   "verificacion": "Fecha del repaso de hoy: 19-nov-2026.",
+   "motivo": "Repaso semanal a fondo (consumo y salud)"
+  },
+  {
+   "fecha": "2026-11-19",
+   "campo": "meta.repasoFondo",
+   "despues": "19-nov-2026",
+   "porque": "Fecha del repaso semanal a fondo (consumo y salud).",
+   "fuente": {
+    "t": "10-Q del 3T26",
+    "u": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000197/mrna-20260930.htm",
+    "d": "6-nov-2026"
+   },
+   "verificacion": "Fecha del repaso de hoy: 19-nov-2026.",
+   "motivo": "Repaso semanal a fondo (consumo y salud)"
   }
  ]
 }

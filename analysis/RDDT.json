@@ -14,11 +14,12 @@
   "hq": "San Francisco, California",
   "founded": "2005",
   "employees": "2.555 (dic-25)",
-  "asOf": "13-nov-2026",
-  "fav": false
+  "asOf": "19-nov-2026",
+  "fav": false,
+  "repasoFondo": "19-nov-2026"
  },
  "overview": {
-  "thesis": "Sigue creciendo al 40–50% con márgenes de software y 3.030 M$ de caja, pero el riesgo principal ya se está cumpliendo: Google le envía cada vez menos visitas (Similarweb: −13% de visitas globales) y sus usuarios diarios pueden caer en el 4T. Su respuesta es sacar más de quien ya entra: anuncios en su propio buscador y Reddit Reviews. A ~100 $ el precio sigue descontando crecimiento cero.",
+  "thesis": "Sigue creciendo al 40–50% con márgenes de software, 3.030 M$ de caja y sin deuda, pero el riesgo principal ya se está cumpliendo: Google le envía cada vez menos visitas y sus usuarios diarios pueden caer en el 4T26. Su respuesta es sacar más de quien ya entra: la experiencia con sesión iniciada (más del 80% de los ingresos), los anuncios en su propio buscador y Reddit Reviews.",
   "summary": "Red de más de 100.000 comunidades donde los usuarios conversan sobre cualquier tema. Gana dinero con publicidad (95% de los ingresos) y con licencias de su contenido a empresas de IA como Google y OpenAI.\nEl contenido lo crean y moderan los propios usuarios de forma gratuita, por eso su margen bruto es del 91%. Gran parte de sus visitas llega desde el buscador de Google.",
   "keyFacts": [
    {
@@ -567,7 +568,7 @@
   "conviction": 3,
   "buyBelow": 100,
   "horizon": "12–24 meses",
-  "summary": "El riesgo que más pesaba en la tesis se ha cumplido: Google envía cada vez menos visitas y los usuarios diarios pueden caer en el 4T. Aun así, el negocio sigue creciendo al 40–50% con márgenes de software, 3.000 M$ de caja y recompras. Tras caer un 29%, a ~92 $ el precio descuenta crecimiento cero y coincide con el escenario bajista del modelo (~87 $), con un valor ponderado de ~167 $. Para acumular con prudencia y en tramos: la clave es que los usuarios con sesión iniciada sigan creciendo aunque caiga el tráfico de búsqueda.",
+  "summary": "El riesgo que más pesaba en la tesis se ha cumplido: Google envía cada vez menos visitas y los usuarios diarios pueden caer en el 4T26. Aun así, el negocio sigue creciendo al 40–50% con márgenes de software, 3.030 M$ de caja, sin deuda y con recompras. El valor ponderado del modelo ronda los 167 $ por acción. Para acumular con prudencia y en tramos: la clave es que los usuarios con sesión iniciada sigan creciendo aunque caiga el tráfico de búsqueda.",
   "bull": [
    "Ingresos +53% y ARPU +36%: cada usuario monetiza más",
    "El precio descuenta crecimiento cero; el escenario bajista ya está en la cotización",
@@ -1952,6 +1953,61 @@
    },
    "verificacion": "Solo cambia el ARPU por región del motor «Crecimiento internacional» (2,43/13,82 $, Ex.99.2); resto de motores idénticos a analysis.",
    "motivo": "Auditoría oficial de las pestañas (SEC y compañía)"
+  },
+  {
+   "fecha": "2026-11-19",
+   "campo": "overview.thesis",
+   "antes": "Sigue creciendo al 40–50% con márgenes de software y 3.030 M$ de caja, pero el riesgo principal ya se está cumpliendo: Google le envía cada vez menos visitas (Similarweb: −13% de visitas globales) y sus usuarios diarios pueden caer en el 4T. Su respuesta es sacar más de quien ya entra: anuncios en su propio buscador y Reddit Reviews. A ~100 $ el precio sigue descontando crecimiento cero.",
+   "despues": "Sigue creciendo al 40–50% con márgenes de software, 3.030 M$ de caja y sin deuda, pero el riesgo principal ya se está cumpliendo: Google le envía cada vez menos visitas y sus usuarios diarios pueden caer en el 4T26. Su respuesta es sacar más de quien ya entra: la experiencia con sesión iniciada (más del 80% de los ingresos), los anuncios en su propio buscador y Reddit Reviews.",
+   "porque": "Quita la referencia al precio de la acción (regla 8.1); conserva la idea de inversión con las cifras del 3T26.",
+   "fuente": {
+    "t": "Nota de resultados 3T26 (8-K, Ex. 99.1)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000114/earningspressreleaseq326.htm",
+    "d": "29-oct-2026"
+   },
+   "verificacion": "sec.gov no accesible; cotejado con data/RDDT.json (caja 3.033 M$, deuda 0 asumida) y analysis (mgmt.call con Ex. 99.1: >80% ingresos con sesión iniciada; DAU 4T); sin precio; Similarweb sigue en riesgos.",
+   "motivo": "Repaso semanal a fondo (consumo y salud)"
+  },
+  {
+   "fecha": "2026-11-19",
+   "campo": "verdict.summary",
+   "antes": "El riesgo que más pesaba en la tesis se ha cumplido: Google envía cada vez menos visitas y los usuarios diarios pueden caer en el 4T. Aun así, el negocio sigue creciendo al 40–50% con márgenes de software, 3.000 M$ de caja y recompras. Tras caer un 29%, a ~92 $ el precio descuenta crecimiento cero y coincide con el escenario bajista del modelo (~87 $), con un valor ponderado de ~167 $. Para acumular con prudencia y en tramos: la clave es que los usuarios con sesión iniciada sigan creciendo aunque caiga el tráfico de búsqueda.",
+   "despues": "El riesgo que más pesaba en la tesis se ha cumplido: Google envía cada vez menos visitas y los usuarios diarios pueden caer en el 4T26. Aun así, el negocio sigue creciendo al 40–50% con márgenes de software, 3.030 M$ de caja, sin deuda y con recompras. El valor ponderado del modelo ronda los 167 $ por acción. Para acumular con prudencia y en tramos: la clave es que los usuarios con sesión iniciada sigan creciendo aunque caiga el tráfico de búsqueda.",
+   "porque": "Quita la cotización (~92 $) y la caída del 29% del texto del veredicto (regla 8.1); el valor ponderado del DCF es el que da hoy el modelo (impacto_dcf: 167,29 $).",
+   "fuente": {
+    "t": "Nota de resultados 3T26 (8-K, Ex. 99.1)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000114/earningspressreleaseq326.htm",
+    "d": "29-oct-2026"
+   },
+   "verificacion": "Caja 3.030 M$ y deuda 0 cuadran con data/RDDT.json; impacto_dcf da 167,29 $ (~167 $); sin cotización; resto ya respaldado en analysis (Ex. 99.1).",
+   "motivo": "Repaso semanal a fondo (consumo y salud)"
+  },
+  {
+   "fecha": "2026-11-19",
+   "campo": "meta.asOf",
+   "antes": "13-nov-2026",
+   "despues": "19-nov-2026",
+   "porque": "Repaso semanal a fondo del 19-nov-2026: lista de comprobación oficial y de mercado recorrida.",
+   "fuente": {
+    "t": "10-Q del 3T26",
+    "u": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000116/rddt-20260930.htm",
+    "d": "30-oct-2026"
+   },
+   "verificacion": "Fecha del repaso de hoy: 19-nov-2026.",
+   "motivo": "Repaso semanal a fondo (consumo y salud)"
+  },
+  {
+   "fecha": "2026-11-19",
+   "campo": "meta.repasoFondo",
+   "despues": "19-nov-2026",
+   "porque": "Fecha del repaso semanal a fondo (consumo y salud).",
+   "fuente": {
+    "t": "10-Q del 3T26",
+    "u": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000116/rddt-20260930.htm",
+    "d": "30-oct-2026"
+   },
+   "verificacion": "Fecha del repaso de hoy: 19-nov-2026.",
+   "motivo": "Repaso semanal a fondo (consumo y salud)"
   }
  ]
 }
