@@ -1,6 +1,6 @@
 {
  "esquema": 2,
- "generado": "2026-11-18T22:55:34+00:00",
+ "generado": "2026-11-19T00:39:08+00:00",
  "grupos": {
   "bolsa": "Bolsa",
   "volatilidad": "Volatilidad y divisas",
@@ -886,17 +886,13 @@
    "unidad": "pts",
    "fuente": "Cboe",
    "corto": "Cboe VXN",
-   "valor": 34.44,
-   "anterior": 32.9,
-   "fecha": "2026-11-17",
+   "valor": 33.12,
+   "anterior": 34.44,
+   "fecha": "2026-11-18",
    "url": "https://www.cboe.com/tradable_products/vix/vix_historical_data/",
-   "var": 1.54,
-   "var_pct": 4.68,
+   "var": -1.32,
+   "var_pct": -3.83,
    "serie": [
-    [
-     "2026-08-18",
-     22.56
-    ],
     [
      "2026-08-19",
      22.04
@@ -1152,6 +1148,10 @@
     [
      "2026-11-17",
      34.44
+    ],
+    [
+     "2026-11-18",
+     33.12
     ]
    ]
   },
@@ -2003,12 +2003,12 @@
    "unidad": "",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 1.0975,
+   "valor": 1.0973,
    "anterior": 1.0965,
    "fecha": "2026-11-19",
    "url": "https://twelvedata.com/",
-   "var": 0.001,
-   "var_pct": 0.09
+   "var": 0.0008,
+   "var_pct": 0.07
   },
   {
    "id": "usdjpy",
@@ -2019,12 +2019,12 @@
    "unidad": "",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 159.3476,
+   "valor": 159.4005,
    "anterior": 159.3618,
    "fecha": "2026-11-19",
    "url": "https://twelvedata.com/",
-   "var": -0.0142,
-   "var_pct": -0.01
+   "var": 0.0387,
+   "var_pct": 0.02
   },
   {
    "id": "gbpusd",
@@ -2035,12 +2035,12 @@
    "unidad": "",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 1.3152,
+   "valor": 1.3146,
    "anterior": 1.3141,
    "fecha": "2026-11-19",
    "url": "https://twelvedata.com/",
-   "var": 0.0011,
-   "var_pct": 0.08
+   "var": 0.0005,
+   "var_pct": 0.04
   },
   {
    "id": "usdcny",
@@ -2051,12 +2051,12 @@
    "unidad": "",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 6.669,
+   "valor": 6.6683,
    "anterior": 6.6679,
    "fecha": "2026-11-19",
    "url": "https://twelvedata.com/",
-   "var": 0.0011,
-   "var_pct": 0.02
+   "var": 0.0004,
+   "var_pct": 0.01
   },
   {
    "id": "us3m",
@@ -4621,12 +4621,12 @@
    "unidad": "$",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 3728.1071,
+   "valor": 3748.7724,
    "anterior": 3723.7276,
    "fecha": "2026-11-19",
    "url": "https://twelvedata.com/",
-   "var": 4.3796,
-   "var_pct": 0.12
+   "var": 25.0449,
+   "var_pct": 0.67
   },
   {
    "id": "plata",
@@ -5544,12 +5544,12 @@
    "unidad": "$",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 62312.16,
-   "anterior": 64947.35,
-   "fecha": "2026-11-18",
+   "valor": 63094.0,
+   "anterior": 63068.22,
+   "fecha": "2026-11-19",
    "url": "https://twelvedata.com/",
-   "var": -2635.19,
-   "var_pct": -4.06
+   "var": 25.78,
+   "var_pct": 0.04
   },
   {
    "id": "ethereum",
@@ -5560,12 +5560,12 @@
    "unidad": "$",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 1758.5,
-   "anterior": 1824.88,
-   "fecha": "2026-11-18",
+   "valor": 1781.54,
+   "anterior": 1777.19,
+   "fecha": "2026-11-19",
    "url": "https://twelvedata.com/",
-   "var": -66.38,
-   "var_pct": -3.64
+   "var": 4.35,
+   "var_pct": 0.24
   }
  ],
  "sentimiento": {
@@ -5602,7 +5602,7 @@
      "descripcion": "S&P 500 frente a su media de 125 sesiones. Por encima, codicia.",
      "puntuacion": 8.5,
      "etiqueta": "Miedo extremo",
-     "bruto": -0.0354,
+     "bruto": -0.0356,
      "fuente": "ETF SPY · Twelve Data",
      "url": "https://twelvedata.com/"
     },
@@ -5632,7 +5632,7 @@
      "descripcion": "Rentabilidad a 20 sesiones de la bolsa menos la del bono a 10 años. Si ganan los bonos, miedo.",
      "puntuacion": 5.6,
      "etiqueta": "Miedo extremo",
-     "bruto": -6.4488,
+     "bruto": -6.465,
      "fuente": "Bolsa y bono a 10 años (Tesoro y FRED)",
      "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve"
     },
@@ -5901,7 +5901,7 @@
      "fin": "2026-12-09",
      "proyecciones": true,
      "hora_madrid": "20:00",
-     "dias": 21,
+     "dias": 20,
      "comunicado": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261209a.htm",
      "rueda_prensa": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20261209.htm",
      "actas_fecha": "2026-12-30",
@@ -5912,7 +5912,7 @@
      "fin": "2027-01-27",
      "proyecciones": false,
      "hora_madrid": "20:00",
-     "dias": 70,
+     "dias": 69,
      "comunicado": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20270127a.htm",
      "rueda_prensa": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20270127.htm",
      "actas_fecha": "2027-02-17"
@@ -5922,7 +5922,7 @@
      "fin": "2027-03-17",
      "proyecciones": true,
      "hora_madrid": "19:00",
-     "dias": 119,
+     "dias": 118,
      "comunicado": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20270317a.htm",
      "rueda_prensa": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20270317.htm",
      "actas_fecha": "2027-04-07",
@@ -5933,7 +5933,7 @@
      "fin": "2027-04-28",
      "proyecciones": false,
      "hora_madrid": "20:00",
-     "dias": 161,
+     "dias": 160,
      "comunicado": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20270428a.htm",
      "rueda_prensa": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20270428.htm",
      "actas_fecha": "2027-05-19"
@@ -5944,7 +5944,7 @@
     "fin": "2026-10-28",
     "proyecciones": false,
     "hora_madrid": "19:00",
-    "dias": -21,
+    "dias": -22,
     "comunicado": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261028a.htm",
     "rueda_prensa": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20261028.htm",
     "actas_fecha": "2026-11-18",
@@ -6111,124 +6111,6 @@
   },
   "agenda": {
    "items": [
-    {
-     "id": "vivienda",
-     "nombre": "Viviendas iniciadas",
-     "fuente": "Census",
-     "url": "https://www.census.gov/construction/nrc/",
-     "ultimo": "1,31 millones anualizadas (oct-26)",
-     "graficos": [
-      {
-       "id": "HOUST",
-       "nombre": "Viviendas iniciadas (miles, anualizado)",
-       "modo": "nivel",
-       "puntos": [
-        [
-         "2024-11",
-         1300.0
-        ],
-        [
-         "2024-12",
-         1494.0
-        ],
-        [
-         "2025-01",
-         1353.0
-        ],
-        [
-         "2025-02",
-         1491.0
-        ],
-        [
-         "2025-03",
-         1346.0
-        ],
-        [
-         "2025-04",
-         1400.0
-        ],
-        [
-         "2025-05",
-         1289.0
-        ],
-        [
-         "2025-06",
-         1379.0
-        ],
-        [
-         "2025-07",
-         1432.0
-        ],
-        [
-         "2025-08",
-         1291.0
-        ],
-        [
-         "2025-09",
-         1319.0
-        ],
-        [
-         "2025-10",
-         1273.0
-        ],
-        [
-         "2025-11",
-         1319.0
-        ],
-        [
-         "2025-12",
-         1378.0
-        ],
-        [
-         "2026-01",
-         1385.0
-        ],
-        [
-         "2026-02",
-         1346.0
-        ],
-        [
-         "2026-03",
-         1522.0
-        ],
-        [
-         "2026-04",
-         1414.0
-        ],
-        [
-         "2026-05",
-         1182.0
-        ],
-        [
-         "2026-06",
-         1439.0
-        ],
-        [
-         "2026-07",
-         1369.0
-        ],
-        [
-         "2026-08",
-         1280.0
-        ],
-        [
-         "2026-09",
-         1191.0
-        ],
-        [
-         "2026-10",
-         1309.0
-        ]
-       ],
-       "url": "https://fred.stlouisfed.org/series/HOUST"
-      }
-     ],
-     "principal": false,
-     "fecha": "2026-11-18",
-     "hora_madrid": "14:30",
-     "siguiente": "2026-11-25",
-     "anterior": "2026-10-27"
-    },
     {
      "id": "paro_sem",
      "nombre": "Peticiones semanales de paro",
@@ -6764,6 +6646,124 @@
      "hora_madrid": "14:30",
      "siguiente": "2026-12-23",
      "anterior": "2026-10-29"
+    },
+    {
+     "id": "vivienda",
+     "nombre": "Viviendas iniciadas",
+     "fuente": "Census",
+     "url": "https://www.census.gov/construction/nrc/",
+     "ultimo": "1,31 millones anualizadas (oct-26)",
+     "graficos": [
+      {
+       "id": "HOUST",
+       "nombre": "Viviendas iniciadas (miles, anualizado)",
+       "modo": "nivel",
+       "puntos": [
+        [
+         "2024-11",
+         1300.0
+        ],
+        [
+         "2024-12",
+         1494.0
+        ],
+        [
+         "2025-01",
+         1353.0
+        ],
+        [
+         "2025-02",
+         1491.0
+        ],
+        [
+         "2025-03",
+         1346.0
+        ],
+        [
+         "2025-04",
+         1400.0
+        ],
+        [
+         "2025-05",
+         1289.0
+        ],
+        [
+         "2025-06",
+         1379.0
+        ],
+        [
+         "2025-07",
+         1432.0
+        ],
+        [
+         "2025-08",
+         1291.0
+        ],
+        [
+         "2025-09",
+         1319.0
+        ],
+        [
+         "2025-10",
+         1273.0
+        ],
+        [
+         "2025-11",
+         1319.0
+        ],
+        [
+         "2025-12",
+         1378.0
+        ],
+        [
+         "2026-01",
+         1385.0
+        ],
+        [
+         "2026-02",
+         1346.0
+        ],
+        [
+         "2026-03",
+         1522.0
+        ],
+        [
+         "2026-04",
+         1414.0
+        ],
+        [
+         "2026-05",
+         1182.0
+        ],
+        [
+         "2026-06",
+         1439.0
+        ],
+        [
+         "2026-07",
+         1369.0
+        ],
+        [
+         "2026-08",
+         1280.0
+        ],
+        [
+         "2026-09",
+         1191.0
+        ],
+        [
+         "2026-10",
+         1309.0
+        ]
+       ],
+       "url": "https://fred.stlouisfed.org/series/HOUST"
+      }
+     ],
+     "principal": false,
+     "fecha": "2026-11-25",
+     "hora_madrid": "14:30",
+     "siguiente": "2026-12-17",
+     "anterior": "2026-11-18"
     },
     {
      "id": "jolts",
