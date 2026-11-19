@@ -9,7 +9,8 @@ y las webs oficiales de las compañías fallaban casi siempre. Por eso el robot 
   8-K y otras presentaciones de los últimos días (`data/<T>.json`).
 - Webs oficiales (`companies.json → webs_oficiales`): texto de la página y sus enlaces
   del mismo dominio (productos, notas de prensa, presentaciones). Si la descarga simple
-  falla o trae poco texto (páginas hechas con JavaScript), se repite con Chromium.
+  falla o trae poco texto (páginas hechas con JavaScript), se repite con Chromium; si aun
+  así falla, se prueban sus «alternativas» (otras páginas oficiales con el mismo contenido).
 
 Resultado en `lecturas/<T>/` y el estado de cada descarga en `lecturas/_estado.json`
 (ok, código HTTP, tamaño, fecha). Los documentos de la SEC no cambian: se descargan una
@@ -287,23 +288,38 @@ def actualizar(root: Path, only=None, sec=None, web_get=_web_get, hoy: date | No
         for w in urls:
             u = w["u"]
             nombre = f"web_{slug(u)}.txt"
-            codigo, raw = web_get(u)
-            via = "http"
-            corta = codigo and 200 <= codigo < 300 and raw and len(html_a_texto(raw)) < POCO_TEXTO
-            if navegador is not None and (not (codigo and 200 <= codigo < 300 and raw) or corta):
-                c2, r2 = navegador(u)
-                if c2 and 200 <= c2 < 300 and r2 and len(html_a_texto(r2)) > (len(html_a_texto(raw)) if corta else 0):
-                    codigo, raw, via = c2, r2, "navegador"
-                elif not corta:
-                    log(f"  {t}: web {u} → tampoco con navegador ({c2 or r2[:120]})")
+            def leer(url):
+                cod, html = web_get(url)
+                v = "http"
+                corta = cod and 200 <= cod < 300 and html and len(html_a_texto(html)) < POCO_TEXTO
+                if navegador is not None and (not (cod and 200 <= cod < 300 and html) or corta):
+                    c2, r2 = navegador(url)
+                    if c2 and 200 <= c2 < 300 and r2 and len(html_a_texto(r2)) > (len(html_a_texto(html)) if corta else 0):
+                        cod, html, v = c2, r2, "navegador"
+                    elif not corta:
+                        log(f"  {t}: web {url} → tampoco con navegador ({c2 or r2[:120]})")
+                return cod, html, v
+
+            leida = u
+            codigo, raw, via = leer(u)
+            for alt in w.get("alternativas") or []:
+                if codigo and 200 <= codigo < 300 and raw and len(html_a_texto(raw)) >= POCO_TEXTO:
+                    break
+                c3, r3, v3 = leer(alt)
+                if c3 and 200 <= c3 < 300 and r3 and len(html_a_texto(r3)) > len(html_a_texto(raw or "")):
+                    codigo, raw, via, leida = c3, r3, v3, alt
+                    log(f"  {t}: web {u} → leída en su alternativa {alt}")
             item = {"archivo": f"lecturas/{t}/{nombre}", "t": w.get("t"), "u": u, "codigo": codigo, "via": via,
                     "revisado": ahora}
+            if leida != u:
+                item["u_leida"] = leida
             if codigo and 200 <= codigo < 300 and raw:
                 texto = html_a_texto(raw)[:MAX_WEB]
-                ls = enlaces(raw, u)
+                ls = enlaces(raw, leida)
                 cuerpo = texto + ("\n\n## Enlaces de la página\n" + "\n".join(f"- {x['t']} — {x['u']}" for x in ls) if ls else "")
                 cambio = _escribir_si_cambia(carpeta / nombre, cuerpo,
-                                             _cabecera(fuente=w.get("t") or u, url=u, copiado=ahora))
+                                             _cabecera(fuente=w.get("t") or u, url=leida, copiado=ahora,
+                                                       en_lugar_de=(u if leida != u else "")))
                 item.update(ok=True, caracteres=len(texto), enlaces=len(ls), poco_texto=len(texto) < POCO_TEXTO,
                             cambio=cambio, ultimo_cambio=ahora if cambio else (e_web.get(u) or {}).get("ultimo_cambio"))
             else:

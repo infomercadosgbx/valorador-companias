@@ -122,3 +122,21 @@ def test_sin_navegador_disponible_queda_como_fallo(tmp_path):
     est = L.actualizar(root, sec=FakeSec(), web_get=lambda u: (403, ""), hoy=date(2026, 11, 19),
                        log=lambda *_: None, navegador=lambda u: (0, "navegador no disponible"))
     assert all(not x["ok"] for x in est["RDDT"]["web"].values())
+
+
+def test_alternativa_oficial_si_la_principal_esta_bloqueada(tmp_path):
+    root = _repo(tmp_path)
+    cj = json.loads((root / "companies.json").read_text())
+    cj["companies"][0]["webs_oficiales"][1]["alternativas"] = ["https://redditinc.com/press"]
+    (root / "companies.json").write_text(json.dumps(cj))
+    largo = WEB.replace("Reddit Pro for businesses.", "Reddit Pro. " + "Texto. " * 200)
+
+    def web(u):
+        return (403, "") if "investor" in u else (200, largo)
+
+    est = L.actualizar(root, sec=FakeSec(), web_get=web, hoy=date(2026, 11, 19), log=lambda *_: None,
+                       navegador=lambda u: (403, ""))
+    x = est["RDDT"]["web"]["https://investor.redditinc.com"]
+    assert x["ok"] and x["u_leida"] == "https://redditinc.com/press"
+    txt = (root / x["archivo"]).read_text(encoding="utf-8")
+    assert "# url: https://redditinc.com/press" in txt and "# en_lugar_de: https://investor.redditinc.com" in txt
