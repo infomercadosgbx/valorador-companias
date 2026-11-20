@@ -2,6 +2,28 @@
 
 Una entrada por día (la más reciente arriba). La escribe la tarea programada de la mañana con `python scripts/registro_fuentes.py`. Sirve para ver qué aporta cada fuente y decidir qué quitar o añadir.
 
+## 2026-11-20
+
+_Lo útil salió de la búsqueda web: Texas Tribune (reanudación de permisos de la TCEQ y fechas del informe de ERCOT a la PUCT, 10 y 17-dic) y TIKR (BMO sube a 196 $ y consenso de 200 $) para Vistra; la SEC y la web de inversores de Vistra (lecturas del robot) confirmaron que no hay novedades oficiales materiales, y el 424B5 de Alphabet del 19-nov es un folleto preliminar de bonos en dólares canadienses sin importes. Gmail solo trajo boletines generales (Anthropic, Nvidia) sin alertas de Vistra; ruido en Finnhub (ETF, Trefis) y en la sala de prensa de Moderna (PDF sin título). No se pudo leer el PDF de la PUCT (interchange.puc.texas.gov, error 4xx) y MarketScreener exige registro; los consensos de Investing para AMZN, APP, GOOGL y PATH eran anteriores a los resultados y no se usaron._
+
+- **Alertas en Gmail** (infomercados.gbx@gmail.com, últimas 24 h): Bloomberg 7, MarketWatch 1, Morningstar 5, CNBC 0, Reuters 0, FT 1, Investing 2, Otros 0.
+- **Titulares nuevos en 24 h (todas las compañías):** Finnhub 62, Google News 31, Seeking Alpha 2, Marketaux 5, Medios sectoriales y agencias 10.
+- **Fuentes con fallo** (nº de compañías): Google News 1.
+- **Compañías con señal para la revisión de internet:** APP (1 nota(s) de prensa o noticia(s) sectorial(es)); GOOGL (4 nota(s) de prensa o noticia(s) sectorial(es), SEC: 424B5 (folleto de una emisión (424B))); AMZN (5 nota(s) de prensa o noticia(s) sectorial(es), 1 publicación(es) en la sala de prensa de la compañía).
+
+| Compañía | Titulares 24 h | Finnhub | Google News | Seeking Alpha | Marketaux | Medios sectoriales y agencias | StockTwits | Reddit 7 d | Alertas Gmail |
+|---|---:|---:|---:|---:|---:|---:|---|---|---:|
+| APP | 8 | 5 | 1 | 0 | 1 | 1 | 94 % alc. | — | 0 |
+| GOOGL | 28 | 4 | 11 | 1 | 2 | 4 | 67 % alc. | — | 0 |
+| RDDT | 4 | 4 | 0 | 0 | 0 | 0 | 83 % alc. | — | 0 |
+| AMZN | 29 | 5 | 16 | 1 | 1 | 5 | 73 % alc. | — | 0 |
+| VST | 6 | 6 | 0 | 0 | 0 | 0 | 100 % alc. | — | 0 |
+| AVGO | 14 | 12 | 1 | 0 | 1 | 0 | 64 % alc. | — | 0 |
+| PEP | 8 | 6 | 2 | 0 | 0 | 0 | 29 % alc. | — | 0 |
+| PATH | 6 | 6 | 0 | 0 | 0 | 0 | 83 % alc. | — | 0 |
+| ORCL | 8 | 8 | 0 | 0 | 0 | 0 | 56 % alc. | — | 0 |
+| MRNA | 11 | 6 | 0 | 0 | 0 | 0 | 69 % alc. | — | 0 |
+
 ## 2026-11-19
 
 _Lo útil salió de la búsqueda web: TipRanks para el consenso de Reddit y Moderna, Stocktwits para la rebaja de Bernstein a PepsiCo y TIKR para el contexto de Moderna; la SEC confirmó que no hay 8-K nuevos (formularios 4 de Wong, Hoge y Herrington, todos con plan 10b5-1). Gmail solo trajo boletines generales (Anthropic, Nvidia) sin alertas de las compañías repasadas; ruido en Finnhub/ChartMill/Benzinga. WebFetch no pudo abrir redditinc.com, pepsico.com, news.modernatx.com, MarketBeat ni sec.gov (permisos), y Google News falla en varias compañías._
