@@ -1264,6 +1264,12 @@ function project(s, adj){
   }
   return yrs;
 }
+/* Del valor de empresa al del accionista. Caja y deuda de la SEC; además, las participaciones
+   en no cotizadas (no están en la caja ni en los flujos) menos el impuesto latente de su
+   revalorización, y las preferentes, que son de otros inversores. */
+const TAX_LATENTE=21; /* tipo federal de EE. UU. sobre plusvalías de sociedades; no el tipo efectivo, que lleva deducciones */
+function invNet(s){ const inv=s.inv>0?s.inv:0, g=s.invGain>0?s.invGain:0; return inv-Math.min(inv,g)*TAX_LATENTE/100; }
+function netDebtV(s){ return s.debt+(s.pref>0?s.pref:0)-s.cash-invNet(s); }
 function dcf(s, opt){
   opt=opt||{};
   const w=(opt.wacc??s.wacc)/100, tg=(opt.tg??s.tg)/100, mult=opt.exit??s.exit;
@@ -1275,7 +1281,7 @@ function dcf(s, opt){
   const tvM = last.ebitda*mult;
   const tv = method==='gordon'?tvG : method==='exit'?tvM : (tvG+tvM)/2;
   const pvTV = tv*last.df;
-  const ev=pv+pvTV, eq=ev+s.cash-s.debt, ps=eq/s.shares;
+  const ev=pv+pvTV, eq=ev-netDebtV(s), ps=eq/s.shares;
   return {yrs, pv, tv, pvTV, ev, eq, ps, tvShare:pvTV/ev, impliedExit:tv/last.ebitda, impliedG:(tv*w-last.fcf)/(tv+last.fcf)};
 }
 function impliedGrowth(s){
@@ -1306,8 +1312,8 @@ const TPL={
   items:{n:"Nueva partida",v:0}, docs:{cat:"Formularios SEC",t:"Nuevo documento",d:"",u:"https://"}, videos:{t:"Nuevo vídeo",u:"https://www.youtube.com/watch?v="}, news:{t:"Nueva fuente",src:"",u:"https://"}, risks:{n:"Nuevo riesgo",cat:"Operativo",p:3,i:3,note:""}
 };
 const ANALYSIS_KEYS=["veredictos","peers","meta","overview","business","moat","growth","mgmt","risks","v","verdict","notes","sources","social","fin_manual","avisos_aprobados","ajustes_posteriores","cambios_auto"];
-const DATA_V=["price","lo52","hi52","cMean","cLow","cHigh"];
-const MODEL_SEC=[["shares","Acciones"],["cash","Caja"],["debt","Deuda"]];
+const DATA_V=["price","lo52","hi52","cMean","cLow","cHigh","invGain"];
+const MODEL_SEC=[["shares","Acciones"],["cash","Caja"],["debt","Deuda"],["inv","Participaciones"],["pref","Preferentes"]];
 const M6=1e6;
 let TEMPLATE={}, store={companies:{},current:null}, cur=null, EDIT=false, TAB="overview";
 let COS_ALL=[], ARCHIVADAS=[];   /* companies.json completo y las compañías archivadas (no se cargan ni se revisan) */
@@ -1405,6 +1411,8 @@ function secFigures(d){
   const sh=d&&d.acciones_en_circulacion;
   const one=p=>p?{m:fin(p.valor)?p.valor/M6:null,p}:{m:null,p:null};
   return {shares:one(sh),cash:one(B.caja&&B.caja.ultimo),debt:one(B.deuda&&B.deuda.ultimo),
+    inv:one(B.participaciones&&B.participaciones.ultimo),pref:one(B.preferentes&&B.preferentes.ultimo),
+    invUp:one(B.participaciones_subidas&&B.participaciones_subidas.ultimo),invDown:one(B.participaciones_bajadas&&B.participaciones_bajadas.ultimo),
     revQ:one((R.ingresos&&R.ingresos.trimestral||[]).at(-1)),revTTM:one(R.ingresos&&R.ingresos.ttm),niTTM:one(R.beneficio_neto&&R.beneficio_neto.ttm),
     ocfTTM:one(R.caja_operativa&&R.caja_operativa.ttm),capexTTM:one(R.capex&&R.capex.ttm)};
 }
@@ -1422,6 +1430,8 @@ function applyData(c){
     c._obj={fecha:man.fecha,fuente:man.fuente,dias:age,antes,analistas:man.num_analistas,viejo:(fin(c.v.cMean)||fin(c.v.cLow))&&(!mIso||age>30||antes)}; }
   c.sec=secFigures(d);
   MODEL_SEC.forEach(([k])=>{ if(!fin(c.v[k])&&fin(c.sec[k].m)){ c.v[k]=+c.sec[k].m.toFixed(k==="shares"?1:0); c._auto[k]=true; } });
+  /* revalorización acumulada de las participaciones (subidas − deterioros): base del impuesto latente */
+  c.v.invGain=fin(c.sec.invUp.m)?c.sec.invUp.m-(fin(c.sec.invDown.m)?c.sec.invDown.m:0):null;
   /* ajustes por hechos posteriores al último informe (compras, emisiones, amortizaciones…): se suman al dato de la SEC
      mientras siga siendo el mismo informe; con el siguiente 10-Q/10-K caducan solos porque la SEC ya los recoge */
   c._adj={}; c._adjOld=[]; const accn=d&&d.ultimo_informe&&d.ultimo_informe.accn;
@@ -1543,7 +1553,7 @@ function renderWarnings(){
 }
 const DLAB={"veredictos":"Historial de veredictos","v.comentario":"Comentario de los supuestos","v.wacc":"WACC","v.tg":"Crecimiento perpetuo","v.exit":"Múltiplo de salida","v.method":"Método del valor terminal","v.m1":"Margen EBITDA año 1","v.m5":"Margen EBITDA año 5",
   "v.da":"Amortizaciones año 1","v.da5":"Amortizaciones año 5","v.sbc":"Pago en acciones","v.capex":"Capex año 1","v.capex5":"Capex año 5","v.nwc":"Circulante","v.tax":"Tipo impositivo",
-  "v.rev0":"Ingresos año base","v.year0":"Año base","v.eps":"BPA próximos 12 meses","v.pe":"PER objetivo","v.evm":"EV/EBITDA objetivo","v.shares":"Acciones","v.cash":"Caja","v.debt":"Deuda","avisos_aprobados":"Avisos aprobados","ajustes_posteriores":"Ajustes por hechos posteriores","cambios_auto":"Registro de cambios automáticos"};
+  "v.rev0":"Ingresos año base","v.year0":"Año base","v.eps":"BPA próximos 12 meses","v.pe":"PER objetivo","v.evm":"EV/EBITDA objetivo","v.shares":"Acciones","v.cash":"Caja","v.debt":"Deuda","v.inv":"Participaciones","v.pref":"Preferentes","avisos_aprobados":"Avisos aprobados","ajustes_posteriores":"Ajustes por hechos posteriores","cambios_auto":"Registro de cambios automáticos"};
 function draftLabel(p){ if(DLAB[p]) return DLAB[p]; if(typeof PLAB!=="undefined"&&PLAB[p]) return PLAB[p]; let m=/^v\.g\.(\d)$/.exec(p); if(m) return `Crecimiento año ${+m[1]+1}`;
   m=/^v\.scn\.(\d)\.(dg|dm|p)$/.exec(p); if(m){ const n=((cur.v.scn||[])[+m[1]]||{}).n||"Escenario"; return `${n}: ${{dg:"Δ crecimiento",dm:"Δ margen",p:"probabilidad"}[m[2]]}`; }
   return p.replace(/\./g," › "); }
@@ -3670,7 +3680,7 @@ function valTopHtml(){
   const eps=MET.cagr_bpa.calc(m).res;
   const rows=T.map(t=>`<tr><td style="white-space:normal"><span class="sev" style="background:transparent;padding:0"><i style="background:var(${t.c})"></i></span> ${esc(t.n)} <span class="note">· ${esc(t.sub)}</span></td><td>${money(t.v)}</td><td><span class="pill ${t.v>=s.price?"up":"down"}">${t.v>=s.price?"+":""}${nf((t.v/s.price-1)*100,1)}%</span></td></tr>`).join("");
   const MH=multHistory(), R=id=>{try{return MET[id].calc(m).res;}catch(e){return NaN;}}, X=(v,d=1)=>fin(v)?nf(v,d)+"x":"–", P2=v=>fin(v)?pct(v):"–";
-  const vz=valuation(cur), y1=vz.ok?vz.base.yrs[0]:null, mcapM=s.price*s.shares, evM=mcapM+s.debt-s.cash;
+  const vz=valuation(cur), y1=vz.ok?vz.base.yrs[0]:null, mcapM=s.price*s.shares, evM=mcapM+netDebtV(s);
   const hRow=(stt,cur0)=>stt?[X(stt.mean),`${X(stt.p10)} – ${X(stt.p90)}`,fin(cur0)?`<span class="pill ${pctile(stt,cur0)>66?"down":pctile(stt,cur0)<33?"up":"mid"}">${nf(pctile(stt,cur0),0)}%</span>`:"–"]:["–","–","–"];
   const per=R("per"), psr=fin(m.mcap)&&fin(m.f.rev[m.L])?m.mcap/m.f.rev[m.L]:NaN;
   const mrows=[
@@ -4645,19 +4655,32 @@ R.valuation=()=>{
         drow("pe","PER objetivo","Cuántas veces el beneficio pagarías por la acción.",sub("veces (x)",N("pe",0.5,"PER objetivo")))+
         drow("evm","EV/EBITDA objetivo","Cuántas veces el EBITDA del año 1 pagarías por la empresa entera (incluida la deuda).",sub("veces (x)",N("evm",0.5,"EV/EBITDA objetivo"))))}
       <div class="mktline" style="margin:0 14px 14px"><div class="eyebrow">Datos de mercado (automáticos)</div>
-        <div>Cotización <b class="num">${money(v.price)}</b> ${srcTag(P)} · acciones <b class="num">${nf(v.shares,1)} M</b> · caja <b class="num">${nf(v.cash)}</b> · deuda <b class="num">${nf(v.debt)}</b> ${cur._auto.shares&&cur._auto.cash&&cur._auto.debt?(Object.keys(cur._adj||{}).length?"(SEC + hechos posteriores)":"(SEC)"):"(con ajustes tuyos)"}</div>
-        <details${ovr?" open":""}><summary class="note" style="cursor:pointer">Ajustar acciones, caja o deuda</summary><div class="fields detgrid" style="padding:6px 0 0">${F("shares","Acciones diluidas","M",0.1)}${F("cash","Caja","M",1)}${F("debt","Deuda financiera","M",1)}</div></details>
+        <div>Cotización <b class="num">${money(v.price)}</b> ${srcTag(P)} · acciones <b class="num">${nf(v.shares,1)} M</b> · caja <b class="num">${nf(v.cash)}</b> · deuda <b class="num">${nf(v.debt)}</b>${v.inv>0?` · participaciones <b class="num">${nf(v.inv)}</b>`:""}${v.pref>0?` · preferentes <b class="num">${nf(v.pref)}</b>`:""} ${MODEL_SEC.every(([k])=>cur._auto[k]||!fin(v[k]))?(Object.keys(cur._adj||{}).length?"(SEC + hechos posteriores)":"(SEC)"):"(con ajustes tuyos)"}</div>
+        <details${ovr?" open":""}><summary class="note" style="cursor:pointer">Ajustar acciones, caja o deuda</summary><div class="fields detgrid" style="padding:6px 0 0">${F("shares","Acciones diluidas","M",0.1)}${F("cash","Caja","M",1)}${F("debt","Deuda financiera","M",1)}${F("inv","Participaciones en no cotizadas","M",1)}${F("pref","Acciones preferentes","M",1)}</div>
+          <p class="note" style="margin:8px 0 0">${invNote(v)}</p></details>
       </div>
     </details>
     <div class="ascomment" style="margin-top:14px"><label for="v_comentario"><b>Comentario de los supuestos</b> <span class="note" style="font-weight:400">· por qué pusiste cada supuesto y qué dato te haría cambiarlo. Se guarda con el análisis.</span></label>
       <textarea id="v_comentario" data-p="v.comentario" rows="6" style="margin-top:6px" placeholder="Ej.: Margen final 31% por la robótica y el peso de AWS; revisar con el margen de Norteamérica de cada 10-Q. Capex 13% en 2031: pendiente de la guía de capex 2027 (4T, febrero).">${esc(v.comentario||"")}</textarea></div>
   </section>`;
 };
+/* Explica cómo entran participaciones y preferentes en el valor del accionista */
+function invNote(v){
+  const t=[];
+  if(v.inv>0){ const tax=v.inv-invNet(v);
+    t.push(`<b>Participaciones</b>: empresas no cotizadas en las que la compañía tiene acciones (valor contable que publica la SEC). No están en la caja ni en los flujos del DCF, así que se suman aparte`+
+      (fin(v.invGain)&&v.invGain>0?`, menos el impuesto que se pagaría al venderlas: ${pct(TAX_LATENTE,0)} (tipo federal) de su revalorización acumulada (${nf(v.invGain)} M) = ${nf(tax)} M. Suman <b>${nf(invNet(v))} M</b>.`
+        :`. La SEC no publica su revalorización acumulada, así que no se descuenta impuesto latente: si valen mucho más de lo que costaron, ajusta la cifra a mano.`)); }
+  if(v.pref>0) t.push(`<b>Preferentes</b>: pertenecen a otros inversores (o se convertirán en acciones nuevas), así que se restan como la deuda.`);
+  if(!t.length) t.push("Las participaciones en no cotizadas y las acciones preferentes se toman de la SEC; esta compañía no tiene o no son relevantes.");
+  t.push("Las acciones cotizadas que tenga la compañía ya van dentro de la caja.");
+  return t.join(" ");
+}
 function valOutHtml(){
   const s=cur.v, vz=valuation(cur);
   if(!(s.shares>0&&s.price>0)) return `<p class="warn">Introduce cotización y número de acciones mayores que cero.</p>`;
   if(!vz.ok) return `<p class="warn">El WACC debe ser mayor que el crecimiento perpetuo para usar Gordon. Sube el WACC, baja el crecimiento o cambia a múltiplo de salida.</p>`;
-  const base=vz.base, sc=vz.sc, Y=base.yrs, y1=Y[0], mcap=s.price*s.shares, netDebt=s.debt-s.cash, evNow=mcap+netDebt;
+  const base=vz.base, sc=vz.sc, Y=base.yrs, y1=Y[0], mcap=s.price*s.shares, netDebt=netDebtV(s), evNow=mcap+netDebt;
   const row=(lbl,fn,cls="")=>`<tr class="${cls}"><td>${lbl}</td>${Y.map(y=>`<td>${fn(y)}</td>`).join("")}</tr>`;
   const useExit=s.method==="exit", ws=[-2,-1,0,1,2].map(d=>s.wacc+d), cs=useExit?[-4,-2,0,2,4].map(d=>s.exit+d):[-1,-.5,0,.5,1].map(d=>s.tg+d);
   let sens=`<thead><tr><th>WACC</th>${cs.map(c=>`<th>${useExit?nf(c,1)+"x":pct(c,2)}</th>`).join("")}</tr></thead><tbody>`;
@@ -4683,7 +4706,7 @@ function valOutHtml(){
     ${row("Ingresos",y=>nf(y.rev),"em")}${row("Crecimiento",y=>pct(y.g*100))}${row("EBITDA",y=>nf(y.ebitda))}${row("Margen EBITDA",y=>pct(y.m*100))}
     ${row("− Amortizaciones",y=>nf(-y.da))}${row("− Pago en acciones",y=>nf(-y.sbc))}${row("EBIT",y=>nf(y.ebit))}${row("− Impuestos",y=>nf(-y.tax))}
     ${row("− Capex",y=>nf(-y.capex))}${row("− Δ Circulante",y=>nf(-y.dnwc))}${row("FCF no apalancado",y=>nf(y.fcf),"em")}${row("Valor presente",y=>nf(y.pv))}</tbody></table></div>
-    <p class="note">VP de los flujos ${nf(base.pv)} + VP del valor terminal ${nf(base.pvTV)} (${pct(base.tvShare*100,0)} del total) = EV ${nf(base.ev)}; + caja ${nf(s.cash)} − deuda ${nf(s.debt)} = capital ${nf(base.eq)} → <b>${money(base.ps)}</b> por acción. El valor terminal implica ${nf(base.impliedExit,1)}x EBITDA y un crecimiento perpetuo del ${pct(base.impliedG*100)}.</p>
+    <p class="note">VP de los flujos ${nf(base.pv)} + VP del valor terminal ${nf(base.pvTV)} (${pct(base.tvShare*100,0)} del total) = EV ${nf(base.ev)}; + caja ${nf(s.cash)} − deuda ${nf(s.debt)}${invNet(s)>0?` + participaciones ${nf(invNet(s))}`:""}${s.pref>0?` − preferentes ${nf(s.pref)}`:""} = capital ${nf(base.eq)} → <b>${money(base.ps)}</b> por acción. El valor terminal implica ${nf(base.impliedExit,1)}x EBITDA y un crecimiento perpetuo del ${pct(base.impliedG*100)}.</p>
   </section>
 `;
 }
@@ -4704,7 +4727,7 @@ function drawRanges(ffId,axId,rows,price){
 }
 function drawFootball(){
   const s=cur.v, vz=valuation(cur); if(!vz.ok||!$("ff")) return;
-  const base=vz.base, y1=base.yrs[0], netDebt=s.debt-s.cash, useExit=s.method==="exit";
+  const base=vz.base, y1=base.yrs[0], netDebt=netDebtV(s), useExit=s.method==="exit";
   const grid=[];[-1,0,1].forEach(dw=>[-.5,0,.5].forEach(dg=>{const o=useExit?{wacc:s.wacc+dw,exit:s.exit+dg*4}:{wacc:s.wacc+dw,tg:s.tg+dg};const v=dcf(s,o).ps;if(fin(v))grid.push(v);}));
   const peV=s.eps*s.pe, evV=(y1.ebitda*s.evm-netDebt)/s.shares, cat=CAT();
   const rows=[
@@ -4888,7 +4911,7 @@ function updateEffects(){
     set("ver_pe",st?(s.pe>st.p90?V3("Por encima de su histórico","down"):s.pe<st.p10?V3("Por debajo de su histórico","up"):V3("Dentro de su histórico","mid")):"");
     sum("pe",kv("Tu PER",nf(s.pe,1)+"x"),fin(perNow)?kv("Actual",nf(perNow,1)+"x"):"",kv("Valor",money(vPe)));
     set("eff_pe",`Valor por PER: <b>${money(vPe)}</b> ${s.price>0&&fin(vPe)?upPill(vPe,s.price):""}. Cada 1x más de PER → +${money(s.eps)} por acción.`);
-    const evr=MET.ev_ebitda.calc(m2).res, nd=s.debt-s.cash, vEv=(y1.ebitda*s.evm-nd)/s.shares;
+    const evr=MET.ev_ebitda.calc(m2).res, nd=netDebtV(s), vEv=(y1.ebitda*s.evm-nd)/s.shares;
     set("ref_evm",`EV/EBITDA actual: <b>${fin(evr)?nf(evr,1)+"x":"–"}</b> (con el último EBITDA anual). Tu múltiplo de salida del DCF: <b>${nf(s.exit,1)}x</b>; el valor terminal implica <b>${nf(vz.base.impliedExit,1)}x</b>. Se aplica al EBITDA del año 1: <b>${nf(y1.ebitda)}</b> M.`);
     set("ver_evm",fin(evr)?(s.evm>evr*1.2?V3("Por encima del actual","down"):s.evm<evr*0.8?V3("Por debajo del actual","up"):V3("Cerca del actual","mid")):"");
     sum("evm",kv("Tu múltiplo",nf(s.evm,1)+"x"),fin(evr)?kv("Actual",nf(evr,1)+"x"):"",kv("Valor",money(vEv)));
@@ -5046,7 +5069,7 @@ function socialHtml(part){
 /* Historial de veredictos: analysis.veredictos. Una fila solo se crea con «Registrar veredicto»;
    se corrige en modo edición y se borra desde la propia tabla. El valor se recalcula con los supuestos
    guardados en cada fila y las cifras de la SEC actuales. */
-const VSUP_FUERA=new Set(["price","lo52","hi52","cMean","cLow","cHigh","shares","cash","debt","comentario"]);
+const VSUP_FUERA=new Set(["price","lo52","hi52","cMean","cLow","cHigh","shares","cash","debt","inv","pref","invGain","comentario"]);
 const VSUP_LAB={g:"crecimiento",m1:"margen año 1",m5:"margen año 5",wacc:"WACC",tg:"crec. perpetuo",exit:"múltiplo de salida",method:"método del valor terminal",rev0:"ingresos base",year0:"año base",
   da:"amortizaciones año 1",da5:"amortizaciones año 5",sbc:"pago en acciones",capex:"capex año 1",capex5:"capex año 5",nwc:"circulante",tax:"impuestos",eps:"BPA",pe:"PER objetivo",evm:"EV/EBITDA objetivo",scn:"escenarios"};
 const VSUP_ORD=["wacc","g","m1","m5","tg","exit","method","capex","capex5","rev0","year0","tax","sbc","da","da5","nwc","scn","eps","pe","evm"];
@@ -5399,9 +5422,9 @@ C.valuation=()=>{
   const vz=valuation(cur); if(!vz.ok) return; const s=cur.v, cat=CAT(), sc=finScale();
   const out=vz.sc.out; mk("ch_vl_scn",{type:"bar",data:{labels:out.map(o=>`${o.n} (${o.p}%)`),datasets:[{type:"line",label:"Cotización",data:out.map(()=>s.price),borderColor:V("--ink"),borderDash:[5,4],pointRadius:0,borderWidth:2},{label:"Valor por acción",data:out.map(o=>o.ps),backgroundColor:out.map((_,i)=>[cat[1],cat[0],cat[2]][i]||cat[i%8])}]},
     options:{plugins:{legend:{display:true,position:"top",align:"start"},tooltip:tipU(ccy(),0)},scales:{x:axisX,y:axisY()}}});
-  const b=vz.base, d=sc.d, steps=[["VP flujos 5 años",b.pv],["VP valor terminal",b.pvTV],["Caja",s.cash],["Deuda",-s.debt]];
+  const b=vz.base, d=sc.d, steps=[["VP flujos 5 años",b.pv],["VP valor terminal",b.pvTV],["Caja",s.cash],["Deuda",-s.debt],...(invNet(s)>0?[["Participaciones",invNet(s)]]:[]),...(s.pref>0?[["Preferentes",-s.pref]]:[])];
   let acc=0; const fl=steps.map(([n,v])=>{const a=acc; acc+=v; return [a/d,acc/d];});
-  mk("ch_vl_bridge",{type:"bar",data:{labels:[...steps.map(x=>x[0]),"Valor del capital"],datasets:[{label:"Importe",data:[...fl,[0,b.eq/d]],backgroundColor:[cat[0],cat[0],cat[2],cat[7],V("--accent")]}]},
+  mk("ch_vl_bridge",{type:"bar",data:{labels:[...steps.map(x=>x[0]),"Valor del capital"],datasets:[{label:"Importe",data:[...fl,[0,b.eq/d]],backgroundColor:[...steps.map(([n,v],i)=>i<2?cat[0]:v>=0?cat[2]:cat[7]),V("--accent")]}]},
     options:{plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>{const r=c.raw;return nf(r[1]-r[0],1)+" "+sc.u;}}}},scales:{x:axisX,y:axisY()}}});
   const Y=b.yrs; mk("ch_vl_fcf",{type:"bar",data:{labels:Y.map(y=>y.year+"e"),datasets:[{label:"FCF no apalancado",data:Y.map(y=>y.fcf/d),backgroundColor:cat[0]},{label:"Valor presente",data:Y.map(y=>y.pv/d),backgroundColor:cat[1]}]},
     options:{plugins:{legend:legend(2),tooltip:tipU(sc.u)},scales:{x:axisX,y:axisY()}}});

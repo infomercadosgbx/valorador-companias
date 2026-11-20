@@ -112,6 +112,8 @@ Al final de cada revisión (apartado 8 de `propuestas/INSTRUCCIONES.md`):
 
 **Acciones, caja y deuda del modelo** salen siempre del último informe de la SEC. Lo que pase después del cierre (una compra, una emisión o amortización de deuda) va en `analysis/<T>.json → ajustes_posteriores` con su fuente; la web lo suma al dato de la SEC y deja de aplicarlo cuando llega el siguiente 10-Q/10-K. Si fijas tú una cifra a mano en Valoración, manda la tuya y la web avisa si se aleja más de un 20% de la SEC.
 
+**Participaciones y preferentes.** El DCF solo valora el negocio, así que el valor del accionista es: valor de empresa + caja − deuda + participaciones − preferentes. Las **participaciones en no cotizadas** (Anthropic en Alphabet y Amazon) salen de la SEC (`EquitySecuritiesWithoutReadilyDeterminableFairValueAmount`, más inversiones por el método de la participación) y se les resta el impuesto latente de su revalorización acumulada al 21% federal, cuando la compañía la publica (subidas menos deterioros acumulados). Las **acciones preferentes** (convertibles obligatorias de Alphabet, preferentes de Vistra u Oracle) se restan como la deuda. Las acciones **cotizadas** en cartera (SpaceX en Alphabet) ya están dentro de la caja como valores negociables. Las cinco cifras siguen a la SEC, se pueden ajustar a mano y avisan igual si se alejan más de un 20%.
+
 ## Informe de resultados (PDF por presentación)
 
 Cada vez que una compañía presenta resultados se genera un informe de 3 páginas A4 en `resultados.html` y su PDF en `data/resultados/<TICKER>/<periodo>.pdf`:

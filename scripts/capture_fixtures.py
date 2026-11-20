@@ -30,7 +30,7 @@ def wanted_tags():
     for spec in C.INSTANT_CONCEPTS.values():
         for s in spec["strategies"]:
             tags.update(s["required"])
-            for group in s["optional"]:
+            for group in s["optional"] + s.get("extra", []):
                 tags.update(group)
     tags.update(t for t, _ in C.DEBT_MATURITY_TAGS)
     return tags

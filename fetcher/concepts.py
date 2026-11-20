@@ -188,6 +188,38 @@ INSTANT_CONCEPTS = {
         ],
         "assume_zero_if_missing": True,
     },
+    # Participaciones en empresas no cotizadas (Anthropic en Alphabet y Amazon). No están en la
+    # caja ni en el DCF, que solo valora el negocio: el valor del patrimonio las suma aparte.
+    # Las cotizadas (SpaceX en Alphabet) ya van dentro de «caja» como valores negociables.
+    "participaciones": {
+        "nombre": "Participaciones en empresas no cotizadas", "opcional": True,
+        "strategies": [
+            {"required": ["EquitySecuritiesWithoutReadilyDeterminableFairValueAmount"], "optional": [],
+             "extra": [["EquityMethodInvestments"]]},
+        ],
+    },
+    # Revalorización acumulada de esas participaciones (subidas menos bajadas sobre el coste):
+    # la web descuenta el impuesto que se pagaría al venderlas.
+    "participaciones_subidas": {
+        "nombre": "Participaciones: revalorización acumulada", "opcional": True,
+        "strategies": [{"required": ["EquitySecuritiesWithoutReadilyDeterminableFairValueUpwardPriceAdjustmentCumulativeAmount"],
+                        "optional": []}],
+    },
+    "participaciones_bajadas": {
+        "nombre": "Participaciones: deterioros acumulados", "opcional": True,
+        "strategies": [{"required": ["EquitySecuritiesWithoutReadilyDeterminableFairValueDownwardPriceAdjustmentCumulativeAmount"],
+                        "optional": []}],
+    },
+    # Preferentes (convertibles obligatorias de Alphabet, junio de 2026): son de otros
+    # inversores y se restan del valor del patrimonio, como la deuda.
+    "preferentes": {
+        "nombre": "Acciones preferentes", "opcional": True,
+        "strategies": [
+            {"required": ["ConvertiblePreferredStockNonredeemableOrRedeemableIssuerOptionValue"], "optional": []},
+            {"required": ["TemporaryEquityCarryingAmountAttributableToParent"], "optional": []},
+            {"required": ["PreferredStockValue"], "optional": []},
+        ],
+    },
     "patrimonio_neto": {
         "nombre": "Patrimonio neto",
         "strategies": [

@@ -32,17 +32,20 @@ const prop = fs.existsSync(propPath) ? rd(propPath) : { cambios: [] };
 const fin = x => typeof x === "number" && Number.isFinite(x);
 const val = p => (p && fin(p.valor) ? p.valor / 1e6 : null);
 const B = d.balance || {};
-const sec = { shares: val(d.acciones_en_circulacion), cash: val(B.caja && B.caja.ultimo), debt: val(B.deuda && B.deuda.ultimo) };
+const sec = { shares: val(d.acciones_en_circulacion), cash: val(B.caja && B.caja.ultimo), debt: val(B.deuda && B.deuda.ultimo),
+  inv: val(B.participaciones && B.participaciones.ultimo), pref: val(B.preferentes && B.preferentes.ultimo) };
+const up = val(B.participaciones_subidas && B.participaciones_subidas.ultimo), down = val(B.participaciones_bajadas && B.participaciones_bajadas.ultimo);
 
 function modelo(a) {
   const v = JSON.parse(JSON.stringify(a.v || {}));
   const accn = d.ultimo_informe && d.ultimo_informe.accn;
-  for (const k of ["shares", "cash", "debt"]) {
+  for (const k of ["shares", "cash", "debt", "inv", "pref"]) {
     if (fin(v[k]) || !fin(sec[k])) continue;
     v[k] = sec[k];
     for (const aj of a.ajustes_posteriores || [])
       if (aj && aj.k === k && fin(aj.delta) && (!aj.base_accn || aj.base_accn === accn)) v[k] += aj.delta;
   }
+  v.invGain = fin(up) ? up - (fin(down) ? down : 0) : null;
   v.price = d.precio && fin(d.precio.valor) ? d.precio.valor : NaN;
   return v;
 }
