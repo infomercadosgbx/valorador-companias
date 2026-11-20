@@ -6,9 +6,9 @@
   "hq": "Irving, Texas",
   "founded": "2016 (raíces en TXU, 1882)",
   "employees": "6.390",
-  "asOf": "13-nov-2026",
+  "asOf": "20-nov-2026",
   "nextEarnings": "Feb-2027 (4T26, fecha por confirmar)",
-  "repasoFondo": "2026-11-13"
+  "repasoFondo": "2026-11-20"
  },
  "overview": {
   "thesis": "Productor eléctrico con ~49.000 MW (6.448 MW nucleares), ~5 millones de clientes minoristas y contratos de 20 años con Amazon y Meta. La guía de 2027 (7.700–8.500 M$ de EBITDA ajustado, generación cubierta al ~98%) y las recompras sostienen su objetivo de ~70% más FCF por acción entre 2027 y 2030; los riesgos principales son los precios de la luz en Texas desde 2028 y la deuda tras Cogentrix.",
@@ -67,6 +67,10 @@
    {
     "d": "15-dic-26",
     "t": "Amortización de todas las preferentes de la Serie B (aviso ya enviado a los titulares)."
+   },
+   {
+    "d": "10 y 17-dic-26",
+    "t": "ERCOT entregará a la PUCT el 10-dic sus conclusiones sobre los proyectos de centros de datos de su cola de conexión y se debatirán en la reunión del 17-dic. Es el paso pendiente de la pausa a la aprobación de conexiones de centros de datos que ordenó el gobernador en agosto."
    },
    {
     "d": "Feb-27",
@@ -490,7 +494,7 @@
    "cat": "Regulatorio",
    "p": 3,
    "i": 3,
-   "note": "Texas pausó aprobaciones de grandes consumos; ERCOT aplazó estudios"
+   "note": "En agosto el gobernador Abbott pausó la aprobación de conexiones a la red de centros de datos mientras se auditan los proyectos, y en septiembre también los permisos medioambientales. La TCEQ reanudó esos permisos tras el aviso del 13-nov, pero ERCOT no presentará sus conclusiones a la PUCT hasta el 10-dic (reunión del 17-dic). La gobernadora electa, Gina Hinojosa, ha prometido mantener la pausa hasta que el Legislativo apruebe nuevas leyes."
   },
   {
    "n": "Incidente o parada nuclear",
@@ -604,6 +608,7 @@
   "watch": [
    "Deuda tras Cogentrix en el 10-K de 2026",
    "Precios a plazo en ERCOT para 2028",
+   "Informe de ERCOT a la PUCT (10-dic) y reunión del 17-dic sobre la pausa a la conexión de centros de datos en Texas",
    "Cierre definitivo o cancelación del préstamo del DOE (seguimiento automático)",
    "Ejecución del objetivo de ~70% de crecimiento del FCF por acción 2027–2030"
   ]
@@ -663,6 +668,16 @@
    }
   ],
   "news": [
+   {
+    "t": "Texas reanuda los permisos medioambientales de centros de datos; ERCOT informará a la PUCT el 10-dic",
+    "src": "Texas Tribune",
+    "u": "https://www.texastribune.org/2026/11/17/tceq-environmental-data-center-permits-resume/"
+   },
+   {
+    "t": "BMO sube su precio objetivo de 188 a 196 $ pese a la caída de la acción",
+    "src": "TIKR",
+    "u": "https://www.tikr.com/blog/vistra-keeps-sliding-why-bmo-sees-51-upside"
+   },
    {
     "t": "Comanche Peak, Amazon y la pausa de centros de datos en Texas",
     "src": "Utility Dive",
@@ -1505,6 +1520,351 @@
    },
    "verificacion": "git: 745c362 «Repaso semanal: VST» (13-nov-2026, motivo «Repaso semanal a fondo (energía)») aplicado en a6ec340/1ba22f3 el mismo día; analysis/VST.json tiene cambios_auto fecha 2026-11-13 con ese motivo.",
    "motivo": "Fecha del repaso a fondo del 13-nov-2026"
+  },
+  {
+   "fecha": "2026-11-20",
+   "campo": "overview.catalysts",
+   "antes": [
+    {
+     "d": "Desde 9-nov-26",
+     "t": "El vendedor de Cogentrix (Q-Generation Holdings) puede revender hasta 5 M de acciones (~1,5% del capital), ya registradas en la SEC: posible presión vendedora."
+    },
+    {
+     "d": "15-dic-26",
+     "t": "Amortización de todas las preferentes de la Serie B (aviso ya enviado a los titulares)."
+    },
+    {
+     "d": "Feb-27",
+     "t": "10-K 2026: valor razonable de los activos de Cogentrix, cifras pro forma y deuda total tras repagar los 1.700 M$ asumidos."
+    },
+    {
+     "d": "2026–2028",
+     "t": "Recompras: ~2.500 M$ de autorización disponible hasta final de 2028."
+    },
+    {
+     "d": "2027",
+     "t": "Contratos con Meta (más de 2.600 MW nucleares en PJM) empiezan a sumar EBITDA."
+    },
+    {
+     "d": "Final 2027",
+     "t": "Comanche Peak empieza a suministrar 1.200 MW al centro de datos de Amazon."
+    },
+    {
+     "d": "20 años",
+     "t": "Contrato de 207 MW con New Era Energy and Digital en la central de gas de Odessa (Texas)."
+    },
+    {
+     "d": "Sin fecha",
+     "t": "Préstamo del DOE de hasta 4.200 M$ (433 MW nucleares): solo compromiso condicional desde el 5-oct-26; falta firmar los documentos definitivos y puede cancelarse. El robot lo vigila cada noche (Riesgos → Seguimientos). Las ampliaciones que financia no aportarán beneficio hasta 2031, según la dirección."
+    }
+   ],
+   "despues": [
+    {
+     "d": "Desde 9-nov-26",
+     "t": "El vendedor de Cogentrix (Q-Generation Holdings) puede revender hasta 5 M de acciones (~1,5% del capital), ya registradas en la SEC: posible presión vendedora."
+    },
+    {
+     "d": "15-dic-26",
+     "t": "Amortización de todas las preferentes de la Serie B (aviso ya enviado a los titulares)."
+    },
+    {
+     "d": "10 y 17-dic-26",
+     "t": "ERCOT entregará a la PUCT el 10-dic sus conclusiones sobre los proyectos de centros de datos de su cola de conexión y se debatirán en la reunión del 17-dic. Es el paso pendiente de la pausa a la aprobación de conexiones de centros de datos que ordenó el gobernador en agosto."
+    },
+    {
+     "d": "Feb-27",
+     "t": "10-K 2026: valor razonable de los activos de Cogentrix, cifras pro forma y deuda total tras repagar los 1.700 M$ asumidos."
+    },
+    {
+     "d": "2026–2028",
+     "t": "Recompras: ~2.500 M$ de autorización disponible hasta final de 2028."
+    },
+    {
+     "d": "2027",
+     "t": "Contratos con Meta (más de 2.600 MW nucleares en PJM) empiezan a sumar EBITDA."
+    },
+    {
+     "d": "Final 2027",
+     "t": "Comanche Peak empieza a suministrar 1.200 MW al centro de datos de Amazon."
+    },
+    {
+     "d": "20 años",
+     "t": "Contrato de 207 MW con New Era Energy and Digital en la central de gas de Odessa (Texas)."
+    },
+    {
+     "d": "Sin fecha",
+     "t": "Préstamo del DOE de hasta 4.200 M$ (433 MW nucleares): solo compromiso condicional desde el 5-oct-26; falta firmar los documentos definitivos y puede cancelarse. El robot lo vigila cada noche (Riesgos → Seguimientos). Las ampliaciones que financia no aportarán beneficio hasta 2031, según la dirección."
+    }
+   ],
+   "porque": "Nueva fecha regulatoria: informe de ERCOT a la PUCT (10-dic) y reunión del 17-dic sobre los centros de datos en cola.",
+   "fuente": {
+    "t": "Texas Tribune: la TCEQ reanuda los permisos de centros de datos (17-nov-2026)",
+    "u": "https://www.texastribune.org/2026/11/17/tceq-environmental-data-center-permits-resume/",
+    "d": "17-nov-2026"
+   },
+   "verificacion": "Texas Tribune 17-nov-2026: ERCOT presentará sus conclusiones a la PUC el 10-dic y se debatirán en la reunión abierta del 17-dic; Abbott pausó en agosto las conexiones a la red de centros de datos mientras se auditaban. Solo cambia ese elemento; el resto ya estaba en el análisis.",
+   "motivo": "Repaso semanal a fondo (energía)"
+  },
+  {
+   "fecha": "2026-11-20",
+   "campo": "risks",
+   "antes": [
+    {
+     "n": "Precios de la luz bajos en Texas",
+     "cat": "Mercado",
+     "p": 3,
+     "i": 4,
+     "note": "2027 cubierto al ~98%, lo que reduce la exposición a corto plazo; el riesgo se desplaza a 2028 (~78% cubierto)"
+    },
+    {
+     "n": "Endeudamiento",
+     "cat": "Financiero",
+     "p": 3,
+     "i": 3,
+     "note": "Deuda a largo plazo de 21.146 M$ a sep-26 (17.043 M$ en dic-25), 2.877 M$ con vencimiento en 12 meses. Después pagó ~2.200 M$ en efectivo por Cogentrix, amortizó la Serie A de preferentes (1.000 M$) y repagó 1.700 M$ de deuda de Cogentrix con caja y con toda la capacidad de sus líneas de cuentas a cobrar y de recompra; la Serie B se amortiza el 15-dic-26. Liquidez ~5.400 M$ pro forma."
+    },
+    {
+     "n": "Retrasos regulatorios en centros de datos",
+     "cat": "Regulatorio",
+     "p": 3,
+     "i": 3,
+     "note": "Texas pausó aprobaciones de grandes consumos; ERCOT aplazó estudios"
+    },
+    {
+     "n": "Incidente o parada nuclear",
+     "cat": "Operativo",
+     "p": 2,
+     "i": 4,
+     "note": "Cuatro centrales nucleares concentran gran parte del valor"
+    },
+    {
+     "n": "Clima extremo",
+     "cat": "Operativo",
+     "p": 2,
+     "i": 4,
+     "note": "La tormenta Uri de 2021 le costó más de 1.500 M$; el verano de 2026 batió récords de demanda sin incidencias"
+    },
+    {
+     "n": "Integración de Cogentrix",
+     "cat": "Operativo",
+     "p": 2,
+     "i": 3,
+     "note": "Cerrada en oct-26: ~5.500 MW de gas, 2.200 M$ en efectivo y ~1.700 M$ de deuda asumida ya repagada"
+    },
+    {
+     "n": "Volatilidad contable por coberturas",
+     "cat": "Financiero",
+     "p": 4,
+     "i": 1,
+     "note": "+559 M$ no realizados en el 3T26 tras −472 M$ en el 2T26"
+    },
+    {
+     "n": "Inversión en Helix",
+     "cat": "Comercial",
+     "p": 2,
+     "i": 2,
+     "note": "Hasta 1.000 M$ en un negocio fuera de su núcleo"
+    },
+    {
+     "n": "Préstamo del DOE no se cierra",
+     "cat": "Financiero",
+     "p": 2,
+     "i": 2,
+     "note": "Compromiso condicional de hasta 4.200 M$, no firmado. El DOE ya canceló otro compromiso condicional (Grain Belt Express, 4.900 M$, jul-2025). Con la Cámara demócrata desde ene-2027 puede haber más supervisión del programa, pero la decisión es del DOE. Si se cayera, la ampliación seguiría con deuda privada, más cara."
+    }
+   ],
+   "despues": [
+    {
+     "n": "Precios de la luz bajos en Texas",
+     "cat": "Mercado",
+     "p": 3,
+     "i": 4,
+     "note": "2027 cubierto al ~98%, lo que reduce la exposición a corto plazo; el riesgo se desplaza a 2028 (~78% cubierto)"
+    },
+    {
+     "n": "Endeudamiento",
+     "cat": "Financiero",
+     "p": 3,
+     "i": 3,
+     "note": "Deuda a largo plazo de 21.146 M$ a sep-26 (17.043 M$ en dic-25), 2.877 M$ con vencimiento en 12 meses. Después pagó ~2.200 M$ en efectivo por Cogentrix, amortizó la Serie A de preferentes (1.000 M$) y repagó 1.700 M$ de deuda de Cogentrix con caja y con toda la capacidad de sus líneas de cuentas a cobrar y de recompra; la Serie B se amortiza el 15-dic-26. Liquidez ~5.400 M$ pro forma."
+    },
+    {
+     "n": "Retrasos regulatorios en centros de datos",
+     "cat": "Regulatorio",
+     "p": 3,
+     "i": 3,
+     "note": "En agosto el gobernador Abbott pausó la aprobación de conexiones a la red de centros de datos mientras se auditan los proyectos, y en septiembre también los permisos medioambientales. La TCEQ reanudó esos permisos tras el aviso del 13-nov, pero ERCOT no presentará sus conclusiones a la PUCT hasta el 10-dic (reunión del 17-dic). La gobernadora electa, Gina Hinojosa, ha prometido mantener la pausa hasta que el Legislativo apruebe nuevas leyes."
+    },
+    {
+     "n": "Incidente o parada nuclear",
+     "cat": "Operativo",
+     "p": 2,
+     "i": 4,
+     "note": "Cuatro centrales nucleares concentran gran parte del valor"
+    },
+    {
+     "n": "Clima extremo",
+     "cat": "Operativo",
+     "p": 2,
+     "i": 4,
+     "note": "La tormenta Uri de 2021 le costó más de 1.500 M$; el verano de 2026 batió récords de demanda sin incidencias"
+    },
+    {
+     "n": "Integración de Cogentrix",
+     "cat": "Operativo",
+     "p": 2,
+     "i": 3,
+     "note": "Cerrada en oct-26: ~5.500 MW de gas, 2.200 M$ en efectivo y ~1.700 M$ de deuda asumida ya repagada"
+    },
+    {
+     "n": "Volatilidad contable por coberturas",
+     "cat": "Financiero",
+     "p": 4,
+     "i": 1,
+     "note": "+559 M$ no realizados en el 3T26 tras −472 M$ en el 2T26"
+    },
+    {
+     "n": "Inversión en Helix",
+     "cat": "Comercial",
+     "p": 2,
+     "i": 2,
+     "note": "Hasta 1.000 M$ en un negocio fuera de su núcleo"
+    },
+    {
+     "n": "Préstamo del DOE no se cierra",
+     "cat": "Financiero",
+     "p": 2,
+     "i": 2,
+     "note": "Compromiso condicional de hasta 4.200 M$, no firmado. El DOE ya canceló otro compromiso condicional (Grain Belt Express, 4.900 M$, jul-2025). Con la Cámara demócrata desde ene-2027 puede haber más supervisión del programa, pero la decisión es del DOE. Si se cayera, la ampliación seguiría con deuda privada, más cara."
+    }
+   ],
+   "porque": "Riesgo regulatorio al día: la TCEQ reanuda permisos, la revisión de ERCOT sigue pendiente y la gobernadora electa promete mantener la pausa (probabilidad e impacto sin cambios).",
+   "fuente": {
+    "t": "Texas Tribune: la TCEQ reanuda los permisos de centros de datos (17-nov-2026)",
+    "u": "https://www.texastribune.org/2026/11/17/tceq-environmental-data-center-permits-resume/",
+    "d": "17-nov-2026"
+   },
+   "verificacion": "Texas Tribune 17-nov-2026: pausa de conexiones en agosto con auditoría, carta del 21-sep sobre los permisos, la TCEQ los reanuda tras el aviso del viernes 13-nov, informe de ERCOT a la PUC el 10-dic y reunión del 17-dic, y Hinojosa promete mantener la pausa hasta que haya leyes nuevas. Solo cambia la nota del riesgo regulatorio; p/i siguen en 3/3 y no se borra nada.",
+   "motivo": "Repaso semanal a fondo (energía)"
+  },
+  {
+   "fecha": "2026-11-20",
+   "campo": "verdict.watch",
+   "antes": [
+    "Deuda tras Cogentrix en el 10-K de 2026",
+    "Precios a plazo en ERCOT para 2028",
+    "Cierre definitivo o cancelación del préstamo del DOE (seguimiento automático)",
+    "Ejecución del objetivo de ~70% de crecimiento del FCF por acción 2027–2030"
+   ],
+   "despues": [
+    "Deuda tras Cogentrix en el 10-K de 2026",
+    "Precios a plazo en ERCOT para 2028",
+    "Informe de ERCOT a la PUCT (10-dic) y reunión del 17-dic sobre la pausa a la conexión de centros de datos en Texas",
+    "Cierre definitivo o cancelación del préstamo del DOE (seguimiento automático)",
+    "Ejecución del objetivo de ~70% de crecimiento del FCF por acción 2027–2030"
+   ],
+   "porque": "El informe de ERCOT del 10-dic y la reunión de la PUCT del 17-dic deciden el ritmo de nuevas conexiones de centros de datos en Texas.",
+   "fuente": {
+    "t": "Texas Tribune: la TCEQ reanuda los permisos de centros de datos (17-nov-2026)",
+    "u": "https://www.texastribune.org/2026/11/17/tceq-environmental-data-center-permits-resume/",
+    "d": "17-nov-2026"
+   },
+   "verificacion": "El 10-dic y el 17-dic cuadran con Texas Tribune (17-nov-2026). Solo se añade ese elemento, sin precio de la acción; los demás ya estaban.",
+   "motivo": "Repaso semanal a fondo (energía)"
+  },
+  {
+   "fecha": "2026-11-20",
+   "campo": "sources.news",
+   "antes": [
+    {
+     "t": "Comanche Peak, Amazon y la pausa de centros de datos en Texas",
+     "src": "Utility Dive",
+     "u": "https://www.utilitydive.com/news/vistra-texas-data-center-pause-comanche-amazon-earnings/827434/"
+    },
+    {
+     "t": "Por qué ha caído un 28% en un año",
+     "src": "TIKR",
+     "u": "https://www.tikr.com/blog/vistra-stock-is-down-28-over-the-past-year-discount-or-warning-sign"
+    },
+    {
+     "t": "Resultados 2T26 y la apuesta por Helix",
+     "src": "TIKR",
+     "u": "https://www.tikr.com/blog/what-vistras-q2-earnings-reveal-about-its-1-billion-helix-bet"
+    },
+    {
+     "t": "Contratos con Meta, Cogentrix y Lotus",
+     "src": "24/7 Wall St.",
+     "u": "https://247wallst.com/investing/2026/09/10/beyond-meta-and-nuclear-inside-vistras-real-power-play/"
+    }
+   ],
+   "despues": [
+    {
+     "t": "Texas reanuda los permisos medioambientales de centros de datos; ERCOT informará a la PUCT el 10-dic",
+     "src": "Texas Tribune",
+     "u": "https://www.texastribune.org/2026/11/17/tceq-environmental-data-center-permits-resume/"
+    },
+    {
+     "t": "BMO sube su precio objetivo de 188 a 196 $ pese a la caída de la acción",
+     "src": "TIKR",
+     "u": "https://www.tikr.com/blog/vistra-keeps-sliding-why-bmo-sees-51-upside"
+    },
+    {
+     "t": "Comanche Peak, Amazon y la pausa de centros de datos en Texas",
+     "src": "Utility Dive",
+     "u": "https://www.utilitydive.com/news/vistra-texas-data-center-pause-comanche-amazon-earnings/827434/"
+    },
+    {
+     "t": "Por qué ha caído un 28% en un año",
+     "src": "TIKR",
+     "u": "https://www.tikr.com/blog/vistra-stock-is-down-28-over-the-past-year-discount-or-warning-sign"
+    },
+    {
+     "t": "Resultados 2T26 y la apuesta por Helix",
+     "src": "TIKR",
+     "u": "https://www.tikr.com/blog/what-vistras-q2-earnings-reveal-about-its-1-billion-helix-bet"
+    },
+    {
+     "t": "Contratos con Meta, Cogentrix y Lotus",
+     "src": "24/7 Wall St.",
+     "u": "https://247wallst.com/investing/2026/09/10/beyond-meta-and-nuclear-inside-vistras-real-power-play/"
+    }
+   ],
+   "porque": "Noticias de impacto de la semana: regulación de centros de datos en Texas y subida del objetivo de BMO.",
+   "fuente": {
+    "t": "Texas Tribune: la TCEQ reanuda los permisos de centros de datos (17-nov-2026)",
+    "u": "https://www.texastribune.org/2026/11/17/tceq-environmental-data-center-permits-resume/",
+    "d": "17-nov-2026"
+   },
+   "verificacion": "Se añaden 2 noticias: Texas Tribune 17-nov (reanudación de permisos, informe de ERCOT el 10-dic) y TIKR 17-nov (BMO sube el objetivo de 188 a 196 $). Las dos URL abren y dicen eso; no se borra ninguna noticia.",
+   "motivo": "Repaso semanal a fondo (energía)"
+  },
+  {
+   "fecha": "2026-11-20",
+   "campo": "meta.asOf",
+   "antes": "13-nov-2026",
+   "despues": "20-nov-2026",
+   "porque": "Repaso semanal a fondo con la lista de comprobación completa (SEC, sala de prensa, analistas, prensa y regulación).",
+   "fuente": {
+    "t": "10-Q 3T26 de Vistra (SEC)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/vistra-20260930.htm",
+    "d": "9-nov-2026"
+   },
+   "verificacion": "Fecha de hoy, 20-nov-2026: correcta.",
+   "motivo": "Repaso semanal a fondo (energía)"
+  },
+  {
+   "fecha": "2026-11-20",
+   "campo": "meta.repasoFondo",
+   "antes": "2026-11-13",
+   "despues": "2026-11-20",
+   "porque": "Repaso semanal a fondo del viernes (energía).",
+   "fuente": {
+    "t": "10-Q 3T26 de Vistra (SEC)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/vistra-20260930.htm",
+    "d": "9-nov-2026"
+   },
+   "verificacion": "Fecha de hoy, 2026-11-20: correcta.",
+   "motivo": "Repaso semanal a fondo (energía)"
   }
  ]
 }
