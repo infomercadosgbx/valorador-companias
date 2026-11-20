@@ -294,7 +294,7 @@ td input[type=text]{width:84px;padding:3px 6px}
 details.box{background:var(--surface);border:1px solid var(--line);border-radius:10px}
 details.box summary{cursor:pointer;padding:10px 14px;font-weight:700;font-size:13px;list-style:none;display:flex;justify-content:space-between}
 details.box summary::after{content:"+";color:var(--muted)} details.box[open] summary::after{content:"–"}
-table.baltab td,table.baltab th{white-space:nowrap} table.baltab tr.balg td{background:var(--surface2,transparent);border-top:1px solid var(--line);padding-top:10px} table.baltab td .note{font-size:11px;margin-top:1px}
+table.baltab td,table.baltab th{white-space:nowrap} table.baltab tr.balg td{background:var(--surface2,transparent);border-top:1px solid var(--line);padding-top:10px} table.baltab td .note{font-size:11px;margin-top:1px;font-weight:400}
 .fields{display:grid;grid-template-columns:minmax(0,1fr) 104px;gap:6px 10px;padding:2px 14px 14px;align-items:center}
 .fields label{font-size:13px}
 .fields .u{color:var(--muted);font-size:11px;margin-left:4px}
@@ -1495,6 +1495,7 @@ const WEXP={
   seguimiento:"El robot ha encontrado una novedad en un asunto que sigues (seguimientos.json). Lee el fragmento en Riesgos → Seguimientos y confirma en el documento antes de cambiar el análisis.",
   seguimiento_error:"No se han podido leer los documentos nuevos de la SEC para un seguimiento; se reintentará la próxima noche.",
   contradiccion:"Tu modelo usa una cifra distinta de la última de la SEC. Revísala en Valoración → «Ajustar acciones, caja o deuda» o pulsa «Usar dato SEC».",
+  participaciones_caen:"Las participaciones fuera de la caja han caído más de la mitad en un trimestre. Si una participada ha salido a bolsa y la compañía la ha pasado a acciones cotizadas a largo plazo, el valor se sigue sumando; si la ha llevado a otra partida, ajústala a mano en Valoración → «Ajustar acciones, caja o deuda».",
   salto_raro:"Un trimestre cambia mucho frente al anterior. Puede ser estacionalidad, una compra o una reclasificación: compruébalo en el informe.",
   posible_discontinuada:"Los ingresos caen más de un 25% en un año: suele deberse a la venta de un negocio (operaciones discontinuadas). Compara años con cuidado.",
   trimestres_no_suman:"Los cuatro trimestres no suman el año completo. Suele ser una reexpresión; el dato anual manda.",
@@ -4659,7 +4660,7 @@ R.valuation=()=>{
     <details class="box" style="margin-top:14px" id="detBal"${lsGet("valorador.balance")==="1"?" open":""}><summary><span>Datos de mercado y balance <span class="note" style="font-weight:400">· cotización, caja, inversiones, participaciones, deuda y fondo de maniobra (SEC)</span></span></summary>
       <div class="mktline" style="margin:0 14px 14px"><div class="eyebrow">Lo que entra en el valor por acción</div>
         <div>Cotización <b class="num">${money(v.price)}</b> ${srcTag(P)} · acciones <b class="num">${nf(v.shares,1)} M</b> · caja <b class="num">${nf(v.cash)}</b> · deuda <b class="num">${nf(v.debt)}</b>${v.inv>0?` · participaciones <b class="num">${nf(v.inv)}</b>`:""}${v.pref>0?` · preferentes <b class="num">${nf(v.pref)}</b>`:""} ${MODEL_SEC.every(([k])=>cur._auto[k]||!fin(v[k]))?(Object.keys(cur._adj||{}).length?"(SEC + hechos posteriores)":"(SEC)"):"(con ajustes tuyos)"}</div>
-        <details${ovr?" open":""}><summary class="note" style="cursor:pointer">Ajustar acciones, caja o deuda</summary><div class="fields detgrid" style="padding:6px 0 0">${F("shares","Acciones diluidas","M",0.1)}${F("cash","Caja","M",1)}${F("debt","Deuda financiera","M",1)}${F("inv","Participaciones en no cotizadas","M",1)}${F("pref","Acciones preferentes","M",1)}</div>
+        <details${ovr?" open":""}><summary class="note" style="cursor:pointer">Ajustar acciones, caja o deuda</summary><div class="fields detgrid" style="padding:6px 0 0">${F("shares","Acciones diluidas","M",0.1)}${F("cash","Caja","M",1)}${F("debt","Deuda financiera","M",1)}${F("inv","Participaciones fuera de la caja","M",1)}${F("pref","Acciones preferentes","M",1)}</div>
           <p class="note" style="margin:8px 0 0">${invNote(v)}</p></details>
       </div>
       <div style="margin:0 14px 14px">${balHtml(cur)}</div>
@@ -4680,8 +4681,20 @@ function balHtml(c){
   const near=(arr,iso)=>arr.find(p=>Math.abs(Date.parse(p.periodo_fin)-Date.parse(iso))<=8*864e5);
   const at=(k,iso)=>{ const p=near(hist(k),iso); return p?p.valor/M6:null; };
   const flowAt=(k,iso)=>{ const p=near(((R[k]&&R[k].trimestral)||[]).filter(x=>fin(x.valor)),iso); return p?p.valor/M6:null; };
-  const cartAt=(t,iso)=>CA&&CA.totales&&CA.totales[t]&&near([{periodo_fin:CA.fecha}],iso)?CA.totales[t].valor/M6:null;
-  const cartSrc=t=>CA&&CA.totales&&CA.totales[t]?{fuente:CA.fuente,formulario:CA.formulario,fecha_presentacion:CA.fecha_presentacion,url:CA.url,etiqueta:CA.totales[t].etiqueta,periodo_fin:CA.fecha}:null;
+  const CH=CA?(CA.historico&&CA.historico.length?CA.historico:[CA]):[];
+  const cartP=iso=>near(CH.map(x=>({...x,periodo_fin:x.fecha})),iso);
+  const cartAt=(t,iso)=>{ const x=cartP(iso), T=x&&x.totales||{};
+    if(t==="cotizada_corto"){ if(T.cotizada_corto) return T.cotizada_corto.valor/M6; if(T.cotizada) return (T.cotizada.valor-(T.cotizada_largo?T.cotizada_largo.valor:0))/M6; return null; }
+    return T[t]?T[t].valor/M6:null; };
+  const cartSrc=t=>{ const x=CA, T=x&&x.totales||{}, k=t==="cotizada_corto"?(T.cotizada_corto?"cotizada_corto":"cotizada"):t;
+    return T[k]?{fuente:x.fuente,formulario:x.formulario,fecha_presentacion:x.fecha_presentacion,url:x.url,etiqueta:T[k].etiqueta,periodo_fin:x.fecha}:null; };
+  /* participaciones que la compañía identifica por nombre, con su valor en cada cierre */
+  const named=pref=>{ const m=new Map(); CH.forEach(x=>(x.detalle||[]).forEach(d=>{ if(d.tipo.startsWith(pref)&&!m.has(d.nombre)) m.set(d.nombre,d); }));
+    return [...m.values()].map(d0=>({n:d0.nombre,i:2,d:d0.tipo==="cotizada_largo"?"cotizada a largo plazo":d0.tipo==="metodo_participacion"?"método de la participación":"",
+      f:iso=>{ const x=cartP(iso), y=x&&(x.detalle||[]).find(d=>d.nombre===d0.nombre&&d.tipo===d0.tipo); return y?y.valor/M6:null; },s:cartSrc(d0.tipo.startsWith("cotizada")?"cotizada_corto":d0.tipo)})); };
+  const namedCot0=named("cotizada"), shortCot=dates.some(iso=>fin(cartAt("cotizada_corto",iso)));
+  const namedCot=namedCot0.length?[...namedCot0,{n:"otras, sin nombre",i:2,s:cartSrc("cotizada_corto"),f:iso=>{ const tot=(fin(cartAt("cotizada_corto",iso))?cartAt("cotizada_corto",iso):0)+(fin(cartAt("cotizada_largo",iso))?cartAt("cotizada_largo",iso):0);
+    const sum=namedCot0.reduce((a,r)=>a+(fin(r.f(iso))?r.f(iso):0),0); return sum>0&&tot-sum>0.5?tot-sum:null; }}]:[];
   const last=k=>{ const h=hist(k); return h.length?h.at(-1):null; };
   const lastF=k=>((R[k]&&R[k].trimestral)||[]).filter(x=>fin(x.valor)).at(-1)||null;
   const ratio=(a,b)=>fin(a)&&fin(b)&&b!==0?a/b:null;
@@ -4690,10 +4703,14 @@ function balHtml(c){
     {g:"Liquidez",n:"Lo que puede usar ya: dinero y activos financieros que se venden en días."},
     {n:"Efectivo y equivalentes",f:iso=>at("efectivo",iso),s:last("efectivo")},
     {n:"Inversiones financieras a corto",d:"bonos, depósitos y acciones cotizadas",f:iso=>at("inversiones_corto",iso),s:last("inversiones_corto")},
-    {n:"de ellas, acciones cotizadas",i:1,f:iso=>cartAt("cotizada",iso),s:cartSrc("cotizada"),d:"a valor de mercado"},
+    {n:"de ellas, acciones cotizadas",i:1,f:iso=>cartAt("cotizada_corto",iso),s:cartSrc("cotizada_corto"),d:"a valor de mercado"},
+    ...(shortCot?namedCot:[]),
     {n:"Caja e inversiones a corto",b:1,m:"en el modelo",f:iso=>at("caja",iso),s:last("caja")},
-    {g:"Participaciones a largo plazo",n:"Acciones de otras empresas que no cotizan: no están en la caja ni en los flujos del DCF."},
-    {n:"Participaciones en no cotizadas",b:1,m:"en el modelo, menos impuesto latente",f:iso=>at("participaciones",iso),s:last("participaciones")},
+    {g:"Participaciones a largo plazo",n:"Acciones de otras empresas que no están en la caja ni en los flujos del DCF."},
+    {n:"Participaciones fuera de la caja",b:1,m:"en el modelo, menos impuesto latente",d:"no cotizadas y, si las hay, cotizadas a largo plazo",f:iso=>at("participaciones",iso),s:last("participaciones")},
+    ...named("no_cotizada"),
+    {n:"acciones cotizadas a largo plazo",i:1,d:"p. ej. una participada que ya ha salido a bolsa",f:iso=>{const a=at("cotizadas_largo",iso);return fin(a)?a:cartAt("cotizada_largo",iso);},s:last("cotizadas_largo")||cartSrc("cotizada_largo")},
+    ...(shortCot?[]:namedCot),
     {n:"coste de compra",i:1,d:"valor contable − revalorización + deterioros",f:coste},
     {n:"revalorización acumulada",i:1,f:iso=>at("participaciones_subidas",iso),s:last("participaciones_subidas")},
     {n:"deterioros acumulados",i:1,f:iso=>{const x=at("participaciones_bajadas",iso);return fin(x)?-x:null;},s:last("participaciones_bajadas")},
@@ -4719,11 +4736,9 @@ function balHtml(c){
     const vals=dates.map(iso=>r.f(iso));
     if(!vals.some(fin)) return;
     if(pendingG){ html+=`<tr class="balg"><td colspan="${dates.length+2}"><b>${pendingG.g}</b> <span class="note">· ${pendingG.n}</span></td></tr>`; pendingG=null; }
-    html+=`<tr class="${r.b?"em":""}"><td style="text-align:left;white-space:normal;${r.i?"padding-left:22px":""}">${r.i?"· ":""}${esc(r.n)}${r.m?` <span class="pill mid" style="font-size:10px">${esc(r.m)}</span>`:""}${r.d?`<div class="note">${esc(r.d)}</div>`:""}</td>${vals.map(x=>`<td>${fmt(x,r.u)}</td>`).join("")}<td style="text-align:left">${r.s?srcTag(r.s):'<span class="note">cálculo</span>'}</td></tr>`;
+    html+=`<tr class="${r.b?"em":""}"><td style="text-align:left;white-space:normal;${r.i?`padding-left:${r.i*18+4}px`:""}">${r.i===2?"– ":r.i?"· ":""}${esc(r.n)}${r.m?` <span class="pill mid" style="font-size:10px">${esc(r.m)}</span>`:""}${r.d?`<div class="note">${esc(r.d)}</div>`:""}</td>${vals.map(x=>`<td>${fmt(x,r.u)}</td>`).join("")}<td style="text-align:left">${r.s?srcTag(r.s):'<span class="note">cálculo</span>'}</td></tr>`;
   });
   html+=`</tbody></table></div>`;
-  const det=(CA&&CA.detalle)||[], TT={cotizada:"cotizada",no_cotizada:"no cotizada",metodo_participacion:"método de la participación"};
-  if(det.length) html+=`<p class="note" style="margin:8px 0 0"><b>Participaciones que la compañía identifica por nombre</b> (${esc(CA.formulario)} a ${fecha(CA.fecha)}): ${det.map(x=>`${esc(x.nombre)} <b class="num">${nf(x.valor/M6)} M</b> (${TT[x.tipo]||x.tipo})`).join(" · ")}. Las no cotizadas casi nunca se publican por nombre; la prensa y el propio informe suelen decir de cuál se trata.</p>`;
   const gt=R.ganancias_inversiones&&R.ganancias_inversiones.ttm;
   if(gt&&fin(gt.valor)) html+=`<p class="note" style="margin:6px 0 0">Ganancias o pérdidas de las participaciones en los últimos 12 meses: <b class="num">${nf(gt.valor/M6)} M</b> ${srcTag(gt)}. Son en su mayoría revalorizaciones contables, sin entrada de caja hasta que se venden.</p>`;
   return html;
@@ -4731,7 +4746,7 @@ function balHtml(c){
 function invNote(v){
   const t=[];
   if(v.inv>0){ const tax=v.inv-invNet(v);
-    t.push(`<b>Participaciones</b>: empresas no cotizadas en las que la compañía tiene acciones (valor contable que publica la SEC). No están en la caja ni en los flujos del DCF, así que se suman aparte`+
+    t.push(`<b>Participaciones fuera de la caja</b>: acciones de empresas no cotizadas (valor contable que publica la SEC) y, si las hay, cotizadas a largo plazo. No están en la caja ni en los flujos del DCF, así que se suman aparte`+
       (fin(v.invGain)&&v.invGain>0?`, menos el impuesto que se pagaría al venderlas: ${pct(TAX_LATENTE,0)} (tipo federal) de su revalorización acumulada (${nf(v.invGain)} M) = ${nf(tax)} M. Suman <b>${nf(invNet(v))} M</b>.`
         :`. La SEC no publica su revalorización acumulada, así que no se descuenta impuesto latente: si valen mucho más de lo que costaron, ajusta la cifra a mano.`)); }
   if(v.pref>0) t.push(`<b>Preferentes</b>: pertenecen a otros inversores (o se convertirán en acciones nuevas), así que se restan como la deuda.`);

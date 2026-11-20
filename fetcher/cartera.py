@@ -15,10 +15,12 @@ import xml.etree.ElementTree as ET
 from .bonds import find_files, label_for, parse_instance, parse_labels, target_filings
 from .filings import archive_base
 
-VERSION = 1
+VERSION = 2
 TIPOS = {
     "EquitySecuritiesFvNi": "cotizada",
     "EquitySecuritiesFvNiCurrentAndNoncurrent": "cotizada",
+    "EquitySecuritiesFvNiCurrent": "cotizada_corto",
+    "EquitySecuritiesFvNiNoncurrent": "cotizada_largo",
     "EquitySecuritiesWithoutReadilyDeterminableFairValueAmount": "no_cotizada",
     "EquityMethodInvestments": "metodo_participacion",
 }
@@ -66,27 +68,34 @@ def extract(inst_xml: bytes, lab_xml: bytes | None):
 
 
 def build(client, cik, subs, previous=None):
-    """Bloque «cartera» de data/<T>.json, o None si el informe no trae nada.
-    Reutiliza el anterior si el último informe no ha cambiado."""
-    fl = target_filings(subs, max_q=0)
+    """Bloque «cartera» de data/<T>.json: la del último 10-Q/10-K (fecha, totales, detalle)
+    y «historico» con la de los informes anteriores (último 10-K y 10-Q posteriores), para
+    ver cómo evoluciona cada participación. None si ningún informe trae nada."""
+    fl = target_filings(subs)
     if not fl:
         return None
-    r = fl[0]
-    if previous and previous.get("accn") == r["accessionNumber"] and previous.get("version") == VERSION:
+    accns = [r["accessionNumber"] for r in fl]
+    if previous and previous.get("informes_accn") == accns and previous.get("version") == VERSION:
         return previous
-    base = archive_base(cik, r["accessionNumber"])
-    inst_name, lab_name = find_files(client.get_json(f"{base}/index.json"))
-    if not inst_name:
+    hist, ult = {}, None
+    for r in reversed(fl):          # del más antiguo al más reciente: lo nuevo manda
+        base = archive_base(cik, r["accessionNumber"])
+        inst_name, lab_name = find_files(client.get_json(f"{base}/index.json"))
+        if not inst_name:
+            continue
+        inst = client.get_bytes(f"{base}/{inst_name}")
+        lab = client.get_bytes(f"{base}/{lab_name}") if lab_name else None
+        try:
+            out = extract(inst, lab) if inst else None
+        except ET.ParseError:
+            out = None
+        if not out:
+            continue
+        out.update({"accn": r["accessionNumber"], "fuente": f"SEC EDGAR · {r['form']} (XBRL)", "formulario": r["form"],
+                    "fecha_presentacion": r["filingDate"], "url": f"{base}/{r['accessionNumber']}-index.htm"})
+        hist[out["fecha"]] = out
+        ult = out
+    if not ult:
         return None
-    inst = client.get_bytes(f"{base}/{inst_name}")
-    lab = client.get_bytes(f"{base}/{lab_name}") if lab_name else None
-    try:
-        out = extract(inst, lab) if inst else None
-    except ET.ParseError:
-        return None
-    if not out:
-        return None
-    out.update({"version": VERSION, "accn": r["accessionNumber"],
-                "fuente": f"SEC EDGAR · {r['form']} (XBRL)", "formulario": r["form"],
-                "fecha_presentacion": r["filingDate"], "url": f"{base}/{r['accessionNumber']}-index.htm"})
-    return out
+    return dict(ult, version=VERSION, informes_accn=accns,
+                historico=[hist[k] for k in sorted(hist)])

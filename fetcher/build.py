@@ -195,6 +195,7 @@ def build_from_sec(company, cf, subs):
                               "url": None, "fecha_presentacion": None, "etiqueta": None} for ye in year_ends]
         rec["balance"][key] = inst
         avisos += w
+    avisos += _aviso_participaciones(cf, ref_end)
     rec["vencimientos_deuda"] = X.debt_maturities(cf, cik)
     rec["acciones_en_circulacion"] = X.shares_outstanding(cf, cik)
     if rec["acciones_en_circulacion"] is None:
@@ -237,6 +238,34 @@ def build_from_sec(company, cf, subs):
     avisos += V.check_latest_filing(ref_end, rec["ultimo_informe"])
     rec["avisos"] = avisos
     return rec
+
+
+PARTICIPACIONES_TAGS = ("EquitySecuritiesWithoutReadilyDeterminableFairValueAmount", "EquitySecuritiesFvNiNoncurrent")
+
+
+def _aviso_participaciones(cf, ref_end):
+    """Si las participaciones fuera de la caja caen más de la mitad en un trimestre, avisa: suele
+    ser una reclasificación (la participada sale a bolsa y pasa a otra partida) y el valor del
+    accionista podría dejar de contarlas. Se mira el XBRL en bruto para detectarlo también
+    cuando la etiqueta desaparece del todo del último informe."""
+    vals = {}
+    for t in PARTICIPACIONES_TAGS:
+        for e, f in X.latest_by(X.raw_facts(cf, t, "USD"), lambda f: f["end"]).items():
+            vals[X.d(e)] = vals.get(X.d(e), 0) + (f.get("val") or 0)
+    if not vals or ref_end is None:
+        return []
+    antes = [e for e in vals if 30 <= (ref_end - e).days <= 200]
+    if not antes:
+        return []
+    e0 = max(antes)
+    v0, v1 = vals[e0], vals.get(ref_end, 0)
+    if v0 < 5e9 or v1 >= 0.5 * v0:
+        return []
+    return [X.warn("aviso", "participaciones_caen",
+        f"Participaciones fuera de la caja: pasan de {v0 / 1e6:,.0f} M a {v1 / 1e6:,.0f} M entre el {e0.isoformat()} "
+        f"y el {ref_end.isoformat()}. Suele ser una reclasificación (una participada que sale a bolsa, una venta o un "
+        f"traspaso a otra partida). Comprueba en el informe dónde está ahora y, si no está en la caja, "
+        f"ajusta «Participaciones» en Valoración.".replace(",", "."), concepto="participaciones")]
 
 
 RESTATE_RATIO = 1.10

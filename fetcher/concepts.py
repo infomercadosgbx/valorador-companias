@@ -209,12 +209,20 @@ INSTANT_CONCEPTS = {
     # Participaciones en empresas no cotizadas (Anthropic en Alphabet y Amazon). No están en la
     # caja ni en el DCF, que solo valora el negocio: el valor del patrimonio las suma aparte.
     # Las cotizadas (SpaceX en Alphabet) ya van dentro de «caja» como valores negociables.
+    # Si una participada sale a bolsa y la compañía la pasa a acciones cotizadas a largo plazo
+    # (fuera de la caja), se sigue sumando aquí: así no desaparece del valor del accionista.
     "participaciones": {
-        "nombre": "Participaciones en empresas no cotizadas", "opcional": True,
+        "nombre": "Participaciones fuera de la caja", "opcional": True,
         "strategies": [
             {"required": ["EquitySecuritiesWithoutReadilyDeterminableFairValueAmount"], "optional": [],
+             "extra": [["EquityMethodInvestments"], ["EquitySecuritiesFvNiNoncurrent"]]},
+            {"required": ["EquitySecuritiesFvNiNoncurrent"], "optional": [],
              "extra": [["EquityMethodInvestments"]]},
         ],
+    },
+    "cotizadas_largo": {
+        "nombre": "Acciones cotizadas a largo plazo", "opcional": True,
+        "strategies": [{"required": ["EquitySecuritiesFvNiNoncurrent"], "optional": []}],
     },
     # Revalorización acumulada de esas participaciones (subidas menos bajadas sobre el coste):
     # la web descuenta el impuesto que se pagaría al venderlas.

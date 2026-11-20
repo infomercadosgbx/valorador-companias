@@ -71,3 +71,26 @@ def test_cartera_cotizadas_y_participaciones_con_nombre():
     assert out["totales"]["no_cotizada"]["valor"] == 128_169_000_000   # la del cierre anterior no cuenta
     (d,) = out["detalle"]
     assert "Space" in d["nombre"] and d["tipo"] == "cotizada" and d["valor"] == 75_200_000_000
+
+
+def test_aviso_si_las_participaciones_caen_de_golpe():
+    # Una participada sale a bolsa y la compañía la saca de la partida de no cotizadas
+    from fetcher.build import _aviso_participaciones
+    tag = "EquitySecuritiesWithoutReadilyDeterminableFairValueAmount"
+    cf = companyfacts({tag: [fact("2026-09-30", 143_700_000_000, filed="2026-10-30"),
+                             fact("2026-12-31", 2_000_000_000, form="10-K", filed="2027-02-05")]})
+    (w,) = _aviso_participaciones(cf, X.d("2026-12-31"))
+    assert w["codigo"] == "participaciones_caen" and w["nivel"] == "aviso"
+    # si pasa a cotizadas a largo plazo, se sigue contando y no hay aviso
+    cf["facts"]["us-gaap"]["EquitySecuritiesFvNiNoncurrent"] = {"units": {"USD": [
+        fact("2026-12-31", 210_000_000_000, form="10-K", filed="2027-02-05")]}}
+    assert _aviso_participaciones(cf, X.d("2026-12-31")) == []
+    inst, _ = X.build_instant(cf, 1, "participaciones", X.d("2026-12-31"))
+    assert inst["ultimo"]["valor"] == 212_000_000_000
+
+
+def test_sin_caida_no_avisa():
+    from fetcher.build import _aviso_participaciones
+    tag = "EquitySecuritiesWithoutReadilyDeterminableFairValueAmount"
+    cf = companyfacts({tag: [fact("2026-06-30", 120e9), fact("2026-09-30", 128e9)]})
+    assert _aviso_participaciones(cf, X.d("2026-09-30")) == []
