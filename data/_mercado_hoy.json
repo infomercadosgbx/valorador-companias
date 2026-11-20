@@ -1,6 +1,6 @@
 {
  "esquema": 2,
- "generado": "2026-11-20T00:29:49+00:00",
+ "generado": "2026-11-20T08:23:18+00:00",
  "grupos": {
   "bolsa": "Bolsa",
   "volatilidad": "Volatilidad y divisas",
@@ -330,17 +330,13 @@
    "unidad": "pts",
    "fuente": "Cboe",
    "corto": "Cboe · S&P 500 a 30 días",
-   "valor": 24.56,
-   "anterior": 25.46,
-   "fecha": "2026-11-18",
+   "valor": 28.44,
+   "anterior": 24.56,
+   "fecha": "2026-11-19",
    "url": "https://www.cboe.com/tradable_products/vix/vix_historical_data/",
-   "var": -0.9,
-   "var_pct": -3.53,
+   "var": 3.88,
+   "var_pct": 15.8,
    "serie": [
-    [
-     "2026-08-20",
-     16.01
-    ],
     [
      "2026-08-21",
      15.13
@@ -596,6 +592,10 @@
     [
      "2026-11-18",
      24.56
+    ],
+    [
+     "2026-11-19",
+     28.44
     ]
    ]
   },
@@ -2003,12 +2003,12 @@
    "unidad": "",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 1.0973,
+   "valor": 1.0975,
    "anterior": 1.0974,
    "fecha": "2026-11-20",
    "url": "https://twelvedata.com/",
-   "var": -0.0001,
-   "var_pct": -0.01
+   "var": 0.0001,
+   "var_pct": 0.01
   },
   {
    "id": "usdjpy",
@@ -2019,12 +2019,12 @@
    "unidad": "",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 159.62,
+   "valor": 159.1054,
    "anterior": 159.7576,
    "fecha": "2026-11-20",
    "url": "https://twelvedata.com/",
-   "var": -0.1376,
-   "var_pct": -0.09
+   "var": -0.6522,
+   "var_pct": -0.41
   },
   {
    "id": "gbpusd",
@@ -2035,12 +2035,12 @@
    "unidad": "",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 1.3092,
+   "valor": 1.311,
    "anterior": 1.3101,
    "fecha": "2026-11-20",
    "url": "https://twelvedata.com/",
-   "var": -0.0009,
-   "var_pct": -0.07
+   "var": 0.001,
+   "var_pct": 0.07
   },
   {
    "id": "usdcny",
@@ -2051,12 +2051,12 @@
    "unidad": "",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 6.6819,
+   "valor": 6.6741,
    "anterior": 6.6878,
    "fecha": "2026-11-20",
    "url": "https://twelvedata.com/",
-   "var": -0.0059,
-   "var_pct": -0.09
+   "var": -0.0137,
+   "var_pct": -0.2
   },
   {
    "id": "us3m",
@@ -4621,12 +4621,12 @@
    "unidad": "$",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 3616.8506,
+   "valor": 3576.6776,
    "anterior": 3666.8714,
    "fecha": "2026-11-20",
    "url": "https://twelvedata.com/",
-   "var": -50.0208,
-   "var_pct": -1.36
+   "var": -90.1938,
+   "var_pct": -2.46
   },
   {
    "id": "plata",
@@ -5544,12 +5544,12 @@
    "unidad": "$",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 62098.51,
+   "valor": 61927.93,
    "anterior": 61986.73,
    "fecha": "2026-11-20",
    "url": "https://twelvedata.com/",
-   "var": 111.78,
-   "var_pct": 0.18
+   "var": -58.8,
+   "var_pct": -0.09
   },
   {
    "id": "ethereum",
@@ -5560,12 +5560,12 @@
    "unidad": "$",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 1756.44,
+   "valor": 1755.22,
    "anterior": 1757.32,
    "fecha": "2026-11-20",
    "url": "https://twelvedata.com/",
-   "var": -0.88,
-   "var_pct": -0.05
+   "var": -2.1,
+   "var_pct": -0.12
   }
  ],
  "sentimiento": {
@@ -5579,7 +5579,7 @@
    "url": "https://www.financialresearch.gov/financial-stress-index/"
   },
   "miedo_codicia": {
-   "valor": 14.5,
+   "valor": 12.5,
    "etiqueta": "Miedo extremo",
    "fecha": "2026-11-19",
    "n_componentes": 5,
@@ -5610,9 +5610,9 @@
      "id": "volatilidad",
      "nombre": "Volatilidad",
      "descripcion": "VIX frente a su media de 50 sesiones. Si sube por encima, miedo.",
-     "puntuacion": 5.4,
+     "puntuacion": 1.6,
      "etiqueta": "Miedo extremo",
-     "bruto": 0.3781,
+     "bruto": 0.577,
      "fuente": "VIX · Cboe",
      "url": "https://www.cboe.com/tradable_products/vix/vix_historical_data/"
     },
@@ -5640,9 +5640,9 @@
      "id": "put_call",
      "nombre": "Ratio put/call",
      "descripcion": "Media de 5 sesiones del ratio put/call total del Cboe. Muchas puts, miedo.",
-     "puntuacion": 51.5,
+     "puntuacion": 45.5,
      "etiqueta": "Neutral",
-     "bruto": 0.944,
+     "bruto": 0.968,
      "fuente": "Cboe · estadísticas diarias",
      "url": "https://www.cboe.com/us/options/market_statistics/daily/"
     }
@@ -5886,7 +5886,7 @@
     ],
     [
      "2026-11-19",
-     14.5
+     12.5
     ]
    ],
    "metodo": "Media de los componentes disponibles, cada uno puntuado de 0 a 100 según su percentil frente a los dos últimos años de sesiones (el put/call, por tramos fijos). Misma receta que el índice de CNN, sin los dos componentes de amplitud de la NYSE, que no tienen fuente gratuita."
@@ -7637,6 +7637,10 @@
    [
     "2026-11-18",
     1.05
+   ],
+   [
+    "2026-11-19",
+    1.01
    ]
   ]
  }
