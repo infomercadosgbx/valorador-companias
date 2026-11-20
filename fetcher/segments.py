@@ -17,7 +17,7 @@ from datetime import date
 from .bonds import find_files, label_for, parse_instance, parse_labels, target_filings
 from .filings import archive_base
 
-VERSION = 5
+VERSION = 6
 AXES = {"StatementBusinessSegmentsAxis": "segmento", "ProductOrServiceAxis": "producto", "StatementGeographicalAxis": "geografia"}
 OK_EXTRA = {"ConsolidationItemsAxis"}
 REV = ("RevenueFromContractWithCustomerExcludingAssessedTax", "Revenues",
@@ -27,6 +27,19 @@ OPI = ("OperatingIncomeLoss", "SegmentReportingInformationOperatingIncomeLoss")
 # infrastructure», antes «Technology and content»): companyfacts no trae extensiones.
 TECH = re.compile(r"^Technology(And\w+)?(Expense|Expenses|Costs)?$")
 ADJ = re.compile(r"eliminat|reconcil|corporate|unallocated|hedg|intersegment|other than|all other|adjust", re.I)
+
+
+def _marcar_detalle(rows):
+    """Marca como «ajuste» las filas que no son una línea más del desglose y lo duplicarían:
+    - subtotales con nombre «Total …» (Vistra: «Total other revenues» = créditos fiscales + coberturas);
+    - detalles de otra línea: mismo nombre con una palabra intermedia de más
+      (Vistra: «Transferable Nuclear PTC Revenues» es parte de «Transferable PTC Revenues»)."""
+    names = {tuple(r["nombre"].lower().split()) for r in rows}
+    for r in rows:
+        w = tuple(r["nombre"].lower().split())
+        if w and w[0] == "total" or any(w[:i] + w[i + 1:] in names for i in range(1, len(w) - 1)):
+            r["ajuste"] = True
+    return rows
 
 
 def _d(s):
@@ -267,6 +280,8 @@ def build(client, cik, subs, previous=None, fye_month=12):
         out[m["tipo"]].append({"miembro": member, "nombre": m["nombre"], "ajuste": bool(ADJ.search(m["nombre"] + " " + member)),
                                "trimestral": tri, "anual": anu,
                                "operativo_trimestral": opi_t, "operativo_anual": opi_a})
+    for k in ("segmento", "producto", "geografia"):
+        _marcar_detalle(out[k])
     out["gasto_tecnologia"] = _tech_block(tech, fye_month)
     out["clientes_concentracion"] = _conc_block(conc, fye_month)
     for k in ("segmento", "producto", "geografia"):
@@ -300,5 +315,7 @@ def history(client, cik, subs, fye_month=12, n_filings=14):
         if tri:
             out[m["tipo"]].append({"miembro": member, "nombre": m["nombre"], "ajuste": bool(ADJ.search(m["nombre"] + " " + member)),
                                    "trimestral": tri, "operativo_trimestral": opi})
+    for k in ("segmento", "producto"):
+        _marcar_detalle(out[k])
     out["informes"] = len(used)
     return out
