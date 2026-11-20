@@ -1,6 +1,6 @@
 {
  "esquema": 2,
- "generado": "2026-11-19T22:53:23+00:00",
+ "generado": "2026-11-20T00:29:49+00:00",
  "grupos": {
   "bolsa": "Bolsa",
   "volatilidad": "Volatilidad y divisas",
@@ -1442,17 +1442,13 @@
    "unidad": "pts",
    "fuente": "Cboe",
    "corto": "Cboe GVZ",
-   "valor": 28.04,
-   "anterior": 26.46,
-   "fecha": "2026-11-18",
+   "valor": 28.7,
+   "anterior": 28.04,
+   "fecha": "2026-11-19",
    "url": "https://www.cboe.com/tradable_products/vix/vix_historical_data/",
-   "var": 1.58,
-   "var_pct": 5.97,
+   "var": 0.66,
+   "var_pct": 2.35,
    "serie": [
-    [
-     "2026-08-19",
-     26.68
-    ],
     [
      "2026-08-20",
      27.28
@@ -1708,6 +1704,10 @@
     [
      "2026-11-18",
      28.04
+    ],
+    [
+     "2026-11-19",
+     28.7
     ]
    ]
   },
@@ -2003,12 +2003,12 @@
    "unidad": "",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 1.0968,
+   "valor": 1.0973,
    "anterior": 1.0974,
    "fecha": "2026-11-20",
    "url": "https://twelvedata.com/",
-   "var": -0.0006,
-   "var_pct": -0.05
+   "var": -0.0001,
+   "var_pct": -0.01
   },
   {
    "id": "usdjpy",
@@ -2019,12 +2019,12 @@
    "unidad": "",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 159.6797,
+   "valor": 159.62,
    "anterior": 159.7576,
    "fecha": "2026-11-20",
    "url": "https://twelvedata.com/",
-   "var": -0.0778,
-   "var_pct": -0.05
+   "var": -0.1376,
+   "var_pct": -0.09
   },
   {
    "id": "gbpusd",
@@ -2035,12 +2035,12 @@
    "unidad": "",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 1.309,
+   "valor": 1.3092,
    "anterior": 1.3101,
    "fecha": "2026-11-20",
    "url": "https://twelvedata.com/",
-   "var": -0.001,
-   "var_pct": -0.08
+   "var": -0.0009,
+   "var_pct": -0.07
   },
   {
    "id": "usdcny",
@@ -2051,12 +2051,12 @@
    "unidad": "",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 6.685,
+   "valor": 6.6819,
    "anterior": 6.6878,
    "fecha": "2026-11-20",
    "url": "https://twelvedata.com/",
-   "var": -0.0027,
-   "var_pct": -0.04
+   "var": -0.0059,
+   "var_pct": -0.09
   },
   {
    "id": "us3m",
@@ -4621,12 +4621,12 @@
    "unidad": "$",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 3627.0042,
+   "valor": 3616.8506,
    "anterior": 3666.8714,
    "fecha": "2026-11-20",
    "url": "https://twelvedata.com/",
-   "var": -39.8672,
-   "var_pct": -1.09
+   "var": -50.0208,
+   "var_pct": -1.36
   },
   {
    "id": "plata",
@@ -5544,12 +5544,12 @@
    "unidad": "$",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 62234.98,
-   "anterior": 63068.22,
-   "fecha": "2026-11-19",
+   "valor": 62098.51,
+   "anterior": 61986.73,
+   "fecha": "2026-11-20",
    "url": "https://twelvedata.com/",
-   "var": -833.24,
-   "var_pct": -1.32
+   "var": 111.78,
+   "var_pct": 0.18
   },
   {
    "id": "ethereum",
@@ -5560,12 +5560,12 @@
    "unidad": "$",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 1762.21,
-   "anterior": 1777.19,
-   "fecha": "2026-11-19",
+   "valor": 1756.44,
+   "anterior": 1757.32,
+   "fecha": "2026-11-20",
    "url": "https://twelvedata.com/",
-   "var": -14.98,
-   "var_pct": -0.84
+   "var": -0.88,
+   "var_pct": -0.05
   }
  ],
  "sentimiento": {
@@ -5602,7 +5602,7 @@
      "descripcion": "S&P 500 frente a su media de 125 sesiones. Por encima, codicia.",
      "puntuacion": 4.2,
      "etiqueta": "Miedo extremo",
-     "bruto": -0.0543,
+     "bruto": -0.0542,
      "fuente": "ETF SPY · Twelve Data",
      "url": "https://twelvedata.com/"
     },
@@ -5632,7 +5632,7 @@
      "descripcion": "Rentabilidad a 20 sesiones de la bolsa menos la del bono a 10 años. Si ganan los bonos, miedo.",
      "puntuacion": 6.2,
      "etiqueta": "Miedo extremo",
-     "bruto": -6.0203,
+     "bruto": -6.0085,
      "fuente": "Bolsa y bono a 10 años (Tesoro y FRED)",
      "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve"
     },
@@ -5901,7 +5901,7 @@
      "fin": "2026-12-09",
      "proyecciones": true,
      "hora_madrid": "20:00",
-     "dias": 20,
+     "dias": 19,
      "comunicado": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261209a.htm",
      "rueda_prensa": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20261209.htm",
      "actas_fecha": "2026-12-30",
@@ -5912,7 +5912,7 @@
      "fin": "2027-01-27",
      "proyecciones": false,
      "hora_madrid": "20:00",
-     "dias": 69,
+     "dias": 68,
      "comunicado": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20270127a.htm",
      "rueda_prensa": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20270127.htm",
      "actas_fecha": "2027-02-17"
@@ -5922,7 +5922,7 @@
      "fin": "2027-03-17",
      "proyecciones": true,
      "hora_madrid": "19:00",
-     "dias": 118,
+     "dias": 117,
      "comunicado": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20270317a.htm",
      "rueda_prensa": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20270317.htm",
      "actas_fecha": "2027-04-07",
@@ -5933,7 +5933,7 @@
      "fin": "2027-04-28",
      "proyecciones": false,
      "hora_madrid": "20:00",
-     "dias": 160,
+     "dias": 159,
      "comunicado": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20270428a.htm",
      "rueda_prensa": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20270428.htm",
      "actas_fecha": "2027-05-19"
@@ -5944,7 +5944,7 @@
     "fin": "2026-10-28",
     "proyecciones": false,
     "hora_madrid": "19:00",
-    "dias": -22,
+    "dias": -23,
     "comunicado": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261028a.htm",
     "rueda_prensa": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20261028.htm",
     "actas_fecha": "2026-11-18",
@@ -6111,132 +6111,6 @@
   },
   "agenda": {
    "items": [
-    {
-     "id": "paro_sem",
-     "nombre": "Peticiones semanales de paro",
-     "fuente": "Dpto. de Trabajo",
-     "url": "https://www.dol.gov/ui/data.pdf",
-     "ultimo": "203 mil (semana del 14 nov)",
-     "graficos": [
-      {
-       "id": "ICSA",
-       "nombre": "Peticiones iniciales (miles)",
-       "modo": "sem",
-       "puntos": [
-        [
-         "2026-05-23",
-         212.0
-        ],
-        [
-         "2026-05-30",
-         225.0
-        ],
-        [
-         "2026-06-06",
-         230.0
-        ],
-        [
-         "2026-06-13",
-         227.0
-        ],
-        [
-         "2026-06-20",
-         216.0
-        ],
-        [
-         "2026-06-27",
-         217.0
-        ],
-        [
-         "2026-07-04",
-         217.0
-        ],
-        [
-         "2026-07-11",
-         209.0
-        ],
-        [
-         "2026-07-18",
-         189.0
-        ],
-        [
-         "2026-07-25",
-         198.0
-        ],
-        [
-         "2026-08-01",
-         200.0
-        ],
-        [
-         "2026-08-08",
-         212.0
-        ],
-        [
-         "2026-08-15",
-         207.0
-        ],
-        [
-         "2026-08-22",
-         204.0
-        ],
-        [
-         "2026-08-29",
-         207.0
-        ],
-        [
-         "2026-09-05",
-         207.0
-        ],
-        [
-         "2026-09-12",
-         198.0
-        ],
-        [
-         "2026-09-19",
-         198.0
-        ],
-        [
-         "2026-09-26",
-         199.0
-        ],
-        [
-         "2026-10-03",
-         198.0
-        ],
-        [
-         "2026-10-10",
-         200.0
-        ],
-        [
-         "2026-10-17",
-         195.0
-        ],
-        [
-         "2026-10-24",
-         195.0
-        ],
-        [
-         "2026-10-31",
-         191.0
-        ],
-        [
-         "2026-11-07",
-         202.0
-        ],
-        [
-         "2026-11-14",
-         203.0
-        ]
-       ],
-       "url": "https://fred.stlouisfed.org/series/ICSA"
-      }
-     ],
-     "principal": false,
-     "fecha": "2026-11-19",
-     "hora_madrid": "14:30",
-     "siguiente": "2026-11-25",
-     "anterior": "2026-11-12"
-    },
     {
      "id": "umich",
      "nombre": "Confianza del consumidor (U. Michigan)",
@@ -6646,6 +6520,132 @@
      "hora_madrid": "14:30",
      "siguiente": "2026-12-23",
      "anterior": "2026-10-29"
+    },
+    {
+     "id": "paro_sem",
+     "nombre": "Peticiones semanales de paro",
+     "fuente": "Dpto. de Trabajo",
+     "url": "https://www.dol.gov/ui/data.pdf",
+     "ultimo": "203 mil (semana del 14 nov)",
+     "graficos": [
+      {
+       "id": "ICSA",
+       "nombre": "Peticiones iniciales (miles)",
+       "modo": "sem",
+       "puntos": [
+        [
+         "2026-05-23",
+         212.0
+        ],
+        [
+         "2026-05-30",
+         225.0
+        ],
+        [
+         "2026-06-06",
+         230.0
+        ],
+        [
+         "2026-06-13",
+         227.0
+        ],
+        [
+         "2026-06-20",
+         216.0
+        ],
+        [
+         "2026-06-27",
+         217.0
+        ],
+        [
+         "2026-07-04",
+         217.0
+        ],
+        [
+         "2026-07-11",
+         209.0
+        ],
+        [
+         "2026-07-18",
+         189.0
+        ],
+        [
+         "2026-07-25",
+         198.0
+        ],
+        [
+         "2026-08-01",
+         200.0
+        ],
+        [
+         "2026-08-08",
+         212.0
+        ],
+        [
+         "2026-08-15",
+         207.0
+        ],
+        [
+         "2026-08-22",
+         204.0
+        ],
+        [
+         "2026-08-29",
+         207.0
+        ],
+        [
+         "2026-09-05",
+         207.0
+        ],
+        [
+         "2026-09-12",
+         198.0
+        ],
+        [
+         "2026-09-19",
+         198.0
+        ],
+        [
+         "2026-09-26",
+         199.0
+        ],
+        [
+         "2026-10-03",
+         198.0
+        ],
+        [
+         "2026-10-10",
+         200.0
+        ],
+        [
+         "2026-10-17",
+         195.0
+        ],
+        [
+         "2026-10-24",
+         195.0
+        ],
+        [
+         "2026-10-31",
+         191.0
+        ],
+        [
+         "2026-11-07",
+         202.0
+        ],
+        [
+         "2026-11-14",
+         203.0
+        ]
+       ],
+       "url": "https://fred.stlouisfed.org/series/ICSA"
+      }
+     ],
+     "principal": false,
+     "fecha": "2026-11-25",
+     "hora_madrid": "14:30",
+     "siguiente": "2026-12-03",
+     "anterior": "2026-11-19"
     },
     {
      "id": "vivienda",
