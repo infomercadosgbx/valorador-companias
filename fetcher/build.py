@@ -10,6 +10,7 @@ from . import news as NEWS
 from . import bonds as BONDS
 from . import insiders as INS
 from . import riskfactors as RISK
+from . import cartera as CART
 from . import segments as SEG
 from . import pressrelease as PR
 from . import validate as V
@@ -446,7 +447,8 @@ def build_company(client, company, price_provider, price_warning=None, previous=
             fyem = X.d(an[-1]["periodo_fin"]).month
         for key, mod, args, nombre in (("segmentos", SEG, {"fye_month": fyem}, "segmentos"),
                                        ("directivos", INS, {}, "operaciones de directivos"),
-                                       ("riesgos_10k", RISK, {}, "cambios en los riesgos del 10-K")):
+                                       ("riesgos_10k", RISK, {}, "cambios en los riesgos del 10-K"),
+                                       ("cartera", CART, {}, "la cartera de participaciones")):
             try:
                 rec[key] = mod.build(client, company["cik"], subs, prev.get(key), **args)
             except Exception as e:  # noqa: BLE001  extras: un fallo solo genera aviso

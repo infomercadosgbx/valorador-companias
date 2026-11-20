@@ -294,6 +294,7 @@ td input[type=text]{width:84px;padding:3px 6px}
 details.box{background:var(--surface);border:1px solid var(--line);border-radius:10px}
 details.box summary{cursor:pointer;padding:10px 14px;font-weight:700;font-size:13px;list-style:none;display:flex;justify-content:space-between}
 details.box summary::after{content:"+";color:var(--muted)} details.box[open] summary::after{content:"–"}
+table.baltab td,table.baltab th{white-space:nowrap} table.baltab tr.balg td{background:var(--surface2,transparent);border-top:1px solid var(--line);padding-top:10px} table.baltab td .note{font-size:11px;margin-top:1px}
 .fields{display:grid;grid-template-columns:minmax(0,1fr) 104px;gap:6px 10px;padding:2px 14px 14px;align-items:center}
 .fields label{font-size:13px}
 .fields .u{color:var(--muted);font-size:11px;margin-left:4px}
@@ -4654,17 +4655,79 @@ R.valuation=()=>{
         drow("eps","BPA próximos 12 meses","Beneficio por acción que esperas para el próximo año.",sub("USD por acción",N("eps",0.01,"BPA próximos 12 meses")))+
         drow("pe","PER objetivo","Cuántas veces el beneficio pagarías por la acción.",sub("veces (x)",N("pe",0.5,"PER objetivo")))+
         drow("evm","EV/EBITDA objetivo","Cuántas veces el EBITDA del año 1 pagarías por la empresa entera (incluida la deuda).",sub("veces (x)",N("evm",0.5,"EV/EBITDA objetivo"))))}
-      <div class="mktline" style="margin:0 14px 14px"><div class="eyebrow">Datos de mercado (automáticos)</div>
+    </details>
+    <details class="box" style="margin-top:14px" id="detBal"${lsGet("valorador.balance")==="1"?" open":""}><summary><span>Datos de mercado y balance <span class="note" style="font-weight:400">· cotización, caja, inversiones, participaciones, deuda y fondo de maniobra (SEC)</span></span></summary>
+      <div class="mktline" style="margin:0 14px 14px"><div class="eyebrow">Lo que entra en el valor por acción</div>
         <div>Cotización <b class="num">${money(v.price)}</b> ${srcTag(P)} · acciones <b class="num">${nf(v.shares,1)} M</b> · caja <b class="num">${nf(v.cash)}</b> · deuda <b class="num">${nf(v.debt)}</b>${v.inv>0?` · participaciones <b class="num">${nf(v.inv)}</b>`:""}${v.pref>0?` · preferentes <b class="num">${nf(v.pref)}</b>`:""} ${MODEL_SEC.every(([k])=>cur._auto[k]||!fin(v[k]))?(Object.keys(cur._adj||{}).length?"(SEC + hechos posteriores)":"(SEC)"):"(con ajustes tuyos)"}</div>
         <details${ovr?" open":""}><summary class="note" style="cursor:pointer">Ajustar acciones, caja o deuda</summary><div class="fields detgrid" style="padding:6px 0 0">${F("shares","Acciones diluidas","M",0.1)}${F("cash","Caja","M",1)}${F("debt","Deuda financiera","M",1)}${F("inv","Participaciones en no cotizadas","M",1)}${F("pref","Acciones preferentes","M",1)}</div>
           <p class="note" style="margin:8px 0 0">${invNote(v)}</p></details>
       </div>
+      <div style="margin:0 14px 14px">${balHtml(cur)}</div>
     </details>
     <div class="ascomment" style="margin-top:14px"><label for="v_comentario"><b>Comentario de los supuestos</b> <span class="note" style="font-weight:400">· por qué pusiste cada supuesto y qué dato te haría cambiarlo. Se guarda con el análisis.</span></label>
       <textarea id="v_comentario" data-p="v.comentario" rows="6" style="margin-top:6px" placeholder="Ej.: Margen final 31% por la robótica y el peso de AWS; revisar con el margen de Norteamérica de cada 10-Q. Capex 13% en 2031: pendiente de la guía de capex 2027 (4T, febrero).">${esc(v.comentario||"")}</textarea></div>
   </section>`;
 };
 /* Explica cómo entran participaciones y preferentes en el valor del accionista */
+/* Desglose del balance en los últimos cierres trimestrales: liquidez, participaciones, deuda y
+   fondo de maniobra. Todo de la SEC (companyfacts; acciones cotizadas y nombres, del XBRL completo). */
+function balHtml(c){
+  const d=c._data; if(!d||!d.balance) return `<p class="empty">Todavía no hay datos de balance.</p>`;
+  const B=d.balance, R=d.resultados||{}, CA=d.cartera||null;
+  const hist=k=>((B[k]&&B[k].historico)||[]).filter(p=>fin(p.valor));
+  const dates=[...new Set(hist("caja").map(p=>p.periodo_fin))].sort().slice(-5);
+  if(!dates.length) return `<p class="empty">Sin saldos de balance recientes.</p>`;
+  const near=(arr,iso)=>arr.find(p=>Math.abs(Date.parse(p.periodo_fin)-Date.parse(iso))<=8*864e5);
+  const at=(k,iso)=>{ const p=near(hist(k),iso); return p?p.valor/M6:null; };
+  const flowAt=(k,iso)=>{ const p=near(((R[k]&&R[k].trimestral)||[]).filter(x=>fin(x.valor)),iso); return p?p.valor/M6:null; };
+  const cartAt=(t,iso)=>CA&&CA.totales&&CA.totales[t]&&near([{periodo_fin:CA.fecha}],iso)?CA.totales[t].valor/M6:null;
+  const cartSrc=t=>CA&&CA.totales&&CA.totales[t]?{fuente:CA.fuente,formulario:CA.formulario,fecha_presentacion:CA.fecha_presentacion,url:CA.url,etiqueta:CA.totales[t].etiqueta,periodo_fin:CA.fecha}:null;
+  const last=k=>{ const h=hist(k); return h.length?h.at(-1):null; };
+  const lastF=k=>((R[k]&&R[k].trimestral)||[]).filter(x=>fin(x.valor)).at(-1)||null;
+  const ratio=(a,b)=>fin(a)&&fin(b)&&b!==0?a/b:null;
+  const coste=iso=>{ const v=at("participaciones",iso), u=at("participaciones_subidas",iso), dn=at("participaciones_bajadas",iso); return fin(v)&&fin(u)?v-u+(fin(dn)?dn:0):null; };
+  const rows=[
+    {g:"Liquidez",n:"Lo que puede usar ya: dinero y activos financieros que se venden en días."},
+    {n:"Efectivo y equivalentes",f:iso=>at("efectivo",iso),s:last("efectivo")},
+    {n:"Inversiones financieras a corto",d:"bonos, depósitos y acciones cotizadas",f:iso=>at("inversiones_corto",iso),s:last("inversiones_corto")},
+    {n:"de ellas, acciones cotizadas",i:1,f:iso=>cartAt("cotizada",iso),s:cartSrc("cotizada"),d:"a valor de mercado"},
+    {n:"Caja e inversiones a corto",b:1,m:"en el modelo",f:iso=>at("caja",iso),s:last("caja")},
+    {g:"Participaciones a largo plazo",n:"Acciones de otras empresas que no cotizan: no están en la caja ni en los flujos del DCF."},
+    {n:"Participaciones en no cotizadas",b:1,m:"en el modelo, menos impuesto latente",f:iso=>at("participaciones",iso),s:last("participaciones")},
+    {n:"coste de compra",i:1,d:"valor contable − revalorización + deterioros",f:coste},
+    {n:"revalorización acumulada",i:1,f:iso=>at("participaciones_subidas",iso),s:last("participaciones_subidas")},
+    {n:"deterioros acumulados",i:1,f:iso=>{const x=at("participaciones_bajadas",iso);return fin(x)?-x:null;},s:last("participaciones_bajadas")},
+    {n:"Participaciones por el método de la participación",d:"influencia significativa; su resultado ya va en la cuenta de resultados",f:iso=>cartAt("metodo_participacion",iso),s:cartSrc("metodo_participacion")},
+    {n:"Ganancias o pérdidas de las participaciones",d:"del trimestre, con la etiqueta estándar de la SEC; algunas compañías anotan las de las no cotizadas en otra partida",f:iso=>flowAt("ganancias_inversiones",iso),s:lastF("ganancias_inversiones")},
+    {g:"Deuda",n:"Lo que debe a bancos y bonistas, y lo que pertenece a otros inversores."},
+    {n:"Deuda a corto plazo",d:"vence en menos de un año",f:iso=>at("deuda_corto",iso),s:last("deuda_corto")},
+    {n:"Deuda financiera total",b:1,m:"en el modelo",f:iso=>at("deuda",iso),s:last("deuda")},
+    {n:"Acciones preferentes",m:"en el modelo",f:iso=>at("preferentes",iso),s:last("preferentes")},
+    {n:"Caja neta (+) o deuda neta (−)",b:1,f:iso=>{const a=at("caja",iso),b=at("deuda",iso);return fin(a)&&fin(b)?a-b:null;}},
+    {g:"Fondo de maniobra",n:"Activo corriente menos pasivo corriente: lo que le queda para operar si pagara hoy todo lo que vence en un año."},
+    {n:"Activo corriente",f:iso=>at("activo_corriente",iso),s:last("activo_corriente")},
+    {n:"Pasivo corriente",f:iso=>at("pasivo_corriente",iso),s:last("pasivo_corriente")},
+    {n:"Fondo de maniobra",b:1,f:iso=>{const a=at("activo_corriente",iso),b=at("pasivo_corriente",iso);return fin(a)&&fin(b)?a-b:null;}},
+    {n:"Liquidez (activo / pasivo corriente)",u:"x",f:iso=>ratio(at("activo_corriente",iso),at("pasivo_corriente",iso))},
+    {n:"Caja e inversiones sobre el activo corriente",u:"%",f:iso=>{const r=ratio(at("caja",iso),at("activo_corriente",iso));return fin(r)?r*100:null;}},
+  ];
+  const fmt=(x,u)=>!fin(x)?"–":u==="x"?nf(x,2)+"x":u==="%"?pct(x,0):nf(x);
+  let html=`<div class="scroll"><table class="baltab"><thead><tr><th style="text-align:left">${esc(ccy())} M</th>${dates.map(iso=>`<th>${fecha(iso)}</th>`).join("")}<th style="text-align:left">Fuente</th></tr></thead><tbody>`;
+  let pendingG=null;
+  rows.forEach(r=>{
+    if(r.g){ pendingG=r; return; }
+    const vals=dates.map(iso=>r.f(iso));
+    if(!vals.some(fin)) return;
+    if(pendingG){ html+=`<tr class="balg"><td colspan="${dates.length+2}"><b>${pendingG.g}</b> <span class="note">· ${pendingG.n}</span></td></tr>`; pendingG=null; }
+    html+=`<tr class="${r.b?"em":""}"><td style="text-align:left;white-space:normal;${r.i?"padding-left:22px":""}">${r.i?"· ":""}${esc(r.n)}${r.m?` <span class="pill mid" style="font-size:10px">${esc(r.m)}</span>`:""}${r.d?`<div class="note">${esc(r.d)}</div>`:""}</td>${vals.map(x=>`<td>${fmt(x,r.u)}</td>`).join("")}<td style="text-align:left">${r.s?srcTag(r.s):'<span class="note">cálculo</span>'}</td></tr>`;
+  });
+  html+=`</tbody></table></div>`;
+  const det=(CA&&CA.detalle)||[], TT={cotizada:"cotizada",no_cotizada:"no cotizada",metodo_participacion:"método de la participación"};
+  if(det.length) html+=`<p class="note" style="margin:8px 0 0"><b>Participaciones que la compañía identifica por nombre</b> (${esc(CA.formulario)} a ${fecha(CA.fecha)}): ${det.map(x=>`${esc(x.nombre)} <b class="num">${nf(x.valor/M6)} M</b> (${TT[x.tipo]||x.tipo})`).join(" · ")}. Las no cotizadas casi nunca se publican por nombre; la prensa y el propio informe suelen decir de cuál se trata.</p>`;
+  const gt=R.ganancias_inversiones&&R.ganancias_inversiones.ttm;
+  if(gt&&fin(gt.valor)) html+=`<p class="note" style="margin:6px 0 0">Ganancias o pérdidas de las participaciones en los últimos 12 meses: <b class="num">${nf(gt.valor/M6)} M</b> ${srcTag(gt)}. Son en su mayoría revalorizaciones contables, sin entrada de caja hasta que se venden.</p>`;
+  return html;
+}
 function invNote(v){
   const t=[];
   if(v.inv>0){ const tax=v.inv-invNet(v);
@@ -5596,7 +5659,7 @@ document.addEventListener("keydown",ev=>{ if(ev.key==="Escape"&&$("mkpop")){ mkP
 document.addEventListener("pointerdown",e=>{ if($("mkpop")&&!e.target.closest("#mkpop")&&!e.target.closest("[data-mki]")) mkPopClose(); },true);
 addEventListener("resize",()=>mkPopClose()); addEventListener("scroll",e=>{ if(innerWidth>560&&$("mkpop")&&!(e.target&&e.target.closest&&e.target.closest("#mkpop"))) mkPopClose(); },true);
 try{ matchMedia("(prefers-color-scheme: dark)").addEventListener("change",()=>{ if(MAPA.abierto&&$("mkmapBox")) mapaCargar(); }); }catch(e){}
-document.addEventListener("toggle",e=>{ const d=e.target; if(d&&d.id==="peerCards") lsSet("valorador.peercards",d.open?"1":"0"); if(d&&d.id==="warnDet") lsSet("valorador.avisosabiertos",d.open?"1":"0"); if(d&&d.id==="keyAs") lsSet("valorador.supclave",d.open?"1":"0"); if(d&&d.id==="srcKeys") lsSet("valorador.srckeys",d.open?"1":"0"); if(d&&d.id==="srcWarn") lsSet("valorador.srcwarn",d.open?"1":"0"); if(d&&d.id==="autoList") lsSet("valorador.autolist",d.open?"1":"0"); if(d&&d.id==="socialBox") lsSet("valorador.social",d.open?"1":"0"); if(d&&d.id==="glossary"){ lsSet("valorador.glosario",d.open?"1":"0"); const n=d.querySelector(".glsum .note"); if(n) n.textContent=n.textContent.replace(/pulsa para (plegar|desplegar)/,d.open?"pulsa para plegar":"pulsa para desplegar"); } },true);
+document.addEventListener("toggle",e=>{ const d=e.target; if(d&&d.id==="peerCards") lsSet("valorador.peercards",d.open?"1":"0"); if(d&&d.id==="warnDet") lsSet("valorador.avisosabiertos",d.open?"1":"0"); if(d&&d.id==="keyAs") lsSet("valorador.supclave",d.open?"1":"0"); if(d&&d.id==="detBal") lsSet("valorador.balance",d.open?"1":"0"); if(d&&d.id==="srcKeys") lsSet("valorador.srckeys",d.open?"1":"0"); if(d&&d.id==="srcWarn") lsSet("valorador.srcwarn",d.open?"1":"0"); if(d&&d.id==="autoList") lsSet("valorador.autolist",d.open?"1":"0"); if(d&&d.id==="socialBox") lsSet("valorador.social",d.open?"1":"0"); if(d&&d.id==="glossary"){ lsSet("valorador.glosario",d.open?"1":"0"); const n=d.querySelector(".glsum .note"); if(n) n.textContent=n.textContent.replace(/pulsa para (plegar|desplegar)/,d.open?"pulsa para plegar":"pulsa para desplegar"); } },true);
 window.addEventListener("hashchange",()=>{ if(store.current&&location.hash!=="#"+curHash()){ applyHash(); syncUrl(true); } });
 try{const mq=matchMedia("(prefers-color-scheme: dark)"); mq.addEventListener("change",()=>rebuildCharts());}catch(e){}
 new MutationObserver(()=>{rebuildCharts(); if(TAB==="valuation") drawFootball();}).observe(document.documentElement,{attributes:true,attributeFilter:["data-theme"]});

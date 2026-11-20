@@ -188,6 +188,24 @@ INSTANT_CONCEPTS = {
         ],
         "assume_zero_if_missing": True,
     },
+    # Desglose de la caja y de la deuda (Valoración → balance), con su evolución trimestral
+    "efectivo": {
+        "nombre": "Efectivo y equivalentes", "opcional": True,
+        "strategies": [{"required": ["CashAndCashEquivalentsAtCarryingValue"], "optional": []}],
+    },
+    "inversiones_corto": {
+        "nombre": "Inversiones financieras a corto", "opcional": True,
+        "strategies": [{"required": ["MarketableSecuritiesCurrent"], "optional": []},
+                       {"required": ["ShortTermInvestments"], "optional": []},
+                       {"required": ["AvailableForSaleSecuritiesDebtSecuritiesCurrent"], "optional": []}],
+    },
+    "deuda_corto": {
+        "nombre": "Deuda a corto plazo", "opcional": True,
+        "strategies": [{"required": ["LongTermDebtCurrent"], "optional": [],
+                        "extra": [["ShortTermBorrowings", "CommercialPaper"]]},
+                       {"required": ["DebtCurrent"], "optional": []},
+                       {"required": ["ShortTermBorrowings"], "optional": [], "extra": [["CommercialPaper"]]}],
+    },
     # Participaciones en empresas no cotizadas (Anthropic en Alphabet y Amazon). No están en la
     # caja ni en el DCF, que solo valora el negocio: el valor del patrimonio las suma aparte.
     # Las cotizadas (SpaceX en Alphabet) ya van dentro de «caja» como valores negociables.

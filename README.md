@@ -114,6 +114,8 @@ Al final de cada revisión (apartado 8 de `propuestas/INSTRUCCIONES.md`):
 
 **Participaciones y preferentes.** El DCF solo valora el negocio, así que el valor del accionista es: valor de empresa + caja − deuda + participaciones − preferentes. Las **participaciones en no cotizadas** (Anthropic en Alphabet y Amazon) salen de la SEC (`EquitySecuritiesWithoutReadilyDeterminableFairValueAmount`, más inversiones por el método de la participación) y se les resta el impuesto latente de su revalorización acumulada al 21% federal, cuando la compañía la publica (subidas menos deterioros acumulados). Las **acciones preferentes** (convertibles obligatorias de Alphabet, preferentes de Vistra u Oracle) se restan como la deuda. Las acciones **cotizadas** en cartera (SpaceX en Alphabet) ya están dentro de la caja como valores negociables. Las cinco cifras siguen a la SEC, se pueden ajustar a mano y avisan igual si se alejan más de un 20%.
 
+En *Valoración → Datos de mercado y balance* está el desglose de los últimos cinco cierres trimestrales: efectivo, inversiones a corto (y de ellas, acciones cotizadas), participaciones no cotizadas con su coste, revalorización y deterioros, ganancias o pérdidas de la cartera, deuda a corto y total, preferentes, caja o deuda neta y fondo de maniobra con su ratio de liquidez. Las acciones cotizadas y las participaciones que la compañía identifica por nombre (SpaceX en Alphabet) se leen del XBRL completo del último informe (`data/<T>.json → cartera`).
+
 ## Informe de resultados (PDF por presentación)
 
 Cada vez que una compañía presenta resultados se genera un informe de 3 páginas A4 en `resultados.html` y su PDF en `data/resultados/<TICKER>/<periodo>.pdf`:
