@@ -32,7 +32,7 @@ Compañías: solo las **activas** de `companies.json`. Las archivadas no se toca
 
 Las compañías cuyo `companies.json → repaso` es hoy (`python scripts/senales.py --repaso --json`), con ventana de 7 días:
 
-1. **Webs oficiales** (`companies.json → webs_oficiales`): productos, presentación a inversores, día del inversor, casos de clientes, pipeline → Negocio, MOAT y Crecimiento.
+1. **Webs oficiales** (`companies.json → webs_oficiales`): productos, presentación a inversores, día del inversor, casos de clientes, pipeline → Negocio, MOAT y Crecimiento. Si falta alguna página oficial útil, se añade a `webs_oficiales` (hasta cinco por semana; `ACTUALIZACION_COMPLETA.md`, 7.3).
 2. **Mercado**: prensa financiera y sectorial, alertas de Gmail que la nombren, competidores, analistas (consenso en `manual/<T>.json`) y redes solo para el tono.
 3. **Todas las pestañas al día** con los datos oficiales que A ha ido subiendo y B ha comprobado durante la semana: tesis (sin precio), textos del veredicto, noticias de impacto (`sources.news`), riesgos.
 4. Cierra con `meta.asOf` y **`meta.repasoFondo`** = hoy (la web lo enseña como «repaso a fondo hoy / hace X días») y `python scripts/senales.py --marcar <T>`.

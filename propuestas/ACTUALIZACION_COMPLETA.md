@@ -15,7 +15,7 @@ El resultado es siempre una **propuesta** en `propuestas/<T>.json`; tú **nunca*
 
 Una compañía que entra en la lista (`companies.json → alta`, puesta por el workflow «Añadir compañía») o que vuelve tras estar archivada (`reactivada`) tiene que quedar **con la misma calidad que las que ya se siguen**. Si su fecha de `alta` o `reactivada` es posterior a `propuestas/_estado.json → repaso_completo.<T>` (o no hay), la revisión de la mañana le hace, ese mismo día y antes que nada:
 
-1. **Configuración** (en `companies.json`, la única vez que la tarea toca ese archivo, y solo estos campos de esa compañía): `webs_oficiales` (productos, relación con inversores, día del inversor, blog técnico, casos de clientes, pipeline; compruébalas con WebSearch y WebFetch, y al día siguiente mira en `lecturas/_estado.json` que el robot las descarga; si una sigue fallando, añádele `"alternativas": [<otras páginas oficiales con el mismo contenido>]`), `newsroom` (feed RSS de la sala de prensa, o `gnews:site:<dominio>` si no tiene), `medios` sectoriales (ids de `fetcher/news.py`), `alias` si se la conoce por otros nombres, y `repaso` si falta (el día con menos compañías activas). Conserva el formato de una compañía por línea (`fetcher/add_company.py → dump_companies`).
+1. **Configuración** (en `companies.json`, solo estos campos de esa compañía; fuera del alta o la reactivación, la tarea solo toca `webs_oficiales`, en el repaso semanal: apartado 7.3): `webs_oficiales` (productos, relación con inversores, día del inversor, blog técnico, casos de clientes, pipeline; compruébalas con WebSearch y WebFetch, y al día siguiente mira en `lecturas/_estado.json` que el robot las descarga; si una sigue fallando, añádele `"alternativas": [<otras páginas oficiales con el mismo contenido>]`), `newsroom` (feed RSS de la sala de prensa, o `gnews:site:<dominio>` si no tiene), `medios` sectoriales (ids de `fetcher/news.py`), `alias` si se la conoce por otros nombres, y `repaso` si falta (el día con menos compañías activas). Conserva el formato de una compañía por línea (`fetcher/add_company.py → dump_companies`).
 2. **Repaso completo de las 10 pestañas** con este documento (apartados 1 a 4) y el apartado 7.1 (fuentes del repaso): ventana de 6 meses en una compañía nueva; desde `archivada.desde` (o `meta.asOf`) en una reactivada, revisando todo lo publicado mientras estuvo archivada. En una reactivada, conserva el análisis y los supuestos del usuario y actualiza lo que haya cambiado.
 3. **Auditoría oficial** (`INSTRUCCIONES.md`, 8.7), calidad del dato (8.2) con todos sus avisos, y la verificación independiente de todo (8.5).
 4. **Consenso de analistas** en `manual/<T>.json` (5 bis) y, si hay resultados recientes, la traducción de la nota (5).
@@ -166,6 +166,16 @@ El repaso incluye la **revisión de internet de la semana** de esas compañías 
 Todo con `tipo` `hecho` o `texto` (apartado 8.1 de `INSTRUCCIONES.md`), fuente con enlace y fecha, y la verificación independiente del 8.5. Conserva lo que sigue siendo válido: no reescribas una pestaña entera si basta con corregir un elemento. Cierra siempre con `meta.asOf` y `meta.repasoFondo` = hoy (`tipo` `hecho`): la web enseña la fecha del repaso a fondo en la lista y en la cabecera de la compañía.
 
 `motivo`: «Repaso semanal a fondo (<grupo>)». Commit: `Repaso semanal: <T1>, <T2>, <T3>`.
+
+### 7.3 Completar las webs oficiales (desde el 20-nov-2026)
+
+En el repaso semanal de cada compañía, después de leer `lecturas/<T>/web_*.txt`, comprueba si a `companies.json → webs_oficiales` le falta alguna página oficial útil para Negocio, MOAT o Crecimiento: productos o servicios, generación o mapa de activos, marcas, casos de clientes, pipeline, blog técnico, notas de prensa, eventos y presentaciones, día del inversor. Pistas: la lista de enlaces al final de cada `web_*.txt` y una WebSearch acotada al dominio de la compañía.
+
+- Añade como mucho **cinco páginas por compañía y semana**, solo del dominio de la compañía o de sus subdominios oficiales, con `{"t": "<qué es, en español>", "u": "<dirección>"}`. Comprueba antes que existen (que salgan en una WebSearch del dominio). Si la dirección sale con y sin «www», pon la otra en `"alternativas"`.
+- No añadas PDF (el robot solo copia HTML), páginas legales, de empleo, de privacidad ni de sostenibilidad genérica, ni webs que no sean de la compañía.
+- No quites ninguna web existente. Si una lleva dos semanas fallando en `lecturas/_estado.json` (`ok: false`) o con `poco_texto: true`, añádele `alternativas` con otra página oficial del mismo contenido y dilo en el resumen.
+- Solo se toca `webs_oficiales` de esa compañía, conservando el formato de una compañía por línea (`fetcher/add_company.py → dump_companies`), y se valida con `python -m json.tool companies.json`.
+- Commit aparte: `Webs oficiales: <T> (+<n>)`. En el resumen, qué páginas se añadieron; el día siguiente el robot las descarga y el próximo repaso ya las lee.
 
 ## 8. Cierre semanal (viernes, al final)
 
