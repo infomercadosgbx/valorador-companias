@@ -102,6 +102,9 @@ function skSvg(M,C){
     M.items.forEach((x,i)=>{ N("x"+i,3,x.v,x.n,BAD,m(x.v)+" de ingresos"); F("costs","x"+i,x.v,BAD); });
     N("net",4,Math.abs(M.net),M.net>=0?"Beneficio neto":"Pérdida neta",M.net>=0?GOOD:LOSS,(M.nonop>=0?"+":"−")+nf(Math.abs(M.nonop))+" no operativo · "+nf(M.tax)+" impuestos");
   }
+  /* parte un nombre en dos líneas: corta antes de un paréntesis o en el último espacio que quepa */
+  const wrap2=(t,max)=>{ const p=t.indexOf(" ("); if(p>0&&p<=max) return [t.slice(0,p),t.slice(p+1)];
+    let i=t.lastIndexOf(" ",Math.max(1,Math.min(max,t.length-1))); if(i<=0) i=t.indexOf(" "); return i>0?[t.slice(0,i),t.slice(i+1)]:[t,""]; };
   /* columnas: x y escala común */
   const cols=[...new Set(nodes.map(n=>n.col))].sort((a,b)=>a-b), X={}; const tw=n=>Math.max((String(n.lab).length+nf(n.v).length+1)*7.4,String(n.sub||"").length*6.4)+16;
   const L=seg?Math.min(280,Math.max(110,...nodes.filter(n=>n.col===0).map(tw))):30, Rm=Math.min(320,Math.max(150,...nodes.filter(n=>n.col===Math.max(...nodes.map(x=>x.col))).map(tw)));
@@ -117,8 +120,12 @@ function skSvg(M,C){
   const lastCol=cols.at(-1); let ly=-1e9; const boxes=[];
   const labs=nodes.map(n=>{ const val=nf(n.v), first=n.col===cols[0]&&seg;
     if(n.col===lastCol||first){ let cy=n.y+n.h/2; if(!first){ cy=Math.max(cy,ly+30); ly=cy; }
-      const x=first?n.x-8:n.x+nw+8, a=first?"end":"start";
-      return `<text x="${x}" y="${cy-3}" text-anchor="${a}" font-size="12.5" font-weight="700" fill="${INK}">${esc(n.lab)} <tspan font-family="JetBrains Mono,monospace" font-weight="600">${val}</tspan></text>${n.sub?`<text x="${x}" y="${cy+12}" text-anchor="${a}" font-size="11" fill="${MUT}">${esc(n.sub)}</text>`:""}`; }
+      const x=first?n.x-8:n.x+nw+8, a=first?"end":"start", room=(first?L:Rm)-14;
+      const VAL=`<tspan font-family="JetBrains Mono,monospace" font-weight="600">${val}</tspan>`;
+      if((String(n.lab).length+val.length+1)*7.4>room){   /* no cabe en una línea: nombre en dos y la cifra al final */
+        const [l1,l2]=wrap2(String(n.lab),Math.floor(room/7.4)), y0=cy-(n.sub?10:9);
+        return `<text x="${x}" y="${y0}" text-anchor="${a}" font-size="12.5" font-weight="700" fill="${INK}">${esc(l1)}<tspan x="${x}" dy="15">${esc(l2)} ${VAL}</tspan></text>${n.sub?`<text x="${x}" y="${y0+29}" text-anchor="${a}" font-size="11" fill="${MUT}">${esc(n.sub)}</text>`:""}`; }
+      return `<text x="${x}" y="${cy-3}" text-anchor="${a}" font-size="12.5" font-weight="700" fill="${INK}">${esc(n.lab)} ${VAL}</text>${n.sub?`<text x="${x}" y="${cy+12}" text-anchor="${a}" font-size="11" fill="${MUT}">${esc(n.sub)}</text>`:""}`; }
     let ty=n.y-20; const w=Math.max(String(n.lab).length*7.4,(val.length+(n.sub?n.sub.length+3:0))*7)/2;
     for(let k=0;k<4;k++){ const hit=boxes.find(b=>Math.abs(b.x-(n.x+nw/2))<b.w+w+6&&Math.abs(b.y-ty)<30); if(!hit) break; ty=hit.y-32; }
     boxes.push({x:n.x+nw/2,y:ty,w});
