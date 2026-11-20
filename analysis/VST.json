@@ -123,7 +123,7 @@
   "customerTypes": [
    {
     "n": "Hogares y pymes",
-    "d": "~5 millones de clientes residenciales, comerciales e industriales con marcas como TXU Energy, en Texas y otros estados."
+    "d": "Casi 5 millones de clientes residenciales, comerciales e industriales de electricidad y gas natural en 16 estados y Washington D.C., con seis marcas: TXU Energy (Texas), Dynegy (Noreste, Atlántico Medio y Medio Oeste), Homefield Energy (Illinois), Energy Harbor, Ambit Energy (venta directa con consultores independientes) y U.S. Gas & Electric. Ofrece más de 50 planes de energía renovable y ahorro."
    },
    {
     "n": "Hiperescaladores",
@@ -266,7 +266,7 @@
    {
     "n": "Escala eficiente",
     "s": 4,
-    "note": "Unos 49.000 MW ya construidos (6.448 MW nucleares en Comanche Peak, Beaver Valley, Perry y Davis-Besse): difíciles de replicar, la nuclear casi imposible"
+    "note": "Unos 49.000 MW ya construidos (6.448 MW nucleares en Comanche Peak, Beaver Valley, Perry y Davis-Besse), en todos los grandes mercados mayoristas libres de EE. UU.; según la compañía, la segunda mayor flota nuclear de mercado libre del país. Difíciles de replicar, la nuclear casi imposible"
    }
   ],
   "comps": [
@@ -1865,6 +1865,120 @@
    },
    "verificacion": "Fecha de hoy, 2026-11-20: correcta.",
    "motivo": "Repaso semanal a fondo (energía)"
+  },
+  {
+   "fecha": "2026-11-20",
+   "campo": "business.customerTypes",
+   "antes": [
+    {
+     "n": "Hogares y pymes",
+     "d": "~5 millones de clientes residenciales, comerciales e industriales con marcas como TXU Energy, en Texas y otros estados."
+    },
+    {
+     "n": "Hiperescaladores",
+     "d": "Amazon (1.200 MW de Comanche Peak) y Meta (más de 2.600 MW en PJM), 20 años; Microsoft compra la energía de la solar de Pulaski (405 MW)."
+    },
+    {
+     "n": "Mercados mayoristas",
+     "d": "ERCOT (Texas) y PJM (Este de EE. UU.): energía y capacidad."
+    },
+    {
+     "n": "Industria",
+     "d": "Clientes grandes con contratos de suministro."
+    }
+   ],
+   "despues": [
+    {
+     "n": "Hogares y pymes",
+     "d": "Casi 5 millones de clientes residenciales, comerciales e industriales de electricidad y gas natural en 16 estados y Washington D.C., con seis marcas: TXU Energy (Texas), Dynegy (Noreste, Atlántico Medio y Medio Oeste), Homefield Energy (Illinois), Energy Harbor, Ambit Energy (venta directa con consultores independientes) y U.S. Gas & Electric. Ofrece más de 50 planes de energía renovable y ahorro."
+    },
+    {
+     "n": "Hiperescaladores",
+     "d": "Amazon (1.200 MW de Comanche Peak) y Meta (más de 2.600 MW en PJM), 20 años; Microsoft compra la energía de la solar de Pulaski (405 MW)."
+    },
+    {
+     "n": "Mercados mayoristas",
+     "d": "ERCOT (Texas) y PJM (Este de EE. UU.): energía y capacidad."
+    },
+    {
+     "n": "Industria",
+     "d": "Clientes grandes con contratos de suministro."
+    }
+   ],
+   "porque": "La web oficial detalla las seis marcas minoristas, los 16 estados más Washington D.C. y los más de 50 planes renovables.",
+   "fuente": {
+    "t": "Web oficial de Vistra: Minorista (Retail)",
+    "u": "https://www.vistracorp.com/retail/",
+    "d": "20-nov-2026"
+   },
+   "verificacion": "Web Minorista: TXU (Texas), Dynegy (Noreste, Atlántico Medio, Medio Oeste), Homefield (Illinois), Energy Harbor, Ambit (venta directa, consultores independientes), U.S. Gas & Electric; 16 estados y D.C.; casi 5 M clientes de electricidad y gas; más de 50 planes renovables y de ahorro. Solo cambia el primer elemento; resto idéntico.",
+   "motivo": "Webs oficiales nuevas: minorista y compañía"
+  },
+  {
+   "fecha": "2026-11-20",
+   "campo": "moat.sources",
+   "antes": [
+    {
+     "n": "Efecto red",
+     "s": 1,
+     "note": "No aplica: la electricidad es un producto homogéneo"
+    },
+    {
+     "n": "Costes de cambio",
+     "s": 2,
+     "note": "Los clientes minoristas de Texas pueden cambiar de comercializadora"
+    },
+    {
+     "n": "Activos intangibles",
+     "s": 3,
+     "note": "Licencias nucleares, permisos y la marca TXU Energy"
+    },
+    {
+     "n": "Ventaja de costes",
+     "s": 4,
+     "note": "Nuclear amortizada con coste variable muy bajo"
+    },
+    {
+     "n": "Escala eficiente",
+     "s": 4,
+     "note": "Unos 49.000 MW ya construidos (6.448 MW nucleares en Comanche Peak, Beaver Valley, Perry y Davis-Besse): difíciles de replicar, la nuclear casi imposible"
+    }
+   ],
+   "despues": [
+    {
+     "n": "Efecto red",
+     "s": 1,
+     "note": "No aplica: la electricidad es un producto homogéneo"
+    },
+    {
+     "n": "Costes de cambio",
+     "s": 2,
+     "note": "Los clientes minoristas de Texas pueden cambiar de comercializadora"
+    },
+    {
+     "n": "Activos intangibles",
+     "s": 3,
+     "note": "Licencias nucleares, permisos y la marca TXU Energy"
+    },
+    {
+     "n": "Ventaja de costes",
+     "s": 4,
+     "note": "Nuclear amortizada con coste variable muy bajo"
+    },
+    {
+     "n": "Escala eficiente",
+     "s": 4,
+     "note": "Unos 49.000 MW ya construidos (6.448 MW nucleares en Comanche Peak, Beaver Valley, Perry y Davis-Besse), en todos los grandes mercados mayoristas libres de EE. UU.; según la compañía, la segunda mayor flota nuclear de mercado libre del país. Difíciles de replicar, la nuclear casi imposible"
+    }
+   ],
+   "porque": "La web oficial respalda la escala: ~49.000 MW en todos los grandes mercados mayoristas libres y la segunda flota nuclear de mercado libre del país (puntuación sin cambios).",
+   "fuente": {
+    "t": "Web oficial de Vistra: La compañía (Our Company)",
+    "u": "https://www.vistracorp.com/about/",
+    "d": "20-nov-2026"
+   },
+   "verificacion": "Web La compañía: ~49.000 MW, todos los grandes mercados mayoristas libres y segunda flota nuclear de mercado libre; 6.448 MW y centrales ya estaban en el análisis. Solo cambia la nota de Escala eficiente; puntuaciones sin cambios.",
+   "motivo": "Webs oficiales nuevas: minorista y compañía"
   }
  ]
 }
