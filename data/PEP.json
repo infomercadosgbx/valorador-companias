@@ -8887,7 +8887,15 @@
    ]
   },
   "participaciones": {
-   "nombre": "Participaciones en empresas no cotizadas",
+   "nombre": "Participaciones fuera de la caja",
+   "unidad": "USD",
+   "ultimo": null,
+   "historico": [],
+   "asumido": false,
+   "anual": []
+  },
+  "cotizadas_largo": {
+   "nombre": "Acciones cotizadas a largo plazo",
    "unidad": "USD",
    "ultimo": null,
    "historico": [],
@@ -13424,12 +13432,80 @@
    }
   },
   "detalle": [],
-  "version": 1,
   "accn": "0000077476-26-000048",
   "fuente": "SEC EDGAR · 10-Q (XBRL)",
   "formulario": "10-Q",
   "fecha_presentacion": "2026-10-08",
-  "url": "https://www.sec.gov/Archives/edgar/data/77476/000007747626000048/0000077476-26-000048-index.htm"
+  "url": "https://www.sec.gov/Archives/edgar/data/77476/000007747626000048/0000077476-26-000048-index.htm",
+  "version": 2,
+  "informes_accn": [
+   "0000077476-26-000048",
+   "0000077476-26-000035",
+   "0000077476-26-000017",
+   "0000077476-26-000007"
+  ],
+  "historico": [
+   {
+    "fecha": "2025-12-27",
+    "totales": {
+     "metodo_participacion": {
+      "valor": 2038000000.0,
+      "etiqueta": "us-gaap:EquityMethodInvestments"
+     }
+    },
+    "detalle": [],
+    "accn": "0000077476-26-000007",
+    "fuente": "SEC EDGAR · 10-K (XBRL)",
+    "formulario": "10-K",
+    "fecha_presentacion": "2026-02-03",
+    "url": "https://www.sec.gov/Archives/edgar/data/77476/000007747626000007/0000077476-26-000007-index.htm"
+   },
+   {
+    "fecha": "2026-03-21",
+    "totales": {
+     "metodo_participacion": {
+      "valor": 2135000000.0,
+      "etiqueta": "us-gaap:EquityMethodInvestments"
+     }
+    },
+    "detalle": [],
+    "accn": "0000077476-26-000017",
+    "fuente": "SEC EDGAR · 10-Q (XBRL)",
+    "formulario": "10-Q",
+    "fecha_presentacion": "2026-04-16",
+    "url": "https://www.sec.gov/Archives/edgar/data/77476/000007747626000017/0000077476-26-000017-index.htm"
+   },
+   {
+    "fecha": "2026-06-13",
+    "totales": {
+     "metodo_participacion": {
+      "valor": 2180000000.0,
+      "etiqueta": "us-gaap:EquityMethodInvestments"
+     }
+    },
+    "detalle": [],
+    "accn": "0000077476-26-000035",
+    "fuente": "SEC EDGAR · 10-Q (XBRL)",
+    "formulario": "10-Q",
+    "fecha_presentacion": "2026-07-09",
+    "url": "https://www.sec.gov/Archives/edgar/data/77476/000007747626000035/0000077476-26-000035-index.htm"
+   },
+   {
+    "fecha": "2026-09-05",
+    "totales": {
+     "metodo_participacion": {
+      "valor": 2215000000.0,
+      "etiqueta": "us-gaap:EquityMethodInvestments"
+     }
+    },
+    "detalle": [],
+    "accn": "0000077476-26-000048",
+    "fuente": "SEC EDGAR · 10-Q (XBRL)",
+    "formulario": "10-Q",
+    "fecha_presentacion": "2026-10-08",
+    "url": "https://www.sec.gov/Archives/edgar/data/77476/000007747626000048/0000077476-26-000048-index.htm"
+   }
+  ]
  },
  "precio": {
   "minimo_52s": 123.47,
@@ -13555,6 +13631,26 @@
  ],
  "noticias": [
   {
+   "titular": "A $1,500,000 Portfolio in HP, Truist and PepsiCo Pays $65,144 a Year in Dividends. Here’s What Happens if One Cuts",
+   "medio": "Yahoo Finance",
+   "url": "https://www.tikr.com/blog/a-1500000-portfolio-in-hp-truist-and-pepsico-pays-62223-a-year-in-dividends-heres-what-happens-if-one-cuts?ref=yahoofinancedividend&tlnk=yf-261120-hcv8243w&.tsrc=rss",
+   "fecha": "2026-11-20",
+   "resumen": "Key TakeawaysA hypothetical $1,500,000 portfolio split evenly across HP, Truist Financial and PepsiCo pays about $65,100 a year in dividends at today’s prices, or about $5,430 a month. HP’s dividend looks the safest of the three, taking 28% of free cash flow over the trailing twe",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=fc9fc53afe01a768905b9beae3e59ead32ef790a4528b34f6e1b96c9f6fe4a5f"
+  },
+  {
+   "titular": "Wall Street Wrap: ASTS, BE, MDB Stocks Win Bullish Calls As PEP, USAR, SMMT Face Downgrades",
+   "medio": "Yahoo Finance",
+   "url": "https://stocktwits.com/news-articles/markets/equity/wall-street-wrap-asts-be-mdb-stocks-win-bullish-calls-as-pep-usar-smmt-face-downgrades/cNbSfrjR9KN",
+   "fecha": "2026-11-20",
+   "resumen": "Analysts showed more confidence in growth stocks while turning cautious on companies facing execution challenges.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=3aecd58546fd78360f762e25aabf173c6936d134c42d4c4737bc0c0a8aab4c0f"
+  },
+  {
    "titular": "Hyatt and PepsiCo Enter New Chapter with a 10-Year Collaboration Supporting Guest Experience and Growth Across 700+ Properties in the United States – Company Announcement - FT.com",
    "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNdTlGbkF3am9FaFJ6SVJZXzdUaVlCZGpKOWxCRWxuYUlUbmNXNmxUbFBnb0ZlX2RvZUtFV2xiNFh3RUpkdkFyWktvNFJhdGRvQkQ5Tmk2RTRCWDBuY3ktQkxDUUF6OXZoQldFMlMxZlh5QWxZbFVzM0RrQlFDSjFCeXBNSUpHenF2SmtyN0gyRGp3Rm1SQlp4VQ?oc=5",
    "fecha": "2026-11-19",
@@ -13611,26 +13707,6 @@
    "tipo": "prensa",
    "via": "Finnhub",
    "url_finnhub": "https://finnhub.io/api/news?id=fc068ca4d8cd9a858ef562fe81930a0b298290dd6203ea31b4c30eca5c23920c"
-  },
-  {
-   "titular": "Bernstein Sees Trouble Ahead for PepsiCo (PEP). Here’s Where.",
-   "medio": "Yahoo Finance",
-   "url": "https://finance.yahoo.com/markets/stocks/articles/bernstein-sees-trouble-ahead-pepsico-150544527.html",
-   "fecha": "2026-11-19",
-   "resumen": "We just published a list of the 10 Stocks Analysts Downgraded On Tuesday and PepsiCo (NASDAQ:PEP) ranked 10th on this list. Stocks began the week with a sell-off. The S&P 500 fell 1.9% on Monday to 7,416.59. The pressure comes from interest rates. The Federal Reserve has raised t",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=eb5b2a2f4a53da1007b79f2dbedd2b5fc22e7a4dea8ce4e7366c76993192cd64"
-  },
-  {
-   "titular": "Bernstein Sees PepsiCo Falling to $128. Its North America Business Is the Reason",
-   "medio": "Yahoo Finance",
-   "url": "https://www.tikr.com/blog/bernstein-sees-pepsico-falling-to-128-its-north-america-business-is-the-reason?ref=yahoofinance&tlnk=yf-261119-2vc8vjgj&.tsrc=rss",
-   "fecha": "2026-11-19",
-   "resumen": "Key TakeawaysBernstein downgraded PepsiCo to Underperform and cut its target to $128, citing weak North American demand that it expects to keep costing volume and share. North American beverage volume fell 2% in the third quarter, while international revenue grew 9.",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=264c5198a90fa97daaf053db9564e624479cfad5a3a9b6331d49b5b2280e6161"
   },
   {
    "titular": "This Coca-Cola Analyst Begins Coverage On A Bullish Note; Here Are Top 5 Initiations For Wednesday",
@@ -19187,7 +19263,7 @@
   "fecha": "2026-11-19",
   "ajuste": "splits"
  },
- "generado": "2026-11-20T11:58:12+00:00",
+ "generado": "2026-11-20T12:41:08+00:00",
  "peers": {
   "fuente_lista": "manual",
   "fuente_cifras": "SEC EDGAR (companyfacts, UDM) · precio Finnhub",

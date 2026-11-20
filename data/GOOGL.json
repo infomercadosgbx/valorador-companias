@@ -9160,7 +9160,7 @@
    ]
   },
   "participaciones": {
-   "nombre": "Participaciones en empresas no cotizadas",
+   "nombre": "Participaciones fuera de la caja",
    "unidad": "USD",
    "ultimo": {
     "valor": 128169000000,
@@ -9316,6 +9316,14 @@
      "periodo": "2025"
     }
    ]
+  },
+  "cotizadas_largo": {
+   "nombre": "Acciones cotizadas a largo plazo",
+   "unidad": "USD",
+   "ultimo": null,
+   "historico": [],
+   "asumido": false,
+   "anual": []
   },
   "participaciones_subidas": {
    "nombre": "Participaciones: revalorización acumulada",
@@ -21866,12 +21874,102 @@
     "etiqueta": "us-gaap:EquitySecuritiesFvNi"
    }
   ],
-  "version": 1,
   "accn": "0001652044-26-000084",
   "fuente": "SEC EDGAR · 10-Q (XBRL)",
   "formulario": "10-Q",
   "fecha_presentacion": "2026-10-29",
-  "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/0001652044-26-000084-index.htm"
+  "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/0001652044-26-000084-index.htm",
+  "version": 2,
+  "informes_accn": [
+   "0001652044-26-000084",
+   "0001652044-26-000071",
+   "0001652044-26-000048",
+   "0001652044-26-000018"
+  ],
+  "historico": [
+   {
+    "fecha": "2025-12-31",
+    "totales": {
+     "no_cotizada": {
+      "valor": 64094000000.0,
+      "etiqueta": "us-gaap:EquitySecuritiesWithoutReadilyDeterminableFairValueAmount"
+     }
+    },
+    "detalle": [],
+    "accn": "0001652044-26-000018",
+    "fuente": "SEC EDGAR · 10-K (XBRL)",
+    "formulario": "10-K",
+    "fecha_presentacion": "2026-02-05",
+    "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000018/0001652044-26-000018-index.htm"
+   },
+   {
+    "fecha": "2026-03-31",
+    "totales": {
+     "no_cotizada": {
+      "valor": 101346000000.0,
+      "etiqueta": "us-gaap:EquitySecuritiesWithoutReadilyDeterminableFairValueAmount"
+     }
+    },
+    "detalle": [],
+    "accn": "0001652044-26-000048",
+    "fuente": "SEC EDGAR · 10-Q (XBRL)",
+    "formulario": "10-Q",
+    "fecha_presentacion": "2026-04-30",
+    "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000048/0001652044-26-000048-index.htm"
+   },
+   {
+    "fecha": "2026-06-30",
+    "totales": {
+     "cotizada": {
+      "valor": 87063000000.0,
+      "etiqueta": "us-gaap:EquitySecuritiesFvNi"
+     },
+     "no_cotizada": {
+      "valor": 124259000000.0,
+      "etiqueta": "us-gaap:EquitySecuritiesWithoutReadilyDeterminableFairValueAmount"
+     }
+    },
+    "detalle": [
+     {
+      "nombre": "SpaceX",
+      "tipo": "cotizada",
+      "valor": 80000000000.0,
+      "etiqueta": "us-gaap:EquitySecuritiesFvNi"
+     }
+    ],
+    "accn": "0001652044-26-000071",
+    "fuente": "SEC EDGAR · 10-Q (XBRL)",
+    "formulario": "10-Q",
+    "fecha_presentacion": "2026-07-23",
+    "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000071/0001652044-26-000071-index.htm"
+   },
+   {
+    "fecha": "2026-09-30",
+    "totales": {
+     "cotizada": {
+      "valor": 90384000000.0,
+      "etiqueta": "us-gaap:EquitySecuritiesFvNi"
+     },
+     "no_cotizada": {
+      "valor": 128169000000.0,
+      "etiqueta": "us-gaap:EquitySecuritiesWithoutReadilyDeterminableFairValueAmount"
+     }
+    },
+    "detalle": [
+     {
+      "nombre": "SpaceX",
+      "tipo": "cotizada",
+      "valor": 75200000000.0,
+      "etiqueta": "us-gaap:EquitySecuritiesFvNi"
+     }
+    ],
+    "accn": "0001652044-26-000084",
+    "fuente": "SEC EDGAR · 10-Q (XBRL)",
+    "formulario": "10-Q",
+    "fecha_presentacion": "2026-10-29",
+    "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/0001652044-26-000084-index.htm"
+   }
+  ]
  },
  "precio": {
   "minimo_52s": 272.11,
@@ -22066,6 +22164,15 @@
    "url_finnhub": "https://finnhub.io/api/news?id=7b3e4760333feee06e427d2739d771b0b0f3105f05205c699db15604f8e60233"
   },
   {
+   "titular": "Alphabet could be a buy as tech sells off, says Jim Cramer",
+   "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPQkFqQk16dFFUeW9Jajh5Vk1pbGw3UDFLSEsxZzlwUjhOZHBHV0dtdkxnVmlHR19BdlluTy1lWS1Yd3J4TEV5bWNQNGZ2Vy0ycUZ0TGl0b09kMU5vX0YwckxJNFZyU3FON202ZmdjMHJ6bG1nUGxiVlRqc1JaUUdkQlV4V0lPQ09KcGNFbEZwRzk5YU5zNWYxVmdhd3lDN0wxM0E?oc=5",
+   "fecha": "2026-11-20",
+   "resumen": "",
+   "medio": "CNBC",
+   "tipo": "prensa",
+   "via": "Google News"
+  },
+  {
    "titular": "Alphabet's Ruth Porat on the AI Investment Frenzy",
    "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOREJTUzNuWVctcTY4YTJxU3F1T1VEM0xoZ2xQUjUtd2tYbEpaQmZ5cUlWZU14c2FGOWg1VndlN0pwSXl6d0lIdjNyUWYzZTZpMG9FeGxvVzRCSGc3dXNjMlNMV3JhZ2dyRi1CTXZfYVNUdDNqaktqUk5zMFdKVXcxTElKRWV0bDRBQkVKT2Q0bVRCME1mekFOWGhrVzQ5TndZT2VuQjhzXzJ2NThCRVhjSWwzbjlBRXN6WGswbk1vRGJKNXBI?oc=5",
    "fecha": "2026-11-20",
@@ -22075,64 +22182,64 @@
    "via": "Google News"
   },
   {
-   "titular": "Amazon vs. Alphabet: Which Cloud Computing Stock Is the Better Buy?",
+   "titular": "Social Buzz: Wallstreetbets Stocks Mostly Lower Pre-Bell Friday; Sandisk, AMD to Decline",
    "medio": "Yahoo Finance",
-   "url": "https://www.fool.com/investing/2026/11/20/amazon-vs-alphabet-which-cloud-computing-stock-is-the-better-buy/",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/social-buzz-wallstreetbets-stocks-mostly-113227780.html",
    "fecha": "2026-11-20",
-   "resumen": "Both stocks are critical players in the artificial intelligence trade.",
+   "resumen": "The most-talked-about stocks in the Reddit subforum Wallstreetbets were mostly lower hours before Fr",
    "tipo": "prensa",
    "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=aef2aaaec476767b11776e6f4e45c0d59062e3a2e75531668b373821be35380c"
+   "url_finnhub": "https://finnhub.io/api/news?id=6cea752d99f7675722bad4e293e50ec7947edb437eeff15c04573fa711940265"
   },
   {
-   "titular": "Warren Buffett’s Successor Just Bought $10 Billion of This AI Stock, and It’s Not Apple",
+   "titular": "iShares Russell 1000 Growth (IWF) Buys $15.6 Million More NVIDIA on Wednesday",
    "medio": "Yahoo Finance",
-   "url": "https://www.fool.com/investing/2026/11/20/warren-buffetts-successor-just-bought-10-billion-of-this-ai-stock-and-its-not-apple/",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/ishares-russell-1000-growth-iwf-110519980.html",
    "fecha": "2026-11-20",
-   "resumen": "During the past year, Greg Abel has ramped up Berkshire's position in this AI-focused \"Magnificent Seven\" stock.",
+   "resumen": "The fund added $132.8 million in new positions on Wednesday, led by a $15.6 million purchase of NVIDIA.",
    "tipo": "prensa",
    "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=bdfc5928c25ca64f14a738e06ce28cf2dc6ef2bb1cb3be823e383328dc72c647"
+   "url_finnhub": "https://finnhub.io/api/news?id=8bf45524543dffb28fe0d2df39f8c7945f3a28035dba3598eda854aabcb9759c"
   },
   {
-   "titular": "This Man FINESSED Facebook and Google",
+   "titular": "State Street Comm Services SPDR (XLC) Buys $54.7 Million More META on Nov. 18",
    "medio": "Yahoo Finance",
-   "url": "https://myfirstmillion.videonest.co/videos/1787260/this-man-finessed-facebook-and-google-9hwv2Nj7qD",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/state-street-comm-services-spdr-110418329.html",
    "fecha": "2026-11-20",
-   "resumen": "No more small boy spreadsheets, build your business on the free HubSpot CRM: https://mfmpod.link/hrdFor more quality videos subscribe here → https://tinyurl.com/46rjnckx🔔 Turn on notifications to stay updated with new uploads",
+   "resumen": "The fund added $264.0 million across all 22 of its positions, led by a $54.7 million increase in Meta Platforms.",
    "tipo": "prensa",
    "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=5cc5a0f1c55804e63a6dd070fd25112f3d86c0bafa4765d26a60a665a02c6eac"
+   "url_finnhub": "https://finnhub.io/api/news?id=0847ea0b14612949d8c34f051f336bd3af2a5705de936c6a2bc1566d13278320"
   },
   {
-   "titular": "Bond Sales Hit €2 Trillion Europe Record as AI Surge Takes Hold",
+   "titular": "Alphabet Faces New Scrutiny After Google Removes 19,000 YouTube Channels",
    "medio": "Yahoo Finance",
-   "url": "https://finance.yahoo.com/markets/stocks/articles/bond-sales-hit-2-trillion-083046794.html",
+   "url": "https://finance.yahoo.com/technology/articles/alphabet-faces-scrutiny-google-removes-110359578.html",
    "fecha": "2026-11-20",
-   "resumen": "Bond sales in Europe have topped €2 trillion ($2.2 trillion) for the first time, as unrelenting government borrowing collides with the vast funding needs of the artificial intelligence boom.",
+   "resumen": "Indonesia is demanding an explanation of Google's content moderation methods after a large-scale removal of government-supportive accounts.",
    "tipo": "prensa",
    "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=6416951cb4b8f6fdd771c56fccbeb1bcc9806b376b35205881dc793802ce7bb8"
+   "url_finnhub": "https://finnhub.io/api/news?id=50d631295ca9143bf35bcfe7c61ac0121c82d8b6170b95c867db9c17873be51f"
   },
   {
-   "titular": "Wenge AI Adds Google and Apple Sign-In Options for ScienceOra International Users",
+   "titular": "ETFs Are Net Sellers of Alphabet (GOOG) on Nov. 18",
    "medio": "Yahoo Finance",
-   "url": "https://finance.yahoo.com/technology/ai/articles/wenge-ai-adds-google-apple-063000704.html",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/etfs-net-sellers-alphabet-goog-110231595.html",
    "fecha": "2026-11-20",
-   "resumen": "Wenge AI (1956.HK) today announced that ScienceOra, its AI-powered scientific research and decision-support platform, has enhanced registration and sign-in for its international site with Google and Apple sign-in options. The update is designed to give overseas researchers a fast",
+   "resumen": "ETFs sold a net $215.5 million of Alphabet (GOOG) on Wednesday, Nov. 18.",
    "tipo": "prensa",
    "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=fa1925050a81aaa2df4f165cbc0809d729edbb4e1d3d281163831ed3be28d954"
+   "url_finnhub": "https://finnhub.io/api/news?id=625a80d7b238b8f897ace539315a39e4f33a497946330eeb91fb1e149079a9dd"
   },
   {
-   "titular": "How High Can ANT Stock Go? Wall Street Debut Sparks Valuation Debate – One Analyst Sees Amazon-Google Scale Opportunity In Anthropic",
+   "titular": "ETFs Are Net Sellers of Alphabet (GOOGL) on Nov. 18",
    "medio": "Yahoo Finance",
-   "url": "https://stocktwits.com/news-articles/markets/equity/how-high-can-ant-stock-go-wall-street-valuation-analyst-amazon-google-scale-opportunity/cNbSG4tR90C",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/etfs-net-sellers-alphabet-googl-110228712.html",
    "fecha": "2026-11-20",
-   "resumen": "William Blair called the IPO valuation “very reasonable” and said a higher sales multiple could put shares at $130 to $150.",
+   "resumen": "ETFs sold a net $243.5 million of Alphabet (GOOGL) shares on Nov. 18.",
    "tipo": "prensa",
    "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=0b444deb956e3539dd1fef6e6045135e63d56e729af95d8b18d954e81d8b166a"
+   "url_finnhub": "https://finnhub.io/api/news?id=77210c95891742276c76e20e86c296d807c0f399748de66d6c08fa4f53ddb3f8"
   },
   {
    "titular": "ICYMI: Transfer your history from other AI apps into Gemini.",
@@ -22248,16 +22355,6 @@
    "url_finnhub": "https://finnhub.io/api/news?id=18c5deef7c17d602561286c5e661ed21f63ff94e5530dd0726d37d1d03b91065"
   },
   {
-   "titular": "JOYY: BIGO Ads Is Taking Off, And The Stock Has Room To Run",
-   "medio": "Seeking Alpha",
-   "url": "https://seekingalpha.com/article/4970296-joyy-bigo-ads-taking-off-and-stock-has-room-to-run",
-   "fecha": "2026-11-19",
-   "resumen": "Analyst rates JOYY a Buy: $1.5 billion in dividends and buybacks through 2028 and net cash support returns, though valuation anticipates earnings growth.",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=cc0efa3a483de9d06582ab3b58ce6a0f86ab0d529ad18bf12f9cc215d1052833"
-  },
-  {
    "titular": "Google’s Porat Pledges Data Center Local Support Amid Backlash",
    "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQSzNnN2RyMU8zcXZlMTJFWFVXbjZ0bE56Z21hS1ZIcXJSblJrRkVqdzdpSVdLTkJYMWpxZlF3TExDUW5lbUxIRVlPel9SMF9rWDlyQUk2X0p0bkdRWGpNNndNMm1sYnEweFpMdkF2OFhmSjdOQVFPQVIyYjdRb1JHblZLSnZkVXNaZzdySjdiX0pnMWxfU2o5XzRkckdCMHRhb2Q1S0k2THh2UjdHVkxpdUZrNmstSkxu?oc=5",
    "fecha": "2026-11-19",
@@ -22300,10 +22397,10 @@
    "fuente": "StockTwits (API pública)",
    "url": "https://stocktwits.com/symbol/GOOGL",
    "mensajes": 30,
-   "alcistas": 7,
+   "alcistas": 5,
    "bajistas": 4,
-   "pct_alcista": 64,
-   "seguidores": 240491,
+   "pct_alcista": 56,
+   "seguidores": 240493,
    "desde": "2026-11-20",
    "hasta": "2026-11-20",
    "fecha": "2026-11-20"
@@ -22329,7 +22426,7 @@
    },
    "Google News": {
     "ok": true,
-    "titulares": 25
+    "titulares": 24
    },
    "Seeking Alpha": {
     "ok": true,
@@ -22341,7 +22438,7 @@
    },
    "RSS de medios": {
     "ok": true,
-    "titulares": 11
+    "titulares": 10
    },
    "Sala de prensa": {
     "ok": true,
@@ -27641,7 +27738,7 @@
   "fecha": "2026-11-19",
   "ajuste": "splits"
  },
- "generado": "2026-11-20T11:56:26+00:00",
+ "generado": "2026-11-20T12:39:04+00:00",
  "peers": {
   "fuente_lista": "manual",
   "fuente_cifras": "SEC EDGAR (companyfacts, UDM) · precio Finnhub",

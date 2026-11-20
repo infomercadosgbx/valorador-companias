@@ -8217,7 +8217,7 @@
    ]
   },
   "participaciones": {
-   "nombre": "Participaciones en empresas no cotizadas",
+   "nombre": "Participaciones fuera de la caja",
    "unidad": "USD",
    "ultimo": {
     "valor": 320333000,
@@ -8321,6 +8321,14 @@
      "periodo": "2025"
     }
    ]
+  },
+  "cotizadas_largo": {
+   "nombre": "Acciones cotizadas a largo plazo",
+   "unidad": "USD",
+   "ultimo": null,
+   "historico": [],
+   "asumido": false,
+   "anual": []
   },
   "participaciones_subidas": {
    "nombre": "Participaciones: revalorización acumulada",
@@ -16663,12 +16671,96 @@
    }
   },
   "detalle": [],
-  "version": 1,
   "accn": "0001751008-26-000069",
   "fuente": "SEC EDGAR · 10-Q (XBRL)",
   "formulario": "10-Q",
   "fecha_presentacion": "2026-11-04",
-  "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000069/0001751008-26-000069-index.htm"
+  "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000069/0001751008-26-000069-index.htm",
+  "version": 2,
+  "informes_accn": [
+   "0001751008-26-000069",
+   "0001751008-26-000059",
+   "0001751008-26-000044",
+   "0001751008-26-000010"
+  ],
+  "historico": [
+   {
+    "fecha": "2025-12-31",
+    "totales": {
+     "metodo_participacion": {
+      "valor": 287666000.0,
+      "etiqueta": "us-gaap:EquityMethodInvestments"
+     },
+     "cotizada": {
+      "valor": 19600000.0,
+      "etiqueta": "us-gaap:EquitySecuritiesFvNiCurrentAndNoncurrent"
+     }
+    },
+    "detalle": [],
+    "accn": "0001751008-26-000010",
+    "fuente": "SEC EDGAR · 10-K (XBRL)",
+    "formulario": "10-K",
+    "fecha_presentacion": "2026-02-19",
+    "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000010/0001751008-26-000010-index.htm"
+   },
+   {
+    "fecha": "2026-03-31",
+    "totales": {
+     "metodo_participacion": {
+      "valor": 288669000.0,
+      "etiqueta": "us-gaap:EquityMethodInvestments"
+     },
+     "no_cotizada": {
+      "valor": 19600000.0,
+      "etiqueta": "us-gaap:EquitySecuritiesWithoutReadilyDeterminableFairValueAmount"
+     }
+    },
+    "detalle": [],
+    "accn": "0001751008-26-000044",
+    "fuente": "SEC EDGAR · 10-Q (XBRL)",
+    "formulario": "10-Q",
+    "fecha_presentacion": "2026-05-06",
+    "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000044/0001751008-26-000044-index.htm"
+   },
+   {
+    "fecha": "2026-06-30",
+    "totales": {
+     "metodo_participacion": {
+      "valor": 289959000.0,
+      "etiqueta": "us-gaap:EquityMethodInvestments"
+     },
+     "no_cotizada": {
+      "valor": 19600000.0,
+      "etiqueta": "us-gaap:EquitySecuritiesWithoutReadilyDeterminableFairValueAmount"
+     }
+    },
+    "detalle": [],
+    "accn": "0001751008-26-000059",
+    "fuente": "SEC EDGAR · 10-Q (XBRL)",
+    "formulario": "10-Q",
+    "fecha_presentacion": "2026-08-05",
+    "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000059/0001751008-26-000059-index.htm"
+   },
+   {
+    "fecha": "2026-09-30",
+    "totales": {
+     "metodo_participacion": {
+      "valor": 298333000.0,
+      "etiqueta": "us-gaap:EquityMethodInvestments"
+     },
+     "no_cotizada": {
+      "valor": 22000000.0,
+      "etiqueta": "us-gaap:EquitySecuritiesWithoutReadilyDeterminableFairValueAmount"
+     }
+    },
+    "detalle": [],
+    "accn": "0001751008-26-000069",
+    "fuente": "SEC EDGAR · 10-Q (XBRL)",
+    "formulario": "10-Q",
+    "fecha_presentacion": "2026-11-04",
+    "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000069/0001751008-26-000069-index.htm"
+   }
+  ]
  },
  "precio": {
   "minimo_52s": 225.1901,
@@ -16784,6 +16876,16 @@
   }
  ],
  "noticias": [
+  {
+   "titular": "State Street Comm Services SPDR (XLC) Buys $54.7 Million More META on Nov. 18",
+   "medio": "Yahoo Finance",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/state-street-comm-services-spdr-110418329.html",
+   "fecha": "2026-11-20",
+   "resumen": "The fund added $264.0 million across all 22 of its positions, led by a $54.7 million increase in Meta Platforms.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=0847ea0b14612949d8c34f051f336bd3af2a5705de936c6a2bc1566d13278320"
+  },
   {
    "titular": "3 Great Undervalued Stocks To Own In November 2026",
    "medio": "Yahoo Finance",
@@ -16904,16 +17006,6 @@
    "tipo": "prensa",
    "via": "Finnhub",
    "url_finnhub": "https://finnhub.io/api/news?id=e41b509101ea3c9a2db7cbf21c0d4eb42882f02d6488fbe27ed8b1aba6920b8f"
-  },
-  {
-   "titular": "3 AI Stocks With Revenue Growth Up To 26%",
-   "medio": "Yahoo Finance",
-   "url": "https://finance.yahoo.com/markets/stocks/articles/3-ai-stocks-revenue-growth-201109631.html",
-   "fecha": "2026-11-18",
-   "resumen": "Anthropic’s planned US$1.4t IPO has put fast growing, high conviction businesses back in the spotlight. Investors are watching how much value can build when revenue expansion and insider belief line up. That combination can be hard to find, which creates real FOMO when it shows u",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=0cd6744a30dbc68d637bb2581bcb669f9fda79f3cb7fea00c5123686e4fa3cc9"
   },
   {
    "titular": "AppLovin: First Fundamental And Momentum Breakout Signal Since July",
@@ -17103,7 +17195,7 @@
    "alcistas": 16,
    "bajistas": 2,
    "pct_alcista": 89,
-   "seguidores": 25983,
+   "seguidores": 25981,
    "desde": "2026-11-19",
    "hasta": "2026-11-20",
    "fecha": "2026-11-20"
@@ -22435,7 +22527,7 @@
   "fecha": "2026-11-19",
   "ajuste": "splits"
  },
- "generado": "2026-11-20T11:55:58+00:00",
+ "generado": "2026-11-20T12:38:30+00:00",
  "peers": {
   "fuente_lista": "manual",
   "fuente_cifras": "SEC EDGAR (companyfacts, UDM) · precio Finnhub",

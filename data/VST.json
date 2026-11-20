@@ -7655,7 +7655,15 @@
    ]
   },
   "participaciones": {
-   "nombre": "Participaciones en empresas no cotizadas",
+   "nombre": "Participaciones fuera de la caja",
+   "unidad": "USD",
+   "ultimo": null,
+   "historico": [],
+   "asumido": false,
+   "anual": []
+  },
+  "cotizadas_largo": {
+   "nombre": "Acciones cotizadas a largo plazo",
    "unidad": "USD",
    "ultimo": null,
    "historico": [],
@@ -12760,6 +12768,16 @@
  ],
  "noticias": [
   {
+   "titular": "My Favorite Place To Buy Income: 2 Strong Buys After The Sell-Off",
+   "medio": "Seeking Alpha",
+   "url": "https://seekingalpha.com/article/4970522-my-favorite-place-to-buy-income-2-strong-buys-after-the-sell-off",
+   "fecha": "2026-11-20",
+   "resumen": "Two attractive high-yield opportunities have recently sold off sharply, creating what I believe are compelling entry points for patient, long-term investors.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=a3849ae30f110f4ec507dc7e85710020fc6942a62d6659481d43b6266164c4a7"
+  },
+  {
    "titular": "UTG: 8% Yield With An AI Growth Catalyst That No One Is Talking About",
    "medio": "Seeking Alpha",
    "url": "https://seekingalpha.com/article/4970228-utg-8-percent-yield-ai-growth-catalyst-no-one-is-talking-about",
@@ -12973,16 +12991,6 @@
    "via": "Google News"
   },
   {
-   "titular": "The Most Important Market Shift Of The Decade Is Already Underway",
-   "medio": "Seeking Alpha",
-   "url": "https://seekingalpha.com/article/4965988-most-important-market-shift-of-decade-is-already-underway",
-   "fecha": "2026-11-10",
-   "resumen": "A market rotation could drive outperformance over 3, 5, and 10 years as investors overlook AI's long-term beneficiaries. Discover more in this market outlook.",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=2355a323b3adf31596f84792929f31a24faab7dbe44dd1535953e0ab9291d5ea"
-  },
-  {
    "titular": "Corning to Caterpillar: The AI ‘Picks and Shovels’ Trade Caves In",
    "medio": "Benzinga",
    "url": "https://www.benzinga.com/trading-ideas/movers/26/11/63092189/corning-to-caterpillar-the-ai-picks-and-shovels-trade-caves-in",
@@ -13079,7 +13087,7 @@
    "alcistas": 5,
    "bajistas": 1,
    "pct_alcista": 83,
-   "seguidores": 18800,
+   "seguidores": 18801,
    "desde": "2026-11-16",
    "hasta": "2026-11-20",
    "fecha": "2026-11-20"
@@ -13101,7 +13109,7 @@
    },
    "Google News": {
     "ok": true,
-    "titulares": 54
+    "titulares": 56
    },
    "Seeking Alpha": {
     "ok": true,
@@ -18413,7 +18421,7 @@
   "fecha": "2026-11-19",
   "ajuste": "splits"
  },
- "generado": "2026-11-20T11:57:23+00:00",
+ "generado": "2026-11-20T12:40:13+00:00",
  "peers": {
   "fuente_lista": "manual",
   "fuente_cifras": "SEC EDGAR (companyfacts, UDM) · precio Finnhub",

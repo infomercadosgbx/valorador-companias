@@ -8557,7 +8557,7 @@
    "anual": []
   },
   "participaciones": {
-   "nombre": "Participaciones en empresas no cotizadas",
+   "nombre": "Participaciones fuera de la caja",
    "unidad": "USD",
    "ultimo": {
     "valor": 26900000,
@@ -8667,6 +8667,14 @@
      "periodo": "2026"
     }
    ]
+  },
+  "cotizadas_largo": {
+   "nombre": "Acciones cotizadas a largo plazo",
+   "unidad": "USD",
+   "ultimo": null,
+   "historico": [],
+   "asumido": false,
+   "anual": []
   },
   "participaciones_subidas": {
    "nombre": "Participaciones: revalorización acumulada",
@@ -12275,12 +12283,64 @@
    }
   },
   "detalle": [],
-  "version": 1,
   "accn": "0001734722-26-000050",
   "fuente": "SEC EDGAR · 10-Q (XBRL)",
   "formulario": "10-Q",
   "fecha_presentacion": "2026-09-08",
-  "url": "https://www.sec.gov/Archives/edgar/data/1734722/000173472226000050/0001734722-26-000050-index.htm"
+  "url": "https://www.sec.gov/Archives/edgar/data/1734722/000173472226000050/0001734722-26-000050-index.htm",
+  "version": 2,
+  "informes_accn": [
+   "0001734722-26-000050",
+   "0001734722-26-000041",
+   "0001734722-26-000012"
+  ],
+  "historico": [
+   {
+    "fecha": "2026-01-31",
+    "totales": {
+     "no_cotizada": {
+      "valor": 27700000.0,
+      "etiqueta": "us-gaap:EquitySecuritiesWithoutReadilyDeterminableFairValueAmount"
+     }
+    },
+    "detalle": [],
+    "accn": "0001734722-26-000012",
+    "fuente": "SEC EDGAR · 10-K (XBRL)",
+    "formulario": "10-K",
+    "fecha_presentacion": "2026-03-25",
+    "url": "https://www.sec.gov/Archives/edgar/data/1734722/000173472226000012/0001734722-26-000012-index.htm"
+   },
+   {
+    "fecha": "2026-04-30",
+    "totales": {
+     "no_cotizada": {
+      "valor": 27300000.0,
+      "etiqueta": "us-gaap:EquitySecuritiesWithoutReadilyDeterminableFairValueAmount"
+     }
+    },
+    "detalle": [],
+    "accn": "0001734722-26-000041",
+    "fuente": "SEC EDGAR · 10-Q (XBRL)",
+    "formulario": "10-Q",
+    "fecha_presentacion": "2026-06-04",
+    "url": "https://www.sec.gov/Archives/edgar/data/1734722/000173472226000041/0001734722-26-000041-index.htm"
+   },
+   {
+    "fecha": "2026-07-31",
+    "totales": {
+     "no_cotizada": {
+      "valor": 26900000.0,
+      "etiqueta": "us-gaap:EquitySecuritiesWithoutReadilyDeterminableFairValueAmount"
+     }
+    },
+    "detalle": [],
+    "accn": "0001734722-26-000050",
+    "fuente": "SEC EDGAR · 10-Q (XBRL)",
+    "formulario": "10-Q",
+    "fecha_presentacion": "2026-09-08",
+    "url": "https://www.sec.gov/Archives/edgar/data/1734722/000173472226000050/0001734722-26-000050-index.htm"
+   }
+  ]
  },
  "precio": {
   "minimo_52s": 9.2,
@@ -12693,8 +12753,8 @@
     "titulares": 40
    },
    "Google News": {
-    "ok": true,
-    "titulares": 55
+    "ok": false,
+    "error": "HTTPError: HTTP Error 429: Too Many Requests"
    },
    "Seeking Alpha": {
     "ok": true,
@@ -18006,7 +18066,7 @@
   "fecha": "2026-11-19",
   "ajuste": "splits"
  },
- "generado": "2026-11-20T11:58:37+00:00",
+ "generado": "2026-11-20T12:41:32+00:00",
  "peers": {
   "fuente_lista": "manual",
   "fuente_cifras": "SEC EDGAR (companyfacts, UDM) · precio Finnhub",

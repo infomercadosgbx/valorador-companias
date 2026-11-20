@@ -9292,7 +9292,7 @@
    ]
   },
   "participaciones": {
-   "nombre": "Participaciones en empresas no cotizadas",
+   "nombre": "Participaciones fuera de la caja",
    "unidad": "USD",
    "ultimo": null,
    "historico": [],
@@ -9376,6 +9376,14 @@
      "periodo": "2026"
     }
    ]
+  },
+  "cotizadas_largo": {
+   "nombre": "Acciones cotizadas a largo plazo",
+   "unidad": "USD",
+   "ultimo": null,
+   "historico": [],
+   "asumido": false,
+   "anual": []
   },
   "participaciones_subidas": {
    "nombre": "Participaciones: revalorización acumulada",
@@ -10908,7 +10916,7 @@
   {
    "nivel": "info",
    "codigo": "etiqueta_obsoleta",
-   "mensaje": "Participaciones en empresas no cotizadas: se descarta «EquitySecuritiesWithoutReadilyDeterminableFairValueAmount» (último dato 2026-05-31, ingresos hasta 2026-08-31).",
+   "mensaje": "Participaciones fuera de la caja: se descarta «EquitySecuritiesWithoutReadilyDeterminableFairValueAmount» (último dato 2026-05-31, ingresos hasta 2026-08-31).",
    "concepto": "participaciones",
    "etiqueta": "EquitySecuritiesWithoutReadilyDeterminableFairValueAmount"
   },
@@ -15918,7 +15926,43 @@
   ],
   "motivo": "No se ha podido aislar el apartado de riesgos de forma fiable."
  },
- "cartera": null,
+ "cartera": {
+  "fecha": "2026-05-31",
+  "totales": {
+   "no_cotizada": {
+    "valor": 605000000.0,
+    "etiqueta": "us-gaap:EquitySecuritiesWithoutReadilyDeterminableFairValueAmount"
+   }
+  },
+  "detalle": [],
+  "accn": "0001193125-26-277521",
+  "fuente": "SEC EDGAR · 10-K (XBRL)",
+  "formulario": "10-K",
+  "fecha_presentacion": "2026-06-22",
+  "url": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526277521/0001193125-26-277521-index.htm",
+  "version": 2,
+  "informes_accn": [
+   "0001193125-26-389274",
+   "0001193125-26-277521"
+  ],
+  "historico": [
+   {
+    "fecha": "2026-05-31",
+    "totales": {
+     "no_cotizada": {
+      "valor": 605000000.0,
+      "etiqueta": "us-gaap:EquitySecuritiesWithoutReadilyDeterminableFairValueAmount"
+     }
+    },
+    "detalle": [],
+    "accn": "0001193125-26-277521",
+    "fuente": "SEC EDGAR · 10-K (XBRL)",
+    "formulario": "10-K",
+    "fecha_presentacion": "2026-06-22",
+    "url": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526277521/0001193125-26-277521-index.htm"
+   }
+  ]
+ },
  "precio": {
   "minimo_52s": 109.21,
   "maximo_52s": 250.25,
@@ -16070,6 +16114,16 @@
  ],
  "noticias": [
   {
+   "titular": "Automus Announces Partnership with Google Cloud to Help Accelerate Agentic Transformation",
+   "medio": "Yahoo Finance",
+   "url": "https://finance.yahoo.com/technology/ai/articles/automus-announces-partnership-google-cloud-110000578.html",
+   "fecha": "2026-11-20",
+   "resumen": "Automus today announced a collaboration with Google Cloud to help accelerate agentic transformation, showcasing a roadmap at Oracle AI World. This collaboration is designed to help organizations leverage the power of AI and agentic capabilities to modernize their operations and u",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=4464cba0ebc8958f08d39f3deb74fcc25da16f4326ca611731e630240dca9eeb"
+  },
+  {
    "titular": "Oracle Stock Just Closed at Its Lowest Price Since April 2024. Is It a Buy Now?",
    "medio": "Yahoo Finance",
    "url": "https://www.fool.com/investing/2026/11/20/oracle-stock-just-closed-at-its-lowest-price-since-april-2024-is-it-a-buy-now/",
@@ -16138,16 +16192,6 @@
    "tipo": "prensa",
    "via": "Finnhub",
    "url_finnhub": "https://finnhub.io/api/news?id=f5494b7ce0c25ede40e4f5c92e0772e5a8e4f1a6900c0d856f1ac9ac265e431a"
-  },
-  {
-   "titular": "CoreWeave Just Dropped 25% in a Month. Will CRWV Stock Hit $40 or $50 First?",
-   "medio": "Yahoo Finance",
-   "url": "https://247wallst.com/investing/2026/11/19/coreweave-just-dropped-25-in-a-month-will-crwv-stock-hit-40-or-50-first/",
-   "fecha": "2026-11-19",
-   "resumen": "CoreWeave posted record revenue and a $132.5 billion backlog, yet its stock keeps sliding under a mountain of interest costs. One upcoming loan and a few customer prepayments may decide which way the bulls and bears break.",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=5c91a975fae6b5215f1023d67c2a2f1fc1381cf94d8e9d49713703d227a2bc60"
   },
   {
    "titular": "Oracle Life Sciences AI Agents Bring AI-Assisted Operational Intelligence and Coordination to Clinical Trials - Oracle",
@@ -16380,9 +16424,9 @@
    "fuente": "StockTwits (API pública)",
    "url": "https://stocktwits.com/symbol/ORCL",
    "mensajes": 30,
-   "alcistas": 4,
-   "bajistas": 3,
-   "pct_alcista": 57,
+   "alcistas": 5,
+   "bajistas": 2,
+   "pct_alcista": 71,
    "seguidores": 73331,
    "desde": "2026-11-20",
    "hasta": "2026-11-20",
@@ -16407,7 +16451,7 @@
    },
    "Google News": {
     "ok": true,
-    "titulares": 20
+    "titulares": 18
    },
    "Seeking Alpha": {
     "ok": true,
@@ -21719,7 +21763,7 @@
   "fecha": "2026-11-19",
   "ajuste": "splits"
  },
- "generado": "2026-11-20T11:59:01+00:00",
+ "generado": "2026-11-20T12:41:55+00:00",
  "peers": {
   "fuente_lista": "manual",
   "fuente_cifras": "SEC EDGAR (companyfacts, UDM) · precio Finnhub",
