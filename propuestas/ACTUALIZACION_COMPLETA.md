@@ -163,7 +163,9 @@ El repaso incluye la **revisión de internet de la semana** de esas compañías 
 - **Veredicto, textos** (`verdict.summary`, `bull`, `bear`, `watch`): que recojan los motores y riesgos actuales; cada riesgo con P×I ≥ 12 en «En contra» o «Qué vigilar». Sin precio salvo para comparar con el precio de compra del usuario.
 - **Veredicto, criterio** (`verdict.rating`, `buyBelow`, `conviction`): no se tocan. Si lo que encuentras los pone en duda, dilo en el `resumen` de la propuesta con el dato que lo justifica; el sábado le llega al usuario junto a su DCF y al consenso.
 
-Todo con `tipo` `hecho` o `texto` (apartado 8.1 de `INSTRUCCIONES.md`), fuente con enlace y fecha, y la verificación independiente del 8.5. Conserva lo que sigue siendo válido: no reescribas una pestaña entera si basta con corregir un elemento. Cierra siempre con `meta.asOf` y `meta.repasoFondo` = hoy (`tipo` `hecho`): la web enseña la fecha del repaso a fondo en la lista y en la cabecera de la compañía.
+Todo con `tipo` `hecho` o `texto` (apartado 8.1 de `INSTRUCCIONES.md`), fuente con enlace y fecha, y la verificación independiente del 8.5.
+
+**Enlace por elemento (desde el 20-nov-2026).** Cada elemento de `business.customerTypes` y `moat.sources` que propongas lleva su fuente oficial a la vista: `u` (dirección de la SEC o de la web oficial), `f` (mes y año, «nov-2026») y `fu` (texto corto del enlace, «vistracorp.com · Minorista» o «10-K 2025 · Item 1»). Cuando toques una de esas listas, añade también `u`, `f` y `fu` a los elementos que aún no los tengan si encuentras su respaldo oficial (sin cambiar su texto ni su puntuación); si no lo encuentras, déjalo sin enlace y anótalo en el resumen como «sin respaldo oficial». El verificador comprueba que cada `u` respalda el texto de su elemento. Conserva lo que sigue siendo válido: no reescribas una pestaña entera si basta con corregir un elemento. Cierra siempre con `meta.asOf` y `meta.repasoFondo` = hoy (`tipo` `hecho`): la web enseña la fecha del repaso a fondo en la lista y en la cabecera de la compañía.
 
 `motivo`: «Repaso semanal a fondo (<grupo>)». Commit: `Repaso semanal: <T1>, <T2>, <T3>`.
 
