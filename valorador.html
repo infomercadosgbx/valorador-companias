@@ -206,6 +206,7 @@ main{padding-block:18px 56px;display:flex;flex-direction:column;gap:16px}
 .thesis p{font-family:var(--f-display);font-size:clamp(17px,2vw,21px);font-weight:500;line-height:1.35;max-width:60ch}
 .empty{color:var(--muted);font-style:italic;font-size:13px}
 .cv{position:relative;width:100%}
+.isrc{font-size:12px;color:var(--muted);margin-top:4px}.isrc a{color:inherit}
 .h200{height:200px}.h240{height:240px}.h260{height:260px}.h300{height:300px}.h340{height:340px}
 
 /* KPI */
@@ -1930,8 +1931,15 @@ function setDefaults(){ if(!window.Chart) return; const D=Chart.defaults;
   D.plugins.tooltip.backgroundColor=V("--ink"); D.plugins.tooltip.titleColor=V("--bg"); D.plugins.tooltip.bodyColor=V("--bg"); D.plugins.tooltip.padding=8; D.plugins.tooltip.cornerRadius=6; D.plugins.tooltip.boxPadding=4;
   D.elements.bar.borderRadius=4; D.elements.bar.borderSkipped="start"; D.elements.line.borderWidth=2; D.elements.point.radius=0; D.elements.point.hoverRadius=5; D.elements.point.hitRadius=10; D.interaction={mode:"index",intersect:false}; D.layout={padding:{right:44}};
   D.datasets.bar.maxBarThickness=34; D.datasets.bar.categoryPercentage=.72; D.datasets.bar.barPercentage=.9; }
-function mk(id,cfg){const el=$(id); if(!el||!window.Chart) return; try{charts.push(new Chart(el,cfg));}catch(e){console.error(e);}}
+/* espacio entre la leyenda de arriba y el gráfico */
+const LEGEND_GAP={id:"legendGap",beforeInit(ch){ const L=ch.legend; if(!L||!L.fit||L._gap) return; const f=L.fit; L._gap=true;
+  L.fit=function(){ f.call(this); if(this.options&&this.options.display!==false&&this.options.position==="top") this.height+=14; }; }};
+function mk(id,cfg){const el=$(id); if(!el||!window.Chart) return; try{cfg.plugins=(cfg.plugins||[]).concat(LEGEND_GAP); charts.push(new Chart(el,cfg));}catch(e){console.error(e);}}
 const legend=n=>({display:n>1,position:"top",align:"start"});
+/* enlace a la fuente oficial de un elemento ({u, f: fecha, fu: texto del enlace}) */
+function itemSrc(x,sep){ if(!x||!okUrl(x.u)) return ""; const dom=String(x.u).replace(/^https?:\/\/(www\.)?/,"").split("/")[0];
+  const a=`<a class="src" href="${esc(x.u)}" target="_blank" rel="noopener noreferrer">${esc(x.fu||dom)} ↗</a>${x.f?` · ${esc(x.f)}`:""}`;
+  return sep?`${sep}<span class="isrc">${a}</span>`:`<div class="isrc">${a}</div>`; }
 function axisY(o={}){return {beginAtZero:o.zero!==false,grid:{color:alpha(V("--grid"),.6)||V("--grid"),drawTicks:false},border:{display:false},ticks:{callback:v=>nf(v,o.d??0)+(o.suf||""),maxTicksLimit:6},title:o.t?{display:true,text:o.t,color:V("--muted")}:undefined,min:o.min,max:o.max};}
 const axisX={grid:{display:false},border:{color:V("--line")}};
 function finScale(){const all=[...cur.fin.rev,...(cur.fin.capex||[])].filter(fin);const mx=all.length?Math.max(...all.map(Math.abs)):0;
@@ -3384,7 +3392,7 @@ function clientsHtml(){
    <h3>Concentración <span class="note" style="font-weight:400">· SEC</span></h3>${concHtml}
    <h3>Por región <span class="note" style="font-weight:400">· SEC</span></h3>${geoHtml}
    <h3>Tipos de cliente</h3>
-   <div class="cards">${arr("business.customerTypes").map((c,i)=>`<div class="mini">${del("business.customerTypes",i)}<div class="t">${ln(`business.customerTypes.${i}.n`,{ph:"Tipo de cliente"})}</div>${EDIT?tx(`business.customerTypes.${i}.d`,{rows:3}):`<div class="s">${esc(c.d)}</div>`}</div>`).join("")}</div>
+   <div class="cards">${arr("business.customerTypes").map((c,i)=>`<div class="mini">${del("business.customerTypes",i)}<div class="t">${ln(`business.customerTypes.${i}.n`,{ph:"Tipo de cliente"})}</div>${EDIT?tx(`business.customerTypes.${i}.d`,{rows:3}):`<div class="s">${esc(c.d)}</div>${itemSrc(c)}`}</div>`).join("")}</div>
     ${add("business.customerTypes","customerTypes","Añadir tipo de cliente")}
   </section>`;
 }
@@ -4366,7 +4374,7 @@ R.moat=()=>{
   <div class="g2">
     <section class="card"><h2>Fuentes de ventaja</h2><p class="sub">Las cinco fuentes clásicas de foso, de 0 a 5.</p><div class="cv radar"><canvas id="ch_mt_radar" role="img" aria-label="Radar de fuentes de ventaja"></canvas></div></section>
     <section class="card"><h2>Detalle</h2>
-      <div class="rowlist">${m.sources.map((x,i)=>`<div class="rowitem"><span class="nm">${ln(`moat.sources.${i}.n`)}</span>${sc(`moat.sources.${i}.s`)}<span class="rn">${EDIT?ln(`moat.sources.${i}.note`,{ph:"Evidencia"}):esc(x.note)}</span>${del("moat.sources",i)}</div>`).join("")}</div>
+      <div class="rowlist">${m.sources.map((x,i)=>`<div class="rowitem"><span class="nm">${ln(`moat.sources.${i}.n`)}</span>${sc(`moat.sources.${i}.s`)}<span class="rn">${EDIT?ln(`moat.sources.${i}.note`,{ph:"Evidencia"}):esc(x.note)+itemSrc(x," ")}</span>${del("moat.sources",i)}</div>`).join("")}</div>
       ${add("moat.sources","sources","Añadir fuente")}
       <h3>Lectura</h3>${tx("moat.note",{rows:4})}
     </section>
@@ -5354,7 +5362,7 @@ function segHtml(){
   const hasOp=A.rows.some(r=>fin(r.opm));
   return `<section class="card"><div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:flex-start"><div><h2>Ingresos por ${A.kind==="segmento"?"segmento":"línea de producto"} (SEC)</h2>
     <p class="sub">Automático, del XBRL de los informes ${src}. Nombres traducidos; las partidas negativas o pequeñas se agrupan en «Otros y ajustes». Millones de ${esc(ccy())}.</p>${cur.business&&cur.business.segExplain?`<p class="metaline">💡 ${esc(cur.business.segExplain)}</p>`:""}</div>${seg}</div>
-    <div class="g2"><div class="cv h260"><canvas id="ch_bz_segq" role="img" aria-label="Ingresos trimestrales por segmento"></canvas></div>
+    <div class="g2"><div class="cv ${A.rows.filter(r=>!r.resto).length>4?"h340":"h300"}"><canvas id="ch_bz_segq" role="img" aria-label="Ingresos trimestrales por segmento"></canvas></div>
     <div class="scroll"><table><thead><tr><th>${esc(A.lastLab)}</th><th>Ingresos</th><th>% del total</th><th>Interanual</th>${hasOp?"<th>Margen op.</th>":""}</tr></thead><tbody>
     ${A.rows.map(r=>`<tr><td style="white-space:normal">${esc(r.n)}</td><td>${nf(r.v/M6)}</td><td>${pct(r.share,0)}</td><td>${fin(r.yoy)?`<span style="color:${r.yoy>=0?"var(--goodText)":"var(--critText)"}">${r.yoy>=0?"+":""}${nf(r.yoy,1)}%</span>`:"–"}</td>${hasOp?`<td>${pct(r.opm,0)}</td>`:""}</tr>`).join("")}
     <tr class="em"><td>Total</td><td>${nf(A.tot/M6)}</td><td>100%</td><td></td>${hasOp?"<td></td>":""}</tr></tbody></table></div></div></section>`;
