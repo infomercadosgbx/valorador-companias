@@ -8412,6 +8412,38 @@
     }
    ]
   },
+  "participaciones": {
+   "nombre": "Participaciones en empresas no cotizadas",
+   "unidad": "USD",
+   "ultimo": null,
+   "historico": [],
+   "asumido": false,
+   "anual": []
+  },
+  "participaciones_subidas": {
+   "nombre": "Participaciones: revalorización acumulada",
+   "unidad": "USD",
+   "ultimo": null,
+   "historico": [],
+   "asumido": false,
+   "anual": []
+  },
+  "participaciones_bajadas": {
+   "nombre": "Participaciones: deterioros acumulados",
+   "unidad": "USD",
+   "ultimo": null,
+   "historico": [],
+   "asumido": false,
+   "anual": []
+  },
+  "preferentes": {
+   "nombre": "Acciones preferentes",
+   "unidad": "USD",
+   "ultimo": null,
+   "historico": [],
+   "asumido": false,
+   "anual": []
+  },
   "patrimonio_neto": {
    "nombre": "Patrimonio neto",
    "unidad": "USD",
@@ -9928,6 +9960,13 @@
   },
   {
    "nivel": "info",
+   "codigo": "etiqueta_obsoleta",
+   "mensaje": "Acciones preferentes: se descarta «PreferredStockValue» (último dato 2018-12-29, ingresos hasta 2026-09-05).",
+   "concepto": "preferentes",
+   "etiqueta": "PreferredStockValue"
+  },
+  {
+   "nivel": "info",
    "codigo": "anio_52_53_semanas",
    "mensaje": "Año fiscal de 52/53 semanas (duraciones: 363, 370 días); los trimestres se etiquetan por su fecha de cierre."
   }
@@ -11258,7 +11297,7 @@
    "compradores": [
     "POHLAD ROBERT C"
    ],
-   "desde": "2026-05-20"
+   "desde": "2026-05-21"
   },
   "operaciones": [
    {
@@ -13310,10 +13349,10 @@
    "alcistas": 2,
    "bajistas": 5,
    "pct_alcista": 29,
-   "seguidores": 24218,
+   "seguidores": 24211,
    "desde": "2026-11-17",
-   "hasta": "2026-11-19",
-   "fecha": "2026-11-19"
+   "hasta": "2026-11-20",
+   "fecha": "2026-11-20"
   }
  },
  "noticias_fuentes": {
@@ -13348,7 +13387,7 @@
    },
    "Sala de prensa": {
     "ok": true,
-    "titulares": 8
+    "titulares": 7
    },
    "StockTwits": {
     "ok": true,
@@ -18644,11 +18683,11 @@
   "fecha": "2026-11-19",
   "ajuste": "splits"
  },
- "generado": "2026-11-19T23:56:05+00:00",
+ "generado": "2026-11-20T11:37:07+00:00",
  "peers": {
   "fuente_lista": "manual",
   "fuente_cifras": "SEC EDGAR (companyfacts, UDM) · precio Finnhub",
-  "actualizado": "2026-11-19",
+  "actualizado": "2026-11-20",
   "propia": {
    "ingresos": 98241000000,
    "crecimiento": 6.36,

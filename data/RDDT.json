@@ -4695,6 +4695,153 @@
     }
    ]
   },
+  "participaciones": {
+   "nombre": "Participaciones en empresas no cotizadas",
+   "unidad": "USD",
+   "ultimo": null,
+   "historico": [],
+   "asumido": false,
+   "anual": []
+  },
+  "participaciones_subidas": {
+   "nombre": "Participaciones: revalorización acumulada",
+   "unidad": "USD",
+   "ultimo": null,
+   "historico": [],
+   "asumido": false,
+   "anual": []
+  },
+  "participaciones_bajadas": {
+   "nombre": "Participaciones: deterioros acumulados",
+   "unidad": "USD",
+   "ultimo": null,
+   "historico": [],
+   "asumido": false,
+   "anual": []
+  },
+  "preferentes": {
+   "nombre": "Acciones preferentes",
+   "unidad": "USD",
+   "ultimo": {
+    "valor": 0,
+    "fuente": "SEC EDGAR · 10-Q",
+    "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000116/0001713445-26-000116-index.htm",
+    "fecha_presentacion": "2026-10-30",
+    "etiqueta": "us-gaap:PreferredStockValue",
+    "periodo_fin": "2026-09-30",
+    "formulario": "10-Q",
+    "accn": "0001713445-26-000116"
+   },
+   "historico": [
+    {
+     "valor": 0,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344525000196/0001713445-25-000196-index.htm",
+     "fecha_presentacion": "2025-08-01",
+     "etiqueta": "us-gaap:PreferredStockValue",
+     "periodo_fin": "2025-06-30",
+     "formulario": "10-Q",
+     "accn": "0001713445-25-000196"
+    },
+    {
+     "valor": 0,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344525000227/0001713445-25-000227-index.htm",
+     "fecha_presentacion": "2025-10-31",
+     "etiqueta": "us-gaap:PreferredStockValue",
+     "periodo_fin": "2025-09-30",
+     "formulario": "10-Q",
+     "accn": "0001713445-25-000227"
+    },
+    {
+     "valor": 0,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000116/0001713445-26-000116-index.htm",
+     "fecha_presentacion": "2026-10-30",
+     "etiqueta": "us-gaap:PreferredStockValue",
+     "periodo_fin": "2025-12-31",
+     "formulario": "10-Q",
+     "accn": "0001713445-26-000116"
+    },
+    {
+     "valor": 0,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000069/0001713445-26-000069-index.htm",
+     "fecha_presentacion": "2026-05-01",
+     "etiqueta": "us-gaap:PreferredStockValue",
+     "periodo_fin": "2026-03-31",
+     "formulario": "10-Q",
+     "accn": "0001713445-26-000069"
+    },
+    {
+     "valor": 0,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000100/0001713445-26-000100-index.htm",
+     "fecha_presentacion": "2026-07-31",
+     "etiqueta": "us-gaap:PreferredStockValue",
+     "periodo_fin": "2026-06-30",
+     "formulario": "10-Q",
+     "accn": "0001713445-26-000100"
+    },
+    {
+     "valor": 0,
+     "fuente": "SEC EDGAR · 10-Q",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000116/0001713445-26-000116-index.htm",
+     "fecha_presentacion": "2026-10-30",
+     "etiqueta": "us-gaap:PreferredStockValue",
+     "periodo_fin": "2026-09-30",
+     "formulario": "10-Q",
+     "accn": "0001713445-26-000116"
+    }
+   ],
+   "asumido": false,
+   "anual": [
+    {
+     "valor": 1853492000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000022/0001713445-26-000022-index.htm",
+     "fecha_presentacion": "2026-02-06",
+     "etiqueta": "us-gaap:TemporaryEquityCarryingAmountAttributableToParent",
+     "periodo_fin": "2022-12-31",
+     "formulario": "10-K",
+     "accn": "0001713445-26-000022",
+     "periodo": "2022"
+    },
+    {
+     "valor": 1853492000,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000022/0001713445-26-000022-index.htm",
+     "fecha_presentacion": "2026-02-06",
+     "etiqueta": "us-gaap:TemporaryEquityCarryingAmountAttributableToParent",
+     "periodo_fin": "2023-12-31",
+     "formulario": "10-K",
+     "accn": "0001713445-26-000022",
+     "periodo": "2023"
+    },
+    {
+     "valor": 0,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000022/0001713445-26-000022-index.htm",
+     "fecha_presentacion": "2026-02-06",
+     "etiqueta": "us-gaap:TemporaryEquityCarryingAmountAttributableToParent",
+     "periodo_fin": "2024-12-31",
+     "formulario": "10-K",
+     "accn": "0001713445-26-000022",
+     "periodo": "2024"
+    },
+    {
+     "valor": 0,
+     "fuente": "SEC EDGAR · 10-K",
+     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000022/0001713445-26-000022-index.htm",
+     "fecha_presentacion": "2026-02-06",
+     "etiqueta": "us-gaap:TemporaryEquityCarryingAmountAttributableToParent",
+     "periodo_fin": "2025-12-31",
+     "formulario": "10-K",
+     "accn": "0001713445-26-000022",
+     "periodo": "2025"
+    }
+   ]
+  },
   "patrimonio_neto": {
    "nombre": "Patrimonio neto",
    "unidad": "USD",
@@ -5655,6 +5802,13 @@
   },
   {
    "nivel": "info",
+   "codigo": "etiqueta_obsoleta",
+   "mensaje": "Acciones preferentes: se descarta «TemporaryEquityCarryingAmountAttributableToParent» (último dato 2025-12-31, ingresos hasta 2026-09-30).",
+   "concepto": "preferentes",
+   "etiqueta": "TemporaryEquityCarryingAmountAttributableToParent"
+  },
+  {
+   "nivel": "info",
    "codigo": "acciones_diluidas",
    "mensaje": "Acciones: se usan las diluidas medias del 3T26 (202 M)."
   }
@@ -6066,12 +6220,12 @@
   "fuente": "SEC EDGAR · formularios 4",
   "resumen": {
    "compras_mercado": 0,
-   "ventas_mercado": 90409534.91,
+   "ventas_mercado": 84200692.79,
    "n_compras": 0,
-   "n_ventas": 144,
-   "ventas_con_plan": 88617465.15,
+   "n_ventas": 137,
+   "ventas_con_plan": 82408623.03,
    "compradores": [],
-   "desde": "2026-05-20"
+   "desde": "2026-05-21"
   },
   "operaciones": [
    {
@@ -9065,134 +9219,6 @@
     "plan_10b5_1": false,
     "fecha_presentacion": "2026-05-22",
     "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000073/0001713445-26-000073-index.htm"
-   },
-   {
-    "fecha": "2026-05-18",
-    "codigo": "M",
-    "tipo": "Ejercicio de opciones",
-    "acciones": 39167.0,
-    "precio": 5.35,
-    "importe": 209543.45,
-    "sentido": "compra",
-    "tras_operacion": 1127618.0,
-    "clase": "Class A Common Stock",
-    "persona": "Wong Jennifer L.",
-    "cargo": "Chief Operating Officer",
-    "plan_10b5_1": true,
-    "fecha_presentacion": "2026-05-20",
-    "url": "https://www.sec.gov/Archives/edgar/data/1713445/000166365126000012/0001663651-26-000012-index.htm"
-   },
-   {
-    "fecha": "2026-05-18",
-    "codigo": "S",
-    "tipo": "Venta en mercado",
-    "acciones": 800.0,
-    "precio": 154.6,
-    "importe": 123680.0,
-    "sentido": "venta",
-    "tras_operacion": 1126818.0,
-    "clase": "Class A Common Stock",
-    "persona": "Wong Jennifer L.",
-    "cargo": "Chief Operating Officer",
-    "plan_10b5_1": true,
-    "fecha_presentacion": "2026-05-20",
-    "url": "https://www.sec.gov/Archives/edgar/data/1713445/000166365126000012/0001663651-26-000012-index.htm"
-   },
-   {
-    "fecha": "2026-05-18",
-    "codigo": "S",
-    "tipo": "Venta en mercado",
-    "acciones": 600.0,
-    "precio": 155.58,
-    "importe": 93348.0,
-    "sentido": "venta",
-    "tras_operacion": 1126218.0,
-    "clase": "Class A Common Stock",
-    "persona": "Wong Jennifer L.",
-    "cargo": "Chief Operating Officer",
-    "plan_10b5_1": true,
-    "fecha_presentacion": "2026-05-20",
-    "url": "https://www.sec.gov/Archives/edgar/data/1713445/000166365126000012/0001663651-26-000012-index.htm"
-   },
-   {
-    "fecha": "2026-05-18",
-    "codigo": "S",
-    "tipo": "Venta en mercado",
-    "acciones": 4941.0,
-    "precio": 156.92,
-    "importe": 775341.72,
-    "sentido": "venta",
-    "tras_operacion": 1121277.0,
-    "clase": "Class A Common Stock",
-    "persona": "Wong Jennifer L.",
-    "cargo": "Chief Operating Officer",
-    "plan_10b5_1": true,
-    "fecha_presentacion": "2026-05-20",
-    "url": "https://www.sec.gov/Archives/edgar/data/1713445/000166365126000012/0001663651-26-000012-index.htm"
-   },
-   {
-    "fecha": "2026-05-18",
-    "codigo": "S",
-    "tipo": "Venta en mercado",
-    "acciones": 6458.0,
-    "precio": 157.67,
-    "importe": 1018232.86,
-    "sentido": "venta",
-    "tras_operacion": 1114819.0,
-    "clase": "Class A Common Stock",
-    "persona": "Wong Jennifer L.",
-    "cargo": "Chief Operating Officer",
-    "plan_10b5_1": true,
-    "fecha_presentacion": "2026-05-20",
-    "url": "https://www.sec.gov/Archives/edgar/data/1713445/000166365126000012/0001663651-26-000012-index.htm"
-   },
-   {
-    "fecha": "2026-05-18",
-    "codigo": "S",
-    "tipo": "Venta en mercado",
-    "acciones": 16914.0,
-    "precio": 158.85,
-    "importe": 2686788.9,
-    "sentido": "venta",
-    "tras_operacion": 1097905.0,
-    "clase": "Class A Common Stock",
-    "persona": "Wong Jennifer L.",
-    "cargo": "Chief Operating Officer",
-    "plan_10b5_1": true,
-    "fecha_presentacion": "2026-05-20",
-    "url": "https://www.sec.gov/Archives/edgar/data/1713445/000166365126000012/0001663651-26-000012-index.htm"
-   },
-   {
-    "fecha": "2026-05-18",
-    "codigo": "S",
-    "tipo": "Venta en mercado",
-    "acciones": 6954.0,
-    "precio": 159.66,
-    "importe": 1110275.64,
-    "sentido": "venta",
-    "tras_operacion": 1090951.0,
-    "clase": "Class A Common Stock",
-    "persona": "Wong Jennifer L.",
-    "cargo": "Chief Operating Officer",
-    "plan_10b5_1": true,
-    "fecha_presentacion": "2026-05-20",
-    "url": "https://www.sec.gov/Archives/edgar/data/1713445/000166365126000012/0001663651-26-000012-index.htm"
-   },
-   {
-    "fecha": "2026-05-18",
-    "codigo": "S",
-    "tipo": "Venta en mercado",
-    "acciones": 2500.0,
-    "precio": 160.47,
-    "importe": 401175.0,
-    "sentido": "venta",
-    "tras_operacion": 1088451.0,
-    "clase": "Class A Common Stock",
-    "persona": "Wong Jennifer L.",
-    "cargo": "Chief Operating Officer",
-    "plan_10b5_1": true,
-    "fecha_presentacion": "2026-05-20",
-    "url": "https://www.sec.gov/Archives/edgar/data/1713445/000166365126000012/0001663651-26-000012-index.htm"
    }
   ],
   "operaciones_por_filing": [
@@ -11938,111 +11964,9 @@
       "clase": "Class A Common Stock"
      }
     ]
-   },
-   {
-    "accn": "0001663651-26-000012",
-    "fecha_presentacion": "2026-05-20",
-    "url": "https://www.sec.gov/Archives/edgar/data/1713445/000166365126000012/0001663651-26-000012-index.htm",
-    "personas": [
-     {
-      "nombre": "Wong Jennifer L.",
-      "cargo": "Chief Operating Officer"
-     }
-    ],
-    "plan_10b5_1": true,
-    "operaciones": [
-     {
-      "fecha": "2026-05-18",
-      "codigo": "M",
-      "tipo": "Ejercicio de opciones",
-      "acciones": 39167.0,
-      "precio": 5.35,
-      "importe": 209543.45,
-      "sentido": "compra",
-      "tras_operacion": 1127618.0,
-      "clase": "Class A Common Stock"
-     },
-     {
-      "fecha": "2026-05-18",
-      "codigo": "S",
-      "tipo": "Venta en mercado",
-      "acciones": 800.0,
-      "precio": 154.6,
-      "importe": 123680.0,
-      "sentido": "venta",
-      "tras_operacion": 1126818.0,
-      "clase": "Class A Common Stock"
-     },
-     {
-      "fecha": "2026-05-18",
-      "codigo": "S",
-      "tipo": "Venta en mercado",
-      "acciones": 600.0,
-      "precio": 155.58,
-      "importe": 93348.0,
-      "sentido": "venta",
-      "tras_operacion": 1126218.0,
-      "clase": "Class A Common Stock"
-     },
-     {
-      "fecha": "2026-05-18",
-      "codigo": "S",
-      "tipo": "Venta en mercado",
-      "acciones": 4941.0,
-      "precio": 156.92,
-      "importe": 775341.72,
-      "sentido": "venta",
-      "tras_operacion": 1121277.0,
-      "clase": "Class A Common Stock"
-     },
-     {
-      "fecha": "2026-05-18",
-      "codigo": "S",
-      "tipo": "Venta en mercado",
-      "acciones": 6458.0,
-      "precio": 157.67,
-      "importe": 1018232.86,
-      "sentido": "venta",
-      "tras_operacion": 1114819.0,
-      "clase": "Class A Common Stock"
-     },
-     {
-      "fecha": "2026-05-18",
-      "codigo": "S",
-      "tipo": "Venta en mercado",
-      "acciones": 16914.0,
-      "precio": 158.85,
-      "importe": 2686788.9,
-      "sentido": "venta",
-      "tras_operacion": 1097905.0,
-      "clase": "Class A Common Stock"
-     },
-     {
-      "fecha": "2026-05-18",
-      "codigo": "S",
-      "tipo": "Venta en mercado",
-      "acciones": 6954.0,
-      "precio": 159.66,
-      "importe": 1110275.64,
-      "sentido": "venta",
-      "tras_operacion": 1090951.0,
-      "clase": "Class A Common Stock"
-     },
-     {
-      "fecha": "2026-05-18",
-      "codigo": "S",
-      "tipo": "Venta en mercado",
-      "acciones": 2500.0,
-      "precio": 160.47,
-      "importe": 401175.0,
-      "sentido": "venta",
-      "tras_operacion": 1088451.0,
-      "clase": "Class A Common Stock"
-     }
-    ]
    }
   ],
-  "n_formularios": 50
+  "n_formularios": 49
  },
  "riesgos_10k": {
   "version": 4,
@@ -12204,6 +12128,16 @@
    "url_finnhub": "https://finnhub.io/api/news?id=6251c6d4fd3db826932a0d0571f3190ca1ebc825e38d650ac28a52ee20cc7efb"
   },
   {
+   "titular": "How Investors Are Reacting To Reddit (RDDT) Search Traffic Warning",
+   "medio": "Yahoo Finance",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/investors-reacting-reddit-rddt-search-221419948.html",
+   "fecha": "2026-11-19",
+   "resumen": "Reddit's latest quarter showed solid revenue and advertising growth, alongside management warnings that search referral traffic is declining faster, which could affect future user activity and the monetization mix. The company is pushing AI powered ads, shopping tools, and tighte",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=8824922f450454e240d16767fb046b4909a9b66a5a035aa5605afe5acc7971b2"
+  },
+  {
    "titular": "How the Race to Control Product Recommendations Is Changing the Creator Economy",
    "medio": "Yahoo Finance",
    "url": "https://www.entrepreneur.com/building-a-business/how-the-race-to-control-product-recommendations-is-changing-the-creator-economy",
@@ -12272,16 +12206,6 @@
    "tipo": "prensa",
    "via": "Finnhub",
    "url_finnhub": "https://finnhub.io/api/news?id=90f634a4176d3015e7a44e5a47ae402b8945426602647f63744156f9a7e05b2e"
-  },
-  {
-   "titular": "After IPO Day: Executing as a Public Company, 6th Palm Beach CorpGov Forum",
-   "medio": "Yahoo Finance",
-   "url": "https://finance.yahoo.com/markets/stocks/articles/ipo-day-executing-public-company-195033529.html",
-   "fecha": "2026-11-17",
-   "resumen": "CorpGov hosted the sixth annual Palm Beach CorpGov Forum on Nov. 4-5, 2026, at the Palm Beach Lake Pavilion and The Cove Club, both located waterfront with sweeping views of Palm Beach Island, along with a reception at Cucina Palm Beach. The panel called “After IPO Day: Executing",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=72f27ecaee005de7a50b628f3ac4f091608288eb864f5c0a2d8d8208f30ec66c"
   },
   {
    "titular": "Why I Would Buy Reddit After The Selloff",
@@ -12371,15 +12295,6 @@
    "via": "Google News"
   },
   {
-   "titular": "Revisiting Former Stock Picks Frontline, OneSpaWorld Holdings, Reddit",
-   "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNbXhUaVpxQmVIa1ZaaXZGRGgxWDNXWW9ybUJWT2FsdWh5Y3BHRXBoMWdaTjIzeEtEYkFQUkNXN2NZZzFjemlDdGZJZWw1Q2xtLTY2cHlIdlpqM0FBSkJWMDgyYXZHYW44bTZIOW85NWNkelJvWXpSQTJoNUlYZ2Y0M1BOQ0VSSUMzV3htWlN1dldsaHdxdERod2NORWJCRWRzUVZuRzZtVlUxSFROUFE?oc=5",
-   "fecha": "2026-11-12",
-   "resumen": "",
-   "medio": "Barron's",
-   "tipo": "prensa",
-   "via": "Google News"
-  },
-  {
    "titular": "S&P 500 After-Hours Movers: MNST, RDDT Among Gainers; VEEV, LLY Among Losers in Latest Session",
    "medio": "ChartMill",
    "url": "https://www.chartmill.com/news/MNST/Chartmill-58554-SP-500-After-Hours-Movers-MNST-RDDT-Among-Gainers-VEEV-LLY-Among-Losers-in-Latest-Session",
@@ -12408,6 +12323,15 @@
    "tipo": "prensa",
    "via": "Finnhub",
    "url_finnhub": "https://finnhub.io/api/news?id=b7f960539d812ad5467b712f828b64b9198a2ace631ac91bd68b1850f8dcb32f"
+  },
+  {
+   "titular": "Revisiting Former Stock Picks Frontline, OneSpaWorld Holdings, Reddit",
+   "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNbXhUaVpxQmVIa1ZaaXZGRGgxWDNXWW9ybUJWT2FsdWh5Y3BHRXBoMWdaTjIzeEtEYkFQUkNXN2NZZzFjemlDdGZJZWw1Q2xtLTY2cHlIdlpqM0FBSkJWMDgyYXZHYW44bTZIOW85NWNkelJvWXpSQTJoNUlYZ2Y0M1BOQ0VSSUMzV3htWlN1dldsaHdxdERod2NORWJCRWRzUVZuRzZtVlUxSFROUFE?oc=5",
+   "fecha": "2026-11-11",
+   "resumen": "",
+   "medio": "Barron's",
+   "tipo": "prensa",
+   "via": "Google News"
   },
   {
    "titular": "Introducing Reddit Reviews",
@@ -12492,12 +12416,12 @@
    "url": "https://stocktwits.com/symbol/RDDT",
    "mensajes": 30,
    "alcistas": 10,
-   "bajistas": 2,
-   "pct_alcista": 83,
-   "seguidores": 37743,
+   "bajistas": 3,
+   "pct_alcista": 77,
+   "seguidores": 37740,
    "desde": "2026-11-19",
-   "hasta": "2026-11-19",
-   "fecha": "2026-11-19"
+   "hasta": "2026-11-20",
+   "fecha": "2026-11-20"
   }
  },
  "noticias_fuentes": {
@@ -15222,11 +15146,11 @@
   "fecha": "2026-11-19",
   "ajuste": "splits"
  },
- "generado": "2026-11-19T23:54:40+00:00",
+ "generado": "2026-11-20T11:35:43+00:00",
  "peers": {
   "fuente_lista": "manual",
   "fuente_cifras": "SEC EDGAR (companyfacts, UDM) · precio Finnhub",
-  "actualizado": "2026-11-19",
+  "actualizado": "2026-11-20",
   "propia": {
    "ingresos": 3088880000,
    "crecimiento": 62.18,
