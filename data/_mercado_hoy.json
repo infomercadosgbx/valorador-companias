@@ -1,6 +1,6 @@
 {
  "esquema": 2,
- "generado": "2026-11-20T22:49:31+00:00",
+ "generado": "2026-11-21T00:33:56+00:00",
  "grupos": {
   "bolsa": "Bolsa",
   "volatilidad": "Volatilidad y divisas",
@@ -1442,17 +1442,13 @@
    "unidad": "pts",
    "fuente": "Cboe",
    "corto": "Cboe GVZ",
-   "valor": 28.7,
-   "anterior": 28.04,
-   "fecha": "2026-11-19",
+   "valor": 34.8,
+   "anterior": 28.7,
+   "fecha": "2026-11-20",
    "url": "https://www.cboe.com/tradable_products/vix/vix_historical_data/",
-   "var": 0.66,
-   "var_pct": 2.35,
+   "var": 6.1,
+   "var_pct": 21.25,
    "serie": [
-    [
-     "2026-08-20",
-     27.28
-    ],
     [
      "2026-08-21",
      27.29
@@ -1708,6 +1704,10 @@
     [
      "2026-11-19",
      28.7
+    ],
+    [
+     "2026-11-20",
+     34.8
     ]
    ]
   },
@@ -2003,12 +2003,12 @@
    "unidad": "",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 1.0969,
+   "valor": 1.0968,
    "anterior": 1.097,
    "fecha": "2026-11-21",
    "url": "https://twelvedata.com/",
-   "var": -0.0001,
-   "var_pct": -0.01
+   "var": -0.0002,
+   "var_pct": -0.02
   },
   {
    "id": "usdjpy",
@@ -2019,12 +2019,12 @@
    "unidad": "",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 158.5413,
+   "valor": 158.5583,
    "anterior": 158.5227,
    "fecha": "2026-11-21",
    "url": "https://twelvedata.com/",
-   "var": 0.0186,
-   "var_pct": 0.01
+   "var": 0.0355,
+   "var_pct": 0.02
   },
   {
    "id": "gbpusd",
@@ -2035,12 +2035,12 @@
    "unidad": "",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 1.3084,
+   "valor": 1.3087,
    "anterior": 1.3087,
    "fecha": "2026-11-21",
    "url": "https://twelvedata.com/",
-   "var": -0.0003,
-   "var_pct": -0.03
+   "var": 0.0,
+   "var_pct": 0.0
   },
   {
    "id": "usdcny",
@@ -2051,12 +2051,12 @@
    "unidad": "",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 6.6727,
+   "valor": 6.6718,
    "anterior": 6.6727,
    "fecha": "2026-11-21",
    "url": "https://twelvedata.com/",
-   "var": -0.0,
-   "var_pct": -0.0
+   "var": -0.0009,
+   "var_pct": -0.01
   },
   {
    "id": "us3m",
@@ -4621,11 +4621,11 @@
    "unidad": "$",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 3532.7909,
+   "valor": 3532.8773,
    "anterior": 3520.57,
    "fecha": "2026-11-21",
    "url": "https://twelvedata.com/",
-   "var": 12.2208,
+   "var": 12.3073,
    "var_pct": 0.35
   },
   {
@@ -5544,12 +5544,12 @@
    "unidad": "$",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 59000.0,
-   "anterior": 61986.73,
-   "fecha": "2026-11-20",
+   "valor": 59080.04,
+   "anterior": 58951.51,
+   "fecha": "2026-11-21",
    "url": "https://twelvedata.com/",
-   "var": -2986.73,
-   "var_pct": -4.82
+   "var": 128.53,
+   "var_pct": 0.22
   },
   {
    "id": "ethereum",
@@ -5560,12 +5560,12 @@
    "unidad": "$",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 1618.49,
-   "anterior": 1757.32,
-   "fecha": "2026-11-20",
+   "valor": 1625.67,
+   "anterior": 1623.09,
+   "fecha": "2026-11-21",
    "url": "https://twelvedata.com/",
-   "var": -138.83,
-   "var_pct": -7.9
+   "var": 2.58,
+   "var_pct": 0.16
   }
  ],
  "sentimiento": {
@@ -5901,7 +5901,7 @@
      "fin": "2026-12-09",
      "proyecciones": true,
      "hora_madrid": "20:00",
-     "dias": 19,
+     "dias": 18,
      "comunicado": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261209a.htm",
      "rueda_prensa": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20261209.htm",
      "actas_fecha": "2026-12-30",
@@ -5912,7 +5912,7 @@
      "fin": "2027-01-27",
      "proyecciones": false,
      "hora_madrid": "20:00",
-     "dias": 68,
+     "dias": 67,
      "comunicado": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20270127a.htm",
      "rueda_prensa": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20270127.htm",
      "actas_fecha": "2027-02-17"
@@ -5922,7 +5922,7 @@
      "fin": "2027-03-17",
      "proyecciones": true,
      "hora_madrid": "19:00",
-     "dias": 117,
+     "dias": 116,
      "comunicado": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20270317a.htm",
      "rueda_prensa": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20270317.htm",
      "actas_fecha": "2027-04-07",
@@ -5933,7 +5933,7 @@
      "fin": "2027-04-28",
      "proyecciones": false,
      "hora_madrid": "20:00",
-     "dias": 159,
+     "dias": 158,
      "comunicado": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20270428a.htm",
      "rueda_prensa": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20270428.htm",
      "actas_fecha": "2027-05-19"
@@ -5944,7 +5944,7 @@
     "fin": "2026-10-28",
     "proyecciones": false,
     "hora_madrid": "19:00",
-    "dias": -23,
+    "dias": -24,
     "comunicado": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261028a.htm",
     "rueda_prensa": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20261028.htm",
     "actas_fecha": "2026-11-18",
@@ -6111,124 +6111,6 @@
   },
   "agenda": {
    "items": [
-    {
-     "id": "umich",
-     "nombre": "Confianza del consumidor (U. Michigan)",
-     "fuente": "U. de Michigan",
-     "url": "https://www.sca.isr.umich.edu/",
-     "ultimo": "48,0 puntos (oct-26)",
-     "graficos": [
-      {
-       "id": "UMCSENT",
-       "nombre": "Confianza del consumidor",
-       "modo": "nivel",
-       "puntos": [
-        [
-         "2024-11",
-         71.8
-        ],
-        [
-         "2024-12",
-         74.0
-        ],
-        [
-         "2025-01",
-         71.7
-        ],
-        [
-         "2025-02",
-         64.7
-        ],
-        [
-         "2025-03",
-         57.0
-        ],
-        [
-         "2025-04",
-         52.2
-        ],
-        [
-         "2025-05",
-         52.2
-        ],
-        [
-         "2025-06",
-         60.7
-        ],
-        [
-         "2025-07",
-         61.7
-        ],
-        [
-         "2025-08",
-         58.2
-        ],
-        [
-         "2025-09",
-         55.1
-        ],
-        [
-         "2025-10",
-         53.6
-        ],
-        [
-         "2025-11",
-         51.0
-        ],
-        [
-         "2025-12",
-         52.9
-        ],
-        [
-         "2026-01",
-         56.4
-        ],
-        [
-         "2026-02",
-         56.6
-        ],
-        [
-         "2026-03",
-         53.3
-        ],
-        [
-         "2026-04",
-         49.8
-        ],
-        [
-         "2026-05",
-         44.8
-        ],
-        [
-         "2026-06",
-         49.5
-        ],
-        [
-         "2026-07",
-         55.2
-        ],
-        [
-         "2026-08",
-         51.7
-        ],
-        [
-         "2026-09",
-         48.1
-        ],
-        [
-         "2026-10",
-         48.0
-        ]
-       ],
-       "url": "https://fred.stlouisfed.org/series/UMCSENT"
-      }
-     ],
-     "principal": false,
-     "fecha": "2026-11-20",
-     "hora_madrid": "16:00",
-     "siguiente": "2026-12-18",
-     "anterior": "2026-10-23"
-    },
     {
      "id": "pce",
      "nombre": "PCE (la inflación que mira la Fed)",
@@ -7559,6 +7441,123 @@
      "fecha": "2026-12-16",
      "hora_madrid": "14:30",
      "anterior": "2026-11-17"
+    },
+    {
+     "id": "umich",
+     "nombre": "Confianza del consumidor (U. Michigan)",
+     "fuente": "U. de Michigan",
+     "url": "https://www.sca.isr.umich.edu/",
+     "ultimo": "48,0 puntos (oct-26)",
+     "graficos": [
+      {
+       "id": "UMCSENT",
+       "nombre": "Confianza del consumidor",
+       "modo": "nivel",
+       "puntos": [
+        [
+         "2024-11",
+         71.8
+        ],
+        [
+         "2024-12",
+         74.0
+        ],
+        [
+         "2025-01",
+         71.7
+        ],
+        [
+         "2025-02",
+         64.7
+        ],
+        [
+         "2025-03",
+         57.0
+        ],
+        [
+         "2025-04",
+         52.2
+        ],
+        [
+         "2025-05",
+         52.2
+        ],
+        [
+         "2025-06",
+         60.7
+        ],
+        [
+         "2025-07",
+         61.7
+        ],
+        [
+         "2025-08",
+         58.2
+        ],
+        [
+         "2025-09",
+         55.1
+        ],
+        [
+         "2025-10",
+         53.6
+        ],
+        [
+         "2025-11",
+         51.0
+        ],
+        [
+         "2025-12",
+         52.9
+        ],
+        [
+         "2026-01",
+         56.4
+        ],
+        [
+         "2026-02",
+         56.6
+        ],
+        [
+         "2026-03",
+         53.3
+        ],
+        [
+         "2026-04",
+         49.8
+        ],
+        [
+         "2026-05",
+         44.8
+        ],
+        [
+         "2026-06",
+         49.5
+        ],
+        [
+         "2026-07",
+         55.2
+        ],
+        [
+         "2026-08",
+         51.7
+        ],
+        [
+         "2026-09",
+         48.1
+        ],
+        [
+         "2026-10",
+         48.0
+        ]
+       ],
+       "url": "https://fred.stlouisfed.org/series/UMCSENT"
+      }
+     ],
+     "principal": false,
+     "fecha": "2026-12-18",
+     "hora_madrid": "16:00",
+     "anterior": "2026-11-20"
     }
    ],
    "fuente": "Fechas oficiales del BLS, el BEA, el Census y el Dpto. de Trabajo vía FRED",
