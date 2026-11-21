@@ -11098,7 +11098,7 @@
   }
  },
  "segmentos": {
-  "version": 5,
+  "version": 6,
   "informes_accn": [
    "0001018724-26-000040",
    "0001018724-26-000026",
@@ -12448,14 +12448,30 @@
   "fuente": "SEC EDGAR · formularios 4",
   "resumen": {
    "compras_mercado": 0,
-   "ventas_mercado": 382511076.41,
+   "ventas_mercado": 382714366.7,
    "n_compras": 0,
-   "n_ventas": 56,
-   "ventas_con_plan": 382511076.41,
+   "n_ventas": 57,
+   "ventas_con_plan": 382714366.7,
    "compradores": [],
    "desde": "2026-05-21"
   },
   "operaciones": [
+   {
+    "fecha": "2026-11-18",
+    "codigo": "S",
+    "tipo": "Venta en mercado",
+    "acciones": 783.0,
+    "precio": 259.63,
+    "importe": 203290.29,
+    "sentido": "venta",
+    "tras_operacion": 26930.0,
+    "clase": "Common Stock, par value $.01  per share",
+    "persona": "Huttenlocher Daniel P",
+    "cargo": "Consejero",
+    "plan_10b5_1": true,
+    "fecha_presentacion": "2026-11-20",
+    "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000056/0001018724-26-000056-index.htm"
+   },
    {
     "fecha": "2026-11-16",
     "codigo": "S",
@@ -13995,6 +14011,31 @@
   ],
   "operaciones_por_filing": [
    {
+    "accn": "0001018724-26-000056",
+    "fecha_presentacion": "2026-11-20",
+    "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000056/0001018724-26-000056-index.htm",
+    "personas": [
+     {
+      "nombre": "Huttenlocher Daniel P",
+      "cargo": "Consejero"
+     }
+    ],
+    "plan_10b5_1": true,
+    "operaciones": [
+     {
+      "fecha": "2026-11-18",
+      "codigo": "S",
+      "tipo": "Venta en mercado",
+      "acciones": 783.0,
+      "precio": 259.63,
+      "importe": 203290.29,
+      "sentido": "venta",
+      "tras_operacion": 26930.0,
+      "clase": "Common Stock, par value $.01  per share"
+     }
+    ]
+   },
+   {
     "accn": "0001936006-26-000030",
     "fecha_presentacion": "2026-11-17",
     "url": "https://www.sec.gov/Archives/edgar/data/1018724/000193600626000030/0001936006-26-000030-index.htm",
@@ -15496,7 +15537,7 @@
     ]
    }
   ],
-  "n_formularios": 32
+  "n_formularios": 33
  },
  "riesgos_10k": {
   "version": 4,
@@ -15637,10 +15678,10 @@
   "minimo_52s": 196,
   "maximo_52s": 287.2,
   "beta": 1.4884967,
-  "valor": 257.37,
-  "cierre_anterior": 267.74,
+  "valor": 246.82,
+  "cierre_anterior": 257.37,
   "moneda": "USD",
-  "fecha": "2026-11-19",
+  "fecha": "2026-11-20",
   "fuente": "Finnhub (API oficial, plan gratuito)",
   "url": "https://finnhub.io/"
  },
@@ -15747,6 +15788,109 @@
    "via": "RSS del medio"
   },
   {
+   "titular": "NY City Lawmakers Weigh Overhaul of Amazon Delivery Worker Bill",
+   "url": "https://www.insurancejournal.com/news/east/2026/11/20/893274.htm",
+   "fecha": "2026-11-20",
+   "resumen": "New York City lawmakers are in discussions to modify a mandate that would require Amazon.com Inc. to directly hire thousands of delivery workers under a",
+   "medio": "insurancejournal.com",
+   "tipo": "prensa",
+   "via": "Marketaux",
+   "sentimiento": {
+    "puntuacion": 0.0,
+    "etiqueta": "Neutral"
+   }
+  },
+  {
+   "titular": "Year-End Tax Loss Harvesting Ideas For 2026: Wash Rules, Sector Swaps & More",
+   "medio": "Seeking Alpha",
+   "url": "https://seekingalpha.com/article/4970659-year-end-tax-loss-harvesting-ideas-for-2026-wash-rules-sector-swaps-and-more",
+   "fecha": "2026-11-20",
+   "resumen": "",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=baad85321ca8b3d9ddbc992f1be4d9d7c1737e810cfd01f6fa96f46d7b39022d"
+  },
+  {
+   "titular": "BUZZ Investing: AI Reassessment Drives Tech Rotation, BUZZ Index Declines",
+   "medio": "Seeking Alpha",
+   "url": "https://seekingalpha.com/article/4970595-buzz-investing-ai-reassessment-drives-tech-rotation-buzz-index-declines",
+   "fecha": "2026-11-20",
+   "resumen": "Stocks Fell on AI Reassessment: The S&P 500 fell 2.2% and the Nasdaq Composite 6.7%, while the BUZZ Index declined 14.9% as investors rotated out of AI and semiconductors.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=541da6bb33985ccf31b42611db29c22631eaf65938ce0a5da6690480a7e09acd"
+  },
+  {
+   "titular": "Amazon To Rally Over 20%? Here Are 10 Top Analyst Forecasts For Friday",
+   "medio": "Benzinga",
+   "url": "https://www.benzinga.com/analyst-stock-ratings/price-target/26/11/63469941/amazon-to-rally-over-20-here-are-10-top-analyst-forecasts-for-friday-2",
+   "fecha": "2026-11-20",
+   "resumen": "Analysts cut ChoiceOne and Williams-Sonoma targets, while raising targets for Woodward, Amazon, Expeditors, Globant and Walmart.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=b9718514c4eb270810b460bbab1e2553faf6fea85e55b1b9a510e5be8ba1e0d4"
+  },
+  {
+   "titular": "Oppenheimer Maintains Outperform on Amazon.com, Raises Price Target to $310",
+   "medio": "Benzinga",
+   "url": "https://www.benzinga.com/news/26/11/63469627/oppenheimer-maintains-outperform-amazon-com-raises-price-target-310",
+   "fecha": "2026-11-20",
+   "resumen": "Oppenheimer  analyst Jason Helfstein   maintains Amazon.com (NASDAQ:AMZN) with a Outperform and raises the price target from $285 to $310.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=1dd4081c42c608a58459861782b794ea5aee04d9dd455a0aa1ef4ddea9ee297e"
+  },
+  {
+   "titular": "Jeff Bezos Has Worked With 5 Presidents and Still Turns to Obama for Advice, Says Trump Is the Most Accessible of Them All — 'He'll Call You'",
+   "medio": "Benzinga",
+   "url": "https://www.benzinga.com/news/26/11/63467428/jeff-bezos-has-worked-with-5-presidents-and-still-turns-to-obama-for-advice-says-trump-is-the-most-accessible-of-them-all-hell-call-you",
+   "fecha": "2026-11-20",
+   "resumen": "Jeff Bezos says he still reaches out to Barack Obama for advice, but Donald Trump is the most accessible president he has worked with. &#39;He&#39;ll call you.&#39;",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=ebb92d5eff3b68a6740e6e3e0aa43a398c5fce7a30b5a43ada077d7b18535efc"
+  },
+  {
+   "titular": "Broadcom: A Better Bet Than A Month Ago",
+   "medio": "Seeking Alpha",
+   "url": "https://seekingalpha.com/article/4970562-broadcom-a-better-bet-than-a-month-ago",
+   "fecha": "2026-11-20",
+   "resumen": "Analyst rates Broadcom Inc. a Strong Buy at 11.6x FY2028 earnings; Anthropic's capacity needs could add 1-2 GW in 2028, and funding eases lending risk.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=0e52610306baca9ac702f3c3092c38612307d9da1f72132489b8daa947b1b40d"
+  },
+  {
+   "titular": "Nvidia Stock Hits New 52-Week Low: Buy the Dip or Stay Away?",
+   "medio": "Benzinga",
+   "url": "https://www.benzinga.com/markets/tech/26/11/63466241/nvidia-stock-hits-new-52-week-low-buy-the-dip-or-stay-away",
+   "fecha": "2026-11-20",
+   "resumen": "NVIDIA stock slid to a new 52-week low following Jensen Huang’s abrupt departure. See how Amazon’s Andy Jassy, Brad Gerstner, Jim Cramer, and fund managers view NVDA’s outlook right now.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=51f28346ff44d102946998db2521c94c8471f3d7aac2bcbf3b0a6ee09b257062"
+  },
+  {
+   "titular": "Gen Z Worker Confronts Kevin O’Leary Over Why Investors Get Rich While Employees Miss Out: ‘Why Should You Be the Only One Getting Wealthy?’",
+   "medio": "Benzinga",
+   "url": "https://www.benzinga.com/personal-finance/financial-advisors/26/11/63465625/gen-z-worker-confronts-kevin-oleary-over-why-investors-get-rich-while-employees-miss-out-why-should-you-be-the-only-one-getting-wealthy",
+   "fecha": "2026-11-20",
+   "resumen": "A Gen Z worker challenged Kevin O’Leary on employee equity, sparking debate over whether workers or investors deserve more corporate wealth.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=230dc567495f0c7d0c479e6affd3b6b5f7961a88ecd0c199b97692466bb15251"
+  },
+  {
+   "titular": "Zohran Mamdani Says 'It's Greed' If Jeff Bezos Adds $5 to Your Order As Amazon Warns NYC Delivery Legislation Could Raise Prices",
+   "medio": "Benzinga",
+   "url": "https://www.benzinga.com/markets/tech/26/11/63465083/zohran-mamdani-amazon-new-york-city-delivery-legislation-jeff-bezos-greed",
+   "fecha": "2026-11-20",
+   "resumen": "New York City Mayor Zohran Mamdani accused Amazon of greed after the company told customers a City Council bill could raise delivery costs.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=015dda9f00f8cd4cad24eb38a03a01e6b78bef8fee68ce32cb1b8b0993dc2dea"
+  },
+  {
    "titular": "Invesco QQQ Monthly Review",
    "medio": "Seeking Alpha",
    "url": "https://seekingalpha.com/article/4970513-invesco-qqq-monthly-review",
@@ -15755,6 +15899,69 @@
    "tipo": "prensa",
    "via": "Finnhub",
    "url_finnhub": "https://finnhub.io/api/news?id=160c38cf1180315966a4a7333f08a04eb7c1ef94af1882a472148aa616ab8c51"
+  },
+  {
+   "titular": "Amazon Urges NYC Customers to Oppose Mamdani-Backed Delivery Bill",
+   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQUlhuRl9IVHpKbEE1aE5EQ3RBb1lScFkyaktKUHpueW1KSi1EWGFYMEx4TU9oRm5RbzVkSkZ2aWhtZ0hxSkFlcjNFNjJjNHhHME9FNkp2ckNuS1FMMkNBYUZSemt1UTFpYmd6MEtLOTdXdDJwellWMGxFd0lnLXVsMHdiU2tvOWw1Qk9FV1d3c21IejNyT3ZRX1NPdmFyekV0enlHNkszSWVIQVM0dGFRUnh2dw?oc=5",
+   "fecha": "2026-11-20",
+   "resumen": "",
+   "medio": "WSJ",
+   "tipo": "prensa",
+   "via": "Google News"
+  },
+  {
+   "titular": "NYC Lawmakers Weigh Overhaul of Amazon Delivery Worker Bill",
+   "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNWTg0RkZYbXBNTmhZUmcxaEVmNEF5SUpMVDhzaWd3Vkd4dDAxNDZUMklELXkxSXJQTlJRSnVuTC14S0RvOTRKczhPWXo1cUtESUJLdnRfZVpSN0VLdkQ0MVdXVjV6dUs1VUhGV1VLeXU4N2Vwd1JiRFZnUjNrc1NEOW9kekcyTFlrVEZLSWF2NjItdTl2ZURyWFBfR0pNOGNad21pWEg3RDlxRXFoeGRv?oc=5",
+   "fecha": "2026-11-20",
+   "resumen": "",
+   "medio": "Bloomberg",
+   "tipo": "prensa",
+   "via": "Google News"
+  },
+  {
+   "titular": "Final Trades: Amazon, Verizon and Target",
+   "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxONHFUekZzVm1UTGNER19MdjViU0s2QnRScWttM0RHOG9xWjJjX0pCZ1ROTkdXM19RTDhlcTUxSTNBSktYSEFEX1FCZklvclJRbXRPREhHcE92NVdIZUtvNHZqUlAzcDRvZ29aenR6R0RBc0tYaUxKQXZfUng0eVBFOUl0R0Yxai1M?oc=5",
+   "fecha": "2026-11-20",
+   "resumen": "",
+   "medio": "CNBC",
+   "tipo": "prensa",
+   "via": "Google News"
+  },
+  {
+   "titular": "La gran jugada de Amazon y Google con Anthropic",
+   "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQNDJOZVo4OGlYanFhSkFqOS1QNmpLRlJ1TFhjeVdOM1kxaHVjVmJ2Vml0WldmOWRJZnhVdVhfeldjTEJKaGxsclRxaWNnTFV5X3R4QjYxMTRSXzM1OFU5RG5CM3lrTnlOVVo5bzVvOVduTHlNU0ttdlEyVGM0RUJYdG95WDM4ZmMwOUhVOU9ZTkZPQdIBkgFBVV95cUxOeWp5OFVwQkRMQnZMMHFMVzhnZGE5OU1EeUQ2d0wyNHAzLU04SWZpRzZLSGF4azJGYllMaG9ZcG9QZEJwY0NhUXJxWXhQR213RHV3QnU4Vm1hV0NpbDhOZlN6SFJrN0hRX0p4ZnRnT0ZmS1RKcjRsS3pMU0ZPMmsxVlFadUtZWEc2d3RkU1lRV2Nidw?oc=5",
+   "fecha": "2026-11-20",
+   "resumen": "",
+   "medio": "Expansión",
+   "tipo": "prensa",
+   "via": "Google News"
+  },
+  {
+   "titular": "Black Friday en Amazon: 60 grandes chollos con el 50% de descuento (o más)",
+   "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNSE5TclpoalJpM296ZE9Ua0RqSzZoQVlWWHh3aVFpZy1HdGF0NHNrbkJsc1RENEpmRlltVk44d3NVLW9WNjlaNHkwM2dHYjhnY2QzOWw1d29wQ3g0cjBlQTItTWI4djVKOGRMNWlZeGpRejVIODJZWTRuWkQybXZmd2JIaW9Gb1ljSmlFaVNrRXJBU2JHdG5B0gGXAUFVX3lxTFBJOExOZ0RPdC02R04wWU16VG5wYUhueHhHZUR3S3RaLUJMMWNQMVc0M2dYdE16dUlTYm9ISmdleTJrVmllR1ZfTHUwTFVpNUZXTzFHUHYySlBSelBVMmN2SVl5SVBRV3BYS0U5MUhjWW0wSHo2SXRLcG11SUViRXU4RVMtMjVObjBxTmhHbTA3ZW5LTG5zVTA?oc=5",
+   "fecha": "2026-11-20",
+   "resumen": "",
+   "medio": "El Mundo",
+   "tipo": "prensa",
+   "via": "Google News"
+  },
+  {
+   "titular": "Lego arrasa en el Black Friday de Amazon con grandes ofertas en todo su catálogo",
+   "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOSVZ5bVIyU2tIdjUyM1BUdHZmT3ZlcEh6bHRydHRXNGtuTmlqalI0RGpBdDZMV25SbllVakdneFhUWFhHOWU5Yi15ODYySjdTdXBBemlEbUdGbXhBYzlFQ29nNE1nZ1JjVUtuRi1MVWdHcm9fRGVqV2d6RFpkWFhZclJ3d19nUdIBhgFBVV95cUxNM2ZXSnlQSFJoWjdXcjRSNmpjT0JseWhvMFVQRU4xWmdJZFJaRTFXVzRnaVlGbFIyNmpDazZTV0RnQ2QyOHZaNG1hSFdfV2djaDhRTHFXUmFwUXRFZGV5YnZtNTdEUXJpcmFlLUxyX0w1SHg1VkZjc2wwWHF2SnpRa1EweFJjZw?oc=5",
+   "fecha": "2026-11-20",
+   "resumen": "",
+   "medio": "El Mundo",
+   "tipo": "prensa",
+   "via": "Google News"
+  },
+  {
+   "titular": "Black Friday 2026 en Amazon: las mejores colonias para hombre de Calvin Klein, Hugo Boss, Tommy Hilffiger o Nike a precio mínimo",
+   "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQZk4ydUtJQ2R3NThsSll3ZnhSejhUY3gySnRGWURrZDF5Z1Jla1NUQ0U5dUdNSHdyUy1Tb1BMNDlmeWozWmJCNmJqTkoyVE5qd1NnT05tc21raFRuMFlTRzVTRUFvQlNTWndmbjczQjV2dmhxRm81T1JJRTNQbTJrX3pyeWkxQdIBhgFBVV95cUxNVzJfNDFxcmtvY25QUnJHeEZkMEhzeGFIVEJEdFl0MUNIcDdTWmZCaEEzdjVndmItZUtYSHdMRVlOZlA1SGZPLUFpc0VpbHd0ci1hcXk1OE9kQlhNSHd6dGM3WldLNTlya0VOV1pRM2NQRFVRQVQ5YndrNWZDWXpWLUlTOU1UZw?oc=5",
+   "fecha": "2026-11-20",
+   "resumen": "",
+   "medio": "El Mundo",
+   "tipo": "prensa",
+   "via": "Google News"
   },
   {
    "titular": "BBC Player Amazon Channel",
@@ -15768,6 +15975,15 @@
   {
    "titular": "El Black Friday de los 'gadgets' para el hogar: Amazon lanza grandes chollos en robots aspiradores, batidoras, cafeteras, aspiradoras sin cable...",
    "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxObk1valF5VUlxamZ5em9zemhZN05HNXVBR3AwRWRaNE45ZzFlOGZMZUhFaGpPa1NPT1EydWdSa3pxYmtkWW9IczdyNHdhNmNmZ2hScTlnNVJaclBwZkxOM0FqV1E4RGNjbV8taWRMN2U3QlNPRHd1WEVYalFRdzB0eEI1eXBFQWVQOUxBWDlHX0ZFZ1gxcjZJ0gGXAUFVX3lxTE5HcU1ZNlNSdzZBTVN5V25yUk1DdElnZDl6bnJVYU5taE1OTXA3dnRXTmYzcV9KYzY5dmNkZU1BNTJWWVZzY3RNcHJLeUpTaUZicEIzRVhhNkg1Q21ybkdGSG1nNmJBc2RfVDNBLVhXOWhHTTVOTXZlcWFoNHRqNDFHMkkyS0FkN0RJazBENVVONkdqVjliUFE?oc=5",
+   "fecha": "2026-11-20",
+   "resumen": "",
+   "medio": "El Mundo",
+   "tipo": "prensa",
+   "via": "Google News"
+  },
+  {
+   "titular": "Fiebre por el café en el Black Friday de Amazon: rebajas históricas en cafeteras de todo tipo",
+   "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQaEZGZXU2NmQyaEM5QzRlb2hCVmdzUDdmRUxTR3BkSTRzYjdJUWVWNWdLTWxXZUp6MUxNTklzeDk3cWJPMGkyODNQNjg4UU9ZY0VmYjhpaFVwVE1OOHZ3V0p2ZjhHemtRSV9CUVpZSFZQOVNHU1d2VXpaS0RtWndOZU9ZdXJxUdIBhgFBVV95cUxPMmJjQXRybFNyYmY2TkNJNkxxQ3hlN0R0OEJwdmZYT1F1QkpqNWVLblJabDZmb0xvSlRBd2E2LTBiVm9XTHlqQ0JmMHVZV1FHaU5Cdkd4UC1VNEZPNV9COTNJWWhKVkRFUkdIMG9GQzdLYVg0eVU5bnRhWlVFWHAtT1R5eXdxdw?oc=5",
    "fecha": "2026-11-20",
    "resumen": "",
    "medio": "El Mundo",
@@ -15802,214 +16018,44 @@
    "via": "RSS de Seeking Alpha"
   },
   {
-   "titular": "If You Had Invested $5,000 in Amazon Stock 20 Years Ago, Here's How Much You'd Have Today",
+   "titular": "Dow Jones Futures: Market Has Worst Week Since Covid Amid Nvidia, Anthropic. Does Fear Gauge Offer Hope?",
    "medio": "Yahoo Finance",
-   "url": "https://www.fool.com/investing/2026/11/20/if-youd-invested-5000-in-company-name-stock-20-years-ago-heres-how-much-youd-have-today/",
+   "url": "https://finance.yahoo.com/m/9ef9da98-bccf-3565-9a30-9bc3e57ad4b9/dow-jones-futures%3A-market-has.html",
    "fecha": "2026-11-20",
-   "resumen": "It's more than just the largest company in the world by sales.",
+   "resumen": "The Dow Jones and Nasdaq had their worst week since March 2020, fueled by Nvidia and Anthropic. A fear gauge is soaring. Good news?",
    "tipo": "prensa",
    "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=03ed66304a56c4a1146c3eaf0092a2693dbb8e5462520df32845c725b125f304"
+   "url_finnhub": "https://finnhub.io/api/news?id=a461bf9206b72f4ed5bbda580ba12f32748c5dc1fc3ce52df1fae999182f1a09"
   },
   {
-   "titular": "Direxion Daily S&P 500 Bull 3X (SPXL) Sells $16.2 Million of Apple on Nov. 18",
+   "titular": "From Nvidia To Amazon, Tech Giants Face Stunning Reversal As Nasdaq Erases 2026 Gains",
    "medio": "Yahoo Finance",
-   "url": "https://finance.yahoo.com/markets/stocks/articles/direxion-daily-p-500-bull-110505993.html",
+   "url": "https://www.ibtimes.com/us-stocks-ai-selloff-nasdaq-market-decline-3810038",
    "fecha": "2026-11-20",
-   "resumen": "The leveraged ETF sold $154.1 million of stock and bought nothing, cutting 382 positions while increasing none.",
+   "resumen": "Technology shares led a broad market retreat as investors questioned lofty AI valuations and responded to rising expectations for another Federal Reserve rate hike.",
    "tipo": "prensa",
    "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=9f1d821a228996b6cae42d0f1e3a30d4c90478180a4bbab518ac3c2d19937d73"
+   "url_finnhub": "https://finnhub.io/api/news?id=82b1087a33c565801cefa3a4d554a8431fd5bc9079d7e60d9fa0cfbfb68a32d4"
   },
   {
-   "titular": "What State Street Consumer Discretionary SPDR (XLY) Bought: Amazon Leads on Nov. 18",
+   "titular": "Amazon Provides Options To Buy Ads Across Entire Ecosystem",
    "medio": "Yahoo Finance",
-   "url": "https://finance.yahoo.com/markets/stocks/articles/state-street-consumer-discretionary-spdr-110457372.html",
+   "url": "https://www.mediapost.com/publications/article/419599/amazon-provides-options-to-buy-ads-across-entire-e.html",
    "fecha": "2026-11-20",
-   "resumen": "The $22.83 billion fund bought $172.9 million of stock and sold nothing, lifting all 47 positions.",
+   "resumen": "Amazon Ads Brand Innovation Lab's Holiday Sponsorship Program is an effort to turn its entire media and shopping ecosystem into a large holiday sponsorship opportunity for advertisers and media buyers.",
    "tipo": "prensa",
    "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=070de4cf918177cf6c303c65df2fc894d5dee41bde74bed3e1eccc00beee7615"
+   "url_finnhub": "https://finnhub.io/api/news?id=20ff9736b41cda72cfa81c42424375ca33ab04b0f7e8fb037444a3eda9008122"
   },
   {
-   "titular": "iShares A.I. Innovation and Tech Active ETF (BAI) Buys $14.3 Million More AMD on Nov. 18",
+   "titular": "Is Apple Stock Increasing Your Market Risk?",
    "medio": "Yahoo Finance",
-   "url": "https://finance.yahoo.com/markets/stocks/articles/ishares-innovation-tech-active-etf-110443799.html",
+   "url": "https://www.trefis.com/stock/aapl/articles/627248/is-apple-stock-increasing-your-market-risk/2026-11-20",
    "fecha": "2026-11-20",
-   "resumen": "The fund bought $155.6 million more than it sold, lifting 35 positions and trimming four, with Advanced Micro Devices its largest addition.",
+   "resumen": "Today's big story: Will 2027 Be A 2022 Repeat For Stocks.",
    "tipo": "prensa",
    "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=c982c3a65e2d281bbbe2b68e1765133ffaca1469648c76754ae006b460ce833e"
-  },
-  {
-   "titular": "Capital Group Core Equity (CGUS) Buys $25.4 Million More Intel on Nov. 18",
-   "medio": "Yahoo Finance",
-   "url": "https://finance.yahoo.com/markets/stocks/articles/capital-group-core-equity-cgus-110426396.html",
-   "fecha": "2026-11-20",
-   "resumen": "The ETF bought $25.4 million of Intel and $16.8 million of Meta while selling $37.6 million of Nvidia.",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=1176c97f177551ce62437edc7471fdcfc40e6ff3c63d4d49bcf73e4606d9ee13"
-  },
-  {
-   "titular": "State Street SPDR Portfolio S&P 500 (SPYM) Adds Apple and Microsoft on Nov. 18",
-   "medio": "Yahoo Finance",
-   "url": "https://finance.yahoo.com/markets/stocks/articles/state-street-spdr-portfolio-p-110411294.html",
-   "fecha": "2026-11-20",
-   "resumen": "The fund bought $429.4 million of stock, lifting 501 positions and trimming none, with Apple and Microsoft the largest additions.",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=0ea68d07e287951fd3621a33a3e8eaeb3d7ac51bebb193d69d9a35e9ef3c4918"
-  },
-  {
-   "titular": "Watch the teaser trailer for 'Invincible' Season 5, coming to Prime Video February 17",
-   "url": "https://www.aboutamazon.com/news/entertainment/invincible-prime-video?utm_source=rss",
-   "fecha": "2026-11-19",
-   "resumen": "'The Boys' star Jack Quaid will join the fifth season of the critically acclaimed animated superhero series.",
-   "medio": "Amazon (sala de prensa)",
-   "tipo": "nota_prensa",
-   "via": "Sala de prensa de la compañía"
-  },
-  {
-   "titular": "Siteimprove.ai Accessibility Agent Now Available for AI Agents Through Agentic Commerce on AWS Marketplace",
-   "url": "https://www.prnewswire.com/news-releases/siteimproveai-accessibility-agent-now-available-for-ai-agents-through-agentic-commerce-on-aws-marketplace-302946191.html",
-   "fecha": "2026-11-19",
-   "resumen": "COPENHAGEN, Denmark, Nov. 19, 2026 /PRNewswire/ -- Siteimprove, the agentic content intelligence platform, announced today that it is a launch partner for Agentic Commerce on AWS Marketplace, making the Siteimprove.ai Accessibility Agent available for AI agents to pay for per req",
-   "medio": "PR Newswire",
-   "tipo": "nota_prensa",
-   "via": "RSS del medio"
-  },
-  {
-   "titular": "Zesty's Autonomous Kubernetes Platform Now Spans Compute and GPU Infrastructure Ahead of AWS re:Invent 2026",
-   "url": "https://www.prnewswire.com/news-releases/zestys-autonomous-kubernetes-platform-now-spans-compute-and-gpu-infrastructure-ahead-of-aws-reinvent-2026-302945898.html",
-   "fecha": "2026-11-19",
-   "resumen": "Following the launch of Automated Fractional GPUs, CTO and Co-Founder Alexey Baikov will speak at re:Invent on keeping Kubernetes infrastructure cost-efficient as AI adoption scales SAN MATEO, Calif., Nov. 19, 2026 /PRNewswire/ -- Zesty, a leader in Kubernetes optimization, today",
-   "medio": "PR Newswire",
-   "tipo": "nota_prensa",
-   "via": "RSS del medio"
-  },
-  {
-   "titular": "ANZ migrates 1.7 petabytes of data to AWS",
-   "url": "https://www.datacenterdynamics.com/en/news/anz-migrates-17-petabytes-of-data-to-aws/",
-   "fecha": "2026-11-19",
-   "resumen": "Aussie multinational bank completes migration to AWS",
-   "medio": "Data Center Dynamics",
-   "tipo": "sectorial",
-   "via": "RSS del medio"
-  },
-  {
-   "titular": "Instagram creators can now add Amazon affiliate links directly to Reels, posts",
-   "url": "https://www.retaildive.com/news/instagram-creators-add-amazon-affiliate-links-reels-posts/874889/",
-   "fecha": "2026-11-19",
-   "resumen": "Creators can add 30 products per Reel, or 20 per post, and earn commission and Instagram won t take a cut.",
-   "medio": "Retail Dive",
-   "tipo": "sectorial",
-   "via": "RSS del medio"
-  },
-  {
-   "titular": "Tractor Supply boosts same-day delivery options",
-   "url": "https://www.retaildive.com/news/tractor-supply-uber-same-day-delivery/874748/",
-   "fecha": "2026-11-19",
-   "resumen": "The retailer is growing its delivery offerings at the same time Amazon is expanding its rural delivery network.",
-   "medio": "Retail Dive",
-   "tipo": "sectorial",
-   "via": "RSS del medio"
-  },
-  {
-   "titular": "Amazon warns NYC shoppers of potential $5 per-order increase over proposed delivery law",
-   "url": "https://www.foxbusiness.com/fox-news-tech/amazon-nyc-delivery-law-order-cost-increase",
-   "fecha": "2026-11-19",
-   "resumen": "Amazon warns New York City shoppers that a proposed delivery worker law could add up to $5 per order and is urging customers to contact City Council members.",
-   "medio": "foxbusiness.com",
-   "tipo": "prensa",
-   "via": "Marketaux",
-   "sentimiento": {
-    "puntuacion": -0.121,
-    "etiqueta": "Neutral"
-   }
-  },
-  {
-   "titular": "Dow Jones Losers Today: NIKE and UnitedHealth Lead Declines",
-   "medio": "ChartMill",
-   "url": "https://www.chartmill.com/news/NKE/Chartmill-58957-Dow-Jones-Losers-Today-NIKE-and-UnitedHealth-Lead-Declines",
-   "fecha": "2026-11-19",
-   "resumen": "Dow Jones losers in today's session were led by NIKE and UnitedHealth, with all ten decliners down between 2.21% and 5.77%.",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=764a49d7747e3d89111c720cc2e3ed6b4fcd0e72e6268381837376f4b640bb41"
-  },
-  {
-   "titular": "Anthropic: A Strange Time To Be Sensible",
-   "medio": "Seeking Alpha",
-   "url": "https://seekingalpha.com/article/4970392-anthropic-a-strange-time-to-be-sensible",
-   "fecha": "2026-11-19",
-   "resumen": "Analyst sees Anthropic, PBC as a long-term opportunity but favors waiting: its $81B run rate is far below the roughly $600B revenue needed for 3x sales.",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=18c5deef7c17d602561286c5e661ed21f63ff94e5530dd0726d37d1d03b91065"
-  },
-  {
-   "titular": "Amazon app warns New York of higher costs if Mamdani delivery law passes",
-   "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE4tTDRFYmNpZFg3eDNzcWlFVm41Z01UbFhITVVNWS12THQ5c1ZJd1hkSnpTUmNiYnkyN1FDNm41R1laQmZkM3Ridy0wbmpwX2NIWXNVd19HM0k3SUhuYTlqalMxdnd2Z3lmNHp5SFI0RGg2cHdBTm0xRGFCSdIBgAFBVV95cUxNYUtsbElXekhJQ2Y3dTM1X1hFbWxMZjB6UTJKNE44WHFiVlQ5dWJWbUE4NGcwNEstWkQ4aHNkUGI3SXFqanZ4VWMxS09UakVJdlRPaWRUU0ZiR0l6d2YxNTFtUWoxYl9tak1WeEF1Y3RTY2pQRHZzZkFVVWFJSW13Tg?oc=5",
-   "fecha": "2026-11-19",
-   "resumen": "",
-   "medio": "CNBC",
-   "tipo": "prensa",
-   "via": "Google News"
-  },
-  {
-   "titular": "Amazon warns NYC delivery bill could add up to $5 per order",
-   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPNkFtMjlFYVZtVmJXQWlvMGtSdGNFZm5xd3JHSlJPaGR4ektBbEZUdWltOGhnbGpPTmNRblVaRFFnSU5KTWxZREdqVmpwTGREOTF0ajFtWkVMcURwY19tX1FkWndWOFlkMVYxTm85N2tjbno0TTNhWDV3VmRqSnJLSWdtUnRFOWxNYWFlWmRxelI2VjhPNkxxaWhIQ1JtYzJaZ0dQNmlxREd4dDY3S0o5N28zbkk0NXM?oc=5",
-   "fecha": "2026-11-19",
-   "resumen": "",
-   "medio": "Reuters",
-   "tipo": "prensa",
-   "via": "Google News"
-  },
-  {
-   "titular": "NYC Lawmakers Weigh Overhaul of Amazon Delivery Worker Bill",
-   "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNWTg0RkZYbXBNTmhZUmcxaEVmNEF5SUpMVDhzaWd3Vkd4dDAxNDZUMklELXkxSXJQTlJRSnVuTC14S0RvOTRKczhPWXo1cUtESUJLdnRfZVpSN0VLdkQ0MVdXVjV6dUs1VUhGV1VLeXU4N2Vwd1JiRFZnUjNrc1NEOW9kekcyTFlrVEZLSWF2NjItdTl2ZURyWFBfR0pNOGNad21pWEg3RDlxRXFoeGRv?oc=5",
-   "fecha": "2026-11-19",
-   "resumen": "",
-   "medio": "Bloomberg",
-   "tipo": "prensa",
-   "via": "Google News"
-  },
-  {
-   "titular": "Netflix, Amazon, Fox to bid for 2030 men's World Cup rights; Disney out",
-   "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQS1NKRzBoR3ZXbnRFOFZ2QnI3aUFBMy15QnludHNqYlVXVHdVcFFFWXhOWmQtTGJ4QVBRQlhpVjNSemJfaHZJRnM4U0JnR0V0TWc5VkpWUVRHYjE2WG5NR3VMRnJDazU2Qk0wNG9pcTJNbURhRDYwTDRDSURyVUZJM3pPSmVzODRSOHdpUTA2cWlJMGdKQXB6czFTbjZMMF93VU000gGoAUFVX3lxTE02UVJuZkU4c3NYMFNUUGxITHRQUGlLU2plV0dDMFg3WVB6cGRjTDJUdHZOOVN3MTdsLWxIenFKUHlDejZHOG4ya3RERGt3SXpnb0hXUzdNbFBNXzhvZHN4UWt1d3dWcjljdGVvZlZBbXRjWDJaSk1maHhmR0RmVThaSENESC10TTNFUnR6S2FsQkY2bVprOEU3ejlWRTJjSURxa3hyTVA5RA?oc=5",
-   "fecha": "2026-11-19",
-   "resumen": "",
-   "medio": "CNBC",
-   "tipo": "prensa",
-   "via": "Google News"
-  },
-  {
-   "titular": "Amazon Urges NYC Customers to Oppose Mamdani-Backed Delivery Bill",
-   "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQUlhuRl9IVHpKbEE1aE5EQ3RBb1lScFkyaktKUHpueW1KSi1EWGFYMEx4TU9oRm5RbzVkSkZ2aWhtZ0hxSkFlcjNFNjJjNHhHME9FNkp2ckNuS1FMMkNBYUZSemt1UTFpYmd6MEtLOTdXdDJwellWMGxFd0lnLXVsMHdiU2tvOWw1Qk9FV1d3c21IejNyT3ZRX1NPdmFyekV0enlHNkszSWVIQVM0dGFRUnh2dw?oc=5",
-   "fecha": "2026-11-19",
-   "resumen": "",
-   "medio": "WSJ",
-   "tipo": "prensa",
-   "via": "Google News"
-  },
-  {
-   "titular": "Amazon Ups Pressure on NYC Delivery Bill With Threat to Move Out",
-   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNdVBRbVlJeWNzSU9zRE1jUlFNT3lpMy1CSTJraEpmVjNmZHBUNjhIZlA1eTUyLXpXTVVQOWsyQlRZWGNnamVyaHFLRWQwZU5CWkdCWm8xQVhGdDlaMXlyNDlzTnlMOU5jaVhSb0oxNkxXdkpnYkFLclpOLUJ0THBQeFpqTnJPSGRCb0lDYjZzWHhzcVFQVGJ6cVJtSDJkcExfdGpjRFo2NHJKeWQ5UnNrWG1Dek1ZZw?oc=5",
-   "fecha": "2026-11-19",
-   "resumen": "",
-   "medio": "Bloomberg",
-   "tipo": "prensa",
-   "via": "Google News"
-  },
-  {
-   "titular": "Brazil’s Lula moves to protect Chief Raoni’s birthplace in the Amazon rainforest",
-   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQWUJ6VVhUX1BxaXdoZ1hnazNMa0pUVVJJQ1h6aEsxenBTR1VDQVdMSWZHZlpWREMtdEhpTDZaXzEtNzdDazU3MlR2eU16U1NaczlkQ3Jidnc4Y3lPS2NLYXdvNEVwNWJURkhSdnM0NzI1dmctXzVYdExhN080cEVnc0lwejFoWHkwTDNQUGswN2Z2VjNhTW52emRCYlFVQmNWQWpCZWlTX2VqalI2ZFVGLTBaRFJOX1U?oc=5",
-   "fecha": "2026-11-19",
-   "resumen": "",
-   "medio": "AP",
-   "tipo": "prensa",
-   "via": "Google News"
+   "url_finnhub": "https://finnhub.io/api/news?id=935619fe4cc137e8cc74cd82a39ce88ddcdf01e17375cd86c0a01b675f1b35a4"
   },
   {
    "titular": "8-K a la SEC: Resultados",
@@ -16027,10 +16073,10 @@
    "fuente": "StockTwits (API pública)",
    "url": "https://stocktwits.com/symbol/AMZN",
    "mensajes": 30,
-   "alcistas": 4,
-   "bajistas": 6,
-   "pct_alcista": 40,
-   "seguidores": 712364,
+   "alcistas": 5,
+   "bajistas": 2,
+   "pct_alcista": 71,
+   "seguidores": 712454,
    "desde": "2026-11-20",
    "hasta": "2026-11-20",
    "fecha": "2026-11-20"
@@ -16054,7 +16100,7 @@
    },
    "Google News": {
     "ok": true,
-    "titulares": 66
+    "titulares": 69
    },
    "Seeking Alpha": {
     "ok": true,
@@ -16066,7 +16112,7 @@
    },
    "RSS de medios": {
     "ok": true,
-    "titulares": 6
+    "titulares": 3
    },
    "Sala de prensa": {
     "ok": true,
@@ -16080,10 +16126,6 @@
  },
  "historico_precio": {
   "serie": [
-   [
-    "2021-08-19",
-    159.3875
-   ],
    [
     "2021-08-20",
     159.9975
@@ -21359,14 +21401,18 @@
    [
     "2026-11-19",
     257.37
+   ],
+   [
+    "2026-11-20",
+    247.15
    ]
   ],
   "fuente": "Twelve Data (API oficial, plan gratuito)",
   "url": "https://twelvedata.com/",
-  "fecha": "2026-11-19",
+  "fecha": "2026-11-20",
   "ajuste": "splits"
  },
- "generado": "2026-11-20T12:39:42+00:00",
+ "generado": "2026-11-20T23:57:43+00:00",
  "peers": {
   "fuente_lista": "manual",
   "fuente_cifras": "SEC EDGAR (companyfacts, UDM) · precio Finnhub",
@@ -21388,13 +21434,13 @@
    "informe": "10-Q",
    "informe_fecha": "2026-10-30",
    "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/0001018724-26-000040-index.htm",
-   "precio": 257.37,
-   "capitalizacion": 2782977405815.22,
-   "ev": 2849083405815.22,
-   "per": 20.65,
-   "precio_ventas": 3.49,
-   "ev_ebitda": 15.51,
-   "rentabilidad_fcf": -1.68,
+   "precio": 246.82,
+   "capitalizacion": 2668898796686.92,
+   "ev": 2735004796686.92,
+   "per": 19.8,
+   "precio_ventas": 3.35,
+   "ev_ebitda": 14.89,
+   "rentabilidad_fcf": -1.76,
    "deuda_neta_ebitda": 0.36,
    "ticker": "AMZN",
    "nombre": "Amazon",
@@ -21428,13 +21474,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-08-28",
     "url": "https://www.sec.gov/Archives/edgar/data/104169/000010416926000154/0000104169-26-000154-index.htm",
-    "precio": 126.04,
-    "capitalizacion": 999969376215.64,
-    "ev": 1038851376215.64,
-    "per": 45.3,
-    "precio_ventas": 1.37,
-    "ev_ebitda": 21.93,
-    "rentabilidad_fcf": 1.35,
+    "precio": 127.95,
+    "capitalizacion": 1015122831535.9501,
+    "ev": 1054004831535.9501,
+    "per": 45.98,
+    "precio_ventas": 1.39,
+    "ev_ebitda": 22.25,
+    "rentabilidad_fcf": 1.33,
     "deuda_neta_ebitda": 0.82
    },
    {
@@ -21464,13 +21510,13 @@
     "informe": "10-K",
     "informe_fecha": "2026-10-07",
     "url": "https://www.sec.gov/Archives/edgar/data/909832/000090983226000093/0000909832-26-000093-index.htm",
-    "precio": 1093.83,
-    "capitalizacion": 484708175816.67,
-    "ev": 469569175816.67,
-    "per": 52.54,
-    "precio_ventas": 1.6,
-    "ev_ebitda": 32.7,
-    "rentabilidad_fcf": 1.94,
+    "precio": 1102.15,
+    "capitalizacion": 488395012000.35004,
+    "ev": 473256012000.35004,
+    "per": 52.94,
+    "precio_ventas": 1.61,
+    "ev_ebitda": 32.96,
+    "rentabilidad_fcf": 1.92,
     "deuda_neta_ebitda": -1.05
    },
    {
@@ -21500,13 +21546,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-28",
     "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526436133/0001193125-26-436133-index.htm",
-    "precio": 498.3,
-    "capitalizacion": 3700472745261.6,
-    "ev": 3671444745261.6,
-    "per": 25.94,
-    "precio_ventas": 10.68,
-    "ev_ebitda": 17.85,
-    "rentabilidad_fcf": 1.62,
+    "precio": 484.52,
+    "capitalizacion": 3598139784335.04,
+    "ev": 3569111784335.04,
+    "per": 25.23,
+    "precio_ventas": 10.39,
+    "ev_ebitda": 17.35,
+    "rentabilidad_fcf": 1.67,
     "deuda_neta_ebitda": -0.14
    },
    {
@@ -21536,13 +21582,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-29",
     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/0001652044-26-000084-index.htm",
-    "precio": 272.66,
-    "capitalizacion": 3352082040000.0005,
-    "ev": 3213102040000.0005,
-    "per": 14.22,
-    "precio_ventas": 7.12,
-    "ev_ebitda": 17.37,
-    "rentabilidad_fcf": 0.59,
+    "precio": 265.29,
+    "capitalizacion": 3261475260000.0005,
+    "ev": 3122495260000.0005,
+    "per": 13.84,
+    "precio_ventas": 6.92,
+    "ev_ebitda": 16.88,
+    "rentabilidad_fcf": 0.61,
     "deuda_neta_ebitda": -0.75
    },
    {
@@ -21572,13 +21618,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-29",
     "url": "https://www.sec.gov/Archives/edgar/data/1065088/000106508826000212/0001065088-26-000212-index.htm",
-    "precio": 117.22,
-    "capitalizacion": 51459580000.0,
-    "ev": 57026580000.0,
-    "per": 24.52,
-    "precio_ventas": 4.15,
-    "ev_ebitda": 18.83,
-    "rentabilidad_fcf": 4.69,
+    "precio": 115.59,
+    "capitalizacion": 50744010000.0,
+    "ev": 56311010000.0,
+    "per": 24.18,
+    "precio_ventas": 4.09,
+    "ev_ebitda": 18.6,
+    "rentabilidad_fcf": 4.75,
     "deuda_neta_ebitda": 1.84
    },
    {
@@ -21608,13 +21654,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-09-11",
     "url": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526389274/0001193125-26-389274-index.htm",
-    "precio": 110.57,
-    "capitalizacion": 334334489520.0,
-    "ev": 422594489520.0,
-    "per": 17.67,
-    "precio_ventas": 4.66,
-    "ev_ebitda": 12.45,
-    "rentabilidad_fcf": -8.59,
+    "precio": 101.19,
+    "capitalizacion": 305971845840.0,
+    "ev": 394231845840.0,
+    "per": 16.17,
+    "precio_ventas": 4.26,
+    "ev_ebitda": 11.62,
+    "rentabilidad_fcf": -9.39,
     "deuda_neta_ebitda": 2.6
    }
   ]

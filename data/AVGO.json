@@ -12774,7 +12774,7 @@
   }
  },
  "segmentos": {
-  "version": 5,
+  "version": 6,
   "informes_accn": [
    "0001730168-26-000080",
    "0001730168-26-000054",
@@ -16057,10 +16057,10 @@
   "minimo_52s": 289.767,
   "maximo_52s": 495,
   "beta": 1.433371,
-  "valor": 346.65,
-  "cierre_anterior": 354.05,
+  "valor": 304.41,
+  "cierre_anterior": 346.65,
   "moneda": "USD",
-  "fecha": "2026-11-19",
+  "fecha": "2026-11-20",
   "fuente": "Finnhub (API oficial, plan gratuito)",
   "url": "https://finnhub.io/"
  },
@@ -16167,64 +16167,175 @@
    "via": "RSS del medio"
   },
   {
-   "titular": "AI Chips Today - AI Revolution Drives VR and AR Market Expansion",
-   "medio": "Yahoo Finance",
-   "url": "https://finance.yahoo.com/technology/ai/articles/ai-chips-today-ai-revolution-113737070.html",
+   "titular": "Broadcom sinks 12% as Google trims 2027 TPU orders, tech stocks drop",
+   "url": "https://seekingalpha.com/news/4675350-broadcom-sinks-12-as-google-trims-2027-tpu-orders-tech-stocks-drop",
    "fecha": "2026-11-20",
-   "resumen": "The virtual and augmented reality (VR and AR) market is set for substantial growth, expected to expand from $32.3 billion in 2025 to $156.2 billion by 2031, marking a compound annual growth rate of 30.7%. This acceleration is driven by advancements in AI-enabled technologies, mor",
+   "resumen": "Broadcom shares fall 12.1% after Google reportedly cuts planned 2027 orders for Broadcom-designed TPU 8i chips by about 1 million units, or roughly 20%.",
+   "medio": "Seeking Alpha",
    "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=58fbd9a4bf76c37940de8e2d95c5932fc5f61e7e3ce3a18971347f93468e47f3"
+   "via": "Marketaux",
+   "sentimiento": {
+    "puntuacion": -0.273,
+    "etiqueta": "Algo bajista"
+   }
   },
   {
-   "titular": "What iShares Global Tech ETF (IXN) Bought: Apple Leads on Wednesday",
-   "medio": "Yahoo Finance",
-   "url": "https://finance.yahoo.com/markets/stocks/articles/ishares-global-tech-etf-ixn-110523985.html",
+   "titular": "Stock Market Today: Anthropic Soars on Debut While the Rest of Wall Street Sinks",
+   "medio": "ChartMill",
+   "url": "https://www.chartmill.com/news/WMT/Chartmill-59000-stock-market-today-anthropic-ipo-debut-amd-short-seller-palo-alto-wall-street-selloff-2026-11-19",
    "fecha": "2026-11-20",
-   "resumen": "The fund added $118.6 million in new positions, led by a $23.0 million purchase of Apple, with 77 positions increased and none decreased.",
+   "resumen": "Anthropic jumped on its first trading day after the largest IPO ever, but the Nasdaq reversed an early gain and closed sharply lower. AMD slid on short-seller claims, Palo Alto rallied and Fed rate-hike talk weighed on growth stocks.",
    "tipo": "prensa",
    "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=8951f22a6a13c5fb93ee44685e28cead8e8c001d09f5a68760c10bcd7967e355"
+   "url_finnhub": "https://finnhub.io/api/news?id=b181052c928841f2ce7f710021324dc11b2ad2e03e69948ff8d2b5c8bc14263d"
   },
   {
-   "titular": "iShares Russell 1000 Growth (IWF) Buys $15.6 Million More NVIDIA on Wednesday",
-   "medio": "Yahoo Finance",
-   "url": "https://finance.yahoo.com/markets/stocks/articles/ishares-russell-1000-growth-iwf-110519980.html",
+   "titular": "Chip Stocks’ Pullback Puts Quality and Valuation Back in Focus",
+   "medio": "ChartMill",
+   "url": "https://www.chartmill.com/news/NVDA/Chartmill-58991-Chip-Stocks-Pullback-Puts-Quality-and-Valuation-Back-in-Focus",
    "fecha": "2026-11-20",
-   "resumen": "The fund added $132.8 million in new positions on Wednesday, led by a $15.6 million purchase of NVIDIA.",
+   "resumen": "Chip stocks have corrected sharply while profitability and balance sheets remain strong, creating stock-level opportunities in the semiconductor selloff.",
    "tipo": "prensa",
    "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=8bf45524543dffb28fe0d2df39f8c7945f3a28035dba3598eda854aabcb9759c"
+   "url_finnhub": "https://finnhub.io/api/news?id=c4198c0189ccb5128b457c3a6a403e4c3facedf7b848eee834b121088a6c59ae"
   },
   {
-   "titular": "What Capital Group Growth ETF (CGGR) Bought: Meta Leads on Wednesday",
-   "medio": "Yahoo Finance",
-   "url": "https://finance.yahoo.com/markets/stocks/articles/capital-group-growth-etf-cggr-110447110.html",
+   "titular": "Broadcom: Time To Pounce Before The Market Returns",
+   "medio": "Seeking Alpha",
+   "url": "https://seekingalpha.com/article/4970583-broadcom-time-to-pounce-before-market-returns",
    "fecha": "2026-11-20",
-   "resumen": "Capital Group Growth ETF (CGGR) added $183.5 million in new buying across 88 positions on Wednesday, with Meta Platforms topping the list at $11.9 million.",
+   "resumen": "The bull case for Broadcom: Nvidia's transition could open custom-chip deals.",
    "tipo": "prensa",
    "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=683c003008e00a6b52a1afa0f2aad63de2dd88ee6c2e402381eef490e2594778"
+   "url_finnhub": "https://finnhub.io/api/news?id=24bd358181c889e4032dc9ad56bc194ef84478306076b02db621ec439456ca89"
   },
   {
-   "titular": "iShares A.I. Innovation and Tech Active ETF (BAI) Buys $14.3 Million More AMD on Nov. 18",
-   "medio": "Yahoo Finance",
-   "url": "https://finance.yahoo.com/markets/stocks/articles/ishares-innovation-tech-active-etf-110443799.html",
+   "titular": "Why Micron Stock Is Falling Today?",
+   "medio": "Benzinga",
+   "url": "https://www.benzinga.com/markets/tech/26/11/63470336/why-micron-stock-is-falling-today",
    "fecha": "2026-11-20",
-   "resumen": "The fund bought $155.6 million more than it sold, lifting 35 positions and trimming four, with Advanced Micro Devices its largest addition.",
+   "resumen": "Micron stock fell nearly 5% in Friday premarket trading amid a broader AI chip pullback. See what December earnings mean for MU.",
    "tipo": "prensa",
    "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=c982c3a65e2d281bbbe2b68e1765133ffaca1469648c76754ae006b460ce833e"
+   "url_finnhub": "https://finnhub.io/api/news?id=bbbfe4704eb11bf07d8fd58f341511f215722e7b5662cb5bb48f1e013b0a90e5"
   },
   {
-   "titular": "State Street SPDR Portfolio S&P 500 (SPYM) Adds Apple and Microsoft on Nov. 18",
-   "medio": "Yahoo Finance",
-   "url": "https://finance.yahoo.com/markets/stocks/articles/state-street-spdr-portfolio-p-110411294.html",
+   "titular": "Google Is Turning Its AI Rivals Into Chip Customers. Nvidia Should Pay Attention",
+   "medio": "Benzinga",
+   "url": "https://www.benzinga.com/trading-ideas/long-ideas/26/11/63469027/google-ai-chips-nvidia-rivals",
    "fecha": "2026-11-20",
-   "resumen": "The fund bought $429.4 million of stock, lifting 501 positions and trimming none, with Apple and Microsoft the largest additions.",
+   "resumen": "Google is expanding TPU sales to AI rivals like Meta and Anthropic, creating a new challenge for Nvidia&#39;s AI chip dominance.",
    "tipo": "prensa",
    "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=0ea68d07e287951fd3621a33a3e8eaeb3d7ac51bebb193d69d9a35e9ef3c4918"
+   "url_finnhub": "https://finnhub.io/api/news?id=fdefb7b1e6d95916d06fdfe21e2fd434674a7f461d547267ab8a63cb2c7e7f24"
+  },
+  {
+   "titular": "Nvidia: Washington Noise, Record Numbers",
+   "medio": "Seeking Alpha",
+   "url": "https://seekingalpha.com/article/4970584-nvidia-washington-noise-record-numbers",
+   "fecha": "2026-11-20",
+   "resumen": "Analyst rates Nvidia Corporation a Buy at under 10x fiscal 2028 earnings, as management says 75% growth is supply-limited, not demand-limited.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=693a8b46f06223203769b5a24f6613bfe77ed72e0ee136ebed042848a633dfee"
+  },
+  {
+   "titular": "Broadcom: A Better Bet Than A Month Ago",
+   "medio": "Seeking Alpha",
+   "url": "https://seekingalpha.com/article/4970562-broadcom-a-better-bet-than-a-month-ago",
+   "fecha": "2026-11-20",
+   "resumen": "Analyst rates Broadcom Inc. a Strong Buy at 11.6x FY2028 earnings; Anthropic's capacity needs could add 1-2 GW in 2028, and funding eases lending risk.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=0e52610306baca9ac702f3c3092c38612307d9da1f72132489b8daa947b1b40d"
+  },
+  {
+   "titular": "Anthropic (ANT) Stock Is Trending Pre-Market: Here’s What You Should Know",
+   "medio": "Benzinga",
+   "url": "https://www.benzinga.com/markets/equities/26/11/63465390/anthropic-shares-fall-premarket-after-blockbuster-nasdaq-ipo-debut",
+   "fecha": "2026-11-20",
+   "resumen": "Anthropic shares fell 6.86% in pre-market trading after a blockbuster Nasdaq debut fueled by its $83 IPO pricing.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=eedc0f134d46d5f21697bbdc61d0d724dc152a517fcf47d16e62ab1de0d11b07"
+  },
+  {
+   "titular": "Broadcom Stock Falls on Report Google is Cutting AI Chip Shipments",
+   "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE5Cd2w3NzJtb0xha0ZJazRHS09nRUVPanNPN192RmRWOGVxdW52QThWZzVwbG9VVmNpT1F6MkZaQVdjV09aMU9razJCVUpfckppUllpQWZCN3hIeHh6VkhhLWRWRC11QWRkSjhMaFlQQ1pyWVFCZ0VsQ2RiWmw?oc=5",
+   "fecha": "2026-11-20",
+   "resumen": "",
+   "medio": "Barron's",
+   "tipo": "prensa",
+   "via": "Google News"
+  },
+  {
+   "titular": "Google shifts 2027 AI chip orders from Broadcom to MediaTek, Ming-Chi Kuo says",
+   "url": "https://seekingalpha.com/symbol/AVGO/news?source=feed_symbol_AVGO",
+   "fecha": "2026-11-20",
+   "resumen": "",
+   "medio": "Seeking Alpha",
+   "tipo": "prensa",
+   "via": "RSS de Seeking Alpha"
+  },
+  {
+   "titular": "Nasdaq turns negative: Why Anthropic & other tech stocks are getting crushed",
+   "medio": "Yahoo Finance",
+   "url": "https://finance.yahoo.com/video/nasdaq-turns-negative-why-anthropic--other-tech-stocks-are-getting-crushed-213846825.html",
+   "fecha": "2026-11-20",
+   "resumen": "The Nasdaq Composite (^IXIC) turned negative for the year as the AI trade takes a turn for the worse. Deirdre Bosa takes a closer look at the market action, highlighting the sell-off's disconnect from record chip sales.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=3727581ad505816946886143beae7cc306984789dc03346171bca34594c5a843"
+  },
+  {
+   "titular": "Why Are Investors Ignoring Qualcomm Stock's High Cash Yield?",
+   "medio": "Yahoo Finance",
+   "url": "https://www.trefis.com/stock/qcom/articles/627180/why-are-investors-ignoring-qualcomm-stocks-high-cash-yield/2026-11-20",
+   "fecha": "2026-11-20",
+   "resumen": "Today’s big story: Will 2027 Be A 2022 Repeat For Stocks.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=091118ba409f38bd9c28c8c32f5e470e65b4983e2de5c505254a5facdfa1f007"
+  },
+  {
+   "titular": "Broadcom Stock Plunges 12% and Loses $191 Billion After a Report That Google Cut Its Plans for Broadcom AI Chips",
+   "medio": "Yahoo Finance",
+   "url": "https://247wallst.com/investing/2026/11/20/broadcom-stock-plunges-12-and-loses-191-billion-after-a-report-that-google-cut-its-plans-for-broadcom-ai-chips/",
+   "fecha": "2026-11-20",
+   "resumen": "Broadcom fell 12% Friday afternoon after analyst Ming-Chi Kuo said Google cut about 1 million Broadcom-designed AI chips from its 2027 plans. The stock is headed for its worst day since June and sits 36% below its record. Earnings are Dec. 9.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=3191122192c232872e1fd3aa3a4f6bd0319ec0dbd4aeaaba5797e161e877a761"
+  },
+  {
+   "titular": "The AI Boom Math In Five Lines",
+   "medio": "Yahoo Finance",
+   "url": "https://www.trefis.com/stock/nvda/articles/627083/the-ai-boom-math-in-five-lines/2026-11-20",
+   "fecha": "2026-11-20",
+   "resumen": "Today's big story: Will 2027 Be A 2022 Repeat For Stocks.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=11b42ab861cfe1225207ed36e57df1809e266ee2a4144da088d40ced941a470b"
+  },
+  {
+   "titular": "Broadcom is Overvalued at 17.73X P/E: Buy, Sell or Hold the Stock?",
+   "medio": "Yahoo Finance",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/broadcom-overvalued-17-73x-p-175200037.html",
+   "fecha": "2026-11-20",
+   "resumen": "AVGO's 17.73X P/E signals overvaluation, but surging AI semiconductor revenues and strong hyperscaler ties support long-term growth. Is holding the stock wise?",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=577091a5e3866f7b10c67379738d8104d34914a888934a07ba55548826bf203e"
+  },
+  {
+   "titular": "Goldman Sachs Cut Its Broadcom Target to $460, and the Reason Has Nothing to Do With Broadcom’s Earnings",
+   "medio": "Yahoo Finance",
+   "url": "https://www.tikr.com/blog/goldman-sachs-cut-its-broadcom-target-to-460-and-the-reason-has-nothing-to-do-with-broadcoms-earnings?ref=yahoofinance&tlnk=yf-261120-qgp5f5w5&.tsrc=rss",
+   "fecha": "2026-11-20",
+   "resumen": "Key Takeaways Goldman Sachs cut its Broadcom price target to $460 from $540 on Nov. 18 and kept its Buy rating, so the target was still 30% above that day’s close.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=648af1cce647dbb1dd1c04504b16f43431bec66581b5f1a1f7f2ff6bad6f0ee7"
   },
   {
    "titular": "Broadcom: The AI Boom Now Comes With A $72 Billion Catch",
@@ -16240,34 +16351,13 @@
    }
   },
   {
-   "titular": "Anthropic: A Strange Time To Be Sensible",
-   "medio": "Seeking Alpha",
-   "url": "https://seekingalpha.com/article/4970392-anthropic-a-strange-time-to-be-sensible",
+   "titular": "Why Micron, Broadcom and other AI stocks gave up their gains Thursday",
+   "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOWEhhTnU4WlVySDlWdzRGTHlaZlg1U1ZMd19LRk1tcUd3b25qTmVuekxNbDBXQ044dEpzRGZwcG85dlUtZGJNSTk2bHI1UDNXS1BnQWE1bmw0WEE3ZUh0UEdQV1JnU0wya2J3OFlxVmh2Xzc4M2V3X05femQzcGJ6VS1pd01OS0ZIbV9BdzlJc09Za0xBZFY5aDE3VlNLRXp2V1YzdUgxR2ZxLUYzLWl3?oc=5",
    "fecha": "2026-11-19",
-   "resumen": "Analyst sees Anthropic, PBC as a long-term opportunity but favors waiting: its $81B run rate is far below the roughly $600B revenue needed for 3x sales.",
+   "resumen": "",
+   "medio": "MarketWatch",
    "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=18c5deef7c17d602561286c5e661ed21f63ff94e5530dd0726d37d1d03b91065"
-  },
-  {
-   "titular": "Beyond The Anthropic IPO: Top AI Stocks For The Next Phase Of The Secular Bull",
-   "medio": "Seeking Alpha",
-   "url": "https://seekingalpha.com/article/4970331-beyond-the-anthropic-ipo-top-ai-stocks-for-the-next-phase-of-the-secular-bull",
-   "fecha": "2026-11-19",
-   "resumen": "The record Anthropic IPO highlights both AI market momentum and volatility, creating long-term buying opportunities in top AI stocks with strong growth potential.",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=29f4434c58add3d23c83aa97ede49011cc5261f2a12a227e92df70f466aba9cb"
-  },
-  {
-   "titular": "Broadcom Should Lead Investors Out Of This AI Slump (Upgrading To Strong Buy)",
-   "medio": "Seeking Alpha",
-   "url": "https://seekingalpha.com/article/4970166-broadcom-should-lead-investors-out-of-ai-slump-upgrading-strong-buy",
-   "fecha": "2026-11-19",
-   "resumen": "Broadcom deserves a premium valuation as an AI leader in TPUs, data center networking, and a high-margin enterprise software business.",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=5d7ab6674d78dda6e5a1a4110f11d90e329c783a99d102728774c2d0544ce0b0"
+   "via": "Google News"
   },
   {
    "titular": "Nvidia’s $500 Billion Financing Plan Has Yet to Put a Dollar to Work, WSJ Reports",
@@ -16278,35 +16368,6 @@
    "tipo": "prensa",
    "via": "Finnhub",
    "url_finnhub": "https://finnhub.io/api/news?id=df8b6cd6306ec3a0a018926df5234afe5a66a5d860382162f843e8385462e9c1"
-  },
-  {
-   "titular": "Don't Buy The Anthropic IPO: Buy These 3 Stocks Instead",
-   "medio": "Seeking Alpha",
-   "url": "https://seekingalpha.com/article/4970155-dont-buy-anthropic-ipo-buy-these-3-stocks-instead",
-   "fecha": "2026-11-19",
-   "resumen": "The bear case on Anthropic, PBC: dilution, lockups and past IPO declines outweigh growth; Amazon, Broadcom and Alphabet could benefit as SMH recovers.",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=4d51f4603a1fd5f69af938631af2ffda501a30ce2c3c148811069ba4edba3fee"
-  },
-  {
-   "titular": "Anthropic's Record IPO: What You Need To Know",
-   "medio": "Seeking Alpha",
-   "url": "https://seekingalpha.com/article/4970131-anthropic-record-ipo-what-you-need-to-know",
-   "fecha": "2026-11-19",
-   "resumen": "The bear case on Anthropic, PBC: the writer avoids shares at roughly $1.5 trillion, or 20x annualized sales, citing cash burn, dilution, and negative margins.",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=e3b77d1940e753e8be8772503a92cd4348ef7f8354fba6b27bffbedf31ac408f"
-  },
-  {
-   "titular": "Why Micron, Broadcom and other AI stocks gave up their gains Thursday",
-   "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOWEhhTnU4WlVySDlWdzRGTHlaZlg1U1ZMd19LRk1tcUd3b25qTmVuekxNbDBXQ044dEpzRGZwcG85dlUtZGJNSTk2bHI1UDNXS1BnQWE1bmw0WEE3ZUh0UEdQV1JnU0wya2J3OFlxVmh2Xzc4M2V3X05femQzcGJ6VS1pd01OS0ZIbV9BdzlJc09Za0xBZFY5aDE3VlNLRXp2V1YzdUgxR2ZxLUYzLWl3?oc=5",
-   "fecha": "2026-11-19",
-   "resumen": "",
-   "medio": "MarketWatch",
-   "tipo": "prensa",
-   "via": "Google News"
   },
   {
    "titular": "Anthropic IPO Sympathy Play: Are Investors Ignoring Zoom Stock?",
@@ -16327,36 +16388,6 @@
    "tipo": "prensa",
    "via": "Finnhub",
    "url_finnhub": "https://finnhub.io/api/news?id=da0d56a54f586fdc6096229371285be9d77576e7d8d02441f0dac0cbe9112a8f"
-  },
-  {
-   "titular": "SoftBank Chose OpenAI Over 'Wonderful' Anthropic, Now Masayoshi Son Regrets Picking Only One: 'I Wish I Had Invested Back Then'",
-   "medio": "Benzinga",
-   "url": "https://www.benzinga.com/markets/tech/26/11/63383952/softbank-chose-openai-over-wonderful-anthropic-now-masayoshi-son-regrets-picking-only-one-i-wish-i-had-invested-back-then",
-   "fecha": "2026-11-18",
-   "resumen": "SoftBank&#39;s Masayoshi Son regrets passing on Anthropic to back OpenAI, while dismissing fears that AI is in a bubble.",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=6a2c5b9fc93de6eae5f73c72ddbb3c9c2f1f02596b0a1c2766ffe11e873f09f7"
-  },
-  {
-   "titular": "Why Is Broadcom Stock Gaining Wednesday?",
-   "medio": "Benzinga",
-   "url": "https://www.benzinga.com/markets/tech/26/11/63381060/why-is-broadcom-stock-gaining-wednesday-2",
-   "fecha": "2026-11-18",
-   "resumen": "Broadcom (AVGO) rose 1.71% in premarket trading after strong NVIDIA earnings and analyst predictions of custom AI chip gains.",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=fce85aa3f97933d7bb711cf541e6e0c621ce49ff2d8ded49d1a7da4061ce5b3e"
-  },
-  {
-   "titular": "Why Is AMD Stock Gaining Wednesday?",
-   "medio": "Benzinga",
-   "url": "https://www.benzinga.com/markets/tech/26/11/63379917/why-is-amd-stock-gaining-wednesday",
-   "fecha": "2026-11-18",
-   "resumen": "AMD stock rises nearly 2% premarket following strong NVIDIA earnings and a broader tech rebound. See the latest price action.",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=8f758e5ef9f29de7801c095cefca44f608f87a956f0aca3c6a7bd3af472dd3af"
   },
   {
    "titular": "Stock Market Today: Nvidia (NVDA) Beats and Raises Without Huang as Software Stocks Buckle Under the Anthropic Threat",
@@ -16405,8 +16436,8 @@
    "url_finnhub": "https://finnhub.io/api/news?id=6e266faa4aff8c16ae2019509643ecc1949d9ea213758c3f745a18e39cf5b281"
   },
   {
-   "titular": "Here are Friday's biggest analyst calls: Nvidia, SpaceX, Deckers, Broadcom, CoreWeave, Palo Alto Networks & more",
-   "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPYUxSYXYwMnJGMlVYUG5Za0tvbE9ON0cxa3RxbERlVkRZNjNuaDlsQUNuWmE0cG5tSHZ3My13ZnpWR1dEYnRCOG1WMzFEV0dTVWtxcXBva2N2S1VWS2lLODJ0MEVNRnhlaHZQMkQtcDBRaUdsZlczVVI1aVVrb05Gc3ZQNEVFV2VBZVZQTmVB?oc=5",
+   "titular": "Cramer's Stop Trading: Broadcom",
+   "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTFBSNV9VZ0VhMHNVLUM4VTRuWm5LeUloRzg2RXRMLWQyZU9qSnhQZ0dJN01pdzRVNW5qZjRnRFcwLXpRQ19ORVBRUnJFZ2VsM0dnaUhNZ052QnFQcXhSZWRkeFcwRkMzWkliVTVYaWRYaWJzeGlVRHdmcmZGbWU?oc=5",
    "fecha": "2026-11-13",
    "resumen": "",
    "medio": "CNBC",
@@ -16414,43 +16445,13 @@
    "via": "Google News"
   },
   {
-   "titular": "S&P 500 Top Movers for Nov. 13, 2026: Charter Communications Leads Gainers, AMD Leads Losers",
-   "medio": "ChartMill",
-   "url": "https://www.chartmill.com/news/APP/Chartmill-58679-SP-500-Top-Movers-for-Nov-13-2026-Charter-Communications-Leads-Gainers-AMD-Leads-Losers",
+   "titular": "Here are Friday's biggest analyst calls: Nvidia, SpaceX, Deckers, Broadcom, CoreWeave, Palo Alto Networks & more",
+   "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPYUxSYXYwMnJGMlVYUG5Za0tvbE9ON0cxa3RxbERlVkRZNjNuaDlsQUNuWmE0cG5tSHZ3My13ZnpWR1dEYnRCOG1WMzFEV0dTVWtxcXBva2N2S1VWS2lLODJ0MEVNRnhlaHZQMkQtcDBRaUdsZlczVVI1aVVrb05Gc3ZQNEVFV2VBZVZQTmVB?oc=5",
    "fecha": "2026-11-13",
-   "resumen": "S&P 500 top movers on Nov. 13, 2026: Charter Communications led gainers at 4.58%, while Advanced Micro Devices led losers at -9.42%.",
+   "resumen": "",
+   "medio": "CNBC",
    "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=be3fdb8d07915e0be2cd4515b98267b2b4974a4811a7553772ecbabacec06658"
-  },
-  {
-   "titular": "S&P 500 Premarket Movers: Travelers, Palo Alto Networks Gain; Cisco, AMD Fall",
-   "medio": "ChartMill",
-   "url": "https://www.chartmill.com/news/TRV/Chartmill-58662-SP-500-Premarket-Movers-Travelers-Palo-Alto-Networks-Gain-Cisco-AMD-Fall",
-   "fecha": "2026-11-13",
-   "resumen": "S&P 500 premarket movers: Travelers, Palo Alto Networks and Domino's gain before the open, while Cisco and Advanced Micro Devices decline.",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=09203bb194b481564c1c98458464545d818ab702b1d01de2b36ef8ddc668627f"
-  },
-  {
-   "titular": "Stock Market Today: Nvidia (NVDA) Loses Jensen Huang, and the Chip Sector Starts Picking Winners",
-   "medio": "ChartMill",
-   "url": "https://www.chartmill.com/news/MSTR/Chartmill-58644-stock-market-today-nvidia-jensen-huang-exit-amd-broadcom-cisco-applied-materials-2026-11-13",
-   "fecha": "2026-11-13",
-   "resumen": "Nvidia’s board removed CEO Jensen Huang, and the stock recovered most of a 13% opening drop. AMD and Broadcom gained, Super Micro sank on a DOJ report, oil jumped, and Cisco and Applied Materials beat expectations.",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=62b6223c2eb17956d6d3fe6eb115de70c55d070558f4516d8295ef53a09c53ba"
-  },
-  {
-   "titular": "Notruf Niederösterreich Scales Emergency Response with VKS & VCF - Broadcom Newsroom - Broadcom",
-   "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQV2MtenY2LVRCZEY4dzFKSVRsSDZSRS0zRmI2TFpLOTNGOEVQeEJ1eU4tOWJLZ3k0QjZ1RGo3TTcwTjRMLW1OSnZNYUpfRDhiMGtqUl92QXBSX19sZ2NjWjdkLTc5d0VEVm1tTTltVXoxSElQNUExajlIUkJObXNYcTRuLVY5UFcwQ0h1OFRxUmFGaTUyazZ4UGxveU5DU1lpN1czTHFpeDZSTkNMb25zZGhXYkp0cENRSEdhSm1XS0RlOWlIelp2NHhmQzBYWkU?oc=5",
-   "fecha": "2026-11-12",
-   "resumen": "Notruf Niederösterreich Scales Emergency Response with VKS & VCF - Broadcom Newsroom Broadcom",
-   "medio": "Broadcom (sala de prensa)",
-   "tipo": "nota_prensa",
-   "via": "Sala de prensa de la compañía"
+   "via": "Google News"
   },
   {
    "titular": "8-K a la SEC: Nueva deuda u obligación financiera",
@@ -16463,9 +16464,9 @@
   }
  ],
  "noticias_sentimiento": {
-  "puntuacion": 0.465,
-  "etiqueta": "Alcista",
-  "noticias": 3,
+  "puntuacion": 0.28,
+  "etiqueta": "Algo alcista",
+  "noticias": 4,
   "fuente": "Alpha Vantage / Marketaux (puntuación media de las noticias del último mes)"
  },
  "redes": {
@@ -16473,10 +16474,10 @@
    "fuente": "StockTwits (API pública)",
    "url": "https://stocktwits.com/symbol/AVGO",
    "mensajes": 30,
-   "alcistas": 6,
+   "alcistas": 13,
    "bajistas": 3,
-   "pct_alcista": 67,
-   "seguidores": 77606,
+   "pct_alcista": 81,
+   "seguidores": 77656,
    "desde": "2026-11-20",
    "hasta": "2026-11-20",
    "fecha": "2026-11-20"
@@ -16499,7 +16500,7 @@
    },
    "Google News": {
     "ok": true,
-    "titulares": 7
+    "titulares": 11
    },
    "Seeking Alpha": {
     "ok": true,
@@ -16507,7 +16508,7 @@
    },
    "Marketaux": {
     "ok": true,
-    "titulares": 0
+    "titulares": 1
    },
    "RSS de medios": {
     "ok": true,
@@ -16525,10 +16526,6 @@
  },
  "historico_precio": {
   "serie": [
-   [
-    "2021-08-19",
-    47.353
-   ],
    [
     "2021-08-20",
     47.517
@@ -21804,14 +21801,18 @@
    [
     "2026-11-19",
     346.65
+   ],
+   [
+    "2026-11-20",
+    304.17
    ]
   ],
   "fuente": "Twelve Data (API oficial, plan gratuito)",
   "url": "https://twelvedata.com/",
-  "fecha": "2026-11-19",
+  "fecha": "2026-11-20",
   "ajuste": "splits"
  },
- "generado": "2026-11-20T12:40:41+00:00",
+ "generado": "2026-11-20T23:58:38+00:00",
  "peers": {
   "fuente_lista": "manual",
   "fuente_cifras": "SEC EDGAR (companyfacts, UDM) · precio Finnhub",
@@ -21833,13 +21834,13 @@
    "informe": "10-Q",
    "informe_fecha": "2026-09-10",
    "url": "https://www.sec.gov/Archives/edgar/data/1730168/000173016826000080/0001730168-26-000080-index.htm",
-   "precio": 346.65,
-   "capitalizacion": 1654778792702.25,
-   "ev": 1690222792702.25,
-   "per": 43.25,
-   "precio_ventas": 18.57,
-   "ev_ebitda": 38.9,
-   "rentabilidad_fcf": 2.38,
+   "precio": 304.41,
+   "capitalizacion": 1453140667204.6501,
+   "ev": 1488584667204.6501,
+   "per": 37.98,
+   "precio_ventas": 16.31,
+   "ev_ebitda": 34.26,
+   "rentabilidad_fcf": 2.71,
    "deuda_neta_ebitda": 0.82,
    "ticker": "AVGO",
    "nombre": "Broadcom",
@@ -21873,13 +21874,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-08-26",
     "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000075/0001045810-26-000075-index.htm",
-    "precio": 145.98,
-    "capitalizacion": 3518117999999.9995,
-    "ev": 3529040999999.9995,
-    "per": 18.24,
-    "precio_ventas": 11.61,
-    "ev_ebitda": 17.53,
-    "rentabilidad_fcf": 3.61,
+    "precio": 125.53,
+    "capitalizacion": 3025273000000.0,
+    "ev": 3036196000000.0,
+    "per": 15.68,
+    "precio_ventas": 9.99,
+    "ev_ebitda": 15.09,
+    "rentabilidad_fcf": 4.2,
     "deuda_neta_ebitda": 0.05
    },
    {
@@ -21909,13 +21910,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-11-04",
     "url": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000191/0000002488-26-000191-index.htm",
-    "precio": 489.19,
-    "capitalizacion": 802314282316.69,
-    "ev": 793617282316.69,
-    "per": 105.3,
-    "precio_ventas": 17.66,
-    "ev_ebitda": 95.46,
-    "rentabilidad_fcf": 0.88,
+    "precio": 424.39,
+    "capitalizacion": 696036628451.89,
+    "ev": 687339628451.89,
+    "per": 91.36,
+    "precio_ventas": 15.32,
+    "ev_ebitda": 82.67,
+    "rentabilidad_fcf": 1.01,
     "deuda_neta_ebitda": -1.05
    },
    {
@@ -21945,13 +21946,13 @@
     "informe": "10-K",
     "informe_fecha": "2026-11-04",
     "url": "https://www.sec.gov/Archives/edgar/data/804328/000080432826000128/0000804328-26-000128-index.htm",
-    "precio": 162.01,
-    "capitalizacion": 173350700000.0,
-    "ev": 180282700000.0,
-    "per": 12.72,
-    "precio_ventas": 4.02,
-    "ev_ebitda": 17.52,
-    "rentabilidad_fcf": 4.99,
+    "precio": 149.94,
+    "capitalizacion": 160435800000.0,
+    "ev": 167367800000.0,
+    "per": 11.77,
+    "precio_ventas": 3.72,
+    "ev_ebitda": 16.27,
+    "rentabilidad_fcf": 5.39,
     "deuda_neta_ebitda": 0.67
    },
    {
@@ -21981,13 +21982,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-08-28",
     "url": "https://www.sec.gov/Archives/edgar/data/1835632/000183563226000025/0001835632-26-000025-index.htm",
-    "precio": 138.47,
-    "capitalizacion": 121424343000.0,
-    "ev": 122454443000.0,
-    "per": 46.0,
-    "precio_ventas": 12.85,
+    "precio": 122.28,
+    "capitalizacion": 107227332000.0,
+    "ev": 108257432000.0,
+    "per": 40.62,
+    "precio_ventas": 11.35,
     "ev_ebitda": null,
-    "rentabilidad_fcf": 1.42,
+    "rentabilidad_fcf": 1.61,
     "deuda_neta_ebitda": null
    },
    {
@@ -22017,13 +22018,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-23",
     "url": "https://www.sec.gov/Archives/edgar/data/97476/000009747626000169/0000097476-26-000169-index.htm",
-    "precio": 285.75,
-    "capitalizacion": 261109867797.0,
-    "ev": 266522867797.0,
-    "per": 36.71,
-    "precio_ventas": 12.57,
-    "ev_ebitda": 25.04,
-    "rentabilidad_fcf": 2.8,
+    "precio": 263.75,
+    "capitalizacion": 241006920845.0,
+    "ev": 246419920845.0,
+    "per": 33.88,
+    "precio_ventas": 11.61,
+    "ev_ebitda": 23.15,
+    "rentabilidad_fcf": 3.04,
     "deuda_neta_ebitda": 0.51
    },
    {
@@ -22053,13 +22054,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-08-19",
     "url": "https://www.sec.gov/Archives/edgar/data/6281/000000628126000073/0000006281-26-000073-index.htm",
-    "precio": 377.44,
-    "capitalizacion": 182894389109.6,
-    "ev": 189691038109.6,
-    "per": 44.23,
-    "precio_ventas": 13.18,
-    "ev_ebitda": 27.47,
-    "rentabilidad_fcf": 2.7,
+    "precio": 345.92,
+    "capitalizacion": 167620885652.80002,
+    "ev": 174417534652.80002,
+    "per": 40.54,
+    "precio_ventas": 12.07,
+    "ev_ebitda": 25.26,
+    "rentabilidad_fcf": 2.95,
     "deuda_neta_ebitda": 0.98
    }
   ]

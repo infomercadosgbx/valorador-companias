@@ -10104,7 +10104,7 @@
   "conceptos_xbrl": {}
  },
  "segmentos": {
-  "version": 5,
+  "version": 6,
   "informes_accn": [
    "0001734722-26-000050",
    "0001734722-26-000041",
@@ -12346,10 +12346,10 @@
   "minimo_52s": 9.2,
   "maximo_52s": 19.84,
   "beta": 1.1125149,
-  "valor": 11.23,
-  "cierre_anterior": 11.73,
+  "valor": 10.96,
+  "cierre_anterior": 11.23,
   "moneda": "USD",
-  "fecha": "2026-11-19",
+  "fecha": "2026-11-20",
   "fuente": "Finnhub (API oficial, plan gratuito)",
   "url": "https://finnhub.io/"
  },
@@ -12446,6 +12446,16 @@
  },
  "presentaciones_sec": [],
  "noticias": [
+  {
+   "titular": "Jim Cramer Rejects UiPath Despite Cheap Valuation, Backs Affirm",
+   "medio": "Benzinga",
+   "url": "https://www.benzinga.com/trading-ideas/long-ideas/26/11/63467987/jim-cramer-rejects-uipath-despite-cheap-valuation-backs-affirm",
+   "fecha": "2026-11-20",
+   "resumen": "Cramer called UiPath cheap but lacking catalysts, endorsed Karman and Affirm, warned on Onto and Nio, and favored Regeneron, Vertex and Amgen over Alnylam",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=3cbd481c54d7bb0b0bc23088771c0844e28151be29d47e77ccd0687a83482d78"
+  },
   {
    "titular": "ServiceNow vs. UiPath: Which Technology Stock Is a Better Buy for 2027?",
    "medio": "Yahoo Finance",
@@ -12731,10 +12741,10 @@
    "fuente": "StockTwits (API pública)",
    "url": "https://stocktwits.com/symbol/PATH",
    "mensajes": 30,
-   "alcistas": 15,
+   "alcistas": 20,
    "bajistas": 2,
-   "pct_alcista": 88,
-   "seguidores": 33210,
+   "pct_alcista": 91,
+   "seguidores": 33201,
    "desde": "2026-11-19",
    "hasta": "2026-11-20",
    "fecha": "2026-11-20"
@@ -12750,11 +12760,11 @@
   "proveedores": {
    "Finnhub": {
     "ok": true,
-    "titulares": 40
+    "titulares": 41
    },
    "Google News": {
-    "ok": false,
-    "error": "HTTPError: HTTP Error 429: Too Many Requests"
+    "ok": true,
+    "titulares": 55
    },
    "Seeking Alpha": {
     "ok": true,
@@ -12780,10 +12790,6 @@
  },
  "historico_precio": {
   "serie": [
-   [
-    "2021-08-19",
-    60.37
-   ],
    [
     "2021-08-20",
     60.76
@@ -18059,14 +18065,18 @@
    [
     "2026-11-19",
     11.23
+   ],
+   [
+    "2026-11-20",
+    10.965
    ]
   ],
   "fuente": "Twelve Data (API oficial, plan gratuito)",
   "url": "https://twelvedata.com/",
-  "fecha": "2026-11-19",
+  "fecha": "2026-11-20",
   "ajuste": "splits"
  },
- "generado": "2026-11-20T12:41:32+00:00",
+ "generado": "2026-11-20T23:59:33+00:00",
  "peers": {
   "fuente_lista": "manual",
   "fuente_cifras": "SEC EDGAR (companyfacts, UDM) · precio Finnhub",
@@ -18088,13 +18098,13 @@
    "informe": "10-Q",
    "informe_fecha": "2026-09-08",
    "url": "https://www.sec.gov/Archives/edgar/data/1734722/000173472226000050/0001734722-26-000050-index.htm",
-   "precio": 11.23,
-   "capitalizacion": 5873435990.0,
-   "ev": 4589445990.0,
-   "per": 16.23,
-   "precio_ventas": 3.41,
-   "ev_ebitda": 25.65,
-   "rentabilidad_fcf": 6.18,
+   "precio": 10.96,
+   "capitalizacion": 5732222480.0,
+   "ev": 4448232480.0,
+   "per": 15.84,
+   "precio_ventas": 3.33,
+   "ev_ebitda": 24.86,
+   "rentabilidad_fcf": 6.33,
    "deuda_neta_ebitda": -7.18,
    "ticker": "PATH",
    "nombre": "UiPath",
@@ -18128,13 +18138,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-28",
     "url": "https://www.sec.gov/Archives/edgar/data/1373715/000137371526000096/0001373715-26-000096-index.htm",
-    "precio": 88.87,
-    "capitalizacion": 92247060000.0,
-    "ev": 95164060000.0,
-    "per": 63.84,
-    "precio_ventas": 5.98,
-    "ev_ebitda": 34.48,
-    "rentabilidad_fcf": 5.15,
+    "precio": 87.61,
+    "capitalizacion": 90939180000.0,
+    "ev": 93856180000.0,
+    "per": 62.93,
+    "precio_ventas": 5.89,
+    "ev_ebitda": 34.01,
+    "rentabilidad_fcf": 5.22,
     "deuda_neta_ebitda": 1.06
    },
    {
@@ -18164,13 +18174,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-08-27",
     "url": "https://www.sec.gov/Archives/edgar/data/1108524/000110852426000190/0001108524-26-000190-index.htm",
-    "precio": 183.31,
-    "capitalizacion": 150864130000.0,
-    "ev": 178749130000.0,
-    "per": 15.61,
-    "precio_ventas": 3.43,
-    "ev_ebitda": 14.12,
-    "rentabilidad_fcf": 10.04,
+    "precio": 180.62,
+    "capitalizacion": 148650260000.0,
+    "ev": 176535260000.0,
+    "per": 15.39,
+    "precio_ventas": 3.38,
+    "ev_ebitda": 13.95,
+    "rentabilidad_fcf": 10.19,
     "deuda_neta_ebitda": 2.2
    },
    {
@@ -18200,13 +18210,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-28",
     "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526436133/0001193125-26-436133-index.htm",
-    "precio": 498.3,
-    "capitalizacion": 3700472745261.6,
-    "ev": 3671444745261.6,
-    "per": 25.94,
-    "precio_ventas": 10.68,
-    "ev_ebitda": 17.85,
-    "rentabilidad_fcf": 1.62,
+    "precio": 484.52,
+    "capitalizacion": 3598139784335.04,
+    "ev": 3569111784335.04,
+    "per": 25.23,
+    "precio_ventas": 10.39,
+    "ev_ebitda": 17.35,
+    "rentabilidad_fcf": 1.67,
     "deuda_neta_ebitda": -0.14
    },
    {
@@ -18236,13 +18246,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-20",
     "url": "https://www.sec.gov/Archives/edgar/data/1013857/000101385726000058/0001013857-26-000058-index.htm",
-    "precio": 28.07,
-    "capitalizacion": 4594035708.15,
-    "ev": 4284324708.1499996,
-    "per": 15.59,
-    "precio_ventas": 2.63,
-    "ev_ebitda": 22.96,
-    "rentabilidad_fcf": 9.63,
+    "precio": 27.25,
+    "capitalizacion": 4459831601.25,
+    "ev": 4150120601.25,
+    "per": 15.13,
+    "precio_ventas": 2.55,
+    "ev_ebitda": 22.24,
+    "rentabilidad_fcf": 9.92,
     "deuda_neta_ebitda": -1.66
    },
    {
@@ -18272,13 +18282,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-11-05",
     "url": "https://www.sec.gov/Archives/edgar/data/1441683/000144168326000061/0001441683-26-000061-index.htm",
-    "precio": 50.97,
-    "capitalizacion": 3644355000.0,
-    "ev": 3754808000.0,
+    "precio": 51.79,
+    "capitalizacion": 3702985000.0,
+    "ev": 3813438000.0,
     "per": null,
-    "precio_ventas": 4.32,
-    "ev_ebitda": 132.85,
-    "rentabilidad_fcf": 1.06,
+    "precio_ventas": 4.39,
+    "ev_ebitda": 134.92,
+    "rentabilidad_fcf": 1.04,
     "deuda_neta_ebitda": 3.91
    },
    {
@@ -18308,13 +18318,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-09-02",
     "url": "https://www.sec.gov/Archives/edgar/data/1653482/000162828026059943/0001628280-26-059943-index.htm",
-    "precio": 43.68,
-    "capitalizacion": 7368947040.0,
-    "ev": 7142456040.0,
+    "precio": 43.17,
+    "capitalizacion": 7282908510.0,
+    "ev": 7056417510.0,
     "per": null,
-    "precio_ventas": 6.98,
+    "precio_ventas": 6.9,
     "ev_ebitda": null,
-    "rentabilidad_fcf": 2.9,
+    "rentabilidad_fcf": 2.93,
     "deuda_neta_ebitda": null
    }
   ]
