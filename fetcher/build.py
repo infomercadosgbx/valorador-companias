@@ -236,7 +236,7 @@ def build_from_sec(company, cf, subs):
     for key in ("ingresos", "beneficio_operativo", "beneficio_neto"):
         avisos += V.check_quarters_vs_annual(rec["resultados"][key], key)
     avisos += V.check_latest_filing(ref_end, rec["ultimo_informe"])
-    rec["avisos"] = avisos
+    rec["avisos"] = V.archivar_antiguos(avisos, ref_end)
     return rec
 
 

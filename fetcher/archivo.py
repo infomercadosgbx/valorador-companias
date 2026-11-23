@@ -4,8 +4,9 @@
   python -m fetcher.archivo reactivar CVX
 
 Una compañía archivada sigue en companies.json con «archivada»: {desde, motivo}. El robot nocturno,
-la tarea programada y aplicar_cambios.py se la saltan (no se gasta nada en ella), y sus datos, su análisis,
-sus propuestas y su cola se quedan como estaban. La web la quita de las listas y la enseña en
+la tarea programada y aplicar_cambios.py se la saltan (no se gasta nada en ella), y sus datos y su análisis
+se quedan como estaban. Su propuesta pendiente y su cola semanal se descartan: al reactivarla quedarían
+viejas y el repaso completo de reactivación las sustituye. La web la quita de las listas y la enseña en
 Ajustes → Compañías, con el botón «Reactivar».
 
 Al reactivarla se quita «archivada», se anota «reactivada» con la fecha (la tarea programada le hace el
@@ -49,7 +50,18 @@ def archivar(ticker: str, motivo: str = "", root: Path = ROOT, hoy: date | None 
         return c
     c["archivada"] = {"desde": (hoy or date.today()).isoformat(), "motivo": (motivo or "").strip()}
     f.write_text(dump_companies(cj), encoding="utf-8")
+    descartar_pendientes(c["ticker"], root)
     return c
+
+
+def descartar_pendientes(ticker: str, root: Path = ROOT) -> list:
+    """Borra propuestas/<T>.json y propuestas/_cola/<T>.json (quedan en el historial de git)."""
+    t, out = ticker.upper(), []
+    for f in (root / "propuestas" / f"{t}.json", root / "propuestas" / "_cola" / f"{t}.json"):
+        if f.exists():
+            f.unlink()
+            out.append(str(f.relative_to(root)))
+    return out
 
 
 def reactivar(ticker: str, root: Path = ROOT, hoy: date | None = None, descargar=True, client=None) -> dict:
@@ -58,6 +70,7 @@ def reactivar(ticker: str, root: Path = ROOT, hoy: date | None = None, descargar
     if not c.get("archivada"):
         return c
     c.pop("archivada", None)
+    descartar_pendientes(c["ticker"], root)
     c["reactivada"] = (hoy or date.today()).isoformat()
     if not c.get("repaso"):
         from .add_company import dia_repaso

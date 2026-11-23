@@ -1507,6 +1507,7 @@ const WEXP={
   cik:"El identificador de la SEC de companies.json no coincide con el oficial. Corrígelo en companies.json.",
   sin_precio:"No hay cotización: el DCF no puede compararse con el precio. Revisa la clave de Finnhub.",
   no_soportada:"La compañía presenta 20-F (extranjera, normalmente IFRS): todavía no está soportada.",
+  historico:"Saltos o caídas de ingresos de hace más de dos años. Ya están en los informes de la SEC de esos años y no afectan a las cifras recientes: no requieren acción.",
   etiqueta_obsoleta:"La compañía cambió la etiqueta contable de estas partidas; la antigua solo se usa para años anteriores. No afecta a las cifras recientes.",
   id_tecnologia:"La compañía no publica I+D. Se usa su gasto de tecnología, que solo está en sus informes recientes: la serie es más corta.",
   reexpresion:"La compañía vendió un negocio y reexpresó sus cuentas: el robot separa los periodos anteriores (no comparables) para que los gráficos y crecimientos no mezclen perímetros.",
@@ -1530,8 +1531,8 @@ function approveWarnings(ws){ const hoy=new Date().toISOString().slice(0,10), L=
 function unapproveWarnings(ws){ const ids=new Set(ws.map(wId)); cur.avisos_aprobados=(cur.avisos_aprobados||[]).filter(x=>!ids.has(x.id));
   ws.forEach(w=>lsSet(wKey(cur._t,w),null)); save(); renderWarnings(); if(TAB==="sources") renderTab(); }
 let WPEND=[];
-function warnGroups(ws){ const g={}; ws.forEach(w=>{ (g[w.codigo||w.mensaje]=g[w.codigo||w.mensaje]||[]).push(w); }); return Object.values(g); }
-function warnRow(group,mode){ const w=group[0], exp=WEXP[w.codigo]||"";
+function warnGroups(ws){ const g={}; ws.forEach(w=>{ const k=(w.historico?"h:":"")+(w.codigo||w.mensaje); (g[k]=g[k]||[]).push(w); }); return Object.values(g); }
+function warnRow(group,mode){ const w=group[0], exp=w.historico?WEXP.historico:(WEXP[w.codigo]||"");
   const msgs=group.length>1?`<ul class="wsub">${group.map(x=>`<li>${esc(x.mensaje)}</li>`).join("")}</ul>`:`<span>${esc(w.mensaje)}</span>`;
   const ap=mode==="fuentes"?wApproved(w):null, ids=group.map(x=>esc(wId(x))).join("|"), ao=ap?wApObj(w):null, rob=ao&&ao.por==="robot";
   const btn=mode==="pend"?`<button type="button" class="wok" data-wok="${ids}">Aprobar</button>`
@@ -5769,12 +5770,13 @@ function officialHtml(){
    <div style="padding:0 14px 12px"><div class="scroll"><table><thead><tr><th>Concepto</th><th>Valor (M)</th><th style="text-align:left">Periodo</th><th style="text-align:left">Etiqueta XBRL</th><th style="text-align:left">Fuente</th></tr></thead><tbody>
    ${groupsK.map(([g,list])=>`<tr class="grp"><td colspan="5">${esc(g)}</td></tr>${list.map(kRow).join("")}`).join("")}
    </tbody></table></div></div></details>
-   ${(()=>{ const av=ws.filter(w=>w.nivel!=="info"), nt=ws.filter(w=>w.nivel==="info"), nap=ws.filter(w=>wSeen(w)).length;
-     const sum=[av.length?`${av.length} aviso${av.length>1?"s":""}`:"sin avisos",nt.length?`${nt.length} nota${nt.length>1?"s":""} técnica${nt.length>1?"s":""}`:"",ws.length?(nap===ws.length?"todo aprobado":`${nap} de ${ws.length} aprobados`):""].filter(Boolean).join(" · ");
+   ${(()=>{ const av=ws.filter(w=>w.nivel!=="info"), nt=ws.filter(w=>w.nivel==="info"&&!w.historico), hi=ws.filter(w=>w.historico), nap=ws.filter(w=>wSeen(w)).length;
+     const sum=[av.length?`${av.length} aviso${av.length>1?"s":""}`:"sin avisos",nt.length?`${nt.length} nota${nt.length>1?"s":""} técnica${nt.length>1?"s":""}`:"",hi.length?`${hi.length} histórico${hi.length>1?"s":""}`:"",av.length?(av.every(wSeen)?"avisos aprobados":`${av.filter(wSeen).length} de ${av.length} avisos aprobados`):""].filter(Boolean).join(" · ");
      return `<details class="box" id="srcWarn"${lsGet("valorador.srcwarn")==="1"?" open":""}><summary><span>Avisos de calidad de datos <span class="note" style="font-weight:400">· ${sum}</span></span></summary>
      <div style="padding:0 14px 12px">${!ws.length?`<p class="empty">Sin avisos.</p>`:
        `${av.length?`<div class="eyebrow" style="margin:4px 0 2px">Avisos · revisa si afectan a tu análisis</div>${warnList(av,"fuentes")}`:""}
-        ${nt.length?`<div class="eyebrow" style="margin:10px 0 2px">Notas técnicas · cómo se han leído los datos, no requieren acción</div>${warnList(nt,"fuentes")}`:""}`}</div></details>`; })()}
+        ${nt.length?`<details class="wsec" style="margin-top:10px"><summary>Notas técnicas (${nt.length}) · cómo se han leído los datos, no requieren acción</summary>${warnList(nt,"fuentes")}</details>`:""}
+        ${hi.length?`<details class="wsec" style="margin-top:6px"><summary>Históricos (${hi.length}) · saltos de hace más de dos años, no requieren acción</summary>${warnList(hi,"fuentes")}</details>`:""}`}</div></details>`; })()}
   </section>`+autoCard();
 }
 function cellTitle(k,i){const map={rev:"rev",profit:"profit",ni:"ni",capex:"capex",ocf:"ocf",fcf:"ocf",gross:"gross",ebitda:"profit",sbc:"sbc",int:"int"}; const p=cur.fin.pts[map[k]]&&cur.fin.pts[map[k]][i];

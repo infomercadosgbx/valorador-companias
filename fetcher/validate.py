@@ -106,3 +106,29 @@ def check_latest_filing(ref_end, latest_periodic):
                 f"El último {latest_periodic['formulario']} (periodo {rep}) todavía no aparece en "
                 f"los datos XBRL de la SEC; las cifras llegan hasta {ref_end}.")]
     return []
+
+
+HISTORICOS = {"salto_raro", "posible_discontinuada", "trimestres_no_suman"}
+
+
+def _anio_periodo(per):
+    per = str(per or "")
+    if len(per) == 4 and per.isdigit():
+        return int(per)
+    if len(per) == 4 and per[1] == "T" and per[2:].isdigit():
+        return 2000 + int(per[2:])
+    return None
+
+
+def archivar_antiguos(avisos, ref_end, anios=2):
+    """Saltos y caídas de hace más de `anios` años completos ya no piden acción: pasan a nota técnica
+    («historico»: true). El mensaje no cambia, así que las aprobaciones guardadas siguen valiendo."""
+    if not ref_end:
+        return avisos
+    corte = ref_end.year - anios
+    for w in avisos:
+        a = _anio_periodo(w.get("periodo"))
+        if w.get("codigo") in HISTORICOS and w.get("nivel") == "aviso" and a is not None and a < corte:
+            w["nivel"] = "info"
+            w["historico"] = True
+    return avisos

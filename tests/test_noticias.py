@@ -177,3 +177,41 @@ def test_reddit_pide_token_y_filtra_por_nombre():
     assert r["publicaciones_7d"] == 1 and r["comentarios_7d"] == 40 and r["foros"] == ["stocks"]
     assert r["destacadas"][0]["url"] == "https://www.reddit.com/r/stocks/x"
     assert pedidos[0].get_header("Authorization").startswith("Basic ") and pedidos[1].get_header("Authorization") == "bearer tok"
+
+
+def test_429_reintenta_con_espera_y_pausa_entre_consultas_a_google_news():
+    import io
+    import urllib.error
+    from fetcher import news as N
+    N._ULTIMA_HOST.clear()
+    esperas, llamadas = [], []
+
+    class R(io.BytesIO):
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *a):
+            return False
+
+    def opener(req, timeout=20):
+        llamadas.append(req.full_url)
+        if len(llamadas) < 3:
+            raise urllib.error.HTTPError(req.full_url, 429, "Too Many Requests", {"Retry-After": "30"}, None)
+        return R(b"<rss/>")
+
+    url = "https://news.google.com/rss/search?q=x"
+    assert N._http_get(url, opener=opener, sleep=esperas.append) == b"<rss/>"
+    assert len(llamadas) == 3
+    assert 30 in esperas and 40 in esperas          # Retry-After y después 20 s × 2
+
+
+def test_429_persistente_acaba_fallando():
+    import urllib.error
+    import pytest
+    from fetcher import news as N
+
+    def opener(req, timeout=20):
+        raise urllib.error.HTTPError(req.full_url, 429, "Too Many Requests", {}, None)
+
+    with pytest.raises(urllib.error.HTTPError):
+        N._http_get("https://example.com/feed", opener=opener, sleep=lambda s: None)

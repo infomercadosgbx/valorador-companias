@@ -89,20 +89,49 @@ def medios_por_sic(sic) -> list:
 
 
 # ---------------------------------------------------------------- utilidades
+# Pausa mínima entre consultas al mismo servidor durante toda la ejecución. Google News responde
+# 429 (demasiadas peticiones) si se le pregunta seguido desde GitHub: búsquedas de prensa y salas de prensa.
+PAUSA_HOST = {"news.google.com": 4.0}
+_ULTIMA_HOST: dict = {}
+
+
+def _espera_host(url, sleep):
+    host = urllib.parse.urlparse(url).netloc.lower()
+    pausa = PAUSA_HOST.get(host)
+    if not pausa:
+        return
+    falta = pausa - (time.monotonic() - _ULTIMA_HOST.get(host, -1e9))
+    if falta > 0:
+        sleep(falta)
+    _ULTIMA_HOST[host] = time.monotonic()
+
+
 def _http_get(url, timeout=20, opener=None, reintentos=2, sleep=time.sleep):
-    """GET con reintento ante errores temporales del servidor (5xx) o de red."""
+    """GET con reintento ante errores temporales del servidor (5xx), límite de peticiones (429) o de red.
+    Con 429 espera lo que pida el servidor (Retry-After) o 20 s, 40 s… y reintenta al menos dos veces."""
     req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "application/rss+xml, application/atom+xml, application/xml, application/json, */*"})
-    for i in range(reintentos + 1):
+    i = 0
+    while True:
+        _espera_host(url, sleep)
         try:
             with (opener or urllib.request.urlopen)(req, timeout=timeout) as r:
                 return r.read(3_000_000)
         except urllib.error.HTTPError as e:
-            if e.code < 500 or i == reintentos:
+            if e.code == 429 and i < max(reintentos, 2):
+                try:
+                    ra = float((e.headers or {}).get("Retry-After") or 0)
+                except (TypeError, ValueError):
+                    ra = 0
+                sleep(min(max(ra, 20 * (i + 1)), 90))
+                i += 1
+                continue
+            if e.code < 500 or i >= reintentos:
                 raise
         except (urllib.error.URLError, TimeoutError):
-            if i == reintentos:
+            if i >= reintentos:
                 raise
         sleep(4 * (i + 1))
+        i += 1
 
 
 def _clean(txt, n=280):

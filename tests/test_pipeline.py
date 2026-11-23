@@ -228,3 +228,16 @@ def test_alta_de_una_archivada_la_reactiva(tmp_path):
     comp, added = A.add("BAD", root=root, client=client)
     assert added is False and "archivada" not in comp and comp.get("reactivada")
     assert len(json.loads((root / "companies.json").read_text())["companies"]) == 2
+
+
+def test_archivar_descarta_propuesta_y_cola(tmp_path):
+    from fetcher import archivo
+    root = _repo(tmp_path)
+    (root / "propuestas" / "_cola").mkdir(parents=True, exist_ok=True)
+    (root / "propuestas" / "BAD.json").write_text("{}")
+    (root / "propuestas" / "_cola" / "BAD.json").write_text("{}")
+    (root / "propuestas" / "OK.json").write_text("{}")
+    archivo.archivar("BAD", root=root)
+    assert not (root / "propuestas" / "BAD.json").exists()
+    assert not (root / "propuestas" / "_cola" / "BAD.json").exists()
+    assert (root / "propuestas" / "OK.json").exists()                     # las demás no se tocan
