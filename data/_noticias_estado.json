@@ -38,7 +38,7 @@
    "url": "https://feed.businesswire.com/rss/home/?rss=G1QFDERJXkJeEFtRWQ==",
    "tipo": "nota_prensa",
    "ok": true,
-   "titulares": 32,
+   "titulares": 31,
    "error": null
   },
   "prnewswire": {
@@ -62,7 +62,7 @@
    "url": "https://www.world-nuclear-news.org/rss",
    "tipo": "sectorial",
    "ok": true,
-   "titulares": 51,
+   "titulares": 50,
    "error": null
   },
   "ciodive": {
@@ -203,19 +203,19 @@
   },
   "sala:AVGO": {
    "medio": "Sala de prensa de Broadcom",
-   "url": "https://news.google.com/rss/search?q=site%3Abroadcom.com%2Fcompany%2Fnews+when%3A14d&hl=en-US&gl=US&ceid=US%3Aen",
+   "url": "gnews:site:broadcom.com/company/news",
    "tipo": "nota_prensa",
-   "ok": true,
-   "titulares": 3,
-   "error": null
+   "ok": false,
+   "titulares": 0,
+   "error": "https://news.google.com/rss/search?q=site%3Abroadcom.com%2Fcompany%2Fnews+when%3A14d&hl=en-US&gl=US&ceid=US%3Aen: HTTPError: HTTP Error 503: Service Unavailable"
   },
   "sala:PEP": {
    "medio": "Sala de prensa de PepsiCo",
-   "url": "https://news.google.com/rss/search?q=site%3Apepsico.com%2Fnewsroom+when%3A14d&hl=en-US&gl=US&ceid=US%3Aen",
+   "url": "gnews:site:pepsico.com/newsroom",
    "tipo": "nota_prensa",
-   "ok": true,
-   "titulares": 11,
-   "error": null
+   "ok": false,
+   "titulares": 0,
+   "error": "https://news.google.com/rss/search?q=site%3Apepsico.com%2Fnewsroom+when%3A14d&hl=en-US&gl=US&ceid=US%3Aen: HTTPError: HTTP Error 503: Service Unavailable"
   },
   "sala:PATH": {
    "medio": "Sala de prensa de UiPath",
@@ -227,11 +227,11 @@
   },
   "sala:ORCL": {
    "medio": "Sala de prensa de Oracle",
-   "url": "https://news.google.com/rss/search?q=site%3Aoracle.com%2Fnews+when%3A14d&hl=en-US&gl=US&ceid=US%3Aen",
+   "url": "gnews:site:oracle.com/news",
    "tipo": "nota_prensa",
-   "ok": true,
-   "titulares": 12,
-   "error": null
+   "ok": false,
+   "titulares": 0,
+   "error": "https://news.google.com/rss/search?q=site%3Aoracle.com%2Fnews+when%3A14d&hl=en-US&gl=US&ceid=US%3Aen: HTTPError: HTTP Error 503: Service Unavailable"
   },
   "sala:MRNA": {
    "medio": "Sala de prensa de Moderna",
@@ -239,7 +239,7 @@
    "tipo": "nota_prensa",
    "ok": false,
    "titulares": 0,
-   "error": "https://news.google.com/rss/search?q=site%3Amodernatx.com+when%3A14d&hl=en-US&gl=US&ceid=US%3Aen: HTTPError: HTTP Error 429: Too Many Requests"
+   "error": "https://news.google.com/rss/search?q=site%3Amodernatx.com+when%3A14d&hl=en-US&gl=US&ceid=US%3Aen: HTTPError: HTTP Error 503: Service Unavailable"
   }
  },
  "apis": [
@@ -247,5 +247,5 @@
   "Seeking Alpha",
   "Marketaux"
  ],
- "generado": "2026-11-21T00:01:50+00:00"
+ "generado": "2026-11-23T18:06:35+00:00"
 }

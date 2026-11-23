@@ -17,14 +17,6 @@
     "fecha": "2026-11-04",
     "ok": true,
     "nuevo": false
-   },
-   {
-    "archivo": "lecturas/APP/sec_pre14c_0001751008-26-000075.txt",
-    "t": "PRE 14C: decisión de accionistas por escrito (14C)",
-    "u": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000075/app-2026xpre14c.htm",
-    "fecha": "2026-11-12",
-    "ok": true,
-    "nuevo": false
    }
   ],
   "web": {
@@ -34,7 +26,7 @@
     "u": "https://www.applovin.com",
     "codigo": 200,
     "via": "http",
-    "revisado": "2026-11-21T00:01Z",
+    "revisado": "2026-11-23T18:06Z",
     "ok": true,
     "caracteres": 3421,
     "enlaces": 20,
@@ -48,7 +40,7 @@
     "u": "https://investors.applovin.com",
     "codigo": 200,
     "via": "http",
-    "revisado": "2026-11-21T00:01Z",
+    "revisado": "2026-11-23T18:06Z",
     "ok": true,
     "caracteres": 1303,
     "enlaces": 21,
@@ -62,7 +54,7 @@
     "u": "https://www.applovin.com/blog/",
     "codigo": 200,
     "via": "http",
-    "revisado": "2026-11-21T00:01Z",
+    "revisado": "2026-11-23T18:06Z",
     "ok": true,
     "caracteres": 5453,
     "enlaces": 32,
@@ -71,7 +63,7 @@
     "ultimo_cambio": "2026-11-19T18:01Z"
    }
   },
-  "revisado": "2026-11-21T00:01Z"
+  "revisado": "2026-11-23T18:06Z"
  },
  "GOOGL": {
   "sec": [
@@ -92,6 +84,15 @@
     "nuevo": false
    },
    {
+    "archivo": "lecturas/GOOGL/sec_424b2_0001193125-26-470750.txt",
+    "t": "424B2: folleto de una emisión (424B)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1652044/000119312526470750/d115240d424b2.htm",
+    "fecha": "2026-11-23",
+    "ok": true,
+    "nuevo": true,
+    "caracteres": 242174
+   },
+   {
     "archivo": "lecturas/GOOGL/sec_424b5_0001193125-26-467927.txt",
     "t": "424B5: folleto de una emisión (424B)",
     "u": "https://www.sec.gov/Archives/edgar/data/1652044/000119312526467927/d115240d424b5.htm",
@@ -107,13 +108,13 @@
     "u": "https://abc.xyz/investor/",
     "codigo": 200,
     "via": "http",
-    "revisado": "2026-11-21T00:01Z",
+    "revisado": "2026-11-23T18:06Z",
     "ok": true,
-    "caracteres": 1642,
+    "caracteres": 1638,
     "enlaces": 19,
     "poco_texto": false,
-    "cambio": false,
-    "ultimo_cambio": "2026-11-19T18:01Z"
+    "cambio": true,
+    "ultimo_cambio": "2026-11-23T18:06Z"
    },
    "https://blog.google": {
     "archivo": "lecturas/GOOGL/web_blog-google.txt",
@@ -121,7 +122,7 @@
     "u": "https://blog.google",
     "codigo": 200,
     "via": "http",
-    "revisado": "2026-11-21T00:01Z",
+    "revisado": "2026-11-23T18:06Z",
     "ok": true,
     "caracteres": 12098,
     "enlaces": 50,
@@ -135,13 +136,13 @@
     "u": "https://cloud.google.com/blog",
     "codigo": 200,
     "via": "http",
-    "revisado": "2026-11-21T00:01Z",
+    "revisado": "2026-11-23T18:06Z",
     "ok": true,
-    "caracteres": 4863,
+    "caracteres": 4867,
     "enlaces": 67,
     "poco_texto": false,
     "cambio": true,
-    "ultimo_cambio": "2026-11-21T00:01Z"
+    "ultimo_cambio": "2026-11-23T18:06Z"
    },
    "https://deepmind.google/discover/blog/": {
     "archivo": "lecturas/GOOGL/web_deepmind-google-discover-blog.txt",
@@ -149,16 +150,16 @@
     "u": "https://deepmind.google/discover/blog/",
     "codigo": 200,
     "via": "http",
-    "revisado": "2026-11-21T00:01Z",
+    "revisado": "2026-11-23T18:06Z",
     "ok": true,
-    "caracteres": 7124,
+    "caracteres": 7164,
     "enlaces": 1,
     "poco_texto": false,
     "cambio": true,
-    "ultimo_cambio": "2026-11-21T00:01Z"
+    "ultimo_cambio": "2026-11-23T18:06Z"
    }
   },
-  "revisado": "2026-11-21T00:01Z"
+  "revisado": "2026-11-23T18:06Z"
  },
  "RDDT": {
   "sec": [
@@ -186,7 +187,7 @@
     "u": "https://investor.redditinc.com",
     "codigo": 200,
     "via": "http",
-    "revisado": "2026-11-21T00:01Z",
+    "revisado": "2026-11-23T18:06Z",
     "ok": true,
     "caracteres": 2280,
     "enlaces": 29,
@@ -200,7 +201,7 @@
     "u": "https://redditinc.com/blog",
     "codigo": 200,
     "via": "http",
-    "revisado": "2026-11-21T00:01Z",
+    "revisado": "2026-11-23T18:06Z",
     "ok": true,
     "caracteres": 2460,
     "enlaces": 38,
@@ -214,7 +215,7 @@
     "u": "https://business.reddit.com",
     "codigo": 200,
     "via": "http",
-    "revisado": "2026-11-21T00:01Z",
+    "revisado": "2026-11-23T18:06Z",
     "ok": true,
     "caracteres": 10696,
     "enlaces": 65,
@@ -223,7 +224,7 @@
     "ultimo_cambio": "2026-11-19T18:01Z"
    }
   },
-  "revisado": "2026-11-21T00:01Z"
+  "revisado": "2026-11-23T18:06Z"
  },
  "AMZN": {
   "sec": [
@@ -251,7 +252,7 @@
     "u": "https://ir.aboutamazon.com",
     "codigo": 200,
     "via": "http",
-    "revisado": "2026-11-21T00:01Z",
+    "revisado": "2026-11-23T18:06Z",
     "ok": true,
     "caracteres": 1263,
     "enlaces": 27,
@@ -265,13 +266,13 @@
     "u": "https://www.aboutamazon.com/news",
     "codigo": 200,
     "via": "http",
-    "revisado": "2026-11-21T00:01Z",
+    "revisado": "2026-11-23T18:06Z",
     "ok": true,
-    "caracteres": 2654,
+    "caracteres": 2695,
     "enlaces": 51,
     "poco_texto": false,
     "cambio": true,
-    "ultimo_cambio": "2026-11-21T00:01Z"
+    "ultimo_cambio": "2026-11-23T18:06Z"
    },
    "https://aws.amazon.com/blogs/aws/": {
     "archivo": "lecturas/AMZN/web_aws-amazon-com-blogs-aws.txt",
@@ -279,7 +280,7 @@
     "u": "https://aws.amazon.com/blogs/aws/",
     "codigo": 200,
     "via": "http",
-    "revisado": "2026-11-21T00:01Z",
+    "revisado": "2026-11-23T18:06Z",
     "ok": true,
     "caracteres": 11497,
     "enlaces": 120,
@@ -293,7 +294,7 @@
     "u": "https://advertising.amazon.com",
     "codigo": 200,
     "via": "http",
-    "revisado": "2026-11-21T00:01Z",
+    "revisado": "2026-11-23T18:06Z",
     "ok": true,
     "caracteres": 10450,
     "enlaces": 120,
@@ -302,7 +303,7 @@
     "ultimo_cambio": "2026-11-19T18:01Z"
    }
   },
-  "revisado": "2026-11-21T00:01Z"
+  "revisado": "2026-11-23T18:06Z"
  },
  "VST": {
   "sec": [
@@ -338,7 +339,7 @@
     "u": "https://investor.vistracorp.com",
     "codigo": 200,
     "via": "http",
-    "revisado": "2026-11-21T00:01Z",
+    "revisado": "2026-11-23T18:06Z",
     "ok": true,
     "caracteres": 4355,
     "enlaces": 46,
@@ -352,7 +353,7 @@
     "u": "https://investor.vistracorp.com/financials",
     "codigo": 200,
     "via": "http",
-    "revisado": "2026-11-21T00:01Z",
+    "revisado": "2026-11-23T18:06Z",
     "ok": true,
     "caracteres": 3593,
     "enlaces": 120,
@@ -366,7 +367,7 @@
     "u": "https://www.vistracorp.com/generation/",
     "codigo": 200,
     "via": "http",
-    "revisado": "2026-11-21T00:01Z",
+    "revisado": "2026-11-23T18:06Z",
     "ok": true,
     "caracteres": 1851,
     "enlaces": 30,
@@ -380,7 +381,7 @@
     "u": "https://www.vistracorp.com/retail/",
     "codigo": 200,
     "via": "http",
-    "revisado": "2026-11-21T00:01Z",
+    "revisado": "2026-11-23T18:06Z",
     "ok": true,
     "caracteres": 3375,
     "enlaces": 31,
@@ -394,7 +395,7 @@
     "u": "https://www.vistracorp.com/about/",
     "codigo": 200,
     "via": "http",
-    "revisado": "2026-11-21T00:01Z",
+    "revisado": "2026-11-23T18:06Z",
     "ok": true,
     "caracteres": 3063,
     "enlaces": 30,
@@ -408,7 +409,7 @@
     "u": "https://investor.vistracorp.com/news",
     "codigo": 200,
     "via": "http",
-    "revisado": "2026-11-21T00:01Z",
+    "revisado": "2026-11-23T18:06Z",
     "ok": true,
     "caracteres": 3581,
     "enlaces": 61,
@@ -422,7 +423,7 @@
     "u": "https://investor.vistracorp.com/events-and-presentations",
     "codigo": 200,
     "via": "http",
-    "revisado": "2026-11-21T00:01Z",
+    "revisado": "2026-11-23T18:06Z",
     "ok": true,
     "caracteres": 1840,
     "enlaces": 42,
@@ -431,7 +432,7 @@
     "ultimo_cambio": "2026-11-20T11:59Z"
    }
   },
-  "revisado": "2026-11-21T00:01Z"
+  "revisado": "2026-11-23T18:06Z"
  },
  "AVGO": {
   "sec": [
@@ -459,7 +460,7 @@
     "u": "https://investors.broadcom.com",
     "codigo": 200,
     "via": "navegador",
-    "revisado": "2026-11-21T00:01Z",
+    "revisado": "2026-11-23T18:06Z",
     "u_leida": "https://www.broadcom.com/company/news/releases",
     "ok": true,
     "caracteres": 19306,
@@ -474,7 +475,7 @@
     "u": "https://www.broadcom.com/products",
     "codigo": 200,
     "via": "navegador",
-    "revisado": "2026-11-21T00:01Z",
+    "revisado": "2026-11-23T18:06Z",
     "ok": true,
     "caracteres": 16757,
     "enlaces": 120,
@@ -488,16 +489,16 @@
     "u": "https://www.broadcom.com/company/news",
     "codigo": 200,
     "via": "navegador",
-    "revisado": "2026-11-21T00:01Z",
+    "revisado": "2026-11-23T18:06Z",
     "ok": true,
-    "caracteres": 12462,
-    "enlaces": 92,
+    "caracteres": 12472,
+    "enlaces": 93,
     "poco_texto": false,
     "cambio": true,
-    "ultimo_cambio": "2026-11-21T00:01Z"
+    "ultimo_cambio": "2026-11-23T18:06Z"
    }
   },
-  "revisado": "2026-11-21T00:01Z"
+  "revisado": "2026-11-23T18:06Z"
  },
  "PEP": {
   "sec": [
@@ -523,8 +524,7 @@
     "u": "https://www.sec.gov/Archives/edgar/data/77476/000110465926130634/tm2628616-1_s3asr.htm",
     "fecha": "2026-11-20",
     "ok": true,
-    "nuevo": true,
-    "caracteres": 160768
+    "nuevo": false
    }
   ],
   "web": {
@@ -534,7 +534,7 @@
     "u": "https://www.pepsico.com/brands",
     "codigo": 200,
     "via": "http",
-    "revisado": "2026-11-21T00:01Z",
+    "revisado": "2026-11-23T18:06Z",
     "ok": true,
     "caracteres": 2449,
     "enlaces": 48,
@@ -548,7 +548,7 @@
     "u": "https://www.pepsico.com/investors",
     "codigo": 200,
     "via": "http",
-    "revisado": "2026-11-21T00:01Z",
+    "revisado": "2026-11-23T18:06Z",
     "ok": true,
     "caracteres": 2510,
     "enlaces": 45,
@@ -562,7 +562,7 @@
     "u": "https://www.pepsico.com/newsroom",
     "codigo": 200,
     "via": "http",
-    "revisado": "2026-11-21T00:01Z",
+    "revisado": "2026-11-23T18:06Z",
     "ok": true,
     "caracteres": 1966,
     "enlaces": 41,
@@ -571,7 +571,7 @@
     "ultimo_cambio": "2026-11-19T18:01Z"
    }
   },
-  "revisado": "2026-11-21T00:01Z"
+  "revisado": "2026-11-23T18:06Z"
  },
  "PATH": {
   "sec": [
@@ -599,7 +599,7 @@
     "u": "https://ir.uipath.com",
     "codigo": 200,
     "via": "http",
-    "revisado": "2026-11-21T00:01Z",
+    "revisado": "2026-11-23T18:06Z",
     "ok": true,
     "caracteres": 6779,
     "enlaces": 120,
@@ -613,7 +613,7 @@
     "u": "https://www.uipath.com/product",
     "codigo": 200,
     "via": "http",
-    "revisado": "2026-11-21T00:01Z",
+    "revisado": "2026-11-23T18:06Z",
     "ok": true,
     "caracteres": 5240,
     "enlaces": 120,
@@ -627,7 +627,7 @@
     "u": "https://www.uipath.com/blog",
     "codigo": 200,
     "via": "http",
-    "revisado": "2026-11-21T00:01Z",
+    "revisado": "2026-11-23T18:06Z",
     "ok": true,
     "caracteres": 9684,
     "enlaces": 120,
@@ -636,7 +636,7 @@
     "ultimo_cambio": "2026-11-19T18:01Z"
    }
   },
-  "revisado": "2026-11-21T00:01Z"
+  "revisado": "2026-11-23T18:06Z"
  },
  "ORCL": {
   "sec": [
@@ -662,8 +662,7 @@
     "u": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526470351/orcl-20261118.htm",
     "fecha": "2026-11-20",
     "ok": true,
-    "nuevo": true,
-    "caracteres": 5472
+    "nuevo": false
    }
   ],
   "web": {
@@ -673,12 +672,12 @@
     "u": "https://investor.oracle.com",
     "codigo": 200,
     "via": "http",
-    "revisado": "2026-11-21T00:01Z",
+    "revisado": "2026-11-23T18:06Z",
     "ok": true,
     "caracteres": 3232,
     "enlaces": 105,
     "poco_texto": false,
-    "cambio": true,
+    "cambio": false,
     "ultimo_cambio": "2026-11-21T00:01Z"
    },
    "https://www.oracle.com/cloud/": {
@@ -687,14 +686,14 @@
     "u": "https://www.oracle.com/cloud/",
     "codigo": 200,
     "via": "navegador",
-    "revisado": "2026-11-21T00:01Z",
+    "revisado": "2026-11-23T18:06Z",
     "u_leida": "https://blogs.oracle.com/cloud-infrastructure/",
     "ok": true,
-    "caracteres": 29198,
+    "caracteres": 29147,
     "enlaces": 120,
     "poco_texto": false,
     "cambio": true,
-    "ultimo_cambio": "2026-11-21T00:01Z"
+    "ultimo_cambio": "2026-11-23T18:06Z"
    },
    "https://www.oracle.com/news/": {
     "archivo": "lecturas/ORCL/web_www-oracle-com-news.txt",
@@ -702,7 +701,7 @@
     "u": "https://www.oracle.com/news/",
     "codigo": 200,
     "via": "http",
-    "revisado": "2026-11-21T00:01Z",
+    "revisado": "2026-11-23T18:06Z",
     "ok": true,
     "caracteres": 2108,
     "enlaces": 120,
@@ -711,7 +710,7 @@
     "ultimo_cambio": "2026-11-19T18:01Z"
    }
   },
-  "revisado": "2026-11-21T00:01Z"
+  "revisado": "2026-11-23T18:06Z"
  },
  "MRNA": {
   "sec": [
@@ -753,12 +752,15 @@
     "archivo": "lecturas/MRNA/web_investors-modernatx-com.txt",
     "t": "Relación con inversores (presentaciones, Analyst Day)",
     "u": "https://investors.modernatx.com",
-    "codigo": 0,
+    "codigo": 200,
     "via": "http",
-    "revisado": "2026-11-21T00:01Z",
-    "ok": false,
-    "error": "URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1011)>",
-    "ultimo_ok": "2026-11-20T11:59Z"
+    "revisado": "2026-11-23T18:06Z",
+    "ok": true,
+    "caracteres": 1976,
+    "enlaces": 36,
+    "poco_texto": false,
+    "cambio": false,
+    "ultimo_cambio": null
    },
    "https://www.modernatx.com/research/product-pipeline": {
     "archivo": "lecturas/MRNA/web_www-modernatx-com-research-product-pipeline.txt",
@@ -766,7 +768,7 @@
     "u": "https://www.modernatx.com/research/product-pipeline",
     "codigo": 200,
     "via": "http",
-    "revisado": "2026-11-21T00:01Z",
+    "revisado": "2026-11-23T18:06Z",
     "ok": true,
     "caracteres": 3908,
     "enlaces": 44,
@@ -778,14 +780,17 @@
     "archivo": "lecturas/MRNA/web_news-modernatx-com.txt",
     "t": "Noticias de Moderna",
     "u": "https://news.modernatx.com",
-    "codigo": 0,
+    "codigo": 200,
     "via": "http",
-    "revisado": "2026-11-21T00:01Z",
-    "ok": false,
-    "error": "URLError: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1011)>",
-    "ultimo_ok": "2026-11-20T11:59Z"
+    "revisado": "2026-11-23T18:06Z",
+    "ok": true,
+    "caracteres": 1637,
+    "enlaces": 19,
+    "poco_texto": false,
+    "cambio": false,
+    "ultimo_cambio": null
    }
   },
-  "revisado": "2026-11-21T00:01Z"
+  "revisado": "2026-11-23T18:06Z"
  }
 }
