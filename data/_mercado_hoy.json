@@ -1,6 +1,6 @@
 {
  "esquema": 2,
- "generado": "2026-11-23T10:15:54+00:00",
+ "generado": "2026-11-23T11:58:04+00:00",
  "grupos": {
   "bolsa": "Bolsa",
   "volatilidad": "Volatilidad y divisas",
@@ -2003,12 +2003,12 @@
    "unidad": "",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 1.0974,
+   "valor": 1.0959,
    "anterior": 1.097,
    "fecha": "2026-11-23",
    "url": "https://twelvedata.com/",
-   "var": 0.0004,
-   "var_pct": 0.04
+   "var": -0.0011,
+   "var_pct": -0.1
   },
   {
    "id": "usdjpy",
@@ -2019,12 +2019,12 @@
    "unidad": "",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 159.1609,
+   "valor": 159.1177,
    "anterior": 158.5089,
    "fecha": "2026-11-23",
    "url": "https://twelvedata.com/",
-   "var": 0.652,
-   "var_pct": 0.41
+   "var": 0.6089,
+   "var_pct": 0.38
   },
   {
    "id": "gbpusd",
@@ -2035,12 +2035,12 @@
    "unidad": "",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 1.3115,
+   "valor": 1.3097,
    "anterior": 1.3087,
    "fecha": "2026-11-23",
    "url": "https://twelvedata.com/",
-   "var": 0.0028,
-   "var_pct": 0.21
+   "var": 0.001,
+   "var_pct": 0.08
   },
   {
    "id": "usdcny",
@@ -2051,12 +2051,12 @@
    "unidad": "",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 6.6679,
+   "valor": 6.6675,
    "anterior": 6.6752,
    "fecha": "2026-11-23",
    "url": "https://twelvedata.com/",
-   "var": -0.0073,
-   "var_pct": -0.11
+   "var": -0.0077,
+   "var_pct": -0.12
   },
   {
    "id": "us3m",
@@ -3452,17 +3452,13 @@
    "unidad": "%",
    "fuente": "BCE",
    "corto": "BCE · curva AAA",
-   "valor": 3.4415,
-   "anterior": 3.4103,
-   "fecha": "2026-11-19",
+   "valor": 3.3608,
+   "anterior": 3.4415,
+   "fecha": "2026-11-20",
    "url": "https://data.ecb.europa.eu/data/datasets/YC/YC.B.U2.EUR.4F.G_N_A.SV_C_YM.SR_10Y",
-   "var": 0.0312,
+   "var": -0.0807,
    "nota": "Curva de los bonos con calificación AAA de la zona euro (en la práctica, sobre todo Alemania).",
    "serie": [
-    [
-     "2026-08-21",
-     3.271
-    ],
     [
      "2026-08-24",
      3.2804
@@ -3718,6 +3714,10 @@
     [
      "2026-11-19",
      3.4415
+    ],
+    [
+     "2026-11-20",
+     3.3608
     ]
    ]
   },
@@ -4621,12 +4621,12 @@
    "unidad": "$",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 3622.5677,
+   "valor": 3619.8515,
    "anterior": 3532.8284,
    "fecha": "2026-11-23",
    "url": "https://twelvedata.com/",
-   "var": 89.7393,
-   "var_pct": 2.54
+   "var": 87.0231,
+   "var_pct": 2.46
   },
   {
    "id": "plata",
@@ -5544,12 +5544,12 @@
    "unidad": "$",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 61342.58,
+   "valor": 61381.86,
    "anterior": 61271.08,
    "fecha": "2026-11-23",
    "url": "https://twelvedata.com/",
-   "var": 71.5,
-   "var_pct": 0.12
+   "var": 110.78,
+   "var_pct": 0.18
   },
   {
    "id": "ethereum",
@@ -5560,12 +5560,12 @@
    "unidad": "$",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 1721.97,
+   "valor": 1724.52,
    "anterior": 1724.33,
    "fecha": "2026-11-23",
    "url": "https://twelvedata.com/",
-   "var": -2.36,
-   "var_pct": -0.14
+   "var": 0.19,
+   "var_pct": 0.01
   }
  ],
  "sentimiento": {
