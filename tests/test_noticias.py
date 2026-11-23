@@ -215,3 +215,23 @@ def test_429_persistente_acaba_fallando():
 
     with pytest.raises(urllib.error.HTTPError):
         N._http_get("https://example.com/feed", opener=opener, sleep=lambda s: None)
+
+
+def test_google_news_bloqueado_no_se_vuelve_a_consultar_en_la_ejecucion():
+    import urllib.error
+    import pytest
+    from fetcher import news as N
+    N._CAIDOS.clear(); N._ULTIMA_HOST.clear()
+    llamadas = []
+
+    def opener(req, timeout=20):
+        llamadas.append(1)
+        raise urllib.error.HTTPError(req.full_url, 503, "Service Unavailable", {}, None)
+
+    with pytest.raises(urllib.error.HTTPError):
+        N._http_get("https://news.google.com/rss/search?q=a", opener=opener, sleep=lambda s: None)
+    n = len(llamadas)
+    with pytest.raises(urllib.error.HTTPError):
+        N._http_get("https://news.google.com/rss/search?q=b", opener=opener, sleep=lambda s: None)
+    assert len(llamadas) == n                      # la segunda ni siquiera llama
+    N._CAIDOS.clear()

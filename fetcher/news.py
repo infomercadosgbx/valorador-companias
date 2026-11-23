@@ -93,6 +93,10 @@ def medios_por_sic(sic) -> list:
 # 429 (demasiadas peticiones) si se le pregunta seguido desde GitHub: búsquedas de prensa y salas de prensa.
 PAUSA_HOST = {"news.google.com": 4.0}
 _ULTIMA_HOST: dict = {}
+# Si uno de esos servidores sigue respondiendo 429/503 tras los reintentos, bloquea a GitHub durante un rato:
+# el resto de la ejecución no se le pregunta (se ahorran minutos de espera) y se conservan los titulares
+# de noches anteriores.
+_CAIDOS: set = set()
 
 
 def _espera_host(url, sleep):
@@ -109,6 +113,9 @@ def _espera_host(url, sleep):
 def _http_get(url, timeout=20, opener=None, reintentos=2, sleep=time.sleep):
     """GET con reintento ante errores temporales del servidor (5xx), límite de peticiones (429) o de red.
     Con 429 espera lo que pida el servidor (Retry-After) o 20 s, 40 s… y reintenta al menos dos veces."""
+    host = urllib.parse.urlparse(url).netloc.lower()
+    if host in _CAIDOS:
+        raise urllib.error.HTTPError(url, 503, f"{host} no responde en esta ejecución; se reintentará la próxima", {}, None)
     req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "application/rss+xml, application/atom+xml, application/xml, application/json, */*"})
     i = 0
     while True:
@@ -126,6 +133,8 @@ def _http_get(url, timeout=20, opener=None, reintentos=2, sleep=time.sleep):
                 i += 1
                 continue
             if e.code < 500 or i >= reintentos:
+                if e.code in (429, 503) and host in PAUSA_HOST:
+                    _CAIDOS.add(host)
                 raise
         except (urllib.error.URLError, TimeoutError):
             if i >= reintentos:
