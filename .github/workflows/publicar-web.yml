@@ -43,7 +43,9 @@ jobs:
         run: |
           mkdir _site
           cp index.html valorador.html resultados.html cuenta.js companies.json ajustes.json fuentes.json logo.svg favicon.ico manifest.webmanifest _site/
-          cp -r iconos _site/
+          cp -r iconos css js _site/
+          # Versión en los enlaces a CSS y JS: tras publicar, el navegador no mezcla un HTML nuevo con un JS viejo.
+          sed -i "s/?v=dev/?v=${GITHUB_SHA::8}/g" _site/valorador.html
           cp -r data analysis manual _site/
           if [ -d logos ]; then cp -r logos _site/; fi
           if [ -d propuestas ]; then cp -r propuestas _site/; fi

@@ -13,7 +13,7 @@ REPO = Path(__file__).resolve().parent.parent
 def repo(tmp_path, monkeypatch):
     for d in ("analysis", "data", "propuestas", "scripts"):
         (tmp_path / d).mkdir()
-    shutil.copy(REPO / "valorador.html", tmp_path)
+    shutil.copytree(REPO / "js", tmp_path / "js")
     shutil.copy(REPO / "scripts" / "impacto_dcf.mjs", tmp_path / "scripts")
     for f in ("analysis/VST.json", "data/VST.json"):
         shutil.copy(REPO / f, tmp_path / f)

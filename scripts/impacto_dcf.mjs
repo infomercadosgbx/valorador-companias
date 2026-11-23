@@ -1,5 +1,5 @@
 // Impacto en el valor por acción de los cambios de una propuesta.
-// Usa el mismo motor del DCF que la web (bloque «ENGINE» de valorador.html),
+// Usa el mismo motor del DCF que la web (bloque «ENGINE» de js/motor-dcf.js),
 // con acciones, caja y deuda de la SEC (más los ajustes por hechos posteriores)
 // cuando el análisis no las fija.
 //
@@ -17,9 +17,9 @@ const T = (process.argv[2] || "").toUpperCase();
 if (!T) { console.error("Uso: node scripts/impacto_dcf.mjs <TICKER> [propuesta.json]"); process.exit(2); }
 const propPath = process.argv[3] || path.join(root, "propuestas", `${T}.json`);
 
-const html = fs.readFileSync(path.join(root, "valorador.html"), "utf8");
+const html = fs.readFileSync(path.join(root, "js", "motor-dcf.js"), "utf8");
 const m = /\/\/ ENGINE START([\s\S]*?)\/\/ ENGINE END/.exec(html);
-if (!m) { console.error("No encuentro el motor del DCF en valorador.html"); process.exit(1); }
+if (!m) { console.error("No encuentro el motor del DCF en js/motor-dcf.js"); process.exit(1); }
 const ctx = { Math, Number, Object, Array, isFinite, NaN };
 vm.createContext(ctx);
 vm.runInContext(m[1] + "\n;this.dcf=dcf;this.scenarios=scenarios;", ctx);

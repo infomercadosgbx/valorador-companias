@@ -256,7 +256,10 @@ Las fuentes que no respondan aparecen en un aviso plegable al pie de la franja y
 | `resultados.html` | El informe de resultados (pantalla, impresión y PDF) | — |
 | `fetcher/` | Código Python (solo biblioteca estándar) | — |
 | `tests/` | Tests sintéticos de cada regla y tests de aceptación con fixtures reales | — |
-| `valorador.html` | La web | — |
+| `valorador.html` | La web (solo la estructura de la página) | — |
+| `css/valorador.css` | Estilos de la web | — |
+| `js/valorador.js` | Interfaz, carga de datos y gráficos de la web | — |
+| `js/motor-dcf.js` | Motor del DCF y escenarios (lo usan la web y `scripts/impacto_dcf.mjs`) | — |
 | `ajustes.json` | Ajustes de la web: dirección del Worker de precio en vivo | Tú |
 | `data/_mercado_hoy.json` | Indicadores de «Mercado hoy» | Solo el Action |
 | `manual/_mercado.json` | Prima de riesgo del WACC y valores manuales de «Mercado hoy» (NAAIM, CNN, MOVE) | Tú (o el botón «Apuntar valores») |
