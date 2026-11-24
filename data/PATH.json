@@ -12345,7 +12345,7 @@
  "precio": {
   "minimo_52s": 9.2,
   "maximo_52s": 19.84,
-  "beta": 1.1497959,
+  "beta": 1.1402937,
   "valor": 11.84,
   "cierre_anterior": 10.96,
   "moneda": "USD",
@@ -12741,12 +12741,12 @@
    "fuente": "StockTwits (API pública)",
    "url": "https://stocktwits.com/symbol/PATH",
    "mensajes": 30,
-   "alcistas": 12,
-   "bajistas": 2,
-   "pct_alcista": 86,
-   "seguidores": 33208,
+   "alcistas": 14,
+   "bajistas": 1,
+   "pct_alcista": 93,
+   "seguidores": 33210,
    "desde": "2026-11-23",
-   "hasta": "2026-11-23",
+   "hasta": "2026-11-24",
    "fecha": "2026-11-24"
   }
  },
@@ -12764,11 +12764,15 @@
    },
    "Google News": {
     "ok": true,
-    "titulares": 73
+    "titulares": 72
    },
    "Seeking Alpha": {
     "ok": true,
     "titulares": 27
+   },
+   "Yahoo Finance": {
+    "ok": true,
+    "titulares": 13
    },
    "Marketaux": {
     "ok": true,
@@ -18076,7 +18080,7 @@
   "fecha": "2026-11-23",
   "ajuste": "splits"
  },
- "generado": "2026-11-24T00:03:41+00:00",
+ "generado": "2026-11-24T08:02:54+00:00",
  "peers": {
   "fuente_lista": "manual",
   "fuente_cifras": "SEC EDGAR (companyfacts, UDM) · precio Finnhub",

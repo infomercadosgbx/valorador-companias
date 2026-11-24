@@ -38,7 +38,7 @@
    "url": "https://feed.businesswire.com/rss/home/?rss=G1QFDERJXkJeEFtRWQ==",
    "tipo": "nota_prensa",
    "ok": true,
-   "titulares": 40,
+   "titulares": 45,
    "error": null
   },
   "prnewswire": {
@@ -149,9 +149,9 @@
    "medio": "Fierce Biotech",
    "url": "https://www.fiercebiotech.com/rss/xml",
    "tipo": "sectorial",
-   "ok": true,
+   "ok": false,
    "titulares": 0,
-   "error": null
+   "error": "HTTPError: HTTP Error 403: Forbidden"
   },
   "sala:RDDT": {
    "medio": "Sala de prensa de Reddit",
@@ -206,7 +206,7 @@
    "url": "https://news.google.com/rss/search?q=site%3Abroadcom.com%2Fcompany%2Fnews+when%3A14d&hl=en-US&gl=US&ceid=US%3Aen",
    "tipo": "nota_prensa",
    "ok": true,
-   "titulares": 2,
+   "titulares": 1,
    "error": null
   },
   "sala:PEP": {
@@ -214,7 +214,7 @@
    "url": "https://news.google.com/rss/search?q=site%3Apepsico.com%2Fnewsroom+when%3A14d&hl=en-US&gl=US&ceid=US%3Aen",
    "tipo": "nota_prensa",
    "ok": true,
-   "titulares": 10,
+   "titulares": 9,
    "error": null
   },
   "sala:PATH": {
@@ -230,7 +230,7 @@
    "url": "https://news.google.com/rss/search?q=site%3Aoracle.com%2Fnews+when%3A14d&hl=en-US&gl=US&ceid=US%3Aen",
    "tipo": "nota_prensa",
    "ok": true,
-   "titulares": 12,
+   "titulares": 10,
    "error": null
   },
   "sala:MRNA": {
@@ -238,14 +238,111 @@
    "url": "https://news.google.com/rss/search?q=site%3Amodernatx.com+when%3A14d&hl=en-US&gl=US&ceid=US%3Aen",
    "tipo": "nota_prensa",
    "ok": true,
-   "titulares": 17,
+   "titulares": 18,
+   "error": null
+  },
+  "cnbc_mercados": {
+   "medio": "CNBC",
+   "url": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=20409666",
+   "tipo": "prensa",
+   "ok": true,
+   "titulares": 30,
+   "error": null
+  },
+  "cnbc_tecnologia": {
+   "medio": "CNBC",
+   "url": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=19854910",
+   "tipo": "prensa",
+   "ok": true,
+   "titulares": 30,
+   "error": null
+  },
+  "cnbc_finanzas": {
+   "medio": "CNBC",
+   "url": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664",
+   "tipo": "prensa",
+   "ok": true,
+   "titulares": 30,
+   "error": null
+  },
+  "cnbc_empresas": {
+   "medio": "CNBC",
+   "url": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10001147",
+   "tipo": "prensa",
+   "ok": true,
+   "titulares": 30,
+   "error": null
+  },
+  "wsj_mercados": {
+   "medio": "The Wall Street Journal",
+   "url": "https://feeds.content.dowjones.io/public/rss/RSSMarketsMain",
+   "tipo": "prensa",
+   "ok": true,
+   "titulares": 61,
+   "error": null
+  },
+  "wsj_tecnologia": {
+   "medio": "The Wall Street Journal",
+   "url": "https://feeds.content.dowjones.io/public/rss/RSSWSJD",
+   "tipo": "prensa",
+   "ok": true,
+   "titulares": 40,
+   "error": null
+  },
+  "wsj_empresas": {
+   "medio": "The Wall Street Journal",
+   "url": "https://feeds.content.dowjones.io/public/rss/WSJcomUSBusiness",
+   "tipo": "prensa",
+   "ok": true,
+   "titulares": 85,
+   "error": null
+  },
+  "marketwatch": {
+   "medio": "MarketWatch",
+   "url": "https://feeds.marketwatch.com/marketwatch/topstories",
+   "tipo": "prensa",
+   "ok": true,
+   "titulares": 10,
+   "error": null
+  },
+  "marketwatch_ultima": {
+   "medio": "MarketWatch",
+   "url": "https://feeds.marketwatch.com/marketwatch/bulletins",
+   "tipo": "prensa",
+   "ok": true,
+   "titulares": 10,
+   "error": null
+  },
+  "expansion_mercados": {
+   "medio": "Expansión",
+   "url": "https://e00-expansion.uecdn.es/rss/mercados.xml",
+   "tipo": "prensa",
+   "ok": true,
+   "titulares": 52,
+   "error": null
+  },
+  "expansion_empresas": {
+   "medio": "Expansión",
+   "url": "https://e00-expansion.uecdn.es/rss/empresas.xml",
+   "tipo": "prensa",
+   "ok": true,
+   "titulares": 50,
+   "error": null
+  },
+  "cincodias": {
+   "medio": "Cinco Días",
+   "url": "https://feeds.elpais.com/mrss-s/pages/ep/site/cincodias.elpais.com/portada",
+   "tipo": "prensa",
+   "ok": true,
+   "titulares": 81,
    "error": null
   }
  },
  "apis": [
   "Google News",
   "Seeking Alpha",
+  "Yahoo Finance",
   "Marketaux"
  ],
- "generado": "2026-11-24T00:04:54+00:00"
+ "generado": "2026-11-24T08:03:54+00:00"
 }
