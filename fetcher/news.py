@@ -60,8 +60,23 @@ FEEDS = {
     "fiercebiotech": ("Fierce Biotech", "https://www.fiercebiotech.com/rss/xml", "sectorial"),
     "businesswire": ("Business Wire", "https://feed.businesswire.com/rss/home/?rss=G1QFDERJXkJeEFtRWQ==", "nota_prensa"),
     "prnewswire": ("PR Newswire", "https://www.prnewswire.com/rss/news-releases-list.rss", "nota_prensa"),
+    # Prensa financiera con RSS propio (no depende de Google News). Se filtra por el nombre de la compañía.
+    "cnbc_mercados": ("CNBC", "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=20409666", "prensa"),
+    "cnbc_tecnologia": ("CNBC", "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=19854910", "prensa"),
+    "cnbc_finanzas": ("CNBC", "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664", "prensa"),
+    "cnbc_empresas": ("CNBC", "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10001147", "prensa"),
+    "wsj_mercados": ("The Wall Street Journal", "https://feeds.content.dowjones.io/public/rss/RSSMarketsMain", "prensa"),
+    "wsj_tecnologia": ("The Wall Street Journal", "https://feeds.content.dowjones.io/public/rss/RSSWSJD", "prensa"),
+    "wsj_empresas": ("The Wall Street Journal", "https://feeds.content.dowjones.io/public/rss/WSJcomUSBusiness", "prensa"),
+    "marketwatch": ("MarketWatch", "https://feeds.marketwatch.com/marketwatch/topstories", "prensa"),
+    "marketwatch_ultima": ("MarketWatch", "https://feeds.marketwatch.com/marketwatch/bulletins", "prensa"),
+    "expansion_mercados": ("Expansión", "https://e00-expansion.uecdn.es/rss/mercados.xml", "prensa"),
+    "expansion_empresas": ("Expansión", "https://e00-expansion.uecdn.es/rss/empresas.xml", "prensa"),
+    "cincodias": ("Cinco Días", "https://feeds.elpais.com/mrss-s/pages/ep/site/cincodias.elpais.com/portada", "prensa"),
+    "eleconomista": ("elEconomista", "https://www.eleconomista.es/rss/rss-mercados.php", "prensa"),
 }
 AGENCIAS = ["businesswire", "prnewswire"]   # a todas las compañías (GlobeNewswire bloquea a los robots: 403)
+PRENSA = [k for k, v in FEEDS.items() if v[2] == "prensa"]   # también a todas las compañías
 
 # Medios sectoriales por código SIC de la SEC (para las compañías nuevas; se editan en companies.json)
 SIC_MEDIOS = [
@@ -230,7 +245,7 @@ def from_feeds(company, cache: FeedCache) -> list:
     pat = patron(company)
     out = []
     medios = [m for m in (company.get("medios") or []) if m in FEEDS]
-    for fid in dict.fromkeys(medios + AGENCIAS):
+    for fid in dict.fromkeys(medios + AGENCIAS + PRENSA):
         nombre, _, tipo = FEEDS[fid]
         for n in cache.get(fid):
             # agencias: el nombre en el titular (si no, cualquier nota que lo cite de pasada)
@@ -446,6 +461,21 @@ class GoogleNews:
         return out
 
 
+class YahooFinance:
+    """RSS público de titulares por ticker de Yahoo Finance (hasta 20: Yahoo, agencias y notas de prensa).
+    Ya viene filtrado por la compañía, así que no necesita buscar su nombre."""
+    nombre = "Yahoo Finance"
+    URL = "https://feeds.finance.yahoo.com/rss/2.0/headline?s={t}&region=US&lang=en-US"
+
+    def __init__(self, opener=None, sleep=time.sleep, pausa=1.0):
+        self._open, self._sleep, self.pausa = opener, sleep, pausa
+
+    def news(self, ticker):
+        items = parse_feed(_http_get(self.URL.format(t=urllib.parse.quote(ticker)), opener=self._open, sleep=self._sleep))
+        self._sleep(self.pausa)
+        return [dict(n, medio="Yahoo Finance", tipo="prensa", via="RSS de Yahoo Finance") for n in items]
+
+
 class SeekingAlpha:
     """RSS público por ticker de Seeking Alpha (titulares de noticias y análisis; el texto es de pago)."""
     nombre = "Seeking Alpha"
@@ -553,7 +583,7 @@ REDDIT = None      # cliente de Reddit si hay claves (lo prepara main.run)
 
 
 def apis_from_env():
-    out = [GoogleNews(), SeekingAlpha()]
+    out = [GoogleNews(), SeekingAlpha(), YahooFinance()]
     if os.environ.get("MARKETAUX_API_KEY", "").strip():
         out.append(Marketaux(os.environ["MARKETAUX_API_KEY"].strip()))
     # Alpha Vantage pasó NEWS_SENTIMENT a sus planes de pago (comprobado el 5-nov-2026). Solo se usa

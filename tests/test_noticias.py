@@ -235,3 +235,47 @@ def test_google_news_bloqueado_no_se_vuelve_a_consultar_en_la_ejecucion():
         N._http_get("https://news.google.com/rss/search?q=b", opener=opener, sleep=lambda s: None)
     assert len(llamadas) == n                      # la segunda ni siquiera llama
     N._CAIDOS.clear()
+
+
+YAHOO = b"""<?xml version="1.0"?><rss version="2.0"><channel><title>Yahoo! Finance: VST News</title>
+<item><title>Vistra signs new nuclear power deal</title><link>https://finance.yahoo.com/news/vistra-deal-1.html</link>
+<pubDate>Mon, 23 Nov 2026 14:00:00 +0000</pubDate><description>Vistra agreed...</description></item></channel></rss>"""
+
+CNBC = b"""<?xml version="1.0"?><rss version="2.0"><channel><title>Market Insider</title>
+<item><title>Vistra shares jump after data center contract</title><link>https://www.cnbc.com/2026/11/23/vistra.html</link>
+<pubDate>Mon, 23 Nov 2026 15:00:00 GMT</pubDate><description>Shares rose.</description></item>
+<item><title>Stocks close higher as tech rallies</title><link>https://www.cnbc.com/2026/11/23/markets.html</link>
+<pubDate>Mon, 23 Nov 2026 21:00:00 GMT</pubDate><description>Indexes.</description></item></channel></rss>"""
+
+
+class _RB:
+    def __init__(self, b):
+        self.b = b
+
+    def read(self, n=-1):
+        return self.b
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *a):
+        return False
+
+
+def test_yahoo_finance_por_ticker():
+    from fetcher import news as N
+    urls = []
+    y = N.YahooFinance(opener=lambda req, timeout=0: (urls.append(req.full_url), _RB(YAHOO))[1], sleep=lambda s: None)
+    r = y.news("VST")
+    assert "s=VST" in urls[0] and r[0]["medio"] == "Yahoo Finance" and r[0]["via"] == "RSS de Yahoo Finance"
+    assert r[0]["titular"].startswith("Vistra signs")
+
+
+def test_prensa_financiera_por_rss_se_filtra_por_nombre():
+    from fetcher import news as N
+    cnbc = N.FEEDS["cnbc_mercados"][1]
+    cache = FeedCache(opener=lambda req, timeout=0: _RB(CNBC if req.full_url == cnbc else b"<rss/>"), sleep=lambda s: None)
+    out = N.from_feeds({"ticker": "VST", "nombre": "Vistra Corp."}, cache)
+    assert [n["titular"] for n in out] == ["Vistra shares jump after data center contract"]
+    assert out[0]["medio"] == "CNBC" and out[0]["tipo"] == "prensa"
+    assert "yahoo" not in " ".join(N.PRENSA)                       # Yahoo va por ticker, no como feed general

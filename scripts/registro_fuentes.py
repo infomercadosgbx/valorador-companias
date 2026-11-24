@@ -28,7 +28,8 @@ CABECERA = ("# Registro de fuentes de noticias\n\n"
             "Una entrada por día (la más reciente arriba). La escribe la tarea programada de la mañana con "
             "`python scripts/registro_fuentes.py`. Sirve para ver qué aporta cada fuente y decidir qué quitar o añadir.\n")
 VIAS = [("Finnhub", "Finnhub"), ("Google News", "Google News"), ("Seeking Alpha", "RSS de Seeking Alpha"),
-        ("Marketaux", "Marketaux"), ("Medios sectoriales y agencias", "RSS del medio")]
+        ("Yahoo Finance", "RSS de Yahoo Finance"), ("Marketaux", "Marketaux"),
+        ("Medios (prensa, sector y agencias)", "RSS del medio")]
 
 
 def kv(s: str | None) -> dict:

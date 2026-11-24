@@ -1,7 +1,7 @@
 {
   "esquema": 1,
   "_nota": "Catálogo de las fuentes del Valorador, separadas por la parte de la tarea nocturna que las usa. PARTE A y PARTE C son oficiales (SEC y la propia compañía): alimentan las cifras y el criterio con documentos citables. PARTE B es «lo que se dice en internet»: solo abre la revisión y aporta contexto; nunca entra una cifra desde aquí. Lo edita a mano quien mantiene el robot; la web lo muestra en Ajustes → Fuentes. El estado en vivo de los feeds está en data/_noticias_estado.json.",
-  "actualizado": "2026-11-13",
+  "actualizado": "2026-11-24",
   "grupos": [
     {
       "id": "oficial",
@@ -178,6 +178,22 @@
           "oficial": false,
           "clave": false,
           "ruido": "alto"
+        },
+        {
+          "n": "Yahoo Finance (RSS por ticker)",
+          "u": "https://finance.yahoo.com",
+          "uso": "Hasta 20 titulares recientes por compañía (Yahoo, agencias y notas de prensa). No depende de Google.",
+          "oficial": false,
+          "clave": false,
+          "ruido": "medio"
+        },
+        {
+          "n": "Prensa financiera (RSS propio)",
+          "u": "",
+          "uso": "CNBC (mercados, tecnología, finanzas, empresas), WSJ (mercados, tecnología, empresas), MarketWatch, Expansión, Cinco Días y elEconomista, filtrados por el nombre de la compañía. Respaldo de Google News cuando este bloquea a GitHub.",
+          "oficial": false,
+          "clave": false,
+          "ruido": "bajo"
         },
         {
           "n": "Medios sectoriales (RSS)",
