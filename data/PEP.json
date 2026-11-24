@@ -10465,11 +10465,6 @@
    "nivel": "info",
    "codigo": "anio_52_53_semanas",
    "mensaje": "Año fiscal de 52/53 semanas (duraciones: 363, 370 días); los trimestres se etiquetan por su fecha de cierre."
-  },
-  {
-   "nivel": "info",
-   "codigo": "sin_resultados_previstos",
-   "mensaje": "Resultados previstos no disponibles: Remote end closed connection without response"
   }
  ],
  "bonos": {
@@ -11798,7 +11793,7 @@
    "compradores": [
     "POHLAD ROBERT C"
    ],
-   "desde": "2026-05-24"
+   "desde": "2026-05-25"
   },
   "operaciones": [
    {
@@ -13516,7 +13511,7 @@
   "minimo_52s": 123.47,
   "maximo_52s": 171.48,
   "beta": 0.26581627,
-  "valor": 140.27,
+  "valor": 140.21,
   "cierre_anterior": 140.54,
   "moneda": "USD",
   "fecha": "2026-11-23",
@@ -13576,7 +13571,7 @@
    "hora_codigo": "amc",
    "trimestre": 4,
    "anio": 2026,
-   "bpa_estimado": 2.2604,
+   "bpa_estimado": 2.2633,
    "ingresos_estimados": 30718622911
   },
   "sorpresas": [
@@ -13632,18 +13627,29 @@
    "url_indice": "https://www.sec.gov/Archives/edgar/data/77476/000110465926115547/0001104659-26-115547-index.htm",
    "url_documento": "https://www.sec.gov/Archives/edgar/data/77476/000110465926115547/tm2626837-2_424b2.htm",
    "fuente": "SEC EDGAR · 424B2"
-  },
-  {
-   "formulario": "424B2",
-   "descripcion": "folleto de una emisión (424B)",
-   "fecha_presentacion": "2026-10-09",
-   "accn": "0001104659-26-114806",
-   "url_indice": "https://www.sec.gov/Archives/edgar/data/77476/000110465926114806/0001104659-26-114806-index.htm",
-   "url_documento": "https://www.sec.gov/Archives/edgar/data/77476/000110465926114806/tm2626837-1_424b2.htm",
-   "fuente": "SEC EDGAR · 424B2"
   }
  ],
  "noticias": [
+  {
+   "titular": "Strategically Building A $75,000 Dividend Portfolio With November's Top High-Yield Picks",
+   "medio": "Seeking Alpha",
+   "url": "https://seekingalpha.com/article/4970287-strategically-building-a-75000-dividend-portfolio-with-novembers-top-high-yield-picks",
+   "fecha": "2026-11-23",
+   "resumen": "Investors are looking for stock selections for their dividend portfolios. Considerations include income, dividend growth, capital appreciation, and limited downside risk.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=7ad792d17dab88ab09fa4f3f3de9042a07658ccc4035759a8232e98c7e2c2da8"
+  },
+  {
+   "titular": "PepsiCo: Staples Ugly Duckling (Rating Downgrade)",
+   "medio": "Seeking Alpha",
+   "url": "https://seekingalpha.com/article/4971184-pepsico-staples-ugly-duckling-downgrade",
+   "fecha": "2026-11-23",
+   "resumen": "PepsiCo is downgraded to \"Sell\": Market share losses and secular headwinds are not fully reflected at $140 per share.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=ac09204dedde70f07de3b5e0ddd02d1a2dd9a08b245d06df0b1b2b0e48abe3a1"
+  },
   {
    "titular": "Pepsi Has Drawn My Interest",
    "medio": "Seeking Alpha",
@@ -13653,6 +13659,46 @@
    "tipo": "prensa",
    "via": "Finnhub",
    "url_finnhub": "https://finnhub.io/api/news?id=82abfa467153783fb873e4c3b5ba59b17d715316a036193093faebdcacea376f"
+  },
+  {
+   "titular": "5 Blue-Chip Dividend Stocks Built to Keep Paying Through Tough Markets",
+   "medio": "Yahoo Finance",
+   "url": "https://247wallst.com/investing/2026/11/23/5-blue-chip-dividend-stocks-built-to-keep-paying-through-tough-markets/",
+   "fecha": "2026-11-23",
+   "resumen": "A fat yield means nothing if the cash isn't there to fund it. Five blue chips face the same coverage test, and two of them pay out with almost no room to spare. Which dividends hold up when markets turn?",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=d22a94f90992e388c915b7b1429220738bf57aaf700ca38578705d016642ca7e"
+  },
+  {
+   "titular": "PepsiCo (PEP) Stock May Be 49% Undervalued Following Margin Concerns",
+   "medio": "Yahoo Finance",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/pepsico-pep-stock-may-49-191121756.html",
+   "fecha": "2026-11-23",
+   "resumen": "PepsiCo has seen a muted share price journey in recent years, and investors are increasingly asking whether the current valuation is still supported by the cash the business can generate. With the stock around US$140.54 at the last close, the key issue is how that price lines up ",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=e1d59442061ba215c21644277dea47817074a385666940c2a168237648b5cdea"
+  },
+  {
+   "titular": "Gatorade \"Body of Science\" Highlights Women's Research Gap with F1 ACADEMY at Las Vegas Grand Prix",
+   "medio": "Yahoo Finance",
+   "url": "https://finance.yahoo.com/healthcare/articles/gatorade-body-science-highlights-womens-182000701.html",
+   "fecha": "2026-11-23",
+   "resumen": "Women are gaining ground in motorsports but the science behind their performance isn't keeping pace. As F1 ACADEMY, the F1 women's development league, creates greater visibility and opportunity for female drivers, a significant research gap remains: only about 6% of sports scienc",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=badd0653f7757d41b7b7019e1875c4c9a43086d72c214e719be08f47e7b64734"
+  },
+  {
+   "titular": "Coca-Cola vs. PepsiCo: Which Consumer Goods Stock Is a Better Buy for 2027?",
+   "medio": "Yahoo Finance",
+   "url": "https://www.fool.com/coverage/better-buy/2026/11/23/coca-cola-vs-pepsico-which-consumer-goods-stock-is-a-better-buy-for-2027/",
+   "fecha": "2026-11-23",
+   "resumen": "Coca-Cola's asset-light model and PepsiCo's snack empire take very different routes to the same shelf, and their valuation gap may decide the winner.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=4847d48636c8a96f5eb6a4d0b2ce3eb15e4c6569288325986216767584b6b487"
   },
   {
    "titular": "Coca-Cola Stock Returned 40%. How Much Is Left?",
@@ -13673,46 +13719,6 @@
    "tipo": "prensa",
    "via": "Finnhub",
    "url_finnhub": "https://finnhub.io/api/news?id=fee280aa3430d277d2490922ed0ac3d6182e34c0f18ece159f24e184c7f29837"
-  },
-  {
-   "titular": "41 ETFs Add to PepsiCo (PEP) Holdings on Nov. 19",
-   "medio": "Yahoo Finance",
-   "url": "https://finance.yahoo.com/markets/stocks/articles/41-etfs-add-pepsico-pep-110155523.html",
-   "fecha": "2026-11-23",
-   "resumen": "ETFs bought $40.1 million of PepsiCo stock in Thursday's session.",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=26a68079b2d94337bfd6a15dc08c490bf0a0349ddcd5926109f1272ab2a803fc"
-  },
-  {
-   "titular": "What These 6 Snack and Beverage Stocks Have in Common",
-   "medio": "Yahoo Finance",
-   "url": "https://www.fool.com/investing/2026/11/22/what-these-6-snack-and-beverage-stocks-have-in-common/",
-   "fecha": "2026-11-22",
-   "resumen": "Coca-Cola and an array of other beverage and snack stocks deliver tasty dividends to income investors.",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=0cee499412bd0e6ee84d690da151950d3a66ea393f72354dd0c684bb7e4ff3cd"
-  },
-  {
-   "titular": "How Many Shares of Coca-Cola or PepsiCo Pay $1,000 a Month in Dividends?",
-   "medio": "Yahoo Finance",
-   "url": "https://www.tikr.com/blog/how-many-shares-of-coca-cola-or-pepsico-pay-1000-a-month-in-dividends?ref=yahoofinancedividend&tlnk=yf-261122-59p8r2v5&.tsrc=rss",
-   "fecha": "2026-11-22",
-   "resumen": "Key TakeawaysAt today’s prices, collecting $1,000 a month in dividends takes 5,661 shares of Coca-Cola, about $549,100, or 2,028 shares of PepsiCo, about $285,000. PepsiCo looks like the better buy for that income, as long as its turnaround gets its free cash flow growing again.",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=b23ac453f81df99f5160fd7e05ccc5ebc7f63f17a0bf5ef29aa72b864f3d3e2e"
-  },
-  {
-   "titular": "10-Year TIPS Pay 2.77% Above Inflation. Here’s How Dividend Stocks Compare",
-   "medio": "Yahoo Finance",
-   "url": "https://247wallst.com/investing/2026/11/22/10-year-tips-pay-2-77-above-inflation-heres-how-dividend-stocks-compare/",
-   "fecha": "2026-11-22",
-   "resumen": "A Treasury coupon can't be cut, but a dividend can grow faster than inflation. Before you pick a side, check the tax bill hiding inside TIPS and the raise that trails inflation at one famous monthly payer.",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=d0aa72d1f951da00393e3fe350ebe85c4d50b0f002d7e5b79a294676e8875c42"
   },
   {
    "titular": "PEPSICO INC (NASDAQ:PEP): A Quality Investing Case With High ROIC but Mature Growth",
@@ -13839,15 +13845,6 @@
    "url_finnhub": "https://finnhub.io/api/news?id=faf0f18c34a3d42da3763b80e335d6cdaa076a4d6a9054af62c357faabead8a5"
   },
   {
-   "titular": "PepsiCo declares $1.48 dividend",
-   "url": "https://seekingalpha.com/symbol/PEP/news?source=feed_symbol_PEP",
-   "fecha": "2026-11-18",
-   "resumen": "",
-   "medio": "Seeking Alpha",
-   "tipo": "prensa",
-   "via": "RSS de Seeking Alpha"
-  },
-  {
    "titular": "How PepsiCo Turns Fandom Into Brand Loyalty | WSJ Leadership Institute",
    "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxOeTZ0cmRObmRSamsyRzJ0ZlZJYU91Nkp1cVl4RHNDUFlOQW9NSFV2b3JmdGdBWnI1dFdtaGhVQWVWY0duX0l6R1ZjX2ItLVpFWFJrVS1KQjNoSENsWlFuZ21kOXp1TzJPT0N1eHVhMUU1MWFzR19PTGNoMW9aZ1lKYTNGWFRfcFFDbE4yaC0ta0dWcUJOWnBWWk5mbTVyQlhIR1Q4emJnTG9IOUh5SWdOUjE1MlE3LTNodGdqeUpTVUFoOWtJdVNPRVd6RQ?oc=5",
    "fecha": "2026-11-18",
@@ -13857,6 +13854,15 @@
    "via": "Google News"
   },
   {
+   "titular": "PepsiCo declares $1.48 dividend",
+   "url": "https://seekingalpha.com/symbol/PEP/news?source=feed_symbol_PEP",
+   "fecha": "2026-11-18",
+   "resumen": "",
+   "medio": "Seeking Alpha",
+   "tipo": "prensa",
+   "via": "RSS de Seeking Alpha"
+  },
+  {
    "titular": "PepsiCo Declares Quarterly Dividend – Company Announcement",
    "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQdkFqZFhodnM2SHk3bkJWdjRLWTkyNi1CRW5xYURqay1xMWNIV25aSXhLY1NyekI0U0hYcXZfYXFqT2g3SXVlUmd4cDhBTkl2Wi1UdUItLWk3SXhleVRDbDFkTG5zWERSV1JsRjRGaDRsNUVOY21pc3JQOTcwZXRZUE5uRzRwX2FDVXk2UWlZamlvVFhTM090bQ?oc=5",
    "fecha": "2026-11-18",
@@ -13864,6 +13870,24 @@
    "medio": "Financial Times",
    "tipo": "prensa",
    "via": "Google News"
+  },
+  {
+   "titular": "PepsiCo launches its first proprietary syrup lineup and Concentrated Bases to help operators move at the speed of culture to meet growing demand for crafted beverages - PepsiCo",
+   "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxPNWNfS1pSTXZ6WXFPampONzR4aHJyay0ybWMtelpSRHVYb1lKZERLZXJYbDhNRVNmYmluQXlQWDBKSkItVUFjc0YxbmtjcGZnOEp3RXI3RzdhQmQtclBXbWFreUtEd2Y5YTEyV3pOT0hJaUxFTTFjZnY0YU9GM05Td250LVJWczNSd2kyc2pNZWJGQVotdzVFRl8tcXhuT044aDhKamtETzI0UThhVVZkMjdfcUdDZEZqaktBTy1TTlNaNFdVdTFFMTZ5MDJfMnBNbVprZjEyYVM1aGJLSTJ1Wl9Paw?oc=5",
+   "fecha": "2026-11-17",
+   "resumen": "PepsiCo launches its first proprietary syrup lineup and Concentrated Bases to help operators move at the speed of culture to meet growing demand for crafted beverages PepsiCo",
+   "medio": "PepsiCo (sala de prensa)",
+   "tipo": "nota_prensa",
+   "via": "Sala de prensa de la compañía"
+  },
+  {
+   "titular": "Bronwyn Hattingh brings people together. At PepsiCo and beyond, she turns connection into action. - PepsiCo",
+   "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNT3Y0dE1sMjFNVnh1TF9mX0pSQ0VqVFdQOTVzcjByVEdFeGFvYUk5QWROR2JNM2p5SWhfZ0Rjd0ZCQVJETUdTblFRSmtqSWFtOFl6X19uSllBNDI0OFd5N3U3NHlFRzFvcjNSV202S2hscUZUZl9SQ0dWSjlHNXY5TWNXa2t2aXVfMV8tMkZEZ1A4bDFCVFo4SmVBQVB2dTVqU3haNTRDSy1PSG52ZWFFS3BsNUdfemtNNlpLaGw0MzJ5MUVfOGpod1h6MExRV014ejNueUR1NA?oc=5",
+   "fecha": "2026-11-17",
+   "resumen": "Bronwyn Hattingh brings people together. At PepsiCo and beyond, she turns connection into action. PepsiCo",
+   "medio": "PepsiCo (sala de prensa)",
+   "tipo": "nota_prensa",
+   "via": "Sala de prensa de la compañía"
   },
   {
    "titular": "Pepsi® turns up the flavor on the Las Vegas Strip during Formula 1 Heineken Las Vegas Grand Prix 2026 Race Weekend with MGM Resorts International - PepsiCo",
@@ -13884,24 +13908,6 @@
    "via": "Sala de prensa de la compañía"
   },
   {
-   "titular": "Bronwyn Hattingh brings people together. At PepsiCo and beyond, she turns connection into action. - PepsiCo",
-   "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNT3Y0dE1sMjFNVnh1TF9mX0pSQ0VqVFdQOTVzcjByVEdFeGFvYUk5QWROR2JNM2p5SWhfZ0Rjd0ZCQVJETUdTblFRSmtqSWFtOFl6X19uSllBNDI0OFd5N3U3NHlFRzFvcjNSV202S2hscUZUZl9SQ0dWSjlHNXY5TWNXa2t2aXVfMV8tMkZEZ1A4bDFCVFo4SmVBQVB2dTVqU3haNTRDSy1PSG52ZWFFS3BsNUdfemtNNlpLaGw0MzJ5MUVfOGpod1h6MExRV014ejNueUR1NA?oc=5",
-   "fecha": "2026-11-17",
-   "resumen": "Bronwyn Hattingh brings people together. At PepsiCo and beyond, she turns connection into action. PepsiCo",
-   "medio": "PepsiCo (sala de prensa)",
-   "tipo": "nota_prensa",
-   "via": "Sala de prensa de la compañía"
-  },
-  {
-   "titular": "PepsiCo launches its first proprietary syrup lineup and Concentrated Bases to help operators move at the speed of culture to meet growing demand for crafted beverages - PepsiCo",
-   "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxPNWNfS1pSTXZ6WXFPampONzR4aHJyay0ybWMtelpSRHVYb1lKZERLZXJYbDhNRVNmYmluQXlQWDBKSkItVUFjc0YxbmtjcGZnOEp3RXI3RzdhQmQtclBXbWFreUtEd2Y5YTEyV3pOT0hJaUxFTTFjZnY0YU9GM05Td250LVJWczNSd2kyc2pNZWJGQVotdzVFRl8tcXhuT044aDhKamtETzI0UThhVVZkMjdfcUdDZEZqaktBTy1TTlNaNFdVdTFFMTZ5MDJfMnBNbVprZjEyYVM1aGJLSTJ1Wl9Paw?oc=5",
-   "fecha": "2026-11-17",
-   "resumen": "PepsiCo launches its first proprietary syrup lineup and Concentrated Bases to help operators move at the speed of culture to meet growing demand for crafted beverages PepsiCo",
-   "medio": "PepsiCo (sala de prensa)",
-   "tipo": "nota_prensa",
-   "via": "Sala de prensa de la compañía"
-  },
-  {
    "titular": "Bernstein Downgrades PepsiCo to Underperform, Lowers Price Target to $128",
    "medio": "Benzinga",
    "url": "https://www.benzinga.com/news/26/11/63353022/bernstein-downgrades-pepsico-underperform-lowers-price-target-128",
@@ -13910,24 +13916,6 @@
    "tipo": "prensa",
    "via": "Finnhub",
    "url_finnhub": "https://finnhub.io/api/news?id=23c81d429fb4e317b685c706dee91047840381403a9e91ab46868f5279673f11"
-  },
-  {
-   "titular": "PepsiCo Stock Cut to Sell as Snacks and Drinks Giant Can’t Shake Problems in North America",
-   "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE85cHBuOTNhRHEzaGxUakc1dVRGSFNIVEZxY0RTYXJySE1rb0J4SFpabVBNSVFtNGVyeEhIWDhfd01yN0R2a0VYeHRpUWpHTDBOelJjTFphc3hNWVlZS3cxV1U5dFVwTkY0VVktTkdRb1VFTTk1VTllRzNR?oc=5",
-   "fecha": "2026-11-17",
-   "resumen": "",
-   "medio": "Barron's",
-   "tipo": "prensa",
-   "via": "Google News"
-  },
-  {
-   "titular": "What PepsiCo Is Offering GLP-1 Users",
-   "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNS1V1Vy1WYWFlRVByOE5mWldQWjRINEExb0RPX21EYVJXUGgzX2FxZDY5YlZRbWxrWnhpU1Nfa0VnWk1uZDNQWkdIWUpxTm1HY3NGd0k5X1BBNURYcDE3MkNvbmVFN3h3T0NsU0FZeG1oYXVXTUN5dU1uNUpZeGpBbnhMZ2xmU2p1MGI1NzFGc0U4dU9QaDlwS2J0LTZ4YkMt?oc=5",
-   "fecha": "2026-11-17",
-   "resumen": "",
-   "medio": "WSJ",
-   "tipo": "prensa",
-   "via": "Google News"
   }
  ],
  "noticias_sentimiento": null,
@@ -13936,13 +13924,13 @@
    "fuente": "StockTwits (API pública)",
    "url": "https://stocktwits.com/symbol/PEP",
    "mensajes": 30,
-   "alcistas": 6,
+   "alcistas": 7,
    "bajistas": 2,
-   "pct_alcista": 75,
+   "pct_alcista": 78,
    "seguidores": 24220,
-   "desde": "2026-11-19",
+   "desde": "2026-11-20",
    "hasta": "2026-11-23",
-   "fecha": "2026-11-23"
+   "fecha": "2026-11-24"
   }
  },
  "noticias_fuentes": {
@@ -13960,8 +13948,8 @@
     "titulares": 80
    },
    "Google News": {
-    "ok": false,
-    "error": "HTTPError: HTTP Error 503: Service Unavailable"
+    "ok": true,
+    "titulares": 85
    },
    "Seeking Alpha": {
     "ok": true,
@@ -13976,9 +13964,8 @@
     "titulares": 2
    },
    "Sala de prensa": {
-    "ok": false,
-    "titulares": 0,
-    "error": "https://news.google.com/rss/search?q=site%3Apepsico.com%2Fnewsroom+when%3A14d&hl=en-US&gl=US&ceid=US%3Aen: HTTPError: HTTP Error 503: Service Unavailable"
+    "ok": true,
+    "titulares": 10
    },
    "StockTwits": {
     "ok": true,
@@ -19266,7 +19253,7 @@
    ],
    [
     "2026-11-23",
-    140.275
+    140.21
    ]
   ],
   "fuente": "Twelve Data (API oficial, plan gratuito)",
@@ -19274,11 +19261,11 @@
   "fecha": "2026-11-23",
   "ajuste": "splits"
  },
- "generado": "2026-11-23T18:01:33+00:00",
+ "generado": "2026-11-24T00:03:04+00:00",
  "peers": {
   "fuente_lista": "manual",
   "fuente_cifras": "SEC EDGAR (companyfacts, UDM) · precio Finnhub",
-  "actualizado": "2026-11-23",
+  "actualizado": "2026-11-24",
   "propia": {
    "ingresos": 98241000000,
    "crecimiento": 6.36,
@@ -19296,12 +19283,12 @@
    "informe": "10-Q",
    "informe_fecha": "2026-10-08",
    "url": "https://www.sec.gov/Archives/edgar/data/77476/000007747626000048/0000077476-26-000048-index.htm",
-   "precio": 140.27,
-   "capitalizacion": 191151692974.84003,
-   "ev": 231869692974.84003,
+   "precio": 140.21,
+   "capitalizacion": 191069928509.32,
+   "ev": 231787928509.32,
    "per": 17.54,
-   "precio_ventas": 1.95,
-   "ev_ebitda": 12.39,
+   "precio_ventas": 1.94,
+   "ev_ebitda": 12.38,
    "rentabilidad_fcf": 5.48,
    "deuda_neta_ebitda": 2.18,
    "ticker": "PEP",
@@ -19336,10 +19323,10 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-28",
     "url": "https://www.sec.gov/Archives/edgar/data/21344/000162828026067844/0001628280-26-067844-index.htm",
-    "precio": 95.87,
-    "capitalizacion": 412423376856.45,
-    "ev": 440284376856.45,
-    "per": 28.19,
+    "precio": 95.88,
+    "capitalizacion": 412466395879.8,
+    "ev": 440327395879.8,
+    "per": 28.2,
     "precio_ventas": 8.08,
     "ev_ebitda": 26.92,
     "rentabilidad_fcf": 3.46,
@@ -19372,13 +19359,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-11-09",
     "url": "https://www.sec.gov/Archives/edgar/data/1418135/000141813526000066/0001418135-26-000066-index.htm",
-    "precio": 35.21,
-    "capitalizacion": 47918991403.5,
-    "ev": 71063991403.5,
-    "per": 29.09,
-    "precio_ventas": 2.07,
-    "ev_ebitda": 15.56,
-    "rentabilidad_fcf": 4.86,
+    "precio": 35.43,
+    "capitalizacion": 48218400040.5,
+    "ev": 71363400040.5,
+    "per": 29.28,
+    "precio_ventas": 2.08,
+    "ev_ebitda": 15.63,
+    "rentabilidad_fcf": 4.83,
     "deuda_neta_ebitda": 5.07
    },
    {
@@ -19408,13 +19395,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-29",
     "url": "https://www.sec.gov/Archives/edgar/data/1103982/000162828026068256/0001628280-26-068256-index.htm",
-    "precio": 66.11,
-    "capitalizacion": 83684575235.69,
-    "ev": 100108575235.69,
-    "per": 20.52,
+    "precio": 66.25,
+    "capitalizacion": 83861792608.75,
+    "ev": 100285792608.75,
+    "per": 20.56,
     "precio_ventas": 2.1,
-    "ev_ebitda": 14.6,
-    "rentabilidad_fcf": 4.37,
+    "ev_ebitda": 14.63,
+    "rentabilidad_fcf": 4.36,
     "deuda_neta_ebitda": 2.4
    },
    {
@@ -19444,13 +19431,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-11-06",
     "url": "https://www.sec.gov/Archives/edgar/data/865752/000110465926123503/0001104659-26-123503-index.htm",
-    "precio": 42.94,
-    "capitalizacion": 84055561930.68,
-    "ev": 80351309930.68,
-    "per": 38.71,
-    "precio_ventas": 8.77,
-    "ev_ebitda": 28.15,
-    "rentabilidad_fcf": 2.29,
+    "precio": 42.43,
+    "capitalizacion": 83057230850.46,
+    "ev": 79352978850.46,
+    "per": 38.25,
+    "precio_ventas": 8.67,
+    "ev_ebitda": 27.8,
+    "rentabilidad_fcf": 2.31,
     "deuda_neta_ebitda": -1.3
    },
    {
@@ -19480,13 +19467,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-11-05",
     "url": "https://www.sec.gov/Archives/edgar/data/1341766/000134176626000062/0001341766-26-000062-index.htm",
-    "precio": 29.38,
-    "capitalizacion": 7361344358.42,
-    "ev": 7335430358.42,
-    "per": 23.22,
-    "precio_ventas": 2.32,
-    "ev_ebitda": 16.26,
-    "rentabilidad_fcf": 3.65,
+    "precio": 28.78,
+    "capitalizacion": 7211010573.02,
+    "ev": 7185096573.02,
+    "per": 22.74,
+    "precio_ventas": 2.28,
+    "ev_ebitda": 15.93,
+    "rentabilidad_fcf": 3.73,
     "deuda_neta_ebitda": -0.06
    },
    {
@@ -19516,13 +19503,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-09-23",
     "url": "https://www.sec.gov/Archives/edgar/data/40704/000162828026063201/0001628280-26-063201-index.htm",
-    "precio": 35,
-    "capitalizacion": 18714050040,
-    "ev": 31694950040,
+    "precio": 35.07,
+    "capitalizacion": 18751478140.08,
+    "ev": 31732378140.08,
     "per": null,
     "precio_ventas": 1.02,
-    "ev_ebitda": 90.58,
-    "rentabilidad_fcf": 8.26,
+    "ev_ebitda": 90.69,
+    "rentabilidad_fcf": 8.25,
     "deuda_neta_ebitda": 37.1
    }
   ]

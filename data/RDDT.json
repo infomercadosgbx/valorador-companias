@@ -12027,7 +12027,7 @@
   "minimo_52s": 84.595,
   "maximo_52s": 263.4999,
   "beta": 2.0602186,
-  "valor": 89.34,
+  "valor": 88.76,
   "cierre_anterior": 85.33,
   "moneda": "USD",
   "fecha": "2026-11-23",
@@ -12138,6 +12138,16 @@
  ],
  "noticias": [
   {
+   "titular": "Did Anthropic Stock's 9% Slide Make It Cheap?",
+   "medio": "Yahoo Finance",
+   "url": "https://www.trefis.com/stock/ant/articles/627440/did-anthropic-stock-s-9-slide-make-it-cheap/2026-11-23",
+   "fecha": "2026-11-23",
+   "resumen": "Today's big story: Reported SEC Probe: Could Nvidia Stock Fall To $92.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=10d285a20a4f020edd0a2b95d8f9021a6ef81ffbf411bec7e5363fffed515946"
+  },
+  {
    "titular": "Reddit Stock Tumbles, Short Interest Jumps as Valuation Metric Slips on Growth Worries",
    "medio": "Benzinga",
    "url": "https://www.benzinga.com/markets/equities/26/11/63517448/reddit-stock-tumbles-short-interest-jumps-as-valuation-metric-slips-on-growth-worries",
@@ -12236,16 +12246,6 @@
    "tipo": "prensa",
    "via": "Finnhub",
    "url_finnhub": "https://finnhub.io/api/news?id=22547f8a198b4f908bf28b644f0ce3fef40be1da2b09556e03a00438ad5b6c75"
-  },
-  {
-   "titular": "Could Anthropic Stock Fall 25%?",
-   "medio": "Yahoo Finance",
-   "url": "https://www.trefis.com/stock/ant/articles/626034/could-anthropic-stock-fall-26/2026-11-19",
-   "fecha": "2026-11-19",
-   "resumen": "Anthropic priced its IPO at $83 a share on Wednesday evening. Its shares start trading today under the ticker ANT. At that price, could the stock fall 25% in its first year.",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=b696fcf8d3d10af5f10ca1ed1ed2389b0b007ae78738aa637e1e6adb57291bef"
   },
   {
    "titular": "Digital Advertising Industry Snapshot Q3 2026",
@@ -12436,10 +12436,10 @@
    "fuente": "StockTwits (API pública)",
    "url": "https://stocktwits.com/symbol/RDDT",
    "mensajes": 30,
-   "alcistas": 3,
-   "bajistas": 22,
-   "pct_alcista": 12,
-   "seguidores": 37751,
+   "alcistas": 9,
+   "bajistas": 12,
+   "pct_alcista": 43,
+   "seguidores": 37749,
    "desde": "2026-11-23",
    "hasta": "2026-11-23",
    "fecha": "2026-11-23"
@@ -12458,8 +12458,8 @@
     "titulares": 80
    },
    "Google News": {
-    "ok": false,
-    "error": "HTTPError: HTTP Error 503: Service Unavailable"
+    "ok": true,
+    "titulares": 77
    },
    "Seeking Alpha": {
     "ok": true,
@@ -15167,7 +15167,7 @@
    ],
    [
     "2026-11-23",
-    89.53
+    88.76
    ]
   ],
   "fuente": "Twelve Data (API oficial, plan gratuito)",
@@ -15175,7 +15175,7 @@
   "fecha": "2026-11-23",
   "ajuste": "splits"
  },
- "generado": "2026-11-23T17:54:28+00:00",
+ "generado": "2026-11-23T23:59:16+00:00",
  "peers": {
   "fuente_lista": "manual",
   "fuente_cifras": "SEC EDGAR (companyfacts, UDM) · precio Finnhub",
@@ -15197,13 +15197,13 @@
    "informe": "10-Q",
    "informe_fecha": "2026-10-30",
    "url": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000116/0001713445-26-000116-index.htm",
-   "precio": 89.34,
-   "capitalizacion": 18034194288.3,
-   "ev": 15000762288.3,
-   "per": 18.19,
-   "precio_ventas": 5.84,
-   "ev_ebitda": 16.22,
-   "rentabilidad_fcf": 6.64,
+   "precio": 88.76,
+   "capitalizacion": 17917115346.2,
+   "ev": 14883683346.2,
+   "per": 18.07,
+   "precio_ventas": 5.8,
+   "ev_ebitda": 16.09,
+   "rentabilidad_fcf": 6.69,
    "deuda_neta_ebitda": -3.28,
    "ticker": "RDDT",
    "nombre": "Reddit",
@@ -15233,13 +15233,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-22",
     "url": "https://www.sec.gov/Archives/edgar/data/1326801/000162828026066773/0001628280-26-066773-index.htm",
-    "precio": 592.54,
-    "capitalizacion": 1524605420000.0,
-    "ev": 1525825420000.0,
-    "per": 20.26,
-    "precio_ventas": 6.31,
-    "ev_ebitda": 14.63,
-    "rentabilidad_fcf": 1.88,
+    "precio": 597.6,
+    "capitalizacion": 1537624800000.0,
+    "ev": 1538844800000.0,
+    "per": 20.43,
+    "precio_ventas": 6.36,
+    "ev_ebitda": 14.75,
+    "rentabilidad_fcf": 1.86,
     "deuda_neta_ebitda": 0.01
    },
    {
@@ -15269,13 +15269,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-29",
     "url": "https://www.sec.gov/Archives/edgar/data/1506293/000150629326000153/0001506293-26-000153-index.htm",
-    "precio": 16.83,
-    "capitalizacion": 9806033159.999998,
-    "ev": 8336012159.999998,
-    "per": 54.99,
+    "precio": 16.9,
+    "capitalizacion": 9846818800.0,
+    "ev": 8376797800.0,
+    "per": 55.22,
     "precio_ventas": 2.1,
-    "ev_ebitda": 36.15,
-    "rentabilidad_fcf": 12.87,
+    "ev_ebitda": 36.33,
+    "rentabilidad_fcf": 12.82,
     "deuda_neta_ebitda": -6.37
    },
    {
@@ -15305,13 +15305,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-11-05",
     "url": "https://www.sec.gov/Archives/edgar/data/1564408/000156440826000067/0001564408-26-000067-index.htm",
-    "precio": 4.88,
-    "capitalizacion": 8589961440.0,
-    "ev": 9305732440.0,
+    "precio": 4.92,
+    "capitalizacion": 8660370960.0,
+    "ev": 9376141960.0,
     "per": null,
-    "precio_ventas": 1.31,
-    "ev_ebitda": 152.78,
-    "rentabilidad_fcf": 9.04,
+    "precio_ventas": 1.32,
+    "ev_ebitda": 153.93,
+    "rentabilidad_fcf": 8.97,
     "deuda_neta_ebitda": 11.75
    },
    {
@@ -15341,12 +15341,12 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-29",
     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/0001652044-26-000084-index.htm",
-    "precio": 283.05,
-    "capitalizacion": 3479816700000.0,
-    "ev": 3340836700000.0,
-    "per": 14.76,
-    "precio_ventas": 7.39,
-    "ev_ebitda": 18.06,
+    "precio": 282.1,
+    "capitalizacion": 3468137400000.0005,
+    "ev": 3329157400000.0005,
+    "per": 14.71,
+    "precio_ventas": 7.36,
+    "ev_ebitda": 18.0,
     "rentabilidad_fcf": 0.57,
     "deuda_neta_ebitda": -0.75
    },
@@ -15377,13 +15377,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-11-09",
     "url": "https://www.sec.gov/Archives/edgar/data/1671933/000167193326000116/0001671933-26-000116-index.htm",
-    "precio": 13.97,
-    "capitalizacion": 6568652090.0,
-    "ev": 4918984090.0,
-    "per": 19.94,
-    "precio_ventas": 2.2,
-    "ev_ebitda": 7.64,
-    "rentabilidad_fcf": 13.13,
+    "precio": 14.06,
+    "capitalizacion": 6610969820.0,
+    "ev": 4961301820.0,
+    "per": 20.07,
+    "precio_ventas": 2.21,
+    "ev_ebitda": 7.7,
+    "rentabilidad_fcf": 13.04,
     "deuda_neta_ebitda": -2.56
    }
   ]

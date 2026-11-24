@@ -38,7 +38,7 @@
    "url": "https://feed.businesswire.com/rss/home/?rss=G1QFDERJXkJeEFtRWQ==",
    "tipo": "nota_prensa",
    "ok": true,
-   "titulares": 31,
+   "titulares": 40,
    "error": null
   },
   "prnewswire": {
@@ -203,19 +203,19 @@
   },
   "sala:AVGO": {
    "medio": "Sala de prensa de Broadcom",
-   "url": "gnews:site:broadcom.com/company/news",
+   "url": "https://news.google.com/rss/search?q=site%3Abroadcom.com%2Fcompany%2Fnews+when%3A14d&hl=en-US&gl=US&ceid=US%3Aen",
    "tipo": "nota_prensa",
-   "ok": false,
-   "titulares": 0,
-   "error": "https://news.google.com/rss/search?q=site%3Abroadcom.com%2Fcompany%2Fnews+when%3A14d&hl=en-US&gl=US&ceid=US%3Aen: HTTPError: HTTP Error 503: Service Unavailable"
+   "ok": true,
+   "titulares": 2,
+   "error": null
   },
   "sala:PEP": {
    "medio": "Sala de prensa de PepsiCo",
-   "url": "gnews:site:pepsico.com/newsroom",
+   "url": "https://news.google.com/rss/search?q=site%3Apepsico.com%2Fnewsroom+when%3A14d&hl=en-US&gl=US&ceid=US%3Aen",
    "tipo": "nota_prensa",
-   "ok": false,
-   "titulares": 0,
-   "error": "https://news.google.com/rss/search?q=site%3Apepsico.com%2Fnewsroom+when%3A14d&hl=en-US&gl=US&ceid=US%3Aen: HTTPError: HTTP Error 503: Service Unavailable"
+   "ok": true,
+   "titulares": 10,
+   "error": null
   },
   "sala:PATH": {
    "medio": "Sala de prensa de UiPath",
@@ -227,19 +227,19 @@
   },
   "sala:ORCL": {
    "medio": "Sala de prensa de Oracle",
-   "url": "gnews:site:oracle.com/news",
+   "url": "https://news.google.com/rss/search?q=site%3Aoracle.com%2Fnews+when%3A14d&hl=en-US&gl=US&ceid=US%3Aen",
    "tipo": "nota_prensa",
-   "ok": false,
-   "titulares": 0,
-   "error": "https://news.google.com/rss/search?q=site%3Aoracle.com%2Fnews+when%3A14d&hl=en-US&gl=US&ceid=US%3Aen: HTTPError: HTTP Error 503: Service Unavailable"
+   "ok": true,
+   "titulares": 12,
+   "error": null
   },
   "sala:MRNA": {
    "medio": "Sala de prensa de Moderna",
-   "url": "gnews:site:modernatx.com",
+   "url": "https://news.google.com/rss/search?q=site%3Amodernatx.com+when%3A14d&hl=en-US&gl=US&ceid=US%3Aen",
    "tipo": "nota_prensa",
-   "ok": false,
-   "titulares": 0,
-   "error": "https://news.google.com/rss/search?q=site%3Amodernatx.com+when%3A14d&hl=en-US&gl=US&ceid=US%3Aen: HTTPError: HTTP Error 503: Service Unavailable"
+   "ok": true,
+   "titulares": 17,
+   "error": null
   }
  },
  "apis": [
@@ -247,5 +247,5 @@
   "Seeking Alpha",
   "Marketaux"
  ],
- "generado": "2026-11-23T18:06:35+00:00"
+ "generado": "2026-11-24T00:04:54+00:00"
 }
