@@ -2,6 +2,28 @@
 
 Una entrada por día (la más reciente arriba). La escribe la tarea programada de la mañana con `python scripts/registro_fuentes.py`. Sirve para ver qué aporta cada fuente y decidir qué quitar o añadir.
 
+## 2026-11-24
+
+_Lo útil salió de las lecturas del robot (424B2 de Alphabet, 10-Q de Alphabet y Amazon, 8-K de la junta de Oracle, webs de Broadcom y aboutamazon.com) y de la búsqueda web (Seeking Alpha y 24/7 Wall St. para la caída de Broadcom por el informe de Ming-Chi Kuo, Benzinga para el comunicado de Oracle y la salida a bolsa de Anthropic). Gmail trajo sobre todo boletines generales; ruido en Finnhub (artículos de opinión sobre Nvidia). WebFetch no estuvo disponible en esta ejecución: no se pudo leer el texto del comunicado de Oracle ni la nota de Decart, ni comprobar el consenso de MarketBeat para Alphabet (se dejó el anterior)._
+
+- **Alertas en Gmail** (infomercados.gbx@gmail.com, últimas 24 h): Bloomberg 1, MarketWatch 1, Morningstar 2, CNBC 0, Reuters 0, FT 1, Investing 4, Otros 0.
+- **Titulares nuevos en 24 h (todas las compañías):** Finnhub 84, Google News 12, Seeking Alpha 1, Marketaux 4, Medios sectoriales y agencias 6.
+- **Fuentes con fallo** (nº de compañías): Marketaux 1.
+- **Compañías con señal para la revisión de internet:** APP (cotización -8.1 % el 2026-11-20, cotización +7.4 % el 2026-11-23, 2 nota(s) de prensa o noticia(s) sectorial(es), SEC: DEF 14C (decisión de accionistas por escrito (14C))); VST (cotización +7.5 % el 2026-11-23); PEP (2 nota(s) de prensa o noticia(s) sectorial(es), 1 publicación(es) en la sala de prensa de la compañía, SEC: S-3ASR (registro automático de emisión (S-3ASR))); PATH (cotización +8.0 % el 2026-11-23); ORCL (cotización -8.5 % el 2026-11-20, cotización +12.3 % el 2026-11-23, 2 publicación(es) en la sala de prensa de la compañía); MRNA (cotización +8.8 % el 2026-11-23).
+
+| Compañía | Titulares 24 h | Finnhub | Google News | Seeking Alpha | Marketaux | Medios sectoriales y agencias | StockTwits | Reddit 7 d | Alertas Gmail |
+|---|---:|---:|---:|---:|---:|---:|---|---|---:|
+| APP | 8 | 6 | 0 | 0 | 1 | 1 | 60 % alc. | — | 0 |
+| GOOGL | 28 | 20 | 1 | 0 | 1 | 1 | 89 % alc. | — | 1 |
+| RDDT | 1 | 1 | 0 | 0 | 0 | 0 | 43 % alc. | — | 0 |
+| AMZN | 29 | 11 | 10 | 0 | 1 | 3 | 77 % alc. | — | 0 |
+| VST | 5 | 5 | 0 | 0 | 0 | 0 | 88 % alc. | — | 0 |
+| AVGO | 15 | 13 | 0 | 0 | 1 | 1 | 72 % alc. | — | 0 |
+| PEP | 9 | 9 | 0 | 0 | 0 | 0 | 78 % alc. | — | 0 |
+| PATH | 0 | 0 | 0 | 0 | 0 | 0 | 86 % alc. | — | 0 |
+| ORCL | 14 | 12 | 1 | 1 | 0 | 0 | 90 % alc. | — | 2 |
+| MRNA | 7 | 7 | 0 | 0 | 0 | 0 | 94 % alc. | — | 0 |
+
 ## 2026-11-20
 
 _Lo útil salió de la búsqueda web: Texas Tribune (reanudación de permisos de la TCEQ y fechas del informe de ERCOT a la PUCT, 10 y 17-dic) y TIKR (BMO sube a 196 $ y consenso de 200 $) para Vistra; la SEC y la web de inversores de Vistra (lecturas del robot) confirmaron que no hay novedades oficiales materiales, y el 424B5 de Alphabet del 19-nov es un folleto preliminar de bonos en dólares canadienses sin importes. Gmail solo trajo boletines generales (Anthropic, Nvidia) sin alertas de Vistra; ruido en Finnhub (ETF, Trefis) y en la sala de prensa de Moderna (PDF sin título). No se pudo leer el PDF de la PUCT (interchange.puc.texas.gov, error 4xx) y MarketScreener exige registro; los consensos de Investing para AMZN, APP, GOOGL y PATH eran anteriores a los resultados y no se usaron._
