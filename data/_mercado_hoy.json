@@ -1,6 +1,6 @@
 {
  "esquema": 2,
- "generado": "2026-11-23T22:56:28+00:00",
+ "generado": "2026-11-24T00:35:42+00:00",
  "grupos": {
   "bolsa": "Bolsa",
   "volatilidad": "Volatilidad y divisas",
@@ -2003,12 +2003,12 @@
    "unidad": "",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 1.0903,
+   "valor": 1.0906,
    "anterior": 1.0904,
    "fecha": "2026-11-24",
    "url": "https://twelvedata.com/",
-   "var": -0.0,
-   "var_pct": -0.0
+   "var": 0.0002,
+   "var_pct": 0.02
   },
   {
    "id": "usdjpy",
@@ -2019,12 +2019,12 @@
    "unidad": "",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 159.0164,
+   "valor": 159.0714,
    "anterior": 158.9632,
    "fecha": "2026-11-24",
    "url": "https://twelvedata.com/",
-   "var": 0.0533,
-   "var_pct": 0.03
+   "var": 0.1083,
+   "var_pct": 0.07
   },
   {
    "id": "gbpusd",
@@ -2039,7 +2039,7 @@
    "anterior": 1.3035,
    "fecha": "2026-11-24",
    "url": "https://twelvedata.com/",
-   "var": -0.0001,
+   "var": -0.0,
    "var_pct": -0.0
   },
   {
@@ -2051,12 +2051,12 @@
    "unidad": "",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 6.6658,
+   "valor": 6.6688,
    "anterior": 6.6687,
    "fecha": "2026-11-24",
    "url": "https://twelvedata.com/",
-   "var": -0.0029,
-   "var_pct": -0.04
+   "var": 0.0001,
+   "var_pct": 0.0
   },
   {
    "id": "us3m",
@@ -4621,12 +4621,12 @@
    "unidad": "$",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 3634.2752,
+   "valor": 3654.189,
    "anterior": 3643.4225,
    "fecha": "2026-11-24",
    "url": "https://twelvedata.com/",
-   "var": -9.1474,
-   "var_pct": -0.25
+   "var": 10.7665,
+   "var_pct": 0.3
   },
   {
    "id": "plata",
@@ -5544,12 +5544,12 @@
    "unidad": "$",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 61193.89,
-   "anterior": 61271.08,
-   "fecha": "2026-11-23",
+   "valor": 61235.01,
+   "anterior": 61270.93,
+   "fecha": "2026-11-24",
    "url": "https://twelvedata.com/",
-   "var": -77.19,
-   "var_pct": -0.13
+   "var": -35.92,
+   "var_pct": -0.06
   },
   {
    "id": "ethereum",
@@ -5560,12 +5560,12 @@
    "unidad": "$",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 1709.88,
-   "anterior": 1724.33,
-   "fecha": "2026-11-23",
+   "valor": 1708.06,
+   "anterior": 1710.65,
+   "fecha": "2026-11-24",
    "url": "https://twelvedata.com/",
-   "var": -14.45,
-   "var_pct": -0.84
+   "var": -2.59,
+   "var_pct": -0.15
   }
  ],
  "sentimiento": {
@@ -5602,7 +5602,7 @@
      "descripcion": "S&P 500 frente a su media de 125 sesiones. Por encima, codicia.",
      "puntuacion": 6.5,
      "etiqueta": "Miedo extremo",
-     "bruto": -0.0447,
+     "bruto": -0.0448,
      "fuente": "ETF SPY · Twelve Data",
      "url": "https://twelvedata.com/"
     },
@@ -5632,7 +5632,7 @@
      "descripcion": "Rentabilidad a 20 sesiones de la bolsa menos la del bono a 10 años. Si ganan los bonos, miedo.",
      "puntuacion": 5.0,
      "etiqueta": "Miedo extremo",
-     "bruto": -6.6924,
+     "bruto": -6.7055,
      "fuente": "Bolsa y bono a 10 años (Tesoro y FRED)",
      "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve"
     },
@@ -5901,7 +5901,7 @@
      "fin": "2026-12-09",
      "proyecciones": true,
      "hora_madrid": "20:00",
-     "dias": 16,
+     "dias": 15,
      "comunicado": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261209a.htm",
      "rueda_prensa": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20261209.htm",
      "actas_fecha": "2026-12-30",
@@ -5912,7 +5912,7 @@
      "fin": "2027-01-27",
      "proyecciones": false,
      "hora_madrid": "20:00",
-     "dias": 65,
+     "dias": 64,
      "comunicado": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20270127a.htm",
      "rueda_prensa": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20270127.htm",
      "actas_fecha": "2027-02-17"
@@ -5922,7 +5922,7 @@
      "fin": "2027-03-17",
      "proyecciones": true,
      "hora_madrid": "19:00",
-     "dias": 114,
+     "dias": 113,
      "comunicado": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20270317a.htm",
      "rueda_prensa": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20270317.htm",
      "actas_fecha": "2027-04-07",
@@ -5933,7 +5933,7 @@
      "fin": "2027-04-28",
      "proyecciones": false,
      "hora_madrid": "20:00",
-     "dias": 156,
+     "dias": 155,
      "comunicado": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20270428a.htm",
      "rueda_prensa": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20270428.htm",
      "actas_fecha": "2027-05-19"
@@ -5944,7 +5944,7 @@
     "fin": "2026-10-28",
     "proyecciones": false,
     "hora_madrid": "19:00",
-    "dias": -26,
+    "dias": -27,
     "comunicado": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261028a.htm",
     "rueda_prensa": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20261028.htm",
     "actas_fecha": "2026-11-18",
