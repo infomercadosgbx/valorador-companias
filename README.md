@@ -198,7 +198,8 @@ Google News bloquea a menudo las consultas que salen de GitHub (responde 429 o 5
 
 - Solo acepta búsquedas RSS de Google News (`https://news.google.com/rss/search?...`); no sirve para otra cosa ni usa la clave de Finnhub.
 - Guarda cada respuesta 1 hora en la caché de Cloudflare.
-- El robot la usa sola si `precio_vivo_url` está relleno. Si el Worker falla dos veces, esa noche vuelve a la consulta directa, y además tiene los RSS propios de CNBC, WSJ, MarketWatch, Expansión, Cinco Días y Yahoo Finance.
+- **Apagada desde el 24-nov-2026**: probada en real, Google News también responde 503 a Cloudflare (bloquea las IP de centros de datos en general). Se activa poniendo `"puente_google_news": true` en `ajustes.json`, por si Google cambia de criterio.
+- Si está activada y `precio_vivo_url` está relleno, el robot la usa. Si el Worker falla dos veces, esa noche vuelve a la consulta directa, y además tiene los RSS propios de CNBC, WSJ, MarketWatch, Expansión, Cinco Días y Yahoo Finance.
 - Cuántas consultas pasaron por el Worker y el último error: `data/_noticias_estado.json → puente_google`.
 
 Para activarla basta con volver a pegar [`worker/precio.js`](worker/precio.js) en el Worker (*Edit code → Deploy*). Comprobación: abre `<url-del-worker>/noticias?u=https://news.google.com/rss/search?q=Vistra` y debe salir un RSS.

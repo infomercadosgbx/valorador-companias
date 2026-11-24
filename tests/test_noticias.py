@@ -311,6 +311,8 @@ def test_google_news_pasa_por_el_worker_y_si_falla_vuelve_a_lo_directo(monkeypat
 def test_puente_desde_ajustes(tmp_path):
     from fetcher import news as N
     (tmp_path / "ajustes.json").write_text('{"precio_vivo_url": "https://x.workers.dev/"}')
+    assert N.puente_desde_ajustes(tmp_path) is None                          # apagado si no se pide
+    (tmp_path / "ajustes.json").write_text('{"precio_vivo_url": "https://x.workers.dev/", "puente_google_news": true}')
     assert N.puente_desde_ajustes(tmp_path) == "https://x.workers.dev/noticias"
     (tmp_path / "ajustes.json").write_text('{"precio_vivo_url": ""}')
     assert N.puente_desde_ajustes(tmp_path) is None

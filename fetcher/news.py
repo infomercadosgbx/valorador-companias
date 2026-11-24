@@ -132,8 +132,13 @@ ESTADO_PUENTE = {"usado": 0, "fallos": 0, "error": None}
 
 
 def puente_desde_ajustes(root) -> str | None:
+    """Solo con ajustes.json → puente_google_news: true. Apagado desde el 24-nov-2026: Google News
+    también responde 503 a Cloudflare (bloquea las IP de centros de datos, no solo las de GitHub)."""
     try:
-        base = (json.loads((root / "ajustes.json").read_text(encoding="utf-8")).get("precio_vivo_url") or "").strip().rstrip("/")
+        aj = json.loads((root / "ajustes.json").read_text(encoding="utf-8"))
+        if aj.get("puente_google_news") is not True:
+            return None
+        base = (aj.get("precio_vivo_url") or "").strip().rstrip("/")
     except (OSError, ValueError, AttributeError):
         return None
     return f"{base}/noticias" if base.startswith("https://") else None
