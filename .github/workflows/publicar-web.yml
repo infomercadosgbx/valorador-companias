@@ -22,6 +22,7 @@ permissions:
   contents: read
   pages: write
   id-token: write
+  issues: write
 
 # En cola, sin cancelar: cancelar un despliegue a medias es lo que dejaba la web sin
 # publicar algunas veces. Si llegan varias, GitHub deja solo la más reciente en espera.
@@ -39,6 +40,32 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: main
+      # Antes de publicar: la web se abre en un navegador real con los archivos de este commit y se
+      # comprueba que todas las pestañas funcionan y que datos, supuestos y cambios automáticos llegan
+      # a la pantalla igual que están en data/ y analysis/. Si falla, no se publica (sigue la versión anterior).
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-1.64.1-chromium
+      - name: Comprobar la web
+        id: comprobar
+        run: |
+          pip install --quiet "playwright==1.64.1"
+          python -m playwright install --with-deps chromium > /dev/null
+          python scripts/comprobar_web.py | tee "$RUNNER_TEMP/comprobacion.md"
+      - name: Avisar si la web no pasa la comprobación
+        if: failure() && steps.comprobar.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          titulo="La web no se ha publicado: falla la comprobación"
+          { cat "$RUNNER_TEMP/comprobacion.md"; echo; echo "Ejecución: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }} · commit ${GITHUB_SHA::8}"; echo; echo "Sigue publicada la versión anterior. Cuando se arregle, la siguiente publicación cierra este aviso."; } > "$RUNNER_TEMP/cuerpo.md"
+          n=$(gh issue list --state open --search "in:title \"$titulo\"" --json number --jq '.[0].number' -R "$GITHUB_REPOSITORY")
+          if [ -n "$n" ]; then gh issue comment "$n" --body-file "$RUNNER_TEMP/cuerpo.md" -R "$GITHUB_REPOSITORY"
+          else gh issue create --title "$titulo" --body-file "$RUNNER_TEMP/cuerpo.md" -R "$GITHUB_REPOSITORY"; fi
       - name: Preparar el sitio
         run: |
           mkdir _site
@@ -67,3 +94,11 @@ jobs:
         uses: actions/deploy-pages@v4
       - id: deploy
         run: echo "page_url=${{ steps.deploy1.outputs.page_url || steps.deploy2.outputs.page_url }}" >> "$GITHUB_OUTPUT"
+      - name: Cerrar el aviso si lo había
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          titulo="La web no se ha publicado: falla la comprobación"
+          for n in $(gh issue list --state open --search "in:title \"$titulo\"" --json number --jq '.[].number' -R "$GITHUB_REPOSITORY"); do
+            gh issue close "$n" --comment "Arreglado: la comprobación pasa y la web se ha publicado (commit ${GITHUB_SHA::8})." -R "$GITHUB_REPOSITORY" || true
+          done

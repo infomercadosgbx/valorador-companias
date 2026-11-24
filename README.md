@@ -192,6 +192,16 @@ El cierre de cada noche sigue siendo el dato guardado en `data/`. Además, mient
 
 Si sirves la web desde otro dominio, añádelo en el Worker como variable de texto `ORIGENES` (varios separados por comas). Para desactivarlo, deja `precio_vivo_url` vacío.
 
+### Comprobación de la web antes de publicar
+
+Cada publicación abre antes la web en un navegador real (Chromium) con los archivos del commit y recorre las 10 pestañas de cada compañía activa (`scripts/comprobar_web.py`). Comprueba:
+
+- Que ninguna pestaña da error ni sale vacía, y que el Inicio carga.
+- Que lo que se ve en pantalla es lo que hay en los archivos: última actualización y último informe de la SEC de `data/`, precio de la cabecera, «Cifras SEC hasta…», tus supuestos del DCF, tu recomendación y tus veredictos de `analysis/`, y los cambios aplicados automáticamente en el registro de Fuentes.
+- Que el valor del DCF de la web coincide con el que calcula `scripts/impacto_dcf.mjs` desde los mismos archivos.
+
+Si algo falla, **no se publica** (sigue la versión anterior) y se abre un Issue «La web no se ha publicado: falla la comprobación» con la lista de fallos; la siguiente publicación correcta lo cierra. En local: `python scripts/comprobar_web.py --solo VST --capturas /tmp/capturas`.
+
 ### El mismo Worker como puente a Google News
 
 Google News bloquea a menudo las consultas que salen de GitHub (responde 429 o 503). El Worker tiene una segunda ruta, `/noticias`, por la que el robot nocturno hace esas búsquedas desde Cloudflare:
