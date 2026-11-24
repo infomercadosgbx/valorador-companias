@@ -73,7 +73,6 @@ FEEDS = {
     "expansion_mercados": ("Expansión", "https://e00-expansion.uecdn.es/rss/mercados.xml", "prensa"),
     "expansion_empresas": ("Expansión", "https://e00-expansion.uecdn.es/rss/empresas.xml", "prensa"),
     "cincodias": ("Cinco Días", "https://feeds.elpais.com/mrss-s/pages/ep/site/cincodias.elpais.com/portada", "prensa"),
-    "eleconomista": ("elEconomista", "https://www.eleconomista.es/rss/rss-mercados.php", "prensa"),
 }
 AGENCIAS = ["businesswire", "prnewswire"]   # a todas las compañías (GlobeNewswire bloquea a los robots: 403)
 PRENSA = [k for k, v in FEEDS.items() if v[2] == "prensa"]   # también a todas las compañías
