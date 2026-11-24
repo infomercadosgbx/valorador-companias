@@ -175,6 +175,7 @@ def run(only=None, report=None, root=ROOT, client=None, provider=None, price_war
         provider, price_warning = prices.from_env()
     NEWS.APIS = NEWS.apis_from_env() if real else []
     NEWS.FEEDS_CACHE = NEWS.FeedCache() if real else None
+    NEWS.PUENTE_GOOGLE = NEWS.puente_desde_ajustes(root) if real else None
     NEWS.REDES = real
     NEWS.REDDIT = NEWS.reddit_from_env() if real else None
     hist, hist_warning = (history if history is not None else prices.history_from_env())
@@ -309,6 +310,7 @@ def run(only=None, report=None, root=ROOT, client=None, provider=None, price_war
             pass
         est = {"esquema": 1, "medios": dict(prev_est, **NEWS.FEEDS_CACHE.estado),
                "apis": [a.nombre for a in NEWS.APIS],
+               "puente_google": ({"url": NEWS.PUENTE_GOOGLE, **NEWS.ESTADO_PUENTE} if NEWS.PUENTE_GOOGLE else None),
                "generado": datetime.now(timezone.utc).isoformat(timespec="seconds")}
         if write_if_changed(root / "data" / "_noticias_estado.json", est):
             changed.append("_noticias_estado.json")

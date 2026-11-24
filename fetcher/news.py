@@ -124,7 +124,38 @@ def _espera_host(url, sleep):
     _ULTIMA_HOST[host] = time.monotonic()
 
 
+# Puente a Google News por el Cloudflare Worker del usuario (ruta /noticias de worker/precio.js).
+# Lo prepara main.run con ajustes.json → precio_vivo_url. Si el Worker falla (no actualizado, caído o
+# Google también lo bloquea), esa ejecución vuelve a la consulta directa desde GitHub.
+PUENTE_GOOGLE: str | None = None
+ESTADO_PUENTE = {"usado": 0, "fallos": 0, "error": None}
+
+
+def puente_desde_ajustes(root) -> str | None:
+    try:
+        base = (json.loads((root / "ajustes.json").read_text(encoding="utf-8")).get("precio_vivo_url") or "").strip().rstrip("/")
+    except (OSError, ValueError, AttributeError):
+        return None
+    return f"{base}/noticias" if base.startswith("https://") else None
+
+
 def _http_get(url, timeout=20, opener=None, reintentos=2, sleep=time.sleep):
+    host = urllib.parse.urlparse(url).netloc.lower()
+    if PUENTE_GOOGLE and host == "news.google.com" and "puente" not in _CAIDOS:
+        try:
+            r = _http_get_directo(f"{PUENTE_GOOGLE}?{urllib.parse.urlencode({'u': url})}", timeout=timeout,
+                                  opener=opener, reintentos=1, sleep=sleep)
+            ESTADO_PUENTE["usado"] += 1
+            return r
+        except Exception as e:  # noqa: BLE001
+            ESTADO_PUENTE["fallos"] += 1
+            ESTADO_PUENTE["error"] = f"{type(e).__name__}: {str(e)[:120]}"
+            if ESTADO_PUENTE["fallos"] >= 2:          # dos fallos: el resto de la noche, directo
+                _CAIDOS.add("puente")
+    return _http_get_directo(url, timeout=timeout, opener=opener, reintentos=reintentos, sleep=sleep)
+
+
+def _http_get_directo(url, timeout=20, opener=None, reintentos=2, sleep=time.sleep):
     """GET con reintento ante errores temporales del servidor (5xx), límite de peticiones (429) o de red.
     Con 429 espera lo que pida el servidor (Retry-After) o 20 s, 40 s… y reintenta al menos dos veces."""
     host = urllib.parse.urlparse(url).netloc.lower()

@@ -279,3 +279,38 @@ def test_prensa_financiera_por_rss_se_filtra_por_nombre():
     assert [n["titular"] for n in out] == ["Vistra shares jump after data center contract"]
     assert out[0]["medio"] == "CNBC" and out[0]["tipo"] == "prensa"
     assert "yahoo" not in " ".join(N.PRENSA)                       # Yahoo va por ticker, no como feed general
+
+
+def test_google_news_pasa_por_el_worker_y_si_falla_vuelve_a_lo_directo(monkeypatch):
+    import urllib.error
+    from fetcher import news as N
+    N._CAIDOS.clear(); N._ULTIMA_HOST.clear()
+    monkeypatch.setattr(N, "PUENTE_GOOGLE", "https://w.workers.dev/noticias")
+    monkeypatch.setattr(N, "ESTADO_PUENTE", {"usado": 0, "fallos": 0, "error": None})
+    pedidas, puente_ok = [], [True]
+
+    def opener(req, timeout=20):
+        pedidas.append(req.full_url)
+        if req.full_url.startswith("https://w.workers.dev/") and not puente_ok[0]:
+            raise urllib.error.HTTPError(req.full_url, 404, "Not Found", {}, None)
+        return _RB(b"<rss/>")
+
+    g = "https://news.google.com/rss/search?q=Vistra"
+    assert N._http_get(g, opener=opener, sleep=lambda s: None) == b"<rss/>"
+    assert pedidas == ["https://w.workers.dev/noticias?u=https%3A%2F%2Fnews.google.com%2Frss%2Fsearch%3Fq%3DVistra"]
+    puente_ok[0] = False
+    pedidas.clear()
+    for _ in range(3):
+        N._http_get(g, opener=opener, sleep=lambda s: None)
+    assert pedidas.count(g) == 3                                  # siempre acaba en lo directo
+    assert sum(p.startswith("https://w.workers.dev/") for p in pedidas) == 2   # tras dos fallos deja el Worker
+    assert N.ESTADO_PUENTE["usado"] == 1 and N.ESTADO_PUENTE["fallos"] == 2
+    N._CAIDOS.clear()
+
+
+def test_puente_desde_ajustes(tmp_path):
+    from fetcher import news as N
+    (tmp_path / "ajustes.json").write_text('{"precio_vivo_url": "https://x.workers.dev/"}')
+    assert N.puente_desde_ajustes(tmp_path) == "https://x.workers.dev/noticias"
+    (tmp_path / "ajustes.json").write_text('{"precio_vivo_url": ""}')
+    assert N.puente_desde_ajustes(tmp_path) is None

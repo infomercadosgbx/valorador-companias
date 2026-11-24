@@ -192,6 +192,17 @@ El cierre de cada noche sigue siendo el dato guardado en `data/`. Además, mient
 
 Si sirves la web desde otro dominio, añádelo en el Worker como variable de texto `ORIGENES` (varios separados por comas). Para desactivarlo, deja `precio_vivo_url` vacío.
 
+### El mismo Worker como puente a Google News
+
+Google News bloquea a menudo las consultas que salen de GitHub (responde 429 o 503). El Worker tiene una segunda ruta, `/noticias`, por la que el robot nocturno hace esas búsquedas desde Cloudflare:
+
+- Solo acepta búsquedas RSS de Google News (`https://news.google.com/rss/search?...`); no sirve para otra cosa ni usa la clave de Finnhub.
+- Guarda cada respuesta 1 hora en la caché de Cloudflare.
+- El robot la usa sola si `precio_vivo_url` está relleno. Si el Worker falla dos veces, esa noche vuelve a la consulta directa, y además tiene los RSS propios de CNBC, WSJ, MarketWatch, Expansión, Cinco Días y Yahoo Finance.
+- Cuántas consultas pasaron por el Worker y el último error: `data/_noticias_estado.json → puente_google`.
+
+Para activarla basta con volver a pegar [`worker/precio.js`](worker/precio.js) en el Worker (*Edit code → Deploy*). Comprobación: abre `<url-del-worker>/noticias?u=https://news.google.com/rss/search?q=Vistra` y debe salir un RSS.
+
 ## Mercado hoy (menú principal)
 
 El menú principal es un termómetro diario del mercado: titular automático, miedo y codicia (evolución o velocímetro), franja de cotizaciones, pulso del mercado, cuatro temas de mercados (Bolsa · Volatilidad y divisas · Bonos y crédito · Materias primas y cripto; «Ver los N indicadores» abre todos), tipos e inflación y la agenda macro con gráficos. Lo escribe el workflow **Mercado hoy** (`.github/workflows/mercado-hoy.yml`) en `data/_mercado_hoy.json` **cada hora de 7:07 a 22:07 UTC** los días laborables, más una pasada a las 23:47 UTC tras el cierre. Cada ejecución gasta 8 créditos de Twelve Data (de 800 al día) y unas 45 consultas de Finnhub. Va aparte de la actualización de compañías: si una de estas fuentes falla, los datos de la SEC no se ven afectados, y la web muestra el último dato marcado como «sin actualizar» y un aviso.

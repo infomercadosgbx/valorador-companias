@@ -16,6 +16,12 @@
  *
  * Cada cotización se guarda en memoria 30 s y el estado del mercado 60 s, así que
  * varias pestañas o dispositivos abiertos a la vez no multiplican las llamadas a Finnhub.
+ *
+ * Segunda función: puente a Google News para el robot de noticias.
+ *   GET <url-del-worker>/noticias?u=<dirección https://news.google.com/rss/search?...>
+ * Google bloquea a menudo las consultas que salen de GitHub; desde Cloudflare no. Solo acepta
+ * búsquedas RSS de Google News (no sirve como proxy para otra cosa), guarda cada respuesta 1 hora
+ * en la caché de Cloudflare y no necesita la clave de Finnhub.
  */
 
 const FINNHUB = "https://finnhub.io/api/v1";
@@ -25,7 +31,8 @@ const MAX_TICKERS = 40;
 const cache = new Map(); // clave → {t, v}
 
 export default {
-  async fetch(req, env) {
+  async fetch(req, env, ctx) {
+    if (new URL(req.url).pathname === "/noticias") return noticias(req, ctx);
     const permitidos = (env.ORIGENES || "https://infomercadosgbx.github.io")
       .split(",").map((s) => s.trim().replace(/\/$/, "")).filter(Boolean);
     const origen = req.headers.get("Origin") || "";
@@ -76,6 +83,38 @@ export default {
     return json(body, 200, { ...cors, "Cache-Control": "no-store" });
   },
 };
+
+const GOOGLE_RSS = "https://news.google.com/rss/search";
+const TTL_NOTICIAS = 3600; // s
+
+async function noticias(req, ctx) {
+  if (req.method !== "GET") return texto("Solo GET", 405);
+  const u = new URL(req.url).searchParams.get("u") || "";
+  let destino;
+  try { destino = new URL(u); } catch { return texto("Falta «u» con una búsqueda de Google News", 400); }
+  if (destino.origin + destino.pathname !== GOOGLE_RSS) return texto("Solo se aceptan búsquedas RSS de Google News", 400);
+
+  const cacheKey = new Request(`https://cache.valorador/noticias?${destino.search}`);
+  const caja = caches.default;
+  const guardada = await caja.match(cacheKey);
+  if (guardada) return guardada;
+
+  const r = await fetch(destino.toString(), {
+    headers: { "User-Agent": "Mozilla/5.0 (compatible; valorador-noticias/1.0)", "Accept": "application/rss+xml, application/xml" },
+    cf: { cacheTtl: TTL_NOTICIAS, cacheEverything: true },
+  });
+  if (!r.ok) return texto(`Google News respondió ${r.status}`, r.status === 429 || r.status === 503 ? r.status : 502);
+  const resp = new Response(await r.text(), {
+    status: 200,
+    headers: { "Content-Type": "application/rss+xml; charset=utf-8", "Cache-Control": `public, max-age=${TTL_NOTICIAS}`, "X-Valorador": "noticias" },
+  });
+  ctx.waitUntil(caja.put(cacheKey, resp.clone()));
+  return resp;
+}
+
+function texto(msg, status) {
+  return new Response(msg, { status, headers: { "Content-Type": "text/plain; charset=utf-8" } });
+}
 
 async function conCache(clave, ttl, cargar) {
   const hit = cache.get(clave);
