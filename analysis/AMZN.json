@@ -7,8 +7,8 @@
   "hq": "Seattle, Washington",
   "founded": "1994",
   "employees": "1.638.000 (sep-26)",
-  "asOf": "19-nov-2026",
-  "repasoFondo": "17-nov-2026"
+  "asOf": "24-nov-2026",
+  "repasoFondo": "24-nov-2026"
  },
  "overview": {
   "thesis": "AWS se acelera (+39%) con una cartera de 578.000 M$, pero Amazon está en el pico de su ciclo de inversión: el capex de 12 meses (215.192 M$) supera a la caja operativa (168.300 M$). La clave es que la IA devuelva esa inversión mientras la publicidad sostiene los márgenes.",
@@ -57,6 +57,10 @@
     "t": "Black Friday (27-nov) y Cyber Monday (30-nov): primera lectura de la campaña de Navidad que recoge la guía del 4T26."
    },
    {
+    "d": "Pendiente",
+    "t": "Cierre de la compra de la tecnología de optimización de IA de Decart, anunciada el 23-nov-2026 para sus chips y modelos (importe no publicado por Amazon; la prensa habla de unos 7.500 M$)."
+   },
+   {
     "d": "4T26 (antes del 31-dic)",
     "t": "Cierre de la operación con Blackstone Digital Infrastructure Trust: compra el 75,1% de dos sociedades con 13 centros de datos nuevos (647 MW, Indiana y Misisipi) por un valor bruto de 5.000 M$; Amazon conserva el 24,9% y los alquila 12 años (32 con prórrogas)."
    },
@@ -99,19 +103,31 @@
   "customerTypes": [
    {
     "n": "Compradores y Prime",
-    "d": "Suscripciones +12% en 2T26 (13.700 M$ por trimestre)."
+    "d": "Suscripciones (Prime, vídeo, música, libros): 14.006 M$ en el 3T26 (+11%).",
+    "u": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/amzn-20260930.htm",
+    "f": "oct-2026",
+    "fu": "10-Q 3T26 · ventas por tipo"
    },
    {
     "n": "Vendedores externos",
-    "d": "Pagan comisiones, logística y publicidad para vender en Amazon."
+    "d": "Pagan comisiones, logística y publicidad para vender en Amazon: 46.492 M$ en servicios a vendedores en el 3T26 (+9%).",
+    "u": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/amzn-20260930.htm",
+    "f": "oct-2026",
+    "fu": "10-Q 3T26 · ventas por tipo"
    },
    {
     "n": "Empresas en AWS",
-    "d": "Cartera firmada de 578.000 M$ (sep-26); ventas +39%."
+    "d": "Cartera firmada de 578.000 M$ (sep-26), con contratos de 6,1 años de vida media restante; ventas +39%.",
+    "u": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/amzn-20260930.htm",
+    "f": "oct-2026",
+    "fu": "10-Q 3T26 · ingresos pendientes"
    },
    {
     "n": "Anunciantes",
-    "d": "19.800 M$ en el 2T26 (+26%): anuncios en la búsqueda de Amazon y en Prime Video."
+    "d": "19.637 M$ en el 3T26 (+11%; el Prime Day pasó al 2T): anuncios patrocinados, display y vídeo para vendedores, fabricantes, editores y autores.",
+    "u": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/amzn-20260930.htm",
+    "f": "oct-2026",
+    "fu": "10-Q 3T26 · ventas por tipo"
    }
   ],
   "quality": [
@@ -218,27 +234,42 @@
    {
     "n": "Efecto red",
     "s": 4,
-    "note": "Más vendedores → más selección → más compradores; Prime"
+    "note": "Más vendedores → más selección → más compradores; Prime",
+    "u": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/amzn-20260930.htm",
+    "f": "oct-2026",
+    "fu": "10-Q 3T26 · servicios a vendedores"
    },
    {
     "n": "Costes de cambio",
     "s": 4,
-    "note": "Migrar fuera de AWS es caro y arriesgado"
+    "note": "Migrar fuera de AWS es caro y arriesgado",
+    "u": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/amzn-20260930.htm",
+    "f": "oct-2026",
+    "fu": "10-Q 3T26 · cartera de AWS (6,1 años)"
    },
    {
     "n": "Activos intangibles",
     "s": 4,
-    "note": "Marca, datos de compra, chips propios Trainium"
+    "note": "Marca, datos de compra, chips propios Trainium",
+    "u": "https://www.aboutamazon.com/news/aws/amazon-ai-chips-business-history",
+    "f": "nov-2026",
+    "fu": "aboutamazon.com · Chips de IA"
    },
    {
     "n": "Ventaja de costes",
     "s": 5,
-    "note": "Escala en logística, compras y cómputo"
+    "note": "Escala en logística, compras y cómputo",
+    "u": "https://www.aboutamazon.com/what-we-do/delivery-logistics",
+    "f": "nov-2026",
+    "fu": "aboutamazon.com · Logística"
    },
    {
     "n": "Escala eficiente",
     "s": 5,
-    "note": "Red logística y centros de datos casi imposibles de replicar"
+    "note": "Red logística y centros de datos casi imposibles de replicar",
+    "u": "https://www.aboutamazon.com/news/aws/amazon-data-centers-locations-news",
+    "f": "nov-2026",
+    "fu": "aboutamazon.com · Centros de datos"
    }
   ],
   "comps": [
@@ -280,9 +311,9 @@
     "impact": 5,
     "h": "2026–2028",
     "st": "en marcha",
-    "k": "+39,3% en 3T26 · cartera 578.000 M$",
+    "k": "+39,3% en 3T26 · cartera 578.000 M$ · compra de la tecnología de Decart (23-nov)",
     "peso": "~60% del beneficio operativo",
-    "d": "AWS acelera por sexto trimestre seguido (46.000 M$ en el 3T26, margen del 38,7%) por la demanda de cómputo para IA. Los compromisos de sus chips Trainium se multiplican por más de 20, venderá Trainium fuera de AWS desde finales de 2027 y Jassy proyecta crecer más del 40% en 2027 y 2028.",
+    "d": "AWS acelera por sexto trimestre seguido (46.000 M$ en el 3T26, margen del 38,7%) por la demanda de cómputo para IA. Los compromisos de sus chips Trainium se multiplican por más de 20, venderá Trainium fuera de AWS desde finales de 2027 y Jassy proyecta crecer más del 40% en 2027 y 2028. El 23-nov-2026 anunció la compra de la tecnología de optimización de IA de Decart para avanzar en chips y modelos (Amazon no publica el importe).",
     "ev": "Crecimiento y margen de AWS; cartera de contratos; capex.",
     "r": "Capex de ~220.000 M$ en 2026 y «bastante más» en 2027; la IA tiene menos margen que el negocio clásico de AWS.",
     "u": "https://www.fool.com/earnings/call-transcripts/2026/10/30/amazon-amzn-q3-2026-earnings-call-transcript/"
@@ -572,7 +603,8 @@
    "Vuelta del FCF a positivo",
    "Valor contable de Anthropic",
    "Cierre de la venta del 75,1% de 13 centros de datos a Blackstone (4T26)",
-   "Investigación del fallo del Vulcan y nuevo calendario de Amazon Leo"
+   "Investigación del fallo del Vulcan y nuevo calendario de Amazon Leo",
+   "Integración de la tecnología de Decart en Trainium y Bedrock"
   ]
  },
  "notes": "Actualizado el 31-oct-2026 con los resultados del 3T26. Ingresos base 2026: 584.069 M$ de los tres primeros trimestres (SEC) + 243.500 M$ del punto medio de la guía del 4T. Acciones, caja y deuda siguen al dato de la SEC. El DCF no incluye el valor de la participación en Anthropic. El consenso de precio objetivo (manual) es anterior a los resultados.",
@@ -637,6 +669,26 @@
   ],
   "news": [
    {
+    "t": "Amazon comprará la tecnología de optimización de IA de Decart para avanzar en sus chips y modelos",
+    "src": "Amazon News · 23-nov-2026",
+    "u": "https://www.aboutamazon.com/news/company-news/amazon-decart-ai-optimization"
+   },
+   {
+    "t": "El FT adelanta que Amazon ultima la compra de Decart por unos 7.500 M$",
+    "src": "Financial Times · 21-nov-2026",
+    "u": "https://www.ft.com/content/dc7749dc-0f40-44a6-80bc-7f747d383616"
+   },
+   {
+    "t": "Amazon pide a sus clientes de Nueva York que se opongan a la ley de protección de repartidores (Intro 518): avisa de hasta 5 $ más por pedido",
+    "src": "Retail Dive · 23-nov-2026",
+    "u": "https://www.retaildive.com/news/amazon-enlists-customers-in-fight-against-nyc-delivery-protection-act/875451/"
+   },
+   {
+    "t": "Qué está haciendo Amazon cerca de sus centros de datos en EE. UU. en 2026",
+    "src": "Amazon News · 23-nov-2026",
+    "u": "https://www.aboutamazon.com/news/aws/amazon-data-centers-locations-news"
+   },
+   {
     "t": "Blackstone Digital Infrastructure Trust compra el 75,1% de 13 centros de datos de Amazon (647 MW) por un valor bruto de 5.000 M$; Amazon los alquila 12 años",
     "src": "SEC · 8-K de BXDC · 16-nov-2026",
     "u": "https://www.sec.gov/Archives/edgar/data/2100161/000119312526461954/d115778d8k.htm"
@@ -647,44 +699,14 @@
     "u": "https://spaceflightnow.com/2026/11/15/ula-suffers-first-total-mission-failure-with-loss-of-vulcan-rocket-carrying-40-amazon-leo-satellites/"
    },
    {
-    "t": "Resumen de la llamada de resultados 3T26",
-    "src": "Yahoo Finance / MarketBeat",
-    "u": "https://finance.yahoo.com/markets/stocks/articles/amazon-com-q3-earnings-call-001416198.html"
-   },
-   {
-    "t": "Por qué subió tras el 2T26 (cartera de AWS y capex)",
-    "src": "INDmoney",
-    "u": "https://www.indmoney.com/blog/us-stocks/amazon-q2-earnings-results-why-amzn-stock-jumped-analysis"
-   },
-   {
-    "t": "Consenso de BPA y precio objetivo",
-    "src": "Yahoo Finance / Barchart",
-    "u": "https://finance.yahoo.com/markets/stocks/articles/expect-amazon-com-q3-2026-110710701.html"
-   },
-   {
-    "t": "El juicio de la FTC se aplaza a marzo de 2027",
-    "src": "MLex",
-    "u": "https://www.mlex.com/mlex/amp/articles/2422758"
-   },
-   {
     "t": "Phillip Securities mejora a Comprar (objetivo 330 $) por la visibilidad de la demanda de AWS",
     "src": "24/7 Wall St.",
     "u": "https://247wallst.com/investing/2026/11/02/amazon-climbs-5-as-upgrade-fuels-post-earnings-rebound-on-aws-strength/"
    },
    {
-    "t": "Más de 100 funciones de compra con Alexa+",
-    "src": "Retail Dive",
-    "u": "https://www.retaildive.com/news/amazon-adds-alexa-ai-shopping-functions/873602/"
-   },
-   {
-    "t": "Gafas inteligentes para miles de repartidores",
-    "src": "Supply Chain Dive",
-    "u": "https://www.supplychaindive.com/news/amazon-deploys-thousands-of-smart-glasses-to-delivery"
-   },
-   {
-    "t": "Evercore ISI: la acción podría casi duplicarse si vuelven sus múltiplos",
-    "src": "Tiger Brokers",
-    "u": "https://www.itiger.com/news/1160112152"
+    "t": "El juicio de la FTC se aplaza a marzo de 2027",
+    "src": "MLex",
+    "u": "https://www.mlex.com/mlex/amp/articles/2422758"
    }
   ]
  },
@@ -693,7 +715,7 @@
    {
     "p": "StockTwits",
     "s": 1,
-    "note": "Sentimiento «extremadamente alcista» y volumen de mensajes muy alto tras la mejora de Phillip Securities (2-nov)."
+    "note": "77% de mensajes alcistas el 23-nov (10 alcistas y 3 bajistas de 30), tras la caída del 20-nov y el anuncio de Decart."
    },
    {
     "p": "X y Reddit",
@@ -1900,6 +1922,560 @@
    },
    "verificacion": "Fecha de revisión; el 10-Q del 3T26 citado existe en EDGAR.",
    "motivo": "Revisión semanal: Auditoría oficial de las pestañas (SEC y compañía) · Repaso semanal a fondo (nube e IA)"
+  },
+  {
+   "fecha": "2026-11-24",
+   "campo": "overview.catalysts",
+   "antes": [
+    {
+     "d": "Feb-27",
+     "t": "Resultados 4T26 (guía: ventas 240.000–247.000 M$ y beneficio operativo 28.500–33.500 M$) y cifra de capex para 2027."
+    },
+    {
+     "d": "27–30 nov",
+     "t": "Black Friday (27-nov) y Cyber Monday (30-nov): primera lectura de la campaña de Navidad que recoge la guía del 4T26."
+    },
+    {
+     "d": "4T26 (antes del 31-dic)",
+     "t": "Cierre de la operación con Blackstone Digital Infrastructure Trust: compra el 75,1% de dos sociedades con 13 centros de datos nuevos (647 MW, Indiana y Misisipi) por un valor bruto de 5.000 M$; Amazon conserva el 24,9% y los alquila 12 años (32 con prórrogas)."
+    },
+    {
+     "d": "4T26",
+     "t": "Inicio del servicio de Amazon Leo (satélites); acuerdo estratégico con AT&T."
+    },
+    {
+     "d": "Mar-27",
+     "t": "Juicio antimonopolio de la FTC sobre sus prácticas de precios."
+    },
+    {
+     "d": "Fin 2027",
+     "t": "Trainium disponible fuera de AWS, según la directiva."
+    },
+    {
+     "d": "En curso",
+     "t": "Revalorizaciones de su participación en Anthropic, que mueven mucho el beneficio neto."
+    }
+   ],
+   "despues": [
+    {
+     "d": "Feb-27",
+     "t": "Resultados 4T26 (guía: ventas 240.000–247.000 M$ y beneficio operativo 28.500–33.500 M$) y cifra de capex para 2027."
+    },
+    {
+     "d": "27–30 nov",
+     "t": "Black Friday (27-nov) y Cyber Monday (30-nov): primera lectura de la campaña de Navidad que recoge la guía del 4T26."
+    },
+    {
+     "d": "Pendiente",
+     "t": "Cierre de la compra de la tecnología de optimización de IA de Decart, anunciada el 23-nov-2026 para sus chips y modelos (importe no publicado por Amazon; la prensa habla de unos 7.500 M$)."
+    },
+    {
+     "d": "4T26 (antes del 31-dic)",
+     "t": "Cierre de la operación con Blackstone Digital Infrastructure Trust: compra el 75,1% de dos sociedades con 13 centros de datos nuevos (647 MW, Indiana y Misisipi) por un valor bruto de 5.000 M$; Amazon conserva el 24,9% y los alquila 12 años (32 con prórrogas)."
+    },
+    {
+     "d": "4T26",
+     "t": "Inicio del servicio de Amazon Leo (satélites); acuerdo estratégico con AT&T."
+    },
+    {
+     "d": "Mar-27",
+     "t": "Juicio antimonopolio de la FTC sobre sus prácticas de precios."
+    },
+    {
+     "d": "Fin 2027",
+     "t": "Trainium disponible fuera de AWS, según la directiva."
+    },
+    {
+     "d": "En curso",
+     "t": "Revalorizaciones de su participación en Anthropic, que mueven mucho el beneficio neto."
+    }
+   ],
+   "porque": "Nuevo hito: compra anunciada de la tecnología de Decart (23-nov); el resto sigue vigente y sin fechas pasadas.",
+   "fuente": {
+    "t": "Amazon News: «Amazon to purchase Decart's AI optimization technology…»",
+    "u": "https://www.aboutamazon.com/news/company-news/amazon-decart-ai-optimization",
+    "d": "23-nov-2026"
+   },
+   "verificacion": "Decart en aboutamazon.com (lecturas/AMZN/web_www-aboutamazon-com-news.txt); el importe de ~7.500 M$ se presenta como cifra de prensa (FT/Bloomberg en data/AMZN.json).",
+   "motivo": "Repaso semanal a fondo (nube e IA)"
+  },
+  {
+   "fecha": "2026-11-24",
+   "campo": "business.customerTypes",
+   "antes": [
+    {
+     "n": "Compradores y Prime",
+     "d": "Suscripciones +12% en 2T26 (13.700 M$ por trimestre)."
+    },
+    {
+     "n": "Vendedores externos",
+     "d": "Pagan comisiones, logística y publicidad para vender en Amazon."
+    },
+    {
+     "n": "Empresas en AWS",
+     "d": "Cartera firmada de 578.000 M$ (sep-26); ventas +39%."
+    },
+    {
+     "n": "Anunciantes",
+     "d": "19.800 M$ en el 2T26 (+26%): anuncios en la búsqueda de Amazon y en Prime Video."
+    }
+   ],
+   "despues": [
+    {
+     "n": "Compradores y Prime",
+     "d": "Suscripciones (Prime, vídeo, música, libros): 14.006 M$ en el 3T26 (+11%).",
+     "u": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/amzn-20260930.htm",
+     "f": "oct-2026",
+     "fu": "10-Q 3T26 · ventas por tipo"
+    },
+    {
+     "n": "Vendedores externos",
+     "d": "Pagan comisiones, logística y publicidad para vender en Amazon: 46.492 M$ en servicios a vendedores en el 3T26 (+9%).",
+     "u": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/amzn-20260930.htm",
+     "f": "oct-2026",
+     "fu": "10-Q 3T26 · ventas por tipo"
+    },
+    {
+     "n": "Empresas en AWS",
+     "d": "Cartera firmada de 578.000 M$ (sep-26), con contratos de 6,1 años de vida media restante; ventas +39%.",
+     "u": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/amzn-20260930.htm",
+     "f": "oct-2026",
+     "fu": "10-Q 3T26 · ingresos pendientes"
+    },
+    {
+     "n": "Anunciantes",
+     "d": "19.637 M$ en el 3T26 (+11%; el Prime Day pasó al 2T): anuncios patrocinados, display y vídeo para vendedores, fabricantes, editores y autores.",
+     "u": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/amzn-20260930.htm",
+     "f": "oct-2026",
+     "fu": "10-Q 3T26 · ventas por tipo"
+    }
+   ],
+   "porque": "Cifras del 3T26 por tipo de ingreso (las de Prime y anunciantes eran del 2T26) y enlace oficial en cada tipo de cliente.",
+   "fuente": {
+    "t": "10-Q 3T26 de Amazon",
+    "u": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/amzn-20260930.htm",
+    "d": "30-oct-2026"
+   },
+   "verificacion": "10-Q: suscripciones 14.006 M$ (+11% vs 12.574), servicios a vendedores 46.492 (+9%), publicidad 19.637 (+11%) con anuncios patrocinados, display y vídeo para vendedores, fabricantes, editores y autores; cartera de 578 mil M$ y 6,1 años.",
+   "motivo": "Repaso semanal a fondo (nube e IA)"
+  },
+  {
+   "fecha": "2026-11-24",
+   "campo": "moat.sources",
+   "antes": [
+    {
+     "n": "Efecto red",
+     "s": 4,
+     "note": "Más vendedores → más selección → más compradores; Prime"
+    },
+    {
+     "n": "Costes de cambio",
+     "s": 4,
+     "note": "Migrar fuera de AWS es caro y arriesgado"
+    },
+    {
+     "n": "Activos intangibles",
+     "s": 4,
+     "note": "Marca, datos de compra, chips propios Trainium"
+    },
+    {
+     "n": "Ventaja de costes",
+     "s": 5,
+     "note": "Escala en logística, compras y cómputo"
+    },
+    {
+     "n": "Escala eficiente",
+     "s": 5,
+     "note": "Red logística y centros de datos casi imposibles de replicar"
+    }
+   ],
+   "despues": [
+    {
+     "n": "Efecto red",
+     "s": 4,
+     "note": "Más vendedores → más selección → más compradores; Prime",
+     "u": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/amzn-20260930.htm",
+     "f": "oct-2026",
+     "fu": "10-Q 3T26 · servicios a vendedores"
+    },
+    {
+     "n": "Costes de cambio",
+     "s": 4,
+     "note": "Migrar fuera de AWS es caro y arriesgado",
+     "u": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/amzn-20260930.htm",
+     "f": "oct-2026",
+     "fu": "10-Q 3T26 · cartera de AWS (6,1 años)"
+    },
+    {
+     "n": "Activos intangibles",
+     "s": 4,
+     "note": "Marca, datos de compra, chips propios Trainium",
+     "u": "https://www.aboutamazon.com/news/aws/amazon-ai-chips-business-history",
+     "f": "nov-2026",
+     "fu": "aboutamazon.com · Chips de IA"
+    },
+    {
+     "n": "Ventaja de costes",
+     "s": 5,
+     "note": "Escala en logística, compras y cómputo",
+     "u": "https://www.aboutamazon.com/what-we-do/delivery-logistics",
+     "f": "nov-2026",
+     "fu": "aboutamazon.com · Logística"
+    },
+    {
+     "n": "Escala eficiente",
+     "s": 5,
+     "note": "Red logística y centros de datos casi imposibles de replicar",
+     "u": "https://www.aboutamazon.com/news/aws/amazon-data-centers-locations-news",
+     "f": "nov-2026",
+     "fu": "aboutamazon.com · Centros de datos"
+    }
+   ],
+   "porque": "Mismo texto y puntuaciones; se añade a cada fuente su respaldo oficial (10-Q y aboutamazon.com).",
+   "fuente": {
+    "t": "10-Q 3T26 de Amazon",
+    "u": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/amzn-20260930.htm",
+    "d": "30-oct-2026"
+   },
+   "verificacion": "Textos y puntuaciones iguales a analysis/; enlaces comprobados: 10-Q (servicios a vendedores, cartera de 6,1 años) y páginas de aboutamazon.com de chips de IA, logística y centros de datos (existen según búsqueda y data/).",
+   "motivo": "Repaso semanal a fondo (nube e IA)"
+  },
+  {
+   "fecha": "2026-11-24",
+   "campo": "growth.drivers",
+   "antes": [
+    {
+     "n": "AWS e inteligencia artificial",
+     "impact": 5,
+     "h": "2026–2028",
+     "st": "en marcha",
+     "k": "+39,3% en 3T26 · cartera 578.000 M$",
+     "peso": "~60% del beneficio operativo",
+     "d": "AWS acelera por sexto trimestre seguido (46.000 M$ en el 3T26, margen del 38,7%) por la demanda de cómputo para IA. Los compromisos de sus chips Trainium se multiplican por más de 20, venderá Trainium fuera de AWS desde finales de 2027 y Jassy proyecta crecer más del 40% en 2027 y 2028.",
+     "ev": "Crecimiento y margen de AWS; cartera de contratos; capex.",
+     "r": "Capex de ~220.000 M$ en 2026 y «bastante más» en 2027; la IA tiene menos margen que el negocio clásico de AWS.",
+     "u": "https://www.fool.com/earnings/call-transcripts/2026/10/30/amazon-amzn-q3-2026-earnings-call-transcript/"
+    },
+    {
+     "n": "Publicidad",
+     "impact": 4,
+     "h": "Continuo",
+     "st": "maduro",
+     "k": "19.600 M$ en 3T26 (+12%)",
+     "peso": "vuelve a «la parte alta de la decena» en el 4T",
+     "d": "Anuncios en la tienda y en Prime Video, con margen muy alto. El 3T26 creció solo un 12% porque el Prime Day pasó al 2T (le restó ~8,5 puntos); en el 4T entra la NBA en Prime.",
+     "ev": "Crecimiento de «Advertising services».",
+     "r": "Saturación de anuncios en la tienda que empeore la experiencia.",
+     "u": "https://www.fool.com/earnings/call-transcripts/2026/10/30/amazon-amzn-q3-2026-earnings-call-transcript/"
+    },
+    {
+     "n": "Participación en Anthropic",
+     "impact": 3,
+     "h": "2026–2027",
+     "st": "en marcha",
+     "k": "110.000 M$ comprometidos en AWS",
+     "d": "Amazon es accionista y principal proveedor de nube de Anthropic, que usa sus chips Trainium. Gana por dos lados: ingresos de AWS y revalorización de la participación.",
+     "ev": "Ganancias contables por la participación y anuncios de capacidad para Anthropic.",
+     "r": "Anthropic depende de seguir financiándose: perdió más de 8.000 M$ operativos en 2025."
+    },
+    {
+     "n": "Prime y suscripciones",
+     "impact": 2,
+     "h": "Continuo",
+     "st": "maduro",
+     "k": "+12% en 2T26",
+     "d": "Cuotas recurrentes que fidelizan la compra y financian Prime Video.",
+     "ev": "Ingresos por suscripciones.",
+     "r": "Subidas de precio que provoquen bajas."
+    },
+    {
+     "n": "Amazon Leo (internet por satélite)",
+     "impact": 2,
+     "h": "2027+",
+     "st": "temprano",
+     "k": "Fallo del Vulcan (15-nov): 40 satélites perdidos",
+     "peso": "opcionalidad",
+     "d": "Constelación de satélites para competir con Starlink: necesita más de 3.300 satélites. El 15-nov-2026 el cohete Vulcan de ULA falló a los 10 minutos de vuelo y perdió los 40 satélites que llevaba (habrían sido 436 lanzados en total). Amazon depende de que ULA termine la investigación y de que el New Glenn de Blue Origin vuelva a volar. La mayor parte del coste se lleva a gasto en el 4T26 y se capitaliza desde 2027.",
+     "ev": "Lanzamientos y primeros clientes comerciales.",
+     "r": "Retrasos en los lanzamientos (Vulcan y New Glenn parados) y coste muy alto frente a Starlink.",
+     "u": "https://spaceflightnow.com/2026/11/15/ula-suffers-first-total-mission-failure-with-loss-of-vulcan-rocket-carrying-40-amazon-leo-satellites/"
+    }
+   ],
+   "despues": [
+    {
+     "n": "AWS e inteligencia artificial",
+     "impact": 5,
+     "h": "2026–2028",
+     "st": "en marcha",
+     "k": "+39,3% en 3T26 · cartera 578.000 M$ · compra de la tecnología de Decart (23-nov)",
+     "peso": "~60% del beneficio operativo",
+     "d": "AWS acelera por sexto trimestre seguido (46.000 M$ en el 3T26, margen del 38,7%) por la demanda de cómputo para IA. Los compromisos de sus chips Trainium se multiplican por más de 20, venderá Trainium fuera de AWS desde finales de 2027 y Jassy proyecta crecer más del 40% en 2027 y 2028. El 23-nov-2026 anunció la compra de la tecnología de optimización de IA de Decart para avanzar en chips y modelos (Amazon no publica el importe).",
+     "ev": "Crecimiento y margen de AWS; cartera de contratos; capex.",
+     "r": "Capex de ~220.000 M$ en 2026 y «bastante más» en 2027; la IA tiene menos margen que el negocio clásico de AWS.",
+     "u": "https://www.fool.com/earnings/call-transcripts/2026/10/30/amazon-amzn-q3-2026-earnings-call-transcript/"
+    },
+    {
+     "n": "Publicidad",
+     "impact": 4,
+     "h": "Continuo",
+     "st": "maduro",
+     "k": "19.600 M$ en 3T26 (+12%)",
+     "peso": "vuelve a «la parte alta de la decena» en el 4T",
+     "d": "Anuncios en la tienda y en Prime Video, con margen muy alto. El 3T26 creció solo un 12% porque el Prime Day pasó al 2T (le restó ~8,5 puntos); en el 4T entra la NBA en Prime.",
+     "ev": "Crecimiento de «Advertising services».",
+     "r": "Saturación de anuncios en la tienda que empeore la experiencia.",
+     "u": "https://www.fool.com/earnings/call-transcripts/2026/10/30/amazon-amzn-q3-2026-earnings-call-transcript/"
+    },
+    {
+     "n": "Participación en Anthropic",
+     "impact": 3,
+     "h": "2026–2027",
+     "st": "en marcha",
+     "k": "110.000 M$ comprometidos en AWS",
+     "d": "Amazon es accionista y principal proveedor de nube de Anthropic, que usa sus chips Trainium. Gana por dos lados: ingresos de AWS y revalorización de la participación.",
+     "ev": "Ganancias contables por la participación y anuncios de capacidad para Anthropic.",
+     "r": "Anthropic depende de seguir financiándose: perdió más de 8.000 M$ operativos en 2025."
+    },
+    {
+     "n": "Prime y suscripciones",
+     "impact": 2,
+     "h": "Continuo",
+     "st": "maduro",
+     "k": "+12% en 2T26",
+     "d": "Cuotas recurrentes que fidelizan la compra y financian Prime Video.",
+     "ev": "Ingresos por suscripciones.",
+     "r": "Subidas de precio que provoquen bajas."
+    },
+    {
+     "n": "Amazon Leo (internet por satélite)",
+     "impact": 2,
+     "h": "2027+",
+     "st": "temprano",
+     "k": "Fallo del Vulcan (15-nov): 40 satélites perdidos",
+     "peso": "opcionalidad",
+     "d": "Constelación de satélites para competir con Starlink: necesita más de 3.300 satélites. El 15-nov-2026 el cohete Vulcan de ULA falló a los 10 minutos de vuelo y perdió los 40 satélites que llevaba (habrían sido 436 lanzados en total). Amazon depende de que ULA termine la investigación y de que el New Glenn de Blue Origin vuelva a volar. La mayor parte del coste se lleva a gasto en el 4T26 y se capitaliza desde 2027.",
+     "ev": "Lanzamientos y primeros clientes comerciales.",
+     "r": "Retrasos en los lanzamientos (Vulcan y New Glenn parados) y coste muy alto frente a Starlink.",
+     "u": "https://spaceflightnow.com/2026/11/15/ula-suffers-first-total-mission-failure-with-loss-of-vulcan-rocket-carrying-40-amazon-leo-satellites/"
+    }
+   ],
+   "porque": "AWS e IA: Amazon anuncia la compra de la tecnología de optimización de Decart para chips y modelos (23-nov).",
+   "fuente": {
+    "t": "Amazon News: «Amazon to purchase Decart's AI optimization technology…»",
+    "u": "https://www.aboutamazon.com/news/company-news/amazon-decart-ai-optimization",
+    "d": "23-nov-2026"
+   },
+   "verificacion": "Solo se añade Decart (aboutamazon.com 23-nov, «chip and model innovation»), sin importe oficial; resto idéntico.",
+   "motivo": "Repaso semanal a fondo (nube e IA)"
+  },
+  {
+   "fecha": "2026-11-24",
+   "campo": "verdict.watch",
+   "antes": [
+    "Campaña de Navidad: Black Friday (27-nov) y Cyber Monday (30-nov)",
+    "Plan de capex para 2027",
+    "Vuelta del FCF a positivo",
+    "Valor contable de Anthropic",
+    "Cierre de la venta del 75,1% de 13 centros de datos a Blackstone (4T26)",
+    "Investigación del fallo del Vulcan y nuevo calendario de Amazon Leo"
+   ],
+   "despues": [
+    "Campaña de Navidad: Black Friday (27-nov) y Cyber Monday (30-nov)",
+    "Plan de capex para 2027",
+    "Vuelta del FCF a positivo",
+    "Valor contable de Anthropic",
+    "Cierre de la venta del 75,1% de 13 centros de datos a Blackstone (4T26)",
+    "Investigación del fallo del Vulcan y nuevo calendario de Amazon Leo",
+    "Integración de la tecnología de Decart en Trainium y Bedrock"
+   ],
+   "porque": "Se añade la integración de la tecnología de Decart, nueva pieza de la estrategia de chips.",
+   "fuente": {
+    "t": "Amazon News: «Amazon to purchase Decart's AI optimization technology…»",
+    "u": "https://www.aboutamazon.com/news/company-news/amazon-decart-ai-optimization",
+    "d": "23-nov-2026"
+   },
+   "verificacion": "Se añade la integración de Decart, anunciada oficialmente el 23-nov.",
+   "motivo": "Repaso semanal a fondo (nube e IA)"
+  },
+  {
+   "fecha": "2026-11-24",
+   "campo": "sources.news",
+   "antes": [
+    {
+     "t": "Blackstone Digital Infrastructure Trust compra el 75,1% de 13 centros de datos de Amazon (647 MW) por un valor bruto de 5.000 M$; Amazon los alquila 12 años",
+     "src": "SEC · 8-K de BXDC · 16-nov-2026",
+     "u": "https://www.sec.gov/Archives/edgar/data/2100161/000119312526461954/d115778d8k.htm"
+    },
+    {
+     "t": "Falla el Vulcan de ULA y se pierden 40 satélites de Amazon Leo",
+     "src": "Spaceflight Now · 15-nov-2026",
+     "u": "https://spaceflightnow.com/2026/11/15/ula-suffers-first-total-mission-failure-with-loss-of-vulcan-rocket-carrying-40-amazon-leo-satellites/"
+    },
+    {
+     "t": "Resumen de la llamada de resultados 3T26",
+     "src": "Yahoo Finance / MarketBeat",
+     "u": "https://finance.yahoo.com/markets/stocks/articles/amazon-com-q3-earnings-call-001416198.html"
+    },
+    {
+     "t": "Por qué subió tras el 2T26 (cartera de AWS y capex)",
+     "src": "INDmoney",
+     "u": "https://www.indmoney.com/blog/us-stocks/amazon-q2-earnings-results-why-amzn-stock-jumped-analysis"
+    },
+    {
+     "t": "Consenso de BPA y precio objetivo",
+     "src": "Yahoo Finance / Barchart",
+     "u": "https://finance.yahoo.com/markets/stocks/articles/expect-amazon-com-q3-2026-110710701.html"
+    },
+    {
+     "t": "El juicio de la FTC se aplaza a marzo de 2027",
+     "src": "MLex",
+     "u": "https://www.mlex.com/mlex/amp/articles/2422758"
+    },
+    {
+     "t": "Phillip Securities mejora a Comprar (objetivo 330 $) por la visibilidad de la demanda de AWS",
+     "src": "24/7 Wall St.",
+     "u": "https://247wallst.com/investing/2026/11/02/amazon-climbs-5-as-upgrade-fuels-post-earnings-rebound-on-aws-strength/"
+    },
+    {
+     "t": "Más de 100 funciones de compra con Alexa+",
+     "src": "Retail Dive",
+     "u": "https://www.retaildive.com/news/amazon-adds-alexa-ai-shopping-functions/873602/"
+    },
+    {
+     "t": "Gafas inteligentes para miles de repartidores",
+     "src": "Supply Chain Dive",
+     "u": "https://www.supplychaindive.com/news/amazon-deploys-thousands-of-smart-glasses-to-delivery"
+    },
+    {
+     "t": "Evercore ISI: la acción podría casi duplicarse si vuelven sus múltiplos",
+     "src": "Tiger Brokers",
+     "u": "https://www.itiger.com/news/1160112152"
+    }
+   ],
+   "despues": [
+    {
+     "t": "Amazon comprará la tecnología de optimización de IA de Decart para avanzar en sus chips y modelos",
+     "src": "Amazon News · 23-nov-2026",
+     "u": "https://www.aboutamazon.com/news/company-news/amazon-decart-ai-optimization"
+    },
+    {
+     "t": "El FT adelanta que Amazon ultima la compra de Decart por unos 7.500 M$",
+     "src": "Financial Times · 21-nov-2026",
+     "u": "https://www.ft.com/content/dc7749dc-0f40-44a6-80bc-7f747d383616"
+    },
+    {
+     "t": "Amazon pide a sus clientes de Nueva York que se opongan a la ley de protección de repartidores (Intro 518): avisa de hasta 5 $ más por pedido",
+     "src": "Retail Dive · 23-nov-2026",
+     "u": "https://www.retaildive.com/news/amazon-enlists-customers-in-fight-against-nyc-delivery-protection-act/875451/"
+    },
+    {
+     "t": "Qué está haciendo Amazon cerca de sus centros de datos en EE. UU. en 2026",
+     "src": "Amazon News · 23-nov-2026",
+     "u": "https://www.aboutamazon.com/news/aws/amazon-data-centers-locations-news"
+    },
+    {
+     "t": "Blackstone Digital Infrastructure Trust compra el 75,1% de 13 centros de datos de Amazon (647 MW) por un valor bruto de 5.000 M$; Amazon los alquila 12 años",
+     "src": "SEC · 8-K de BXDC · 16-nov-2026",
+     "u": "https://www.sec.gov/Archives/edgar/data/2100161/000119312526461954/d115778d8k.htm"
+    },
+    {
+     "t": "Falla el Vulcan de ULA y se pierden 40 satélites de Amazon Leo",
+     "src": "Spaceflight Now · 15-nov-2026",
+     "u": "https://spaceflightnow.com/2026/11/15/ula-suffers-first-total-mission-failure-with-loss-of-vulcan-rocket-carrying-40-amazon-leo-satellites/"
+    },
+    {
+     "t": "Phillip Securities mejora a Comprar (objetivo 330 $) por la visibilidad de la demanda de AWS",
+     "src": "24/7 Wall St.",
+     "u": "https://247wallst.com/investing/2026/11/02/amazon-climbs-5-as-upgrade-fuels-post-earnings-rebound-on-aws-strength/"
+    },
+    {
+     "t": "El juicio de la FTC se aplaza a marzo de 2027",
+     "src": "MLex",
+     "u": "https://www.mlex.com/mlex/amp/articles/2422758"
+    }
+   ],
+   "porque": "Noticias de impacto de la semana (Decart, ley de reparto de Nueva York, centros de datos) sobre las anteriores más relevantes.",
+   "fuente": {
+    "t": "Amazon News: «Amazon to purchase Decart's AI optimization technology…»",
+    "u": "https://www.aboutamazon.com/news/company-news/amazon-decart-ai-optimization",
+    "d": "23-nov-2026"
+   },
+   "verificacion": "Decart (aboutamazon), FT ~7.500 M$ (Benzinga en data/), Retail Dive hasta 5 $ por pedido (data/; Intro 518 en búsqueda) y centros de datos (data/) cuadran.",
+   "motivo": "Repaso semanal a fondo (nube e IA)"
+  },
+  {
+   "fecha": "2026-11-24",
+   "campo": "social.pulse",
+   "antes": [
+    {
+     "p": "StockTwits",
+     "s": 1,
+     "note": "Sentimiento «extremadamente alcista» y volumen de mensajes muy alto tras la mejora de Phillip Securities (2-nov)."
+    },
+    {
+     "p": "X y Reddit",
+     "s": 1,
+     "note": "LunarCrush: 88% de mensajes positivos en las últimas 24 h (7-nov). Domina la cartera de AWS y la capacidad vendida para 2026–2027; el capex sigue siendo la crítica principal."
+    },
+    {
+     "p": "YouTube",
+     "s": 1,
+     "note": "Vídeos centrados en AWS, Anthropic y la «reaceleración» de la nube."
+    }
+   ],
+   "despues": [
+    {
+     "p": "StockTwits",
+     "s": 1,
+     "note": "77% de mensajes alcistas el 23-nov (10 alcistas y 3 bajistas de 30), tras la caída del 20-nov y el anuncio de Decart."
+    },
+    {
+     "p": "X y Reddit",
+     "s": 1,
+     "note": "LunarCrush: 88% de mensajes positivos en las últimas 24 h (7-nov). Domina la cartera de AWS y la capacidad vendida para 2026–2027; el capex sigue siendo la crítica principal."
+    },
+    {
+     "p": "YouTube",
+     "s": 1,
+     "note": "Vídeos centrados en AWS, Anthropic y la «reaceleración» de la nube."
+    }
+   ],
+   "porque": "Tono de StockTwits al 23-nov (data/AMZN.json → redes).",
+   "fuente": {
+    "t": "StockTwits (API pública)",
+    "u": "https://stocktwits.com/symbol/AMZN",
+    "d": "23-nov-2026"
+   },
+   "verificacion": "data/AMZN.json → redes.stocktwits: 30 mensajes, 10 alcistas, 3 bajistas, 77%, 23-nov.",
+   "motivo": "Repaso semanal a fondo (nube e IA)"
+  },
+  {
+   "fecha": "2026-11-24",
+   "campo": "meta.asOf",
+   "antes": "19-nov-2026",
+   "despues": "24-nov-2026",
+   "porque": "Repaso semanal a fondo con la lista de comprobación completa.",
+   "fuente": {
+    "t": "10-Q 3T26 de Amazon",
+    "u": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/amzn-20260930.htm",
+    "d": "30-oct-2026"
+   },
+   "verificacion": "Repaso de hoy (24-nov-2026).",
+   "motivo": "Repaso semanal a fondo (nube e IA)"
+  },
+  {
+   "fecha": "2026-11-24",
+   "campo": "meta.repasoFondo",
+   "antes": "17-nov-2026",
+   "despues": "24-nov-2026",
+   "porque": "Repaso semanal a fondo (nube e IA).",
+   "fuente": {
+    "t": "10-Q 3T26 de Amazon",
+    "u": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/amzn-20260930.htm",
+    "d": "30-oct-2026"
+   },
+   "verificacion": "Repaso de hoy (24-nov-2026).",
+   "motivo": "Repaso semanal a fondo (nube e IA)"
   }
  ]
 }

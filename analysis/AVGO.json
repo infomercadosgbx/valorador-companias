@@ -6,10 +6,10 @@
   "hq": "Palo Alto, California",
   "founded": "1961 (como división de HP; Broadcom actual desde 2016)",
   "employees": "33.000",
-  "asOf": "17-nov-2026",
+  "asOf": "24-nov-2026",
   "nextEarnings": "9-dic-2026",
   "fav": false,
-  "repasoFondo": "17-nov-2026"
+  "repasoFondo": "24-nov-2026"
  },
  "overview": {
   "thesis": "Diseña los chips de IA a medida de Google, Anthropic, OpenAI y Meta y las redes que los conectan, y prevé duplicar cada año sus ventas de IA (~115.000 M$ en FY27 y ~230.000 M$ en FY28). El riesgo principal: sus mayores clientes futuros, Anthropic y OpenAI, dependen de seguir financiándose.",
@@ -45,7 +45,7 @@
    },
    {
     "k": "Analistas",
-    "v": "54 de 57 recomiendan comprar (Finnhub, nov-26); objetivo medio 527 $ (Investing)"
+    "v": "54 de 57 recomiendan comprar (Finnhub, nov-26); objetivo medio 533 $ (24/7 Wall St., 13-nov)"
    },
    {
     "k": "Dividendo",
@@ -55,11 +55,7 @@
   "catalysts": [
    {
     "d": "9-dic-26",
-    "t": "Resultados del 4T FY26: guía de 34.800 M$ y 21.700 M$ de IA, y primera guía del FY27."
-   },
-   {
-    "d": "~18-nov-26",
-    "t": "Salida a bolsa de Anthropic (ANT, Nasdaq): horquilla de 70–78 $ y 825 M de acciones (valoración de ~0,92–1,02 billones $). Broadcom compra ~1.000 M$ en la colocación privada de 26.000 M$ al precio de salida, con Google, Nvidia, Microsoft, AMD, Micron y TSMC. De ella depende la financiación de su mayor cliente de 2027."
+    "t": "Resultados del 4T FY26 (tras el cierre): guía de 34.800 M$ y 21.700 M$ de IA, primera guía del FY27 y posible comentario sobre los pedidos de TPU de Google."
    },
    {
     "d": "ene-27",
@@ -75,7 +71,7 @@
    },
    {
     "d": "2027–28",
-    "t": "Entrada de MediaTek en el suministro de TPU de Google."
+    "t": "Entrada de MediaTek en el suministro de TPU de Google; según el analista Ming-Chi Kuo (20-nov, sin confirmar por Google ni Broadcom) ganaría cuota en la TPU 8i de 2027."
    },
    {
     "d": "2028",
@@ -108,7 +104,17 @@
    },
    {
     "n": "Empresas con VMware",
-    "d": "Software de virtualización y nube privada; +29% en el 3T FY26."
+    "d": "Software de virtualización y nube privada; +29% en el 3T FY26.",
+    "u": "https://www.sec.gov/Archives/edgar/data/1730168/000173016826000076/avgo-08022026x8kxex99.htm",
+    "f": "sep-2026",
+    "fu": "Nota de resultados 3T FY26 · SEC"
+   },
+   {
+    "n": "Nube soberana y sector público",
+    "d": "Gobiernos y proveedores de nube soberana montan su nube privada con VMware Cloud Foundation, como Becrypt y Softcat para las cargas más sensibles del Gobierno y la defensa del Reino Unido.",
+    "u": "https://www.broadcom.com/company/news/articles/customers/becrypt-delivers-sovereign-cloud-uk-sensitive-workloads",
+    "f": "nov-2026",
+    "fu": "broadcom.com · Casos de clientes (Becrypt)"
    },
    {
     "n": "Móviles y redes",
@@ -218,17 +224,26 @@
    {
     "n": "Efecto red",
     "s": 2,
-    "note": "Ethernet abierto: más clientes refuerzan el estándar"
+    "note": "Ethernet abierto: más clientes refuerzan el estándar",
+    "u": "https://www.broadcom.com/company/news/product-releases/optical-scale-up-consortium-established-to-create-an-open-specification-for-ai-infrastructure",
+    "f": "mar-2026",
+    "fu": "broadcom.com · Consorcio óptico abierto"
    },
    {
     "n": "Costes de cambio",
     "s": 5,
-    "note": "Diseños a medida de varios años; VMware dentro de los centros de datos"
+    "note": "Diseños a medida de varios años; VMware dentro de los centros de datos",
+    "u": "https://www.broadcom.com/company/news/product-releases/64236",
+    "f": "abr-2026",
+    "fu": "broadcom.com · Acuerdo ampliado con Meta (MTIA)"
    },
    {
     "n": "Activos intangibles",
     "s": 5,
-    "note": "Propiedad intelectual en conexiones de alta velocidad, redes y empaquetado"
+    "note": "Propiedad intelectual en conexiones de alta velocidad, redes y empaquetado",
+    "u": "https://www.broadcom.com/company/news/articles/optics/scaling-ai-infrastructure-with-integrated-optics",
+    "f": "oct-2026",
+    "fu": "broadcom.com · Óptica integrada (Tomahawk 6)"
    },
    {
     "n": "Ventaja de costes",
@@ -250,7 +265,7 @@
    {
     "n": "MediaTek",
     "threat": 3,
-    "note": "Entra en el suministro de TPU de Google"
+    "note": "Entra en el suministro de TPU de Google; según Kuo (20-nov, sin confirmar) se llevaría parte de la TPU 8i de 2027"
    },
    {
     "n": "Marvell",
@@ -284,7 +299,7 @@
     "peso": "IA: 56% de las ventas",
     "d": "Diseña los chips de IA propios de Google (TPU), Anthropic, OpenAI y Meta. Cada cliente es un programa de decenas de miles de millones y cada gigavatio desplegado le supone 20.000–30.000 M$. Prevé ~58.000 M$ de IA en FY26 y ~115.000 M$ en FY27.",
     "ev": "Ingresos de IA trimestrales y número de clientes de chips a medida (6 en sep-26).",
-    "r": "Concentración: el mayor cliente ya pesa ~32%.",
+    "r": "Concentración: el mayor cliente ya pesa ~32%. Según Ming-Chi Kuo (20-nov, sin confirmar), Google recortaría un ~20% la TPU 8i de 2027 en favor de MediaTek.",
     "u": "https://www.fool.com/earnings/call-transcripts/2026/09/09/broadcom-avgo-q3-2026-earnings-call-transcript/"
    },
    {
@@ -294,7 +309,7 @@
     "st": "en marcha",
     "k": "Anthropic 10 GW y OpenAI 5 GW en 2028",
     "peso": "financiación de hasta 92.000 M$",
-    "d": "Anthropic (1 GW en 2026, 5 GW en 2027, 10 GW en 2028) y OpenAI (1,3 GW en 2027, hasta 5 GW en 2028) multiplican la demanda de chips a medida. Broadcom ayuda a financiarlos: 42.000 M$ de deuda garantizada para Anthropic y hasta 50.000 M$ en negociación para OpenAI.",
+    "d": "Anthropic (1 GW en 2026, 5 GW en 2027, 10 GW en 2028) y OpenAI (1,3 GW en 2027, hasta 5 GW en 2028) multiplican la demanda de chips a medida. Broadcom ayuda a financiarlos: 42.000 M$ de deuda garantizada para Anthropic y hasta 50.000 M$ en negociación para OpenAI. Anthropic cotiza en el Nasdaq desde el 19-nov (salida a 83 $ por acción).",
     "ev": "Calendario de despliegues y nuevos pedidos.",
     "r": "Riesgo financiero: si un laboratorio no paga, Broadcom carga con chips difíciles de revender (menos versátiles que las GPU).",
     "u": "https://www.fool.com/investing/2026/10/13/broadcom-is-backing-anthropic-and-openai-with-92-b/"
@@ -452,7 +467,7 @@
    "cat": "Comercial",
    "p": 3,
    "i": 5,
-   "note": "Seis clientes de XPU; Anthropic y OpenAI serán los dos mayores en 2027 y aún pierden dinero"
+   "note": "Seis clientes de XPU; Anthropic y OpenAI serán los dos mayores en 2027. El 20-nov la acción cayó un 12,2% por un informe de Ming-Chi Kuo (sin confirmar por Google ni Broadcom) según el cual Google recorta ~20% la TPU 8i de 2027 y da más cuota a MediaTek"
   },
   {
    "n": "Freno del gasto en IA",
@@ -563,7 +578,7 @@
   "conviction": 3.5,
   "buyBelow": 340,
   "horizon": "12–24 meses",
-  "summary": "Probablemente el mejor posicionado para el crecimiento de la IA después de Nvidia, con márgenes y caja excepcionales y un equipo muy disciplinado. La acción es muy volátil: cayó con todo el sector el 5-nov por miedo a que el nuevo Congreso demócrata frene los centros de datos, rebotó cuando los inversores salieron de Nvidia tras la salida de su consejero delegado y volvió a caer con la rebaja de Redburn (13-nov), que duda de que Anthropic y OpenAI se autofinancien pronto. He subido la probabilidad del escenario bajista (25% → 30%) por la regulación y por las dudas sobre la salida a bolsa de Anthropic; el modelo da ~410 $. Comprar por debajo de ~340 $, con tamaño moderado y por tramos: la volatilidad puede seguir hasta los resultados del 9-dic.",
+  "summary": "Probablemente el mejor posicionado para el crecimiento de la IA después de Nvidia, con márgenes y caja excepcionales y un equipo muy disciplinado. La acción sigue muy volátil: el 20-nov cayó un 12,2% por un informe del analista Ming-Chi Kuo, no confirmado por Google ni por Broadcom, según el cual Google recorta ~20% la TPU 8i de 2027 en favor de MediaTek, y el 23-nov rebotó con el regreso de Jensen Huang a Nvidia. Anthropic, su mayor cliente de chips a medida en 2027, ya cotiza desde el 19-nov. He subido la probabilidad del escenario bajista (25% → 30%) por la regulación y por las dudas sobre la financiación de los laboratorios. Comprar con tamaño moderado y por tramos: los resultados del 9-dic (primera guía del FY27) dirán si el objetivo de ~115.000 M$ de IA sigue en pie.",
   "bull": [
    "Objetivo de IA: ~115.000 M$ en FY27 y ~230.000 M$ en FY28",
    "FCF del 46% de las ventas",
@@ -573,11 +588,13 @@
    "Anthropic y OpenAI, sus mayores clientes futuros, pierden dinero; Redburn rebaja a Neutral (objetivo de 595 a 398 $) porque duda de que se autofinancien pronto",
    "Garantía de hasta ~43.000 M$ sobre los racks de Anthropic",
    "Congreso demócrata: riesgo de límites a los centros de datos",
-   "Margen bruto a la baja por la IA y la memoria"
+   "Margen bruto a la baja por la IA y la memoria",
+   "Informe no confirmado de Ming-Chi Kuo (20-nov): Google recortaría ~1 M de TPU 8i (~20%) en 2027 y daría más cuota a MediaTek"
   ],
   "watch": [
-   "Precio de salida de Anthropic (~18-nov) dentro de la horquilla de 70–78 $",
-   "Resultados del 9-dic: guía del 1T FY27 y de IA en FY27",
+   "Resultados del 9-dic: guía del 1T FY27, objetivo de IA en FY27 y cualquier comentario sobre los pedidos de TPU de Google",
+   "Reparto de la TPU 8i de 2027 entre Broadcom y MediaTek (informe de Kuo, sin confirmar)",
+   "Anthropic como cotizada: primeros resultados y financiación de sus ~5 GW de 2027",
    "Propuestas del nuevo Congreso sobre centros de datos y energía",
    "Suministro de láseres, sustratos y HBM"
   ]
@@ -614,19 +631,34 @@
   ],
   "news": [
    {
+    "t": "Broadcom cae un 12% después de que Ming-Chi Kuo diga que Google recorta ~20% la TPU 8i de 2027 y da cuota a MediaTek (sin confirmar)",
+    "src": "24/7 Wall St. · 20-nov-2026",
+    "u": "https://247wallst.com/investing/2026/11/20/broadcom-stock-plunges-12-and-loses-191-billion-after-a-report-that-google-cut-its-plans-for-broadcom-ai-chips/"
+   },
+   {
+    "t": "Google traslada parte de los pedidos de chips de IA de 2027 de Broadcom a MediaTek, según Kuo",
+    "src": "Seeking Alpha · 20-nov-2026",
+    "u": "https://seekingalpha.com/news/4675203-google-shifts-2027-ai-chip-orders-from-broadcom-to-mediatek-ming-chi-kuo-says"
+   },
+   {
+    "t": "Anthropic debuta en el Nasdaq tras salir a 83 $ por acción",
+    "src": "Benzinga · 20-nov-2026",
+    "u": "https://www.benzinga.com/markets/equities/26/11/63465390/anthropic-shares-fall-premarket-after-blockbuster-nasdaq-ipo-debut"
+   },
+   {
+    "t": "El regreso de Jensen Huang a Nvidia levanta a los valores de IA; Broadcom sube un 2%",
+    "src": "24/7 Wall St. · 23-nov-2026",
+    "u": "https://247wallst.com/investing/2026/11/23/jensen-huangs-return-just-added-about-500-billion-to-micron-dell-tsmc-and-the-ai-stocks-that-depend-on-nvidia/"
+   },
+   {
+    "t": "Google afirma que el fallo crítico de vCenter (VMware) se explotaba desde septiembre por un grupo ligado a China",
+    "src": "The Register · 23-nov-2026",
+    "u": "https://www.theregister.com/virtualization/2026/11/23/google-claims-last-weeks-critical-vmware-bug-was-under-attack-in-september/5311547"
+   },
+   {
     "t": "Rothschild & Co Redburn rebaja Broadcom a Neutral y recorta el objetivo de 595 a 398 $: el crecimiento depende de que Anthropic y OpenAI se autofinancien",
     "src": "TIKR · 13-nov-2026",
     "u": "https://www.tikr.com/blog/broadcom-sinks-7-as-rothschild-redburn-downgrade-slashes-target-to-398-unlikely-to-occur-quickly"
-   },
-   {
-    "t": "Broadcom y AMD suben al rotar los inversores fuera de Nvidia por la salida de su consejero delegado",
-    "src": "Benzinga · 12-nov-2026",
-    "u": "https://finnhub.io/api/news?id=0137bc50a92512d5372da3022e1a17eda8cfad1b129109e33759c4583f5dcde9"
-   },
-   {
-    "t": "La incertidumbre en Nvidia favorece a los TPU de Google y a Broadcom, según un analista",
-    "src": "Investing.com · 12-nov-2026",
-    "u": "https://finnhub.io/api/news?id=9f2dc50514f525a10dd1ec74ebe6bc1a0ec58e090c99e00b513f4ddd9532f76d"
    },
    {
     "t": "Broadcom entra con ~1.000 M$ en la colocación privada de 26.000 M$ de Anthropic",
@@ -1589,6 +1621,968 @@
     "d": "10-sep-2026"
    },
    "verificacion": "Fecha de revisión; el 10-Q del 3T FY26 citado existe en EDGAR.",
+   "motivo": "Repaso semanal a fondo (nube e IA)"
+  },
+  {
+   "fecha": "2026-11-24",
+   "campo": "overview.keyFacts",
+   "antes": [
+    {
+     "k": "Ingresos 3T FY26",
+     "v": "29.591 M$ (+86%)"
+    },
+    {
+     "k": "Ingresos de IA 3T FY26",
+     "v": "16.700 M$ (+221%), 56% del total"
+    },
+    {
+     "k": "Guía 4T FY26",
+     "v": "34.800 M$ (+93%); IA 21.700 M$"
+    },
+    {
+     "k": "Objetivo de IA",
+     "v": "~115.000 M$ FY27 · ~230.000 M$ FY28"
+    },
+    {
+     "k": "BPA ajustado FY28 (objetivo)",
+     "v": "más de 30 $"
+    },
+    {
+     "k": "FCF 3T FY26",
+     "v": "13.700 M$ (46% de las ventas)"
+    },
+    {
+     "k": "Caja / deuda (ago-26)",
+     "v": "24.000 / 59.600 M$ (cupón medio del 4%)"
+    },
+    {
+     "k": "Analistas",
+     "v": "54 de 57 recomiendan comprar (Finnhub, nov-26); objetivo medio 527 $ (Investing)"
+    },
+    {
+     "k": "Dividendo",
+     "v": "2,60 $ por acción (0,9%)"
+    }
+   ],
+   "despues": [
+    {
+     "k": "Ingresos 3T FY26",
+     "v": "29.591 M$ (+86%)"
+    },
+    {
+     "k": "Ingresos de IA 3T FY26",
+     "v": "16.700 M$ (+221%), 56% del total"
+    },
+    {
+     "k": "Guía 4T FY26",
+     "v": "34.800 M$ (+93%); IA 21.700 M$"
+    },
+    {
+     "k": "Objetivo de IA",
+     "v": "~115.000 M$ FY27 · ~230.000 M$ FY28"
+    },
+    {
+     "k": "BPA ajustado FY28 (objetivo)",
+     "v": "más de 30 $"
+    },
+    {
+     "k": "FCF 3T FY26",
+     "v": "13.700 M$ (46% de las ventas)"
+    },
+    {
+     "k": "Caja / deuda (ago-26)",
+     "v": "24.000 / 59.600 M$ (cupón medio del 4%)"
+    },
+    {
+     "k": "Analistas",
+     "v": "54 de 57 recomiendan comprar (Finnhub, nov-26); objetivo medio 533 $ (24/7 Wall St., 13-nov)"
+    },
+    {
+     "k": "Dividendo",
+     "v": "2,60 $ por acción (0,9%)"
+    }
+   ],
+   "porque": "El objetivo medio citado (527 $, Investing) estaba desfasado frente al consenso de manual/AVGO.json (533,42 $, 51 analistas, 13-nov); el resto de datos clave sigue igual.",
+   "fuente": {
+    "t": "24/7 Wall St.: ningún analista recomienda vender Broadcom (consenso de 51 analistas)",
+    "u": "https://247wallst.com/investing/2026/11/13/not-one-analyst-rates-broadcom-a-sell-what-are-they-missing/",
+    "d": "13-nov-2026"
+   },
+   "verificacion": "manual/AVGO.json: 533,42 $ (24/7 Wall St., 13-nov, 51 analistas); resto igual que analysis/.",
+   "motivo": "Repaso semanal a fondo (nube e IA)"
+  },
+  {
+   "fecha": "2026-11-24",
+   "campo": "overview.catalysts",
+   "antes": [
+    {
+     "d": "9-dic-26",
+     "t": "Resultados del 4T FY26: guía de 34.800 M$ y 21.700 M$ de IA, y primera guía del FY27."
+    },
+    {
+     "d": "~18-nov-26",
+     "t": "Salida a bolsa de Anthropic (ANT, Nasdaq): horquilla de 70–78 $ y 825 M de acciones (valoración de ~0,92–1,02 billones $). Broadcom compra ~1.000 M$ en la colocación privada de 26.000 M$ al precio de salida, con Google, Nvidia, Microsoft, AMD, Micron y TSMC. De ella depende la financiación de su mayor cliente de 2027."
+    },
+    {
+     "d": "ene-27",
+     "t": "Entra el nuevo Congreso con mayoría demócrata en ambas cámaras: posibles límites a permisos, energía y construcción de centros de datos (el presidente conserva el veto)."
+    },
+    {
+     "d": "2027",
+     "t": "Anthropic despliega ~5 GW de TPU v8i y OpenAI 1,3 GW de su chip Jalapeño."
+    },
+    {
+     "d": "2027",
+     "t": "Tomahawk 7 (200 Tb/s) y fábrica de sustratos en Singapur en marcha."
+    },
+    {
+     "d": "2027–28",
+     "t": "Entrada de MediaTek en el suministro de TPU de Google."
+    },
+    {
+     "d": "2028",
+     "t": "Objetivo de ~230.000 M$ de IA y BPA de más de 30 $."
+    }
+   ],
+   "despues": [
+    {
+     "d": "9-dic-26",
+     "t": "Resultados del 4T FY26 (tras el cierre): guía de 34.800 M$ y 21.700 M$ de IA, primera guía del FY27 y posible comentario sobre los pedidos de TPU de Google."
+    },
+    {
+     "d": "ene-27",
+     "t": "Entra el nuevo Congreso con mayoría demócrata en ambas cámaras: posibles límites a permisos, energía y construcción de centros de datos (el presidente conserva el veto)."
+    },
+    {
+     "d": "2027",
+     "t": "Anthropic despliega ~5 GW de TPU v8i y OpenAI 1,3 GW de su chip Jalapeño."
+    },
+    {
+     "d": "2027",
+     "t": "Tomahawk 7 (200 Tb/s) y fábrica de sustratos en Singapur en marcha."
+    },
+    {
+     "d": "2027–28",
+     "t": "Entrada de MediaTek en el suministro de TPU de Google; según el analista Ming-Chi Kuo (20-nov, sin confirmar por Google ni Broadcom) ganaría cuota en la TPU 8i de 2027."
+    },
+    {
+     "d": "2028",
+     "t": "Objetivo de ~230.000 M$ de IA y BPA de más de 30 $."
+    }
+   ],
+   "porque": "Se quita la salida a bolsa de Anthropic (ya cotiza desde el 19-nov, a 83 $ por acción, por encima de la horquilla de 70–78 $) y se añade al seguimiento el informe de Kuo sobre la TPU 8i de 2027.",
+   "fuente": {
+    "t": "Benzinga: Anthropic (ANT) cae en preapertura tras su debut en el Nasdaq con una salida a 83 $",
+    "u": "https://www.benzinga.com/markets/equities/26/11/63465390/anthropic-shares-fall-premarket-after-blockbuster-nasdaq-ipo-debut",
+    "d": "20-nov-2026"
+   },
+   "verificacion": "Anthropic a 83 $ (Benzinga en data/AVGO.json; horquilla de 70–78 $ ya en analysis/); Kuo 20-nov sin confirmar (Seeking Alpha, Yahoo); 9-dic en broadcom.com.",
+   "motivo": "Repaso semanal a fondo (nube e IA)"
+  },
+  {
+   "fecha": "2026-11-24",
+   "campo": "business.customerTypes",
+   "antes": [
+    {
+     "n": "Hiperescaladores",
+     "d": "Google (TPU) y Meta (MTIA, hasta 3 GW en 2028): aceleradores a medida y redes."
+    },
+    {
+     "n": "Laboratorios de IA",
+     "d": "Anthropic (mayor cliente de XPU en 2027) y OpenAI (segundo): 15 GW en conjunto en 2028."
+    },
+    {
+     "n": "Empresas con VMware",
+     "d": "Software de virtualización y nube privada; +29% en el 3T FY26."
+    },
+    {
+     "n": "Móviles y redes",
+     "d": "Apple y fabricantes de equipos: chips de radiofrecuencia, wifi y banda ancha."
+    }
+   ],
+   "despues": [
+    {
+     "n": "Hiperescaladores",
+     "d": "Google (TPU) y Meta (MTIA, hasta 3 GW en 2028): aceleradores a medida y redes."
+    },
+    {
+     "n": "Laboratorios de IA",
+     "d": "Anthropic (mayor cliente de XPU en 2027) y OpenAI (segundo): 15 GW en conjunto en 2028."
+    },
+    {
+     "n": "Empresas con VMware",
+     "d": "Software de virtualización y nube privada; +29% en el 3T FY26.",
+     "u": "https://www.sec.gov/Archives/edgar/data/1730168/000173016826000076/avgo-08022026x8kxex99.htm",
+     "f": "sep-2026",
+     "fu": "Nota de resultados 3T FY26 · SEC"
+    },
+    {
+     "n": "Nube soberana y sector público",
+     "d": "Gobiernos y proveedores de nube soberana montan su nube privada con VMware Cloud Foundation, como Becrypt y Softcat para las cargas más sensibles del Gobierno y la defensa del Reino Unido.",
+     "u": "https://www.broadcom.com/company/news/articles/customers/becrypt-delivers-sovereign-cloud-uk-sensitive-workloads",
+     "f": "nov-2026",
+     "fu": "broadcom.com · Casos de clientes (Becrypt)"
+    },
+    {
+     "n": "Móviles y redes",
+     "d": "Apple y fabricantes de equipos: chips de radiofrecuencia, wifi y banda ancha."
+    }
+   ],
+   "porque": "Repaso de la web oficial: caso de cliente de Becrypt/Softcat (19-nov-2026, nube soberana para el Gobierno británico con VMware Cloud Foundation); enlace oficial añadido a «Empresas con VMware» (+29%, nota de resultados). Hiperescaladores, laboratorios de IA y móviles quedan sin enlace: Broadcom no nombra a Google, Anthropic ni Apple en un documento oficial.",
+   "fuente": {
+    "t": "broadcom.com · Customer Spotlight: Becrypt Delivers Sovereign Cloud for the UK's Most Sensitive Workloads",
+    "u": "https://www.broadcom.com/company/news/articles/customers/becrypt-delivers-sovereign-cloud-uk-sensitive-workloads",
+    "d": "19-nov-2026"
+   },
+   "verificacion": "Caso Becrypt/Softcat con VCF para Gobierno y defensa del Reino Unido en broadcom.com (lecturas); VMware/software de infraestructura +29% en la nota del 3T FY26; el resto sin cambios.",
+   "motivo": "Repaso semanal a fondo (nube e IA)"
+  },
+  {
+   "fecha": "2026-11-24",
+   "campo": "moat.sources",
+   "antes": [
+    {
+     "n": "Efecto red",
+     "s": 2,
+     "note": "Ethernet abierto: más clientes refuerzan el estándar"
+    },
+    {
+     "n": "Costes de cambio",
+     "s": 5,
+     "note": "Diseños a medida de varios años; VMware dentro de los centros de datos"
+    },
+    {
+     "n": "Activos intangibles",
+     "s": 5,
+     "note": "Propiedad intelectual en conexiones de alta velocidad, redes y empaquetado"
+    },
+    {
+     "n": "Ventaja de costes",
+     "s": 4,
+     "note": "Escala de compra y prioridad en la fabricación de TSMC"
+    },
+    {
+     "n": "Escala eficiente",
+     "s": 4,
+     "note": "Pocos rivales pueden diseñar XPUs: Marvell, MediaTek, Alchip"
+    }
+   ],
+   "despues": [
+    {
+     "n": "Efecto red",
+     "s": 2,
+     "note": "Ethernet abierto: más clientes refuerzan el estándar",
+     "u": "https://www.broadcom.com/company/news/product-releases/optical-scale-up-consortium-established-to-create-an-open-specification-for-ai-infrastructure",
+     "f": "mar-2026",
+     "fu": "broadcom.com · Consorcio óptico abierto"
+    },
+    {
+     "n": "Costes de cambio",
+     "s": 5,
+     "note": "Diseños a medida de varios años; VMware dentro de los centros de datos",
+     "u": "https://www.broadcom.com/company/news/product-releases/64236",
+     "f": "abr-2026",
+     "fu": "broadcom.com · Acuerdo ampliado con Meta (MTIA)"
+    },
+    {
+     "n": "Activos intangibles",
+     "s": 5,
+     "note": "Propiedad intelectual en conexiones de alta velocidad, redes y empaquetado",
+     "u": "https://www.broadcom.com/company/news/articles/optics/scaling-ai-infrastructure-with-integrated-optics",
+     "f": "oct-2026",
+     "fu": "broadcom.com · Óptica integrada (Tomahawk 6)"
+    },
+    {
+     "n": "Ventaja de costes",
+     "s": 4,
+     "note": "Escala de compra y prioridad en la fabricación de TSMC"
+    },
+    {
+     "n": "Escala eficiente",
+     "s": 4,
+     "note": "Pocos rivales pueden diseñar XPUs: Marvell, MediaTek, Alchip"
+    }
+   ],
+   "porque": "Enlaces oficiales para tres fuentes sin cambiar texto ni puntuación: consorcio de especificación óptica abierta (mar-2026), acuerdo plurianual ampliado con Meta para varios gigavatios de MTIA (abr-2026) y Tomahawk 6 con óptica coempaquetada (oct-2026). «Ventaja de costes» y «Escala eficiente» siguen sin respaldo oficial.",
+   "fuente": {
+    "t": "broadcom.com · Broadcom Announces Extended Partnership with Meta to Deploy Technology to Support Multi-Gigawatts of Meta's Custom Silicon, MTIA",
+    "u": "https://www.broadcom.com/company/news/product-releases/64236",
+    "d": "14-abr-2026"
+   },
+   "verificacion": "Textos y puntuaciones iguales a analysis/; enlaces en broadcom.com: consorcio óptico (12-mar-2026), acuerdo ampliado con Meta para MTIA (14-abr-2026), artículo de óptica integrada (21-oct-2026).",
+   "motivo": "Repaso semanal a fondo (nube e IA)"
+  },
+  {
+   "fecha": "2026-11-24",
+   "campo": "moat.comps",
+   "antes": [
+    {
+     "n": "Nvidia",
+     "threat": 4,
+     "note": "Alternativa estándar a los chips a medida y rival en redes"
+    },
+    {
+     "n": "MediaTek",
+     "threat": 3,
+     "note": "Entra en el suministro de TPU de Google"
+    },
+    {
+     "n": "Marvell",
+     "threat": 3,
+     "note": "Chips a medida para Amazon y Microsoft"
+    },
+    {
+     "n": "Diseño propio de los clientes",
+     "threat": 3,
+     "note": "Los hiperescaladores pueden internalizar más trabajo"
+    },
+    {
+     "n": "AMD",
+     "threat": 2,
+     "note": "Vende GPU y cómputo a laboratorios como Anthropic y OpenAI"
+    }
+   ],
+   "despues": [
+    {
+     "n": "Nvidia",
+     "threat": 4,
+     "note": "Alternativa estándar a los chips a medida y rival en redes"
+    },
+    {
+     "n": "MediaTek",
+     "threat": 3,
+     "note": "Entra en el suministro de TPU de Google; según Kuo (20-nov, sin confirmar) se llevaría parte de la TPU 8i de 2027"
+    },
+    {
+     "n": "Marvell",
+     "threat": 3,
+     "note": "Chips a medida para Amazon y Microsoft"
+    },
+    {
+     "n": "Diseño propio de los clientes",
+     "threat": 3,
+     "note": "Los hiperescaladores pueden internalizar más trabajo"
+    },
+    {
+     "n": "AMD",
+     "threat": 2,
+     "note": "Vende GPU y cómputo a laboratorios como Anthropic y OpenAI"
+    }
+   ],
+   "porque": "Informe del analista Ming-Chi Kuo (encuesta sectorial, 20-nov): Google recortaría ~1 M de unidades (~20%) de los envíos de TPU 8i de 2027 diseñados por Broadcom y daría más cuota a MediaTek. No confirmado por Google ni por Broadcom; la amenaza se mantiene en 3.",
+   "fuente": {
+    "t": "Seeking Alpha: Google traslada parte de los pedidos de chips de IA de 2027 de Broadcom a MediaTek, según Ming-Chi Kuo",
+    "u": "https://seekingalpha.com/news/4675203-google-shifts-2027-ai-chip-orders-from-broadcom-to-mediatek-ming-chi-kuo-says",
+    "d": "20-nov-2026"
+   },
+   "verificacion": "Amenaza de MediaTek sin cambios (3); informe de Kuo comprobado en Seeking Alpha y Yahoo (sin confirmar).",
+   "motivo": "Repaso semanal a fondo (nube e IA)"
+  },
+  {
+   "fecha": "2026-11-24",
+   "campo": "growth.drivers",
+   "antes": [
+    {
+     "n": "Aceleradores de IA a medida",
+     "impact": 5,
+     "h": "2026–2028",
+     "st": "en marcha",
+     "k": "XPU ×3,5 en un año · 73% de la IA",
+     "peso": "IA: 56% de las ventas",
+     "d": "Diseña los chips de IA propios de Google (TPU), Anthropic, OpenAI y Meta. Cada cliente es un programa de decenas de miles de millones y cada gigavatio desplegado le supone 20.000–30.000 M$. Prevé ~58.000 M$ de IA en FY26 y ~115.000 M$ en FY27.",
+     "ev": "Ingresos de IA trimestrales y número de clientes de chips a medida (6 en sep-26).",
+     "r": "Concentración: el mayor cliente ya pesa ~32%.",
+     "u": "https://www.fool.com/earnings/call-transcripts/2026/09/09/broadcom-avgo-q3-2026-earnings-call-transcript/"
+    },
+    {
+     "n": "Anthropic y nuevos clientes",
+     "impact": 4,
+     "h": "2027",
+     "st": "en marcha",
+     "k": "Anthropic 10 GW y OpenAI 5 GW en 2028",
+     "peso": "financiación de hasta 92.000 M$",
+     "d": "Anthropic (1 GW en 2026, 5 GW en 2027, 10 GW en 2028) y OpenAI (1,3 GW en 2027, hasta 5 GW en 2028) multiplican la demanda de chips a medida. Broadcom ayuda a financiarlos: 42.000 M$ de deuda garantizada para Anthropic y hasta 50.000 M$ en negociación para OpenAI.",
+     "ev": "Calendario de despliegues y nuevos pedidos.",
+     "r": "Riesgo financiero: si un laboratorio no paga, Broadcom carga con chips difíciles de revender (menos versátiles que las GPU).",
+     "u": "https://www.fool.com/investing/2026/10/13/broadcom-is-backing-anthropic-and-openai-with-92-b/"
+    },
+    {
+     "n": "Redes Ethernet para IA",
+     "impact": 4,
+     "h": "2026–2028",
+     "st": "en marcha",
+     "k": "Tomahawk 6 desplegado · Tomahawk 7 diseñado",
+     "d": "Los clústeres de IA conectan decenas de miles de chips; Broadcom domina los conmutadores Ethernet que lo hacen, también en sistemas con chips de Nvidia. Tomahawk Ultra lleva Ethernet dentro del servidor y la dirección espera que las redes crezcan tan rápido como los XPU.",
+     "ev": "Comentarios sobre redes dentro de los ingresos de IA.",
+     "r": "Competencia de Nvidia (InfiniBand y Spectrum-X).",
+     "peso": "redes ×2,5 en un año",
+     "u": "https://www.fool.com/earnings/call-transcripts/2026/09/09/broadcom-avgo-q3-2026-earnings-call-transcript/"
+    },
+    {
+     "n": "VMware",
+     "impact": 3,
+     "h": "Continuo",
+     "st": "maduro",
+     "k": "Software +29% · ingresos recurrentes +15%",
+     "peso": "8.800 M$ en el 3T FY26",
+     "d": "Pasó a los clientes a suscripción por paquetes: más ingresos por cliente y caja muy estable.",
+     "ev": "Crecimiento de infraestructura de software.",
+     "r": "Clientes que migren a alternativas por las subidas de precio."
+    },
+    {
+     "n": "Dividendo y recompras",
+     "impact": 2,
+     "h": "Continuo",
+     "st": "maduro",
+     "k": "8.450 M$ recomprados en 9 meses",
+     "peso": "FCF del 46% de las ventas",
+     "d": "La enorme caja libre financia dividendo creciente y recompras.",
+     "ev": "FCF y dividendo anual.",
+     "r": "Deuda de la compra de VMware."
+    }
+   ],
+   "despues": [
+    {
+     "n": "Aceleradores de IA a medida",
+     "impact": 5,
+     "h": "2026–2028",
+     "st": "en marcha",
+     "k": "XPU ×3,5 en un año · 73% de la IA",
+     "peso": "IA: 56% de las ventas",
+     "d": "Diseña los chips de IA propios de Google (TPU), Anthropic, OpenAI y Meta. Cada cliente es un programa de decenas de miles de millones y cada gigavatio desplegado le supone 20.000–30.000 M$. Prevé ~58.000 M$ de IA en FY26 y ~115.000 M$ en FY27.",
+     "ev": "Ingresos de IA trimestrales y número de clientes de chips a medida (6 en sep-26).",
+     "r": "Concentración: el mayor cliente ya pesa ~32%. Según Ming-Chi Kuo (20-nov, sin confirmar), Google recortaría un ~20% la TPU 8i de 2027 en favor de MediaTek.",
+     "u": "https://www.fool.com/earnings/call-transcripts/2026/09/09/broadcom-avgo-q3-2026-earnings-call-transcript/"
+    },
+    {
+     "n": "Anthropic y nuevos clientes",
+     "impact": 4,
+     "h": "2027",
+     "st": "en marcha",
+     "k": "Anthropic 10 GW y OpenAI 5 GW en 2028",
+     "peso": "financiación de hasta 92.000 M$",
+     "d": "Anthropic (1 GW en 2026, 5 GW en 2027, 10 GW en 2028) y OpenAI (1,3 GW en 2027, hasta 5 GW en 2028) multiplican la demanda de chips a medida. Broadcom ayuda a financiarlos: 42.000 M$ de deuda garantizada para Anthropic y hasta 50.000 M$ en negociación para OpenAI. Anthropic cotiza en el Nasdaq desde el 19-nov (salida a 83 $ por acción).",
+     "ev": "Calendario de despliegues y nuevos pedidos.",
+     "r": "Riesgo financiero: si un laboratorio no paga, Broadcom carga con chips difíciles de revender (menos versátiles que las GPU).",
+     "u": "https://www.fool.com/investing/2026/10/13/broadcom-is-backing-anthropic-and-openai-with-92-b/"
+    },
+    {
+     "n": "Redes Ethernet para IA",
+     "impact": 4,
+     "h": "2026–2028",
+     "st": "en marcha",
+     "k": "Tomahawk 6 desplegado · Tomahawk 7 diseñado",
+     "d": "Los clústeres de IA conectan decenas de miles de chips; Broadcom domina los conmutadores Ethernet que lo hacen, también en sistemas con chips de Nvidia. Tomahawk Ultra lleva Ethernet dentro del servidor y la dirección espera que las redes crezcan tan rápido como los XPU.",
+     "ev": "Comentarios sobre redes dentro de los ingresos de IA.",
+     "r": "Competencia de Nvidia (InfiniBand y Spectrum-X).",
+     "peso": "redes ×2,5 en un año",
+     "u": "https://www.fool.com/earnings/call-transcripts/2026/09/09/broadcom-avgo-q3-2026-earnings-call-transcript/"
+    },
+    {
+     "n": "VMware",
+     "impact": 3,
+     "h": "Continuo",
+     "st": "maduro",
+     "k": "Software +29% · ingresos recurrentes +15%",
+     "peso": "8.800 M$ en el 3T FY26",
+     "d": "Pasó a los clientes a suscripción por paquetes: más ingresos por cliente y caja muy estable.",
+     "ev": "Crecimiento de infraestructura de software.",
+     "r": "Clientes que migren a alternativas por las subidas de precio."
+    },
+    {
+     "n": "Dividendo y recompras",
+     "impact": 2,
+     "h": "Continuo",
+     "st": "maduro",
+     "k": "8.450 M$ recomprados en 9 meses",
+     "peso": "FCF del 46% de las ventas",
+     "d": "La enorme caja libre financia dividendo creciente y recompras.",
+     "ev": "FCF y dividendo anual.",
+     "r": "Deuda de la compra de VMware."
+    }
+   ],
+   "porque": "Se añade a los motores el informe de Kuo sobre la TPU 8i de Google (riesgo, sin confirmar) y la salida a bolsa ya hecha de Anthropic; estado, indicadores y pesos sin cambios.",
+   "fuente": {
+    "t": "24/7 Wall St.: Broadcom cae un 12% tras un informe de que Google recorta sus planes de chips de IA de Broadcom (20-nov-2026)",
+    "u": "https://247wallst.com/investing/2026/11/20/broadcom-stock-plunges-12-and-loses-191-billion-after-a-report-that-google-cut-its-plans-for-broadcom-ai-chips/",
+    "d": "20-nov-2026"
+   },
+   "verificacion": "Informe de Kuo (~1 M de unidades, ~20%, TPU 8i 2027, MediaTek) comprobado en búsqueda; salida de Anthropic a 83 $ el 19-nov comprobada; resto sin cambios.",
+   "motivo": "Repaso semanal a fondo (nube e IA)"
+  },
+  {
+   "fecha": "2026-11-24",
+   "campo": "risks",
+   "antes": [
+    {
+     "n": "Concentración en pocos clientes",
+     "cat": "Comercial",
+     "p": 3,
+     "i": 5,
+     "note": "Seis clientes de XPU; Anthropic y OpenAI serán los dos mayores en 2027 y aún pierden dinero"
+    },
+    {
+     "n": "Freno del gasto en IA",
+     "cat": "Mercado",
+     "p": 3,
+     "i": 5,
+     "note": "Si hiperescaladores y laboratorios recortan inversión, la IA cae rápido; el 5-nov el ETF de semiconductores cayó ~11%, su peor día desde marzo de 2020"
+    },
+    {
+     "n": "Regulación de la IA y de los centros de datos",
+     "cat": "Regulatorio",
+     "p": 3,
+     "i": 4,
+     "note": "Los demócratas ganaron ambas cámaras el 3-nov; el mercado teme más control sobre permisos, energía y construcción de centros de datos. Aún no hay ninguna ley concreta"
+    },
+    {
+     "n": "Garantías a la financiación de clientes",
+     "cat": "Financiero",
+     "p": 3,
+     "i": 4,
+     "note": "8-K del 27-oct: garantía de valor residual sobre racks de IA arrendados a Anthropic (vehículo de 63.000 M$); pasivo potencial máximo de ~43.000 M$ si el cliente impaga y los racks valen menos del 72,5% de lo pendiente"
+    },
+    {
+     "n": "Geopolítica y Taiwán",
+     "cat": "Geopolítico",
+     "p": 2,
+     "i": 5,
+     "note": "Depende de TSMC para fabricar"
+    },
+    {
+     "n": "Márgenes más bajos por la mezcla de IA",
+     "cat": "Operativo",
+     "p": 4,
+     "i": 2,
+     "note": "Los chips de IA tienen menos margen bruto que el software"
+    },
+    {
+     "n": "Clientes de VMware descontentos",
+     "cat": "Comercial",
+     "p": 3,
+     "i": 2,
+     "note": "Subidas de precio que empujan a algunas empresas a migrar"
+    },
+    {
+     "n": "Deuda",
+     "cat": "Financiero",
+     "p": 2,
+     "i": 2,
+     "note": "59.400 M$, aunque bajando con rapidez"
+    },
+    {
+     "n": "Cuellos de botella de suministro",
+     "cat": "Operativo",
+     "p": 3,
+     "i": 3,
+     "note": "Láseres, sustratos, memoria HBM y energía para los centros de datos de sus clientes"
+    }
+   ],
+   "despues": [
+    {
+     "n": "Concentración en pocos clientes",
+     "cat": "Comercial",
+     "p": 3,
+     "i": 5,
+     "note": "Seis clientes de XPU; Anthropic y OpenAI serán los dos mayores en 2027. El 20-nov la acción cayó un 12,2% por un informe de Ming-Chi Kuo (sin confirmar por Google ni Broadcom) según el cual Google recorta ~20% la TPU 8i de 2027 y da más cuota a MediaTek"
+    },
+    {
+     "n": "Freno del gasto en IA",
+     "cat": "Mercado",
+     "p": 3,
+     "i": 5,
+     "note": "Si hiperescaladores y laboratorios recortan inversión, la IA cae rápido; el 5-nov el ETF de semiconductores cayó ~11%, su peor día desde marzo de 2020"
+    },
+    {
+     "n": "Regulación de la IA y de los centros de datos",
+     "cat": "Regulatorio",
+     "p": 3,
+     "i": 4,
+     "note": "Los demócratas ganaron ambas cámaras el 3-nov; el mercado teme más control sobre permisos, energía y construcción de centros de datos. Aún no hay ninguna ley concreta"
+    },
+    {
+     "n": "Garantías a la financiación de clientes",
+     "cat": "Financiero",
+     "p": 3,
+     "i": 4,
+     "note": "8-K del 27-oct: garantía de valor residual sobre racks de IA arrendados a Anthropic (vehículo de 63.000 M$); pasivo potencial máximo de ~43.000 M$ si el cliente impaga y los racks valen menos del 72,5% de lo pendiente"
+    },
+    {
+     "n": "Geopolítica y Taiwán",
+     "cat": "Geopolítico",
+     "p": 2,
+     "i": 5,
+     "note": "Depende de TSMC para fabricar"
+    },
+    {
+     "n": "Márgenes más bajos por la mezcla de IA",
+     "cat": "Operativo",
+     "p": 4,
+     "i": 2,
+     "note": "Los chips de IA tienen menos margen bruto que el software"
+    },
+    {
+     "n": "Clientes de VMware descontentos",
+     "cat": "Comercial",
+     "p": 3,
+     "i": 2,
+     "note": "Subidas de precio que empujan a algunas empresas a migrar"
+    },
+    {
+     "n": "Deuda",
+     "cat": "Financiero",
+     "p": 2,
+     "i": 2,
+     "note": "59.400 M$, aunque bajando con rapidez"
+    },
+    {
+     "n": "Cuellos de botella de suministro",
+     "cat": "Operativo",
+     "p": 3,
+     "i": 3,
+     "note": "Láseres, sustratos, memoria HBM y energía para los centros de datos de sus clientes"
+    }
+   ],
+   "porque": "La caída del 12,2% del 20-nov se debió a un informe no confirmado sobre un recorte de pedidos de Google: concreta el riesgo de concentración (P e I sin cambios, 3×5). Se quita «aún pierden dinero» porque no se cita una fuente nueva que lo respalde.",
+   "fuente": {
+    "t": "24/7 Wall St.: Broadcom cae un 12% tras un informe de que Google recorta sus planes de chips de IA de Broadcom (20-nov-2026)",
+    "u": "https://247wallst.com/investing/2026/11/20/broadcom-stock-plunges-12-and-loses-191-billion-after-a-report-that-google-cut-its-plans-for-broadcom-ai-chips/",
+    "d": "20-nov-2026"
+   },
+   "verificacion": "Caída del 12,19% el 20-nov (data/AVGO.json → historico_precio) e informe de Kuo comprobado; P e I sin cambios; se quita «aún pierden dinero» (sigue en verdict.bear).",
+   "motivo": "Repaso semanal a fondo (nube e IA)"
+  },
+  {
+   "fecha": "2026-11-24",
+   "campo": "sources.news",
+   "antes": [
+    {
+     "t": "Rothschild & Co Redburn rebaja Broadcom a Neutral y recorta el objetivo de 595 a 398 $: el crecimiento depende de que Anthropic y OpenAI se autofinancien",
+     "src": "TIKR · 13-nov-2026",
+     "u": "https://www.tikr.com/blog/broadcom-sinks-7-as-rothschild-redburn-downgrade-slashes-target-to-398-unlikely-to-occur-quickly"
+    },
+    {
+     "t": "Broadcom y AMD suben al rotar los inversores fuera de Nvidia por la salida de su consejero delegado",
+     "src": "Benzinga · 12-nov-2026",
+     "u": "https://finnhub.io/api/news?id=0137bc50a92512d5372da3022e1a17eda8cfad1b129109e33759c4583f5dcde9"
+    },
+    {
+     "t": "La incertidumbre en Nvidia favorece a los TPU de Google y a Broadcom, según un analista",
+     "src": "Investing.com · 12-nov-2026",
+     "u": "https://finnhub.io/api/news?id=9f2dc50514f525a10dd1ec74ebe6bc1a0ec58e090c99e00b513f4ddd9532f76d"
+    },
+    {
+     "t": "Broadcom entra con ~1.000 M$ en la colocación privada de 26.000 M$ de Anthropic",
+     "src": "Yahoo Finance · 10-nov-2026",
+     "u": "https://finance.yahoo.com/markets/stocks/articles/broadcom-stocks-rise-2-69-173950413.html"
+    },
+    {
+     "t": "Anthropic fija una horquilla de 70–78 $ por acción para su salida a bolsa",
+     "src": "Trace Cohen · 10-nov-2026",
+     "u": "https://tracecohen.substack.com/p/special-edition-anthropic-sets-its"
+    },
+    {
+     "t": "Broadcom sube casi un 9% con el rebote de la IA y los chips",
+     "src": "Seeking Alpha · 9-nov-2026",
+     "u": "https://seekingalpha.com/news/4669286-broadcom-climbs-9-percent-amid-ai-and-chip-stock-rebound"
+    },
+    {
+     "t": "8-K: garantía de valor residual de hasta ~43.000 M$ sobre racks de IA de un cliente",
+     "src": "SEC EDGAR · 27-oct-2026",
+     "u": "https://www.sec.gov/Archives/edgar/data/1730168/000119312526434271/d148323d8k.htm"
+    },
+    {
+     "t": "Broadcom cae un 9% por el miedo a la regulación de la IA tras las elecciones",
+     "src": "TIKR · 5-nov-2026",
+     "u": "https://www.tikr.com/blog/broadcom-sinks-9-as-ai-regulation-fears-deepen-chip-rout"
+    },
+    {
+     "t": "Los chips sufren su peor día desde marzo de 2020 tras la victoria demócrata",
+     "src": "CNBC · 5-nov-2026",
+     "u": "https://www.cnbc.com/2026/11/04/stock-market-today-live-updates.html"
+    },
+    {
+     "t": "IA y centros de datos caen por la victoria demócrata (Reuters)",
+     "src": "MarketScreener · 5-nov-2026",
+     "u": "https://www.marketscreener.com/news/ai-data-center-stocks-slip-as-democratic-sweep-clouds-expansion-plans-ce785fdcdc8ff72c"
+    },
+    {
+     "t": "La salida a bolsa de Anthropic choca con un Wall Street castigado",
+     "src": "Yahoo Finance · 5-nov-2026",
+     "u": "https://finance.yahoo.com/technology/article/anthropics-ipo-plans-run-up-against-a-battered-wall-street-192138177.html"
+    },
+    {
+     "t": "Inversores piden valorar Anthropic cerca de 1 billón $ en vez de 1,5 (WSJ)",
+     "src": "Benzinga · 6-nov-2026",
+     "u": "https://www.benzinga.com/markets/ipos/26/11/62965664/anthropic-ipo-valuation-1-trillion-delay-stock-market-selloff"
+    },
+    {
+     "t": "Broadcom respalda a Anthropic y OpenAI con hasta 92.000 M$",
+     "src": "Motley Fool",
+     "u": "https://www.fool.com/investing/2026/10/13/broadcom-is-backing-anthropic-and-openai-with-92-b/"
+    },
+    {
+     "t": "DA Davidson sube a comprar (400 $) por la salida a bolsa de Anthropic",
+     "src": "24/7 Wall St.",
+     "u": "https://247wallst.com/investing/2026/10/30/broadcom-falls-5-despite-da-davidson-upgrade-on-anthropic-and-openai-ipo-hopes-arm-and-qualcomm-sink-10-marvell-drops-8/"
+    },
+    {
+     "t": "Objetivos de IA: 115.000 M$ en FY27 y 230.000 M$ en FY28",
+     "src": "BigGo Finance",
+     "u": "https://finance.biggo.com/news/US_AVGO_2026-09-02"
+    },
+    {
+     "t": "La cartera de IA de 73.000 M$ es «un objetivo en movimiento»",
+     "src": "Startup Fortune",
+     "u": "https://startupfortune.com/broadcom-tells-investors-not-to-trust-its-own-73-billion-ai-backlog/"
+    },
+    {
+     "t": "Amie Thuener, nueva directora financiera",
+     "src": "Pulse",
+     "u": "https://www.pulse.bot/cfo-pulse/news/broadcom-taps-google-executive-thuener-as-its-next-finance-chief-a887b779-e9e8-4964-8738-1f8a16bd53e8"
+    },
+    {
+     "t": "63.000 M$ para financiar chips de Broadcom para Anthropic",
+     "src": "TIKR",
+     "u": "https://www.tikr.com/blog/wall-street-banks-63-billion-broadcom-ai-chips-anthropic"
+    },
+    {
+     "t": "Macquarie rebaja a neutral por Google y MediaTek",
+     "src": "TIKR",
+     "u": "https://www.tikr.com/blog/broadcom-just-got-downgraded-by-a-major-bank-to-a-437-target-is-the-bear-case-right"
+    },
+    {
+     "t": "Resultados 3T FY26: IA de 16.700 M$ y guía",
+     "src": "FinanceFeeds",
+     "u": "https://financefeeds.com/broadcom-avgo-earnings-bullish-580-bearish-345/"
+    },
+    {
+     "t": "Ingresos récord por la demanda de chips de IA",
+     "src": "Quartz",
+     "u": "https://qz.com/broadcom-record-revenue-ai-chips-quarterly-earnings-090226"
+    }
+   ],
+   "despues": [
+    {
+     "t": "Broadcom cae un 12% después de que Ming-Chi Kuo diga que Google recorta ~20% la TPU 8i de 2027 y da cuota a MediaTek (sin confirmar)",
+     "src": "24/7 Wall St. · 20-nov-2026",
+     "u": "https://247wallst.com/investing/2026/11/20/broadcom-stock-plunges-12-and-loses-191-billion-after-a-report-that-google-cut-its-plans-for-broadcom-ai-chips/"
+    },
+    {
+     "t": "Google traslada parte de los pedidos de chips de IA de 2027 de Broadcom a MediaTek, según Kuo",
+     "src": "Seeking Alpha · 20-nov-2026",
+     "u": "https://seekingalpha.com/news/4675203-google-shifts-2027-ai-chip-orders-from-broadcom-to-mediatek-ming-chi-kuo-says"
+    },
+    {
+     "t": "Anthropic debuta en el Nasdaq tras salir a 83 $ por acción",
+     "src": "Benzinga · 20-nov-2026",
+     "u": "https://www.benzinga.com/markets/equities/26/11/63465390/anthropic-shares-fall-premarket-after-blockbuster-nasdaq-ipo-debut"
+    },
+    {
+     "t": "El regreso de Jensen Huang a Nvidia levanta a los valores de IA; Broadcom sube un 2%",
+     "src": "24/7 Wall St. · 23-nov-2026",
+     "u": "https://247wallst.com/investing/2026/11/23/jensen-huangs-return-just-added-about-500-billion-to-micron-dell-tsmc-and-the-ai-stocks-that-depend-on-nvidia/"
+    },
+    {
+     "t": "Google afirma que el fallo crítico de vCenter (VMware) se explotaba desde septiembre por un grupo ligado a China",
+     "src": "The Register · 23-nov-2026",
+     "u": "https://www.theregister.com/virtualization/2026/11/23/google-claims-last-weeks-critical-vmware-bug-was-under-attack-in-september/5311547"
+    },
+    {
+     "t": "Rothschild & Co Redburn rebaja Broadcom a Neutral y recorta el objetivo de 595 a 398 $: el crecimiento depende de que Anthropic y OpenAI se autofinancien",
+     "src": "TIKR · 13-nov-2026",
+     "u": "https://www.tikr.com/blog/broadcom-sinks-7-as-rothschild-redburn-downgrade-slashes-target-to-398-unlikely-to-occur-quickly"
+    },
+    {
+     "t": "Broadcom entra con ~1.000 M$ en la colocación privada de 26.000 M$ de Anthropic",
+     "src": "Yahoo Finance · 10-nov-2026",
+     "u": "https://finance.yahoo.com/markets/stocks/articles/broadcom-stocks-rise-2-69-173950413.html"
+    },
+    {
+     "t": "Anthropic fija una horquilla de 70–78 $ por acción para su salida a bolsa",
+     "src": "Trace Cohen · 10-nov-2026",
+     "u": "https://tracecohen.substack.com/p/special-edition-anthropic-sets-its"
+    },
+    {
+     "t": "Broadcom sube casi un 9% con el rebote de la IA y los chips",
+     "src": "Seeking Alpha · 9-nov-2026",
+     "u": "https://seekingalpha.com/news/4669286-broadcom-climbs-9-percent-amid-ai-and-chip-stock-rebound"
+    },
+    {
+     "t": "8-K: garantía de valor residual de hasta ~43.000 M$ sobre racks de IA de un cliente",
+     "src": "SEC EDGAR · 27-oct-2026",
+     "u": "https://www.sec.gov/Archives/edgar/data/1730168/000119312526434271/d148323d8k.htm"
+    },
+    {
+     "t": "Broadcom cae un 9% por el miedo a la regulación de la IA tras las elecciones",
+     "src": "TIKR · 5-nov-2026",
+     "u": "https://www.tikr.com/blog/broadcom-sinks-9-as-ai-regulation-fears-deepen-chip-rout"
+    },
+    {
+     "t": "Los chips sufren su peor día desde marzo de 2020 tras la victoria demócrata",
+     "src": "CNBC · 5-nov-2026",
+     "u": "https://www.cnbc.com/2026/11/04/stock-market-today-live-updates.html"
+    },
+    {
+     "t": "IA y centros de datos caen por la victoria demócrata (Reuters)",
+     "src": "MarketScreener · 5-nov-2026",
+     "u": "https://www.marketscreener.com/news/ai-data-center-stocks-slip-as-democratic-sweep-clouds-expansion-plans-ce785fdcdc8ff72c"
+    },
+    {
+     "t": "La salida a bolsa de Anthropic choca con un Wall Street castigado",
+     "src": "Yahoo Finance · 5-nov-2026",
+     "u": "https://finance.yahoo.com/technology/article/anthropics-ipo-plans-run-up-against-a-battered-wall-street-192138177.html"
+    },
+    {
+     "t": "Inversores piden valorar Anthropic cerca de 1 billón $ en vez de 1,5 (WSJ)",
+     "src": "Benzinga · 6-nov-2026",
+     "u": "https://www.benzinga.com/markets/ipos/26/11/62965664/anthropic-ipo-valuation-1-trillion-delay-stock-market-selloff"
+    },
+    {
+     "t": "Broadcom respalda a Anthropic y OpenAI con hasta 92.000 M$",
+     "src": "Motley Fool",
+     "u": "https://www.fool.com/investing/2026/10/13/broadcom-is-backing-anthropic-and-openai-with-92-b/"
+    },
+    {
+     "t": "DA Davidson sube a comprar (400 $) por la salida a bolsa de Anthropic",
+     "src": "24/7 Wall St.",
+     "u": "https://247wallst.com/investing/2026/10/30/broadcom-falls-5-despite-da-davidson-upgrade-on-anthropic-and-openai-ipo-hopes-arm-and-qualcomm-sink-10-marvell-drops-8/"
+    },
+    {
+     "t": "Objetivos de IA: 115.000 M$ en FY27 y 230.000 M$ en FY28",
+     "src": "BigGo Finance",
+     "u": "https://finance.biggo.com/news/US_AVGO_2026-09-02"
+    },
+    {
+     "t": "La cartera de IA de 73.000 M$ es «un objetivo en movimiento»",
+     "src": "Startup Fortune",
+     "u": "https://startupfortune.com/broadcom-tells-investors-not-to-trust-its-own-73-billion-ai-backlog/"
+    },
+    {
+     "t": "Amie Thuener, nueva directora financiera",
+     "src": "Pulse",
+     "u": "https://www.pulse.bot/cfo-pulse/news/broadcom-taps-google-executive-thuener-as-its-next-finance-chief-a887b779-e9e8-4964-8738-1f8a16bd53e8"
+    },
+    {
+     "t": "63.000 M$ para financiar chips de Broadcom para Anthropic",
+     "src": "TIKR",
+     "u": "https://www.tikr.com/blog/wall-street-banks-63-billion-broadcom-ai-chips-anthropic"
+    },
+    {
+     "t": "Macquarie rebaja a neutral por Google y MediaTek",
+     "src": "TIKR",
+     "u": "https://www.tikr.com/blog/broadcom-just-got-downgraded-by-a-major-bank-to-a-437-target-is-the-bear-case-right"
+    },
+    {
+     "t": "Resultados 3T FY26: IA de 16.700 M$ y guía",
+     "src": "FinanceFeeds",
+     "u": "https://financefeeds.com/broadcom-avgo-earnings-bullish-580-bearish-345/"
+    },
+    {
+     "t": "Ingresos récord por la demanda de chips de IA",
+     "src": "Quartz",
+     "u": "https://qz.com/broadcom-record-revenue-ai-chips-quarterly-earnings-090226"
+    }
+   ],
+   "porque": "Noticias de la semana (informe de Kuo, debut de Anthropic, rebote tras el regreso de Huang y fallo de VMware); se quitan dos entradas que solo enlazaban a Finnhub.",
+   "fuente": {
+    "t": "24/7 Wall St.: Broadcom cae un 12% tras un informe de que Google recorta sus planes de chips de IA de Broadcom (20-nov-2026)",
+    "u": "https://247wallst.com/investing/2026/11/20/broadcom-stock-plunges-12-and-loses-191-billion-after-a-report-that-google-cut-its-plans-for-broadcom-ai-chips/",
+    "d": "20-nov-2026"
+   },
+   "verificacion": "Noticias nuevas cuadran con data/AVGO.json (Benzinga Anthropic, 247wallst +2% el 23-nov, The Register vCenter) y búsqueda (Seeking Alpha/Kuo); se quitan dos enlaces de finnhub.",
+   "motivo": "Repaso semanal a fondo (nube e IA)"
+  },
+  {
+   "fecha": "2026-11-24",
+   "campo": "verdict.summary",
+   "antes": "Probablemente el mejor posicionado para el crecimiento de la IA después de Nvidia, con márgenes y caja excepcionales y un equipo muy disciplinado. La acción es muy volátil: cayó con todo el sector el 5-nov por miedo a que el nuevo Congreso demócrata frene los centros de datos, rebotó cuando los inversores salieron de Nvidia tras la salida de su consejero delegado y volvió a caer con la rebaja de Redburn (13-nov), que duda de que Anthropic y OpenAI se autofinancien pronto. He subido la probabilidad del escenario bajista (25% → 30%) por la regulación y por las dudas sobre la salida a bolsa de Anthropic; el modelo da ~410 $. Comprar por debajo de ~340 $, con tamaño moderado y por tramos: la volatilidad puede seguir hasta los resultados del 9-dic.",
+   "despues": "Probablemente el mejor posicionado para el crecimiento de la IA después de Nvidia, con márgenes y caja excepcionales y un equipo muy disciplinado. La acción sigue muy volátil: el 20-nov cayó un 12,2% por un informe del analista Ming-Chi Kuo, no confirmado por Google ni por Broadcom, según el cual Google recorta ~20% la TPU 8i de 2027 en favor de MediaTek, y el 23-nov rebotó con el regreso de Jensen Huang a Nvidia. Anthropic, su mayor cliente de chips a medida en 2027, ya cotiza desde el 19-nov. He subido la probabilidad del escenario bajista (25% → 30%) por la regulación y por las dudas sobre la financiación de los laboratorios. Comprar con tamaño moderado y por tramos: los resultados del 9-dic (primera guía del FY27) dirán si el objetivo de ~115.000 M$ de IA sigue en pie.",
+   "porque": "Recoge la caída del 20-nov (informe de Kuo sin confirmar) y el debut de Anthropic; se quitan las cifras de precio del texto (regla 8.1). Recomendación, precio de compra y convicción sin tocar.",
+   "fuente": {
+    "t": "24/7 Wall St.: Broadcom cae un 12% tras un informe de que Google recorta sus planes de chips de IA de Broadcom (20-nov-2026)",
+    "u": "https://247wallst.com/investing/2026/11/20/broadcom-stock-plunges-12-and-loses-191-billion-after-a-report-that-google-cut-its-plans-for-broadcom-ai-chips/",
+    "d": "20-nov-2026"
+   },
+   "verificacion": "Sin precio de la acción ni precio de compra; caída del 12,2% (data/) e informe de Kuo marcado como no confirmado.",
+   "motivo": "Repaso semanal a fondo (nube e IA)"
+  },
+  {
+   "fecha": "2026-11-24",
+   "campo": "verdict.bear",
+   "antes": [
+    "Anthropic y OpenAI, sus mayores clientes futuros, pierden dinero; Redburn rebaja a Neutral (objetivo de 595 a 398 $) porque duda de que se autofinancien pronto",
+    "Garantía de hasta ~43.000 M$ sobre los racks de Anthropic",
+    "Congreso demócrata: riesgo de límites a los centros de datos",
+    "Margen bruto a la baja por la IA y la memoria"
+   ],
+   "despues": [
+    "Anthropic y OpenAI, sus mayores clientes futuros, pierden dinero; Redburn rebaja a Neutral (objetivo de 595 a 398 $) porque duda de que se autofinancien pronto",
+    "Garantía de hasta ~43.000 M$ sobre los racks de Anthropic",
+    "Congreso demócrata: riesgo de límites a los centros de datos",
+    "Margen bruto a la baja por la IA y la memoria",
+    "Informe no confirmado de Ming-Chi Kuo (20-nov): Google recortaría ~1 M de TPU 8i (~20%) en 2027 y daría más cuota a MediaTek"
+   ],
+   "porque": "Se añade el informe de Kuo que provocó la caída del 12,2% del 20-nov.",
+   "fuente": {
+    "t": "Seeking Alpha: Google traslada parte de los pedidos de chips de IA de 2027 de Broadcom a MediaTek, según Ming-Chi Kuo",
+    "u": "https://seekingalpha.com/news/4675203-google-shifts-2027-ai-chip-orders-from-broadcom-to-mediatek-ming-chi-kuo-says",
+    "d": "20-nov-2026"
+   },
+   "verificacion": "Informe de Kuo (~1 M de unidades, ~20%) comprobado y marcado como no confirmado; resto idéntico.",
+   "motivo": "Repaso semanal a fondo (nube e IA)"
+  },
+  {
+   "fecha": "2026-11-24",
+   "campo": "verdict.watch",
+   "antes": [
+    "Precio de salida de Anthropic (~18-nov) dentro de la horquilla de 70–78 $",
+    "Resultados del 9-dic: guía del 1T FY27 y de IA en FY27",
+    "Propuestas del nuevo Congreso sobre centros de datos y energía",
+    "Suministro de láseres, sustratos y HBM"
+   ],
+   "despues": [
+    "Resultados del 9-dic: guía del 1T FY27, objetivo de IA en FY27 y cualquier comentario sobre los pedidos de TPU de Google",
+    "Reparto de la TPU 8i de 2027 entre Broadcom y MediaTek (informe de Kuo, sin confirmar)",
+    "Anthropic como cotizada: primeros resultados y financiación de sus ~5 GW de 2027",
+    "Propuestas del nuevo Congreso sobre centros de datos y energía",
+    "Suministro de láseres, sustratos y HBM"
+   ],
+   "porque": "La salida a bolsa de Anthropic ya pasó (19-nov, 83 $); se sustituye por su seguimiento como cotizada y se añade el informe de Kuo.",
+   "fuente": {
+    "t": "Benzinga: Anthropic (ANT) cae en preapertura tras su debut en el Nasdaq con una salida a 83 $",
+    "u": "https://www.benzinga.com/markets/equities/26/11/63465390/anthropic-shares-fall-premarket-after-blockbuster-nasdaq-ipo-debut",
+    "d": "20-nov-2026"
+   },
+   "verificacion": "Resultados del 9-dic (broadcom.com), Kuo y Anthropic cotizada comprobados.",
+   "motivo": "Repaso semanal a fondo (nube e IA)"
+  },
+  {
+   "fecha": "2026-11-24",
+   "campo": "meta.asOf",
+   "antes": "17-nov-2026",
+   "despues": "24-nov-2026",
+   "porque": "Repaso semanal a fondo con la lista de comprobación completa (SEC, web oficial, prensa, Gmail, analistas).",
+   "fuente": {
+    "t": "10-Q 3T FY26",
+    "u": "https://www.sec.gov/Archives/edgar/data/1730168/000173016826000080/avgo-20260802.htm",
+    "d": "10-sep-2026"
+   },
+   "verificacion": "Repaso de hoy (24-nov-2026).",
+   "motivo": "Repaso semanal a fondo (nube e IA)"
+  },
+  {
+   "fecha": "2026-11-24",
+   "campo": "meta.repasoFondo",
+   "antes": "17-nov-2026",
+   "despues": "24-nov-2026",
+   "porque": "Repaso semanal a fondo de hoy.",
+   "fuente": {
+    "t": "10-Q 3T FY26",
+    "u": "https://www.sec.gov/Archives/edgar/data/1730168/000173016826000080/avgo-20260802.htm",
+    "d": "10-sep-2026"
+   },
+   "verificacion": "Repaso de hoy (24-nov-2026).",
    "motivo": "Repaso semanal a fondo (nube e IA)"
   }
  ]
