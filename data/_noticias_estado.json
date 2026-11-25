@@ -38,7 +38,7 @@
    "url": "https://feed.businesswire.com/rss/home/?rss=G1QFDERJXkJeEFtRWQ==",
    "tipo": "nota_prensa",
    "ok": true,
-   "titulares": 45,
+   "titulares": 42,
    "error": null
   },
   "prnewswire": {
@@ -62,7 +62,7 @@
    "url": "https://www.world-nuclear-news.org/rss",
    "tipo": "sectorial",
    "ok": true,
-   "titulares": 50,
+   "titulares": 51,
    "error": null
   },
   "ciodive": {
@@ -149,9 +149,9 @@
    "medio": "Fierce Biotech",
    "url": "https://www.fiercebiotech.com/rss/xml",
    "tipo": "sectorial",
-   "ok": false,
+   "ok": true,
    "titulares": 0,
-   "error": "HTTPError: HTTP Error 403: Forbidden"
+   "error": null
   },
   "sala:RDDT": {
    "medio": "Sala de prensa de Reddit",
@@ -206,7 +206,7 @@
    "url": "https://news.google.com/rss/search?q=site%3Abroadcom.com%2Fcompany%2Fnews+when%3A14d&hl=en-US&gl=US&ceid=US%3Aen",
    "tipo": "nota_prensa",
    "ok": true,
-   "titulares": 1,
+   "titulares": 8,
    "error": null
   },
   "sala:PEP": {
@@ -214,7 +214,7 @@
    "url": "https://news.google.com/rss/search?q=site%3Apepsico.com%2Fnewsroom+when%3A14d&hl=en-US&gl=US&ceid=US%3Aen",
    "tipo": "nota_prensa",
    "ok": true,
-   "titulares": 9,
+   "titulares": 11,
    "error": null
   },
   "sala:PATH": {
@@ -238,7 +238,7 @@
    "url": "https://news.google.com/rss/search?q=site%3Amodernatx.com+when%3A14d&hl=en-US&gl=US&ceid=US%3Aen",
    "tipo": "nota_prensa",
    "ok": true,
-   "titulares": 18,
+   "titulares": 19,
    "error": null
   },
   "cnbc_mercados": {
@@ -334,7 +334,7 @@
    "url": "https://feeds.elpais.com/mrss-s/pages/ep/site/cincodias.elpais.com/portada",
    "tipo": "prensa",
    "ok": true,
-   "titulares": 81,
+   "titulares": 88,
    "error": null
   }
  },
@@ -344,5 +344,6 @@
   "Yahoo Finance",
   "Marketaux"
  ],
- "generado": "2026-11-24T08:03:54+00:00"
+ "puente_google": null,
+ "generado": "2026-11-25T00:04:11+00:00"
 }

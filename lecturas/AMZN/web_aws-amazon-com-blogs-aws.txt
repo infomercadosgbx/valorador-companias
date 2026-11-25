@@ -1,7 +1,7 @@
 # fuente: Blog de AWS (lanzamientos)
 # url: https://aws.amazon.com/blogs/aws/
-# copiado: 2026-11-19T18:01Z
-# hash: f4f704e422b3bf39
+# copiado: 2026-11-25T00:04Z
+# hash: c3a2ccb6e1ee017c
 
 AWS News Blog
 
@@ -322,6 +322,12 @@ by Channy Yun (윤석찬) on 19 MAR 2026 in News Permalink Share
 
 Celebrating twenty years of innovation in ML and AI technology at AWS. Countless developers, myself included, have embraced cloud computing and actively used its capabilities to accomplish what was previously impossible.
 
+AWS Weekly Roundup: Local Zone in Bogotá, 30-minute Lambda timeout, and more (November 24, 2026)
+
+by Daniel Abib on 24 NOV 2026 in Amazon Aurora , Amazon CloudFront , Amazon Cognito , Amazon EC2 , Amazon Elastic Block Store (Amazon EBS) , Amazon Elastic Container Registry , Amazon Elastic Container Service , Amazon Elastic Kubernetes Service , Amazon Managed Streaming for Apache Kafka (Amazon MSK) , Amazon Polly , Amazon Simple Storage Service (S3) , Announcements , AWS CloudTrail , AWS Direct Connect , AWS Identity and Access Management (IAM) , AWS Lambda , AWS Local Zones , AWS Security Token Service , News Permalink Comments Share
+
+Some limits shape architecture more than any feature does. AWS Lambda launched in 2014 with a 60-second timeout, moved to 5 minutes in 2015 and to 15 minutes in 2018, and then stayed there for eight years. Last week the limit doubled, and in the same week Lambda learned to run on GPUs and gave […]
+
 AWS Lambda now supports GPU instances for Event Functions on Lambda Managed Instances
 
 by Daniel Abib on 18 NOV 2026 in Announcements , AWS Lambda , Compute , Serverless Permalink Comments Share
@@ -363,12 +369,6 @@ AWS Weekly Roundup: GPT-6.1 Terra on Bedrock, Step Functions as agent tools, and
 by Daniel Abib on 02 NOV 2026 in Amazon Aurora , Amazon Bedrock , Amazon Bedrock AgentCore , Amazon EC2 , Amazon Elastic Container Registry , Amazon Elastic Container Service , Amazon Elastic Kubernetes Service , Amazon SageMaker AI , Amazon Simple Storage Service (S3) , Announcements , AWS Certificate Manager , AWS Fault Injection Service (FIS) , AWS IAM Identity Center , AWS Identity and Access Management (IAM) , AWS Key Management Service , AWS Lambda , AWS re:Invent , AWS Step Functions , News Permalink Comments Share
 
 The agentic launches that stayed with me last week had nothing to do with how capable a model is. They were about reach. AWS Step Functions, which already orchestrates over 220 AWS services, can now be handed to an agent as a tool, so workflows teams already trust became callable without a rewrite. In the […]
-
-AWS Weekly Roundup: Amazon Polly Generative engine, TorchNeuron for Trainium, and more (October 26, 2026)
-
-by Daniel Abib on 26 OCT 2026 in Amazon Bedrock , Amazon Bedrock AgentCore , Amazon EC2 , Amazon Elastic Container Service , Amazon Elastic File System (EFS) , Amazon ElastiCache , Amazon Polly , Amazon SageMaker AI , Announcements , AWS Cloud Financial Management , AWS DataSync , AWS Neuron , AWS Trainium , AWS WAF , News , RDS for Oracle , Security Permalink Comments Share
-
-A few weeks ago I presented to a small group of commercial and technology leaders from Brazilian agribusiness at the AWS office in São Paulo. My talk ran through where generative AI fits across the different stages of an agribusiness operation, and the point I kept returning to is that the markets we call traditional […]
 
 ← Older posts
 
@@ -527,10 +527,27 @@ Cookie Preferences
 - 20 years in the AWS Cloud – how time flies! — https://aws.amazon.com/blogs/aws/20-years-in-the-aws-cloud-how-time-flies/
 - Channy Yun (윤석찬) — https://aws.amazon.com/blogs/aws/author/channy-yun/
 - News — https://aws.amazon.com/blogs/aws/category/news/
-- AWS Lambda now supports GPU instances for Event Functions on Lambda Managed Instances — https://aws.amazon.com/blogs/aws/aws-lambda-now-supports-gpu-instances-for-event-functions-on-lambda-managed-instances/
+- AWS Weekly Roundup: Local Zone in Bogotá, 30-minute Lambda timeout, and more (November 24, 2026) — https://aws.amazon.com/blogs/aws/aws-weekly-roundup-local-zone-in-bogota-30-minute-lambda-timeout-and-more-november-24-2026/
 - Daniel Abib — https://aws.amazon.com/blogs/aws/author/daniabib/
+- Amazon Aurora — https://aws.amazon.com/blogs/aws/category/database/amazon-aurora/
+- Amazon CloudFront — https://aws.amazon.com/blogs/aws/category/networking-content-delivery/amazon-cloudfront/
+- Amazon Cognito — https://aws.amazon.com/blogs/aws/category/security-identity-compliance/amazon-cognito/
+- Amazon EC2 — https://aws.amazon.com/blogs/aws/category/compute/amazon-ec2/
+- Amazon Elastic Block Store (Amazon EBS) — https://aws.amazon.com/blogs/aws/category/storage/amazon-elastic-block-storage-ebs/
+- Amazon Elastic Container Registry — https://aws.amazon.com/blogs/aws/category/compute/amazon-elastic-container-registry/
+- Amazon Elastic Container Service — https://aws.amazon.com/blogs/aws/category/compute/amazon-elastic-container-service/
+- Amazon Elastic Kubernetes Service — https://aws.amazon.com/blogs/aws/category/compute/amazon-kubernetes-service/
+- Amazon Managed Streaming for Apache Kafka (Amazon MSK) — https://aws.amazon.com/blogs/aws/category/analytics/amazon-managed-streaming-for-apache-kafka/
+- Amazon Polly — https://aws.amazon.com/blogs/aws/category/artificial-intelligence/amazon-polly/
+- Amazon Simple Storage Service (S3) — https://aws.amazon.com/blogs/aws/category/storage/amazon-simple-storage-services-s3/
 - Announcements — https://aws.amazon.com/blogs/aws/category/post-types/announcements/
+- AWS CloudTrail — https://aws.amazon.com/blogs/aws/category/management-tools/aws-cloudtrail/
+- AWS Direct Connect — https://aws.amazon.com/blogs/aws/category/networking-content-delivery/aws-direct-connect/
+- AWS Identity and Access Management (IAM) — https://aws.amazon.com/blogs/aws/category/security-identity-compliance/aws-identity-and-access-management-iam/
 - AWS Lambda — https://aws.amazon.com/blogs/aws/category/compute/aws-lambda/
+- AWS Local Zones — https://aws.amazon.com/blogs/aws/category/aws-global-infrastructure/aws-local-zones/
+- AWS Security Token Service — https://aws.amazon.com/blogs/aws/category/security-identity-compliance/aws-security-token-service/
+- AWS Lambda now supports GPU instances for Event Functions on Lambda Managed Instances — https://aws.amazon.com/blogs/aws/aws-lambda-now-supports-gpu-instances-for-event-functions-on-lambda-managed-instances/
 - Compute — https://aws.amazon.com/blogs/aws/category/compute/
 - Serverless — https://aws.amazon.com/blogs/aws/category/serverless/
 - Four Continents, Four New AWS Heroes: Closing Out 2026 — https://aws.amazon.com/blogs/aws/four-continents-four-new-aws-heroes-closing-out-2026/
@@ -539,11 +556,7 @@ Cookie Preferences
 - AWS Weekly Roundup: AWS Nitro Sandboxes, AWS Emulator, and more (November 16, 2026) — https://aws.amazon.com/blogs/aws/aws-weekly-roundup-aws-nitro-sandboxes-aws-emulator-and-more-november-16-2026/
 - Amazon Bedrock — https://aws.amazon.com/blogs/aws/category/artificial-intelligence/amazon-machine-learning/amazon-bedrock/
 - Amazon CloudWatch — https://aws.amazon.com/blogs/aws/category/management-tools/amazon-cloudwatch/
-- Amazon Cognito — https://aws.amazon.com/blogs/aws/category/security-identity-compliance/amazon-cognito/
 - Amazon DynamoDB — https://aws.amazon.com/blogs/aws/category/database/amazon-dynamodb/
-- Amazon EC2 — https://aws.amazon.com/blogs/aws/category/compute/amazon-ec2/
-- Amazon Elastic Container Service — https://aws.amazon.com/blogs/aws/category/compute/amazon-elastic-container-service/
-- Amazon Elastic Kubernetes Service — https://aws.amazon.com/blogs/aws/category/compute/amazon-kubernetes-service/
 - Amazon ElastiCache — https://aws.amazon.com/blogs/aws/category/database/amazon-elasticache/
 - Amazon OpenSearch Service — https://aws.amazon.com/blogs/aws/category/analytics/amazon-elasticsearch-service/
 - AWS re:Invent — https://aws.amazon.com/blogs/aws/category/events/reinvent/
@@ -555,14 +568,10 @@ Cookie Preferences
 - Technical How-to — https://aws.amazon.com/blogs/aws/category/post-types/technical-how-to/
 - AWS Weekly Roundup: AgentCore Runtime V2, Amazon DynamoDB bulk put items, and more (November 9, 2026) — https://aws.amazon.com/blogs/aws/aws-weekly-roundup-agentcore-runtime-v2-amazon-dynamodb-bulk-put-items-and-more-november-9-2026/
 - Amazon Athena — https://aws.amazon.com/blogs/aws/category/analytics/amazon-athena/
-- Amazon Aurora — https://aws.amazon.com/blogs/aws/category/database/amazon-aurora/
-- Amazon Elastic Container Registry — https://aws.amazon.com/blogs/aws/category/compute/amazon-elastic-container-registry/
 - Amazon Inspector — https://aws.amazon.com/blogs/aws/category/security-identity-compliance/amazon-inspector/
 - Amazon S3 Tables — https://aws.amazon.com/blogs/aws/category/storage/amazon-s3-tables/
 - Amazon SageMaker Unified Studio — https://aws.amazon.com/blogs/aws/category/analytics/amazon-sagemaker-unified-studio/
 - Amazon Simple Notification Service (SNS) — https://aws.amazon.com/blogs/aws/category/messaging/amazon-simple-notification-service-sns/
-- Amazon Simple Storage Service (S3) — https://aws.amazon.com/blogs/aws/category/storage/amazon-simple-storage-services-s3/
-- AWS Direct Connect — https://aws.amazon.com/blogs/aws/category/networking-content-delivery/aws-direct-connect/
 - AWS Fargate — https://aws.amazon.com/blogs/aws/category/compute/aws-fargate/
 - AWS Glue — https://aws.amazon.com/blogs/aws/category/analytics/aws-glue/
 - AWS Security Hub — https://aws.amazon.com/blogs/aws/category/security-identity-compliance/aws-security-hub/
@@ -574,14 +583,5 @@ Cookie Preferences
 - AWS Certificate Manager — https://aws.amazon.com/blogs/aws/category/security-identity-compliance/aws-certificate-manager/
 - AWS Fault Injection Service (FIS) — https://aws.amazon.com/blogs/aws/category/developer-tools/aws-fault-injection-service-fis/
 - AWS IAM Identity Center — https://aws.amazon.com/blogs/aws/category/security-identity-compliance/aws-single-sign-on-sso/
-- AWS Identity and Access Management (IAM) — https://aws.amazon.com/blogs/aws/category/security-identity-compliance/aws-identity-and-access-management-iam/
 - AWS Key Management Service — https://aws.amazon.com/blogs/aws/category/security-identity-compliance/aws-key-management-service/
-- AWS Weekly Roundup: Amazon Polly Generative engine, TorchNeuron for Trainium, and more (October 26, 2026) — https://aws.amazon.com/blogs/aws/aws-weekly-roundup-amazon-polly-generative-engine-torchneuron-for-trainium-and-more-october-26-2026/
-- Amazon Elastic File System (EFS) — https://aws.amazon.com/blogs/aws/category/storage/amazon-elastic-file-system-efs/
-- Amazon Polly — https://aws.amazon.com/blogs/aws/category/artificial-intelligence/amazon-polly/
-- AWS Cloud Financial Management — https://aws.amazon.com/blogs/aws/category/aws-cloud-financial-management/
-- AWS DataSync — https://aws.amazon.com/blogs/aws/category/migration/aws-datasync/
-- AWS Neuron — https://aws.amazon.com/blogs/aws/category/artificial-intelligence/aws-neuron/
-- AWS Trainium — https://aws.amazon.com/blogs/aws/category/artificial-intelligence/aws-trainium/
-- AWS WAF — https://aws.amazon.com/blogs/aws/category/security-identity-compliance/aws-waf/
-- RDS for Oracle — https://aws.amazon.com/blogs/aws/category/database/amazon-rds/rds-for-oracle/
+- ← Older posts — https://aws.amazon.com/blogs/aws/page/2/
