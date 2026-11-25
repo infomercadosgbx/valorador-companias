@@ -2,6 +2,28 @@
 
 Una entrada por día (la más reciente arriba). La escribe la tarea programada de la mañana con `python scripts/registro_fuentes.py`. Sirve para ver qué aporta cada fuente y decidir qué quitar o añadir.
 
+## 2026-11-25
+
+_Lo útil vino de lo oficial: el DEF 14C de AppLovin (voto del pacto, 67,2%), el comunicado de Oracle del 20-nov sobre su financiación y la página oficial de clientes de Oracle (contrato del Departamento de Guerra), y el 10-Q de UiPath; TipRanks y TIKR dieron el consenso. Gmail solo aportó contexto sectorial (venta de tecnológicas, vuelta de Jensen Huang a Nvidia) y la variación semanal de Investing; Finnhub y Seeking Alpha trajeron mucho titular genérico. No se pudieron leer: la lista de notas de prensa de investors.applovin.com e investor.oracle.com (montadas con JavaScript) y dos entradas de blogs.oracle.com (WebFetch sin permiso); lecturas/_estado.json sin fallos._
+
+- **Alertas en Gmail** (infomercados.gbx@gmail.com, últimas 24 h): Bloomberg 0, MarketWatch 0, Morningstar 0, CNBC 0, Reuters 0, FT 2, Investing 1, Otros 0.
+- **Titulares nuevos en 24 h (todas las compañías):** Finnhub 77, Google News 18, Seeking Alpha 1, Yahoo Finance 1, Marketaux 3, Medios (prensa, sector y agencias) 6.
+- **Fuentes con fallo** (nº de compañías): Marketaux 2.
+- **Compañías con señal para la revisión de internet:** VST (cotización +7.5 % el 2026-11-23, 1 nota(s) de prensa o noticia(s) sectorial(es)); PEP (2 nota(s) de prensa o noticia(s) sectorial(es), 1 publicación(es) en la sala de prensa de la compañía, SEC: S-3ASR (registro automático de emisión (S-3ASR))); MRNA (cotización +8.8 % el 2026-11-23, cotización +7.2 % el 2026-11-24).
+
+| Compañía | Titulares 24 h | Finnhub | Google News | Seeking Alpha | Yahoo Finance | Marketaux | Medios (prensa, sector y agencias) | StockTwits | Reddit 7 d | Alertas Gmail |
+|---|---:|---:|---:|---:|---:|---:|---:|---|---|---:|
+| APP | 8 | 6 | 0 | 0 | 0 | 1 | 1 | 83 % alc. | — | 1 |
+| GOOGL | 22 | 11 | 2 | 0 | 0 | 1 | 2 | 67 % alc. | — | 0 |
+| RDDT | 2 | 2 | 0 | 0 | 0 | 0 | 0 | 39 % alc. | — | 0 |
+| AMZN | 29 | 9 | 12 | 1 | 0 | 1 | 2 | 100 % alc. | — | 0 |
+| VST | 8 | 6 | 1 | 0 | 0 | 0 | 1 | 82 % alc. | — | 0 |
+| AVGO | 14 | 12 | 0 | 0 | 0 | 0 | 0 | 20 % alc. | — | 0 |
+| PEP | 13 | 12 | 1 | 0 | 0 | 0 | 0 | 67 % alc. | — | 0 |
+| PATH | 2 | 1 | 0 | 0 | 1 | 0 | 0 | 100 % alc. | — | 1 |
+| ORCL | 10 | 10 | 0 | 0 | 0 | 0 | 0 | 22 % alc. | — | 1 |
+| MRNA | 12 | 8 | 2 | 0 | 0 | 0 | 0 | 92 % alc. | — | 0 |
+
 ## 2026-11-24
 
 _Lo útil salió de las lecturas del robot (424B2 de Alphabet, 10-Q de Alphabet y Amazon, 8-K de la junta de Oracle, webs de Broadcom y aboutamazon.com) y de la búsqueda web (Seeking Alpha y 24/7 Wall St. para la caída de Broadcom por el informe de Ming-Chi Kuo, Benzinga para el comunicado de Oracle y la salida a bolsa de Anthropic). Gmail trajo sobre todo boletines generales; ruido en Finnhub (artículos de opinión sobre Nvidia). WebFetch no estuvo disponible en esta ejecución: no se pudo leer el texto del comunicado de Oracle ni la nota de Decart, ni comprobar el consenso de MarketBeat para Alphabet (se dejó el anterior)._
