@@ -7,9 +7,9 @@
   "hq": "Nueva York",
   "founded": "2005 (Bucarest)",
   "employees": "~3.800",
-  "asOf": "18-nov-2026",
+  "asOf": "25-nov-2026",
   "nextEarnings": "3-dic-2026 (tras el cierre; confirmada)",
-  "repasoFondo": "18-nov-2026"
+  "repasoFondo": "25-nov-2026"
  },
  "overview": {
   "thesis": "El líder de la automatización con robots de software intenta convertirse en el «director de orquesta» de los agentes de IA. Rentable, sin deuda y con recompras: gana si la IA agéntica amplía su mercado y la ARR vuelve a acelerar; pierde si los agentes de OpenAI, Microsoft o Salesforce la sustituyen.",
@@ -64,8 +64,8 @@
   ]
  },
  "business": {
-  "model": "Software empresarial por suscripción. El cliente paga licencias de robots y de la plataforma (orquestador, test, minería de procesos, Maestro y agentes) y amplía su uso con los años. Unos 10.350 clientes, con los grandes concentrando la mayor parte del ARR.\nLa estrategia es pasar de vender «robots» a vender la capa que coordina agentes de IA de cualquier proveedor con reglas, auditoría y personas: lo que las empresas reguladas necesitan para usar IA en procesos críticos.",
-  "customers": "Grandes empresas y administraciones: bancos, aseguradoras, sanidad, distribución, gobierno de EE. UU. y Japón. Los clientes de más de 100.000 $ de ARR (2.666) tienen una retención neta del 114%.",
+  "model": "Software empresarial por suscripción. El cliente paga licencias de robots y de la plataforma y amplía su uso con los años. El catálogo oficial se ordena en orquestación (Maestro Orchestrate, Maestro Case, Maestro Flow, BPMN y Process Intelligence), ejecución (agentes de IA con Agent Builder, robots RPA, API, IXP para documentos, Autopilot y Delegate) y gobierno (seguridad, Data Fabric y AI Trust), más pruebas de software (Test Cloud). Novedades de 2026: Cartographer (mapa de procesos), Maestro Automate y UiPath for Coding Agents. Unos 10.350 clientes; los de más de 1 M$ de ARR aportan el 50% de los ingresos.\nLa estrategia es pasar de vender «robots» a vender la capa que coordina agentes de IA de cualquier proveedor con reglas, auditoría y personas: lo que las empresas reguladas necesitan para usar IA en procesos críticos. En febrero de 2026 compró WorkFusion (agentes de IA para cumplimiento contra delitos financieros en banca).",
+  "customers": "Grandes empresas y administraciones: bancos, aseguradoras, sanidad, distribución, industria y sector público. Por regiones, en el 2T FY27: Américas el 50% de los ingresos (EE. UU. el 44%), Europa, Oriente Medio y África el 33% y Asia-Pacífico el 17%. Los clientes de más de 100.000 $ de ARR (2.666) aportan el 88% de los ingresos y tienen una retención neta del 114%. Ningún cliente supera el 10% de las ventas.",
   "segNote": "Ingresos del 2T FY27 por tipo, en M$ (SEC).",
   "segments": [
    {
@@ -84,7 +84,10 @@
   "customerTypes": [
    {
     "n": "Grandes empresas",
-    "d": "387 clientes de más de 1 M$ de ARR (+21%); compran la plataforma completa."
+    "d": "387 clientes de más de 1 M$ de ARR (+21%); compran la plataforma completa.",
+    "u": "https://www.sec.gov/Archives/edgar/data/1734722/000173472226000050/path-20260731.htm",
+    "f": "sep-2026",
+    "fu": "10-Q 2T FY27 · MD&A (métricas clave)"
    },
    {
     "n": "Sector público",
@@ -97,6 +100,20 @@
    {
     "n": "Socios",
     "d": "Consultoras y nubes (Microsoft, Google, AWS) que venden e implantan."
+   },
+   {
+    "n": "Banca y servicios financieros",
+    "d": "En febrero de 2026 compró WorkFusion, especialista en agentes de IA para cumplimiento contra delitos financieros, para ampliar sus soluciones para banca.",
+    "u": "https://www.sec.gov/Archives/edgar/data/1734722/000173472226000050/path-20260731.htm",
+    "f": "sep-2026",
+    "fu": "10-Q 2T FY27 · Nota de adquisiciones"
+   },
+   {
+    "n": "Sanidad",
+    "d": "Socio de lanzamiento de Gemini for Healthcare de Google Cloud (nov-2026): Gemini puede lanzar y seguir automatizaciones y agentes de UiPath.",
+    "u": "https://ir.uipath.com/news/detail/482/uipath-accelerates-enterprise-ai-transformation-with-google-clouds-gemini-for-healthcare",
+    "f": "nov-2026",
+    "fu": "ir.uipath.com · Nota de prensa"
    }
   ],
   "quality": [
@@ -213,6 +230,24 @@
      "d": "Eligió la solución de facturas del área financiera: 96% de precisión y la mitad de tiempo de gestión en la prueba.",
      "u": "https://www.marketbeat.com/instant-alerts/transcript-uipath-q2-earnings-call-highlights-2026-09-03/",
      "f": "sep-26"
+    },
+    {
+     "n": "Banco Azteca",
+     "sector": "Banca",
+     "cifra": "Más de 8.800 procesos",
+     "d": "Usa Maestro para orquestar procesos de principio a fin entre personas, agentes de IA, sistemas y terceros (cumplimiento, fraude, compras, recursos humanos, atención al cliente); más de 300 automatizaciones con IA en producción.",
+     "u": "https://www.uipath.com/newsroom/banco-azteca-selects-uipath-maestro",
+     "fu": "uipath.com · Sala de prensa",
+     "f": "ago-26"
+    },
+    {
+     "n": "One NZ",
+     "sector": "Telecomunicaciones",
+     "cifra": "Altas móviles en menos de 10 minutos",
+     "d": "Orquesta con Maestro sistemas antiguos, modelos de IA, automatizaciones y personas: el alta de líneas móviles pasó de hasta 10 días a menos de 10 minutos; de la prueba a producción en cinco semanas.",
+     "u": "https://www.uipath.com/resources/automation-case-studies/one-nz-transforms-customer-experience-with-ai-and-orchestration",
+     "fu": "uipath.com · Casos de clientes",
+     "f": "nov-26"
     }
    ]
   }
@@ -289,7 +324,7 @@
     "st": "en marcha",
     "k": "ARR de IA >250 M$",
     "peso": "IA en 18 de los 20 mayores contratos",
-    "d": "UiPath pasa de automatizar tareas con robots a orquestar agentes de IA (Maestro). Los contratos con IA son mayores y le abren el presupuesto de IA de las empresas. En noviembre de 2026 entró como socio de lanzamiento de Gemini for Healthcare de Google Cloud: Gemini puede lanzar y seguir automatizaciones y agentes de UiPath a través de su servidor MCP (en vista previa, sin clientes ni cifras publicadas).",
+    "d": "UiPath pasa de automatizar tareas con robots a orquestar agentes de IA (Maestro). Los contratos con IA son mayores y le abren el presupuesto de IA de las empresas. En noviembre de 2026 entró como socio de lanzamiento de Gemini for Healthcare de Google Cloud: Gemini puede lanzar y seguir automatizaciones y agentes de UiPath a través de su servidor MCP (en vista previa, sin clientes ni cifras publicadas). Maestro suma clientes con nombre: Banco Azteca orquesta con él más de 8.800 procesos (ago-26) y One NZ redujo el alta de líneas móviles de días a minutos; en el 2T FY27 se lanzaron Maestro Case y Maestro Flow.",
     "ev": "ARR de IA y nueva ARR neta (37 M$ en el 2T FY27).",
     "r": "Que Microsoft, Salesforce o ServiceNow integren agentes y dejen poco hueco.",
     "u": "https://www.marketbeat.com/instant-alerts/transcript-uipath-q2-earnings-call-highlights-2026-09-03/"
@@ -320,11 +355,23 @@
     "impact": 2,
     "h": "2026–2027",
     "st": "temprano",
-    "k": "Dark Testing Factory",
+    "k": "Test Cloud y soluciones por sector",
     "peso": "sanidad, banca, energía",
-    "d": "Soluciones empaquetadas (facturas, reclamaciones médicas, pruebas de software) que se venden más rápido que la plataforma genérica.",
+    "d": "Soluciones empaquetadas (facturas, reclamaciones médicas, pruebas de software, petróleo y gas desde nov-2026) que se venden más rápido que la plataforma genérica. En pruebas, Gartner la sitúa como líder del cuadrante de plataformas de pruebas con agentes (oct-2026) y lanzó Delegate (sep-2026) y la «dark testing factory» en FUSION 2026.",
     "ev": "Contratos ganados con soluciones verticales.",
-    "r": "Competencia de especialistas de cada sector."
+    "r": "Competencia de especialistas de cada sector.",
+    "u": "https://www.uipath.com/blog/product-and-updates/gartner-magic-quadrant-agentic-software-quality-assurance-platforms"
+   },
+   {
+    "n": "Agentes de programación",
+    "impact": 2,
+    "h": "2026–2027",
+    "st": "temprano",
+    "k": "UiPath for Coding Agents y Maestro Flow",
+    "d": "Permite crear automatizaciones con cualquier agente de programación desde el terminal y llevarlas a producción con el gobierno de la plataforma (Maestro Flow). Abre la puerta a los desarrolladores que ya usan esos agentes; sin cifras publicadas.",
+    "ev": "Uso por desarrolladores y contratos que lo incluyan.",
+    "r": "Que los propios agentes de programación hagan innecesaria la plataforma.",
+    "u": "https://www.uipath.com/blog/product-and-updates/biggest-product-announcements-fusion-2026"
    },
    {
     "n": "Recompras",
@@ -549,12 +596,13 @@
   "conviction": 2.5,
   "buyBelow": 11,
   "horizon": "2–3 años",
-  "summary": "UiPath es hoy un negocio rentable, sin deuda y con recompras, que cotiza a unas 3 veces las ventas y a un ~5–6% de rentabilidad por caja libre. El problema no es el presente sino el futuro: si los agentes de IA de los grandes la vuelven prescindible, el ARR se estancará; si consigue ser la capa neutral que coordina agentes en empresas reguladas, el crecimiento puede volver al 15–20%. El modelo da ~16,5 $ (+20%) con un escenario bajista de ~11 $ y el consenso está en ~15,7 $. Por el riesgo de sustitución, mantener; comprar con margen por debajo de ~11 $ o cuando la IA reacelere la nueva ARR.",
+  "summary": "UiPath es hoy un negocio rentable, sin deuda y con recompras, con 1.405 M$ de caja e inversiones y unos 425 M$ de caja libre al año. El problema no es el presente sino el futuro: si los agentes de IA de los grandes la vuelven prescindible, la ARR se estancará; si consigue ser la capa neutral que coordina agentes en empresas reguladas (Maestro ya tiene clientes como Banco Azteca), el crecimiento puede volver al 15–20%. La guía del 3T FY27 implica 54–59 M$ de nueva ARR, por encima de los 37 M$ del 2T: los resultados del 3-dic dirán si la IA empieza a reacelerar. Por el riesgo de sustitución, mantener a la espera de esa prueba.",
   "bull": [
-   "Rentable, sin deuda y con 1.405 M$ de caja: la caja es ~20% de la capitalización",
-   "FCF de ~425 M$ al año: ~6% de rentabilidad por caja libre",
+   "Rentable, sin deuda y con 1.405 M$ de caja e inversiones",
+   "FCF de ~425 M$ al año, casi sin capex",
    "ARR de IA de más de 250 M$ y retención del 120% en los clientes que usan la plataforma completa",
-   "Recompras a precios bajos"
+   "Maestro suma clientes con nombre (Banco Azteca, One NZ) y nuevos productos (Case, Flow, Cartographer)",
+   "Recompras: nuevo programa de 500 M$ aprobado en marzo de 2026"
   ],
   "bear": [
    "Microsoft, Salesforce, ServiceNow y los grandes modelos compiten con agentes propios",
@@ -563,7 +611,8 @@
    "Fundador con el control de los votos y ventas de directivos"
   ],
   "watch": [
-   "Nueva ARR en el 3T FY27 (3-dic): por encima de 50 M$ sería reaceleración",
+   "Nueva ARR en el 3T FY27 (3-dic): la guía implica 54–59 M$; por debajo, la IA no estaría reacelerando",
+   "Primeras pistas sobre la ARR de FY28 en la llamada del 3-dic (una nota de Cleveland Research del 18-nov ve riesgo a la baja)",
    "ARR de IA y adopción de Maestro",
    "Retención neta por encima del 110%",
    "Pago en acciones bajando hacia el 10% de las ventas"
@@ -595,29 +644,39 @@
   ],
   "news": [
    {
-    "t": "UiPath, socio de lanzamiento de Gemini for Healthcare de Google Cloud (servidor MCP en vista previa)",
-    "src": "Google Cloud (nota de prensa)",
-    "u": "https://www.googlecloudpresscorner.com/2026-11-10-UiPath-Accelerates-Enterprise-AI-Transformation-with-Google-Clouds-Gemini-for-Healthcare"
+    "t": "UiPath cae por una nota que ve riesgo a la baja en la ARR de FY28, en plena venta de software",
+    "src": "Quiver Quantitative (18-nov-2026)",
+    "u": "https://www.quiverquant.com/news/UiPath+slides+as+ARR+concerns+add+to+broader+software-sector+pressure"
    },
    {
-    "t": "DA Davidson rebaja a infraponderar (objetivo 10 $) por el precio de la IA",
-    "src": "CoinCentral",
-    "u": "https://coincentral.com/is-uipath-path-stock-a-sell-after-this-downgrade"
+    "t": "UiPath: las decisiones lentas cuestan a la mayoría de fabricantes y distribuidores de EE. UU. el 4% de sus ingresos (estudio)",
+    "src": "UiPath (sala de prensa, 18-nov-2026)",
+    "u": "https://ir.uipath.com/news/detail/483/slow-decisions-cost-majority-of-us-manufacturers-and-distributors-4-of-annual-revenue-new-research-reveals"
    },
    {
-    "t": "UiPath apunta a 2.000 M$ de ARR con la orquestación de agentes",
-    "src": "MarketBeat",
-    "u": "https://www.marketbeat.com/instant-alerts/event-uipath-targets-2b-arr-with-ai-orchestration-push-at-investor-day-2026-09-23/"
+    "t": "La ARR de UiPath se acerca a 2.000 M$: ¿puede mantener el ritmo?",
+    "src": "Yahoo Finance / Zacks (19-nov-2026)",
+    "u": "https://finance.yahoo.com/markets/stocks/articles/uipaths-arr-nears-2-billion-172700842.html"
    },
    {
-    "t": "Resultados 2T FY27: ingresos +13%",
-    "src": "Nasdaq",
-    "u": "https://www.nasdaq.com/press-release/uipath-reports-second-quarter-fiscal-2027-financial-results-2026-09-03"
+    "t": "ServiceNow frente a UiPath: ¿cuál es mejor compra para 2027?",
+    "src": "The Motley Fool (19-nov-2026)",
+    "u": "https://www.fool.com/coverage/better-buy/2026/11/19/servicenow-vs-uipath-which-technology-stock-is-a-better-buy-for-2027/"
    },
    {
-    "t": "Cae un 87% desde máximos por la competencia de la IA",
-    "src": "Techleap",
-    "u": "https://finder.techleap.nl/news/feed/uipath-shares-down-87-as-agentic-ai-boom-reshapes-automation-market"
+    "t": "Jim Cramer descarta UiPath pese a su valoración baja",
+    "src": "Benzinga (20-nov-2026)",
+    "u": "https://www.benzinga.com/trading-ideas/long-ideas/26/11/63467987/jim-cramer-rejects-uipath-despite-cheap-valuation-backs-affirm"
+   },
+   {
+    "t": "UiPath en 2027: la orquestación de agentes de IA como motor del crecimiento",
+    "src": "The Motley Fool (24-nov-2026)",
+    "u": "https://www.fool.com/coverage/moneyball/2026/11/24/uipath-s-2027-outlook-agentic-ai-orchestration-as-the-driver-of-future-growth/"
+   },
+   {
+    "t": "UiPath sube mientras el mercado cae",
+    "src": "Yahoo Finance / Zacks (24-nov-2026)",
+    "u": "https://finance.yahoo.com/markets/stocks/articles/uipath-path-gains-market-dips-214502262.html"
    }
   ]
  },
@@ -637,10 +696,15 @@
     "p": "YouTube",
     "s": 0,
     "note": "Los vídeos la ven como una historia de «demuéstralo», con DA Davidson en «infraponderar» (10 $) tras el día del inversor."
+   },
+   {
+    "p": "StockTwits",
+    "s": 1,
+    "note": "Medido el 25-nov: de 30 mensajes del 23–24 nov, 14 alcistas y ninguno bajista (100% alcista entre los etiquetados), tras el rebote del 23-nov. Solo tono."
    }
   ],
   "videos": [],
-  "pulseFuente": "Lectura del 1-nov-2026 con SentiSense, LunarCrush y Stocktwits (agregadores de redes sociales) y búsquedas propias."
+  "pulseFuente": "Lectura del 1-nov-2026 con SentiSense, LunarCrush y Stocktwits (agregadores de redes sociales) y búsquedas propias; StockTwits medido el 25-nov-2026 con su API pública."
  },
  "fin_manual": {
   "nota": "Series que la SEC no publica (por segmento). Las etiquetas de trimestre deben coincidir con las de la SEC (p. ej. 3T26).",
@@ -1145,6 +1209,614 @@
     "d": "8-sep-2026"
    },
    "verificacion": "Fecha del repaso de hoy, formato correcto.",
+   "motivo": "Repaso semanal a fondo (software)"
+  },
+  {
+   "fecha": "2026-11-25",
+   "campo": "business.model",
+   "antes": "Software empresarial por suscripción. El cliente paga licencias de robots y de la plataforma (orquestador, test, minería de procesos, Maestro y agentes) y amplía su uso con los años. Unos 10.350 clientes, con los grandes concentrando la mayor parte del ARR.\nLa estrategia es pasar de vender «robots» a vender la capa que coordina agentes de IA de cualquier proveedor con reglas, auditoría y personas: lo que las empresas reguladas necesitan para usar IA en procesos críticos.",
+   "despues": "Software empresarial por suscripción. El cliente paga licencias de robots y de la plataforma y amplía su uso con los años. El catálogo oficial se ordena en orquestación (Maestro Orchestrate, Maestro Case, Maestro Flow, BPMN y Process Intelligence), ejecución (agentes de IA con Agent Builder, robots RPA, API, IXP para documentos, Autopilot y Delegate) y gobierno (seguridad, Data Fabric y AI Trust), más pruebas de software (Test Cloud). Novedades de 2026: Cartographer (mapa de procesos), Maestro Automate y UiPath for Coding Agents. Unos 10.350 clientes; los de más de 1 M$ de ARR aportan el 50% de los ingresos.\nLa estrategia es pasar de vender «robots» a vender la capa que coordina agentes de IA de cualquier proveedor con reglas, auditoría y personas: lo que las empresas reguladas necesitan para usar IA en procesos críticos. En febrero de 2026 compró WorkFusion (agentes de IA para cumplimiento contra delitos financieros en banca).",
+   "porque": "Se completa con el catálogo de la web oficial (productos nuevos de 2026), el peso de los clientes de más de 1 M$ (50% de los ingresos) y la compra de WorkFusion, del 10-Q.",
+   "fuente": {
+    "t": "uipath.com · Catálogo de productos (y 10-Q 2T FY27: adquisición de WorkFusion y métricas clave)",
+    "u": "https://www.uipath.com/product",
+    "d": "nov-2026"
+   },
+   "verificacion": "Catálogo de uipath.com/product (Cartographer, Delegate y Maestro Automate marcados NEW; Coding Agents, BPMN, IXP, Data Fabric, Test Cloud…); 10-Q: clientes ≥1 M$ = 50% de los ingresos y compra de WorkFusion el 5-feb-2026 (delitos financieros, banca). «Agent Builder» no aparece con ese nombre en la página.",
+   "motivo": "Repaso semanal a fondo (software)"
+  },
+  {
+   "fecha": "2026-11-25",
+   "campo": "business.customers",
+   "antes": "Grandes empresas y administraciones: bancos, aseguradoras, sanidad, distribución, gobierno de EE. UU. y Japón. Los clientes de más de 100.000 $ de ARR (2.666) tienen una retención neta del 114%.",
+   "despues": "Grandes empresas y administraciones: bancos, aseguradoras, sanidad, distribución, industria y sector público. Por regiones, en el 2T FY27: Américas el 50% de los ingresos (EE. UU. el 44%), Europa, Oriente Medio y África el 33% y Asia-Pacífico el 17%. Los clientes de más de 100.000 $ de ARR (2.666) aportan el 88% de los ingresos y tienen una retención neta del 114%. Ningún cliente supera el 10% de las ventas.",
+   "porque": "Añade el reparto por regiones, el peso de los clientes de más de 100.000 $ (88%) y la ausencia de clientes de más del 10%, del 10-Q; se conserva la retención del 114% ya recogida (llamada del 2T FY27).",
+   "fuente": {
+    "t": "10-Q del 2T FY27 (SEC)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1734722/000173472226000050/path-20260731.htm",
+    "d": "8-sep-2026"
+   },
+   "verificacion": "10-Q, 2T FY27: Américas 50%, EE. UU. 44%, EMEA 33%, Asia-Pacífico 17%; 2.666 clientes ≥100.000 $ con el 88% de los ingresos; ningún cliente ≥10%.",
+   "motivo": "Repaso semanal a fondo (software)"
+  },
+  {
+   "fecha": "2026-11-25",
+   "campo": "business.customerTypes",
+   "antes": [
+    {
+     "n": "Grandes empresas",
+     "d": "387 clientes de más de 1 M$ de ARR (+21%); compran la plataforma completa."
+    },
+    {
+     "n": "Sector público",
+     "d": "Gobierno federal de EE. UU. y administraciones; ciclos largos."
+    },
+    {
+     "n": "Mediana empresa",
+     "d": "Donde se concentran las bajas; más sensible al precio y a sustitutos de IA."
+    },
+    {
+     "n": "Socios",
+     "d": "Consultoras y nubes (Microsoft, Google, AWS) que venden e implantan."
+    }
+   ],
+   "despues": [
+    {
+     "n": "Grandes empresas",
+     "d": "387 clientes de más de 1 M$ de ARR (+21%); compran la plataforma completa.",
+     "u": "https://www.sec.gov/Archives/edgar/data/1734722/000173472226000050/path-20260731.htm",
+     "f": "sep-2026",
+     "fu": "10-Q 2T FY27 · MD&A (métricas clave)"
+    },
+    {
+     "n": "Sector público",
+     "d": "Gobierno federal de EE. UU. y administraciones; ciclos largos."
+    },
+    {
+     "n": "Mediana empresa",
+     "d": "Donde se concentran las bajas; más sensible al precio y a sustitutos de IA."
+    },
+    {
+     "n": "Socios",
+     "d": "Consultoras y nubes (Microsoft, Google, AWS) que venden e implantan."
+    },
+    {
+     "n": "Banca y servicios financieros",
+     "d": "En febrero de 2026 compró WorkFusion, especialista en agentes de IA para cumplimiento contra delitos financieros, para ampliar sus soluciones para banca.",
+     "u": "https://www.sec.gov/Archives/edgar/data/1734722/000173472226000050/path-20260731.htm",
+     "f": "sep-2026",
+     "fu": "10-Q 2T FY27 · Nota de adquisiciones"
+    },
+    {
+     "n": "Sanidad",
+     "d": "Socio de lanzamiento de Gemini for Healthcare de Google Cloud (nov-2026): Gemini puede lanzar y seguir automatizaciones y agentes de UiPath.",
+     "u": "https://ir.uipath.com/news/detail/482/uipath-accelerates-enterprise-ai-transformation-with-google-clouds-gemini-for-healthcare",
+     "f": "nov-2026",
+     "fu": "ir.uipath.com · Nota de prensa"
+    }
+   ],
+   "porque": "Enlace oficial para «Grandes empresas» (10-Q) y dos tipos nuevos con respaldo oficial: banca (compra de WorkFusion) y sanidad (Gemini for Healthcare). Texto y orden de los demás, sin cambios.",
+   "fuente": {
+    "t": "10-Q del 2T FY27 (SEC)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1734722/000173472226000050/path-20260731.htm",
+    "d": "8-sep-2026"
+   },
+   "verificacion": "10-Q: 387 clientes ≥1 M$ (320 un año antes, +21%) y WorkFusion (5-feb-26); nota de prensa del 10-nov: UiPath socio de lanzamiento de Gemini for Healthcare, Gemini lanza y sigue automatizaciones y agentes vía MCP.",
+   "motivo": "Repaso semanal a fondo (software)"
+  },
+  {
+   "fecha": "2026-11-25",
+   "campo": "business.clients.conocidos",
+   "antes": [
+    {
+     "n": "Departamento de Defensa de EE. UU.",
+     "sector": "Sector público",
+     "cifra": "Amplía la relación (2T FY27)",
+     "d": "Auditoría y conciliación con Autopilot, procesamiento de documentos y pruebas automatizadas.",
+     "u": "https://www.marketbeat.com/instant-alerts/transcript-uipath-q2-earnings-call-highlights-2026-09-03/",
+     "f": "sep-26"
+    },
+    {
+     "n": "BDO USA",
+     "sector": "Socio · auditoría",
+     "cifra": "Agentes para auditoría interna",
+     "d": "Amplía la alianza (sep-26) para crear juntos agentes de IA que revisan controles de TI y cumplimiento del área financiera; BDO los vende a sus clientes.",
+     "u": "https://finance.yahoo.com/technology/ai/articles/uipath-expands-partnership-bdo-build-114720958.html",
+     "fu": "Yahoo Finance",
+     "f": "sep-26"
+    },
+    {
+     "n": "Fiserv",
+     "t": "FI",
+     "sector": "Pagos",
+     "cifra": "IA a escala",
+     "d": "Usa UiPath para escalar la IA de forma segura en sus procesos.",
+     "u": "https://www-reverse-proxy.uipathcom.workers.dev/resources/automation-case-studies/fiserv-builds-safe-scalable-ai"
+    },
+    {
+     "n": "TD Bank",
+     "t": "TD",
+     "sector": "Banca",
+     "cifra": "Toda la organización",
+     "d": "Automatización a escala en el banco.",
+     "u": "https://production-uipath-preview.azurewebsites.net/resources/automation-case-studies/td-bank-accelerates-enterprise-transformation-with-automation"
+    },
+    {
+     "n": "WEX",
+     "t": "WEX",
+     "sector": "Pagos",
+     "cifra": "Operaciones",
+     "d": "Simplifica operaciones con automatización.",
+     "u": "https://www-reverse-proxy.uipathcom.workers.dev/resources/automation-case-studies/wex-is-streamlining-operations-with-automation"
+    },
+    {
+     "n": "PZU",
+     "sector": "Seguros",
+     "cifra": "Siniestros",
+     "d": "Siniestros más rápidos y mejor atención al cliente.",
+     "u": "https://www.casestudies.com/company/uipath/case-study/pzu-improves-customer-experience-with-rpa"
+    },
+    {
+     "n": "Fabricante del Fortune Global 500",
+     "sector": "Industria",
+     "cifra": "~700.000 facturas/año",
+     "d": "Eligió la solución de facturas del área financiera: 96% de precisión y la mitad de tiempo de gestión en la prueba.",
+     "u": "https://www.marketbeat.com/instant-alerts/transcript-uipath-q2-earnings-call-highlights-2026-09-03/",
+     "f": "sep-26"
+    }
+   ],
+   "despues": [
+    {
+     "n": "Departamento de Defensa de EE. UU.",
+     "sector": "Sector público",
+     "cifra": "Amplía la relación (2T FY27)",
+     "d": "Auditoría y conciliación con Autopilot, procesamiento de documentos y pruebas automatizadas.",
+     "u": "https://www.marketbeat.com/instant-alerts/transcript-uipath-q2-earnings-call-highlights-2026-09-03/",
+     "f": "sep-26"
+    },
+    {
+     "n": "BDO USA",
+     "sector": "Socio · auditoría",
+     "cifra": "Agentes para auditoría interna",
+     "d": "Amplía la alianza (sep-26) para crear juntos agentes de IA que revisan controles de TI y cumplimiento del área financiera; BDO los vende a sus clientes.",
+     "u": "https://finance.yahoo.com/technology/ai/articles/uipath-expands-partnership-bdo-build-114720958.html",
+     "fu": "Yahoo Finance",
+     "f": "sep-26"
+    },
+    {
+     "n": "Fiserv",
+     "t": "FI",
+     "sector": "Pagos",
+     "cifra": "IA a escala",
+     "d": "Usa UiPath para escalar la IA de forma segura en sus procesos.",
+     "u": "https://www-reverse-proxy.uipathcom.workers.dev/resources/automation-case-studies/fiserv-builds-safe-scalable-ai"
+    },
+    {
+     "n": "TD Bank",
+     "t": "TD",
+     "sector": "Banca",
+     "cifra": "Toda la organización",
+     "d": "Automatización a escala en el banco.",
+     "u": "https://production-uipath-preview.azurewebsites.net/resources/automation-case-studies/td-bank-accelerates-enterprise-transformation-with-automation"
+    },
+    {
+     "n": "WEX",
+     "t": "WEX",
+     "sector": "Pagos",
+     "cifra": "Operaciones",
+     "d": "Simplifica operaciones con automatización.",
+     "u": "https://www-reverse-proxy.uipathcom.workers.dev/resources/automation-case-studies/wex-is-streamlining-operations-with-automation"
+    },
+    {
+     "n": "PZU",
+     "sector": "Seguros",
+     "cifra": "Siniestros",
+     "d": "Siniestros más rápidos y mejor atención al cliente.",
+     "u": "https://www.casestudies.com/company/uipath/case-study/pzu-improves-customer-experience-with-rpa"
+    },
+    {
+     "n": "Fabricante del Fortune Global 500",
+     "sector": "Industria",
+     "cifra": "~700.000 facturas/año",
+     "d": "Eligió la solución de facturas del área financiera: 96% de precisión y la mitad de tiempo de gestión en la prueba.",
+     "u": "https://www.marketbeat.com/instant-alerts/transcript-uipath-q2-earnings-call-highlights-2026-09-03/",
+     "f": "sep-26"
+    },
+    {
+     "n": "Banco Azteca",
+     "sector": "Banca",
+     "cifra": "Más de 8.800 procesos",
+     "d": "Usa Maestro para orquestar procesos de principio a fin entre personas, agentes de IA, sistemas y terceros (cumplimiento, fraude, compras, recursos humanos, atención al cliente); más de 300 automatizaciones con IA en producción.",
+     "u": "https://www.uipath.com/newsroom/banco-azteca-selects-uipath-maestro",
+     "fu": "uipath.com · Sala de prensa",
+     "f": "ago-26"
+    },
+    {
+     "n": "One NZ",
+     "sector": "Telecomunicaciones",
+     "cifra": "Altas móviles en menos de 10 minutos",
+     "d": "Orquesta con Maestro sistemas antiguos, modelos de IA, automatizaciones y personas: el alta de líneas móviles pasó de hasta 10 días a menos de 10 minutos; de la prueba a producción en cinco semanas.",
+     "u": "https://www.uipath.com/resources/automation-case-studies/one-nz-transforms-customer-experience-with-ai-and-orchestration",
+     "fu": "uipath.com · Casos de clientes",
+     "f": "nov-26"
+    }
+   ],
+   "porque": "Dos clientes nuevos con nombre de Maestro en la web oficial (Banco Azteca, ago-26; One NZ); los siete actuales, sin cambios.",
+   "fuente": {
+    "t": "UiPath, nota de prensa: Banco Azteca selecciona UiPath Maestro",
+    "u": "https://www.uipath.com/newsroom/banco-azteca-selects-uipath-maestro",
+    "d": "26-ago-2026"
+   },
+   "verificacion": "Nota de prensa del 26-ago-26: más de 8.800 procesos, más de 300 automatizaciones en producción con IA y agentes, cumplimiento/fraude/compras/RR. HH./atención al cliente; caso One NZ: de hasta 10 días a menos de 10 minutos y de prueba a producción en cinco semanas con Maestro (la página no tiene fecha; la nota original es de jun-26).",
+   "motivo": "Repaso semanal a fondo (software)"
+  },
+  {
+   "fecha": "2026-11-25",
+   "campo": "growth.drivers",
+   "antes": [
+    {
+     "n": "Agentes de IA y Maestro",
+     "impact": 4,
+     "h": "2026–2028",
+     "st": "en marcha",
+     "k": "ARR de IA >250 M$",
+     "peso": "IA en 18 de los 20 mayores contratos",
+     "d": "UiPath pasa de automatizar tareas con robots a orquestar agentes de IA (Maestro). Los contratos con IA son mayores y le abren el presupuesto de IA de las empresas. En noviembre de 2026 entró como socio de lanzamiento de Gemini for Healthcare de Google Cloud: Gemini puede lanzar y seguir automatizaciones y agentes de UiPath a través de su servidor MCP (en vista previa, sin clientes ni cifras publicadas).",
+     "ev": "ARR de IA y nueva ARR neta (37 M$ en el 2T FY27).",
+     "r": "Que Microsoft, Salesforce o ServiceNow integren agentes y dejen poco hueco.",
+     "u": "https://www.marketbeat.com/instant-alerts/transcript-uipath-q2-earnings-call-highlights-2026-09-03/"
+    },
+    {
+     "n": "Grandes clientes",
+     "impact": 3,
+     "h": "Continuo",
+     "st": "maduro",
+     "k": "Clientes >1 M$: 387 (+21%)",
+     "peso": "retención neta del 109%",
+     "d": "Los grandes clientes amplían el uso y concentran la ARR; la retención neta mejora (109% frente a 106% a principios de año).",
+     "ev": "Clientes de más de 1 M$ y retención neta.",
+     "r": "Recortes de presupuesto de TI en banca y seguros."
+    },
+    {
+     "n": "Nuevos precios",
+     "impact": 3,
+     "h": "2027",
+     "st": "temprano",
+     "k": "Por transacción y por resultado",
+     "d": "Cobrar por uso o por resultado en lugar de por licencia puede subir el ingreso por cliente a medida que los agentes hacen más trabajo.",
+     "ev": "Peso de los contratos con los nuevos precios.",
+     "r": "Ingresos menos previsibles durante la transición."
+    },
+    {
+     "n": "Test y soluciones verticales",
+     "impact": 2,
+     "h": "2026–2027",
+     "st": "temprano",
+     "k": "Dark Testing Factory",
+     "peso": "sanidad, banca, energía",
+     "d": "Soluciones empaquetadas (facturas, reclamaciones médicas, pruebas de software) que se venden más rápido que la plataforma genérica.",
+     "ev": "Contratos ganados con soluciones verticales.",
+     "r": "Competencia de especialistas de cada sector."
+    },
+    {
+     "n": "Recompras",
+     "impact": 2,
+     "h": "Continuo",
+     "st": "maduro",
+     "k": "Pago en acciones objetivo 8–10% de ventas",
+     "d": "Reducen las acciones y compensan parte del pago en acciones.",
+     "ev": "Acciones en circulación.",
+     "r": "Dilución si el pago en acciones no baja."
+    }
+   ],
+   "despues": [
+    {
+     "n": "Agentes de IA y Maestro",
+     "impact": 4,
+     "h": "2026–2028",
+     "st": "en marcha",
+     "k": "ARR de IA >250 M$",
+     "peso": "IA en 18 de los 20 mayores contratos",
+     "d": "UiPath pasa de automatizar tareas con robots a orquestar agentes de IA (Maestro). Los contratos con IA son mayores y le abren el presupuesto de IA de las empresas. En noviembre de 2026 entró como socio de lanzamiento de Gemini for Healthcare de Google Cloud: Gemini puede lanzar y seguir automatizaciones y agentes de UiPath a través de su servidor MCP (en vista previa, sin clientes ni cifras publicadas). Maestro suma clientes con nombre: Banco Azteca orquesta con él más de 8.800 procesos (ago-26) y One NZ redujo el alta de líneas móviles de días a minutos; en el 2T FY27 se lanzaron Maestro Case y Maestro Flow.",
+     "ev": "ARR de IA y nueva ARR neta (37 M$ en el 2T FY27).",
+     "r": "Que Microsoft, Salesforce o ServiceNow integren agentes y dejen poco hueco.",
+     "u": "https://www.marketbeat.com/instant-alerts/transcript-uipath-q2-earnings-call-highlights-2026-09-03/"
+    },
+    {
+     "n": "Grandes clientes",
+     "impact": 3,
+     "h": "Continuo",
+     "st": "maduro",
+     "k": "Clientes >1 M$: 387 (+21%)",
+     "peso": "retención neta del 109%",
+     "d": "Los grandes clientes amplían el uso y concentran la ARR; la retención neta mejora (109% frente a 106% a principios de año).",
+     "ev": "Clientes de más de 1 M$ y retención neta.",
+     "r": "Recortes de presupuesto de TI en banca y seguros."
+    },
+    {
+     "n": "Nuevos precios",
+     "impact": 3,
+     "h": "2027",
+     "st": "temprano",
+     "k": "Por transacción y por resultado",
+     "d": "Cobrar por uso o por resultado en lugar de por licencia puede subir el ingreso por cliente a medida que los agentes hacen más trabajo.",
+     "ev": "Peso de los contratos con los nuevos precios.",
+     "r": "Ingresos menos previsibles durante la transición."
+    },
+    {
+     "n": "Test y soluciones verticales",
+     "impact": 2,
+     "h": "2026–2027",
+     "st": "temprano",
+     "k": "Test Cloud y soluciones por sector",
+     "peso": "sanidad, banca, energía",
+     "d": "Soluciones empaquetadas (facturas, reclamaciones médicas, pruebas de software, petróleo y gas desde nov-2026) que se venden más rápido que la plataforma genérica. En pruebas, Gartner la sitúa como líder del cuadrante de plataformas de pruebas con agentes (oct-2026) y lanzó Delegate (sep-2026) y la «dark testing factory» en FUSION 2026.",
+     "ev": "Contratos ganados con soluciones verticales.",
+     "r": "Competencia de especialistas de cada sector.",
+     "u": "https://www.uipath.com/blog/product-and-updates/gartner-magic-quadrant-agentic-software-quality-assurance-platforms"
+    },
+    {
+     "n": "Agentes de programación",
+     "impact": 2,
+     "h": "2026–2027",
+     "st": "temprano",
+     "k": "UiPath for Coding Agents y Maestro Flow",
+     "d": "Permite crear automatizaciones con cualquier agente de programación desde el terminal y llevarlas a producción con el gobierno de la plataforma (Maestro Flow). Abre la puerta a los desarrolladores que ya usan esos agentes; sin cifras publicadas.",
+     "ev": "Uso por desarrolladores y contratos que lo incluyan.",
+     "r": "Que los propios agentes de programación hagan innecesaria la plataforma.",
+     "u": "https://www.uipath.com/blog/product-and-updates/biggest-product-announcements-fusion-2026"
+    },
+    {
+     "n": "Recompras",
+     "impact": 2,
+     "h": "Continuo",
+     "st": "maduro",
+     "k": "Pago en acciones objetivo 8–10% de ventas",
+     "d": "Reducen las acciones y compensan parte del pago en acciones.",
+     "ev": "Acciones en circulación.",
+     "r": "Dilución si el pago en acciones no baja."
+    }
+   ],
+   "porque": "Agentes y Maestro: clientes con nombre y lanzamientos del 2T; Test y soluciones: Gartner, Delegate y petróleo y gas; nuevo motor temprano: agentes de programación. Estados y pesos sin cambios.",
+   "fuente": {
+    "t": "UiPath, blog: anuncios de FUSION 2026",
+    "u": "https://www.uipath.com/blog/product-and-updates/biggest-product-announcements-fusion-2026",
+    "d": "23-sep-2026"
+   },
+   "verificacion": "Gemini for Healthcare (10-nov, MCP en vista previa, sin clientes ni cifras); Banco Azteca 8.800 procesos; One NZ; Maestro Case y Flow lanzados en el 2T FY27 (Ex. 99.1); Gartner (9-oct), Delegate (30-sep), FUSION 2026 (23-sep: Coding Agents, dark testing factory) y petróleo y gas (NEW, blog 2-nov) en la copia del blog.",
+   "motivo": "Repaso semanal a fondo (software)"
+  },
+  {
+   "fecha": "2026-11-25",
+   "campo": "verdict.summary",
+   "antes": "UiPath es hoy un negocio rentable, sin deuda y con recompras, que cotiza a unas 3 veces las ventas y a un ~5–6% de rentabilidad por caja libre. El problema no es el presente sino el futuro: si los agentes de IA de los grandes la vuelven prescindible, el ARR se estancará; si consigue ser la capa neutral que coordina agentes en empresas reguladas, el crecimiento puede volver al 15–20%. El modelo da ~16,5 $ (+20%) con un escenario bajista de ~11 $ y el consenso está en ~15,7 $. Por el riesgo de sustitución, mantener; comprar con margen por debajo de ~11 $ o cuando la IA reacelere la nueva ARR.",
+   "despues": "UiPath es hoy un negocio rentable, sin deuda y con recompras, con 1.405 M$ de caja e inversiones y unos 425 M$ de caja libre al año. El problema no es el presente sino el futuro: si los agentes de IA de los grandes la vuelven prescindible, la ARR se estancará; si consigue ser la capa neutral que coordina agentes en empresas reguladas (Maestro ya tiene clientes como Banco Azteca), el crecimiento puede volver al 15–20%. La guía del 3T FY27 implica 54–59 M$ de nueva ARR, por encima de los 37 M$ del 2T: los resultados del 3-dic dirán si la IA empieza a reacelerar. Por el riesgo de sustitución, mantener a la espera de esa prueba.",
+   "porque": "Quita el precio, el valor del modelo y el nivel de compra con cifra (regla 8.1) y añade lo que se juega el 3-dic según la guía oficial (1.992–1.997 M$ de ARR frente a 1.937,7 M$).",
+   "fuente": {
+    "t": "Nota de resultados 2T FY27 (8-K, Ex. 99.1)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1734722/000173472226000047/path-2026731xex991.htm",
+    "d": "3-sep-2026"
+   },
+   "verificacion": "Guía del 3T FY27: ARR de 1.992–1.997 M$ frente a 1.937,7 M$ (Ex. 99.1 y 10-Q) = 54–59 M$ de nueva ARR; caja 1.405 M$; resultados el 3-dic (ir.uipath.com); sin precio de la acción ni nivel de compra con cifra.",
+   "motivo": "Repaso semanal a fondo (software)"
+  },
+  {
+   "fecha": "2026-11-25",
+   "campo": "verdict.bull",
+   "antes": [
+    "Rentable, sin deuda y con 1.405 M$ de caja: la caja es ~20% de la capitalización",
+    "FCF de ~425 M$ al año: ~6% de rentabilidad por caja libre",
+    "ARR de IA de más de 250 M$ y retención del 120% en los clientes que usan la plataforma completa",
+    "Recompras a precios bajos"
+   ],
+   "despues": [
+    "Rentable, sin deuda y con 1.405 M$ de caja e inversiones",
+    "FCF de ~425 M$ al año, casi sin capex",
+    "ARR de IA de más de 250 M$ y retención del 120% en los clientes que usan la plataforma completa",
+    "Maestro suma clientes con nombre (Banco Azteca, One NZ) y nuevos productos (Case, Flow, Cartographer)",
+    "Recompras: nuevo programa de 500 M$ aprobado en marzo de 2026"
+   ],
+   "porque": "Quita las cifras que dependen del precio (peso de la caja en la capitalización, rentabilidad por caja libre, «a precios bajos») y añade Maestro con clientes oficiales.",
+   "fuente": {
+    "t": "10-Q del 2T FY27 (SEC)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1734722/000173472226000050/path-20260731.htm",
+    "d": "8-sep-2026"
+   },
+   "verificacion": "Caja 1.405 M$ (Ex. 99.1), programa de recompra nuevo de marzo de 2026 (10-Q), Maestro Case y Flow (Ex. 99.1), Cartographer (web), Banco Azteca y One NZ (web oficial).",
+   "motivo": "Repaso semanal a fondo (software)"
+  },
+  {
+   "fecha": "2026-11-25",
+   "campo": "verdict.watch",
+   "antes": [
+    "Nueva ARR en el 3T FY27 (3-dic): por encima de 50 M$ sería reaceleración",
+    "ARR de IA y adopción de Maestro",
+    "Retención neta por encima del 110%",
+    "Pago en acciones bajando hacia el 10% de las ventas"
+   ],
+   "despues": [
+    "Nueva ARR en el 3T FY27 (3-dic): la guía implica 54–59 M$; por debajo, la IA no estaría reacelerando",
+    "Primeras pistas sobre la ARR de FY28 en la llamada del 3-dic (una nota de Cleveland Research del 18-nov ve riesgo a la baja)",
+    "ARR de IA y adopción de Maestro",
+    "Retención neta por encima del 110%",
+    "Pago en acciones bajando hacia el 10% de las ventas"
+   ],
+   "porque": "La nueva ARR implícita en la guía (1.992–1.997 M$ frente a 1.937,7 M$) ya supera los 50 M$; se añade la duda sobre la ARR de FY28 que movió la acción el 18-nov.",
+   "fuente": {
+    "t": "Nota de resultados 2T FY27 (8-K, Ex. 99.1)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1734722/000173472226000047/path-2026731xex991.htm",
+    "d": "3-sep-2026"
+   },
+   "verificacion": "54–59 M$ implícitos en la guía (Ex. 99.1); llamada del 3-dic en ir.uipath.com; nota de Cleveland Research del 18-nov en data → noticias (Seeking Alpha) y Quiver.",
+   "motivo": "Repaso semanal a fondo (software)"
+  },
+  {
+   "fecha": "2026-11-25",
+   "campo": "sources.news",
+   "antes": [
+    {
+     "t": "UiPath, socio de lanzamiento de Gemini for Healthcare de Google Cloud (servidor MCP en vista previa)",
+     "src": "Google Cloud (nota de prensa)",
+     "u": "https://www.googlecloudpresscorner.com/2026-11-10-UiPath-Accelerates-Enterprise-AI-Transformation-with-Google-Clouds-Gemini-for-Healthcare"
+    },
+    {
+     "t": "DA Davidson rebaja a infraponderar (objetivo 10 $) por el precio de la IA",
+     "src": "CoinCentral",
+     "u": "https://coincentral.com/is-uipath-path-stock-a-sell-after-this-downgrade"
+    },
+    {
+     "t": "UiPath apunta a 2.000 M$ de ARR con la orquestación de agentes",
+     "src": "MarketBeat",
+     "u": "https://www.marketbeat.com/instant-alerts/event-uipath-targets-2b-arr-with-ai-orchestration-push-at-investor-day-2026-09-23/"
+    },
+    {
+     "t": "Resultados 2T FY27: ingresos +13%",
+     "src": "Nasdaq",
+     "u": "https://www.nasdaq.com/press-release/uipath-reports-second-quarter-fiscal-2027-financial-results-2026-09-03"
+    },
+    {
+     "t": "Cae un 87% desde máximos por la competencia de la IA",
+     "src": "Techleap",
+     "u": "https://finder.techleap.nl/news/feed/uipath-shares-down-87-as-agentic-ai-boom-reshapes-automation-market"
+    }
+   ],
+   "despues": [
+    {
+     "t": "UiPath cae por una nota que ve riesgo a la baja en la ARR de FY28, en plena venta de software",
+     "src": "Quiver Quantitative (18-nov-2026)",
+     "u": "https://www.quiverquant.com/news/UiPath+slides+as+ARR+concerns+add+to+broader+software-sector+pressure"
+    },
+    {
+     "t": "UiPath: las decisiones lentas cuestan a la mayoría de fabricantes y distribuidores de EE. UU. el 4% de sus ingresos (estudio)",
+     "src": "UiPath (sala de prensa, 18-nov-2026)",
+     "u": "https://ir.uipath.com/news/detail/483/slow-decisions-cost-majority-of-us-manufacturers-and-distributors-4-of-annual-revenue-new-research-reveals"
+    },
+    {
+     "t": "La ARR de UiPath se acerca a 2.000 M$: ¿puede mantener el ritmo?",
+     "src": "Yahoo Finance / Zacks (19-nov-2026)",
+     "u": "https://finance.yahoo.com/markets/stocks/articles/uipaths-arr-nears-2-billion-172700842.html"
+    },
+    {
+     "t": "ServiceNow frente a UiPath: ¿cuál es mejor compra para 2027?",
+     "src": "The Motley Fool (19-nov-2026)",
+     "u": "https://www.fool.com/coverage/better-buy/2026/11/19/servicenow-vs-uipath-which-technology-stock-is-a-better-buy-for-2027/"
+    },
+    {
+     "t": "Jim Cramer descarta UiPath pese a su valoración baja",
+     "src": "Benzinga (20-nov-2026)",
+     "u": "https://www.benzinga.com/trading-ideas/long-ideas/26/11/63467987/jim-cramer-rejects-uipath-despite-cheap-valuation-backs-affirm"
+    },
+    {
+     "t": "UiPath en 2027: la orquestación de agentes de IA como motor del crecimiento",
+     "src": "The Motley Fool (24-nov-2026)",
+     "u": "https://www.fool.com/coverage/moneyball/2026/11/24/uipath-s-2027-outlook-agentic-ai-orchestration-as-the-driver-of-future-growth/"
+    },
+    {
+     "t": "UiPath sube mientras el mercado cae",
+     "src": "Yahoo Finance / Zacks (24-nov-2026)",
+     "u": "https://finance.yahoo.com/markets/stocks/articles/uipath-path-gains-market-dips-214502262.html"
+    }
+   ],
+   "porque": "Siete noticias de la ventana 18–25 nov con su enlace real (data/PATH.json → noticias.url y una búsqueda).",
+   "fuente": {
+    "t": "Quiver Quantitative",
+    "u": "https://www.quiverquant.com/news/UiPath+slides+as+ARR+concerns+add+to+broader+software-sector+pressure",
+    "d": "18-nov-2026"
+   },
+   "verificacion": "Los enlaces están en data → noticias con esas fechas (Quiver no está en data: titular de Seeking Alpha del 18-nov sobre Cleveland Research).",
+   "motivo": "Repaso semanal a fondo (software)"
+  },
+  {
+   "fecha": "2026-11-25",
+   "campo": "social.pulse",
+   "antes": [
+    {
+     "p": "Reddit",
+     "s": null,
+     "note": "Sin dato medido. En los foros de software se duda de si los agentes de IA de los grandes (Microsoft, Anthropic) le quitarán negocio."
+    },
+    {
+     "p": "X",
+     "s": 1,
+     "note": "Entre minoristas: Stocktwits la marcaba «extremadamente alcista» (sep-26) por su valoración baja (4,4 veces ventas) y los agentes de IA. Contrasta con los recortes de analistas de octubre."
+    },
+    {
+     "p": "YouTube",
+     "s": 0,
+     "note": "Los vídeos la ven como una historia de «demuéstralo», con DA Davidson en «infraponderar» (10 $) tras el día del inversor."
+    }
+   ],
+   "despues": [
+    {
+     "p": "Reddit",
+     "s": null,
+     "note": "Sin dato medido. En los foros de software se duda de si los agentes de IA de los grandes (Microsoft, Anthropic) le quitarán negocio."
+    },
+    {
+     "p": "X",
+     "s": 1,
+     "note": "Entre minoristas: Stocktwits la marcaba «extremadamente alcista» (sep-26) por su valoración baja (4,4 veces ventas) y los agentes de IA. Contrasta con los recortes de analistas de octubre."
+    },
+    {
+     "p": "YouTube",
+     "s": 0,
+     "note": "Los vídeos la ven como una historia de «demuéstralo», con DA Davidson en «infraponderar» (10 $) tras el día del inversor."
+    },
+    {
+     "p": "StockTwits",
+     "s": 1,
+     "note": "Medido el 25-nov: de 30 mensajes del 23–24 nov, 14 alcistas y ninguno bajista (100% alcista entre los etiquetados), tras el rebote del 23-nov. Solo tono."
+    }
+   ],
+   "porque": "Añade el pulso medido de StockTwits (data/PATH.json → redes.stocktwits); el resto, sin cambios.",
+   "fuente": {
+    "t": "StockTwits (API pública)",
+    "u": "https://stocktwits.com/symbol/PATH",
+    "d": "25-nov-2026"
+   },
+   "verificacion": "data → redes.stocktwits: 30 mensajes del 23–24 nov, 14 alcistas, 0 bajistas, 100% alcista, medido el 25-nov; resto sin cambios.",
+   "motivo": "Repaso semanal a fondo (software)"
+  },
+  {
+   "fecha": "2026-11-25",
+   "campo": "social.pulseFuente",
+   "antes": "Lectura del 1-nov-2026 con SentiSense, LunarCrush y Stocktwits (agregadores de redes sociales) y búsquedas propias.",
+   "despues": "Lectura del 1-nov-2026 con SentiSense, LunarCrush y Stocktwits (agregadores de redes sociales) y búsquedas propias; StockTwits medido el 25-nov-2026 con su API pública.",
+   "porque": "Fecha de la nueva medida de StockTwits.",
+   "fuente": {
+    "t": "StockTwits (API pública)",
+    "u": "https://stocktwits.com/symbol/PATH",
+    "d": "25-nov-2026"
+   },
+   "verificacion": "Fecha de la medida de StockTwits (25-nov) según data → redes.",
+   "motivo": "Repaso semanal a fondo (software)"
+  },
+  {
+   "fecha": "2026-11-25",
+   "campo": "meta.asOf",
+   "antes": "18-nov-2026",
+   "despues": "25-nov-2026",
+   "porque": "Repaso semanal a fondo completo del 25-nov-2026 (lista de comprobación, webs oficiales y consenso).",
+   "fuente": {
+    "t": "10-Q presentado el 2026-09-08 (SEC)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1734722/000173472226000050/path-20260731.htm",
+    "d": "25-nov-2026"
+   },
+   "verificacion": "Fecha del repaso.",
+   "motivo": "Repaso semanal a fondo (software)"
+  },
+  {
+   "fecha": "2026-11-25",
+   "campo": "meta.repasoFondo",
+   "antes": "18-nov-2026",
+   "despues": "25-nov-2026",
+   "porque": "Repaso semanal a fondo (software) del 25-nov-2026.",
+   "fuente": {
+    "t": "10-Q presentado el 2026-09-08 (SEC)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1734722/000173472226000050/path-20260731.htm",
+    "d": "25-nov-2026"
+   },
+   "verificacion": "Fecha del repaso.",
    "motivo": "Repaso semanal a fondo (software)"
   }
  ]

@@ -6,10 +6,10 @@
   "hq": "Palo Alto, California",
   "founded": "2012",
   "employees": "898 (dic-25)",
-  "asOf": "19-nov-2026",
+  "asOf": "25-nov-2026",
   "nextEarnings": "9-feb-2027 (estimada, tras el cierre)",
   "fav": true,
-  "repasoFondo": "18-nov-2026"
+  "repasoFondo": "25-nov-2026"
  },
  "overview": {
   "thesis": "Plataforma de publicidad con IA (AXON) que vuelve a acelerar: +55% en el 3T26, margen EBITDA del 84% y FCF del 77% del EBITDA, con el e-commerce en autoservicio como segundo motor. La clave es que el modelo siga mejorando y el e-commerce escale; el riesgo, que Unity erosione el dato de MAX y la mejora del modelo se frene.",
@@ -50,6 +50,10 @@
   ],
   "catalysts": [
    {
+    "d": "No antes del 13-dic-2026",
+    "t": "Entra en vigor el traslado de domicilio social de Delaware a Nevada (DEF 14C del 23-nov): aprobado por escrito por el pacto de voto de Foroughi y Chen (~67% del voto), sin junta; el consejo aún puede aplazarlo o abandonarlo."
+   },
+   {
     "d": "Antes de fin de año (sin confirmar)",
     "t": "Posible compra de Criteo: Reuters (17-nov) dice que AppLovin está entre las compañías en conversaciones para comprarla; no hay precio, ni AppLovin ni Criteo lo comentan y no hay acuerdo garantizado."
    },
@@ -59,7 +63,7 @@
    },
    {
     "d": "9-feb-27",
-    "t": "Resultados del 4T26 (tras el cierre): primera guía de 2027 y avance de la nueva arquitectura de AXON. Consenso: BPA 4,44 $ e ingresos 2.280 M$, por debajo de la guía de la compañía (2.365–2.395 M$)."
+    "t": "Resultados del 4T26 (tras el cierre): primera guía de 2027 y avance de la nueva arquitectura de AXON. Consenso: BPA 4,72 $ e ingresos 2.404 M$, ya algo por encima del máximo de la guía de la compañía (2.365–2.395 M$)."
    },
    {
     "d": "2027",
@@ -67,14 +71,14 @@
    },
    {
     "d": "En curso",
-    "t": "Litigio con Unity por los datos de MAX, demanda colectiva (el plazo para el demandante principal venció el 16-nov) y demanda del condado de San Diego."
+    "t": "Litigio con Unity por los datos de MAX, demanda colectiva por sus declaraciones sobre IA (ya cerrado el plazo para pedir ser demandante principal) y demanda del condado de San Diego."
    }
   ]
  },
  "business": {
-  "model": "Cobra un porcentaje del gasto de los anunciantes que pasa por su subasta y registra solo esa comisión como ingreso.\nApenas necesita inversión en activos: su coste principal es el cómputo para entrenar y servir los modelos de IA.",
+  "model": "Cobra un porcentaje del gasto de los anunciantes que pasa por su subasta y registra solo esa comisión como ingreso; AppLovin Ads es la gran mayoría de los ingresos.\nLos anuncios ocupan toda la pantalla, en pausas del juego o a cambio de recompensas. MAX es gratis para los publishers: cobra un porcentaje de la puja ganadora. Además vende medición y atribución (Adjust, suscripción anual) y distribución de vídeo en TV conectada (Wurl, por uso o CPM).\nApenas necesita inversión en activos: su coste principal es el cómputo para entrenar y servir los modelos de IA.",
   "customers": "Tiene dos lados. Los anunciantes, sobre todo estudios de juegos móviles que compran usuarios con un retorno objetivo, y desde junio de 2026 cualquier marca de e-commerce. Y los desarrolladores (publishers), que venden su espacio publicitario a través de MAX.",
-  "segNote": "Estimación propia: la empresa no desglosa ingresos por vertical. El gaming sigue siendo la mayoría.",
+  "segNote": "Estimación propia: la empresa no desglosa ingresos por vertical y reporta un único segmento (AppLovin Ads, MAX, Adjust y Wurl). Según el 10-Q, AppLovin Ads es la gran mayoría de los ingresos; el gaming sigue siendo la mayoría.",
   "segments": [
    {
     "n": "Anunciantes de juegos",
@@ -237,6 +241,11 @@
     "note": "Escala enorme, menos foco en juegos"
    },
    {
+    "n": "Liftoff Mobile",
+    "threat": 2,
+    "note": "Red de anuncios para apps; el 10-Q la cita entre sus competidores junto a Meta, Google, Amazon y Unity"
+   },
+   {
     "n": "Moloco y CloudX",
     "threat": 2,
     "note": "DSP con IA; Oppenheimer ve intactas las ventajas de AppLovin"
@@ -246,7 +255,7 @@
  "growth": {
   "score": 4,
   "scoreNote": "Vuelve a acelerar: +55% en el 3T26 (gaming cerca del +50%) y guía del +43–44% para el 4T. La ruta al ~30% a medio plazo sigue en pie, pero el gaming se acerca a su techo de cuota y el e-commerce será estacional.",
-  "tam": "Publicidad digital de rendimiento: Meta y Google facturan más de 400.000 M$ al año en publicidad; AppLovin, unos 8.000 M$.",
+  "tam": "Publicidad digital de rendimiento: Meta y Google facturan más de 400.000 M$ al año en publicidad. AppLovin ingresa 7.609 M$ en 12 meses (sep-26) sobre un gasto de anunciantes de más de 11.000 M$ al año (feb-26).",
   "guidance": "Guía 4T26: ingresos 2.365–2.395 M$ (+43–44% interanual, +8–10% trimestral) y EBITDA ajustado 1.995–2.025 M$ (84–85%). La anterior (3T26: 2.055–2.085 M$) se superó en ~100 M$. A largo plazo la dirección mantiene ~30% anual, con poca visibilidad trimestre a trimestre.",
   "drivers": [
    {
@@ -254,9 +263,9 @@
     "impact": 5,
     "h": "Continuo",
     "st": "maduro",
-    "k": "+58% de precio por instalación",
+    "k": "Ingresos +55% en el 3T26 (gaming ~+50%)",
     "peso": "el núcleo de los ingresos",
-    "d": "Cada nueva versión del modelo de IA de Axon predice mejor qué usuario va a pagar en un juego, así que los anunciantes pujan más por cada instalación. En el 2T26 el precio por instalación subió un 58% con un 2% menos de instalaciones: el crecimiento viene de la calidad, no del volumen.",
+    "d": "Cada nueva versión del modelo de IA de Axon predice mejor qué usuario va a pagar en un juego, así que los anunciantes pujan más por cada instalación. En el 2T26 el precio por instalación subió un 58% con un 2% menos de instalaciones: el crecimiento viene de la calidad, no del volumen. En el 3T26 empezó a desplegar una nueva arquitectura que permite entrenar modelos más grandes, sin fecha ni impacto cuantificado.",
     "ev": "Precio por instalación e ingresos de publicidad trimestrales; comentarios sobre nuevas versiones del modelo.",
     "r": "Saturación del mercado de juegos móviles y que el modelo deje de mejorar (la dirección pausó una actualización en el 2T26)."
    },
@@ -265,30 +274,31 @@
     "impact": 4,
     "h": "4T26–2027",
     "st": "en marcha",
-    "k": "Ritmo anual de 1.000 M$ (2T26)",
+    "k": "Gasto de consumo +doble dígito trimestral y +triple dígito interanual (3T26)",
     "peso": "gasto +28% sobre el pico del 4T25",
-    "d": "Llevar la misma máquina de anuncios a tiendas online que se anuncian dentro de los juegos. El autoservicio abrió a anunciantes de todo el mundo en junio de 2026, con Shopify como puerta de entrada. La web y el e-commerce ya van a un ritmo de 1.000 M$ al año.",
+    "d": "Llevar la misma máquina de anuncios a tiendas online que se anuncian dentro de los juegos. El autoservicio abrió a anunciantes de todo el mundo el 22-jun-2026, con un presupuesto mínimo de 10 $ al día, el píxel instalable desde Shopify o Google Tag Manager y objetivos de ROAS, compras o leads. Su web enseña como clientes a Gymshark, Wayfair o HelloFresh. La web y el e-commerce iban a un ritmo de 1.000 M$ al año en el 2T26.",
     "ev": "Número de anunciantes de e-commerce y su gasto; retención de anunciantes tras los primeros meses.",
     "r": "Que el retorno para tiendas sea peor que en Meta o Google y los anunciantes no repitan.",
-    "u": "https://www.techtimes.com/articles/323336/20260806/applovin-stock-lost-40b-16m-miss-while-sec-cleared-axon-data-probe.htm"
+    "u": "https://www.applovin.com/en/consumer-brands"
    },
    {
     "n": "Nuevos verticales e internacional",
     "impact": 3,
     "h": "2027+",
     "st": "temprano",
-    "k": "Fintech, salud y TV conectada",
+    "k": "Fintech, salud, TV conectada y redes sociales",
     "peso": "todavía marginal",
-    "d": "Tras el e-commerce, la dirección quiere abrir Axon a otros sectores (servicios financieros, salud) y a la televisión conectada, y crecer fuera de EE. UU.",
+    "d": "Tras el e-commerce, la dirección quiere abrir Axon a otros sectores (servicios financieros, salud), a la televisión conectada (donde ya vende distribución con Wurl) y a las redes sociales, que el 10-Q del 3T26 cita como mercado nuevo, y crecer fuera de EE. UU. La posible compra de Criteo (Reuters, 17-nov; sin confirmar) encajaría aquí.",
     "ev": "Anuncios de lanzamientos y primeros datos de gasto por vertical.",
-    "r": "Regulación de privacidad y publicidad en sectores sensibles."
+    "r": "Regulación de privacidad y publicidad en sectores sensibles.",
+    "u": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000069/app-20260930.htm"
    },
    {
     "n": "Recompras",
     "impact": 2,
     "h": "Continuo",
     "st": "maduro",
-    "k": "~1.550 M$ en el 1S26",
+    "k": "2.811 M$ en 9M26; autorización de 3.600 M$",
     "peso": "−1% de acciones al año",
     "d": "Con márgenes de EBITDA superiores al 80% la caja sobra; las recompras reducen el número de acciones y suben el beneficio por acción.",
     "ev": "Acciones en circulación trimestre a trimestre.",
@@ -297,13 +307,13 @@
   ]
  },
  "mgmt": {
-  "note": "Empresa controlada: Foroughi y Herald Chen tienen un pacto de voto sobre las acciones de clase B (60,9% del voto). Desde abr-26 la presidencia del consejo es independiente (Craig Billings) y el relevo del CTO y de la directora jurídica fue interno. Los directivos han vendido 197 M$ en acciones desde mayo (133 M$ con planes 10b5-1) y ninguno ha comprado en mercado.",
+  "note": "Empresa controlada: el pacto de voto de Foroughi y Herald Chen reúne el 67,2% del voto (Foroughi solo, 62,2%; DEF 14C, 31-oct-26). Con ese voto aprobaron por escrito, sin junta, trasladar la sede social a Nevada (efectiva no antes del 13-dic-26). Desde abr-26 la presidencia del consejo es independiente (Craig Billings) y el relevo del CTO y de la directora jurídica fue interno. Los directivos han vendido 197 M$ en acciones desde mayo (133 M$ con planes 10b5-1) y ninguno ha comprado en mercado; lo del 20-nov fueron solo retenciones fiscales.",
   "people": [
    {
     "n": "Adam Foroughi",
     "role": "Cofundador y CEO",
     "since": "2012",
-    "note": "Controla el 60,9% del voto. Dejó la presidencia del consejo en abr-26. Ventas de acciones en 2026; recibió acciones como retribución el 29-oct."
+    "note": "Tiene el 62,2% del voto y, con el pacto con Herald Chen, el 67,2% (DEF 14C). Dejó la presidencia del consejo en abr-26. Ventas de acciones en 2026; recibió acciones como retribución el 29-oct."
    },
    {
     "n": "Craig Billings",
@@ -327,13 +337,13 @@
     "n": "Corina Cacovean",
     "role": "Directora jurídica",
     "since": "ago-2026",
-    "note": "Antes responsable de privacidad, litigios y regulación. Sustituye a Victoria Valenzuela (jubilada; propuesta como consejera)."
+    "note": "Antes responsable de privacidad, litigios y regulación. Sustituye a Victoria Valenzuela, jubilada y ahora consejera."
    },
    {
     "n": "Herald Chen",
     "role": "Consejero",
     "since": "",
-    "note": "Firmante del pacto de voto con Foroughi."
+    "note": "Firmante del pacto de voto con Foroughi; 1,3% del voto propio (DEF 14C)."
    }
   ],
   "scores": [
@@ -355,7 +365,7 @@
    {
     "n": "Gobierno corporativo",
     "s": 2,
-    "note": "Voto dual (60,9% en manos del fundador); presidente independiente desde abr-26"
+    "note": "Voto dual (67,2% con el pacto de voto); presidente independiente desde abr-26; traslado a Nevada aprobado sin junta"
    },
    {
     "n": "Transparencia",
@@ -385,15 +395,19 @@
    ]
   },
   "vote": {
-   "label": "Poder de voto (%)",
+   "label": "Poder de voto a 31-oct-2026 (%)",
    "items": [
     {
-     "n": "Foroughi y pacto de voto",
-     "v": 60.9
+     "n": "Adam Foroughi",
+     "v": 62.2
+    },
+    {
+     "n": "Resto del pacto de voto (Herald Chen y sociedades)",
+     "v": 5.0
     },
     {
      "n": "Resto de accionistas",
-     "v": 39.1
+     "v": 32.8
     }
    ]
   },
@@ -461,7 +475,7 @@
    "cat": "Legal",
    "p": 3,
    "i": 2,
-   "note": "Demanda colectiva por sus declaraciones sobre IA (plazo para el demandante principal: 16-nov-26) y San Diego por datos de menores"
+   "note": "Demanda colectiva por sus declaraciones sobre IA (ya cerrado el plazo para el demandante principal) y San Diego por datos de menores"
   },
   {
    "n": "Coste de cómputo",
@@ -475,14 +489,14 @@
    "cat": "Mercado",
    "p": 2,
    "i": 3,
-   "note": "Beta de 2,35. Movimientos medios de ±4,9% diario en las últimas 20 sesiones; el 6-ago cayó un 20% en un día tras resultados"
+   "note": "Beta de 2,2. En la semana al 20-nov cayó un 15% con la venta general de tecnológicas (−8,1% el 20-nov) y rebotó un 7,4% el 23-nov, sin noticias propias"
   },
   {
    "n": "Gobierno corporativo",
    "cat": "Gobierno",
    "p": 2,
    "i": 2,
-   "note": "Voto dual y ventas de directivos (197 M$ desde mayo, 133 M$ con plan 10b5-1); mejora con un presidente independiente. Se muda de Delaware a Nevada, aprobado sin junta por Foroughi, Chen y sus sociedades (~67% del voto; PRE 14C del 12-nov-26): la ley de Nevada codifica los deberes de los consejeros y reduce el margen para demandarlos"
+   "note": "Voto dual (67,2% con el pacto) y ventas de directivos (197 M$ desde mayo, 133 M$ con plan 10b5-1); mejora con un presidente independiente. Traslado de Delaware a Nevada aprobado por escrito sin junta (DEF 14C del 23-nov; efectivo no antes del 13-dic): la ley de Nevada codifica los deberes de los consejeros, reduce el margen para demandarlos y lleva las demandas derivadas a los tribunales de Nevada"
   }
  ],
  "v": {
@@ -537,24 +551,27 @@
   "conviction": 4,
   "buyBelow": 300,
   "horizon": "12–18 meses",
-  "summary": "Los resultados del 3T26 confirmaron la tesis: ingresos +55% (~100 M$ sobre la guía), margen EBITDA del 84%, FCF del 77% del EBITDA y guía del 4T por encima del consenso. Tras la fuerte subida posterior a resultados la acción cotiza cerca del valor del DCF: el negocio sigue siendo de compra, pero ya no ofrece margen de seguridad, de ahí Mantener y ampliar solo por debajo del precio de compra. Novedad de la semana: según Reuters (17-nov) está en conversaciones para comprar Criteo, sin confirmar por ninguna de las dos. Vigilar el 1T, estacionalmente flojo por el e-commerce.",
+  "summary": "Los resultados del 3T26 confirmaron la tesis: ingresos +55% (~100 M$ sobre la guía), margen EBITDA del 84%, FCF del 77% del EBITDA y guía del 4T por encima de lo que esperaba el mercado. La acción cotiza cerca del valor del DCF: el negocio sigue siendo de compra, pero sin margen de seguridad, de ahí Mantener y ampliar solo por debajo del precio de compra. Semana sin noticias propias: cayó con la venta general de tecnológicas y rebotó con el mercado. El DEF 14C confirma el traslado a Nevada con el voto del pacto de los fundadores (67,2%). Siguen sin confirmar las conversaciones para comprar Criteo. Vigilar el 1T, estacionalmente flojo por el e-commerce.",
   "bull": [
-   "Vuelve a superar la guía (~100 M$) y guía el 4T por encima del consenso (2.380 M$ frente a 2.250 M$ en el punto medio)",
+   "Vuelve a superar la guía (~100 M$) y guía un 4T de 2.365–2.395 M$; el consenso ya se ha subido a 2.404 M$",
    "Margen EBITDA del 84% y FCF del 77% del EBITDA en el 3T26",
    "Nueva arquitectura de AXON en despliegue: margen para nuevas mejoras",
-   "Recompras agresivas: ~1.400 M$ en el 3T26 y autorización de 3.600 M$"
+   "E-commerce en autoservicio abierto a todos desde jun-26, con presupuesto mínimo de 10 $/día y marcas como Gymshark, Wayfair o HelloFresh",
+   "Recompras agresivas: 2.811 M$ en 9M26 y autorización de 3.600 M$"
   ],
   "bear": [
    "La mejora del modelo no es predecible cada trimestre y la nueva arquitectura no tiene fecha ni impacto",
    "Unity puede erosionar el dato de MAX (el tribunal negó la cautelar)",
    "El e-commerce será estacional: 1T más flojos",
    "Litigios abiertos: demanda colectiva y San Diego",
-   "Tras la fuerte subida posterior a resultados la valoración ya descuenta buena parte del crecimiento: poco margen de seguridad y beta de 2,35"
+   "La valoración ya descuenta buena parte del crecimiento: poco margen de seguridad y beta de 2,2 (−8,1% en un solo día el 20-nov)",
+   "Gobierno: el pacto de los fundadores (67,2% del voto) aprueba sin junta cambios como el traslado a Nevada"
   ],
   "watch": [
    "Conversaciones para comprar Criteo (Reuters, 17-nov; sin confirmar): precio, forma de pago y encaje con el e-commerce si se anuncia",
+   "Entrada en vigor del traslado a Nevada (no antes del 13-dic-26) y posibles cambios en los estatutos",
    "Despliegue completo de la nueva arquitectura de AXON y su efecto en ingresos",
-   "Guía del 1T27 y caída estacional del e-commerce",
+   "Guía del 1T27 y caída estacional del e-commerce; el consenso del 4T ya está por encima de la guía",
    "Conversión de FCF en el ~70–75% anual",
    "Comisiones de MAX tras el caso Unity"
   ]
@@ -564,6 +581,12 @@
   "web": "https://www.applovin.com",
   "ir": "https://investors.applovin.com",
   "docs": [
+   {
+    "cat": "Gobierno corporativo",
+    "t": "DEF 14C: traslado de Delaware a Nevada (información definitiva; voto del pacto 67,2% a 31-oct-26)",
+    "d": "23-nov-2026",
+    "u": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000079/app-20261123xdef14c.htm"
+   },
    {
     "cat": "Gobierno corporativo",
     "t": "PRE 14C: cambio de domicilio social de Delaware a Nevada, aprobado por escrito por accionistas con ~67% del voto",
@@ -657,39 +680,44 @@
   ],
   "news": [
    {
-    "t": "AppLovin, entre las compañías en conversaciones para comprar Criteo (fuentes de Reuters; sin precio ni confirmación)",
-    "src": "Reuters (vía Euronext)",
-    "u": "https://live.euronext.com/en/financial-news/exclusive-applovin-among-firms-talks-acquire-criteo-sources-say"
+    "t": "Meta mira a la TV conectada y AppLovin ronda a Criteo: presión sobre el ad tech independiente",
+    "src": "Digiday (24-nov-2026)",
+    "u": "https://digiday.com/media-buying/ad-tech-briefing-meta-eyes-ctv-as-applovin-circles-criteo-signs-of-the-squeeze-on-independent-ad-tech/"
    },
    {
-    "t": "AppLovin vuelve a batir previsiones, pero los inversores tardan en comprar",
-    "src": "AdExchanger",
-    "u": "https://www.adexchanger.com/platforms/applovin-is-back-to-smashing-earnings-but-investors-are-slow-to-buy/"
+    "t": "BTIG reitera comprar con precio objetivo de 450 $",
+    "src": "Benzinga (24-nov-2026)",
+    "u": "https://www.benzinga.com/news/26/11/63570998/btig-reiterates-buy-applovin-maintains-450-price-target"
    },
    {
-    "t": "La brecha del ad tech en el 3T: AppLovin se dispara y sus rivales sufren",
-    "src": "Digiday",
-    "u": "https://digiday.com/media/by-the-numbers-ad-techs-widening-divide-as-applovin-surges-and-rivals-struggle-in-q3/"
+    "t": "AppLovin cae un 28% en un año; el CEO dice que tienen «a todas las compañías de juegos móviles»",
+    "src": "TIKR (24-nov-2026)",
+    "u": "https://www.tikr.com/blog/applovin-is-down-28-in-a-year-ceo-says-we-have-every-mobile-gaming-company-live-probably-time-to-buy"
    },
    {
-    "t": "Sube un 27% tras el 3T; el CEO llama «foot fault» al fallo del 2T",
-    "src": "TIKR",
-    "u": "https://www.tikr.com/blog/applovin-soars-27-on-record-q3-beat-as-ceo-calls-last-quarters-miss-our-own-foot-fault"
+    "t": "Druckenmiller abre posición en AppLovin en el 3T (13F)",
+    "src": "Motley Fool (23-nov-2026)",
+    "u": "https://www.fool.com/investing/2026/11/23/3-ai-stocks-billionaire-stanley-druckenmiller-has-been-quietly-buying/"
    },
    {
-    "t": "Subidas de precio objetivo tras resultados (Evercore 540 $, Oppenheimer 520 $, MS 450 $, Goldman 445 $)",
-    "src": "Stocktwits",
-    "u": "https://stocktwits.com/news-articles/markets/equity/app-stock-best-day-in-nearly-2-years-analyst-says-q3-directly-challenges-slowdown-fears/cNG1nwaR94J"
+    "t": "Rotación fuera de la IA: el Nasdaq cae un 6,7% en la semana",
+    "src": "Seeking Alpha (20-nov-2026)",
+    "u": "https://seekingalpha.com/article/4970595-buzz-investing-ai-reassessment-drives-tech-rotation-buzz-index-declines"
    },
    {
-    "t": "Plan de sucesión: Gio Ge, nuevo CTO; Craig Billings, presidente",
-    "src": "MarketScreener",
-    "u": "https://www.marketscreener.com/news/applovin-appoints-ge-as-chief-technology-officer-billings-as-board-chair-ce7e50dad889f020"
+    "t": "AppLovin, entre los interesados en comprar Criteo",
+    "src": "AdExchanger (19-nov-2026)",
+    "u": "https://www.adexchanger.com/daily-news-roundup/thursday-20261119/"
    },
    {
-    "t": "La SEC cierra su investigación sin acción",
-    "src": "Tech Times",
-    "u": "https://www.techtimes.com/articles/323336/20260806/applovin-stock-lost-40b-16m-miss-while-sec-cleared-axon-data-probe.htm"
+    "t": "StoneX mantiene comprar y sube el objetivo de 440 a 469 $",
+    "src": "Benzinga (19-nov-2026)",
+    "u": "https://www.benzinga.com/news/26/11/63439079/stonex-maintains-buy-applovin-raises-price-target-469"
+   },
+   {
+    "t": "JPMorgan: una compra de Criteo encajaría en la estrategia de consumo",
+    "src": "Benzinga (18-nov-2026)",
+    "u": "https://www.benzinga.com/analyst-stock-ratings/analyst-color/26/11/63403898/applovin-criteo-deal-would-fit-consumer-strategy-analyst-says"
    }
   ]
  },
@@ -1600,6 +1628,1028 @@
    },
    "verificacion": "Fecha del repaso de hoy, formato correcto.",
    "motivo": "Revisión semanal: Presentación a la SEC del 12-nov-2026 (PRE 14C): cambio de domicilio social a Nevada · Repaso semanal a fondo (software)"
+  },
+  {
+   "fecha": "2026-11-25",
+   "campo": "overview.catalysts",
+   "antes": [
+    {
+     "d": "Antes de fin de año (sin confirmar)",
+     "t": "Posible compra de Criteo: Reuters (17-nov) dice que AppLovin está entre las compañías en conversaciones para comprarla; no hay precio, ni AppLovin ni Criteo lo comentan y no hay acuerdo garantizado."
+    },
+    {
+     "d": "4T26",
+     "t": "Campaña navideña: guía de 2.365–2.395 M$. El e-commerce gasta mucho en el 4T y menos en el 1T, así que la dirección avisa de 1T más flojos."
+    },
+    {
+     "d": "9-feb-27",
+     "t": "Resultados del 4T26 (tras el cierre): primera guía de 2027 y avance de la nueva arquitectura de AXON. Consenso: BPA 4,44 $ e ingresos 2.280 M$, por debajo de la guía de la compañía (2.365–2.395 M$)."
+    },
+    {
+     "d": "2027",
+     "t": "Despliegue completo de la nueva arquitectura de AXON (parcial en el 3T26; sin fecha ni impacto cuantificado)."
+    },
+    {
+     "d": "En curso",
+     "t": "Litigio con Unity por los datos de MAX, demanda colectiva (el plazo para el demandante principal venció el 16-nov) y demanda del condado de San Diego."
+    }
+   ],
+   "despues": [
+    {
+     "d": "No antes del 13-dic-2026",
+     "t": "Entra en vigor el traslado de domicilio social de Delaware a Nevada (DEF 14C del 23-nov): aprobado por escrito por el pacto de voto de Foroughi y Chen (~67% del voto), sin junta; el consejo aún puede aplazarlo o abandonarlo."
+    },
+    {
+     "d": "Antes de fin de año (sin confirmar)",
+     "t": "Posible compra de Criteo: Reuters (17-nov) dice que AppLovin está entre las compañías en conversaciones para comprarla; no hay precio, ni AppLovin ni Criteo lo comentan y no hay acuerdo garantizado."
+    },
+    {
+     "d": "4T26",
+     "t": "Campaña navideña: guía de 2.365–2.395 M$. El e-commerce gasta mucho en el 4T y menos en el 1T, así que la dirección avisa de 1T más flojos."
+    },
+    {
+     "d": "9-feb-27",
+     "t": "Resultados del 4T26 (tras el cierre): primera guía de 2027 y avance de la nueva arquitectura de AXON. Consenso: BPA 4,72 $ e ingresos 2.404 M$, ya algo por encima del máximo de la guía de la compañía (2.365–2.395 M$)."
+    },
+    {
+     "d": "2027",
+     "t": "Despliegue completo de la nueva arquitectura de AXON (parcial en el 3T26; sin fecha ni impacto cuantificado)."
+    },
+    {
+     "d": "En curso",
+     "t": "Litigio con Unity por los datos de MAX, demanda colectiva por sus declaraciones sobre IA (ya cerrado el plazo para pedir ser demandante principal) y demanda del condado de San Diego."
+    }
+   ],
+   "porque": "Nuevo hito con fecha (Nevada, DEF 14C), consenso del 4T26 al día (ahora por encima de la guía) y sin fechas pasadas en el litigio",
+   "fuente": {
+    "t": "DEF 14C: traslado a Nevada (información definitiva)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000079/app-20261123xdef14c.htm",
+    "d": "23-nov-2026"
+   },
+   "verificacion": "DEF 14C: consentimiento escrito de Foroughi, Chen y sociedades (~67% del voto), efectivo no antes de 20 días desde el envío del 23-nov (13-dic) y el consejo puede aplazarlo o abandonarlo; consenso 4T26 BPA 4,7208 $ e ingresos 2.403,7 M$ (data → resultados_previstos) por encima del máximo de la guía 2.395 M$ (Ex. 99.1).",
+   "motivo": "Repaso semanal a fondo (software)"
+  },
+  {
+   "fecha": "2026-11-25",
+   "campo": "business.model",
+   "antes": "Cobra un porcentaje del gasto de los anunciantes que pasa por su subasta y registra solo esa comisión como ingreso.\nApenas necesita inversión en activos: su coste principal es el cómputo para entrenar y servir los modelos de IA.",
+   "despues": "Cobra un porcentaje del gasto de los anunciantes que pasa por su subasta y registra solo esa comisión como ingreso; AppLovin Ads es la gran mayoría de los ingresos.\nLos anuncios ocupan toda la pantalla, en pausas del juego o a cambio de recompensas. MAX es gratis para los publishers: cobra un porcentaje de la puja ganadora. Además vende medición y atribución (Adjust, suscripción anual) y distribución de vídeo en TV conectada (Wurl, por uso o CPM).\nApenas necesita inversión en activos: su coste principal es el cómputo para entrenar y servir los modelos de IA.",
+   "porque": "Completa el modelo con las cuatro líneas de producto y cómo cobra cada una según el 10-Q y la web oficial",
+   "fuente": {
+    "t": "10-Q 3T26",
+    "u": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000069/app-20260930.htm",
+    "d": "4-nov-2026"
+   },
+   "verificacion": "10-Q: AppLovin Ads «vast majority of revenue», MAX cobra un porcentaje de la puja ganadora, Adjust suscripción anual, Wurl por uso o CPM; web de MAX: «Max mediation is free for publishers» y formatos a pantalla completa (recompensa, intersticial).",
+   "motivo": "Repaso semanal a fondo (software)"
+  },
+  {
+   "fecha": "2026-11-25",
+   "campo": "business.segNote",
+   "antes": "Estimación propia: la empresa no desglosa ingresos por vertical. El gaming sigue siendo la mayoría.",
+   "despues": "Estimación propia: la empresa no desglosa ingresos por vertical y reporta un único segmento (AppLovin Ads, MAX, Adjust y Wurl). Según el 10-Q, AppLovin Ads es la gran mayoría de los ingresos; el gaming sigue siendo la mayoría.",
+   "porque": "El 10-Q del 3T26 confirma un solo segmento y el peso de AppLovin Ads",
+   "fuente": {
+    "t": "10-Q 3T26",
+    "u": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000069/app-20260930.htm",
+    "d": "4-nov-2026"
+   },
+   "verificacion": "10-Q: un único segmento operativo (AppLovin Ads, MAX, Adjust y Wurl) y AppLovin Ads «vast majority of revenue».",
+   "motivo": "Repaso semanal a fondo (software)"
+  },
+  {
+   "fecha": "2026-11-25",
+   "campo": "moat.comps",
+   "antes": [
+    {
+     "n": "Unity (LevelPlay, Vector)",
+     "threat": 4,
+     "note": "Rival directo en mediación; el tribunal no frenó su SDK Ad Quality"
+    },
+    {
+     "n": "Meta (Advantage+)",
+     "threat": 4,
+     "note": "Domina el e-commerce y segmenta mejor"
+    },
+    {
+     "n": "Google (AdMob, Performance Max)",
+     "threat": 3,
+     "note": "Escala enorme, menos foco en juegos"
+    },
+    {
+     "n": "Moloco y CloudX",
+     "threat": 2,
+     "note": "DSP con IA; Oppenheimer ve intactas las ventajas de AppLovin"
+    }
+   ],
+   "despues": [
+    {
+     "n": "Unity (LevelPlay, Vector)",
+     "threat": 4,
+     "note": "Rival directo en mediación; el tribunal no frenó su SDK Ad Quality"
+    },
+    {
+     "n": "Meta (Advantage+)",
+     "threat": 4,
+     "note": "Domina el e-commerce y segmenta mejor"
+    },
+    {
+     "n": "Google (AdMob, Performance Max)",
+     "threat": 3,
+     "note": "Escala enorme, menos foco en juegos"
+    },
+    {
+     "n": "Liftoff Mobile",
+     "threat": 2,
+     "note": "Red de anuncios para apps; el 10-Q la cita entre sus competidores junto a Meta, Google, Amazon y Unity"
+    },
+    {
+     "n": "Moloco y CloudX",
+     "threat": 2,
+     "note": "DSP con IA; Oppenheimer ve intactas las ventajas de AppLovin"
+    }
+   ],
+   "porque": "El 10-Q del 3T26 nombra a Liftoff Mobile como competidor y no estaba en la lista",
+   "fuente": {
+    "t": "10-Q 3T26",
+    "u": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000069/app-20260930.htm",
+    "d": "4-nov-2026"
+   },
+   "verificacion": "10-Q: «Meta, Google, Amazon, Unity Software and Liftoff Mobile» como competidores.",
+   "motivo": "Repaso semanal a fondo (software)"
+  },
+  {
+   "fecha": "2026-11-25",
+   "campo": "growth.tam",
+   "antes": "Publicidad digital de rendimiento: Meta y Google facturan más de 400.000 M$ al año en publicidad; AppLovin, unos 8.000 M$.",
+   "despues": "Publicidad digital de rendimiento: Meta y Google facturan más de 400.000 M$ al año en publicidad. AppLovin ingresa 7.609 M$ en 12 meses (sep-26) sobre un gasto de anunciantes de más de 11.000 M$ al año (feb-26).",
+   "porque": "Cifra de AppLovin al día (12 meses a sep-26, SEC) y gasto de anunciantes publicado por la compañía",
+   "fuente": {
+    "t": "10-Q 3T26",
+    "u": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000069/app-20260930.htm",
+    "d": "4-nov-2026"
+   },
+   "verificacion": "Ingresos 12 meses a sep-26: 7.608,9 M$ (data, SEC); gasto de anunciantes «well over $11 billion» (blog del CEO, 2-feb-26).",
+   "motivo": "Repaso semanal a fondo (software)"
+  },
+  {
+   "fecha": "2026-11-25",
+   "campo": "growth.drivers",
+   "antes": [
+    {
+     "n": "Mejoras de Axon en videojuegos",
+     "impact": 5,
+     "h": "Continuo",
+     "st": "maduro",
+     "k": "+58% de precio por instalación",
+     "peso": "el núcleo de los ingresos",
+     "d": "Cada nueva versión del modelo de IA de Axon predice mejor qué usuario va a pagar en un juego, así que los anunciantes pujan más por cada instalación. En el 2T26 el precio por instalación subió un 58% con un 2% menos de instalaciones: el crecimiento viene de la calidad, no del volumen.",
+     "ev": "Precio por instalación e ingresos de publicidad trimestrales; comentarios sobre nuevas versiones del modelo.",
+     "r": "Saturación del mercado de juegos móviles y que el modelo deje de mejorar (la dirección pausó una actualización en el 2T26)."
+    },
+    {
+     "n": "E-commerce en autoservicio",
+     "impact": 4,
+     "h": "4T26–2027",
+     "st": "en marcha",
+     "k": "Ritmo anual de 1.000 M$ (2T26)",
+     "peso": "gasto +28% sobre el pico del 4T25",
+     "d": "Llevar la misma máquina de anuncios a tiendas online que se anuncian dentro de los juegos. El autoservicio abrió a anunciantes de todo el mundo en junio de 2026, con Shopify como puerta de entrada. La web y el e-commerce ya van a un ritmo de 1.000 M$ al año.",
+     "ev": "Número de anunciantes de e-commerce y su gasto; retención de anunciantes tras los primeros meses.",
+     "r": "Que el retorno para tiendas sea peor que en Meta o Google y los anunciantes no repitan.",
+     "u": "https://www.techtimes.com/articles/323336/20260806/applovin-stock-lost-40b-16m-miss-while-sec-cleared-axon-data-probe.htm"
+    },
+    {
+     "n": "Nuevos verticales e internacional",
+     "impact": 3,
+     "h": "2027+",
+     "st": "temprano",
+     "k": "Fintech, salud y TV conectada",
+     "peso": "todavía marginal",
+     "d": "Tras el e-commerce, la dirección quiere abrir Axon a otros sectores (servicios financieros, salud) y a la televisión conectada, y crecer fuera de EE. UU.",
+     "ev": "Anuncios de lanzamientos y primeros datos de gasto por vertical.",
+     "r": "Regulación de privacidad y publicidad en sectores sensibles."
+    },
+    {
+     "n": "Recompras",
+     "impact": 2,
+     "h": "Continuo",
+     "st": "maduro",
+     "k": "~1.550 M$ en el 1S26",
+     "peso": "−1% de acciones al año",
+     "d": "Con márgenes de EBITDA superiores al 80% la caja sobra; las recompras reducen el número de acciones y suben el beneficio por acción.",
+     "ev": "Acciones en circulación trimestre a trimestre.",
+     "r": "Recomprar caro si la acción cotiza con mucha prima."
+    }
+   ],
+   "despues": [
+    {
+     "n": "Mejoras de Axon en videojuegos",
+     "impact": 5,
+     "h": "Continuo",
+     "st": "maduro",
+     "k": "Ingresos +55% en el 3T26 (gaming ~+50%)",
+     "peso": "el núcleo de los ingresos",
+     "d": "Cada nueva versión del modelo de IA de Axon predice mejor qué usuario va a pagar en un juego, así que los anunciantes pujan más por cada instalación. En el 2T26 el precio por instalación subió un 58% con un 2% menos de instalaciones: el crecimiento viene de la calidad, no del volumen. En el 3T26 empezó a desplegar una nueva arquitectura que permite entrenar modelos más grandes, sin fecha ni impacto cuantificado.",
+     "ev": "Precio por instalación e ingresos de publicidad trimestrales; comentarios sobre nuevas versiones del modelo.",
+     "r": "Saturación del mercado de juegos móviles y que el modelo deje de mejorar (la dirección pausó una actualización en el 2T26)."
+    },
+    {
+     "n": "E-commerce en autoservicio",
+     "impact": 4,
+     "h": "4T26–2027",
+     "st": "en marcha",
+     "k": "Gasto de consumo +doble dígito trimestral y +triple dígito interanual (3T26)",
+     "peso": "gasto +28% sobre el pico del 4T25",
+     "d": "Llevar la misma máquina de anuncios a tiendas online que se anuncian dentro de los juegos. El autoservicio abrió a anunciantes de todo el mundo el 22-jun-2026, con un presupuesto mínimo de 10 $ al día, el píxel instalable desde Shopify o Google Tag Manager y objetivos de ROAS, compras o leads. Su web enseña como clientes a Gymshark, Wayfair o HelloFresh. La web y el e-commerce iban a un ritmo de 1.000 M$ al año en el 2T26.",
+     "ev": "Número de anunciantes de e-commerce y su gasto; retención de anunciantes tras los primeros meses.",
+     "r": "Que el retorno para tiendas sea peor que en Meta o Google y los anunciantes no repitan.",
+     "u": "https://www.applovin.com/en/consumer-brands"
+    },
+    {
+     "n": "Nuevos verticales e internacional",
+     "impact": 3,
+     "h": "2027+",
+     "st": "temprano",
+     "k": "Fintech, salud, TV conectada y redes sociales",
+     "peso": "todavía marginal",
+     "d": "Tras el e-commerce, la dirección quiere abrir Axon a otros sectores (servicios financieros, salud), a la televisión conectada (donde ya vende distribución con Wurl) y a las redes sociales, que el 10-Q del 3T26 cita como mercado nuevo, y crecer fuera de EE. UU. La posible compra de Criteo (Reuters, 17-nov; sin confirmar) encajaría aquí.",
+     "ev": "Anuncios de lanzamientos y primeros datos de gasto por vertical.",
+     "r": "Regulación de privacidad y publicidad en sectores sensibles.",
+     "u": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000069/app-20260930.htm"
+    },
+    {
+     "n": "Recompras",
+     "impact": 2,
+     "h": "Continuo",
+     "st": "maduro",
+     "k": "2.811 M$ en 9M26; autorización de 3.600 M$",
+     "peso": "−1% de acciones al año",
+     "d": "Con márgenes de EBITDA superiores al 80% la caja sobra; las recompras reducen el número de acciones y suben el beneficio por acción.",
+     "ev": "Acciones en circulación trimestre a trimestre.",
+     "r": "Recomprar caro si la acción cotiza con mucha prima."
+    }
+   ],
+   "porque": "Indicadores al 3T26 (ingresos, gasto de consumo, recompras de la SEC) y detalle oficial del autoservicio y de los mercados nuevos del 10-Q; peso e impacto sin cambios",
+   "fuente": {
+    "t": "10-Q 3T26",
+    "u": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000069/app-20260930.htm",
+    "d": "4-nov-2026"
+   },
+   "verificacion": "Ingresos 3T26 +55% (data); gaming «nearly 50%» y gasto de consumo «double digits q/q, triple digits y/y» (llamada del 3T26, ppc.land; no está en las fuentes citadas); 10 $/día, píxel con Shopify o Google Tag Manager, ROAS/compras/leads y logos en applovin.com/consumer-brands; autoservicio abierto el 22-jun-26 (blog); «social» y CTV/Wurl en el 10-Q; recompras 2.811 M$ en 9M26 (pagos XBRL; el 10-Q da 2.900 M$ con comisiones) y 3.600 M$ disponibles.",
+   "motivo": "Repaso semanal a fondo (software)"
+  },
+  {
+   "fecha": "2026-11-25",
+   "campo": "mgmt.vote",
+   "antes": {
+    "label": "Poder de voto (%)",
+    "items": [
+     {
+      "n": "Foroughi y pacto de voto",
+      "v": 60.9
+     },
+     {
+      "n": "Resto de accionistas",
+      "v": 39.1
+     }
+    ]
+   },
+   "despues": {
+    "label": "Poder de voto a 31-oct-2026 (%)",
+    "items": [
+     {
+      "n": "Adam Foroughi",
+      "v": 62.2
+     },
+     {
+      "n": "Resto del pacto de voto (Herald Chen y sociedades)",
+      "v": 5.0
+     },
+     {
+      "n": "Resto de accionistas",
+      "v": 32.8
+     }
+    ]
+   },
+   "porque": "El DEF 14C da el voto a 31-oct-2026: Foroughi 62,2% y el pacto de voto 67,2% (antes 60,9%)",
+   "fuente": {
+    "t": "DEF 14C: traslado a Nevada (información definitiva)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000079/app-20261123xdef14c.htm",
+    "d": "23-nov-2026"
+   },
+   "verificacion": "DEF 14C, tabla a 31-oct-2026: Foroughi 62,2% del voto, pacto de voto 67,2%; 67,2−62,2 = 5,0 y resto 32,8.",
+   "motivo": "Repaso semanal a fondo (software)"
+  },
+  {
+   "fecha": "2026-11-25",
+   "campo": "mgmt.note",
+   "antes": "Empresa controlada: Foroughi y Herald Chen tienen un pacto de voto sobre las acciones de clase B (60,9% del voto). Desde abr-26 la presidencia del consejo es independiente (Craig Billings) y el relevo del CTO y de la directora jurídica fue interno. Los directivos han vendido 197 M$ en acciones desde mayo (133 M$ con planes 10b5-1) y ninguno ha comprado en mercado.",
+   "despues": "Empresa controlada: el pacto de voto de Foroughi y Herald Chen reúne el 67,2% del voto (Foroughi solo, 62,2%; DEF 14C, 31-oct-26). Con ese voto aprobaron por escrito, sin junta, trasladar la sede social a Nevada (efectiva no antes del 13-dic-26). Desde abr-26 la presidencia del consejo es independiente (Craig Billings) y el relevo del CTO y de la directora jurídica fue interno. Los directivos han vendido 197 M$ en acciones desde mayo (133 M$ con planes 10b5-1) y ninguno ha comprado en mercado; lo del 20-nov fueron solo retenciones fiscales.",
+   "porque": "Voto del pacto al día (67,2%) y traslado a Nevada según el DEF 14C; formularios 4 del 20-nov son retenciones fiscales",
+   "fuente": {
+    "t": "DEF 14C: traslado a Nevada (información definitiva)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000079/app-20261123xdef14c.htm",
+    "d": "23-nov-2026"
+   },
+   "verificacion": "DEF 14C: pacto 67,2%, Foroughi 62,2%, consentimiento escrito sin junta, efectivo no antes del 13-dic; formularios 4 del 20-nov con código F (retención fiscal) en data → directivos; resto sin cambios.",
+   "motivo": "Repaso semanal a fondo (software)"
+  },
+  {
+   "fecha": "2026-11-25",
+   "campo": "mgmt.people",
+   "antes": [
+    {
+     "n": "Adam Foroughi",
+     "role": "Cofundador y CEO",
+     "since": "2012",
+     "note": "Controla el 60,9% del voto. Dejó la presidencia del consejo en abr-26. Ventas de acciones en 2026; recibió acciones como retribución el 29-oct."
+    },
+    {
+     "n": "Craig Billings",
+     "role": "Presidente independiente del consejo",
+     "since": "abr-2026",
+     "note": "Antes consejero independiente coordinador. Su nombramiento separa los cargos de presidente y CEO."
+    },
+    {
+     "n": "Matt Stumpf",
+     "role": "Director financiero",
+     "since": "",
+     "note": "Dice que las recompras se aceleraron en el 3T26 porque el precio se alejó del valor intrínseco."
+    },
+    {
+     "n": "Giovanni (Gio) Ge",
+     "role": "Director de tecnología",
+     "since": "jul-2026",
+     "note": "Ingeniero fundador y responsable de AXON. Sustituye a Basil Shikin, que pasa a «distinguished engineer»."
+    },
+    {
+     "n": "Corina Cacovean",
+     "role": "Directora jurídica",
+     "since": "ago-2026",
+     "note": "Antes responsable de privacidad, litigios y regulación. Sustituye a Victoria Valenzuela (jubilada; propuesta como consejera)."
+    },
+    {
+     "n": "Herald Chen",
+     "role": "Consejero",
+     "since": "",
+     "note": "Firmante del pacto de voto con Foroughi."
+    }
+   ],
+   "despues": [
+    {
+     "n": "Adam Foroughi",
+     "role": "Cofundador y CEO",
+     "since": "2012",
+     "note": "Tiene el 62,2% del voto y, con el pacto con Herald Chen, el 67,2% (DEF 14C). Dejó la presidencia del consejo en abr-26. Ventas de acciones en 2026; recibió acciones como retribución el 29-oct."
+    },
+    {
+     "n": "Craig Billings",
+     "role": "Presidente independiente del consejo",
+     "since": "abr-2026",
+     "note": "Antes consejero independiente coordinador. Su nombramiento separa los cargos de presidente y CEO."
+    },
+    {
+     "n": "Matt Stumpf",
+     "role": "Director financiero",
+     "since": "",
+     "note": "Dice que las recompras se aceleraron en el 3T26 porque el precio se alejó del valor intrínseco."
+    },
+    {
+     "n": "Giovanni (Gio) Ge",
+     "role": "Director de tecnología",
+     "since": "jul-2026",
+     "note": "Ingeniero fundador y responsable de AXON. Sustituye a Basil Shikin, que pasa a «distinguished engineer»."
+    },
+    {
+     "n": "Corina Cacovean",
+     "role": "Directora jurídica",
+     "since": "ago-2026",
+     "note": "Antes responsable de privacidad, litigios y regulación. Sustituye a Victoria Valenzuela, jubilada y ahora consejera."
+    },
+    {
+     "n": "Herald Chen",
+     "role": "Consejero",
+     "since": "",
+     "note": "Firmante del pacto de voto con Foroughi; 1,3% del voto propio (DEF 14C)."
+    }
+   ],
+   "porque": "Porcentajes de voto del DEF 14C y Valenzuela ya figura como consejera",
+   "fuente": {
+    "t": "DEF 14C: traslado a Nevada (información definitiva)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000079/app-20261123xdef14c.htm",
+    "d": "23-nov-2026"
+   },
+   "verificacion": "DEF 14C: Foroughi 62,2%, pacto 67,2%, Herald Chen 1,3% del voto; Victoria Valenzuela figura entre los consejeros.",
+   "motivo": "Repaso semanal a fondo (software)"
+  },
+  {
+   "fecha": "2026-11-25",
+   "campo": "mgmt.scores",
+   "antes": [
+    {
+     "n": "Alineación con el accionista",
+     "s": 5,
+     "note": "Fundador con participación muy grande"
+    },
+    {
+     "n": "Asignación de capital",
+     "s": 4,
+     "note": "Venta acertada del negocio de apps; recompras constantes"
+    },
+    {
+     "n": "Credibilidad y ejecución",
+     "s": 3,
+     "note": "Falló la guía en el 2T26 (el CEO lo llamó «foot fault») y la superó en ~100 M$ en el 3T26"
+    },
+    {
+     "n": "Gobierno corporativo",
+     "s": 2,
+     "note": "Voto dual (60,9% en manos del fundador); presidente independiente desde abr-26"
+    },
+    {
+     "n": "Transparencia",
+     "s": 2,
+     "note": "No desglosa e-commerce; mucha métrica no GAAP"
+    }
+   ],
+   "despues": [
+    {
+     "n": "Alineación con el accionista",
+     "s": 5,
+     "note": "Fundador con participación muy grande"
+    },
+    {
+     "n": "Asignación de capital",
+     "s": 4,
+     "note": "Venta acertada del negocio de apps; recompras constantes"
+    },
+    {
+     "n": "Credibilidad y ejecución",
+     "s": 3,
+     "note": "Falló la guía en el 2T26 (el CEO lo llamó «foot fault») y la superó en ~100 M$ en el 3T26"
+    },
+    {
+     "n": "Gobierno corporativo",
+     "s": 2,
+     "note": "Voto dual (67,2% con el pacto de voto); presidente independiente desde abr-26; traslado a Nevada aprobado sin junta"
+    },
+    {
+     "n": "Transparencia",
+     "s": 2,
+     "note": "No desglosa e-commerce; mucha métrica no GAAP"
+    }
+   ],
+   "porque": "Nota de gobierno con el voto del DEF 14C; puntuación sin cambios",
+   "fuente": {
+    "t": "DEF 14C: traslado a Nevada (información definitiva)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000079/app-20261123xdef14c.htm",
+    "d": "23-nov-2026"
+   },
+   "verificacion": "Puntuaciones sin cambios; 67,2% y traslado sin junta según el DEF 14C.",
+   "motivo": "Repaso semanal a fondo (software)"
+  },
+  {
+   "fecha": "2026-11-25",
+   "campo": "risks",
+   "antes": [
+    {
+     "n": "AXON mejora más despacio",
+     "cat": "Operativo",
+     "p": 2,
+     "i": 5,
+     "note": "En el 3T26 superó la guía en ~100 M$; la nueva arquitectura aún no tiene fecha ni impacto"
+    },
+    {
+     "n": "Erosión del dato de MAX",
+     "cat": "Competencia",
+     "p": 3,
+     "i": 4,
+     "note": "El tribunal negó la cautelar contra el SDK de Unity (oct-26)"
+    },
+    {
+     "n": "Cambios de privacidad de Apple o Google",
+     "cat": "Regulatorio",
+     "p": 2,
+     "i": 5,
+     "note": "Una restricción de plataforma golpearía la segmentación"
+    },
+    {
+     "n": "El e-commerce no escala",
+     "cat": "Operativo",
+     "p": 3,
+     "i": 3,
+     "note": "Gasto de consumo +doble dígito trimestral, pero los anunciantes pequeños tardan en validar y el 1T será flojo por estacionalidad"
+    },
+    {
+     "n": "Litigios",
+     "cat": "Legal",
+     "p": 3,
+     "i": 2,
+     "note": "Demanda colectiva por sus declaraciones sobre IA (plazo para el demandante principal: 16-nov-26) y San Diego por datos de menores"
+    },
+    {
+     "n": "Coste de cómputo",
+     "cat": "Financiero",
+     "p": 2,
+     "i": 2,
+     "note": "Margen del 84% en el 3T26 y guía del 84–85%; el gasto en centros de datos bajó en % de ingresos"
+    },
+    {
+     "n": "Ciclo publicitario",
+     "cat": "Mercado",
+     "p": 2,
+     "i": 3,
+     "note": "Beta de 2,35. Movimientos medios de ±4,9% diario en las últimas 20 sesiones; el 6-ago cayó un 20% en un día tras resultados"
+    },
+    {
+     "n": "Gobierno corporativo",
+     "cat": "Gobierno",
+     "p": 2,
+     "i": 2,
+     "note": "Voto dual y ventas de directivos (197 M$ desde mayo, 133 M$ con plan 10b5-1); mejora con un presidente independiente. Se muda de Delaware a Nevada, aprobado sin junta por Foroughi, Chen y sus sociedades (~67% del voto; PRE 14C del 12-nov-26): la ley de Nevada codifica los deberes de los consejeros y reduce el margen para demandarlos"
+    }
+   ],
+   "despues": [
+    {
+     "n": "AXON mejora más despacio",
+     "cat": "Operativo",
+     "p": 2,
+     "i": 5,
+     "note": "En el 3T26 superó la guía en ~100 M$; la nueva arquitectura aún no tiene fecha ni impacto"
+    },
+    {
+     "n": "Erosión del dato de MAX",
+     "cat": "Competencia",
+     "p": 3,
+     "i": 4,
+     "note": "El tribunal negó la cautelar contra el SDK de Unity (oct-26)"
+    },
+    {
+     "n": "Cambios de privacidad de Apple o Google",
+     "cat": "Regulatorio",
+     "p": 2,
+     "i": 5,
+     "note": "Una restricción de plataforma golpearía la segmentación"
+    },
+    {
+     "n": "El e-commerce no escala",
+     "cat": "Operativo",
+     "p": 3,
+     "i": 3,
+     "note": "Gasto de consumo +doble dígito trimestral, pero los anunciantes pequeños tardan en validar y el 1T será flojo por estacionalidad"
+    },
+    {
+     "n": "Litigios",
+     "cat": "Legal",
+     "p": 3,
+     "i": 2,
+     "note": "Demanda colectiva por sus declaraciones sobre IA (ya cerrado el plazo para el demandante principal) y San Diego por datos de menores"
+    },
+    {
+     "n": "Coste de cómputo",
+     "cat": "Financiero",
+     "p": 2,
+     "i": 2,
+     "note": "Margen del 84% en el 3T26 y guía del 84–85%; el gasto en centros de datos bajó en % de ingresos"
+    },
+    {
+     "n": "Ciclo publicitario",
+     "cat": "Mercado",
+     "p": 2,
+     "i": 3,
+     "note": "Beta de 2,2. En la semana al 20-nov cayó un 15% con la venta general de tecnológicas (−8,1% el 20-nov) y rebotó un 7,4% el 23-nov, sin noticias propias"
+    },
+    {
+     "n": "Gobierno corporativo",
+     "cat": "Gobierno",
+     "p": 2,
+     "i": 2,
+     "note": "Voto dual (67,2% con el pacto) y ventas de directivos (197 M$ desde mayo, 133 M$ con plan 10b5-1); mejora con un presidente independiente. Traslado de Delaware a Nevada aprobado por escrito sin junta (DEF 14C del 23-nov; efectivo no antes del 13-dic): la ley de Nevada codifica los deberes de los consejeros, reduce el margen para demandarlos y lleva las demandas derivadas a los tribunales de Nevada"
+    }
+   ],
+   "porque": "Gobierno con el DEF 14C definitivo; ciclo con la volatilidad de la semana; litigios sin fecha pasada. Probabilidades e impactos sin cambios",
+   "fuente": {
+    "t": "DEF 14C: traslado a Nevada (información definitiva)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000079/app-20261123xdef14c.htm",
+    "d": "23-nov-2026"
+   },
+   "verificacion": "−8,1% el 20-nov (379,02→348,29), +7,4% el 23-nov (→373,92) y −15% en la semana (409,10→348,29) cuadran con data; beta 2,23; DEF 14C: deberes codificados, menos demandas y foro exclusivo en Nevada para demandas derivadas; P e I sin cambios.",
+   "motivo": "Repaso semanal a fondo (software)"
+  },
+  {
+   "fecha": "2026-11-25",
+   "campo": "verdict.summary",
+   "antes": "Los resultados del 3T26 confirmaron la tesis: ingresos +55% (~100 M$ sobre la guía), margen EBITDA del 84%, FCF del 77% del EBITDA y guía del 4T por encima del consenso. Tras la fuerte subida posterior a resultados la acción cotiza cerca del valor del DCF: el negocio sigue siendo de compra, pero ya no ofrece margen de seguridad, de ahí Mantener y ampliar solo por debajo del precio de compra. Novedad de la semana: según Reuters (17-nov) está en conversaciones para comprar Criteo, sin confirmar por ninguna de las dos. Vigilar el 1T, estacionalmente flojo por el e-commerce.",
+   "despues": "Los resultados del 3T26 confirmaron la tesis: ingresos +55% (~100 M$ sobre la guía), margen EBITDA del 84%, FCF del 77% del EBITDA y guía del 4T por encima de lo que esperaba el mercado. La acción cotiza cerca del valor del DCF: el negocio sigue siendo de compra, pero sin margen de seguridad, de ahí Mantener y ampliar solo por debajo del precio de compra. Semana sin noticias propias: cayó con la venta general de tecnológicas y rebotó con el mercado. El DEF 14C confirma el traslado a Nevada con el voto del pacto de los fundadores (67,2%). Siguen sin confirmar las conversaciones para comprar Criteo. Vigilar el 1T, estacionalmente flojo por el e-commerce.",
+   "porque": "Pone al día la novedad de la semana (venta sectorial, DEF 14C) sin citar precio",
+   "fuente": {
+    "t": "DEF 14C: traslado a Nevada (información definitiva)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000079/app-20261123xdef14c.htm",
+    "d": "23-nov-2026"
+   },
+   "verificacion": "Hechos (ingresos +55%, margen EBITDA 84%, DEF 14C 67,2%, Criteo sin confirmar) cuadran; sin precio de la acción ni nivel de compra con cifra.",
+   "motivo": "Repaso semanal a fondo (software)"
+  },
+  {
+   "fecha": "2026-11-25",
+   "campo": "verdict.bull",
+   "antes": [
+    "Vuelve a superar la guía (~100 M$) y guía el 4T por encima del consenso (2.380 M$ frente a 2.250 M$ en el punto medio)",
+    "Margen EBITDA del 84% y FCF del 77% del EBITDA en el 3T26",
+    "Nueva arquitectura de AXON en despliegue: margen para nuevas mejoras",
+    "Recompras agresivas: ~1.400 M$ en el 3T26 y autorización de 3.600 M$"
+   ],
+   "despues": [
+    "Vuelve a superar la guía (~100 M$) y guía un 4T de 2.365–2.395 M$; el consenso ya se ha subido a 2.404 M$",
+    "Margen EBITDA del 84% y FCF del 77% del EBITDA en el 3T26",
+    "Nueva arquitectura de AXON en despliegue: margen para nuevas mejoras",
+    "E-commerce en autoservicio abierto a todos desde jun-26, con presupuesto mínimo de 10 $/día y marcas como Gymshark, Wayfair o HelloFresh",
+    "Recompras agresivas: 2.811 M$ en 9M26 y autorización de 3.600 M$"
+   ],
+   "porque": "Consenso del 4T al día, recompras de 9M26 (SEC) y el e-commerce con los datos de la web oficial",
+   "fuente": {
+    "t": "Finnhub · calendario de resultados (data/APP.json → resultados_previstos)",
+    "u": "https://finnhub.io/docs/api/earnings-calendar",
+    "d": "24-nov-2026"
+   },
+   "verificacion": "Guía 4T 2.365–2.395 M$ (Ex. 99.1), consenso 2.404 M$ (data), recompras 2.811 M$ en 9M26 (data) y 3.600 M$ (10-Q), 10 $/día y logos (consumer-brands).",
+   "motivo": "Repaso semanal a fondo (software)"
+  },
+  {
+   "fecha": "2026-11-25",
+   "campo": "verdict.bear",
+   "antes": [
+    "La mejora del modelo no es predecible cada trimestre y la nueva arquitectura no tiene fecha ni impacto",
+    "Unity puede erosionar el dato de MAX (el tribunal negó la cautelar)",
+    "El e-commerce será estacional: 1T más flojos",
+    "Litigios abiertos: demanda colectiva y San Diego",
+    "Tras la fuerte subida posterior a resultados la valoración ya descuenta buena parte del crecimiento: poco margen de seguridad y beta de 2,35"
+   ],
+   "despues": [
+    "La mejora del modelo no es predecible cada trimestre y la nueva arquitectura no tiene fecha ni impacto",
+    "Unity puede erosionar el dato de MAX (el tribunal negó la cautelar)",
+    "El e-commerce será estacional: 1T más flojos",
+    "Litigios abiertos: demanda colectiva y San Diego",
+    "La valoración ya descuenta buena parte del crecimiento: poco margen de seguridad y beta de 2,2 (−8,1% en un solo día el 20-nov)",
+    "Gobierno: el pacto de los fundadores (67,2% del voto) aprueba sin junta cambios como el traslado a Nevada"
+   ],
+   "porque": "Beta al día y riesgo de gobierno con el DEF 14C",
+   "fuente": {
+    "t": "DEF 14C: traslado a Nevada (información definitiva)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000079/app-20261123xdef14c.htm",
+    "d": "23-nov-2026"
+   },
+   "verificacion": "Beta 2,2 y −8,1% el 20-nov (data); pacto 67,2% y traslado sin junta (DEF 14C).",
+   "motivo": "Repaso semanal a fondo (software)"
+  },
+  {
+   "fecha": "2026-11-25",
+   "campo": "verdict.watch",
+   "antes": [
+    "Conversaciones para comprar Criteo (Reuters, 17-nov; sin confirmar): precio, forma de pago y encaje con el e-commerce si se anuncia",
+    "Despliegue completo de la nueva arquitectura de AXON y su efecto en ingresos",
+    "Guía del 1T27 y caída estacional del e-commerce",
+    "Conversión de FCF en el ~70–75% anual",
+    "Comisiones de MAX tras el caso Unity"
+   ],
+   "despues": [
+    "Conversaciones para comprar Criteo (Reuters, 17-nov; sin confirmar): precio, forma de pago y encaje con el e-commerce si se anuncia",
+    "Entrada en vigor del traslado a Nevada (no antes del 13-dic-26) y posibles cambios en los estatutos",
+    "Despliegue completo de la nueva arquitectura de AXON y su efecto en ingresos",
+    "Guía del 1T27 y caída estacional del e-commerce; el consenso del 4T ya está por encima de la guía",
+    "Conversión de FCF en el ~70–75% anual",
+    "Comisiones de MAX tras el caso Unity"
+   ],
+   "porque": "Añade el traslado a Nevada y el listón más alto del consenso del 4T",
+   "fuente": {
+    "t": "DEF 14C: traslado a Nevada (información definitiva)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000079/app-20261123xdef14c.htm",
+    "d": "23-nov-2026"
+   },
+   "verificacion": "Efectivo no antes del 13-dic (DEF 14C) y consenso del 4T por encima de la guía (data).",
+   "motivo": "Repaso semanal a fondo (software)"
+  },
+  {
+   "fecha": "2026-11-25",
+   "campo": "sources.docs",
+   "antes": [
+    {
+     "cat": "Gobierno corporativo",
+     "t": "PRE 14C: cambio de domicilio social de Delaware a Nevada, aprobado por escrito por accionistas con ~67% del voto",
+     "d": "12-nov-2026",
+     "u": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000075/app-2026xpre14c.htm"
+    },
+    {
+     "cat": "Formularios SEC",
+     "t": "10-Q tercer trimestre 2026",
+     "d": "04-nov-2026",
+     "u": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000069/app-20260930.htm"
+    },
+    {
+     "cat": "Resultados trimestrales",
+     "t": "8-K de resultados 3T26 (Exhibit 99.1)",
+     "d": "04-nov-2026",
+     "u": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000068/exhibit991-3q26earningspre.htm"
+    },
+    {
+     "cat": "Gobierno corporativo",
+     "t": "Plan de sucesión: nuevo CTO, directora jurídica y presidente independiente",
+     "d": "07-abr-2026",
+     "u": "https://investors.applovin.com/news/news-details/2026/AppLovin-Announces-Succession-Plans-for-Key-Leadership-Roles-and-New-Independent-Chairperson/default.aspx"
+    },
+    {
+     "cat": "Resultados trimestrales",
+     "t": "Nota de prensa de resultados 2T26 (PDF)",
+     "d": "05-ago-2026",
+     "u": "https://s21.q4cdn.com/165405286/files/doc_financials/2026/q2/AppLovin-2Q26-Earnings-Press-Release.pdf"
+    },
+    {
+     "cat": "Presentaciones",
+     "t": "Financial Update 2T26 (PDF)",
+     "d": "05-ago-2026",
+     "u": "https://s21.q4cdn.com/165405286/files/doc_financials/2026/q2/Financial-Update-Q2-2026.pdf"
+    },
+    {
+     "cat": "Resultados trimestrales",
+     "t": "8-K de resultados 2T26 (Exhibit 99.1)",
+     "d": "05-ago-2026",
+     "u": "https://www.sec.gov/Archives/edgar/data/0001751008/000175100826000057/exhibit991-2q26earningspre.htm"
+    },
+    {
+     "cat": "Formularios SEC",
+     "t": "10-Q segundo trimestre 2026",
+     "d": "05-ago-2026",
+     "u": "https://www.sec.gov/Archives/edgar/data/0001751008/000175100826000059/app-20260630.htm"
+    },
+    {
+     "cat": "Formularios SEC",
+     "t": "10-Q primer trimestre 2026",
+     "d": "06-may-2026",
+     "u": "https://www.sec.gov/Archives/edgar/data/0001751008/000175100826000044/app-20260331.htm"
+    },
+    {
+     "cat": "Formularios SEC",
+     "t": "10-K ejercicio 2025",
+     "d": "feb-2026",
+     "u": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000010/app-20251231.htm"
+    },
+    {
+     "cat": "Formularios SEC",
+     "t": "Índice de documentos del 10-K 2025",
+     "d": "feb-2026",
+     "u": "https://www.sec.gov/Archives/edgar/data/1751008/0001751008-26-000010-index.html"
+    },
+    {
+     "cat": "Informe anual",
+     "t": "Informe anual 2025 (PDF)",
+     "d": "2026",
+     "u": "https://s21.q4cdn.com/165405286/files/doc_financials/2025/ar/d6d59334-570b-453f-8c55-30d0bda96a8e.pdf"
+    },
+    {
+     "cat": "Formularios SEC",
+     "t": "S-1 de la salida a bolsa",
+     "d": "2021",
+     "u": "https://www.sec.gov/Archives/edgar/data/1751008/000119312521340630/d223514ds1.htm"
+    },
+    {
+     "cat": "Transcripciones",
+     "t": "Llamada de resultados 2T26 (MarketBeat)",
+     "d": "05-ago-2026",
+     "u": "https://www.marketbeat.com/earnings/reports/2026-8-4-applovin-co-stock/"
+    },
+    {
+     "cat": "Gobierno corporativo",
+     "t": "Perfil de Adam Foroughi y pacto de voto (proxy 2025)",
+     "d": "2025",
+     "u": "https://fintool.com/app/research/companies/APP/people/adam-foroughi"
+    }
+   ],
+   "despues": [
+    {
+     "cat": "Gobierno corporativo",
+     "t": "DEF 14C: traslado de Delaware a Nevada (información definitiva; voto del pacto 67,2% a 31-oct-26)",
+     "d": "23-nov-2026",
+     "u": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000079/app-20261123xdef14c.htm"
+    },
+    {
+     "cat": "Gobierno corporativo",
+     "t": "PRE 14C: cambio de domicilio social de Delaware a Nevada, aprobado por escrito por accionistas con ~67% del voto",
+     "d": "12-nov-2026",
+     "u": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000075/app-2026xpre14c.htm"
+    },
+    {
+     "cat": "Formularios SEC",
+     "t": "10-Q tercer trimestre 2026",
+     "d": "04-nov-2026",
+     "u": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000069/app-20260930.htm"
+    },
+    {
+     "cat": "Resultados trimestrales",
+     "t": "8-K de resultados 3T26 (Exhibit 99.1)",
+     "d": "04-nov-2026",
+     "u": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000068/exhibit991-3q26earningspre.htm"
+    },
+    {
+     "cat": "Gobierno corporativo",
+     "t": "Plan de sucesión: nuevo CTO, directora jurídica y presidente independiente",
+     "d": "07-abr-2026",
+     "u": "https://investors.applovin.com/news/news-details/2026/AppLovin-Announces-Succession-Plans-for-Key-Leadership-Roles-and-New-Independent-Chairperson/default.aspx"
+    },
+    {
+     "cat": "Resultados trimestrales",
+     "t": "Nota de prensa de resultados 2T26 (PDF)",
+     "d": "05-ago-2026",
+     "u": "https://s21.q4cdn.com/165405286/files/doc_financials/2026/q2/AppLovin-2Q26-Earnings-Press-Release.pdf"
+    },
+    {
+     "cat": "Presentaciones",
+     "t": "Financial Update 2T26 (PDF)",
+     "d": "05-ago-2026",
+     "u": "https://s21.q4cdn.com/165405286/files/doc_financials/2026/q2/Financial-Update-Q2-2026.pdf"
+    },
+    {
+     "cat": "Resultados trimestrales",
+     "t": "8-K de resultados 2T26 (Exhibit 99.1)",
+     "d": "05-ago-2026",
+     "u": "https://www.sec.gov/Archives/edgar/data/0001751008/000175100826000057/exhibit991-2q26earningspre.htm"
+    },
+    {
+     "cat": "Formularios SEC",
+     "t": "10-Q segundo trimestre 2026",
+     "d": "05-ago-2026",
+     "u": "https://www.sec.gov/Archives/edgar/data/0001751008/000175100826000059/app-20260630.htm"
+    },
+    {
+     "cat": "Formularios SEC",
+     "t": "10-Q primer trimestre 2026",
+     "d": "06-may-2026",
+     "u": "https://www.sec.gov/Archives/edgar/data/0001751008/000175100826000044/app-20260331.htm"
+    },
+    {
+     "cat": "Formularios SEC",
+     "t": "10-K ejercicio 2025",
+     "d": "feb-2026",
+     "u": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000010/app-20251231.htm"
+    },
+    {
+     "cat": "Formularios SEC",
+     "t": "Índice de documentos del 10-K 2025",
+     "d": "feb-2026",
+     "u": "https://www.sec.gov/Archives/edgar/data/1751008/0001751008-26-000010-index.html"
+    },
+    {
+     "cat": "Informe anual",
+     "t": "Informe anual 2025 (PDF)",
+     "d": "2026",
+     "u": "https://s21.q4cdn.com/165405286/files/doc_financials/2025/ar/d6d59334-570b-453f-8c55-30d0bda96a8e.pdf"
+    },
+    {
+     "cat": "Formularios SEC",
+     "t": "S-1 de la salida a bolsa",
+     "d": "2021",
+     "u": "https://www.sec.gov/Archives/edgar/data/1751008/000119312521340630/d223514ds1.htm"
+    },
+    {
+     "cat": "Transcripciones",
+     "t": "Llamada de resultados 2T26 (MarketBeat)",
+     "d": "05-ago-2026",
+     "u": "https://www.marketbeat.com/earnings/reports/2026-8-4-applovin-co-stock/"
+    },
+    {
+     "cat": "Gobierno corporativo",
+     "t": "Perfil de Adam Foroughi y pacto de voto (proxy 2025)",
+     "d": "2025",
+     "u": "https://fintool.com/app/research/companies/APP/people/adam-foroughi"
+    }
+   ],
+   "porque": "Nuevo documento oficial de la ventana",
+   "fuente": {
+    "t": "DEF 14C: traslado a Nevada (información definitiva)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000079/app-20261123xdef14c.htm",
+    "d": "23-nov-2026"
+   },
+   "verificacion": "DEF 14C (23-nov) y PRE 14C (12-nov) en data → presentaciones_sec con esos enlaces; 67,2% a 31-oct en el DEF 14C.",
+   "motivo": "Repaso semanal a fondo (software)"
+  },
+  {
+   "fecha": "2026-11-25",
+   "campo": "sources.news",
+   "antes": [
+    {
+     "t": "AppLovin, entre las compañías en conversaciones para comprar Criteo (fuentes de Reuters; sin precio ni confirmación)",
+     "src": "Reuters (vía Euronext)",
+     "u": "https://live.euronext.com/en/financial-news/exclusive-applovin-among-firms-talks-acquire-criteo-sources-say"
+    },
+    {
+     "t": "AppLovin vuelve a batir previsiones, pero los inversores tardan en comprar",
+     "src": "AdExchanger",
+     "u": "https://www.adexchanger.com/platforms/applovin-is-back-to-smashing-earnings-but-investors-are-slow-to-buy/"
+    },
+    {
+     "t": "La brecha del ad tech en el 3T: AppLovin se dispara y sus rivales sufren",
+     "src": "Digiday",
+     "u": "https://digiday.com/media/by-the-numbers-ad-techs-widening-divide-as-applovin-surges-and-rivals-struggle-in-q3/"
+    },
+    {
+     "t": "Sube un 27% tras el 3T; el CEO llama «foot fault» al fallo del 2T",
+     "src": "TIKR",
+     "u": "https://www.tikr.com/blog/applovin-soars-27-on-record-q3-beat-as-ceo-calls-last-quarters-miss-our-own-foot-fault"
+    },
+    {
+     "t": "Subidas de precio objetivo tras resultados (Evercore 540 $, Oppenheimer 520 $, MS 450 $, Goldman 445 $)",
+     "src": "Stocktwits",
+     "u": "https://stocktwits.com/news-articles/markets/equity/app-stock-best-day-in-nearly-2-years-analyst-says-q3-directly-challenges-slowdown-fears/cNG1nwaR94J"
+    },
+    {
+     "t": "Plan de sucesión: Gio Ge, nuevo CTO; Craig Billings, presidente",
+     "src": "MarketScreener",
+     "u": "https://www.marketscreener.com/news/applovin-appoints-ge-as-chief-technology-officer-billings-as-board-chair-ce7e50dad889f020"
+    },
+    {
+     "t": "La SEC cierra su investigación sin acción",
+     "src": "Tech Times",
+     "u": "https://www.techtimes.com/articles/323336/20260806/applovin-stock-lost-40b-16m-miss-while-sec-cleared-axon-data-probe.htm"
+    }
+   ],
+   "despues": [
+    {
+     "t": "Meta mira a la TV conectada y AppLovin ronda a Criteo: presión sobre el ad tech independiente",
+     "src": "Digiday (24-nov-2026)",
+     "u": "https://digiday.com/media-buying/ad-tech-briefing-meta-eyes-ctv-as-applovin-circles-criteo-signs-of-the-squeeze-on-independent-ad-tech/"
+    },
+    {
+     "t": "BTIG reitera comprar con precio objetivo de 450 $",
+     "src": "Benzinga (24-nov-2026)",
+     "u": "https://www.benzinga.com/news/26/11/63570998/btig-reiterates-buy-applovin-maintains-450-price-target"
+    },
+    {
+     "t": "AppLovin cae un 28% en un año; el CEO dice que tienen «a todas las compañías de juegos móviles»",
+     "src": "TIKR (24-nov-2026)",
+     "u": "https://www.tikr.com/blog/applovin-is-down-28-in-a-year-ceo-says-we-have-every-mobile-gaming-company-live-probably-time-to-buy"
+    },
+    {
+     "t": "Druckenmiller abre posición en AppLovin en el 3T (13F)",
+     "src": "Motley Fool (23-nov-2026)",
+     "u": "https://www.fool.com/investing/2026/11/23/3-ai-stocks-billionaire-stanley-druckenmiller-has-been-quietly-buying/"
+    },
+    {
+     "t": "Rotación fuera de la IA: el Nasdaq cae un 6,7% en la semana",
+     "src": "Seeking Alpha (20-nov-2026)",
+     "u": "https://seekingalpha.com/article/4970595-buzz-investing-ai-reassessment-drives-tech-rotation-buzz-index-declines"
+    },
+    {
+     "t": "AppLovin, entre los interesados en comprar Criteo",
+     "src": "AdExchanger (19-nov-2026)",
+     "u": "https://www.adexchanger.com/daily-news-roundup/thursday-20261119/"
+    },
+    {
+     "t": "StoneX mantiene comprar y sube el objetivo de 440 a 469 $",
+     "src": "Benzinga (19-nov-2026)",
+     "u": "https://www.benzinga.com/news/26/11/63439079/stonex-maintains-buy-applovin-raises-price-target-469"
+    },
+    {
+     "t": "JPMorgan: una compra de Criteo encajaría en la estrategia de consumo",
+     "src": "Benzinga (18-nov-2026)",
+     "u": "https://www.benzinga.com/analyst-stock-ratings/analyst-color/26/11/63403898/applovin-criteo-deal-would-fit-consumer-strategy-analyst-says"
+    }
+   ],
+   "porque": "Ocho noticias de la ventana (18–25 nov) con el enlace real del artículo",
+   "fuente": {
+    "t": "data/APP.json → noticias",
+    "u": "https://www.benzinga.com/news/26/11/63570998/btig-reiterates-buy-applovin-maintains-450-price-target",
+    "d": "24-nov-2026"
+   },
+   "verificacion": "Los ocho enlaces están en data → noticias con esas fechas; Nasdaq −6,7% en el resumen de Seeking Alpha; Druckenmiller abre posición en el 3T según el resumen de Motley Fool.",
+   "motivo": "Repaso semanal a fondo (software)"
+  },
+  {
+   "fecha": "2026-11-25",
+   "campo": "meta.asOf",
+   "antes": "19-nov-2026",
+   "despues": "25-nov-2026",
+   "porque": "Repaso semanal a fondo con la lista de comprobación completa",
+   "fuente": {
+    "t": "10-Q 3T26",
+    "u": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000069/app-20260930.htm",
+    "d": "4-nov-2026"
+   },
+   "verificacion": "Fecha del repaso.",
+   "motivo": "Repaso semanal a fondo (software)"
+  },
+  {
+   "fecha": "2026-11-25",
+   "campo": "meta.repasoFondo",
+   "antes": "18-nov-2026",
+   "despues": "25-nov-2026",
+   "porque": "Repaso semanal a fondo del 25-nov-2026",
+   "fuente": {
+    "t": "10-Q 3T26",
+    "u": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000069/app-20260930.htm",
+    "d": "4-nov-2026"
+   },
+   "verificacion": "Fecha del repaso.",
+   "motivo": "Repaso semanal a fondo (software)"
   }
  ]
 }
