@@ -6,10 +6,10 @@
   "hq": "Cambridge, Massachusetts",
   "founded": "2010",
   "employees": "~4.700 (dic-25, 18 países)",
-  "asOf": "19-nov-2026",
+  "asOf": "26-nov-2026",
   "fav": false,
   "nextEarnings": "11-feb-2027 (4T26, estimada)",
-  "repasoFondo": "19-nov-2026"
+  "repasoFondo": "26-nov-2026"
  },
  "overview": {
   "thesis": "Moderna se juega su futuro a intismeran, su terapia personalizada contra el cáncer con Merck: en fase 3 redujo un 42% el riesgo de recaída en melanoma operado, aunque la supervivencia aún no es significativa. La valoración ya descuenta un éxito comercial amplio en varios tumores que todavía no está aprobado, frente a unas ventas de ~2.240–2.430 M$ guiadas para 2026.",
@@ -108,7 +108,10 @@
    },
    {
     "n": "Socio: Merck",
-    "d": "Codesarrolla intismeran y reparte costes y beneficios al 50% en todo el mundo; Moderna fabrica y Merck lleva los ensayos."
+    "d": "Codesarrolla intismeran y reparte costes y beneficios al 50% en todo el mundo; Moderna fabrica y Merck lleva los ensayos.",
+    "u": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000197/mrna-20260930.htm",
+    "f": "nov-2026",
+    "fu": "10-Q 3T26 · Nota de colaboraciones (Merck)"
    },
    {
     "n": "Oncología y enfermedades raras (futuro)",
@@ -1470,6 +1473,85 @@
     "d": "6-nov-2026"
    },
    "verificacion": "Fecha del repaso de hoy: 19-nov-2026.",
+   "motivo": "Repaso semanal a fondo (consumo y salud)"
+  },
+  {
+   "fecha": "2026-11-26",
+   "campo": "business.customerTypes",
+   "antes": [
+    {
+     "n": "Mayoristas de EE. UU.",
+     "d": "Venden a farmacias y centros de salud; FFF Enterprises (15%) y Cardinal Health (11%) en 2025. Las devoluciones y descuentos se llevan la mitad de las ventas brutas (2.597 M$ brutas → 1.273 M$ netas en el 3T26)."
+    },
+    {
+     "n": "Gobiernos",
+     "d": "Canadá (13% de 2025), Reino Unido y Australia con plantas propias de Moderna; acuerdo de 5 años en México (sep-26). Europa pasó de 16 M$ a 314 M$ de ventas en el 3T."
+    },
+    {
+     "n": "Socio: Merck",
+     "d": "Codesarrolla intismeran y reparte costes y beneficios al 50% en todo el mundo; Moderna fabrica y Merck lleva los ensayos."
+    },
+    {
+     "n": "Oncología y enfermedades raras (futuro)",
+     "d": "Hospitales y oncólogos si se aprueba intismeran; pacientes con acidemia propiónica."
+    }
+   ],
+   "despues": [
+    {
+     "n": "Mayoristas de EE. UU.",
+     "d": "Venden a farmacias y centros de salud; FFF Enterprises (15%) y Cardinal Health (11%) en 2025. Las devoluciones y descuentos se llevan la mitad de las ventas brutas (2.597 M$ brutas → 1.273 M$ netas en el 3T26)."
+    },
+    {
+     "n": "Gobiernos",
+     "d": "Canadá (13% de 2025), Reino Unido y Australia con plantas propias de Moderna; acuerdo de 5 años en México (sep-26). Europa pasó de 16 M$ a 314 M$ de ventas en el 3T."
+    },
+    {
+     "n": "Socio: Merck",
+     "d": "Codesarrolla intismeran y reparte costes y beneficios al 50% en todo el mundo; Moderna fabrica y Merck lleva los ensayos.",
+     "u": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000197/mrna-20260930.htm",
+     "f": "nov-2026",
+     "fu": "10-Q 3T26 · Nota de colaboraciones (Merck)"
+    },
+    {
+     "n": "Oncología y enfermedades raras (futuro)",
+     "d": "Hospitales y oncólogos si se aprueba intismeran; pacientes con acidemia propiónica."
+    }
+   ],
+   "porque": "Mismos textos; «Socio: Merck» gana su enlace oficial al 10-Q.",
+   "fuente": {
+    "t": "10-Q 3T26 (nota de colaboraciones)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000197/mrna-20260930.htm",
+    "d": "6-nov-2026"
+   },
+   "verificacion": "Solo «Socio: Merck» gana enlace; el 10-Q 3T26 (nota Merck – INT) dice costes y beneficios compartidos al 50% mundial, Moderna fabrica y Merck lidera los ensayos.",
+   "motivo": "Repaso semanal a fondo (consumo y salud)"
+  },
+  {
+   "fecha": "2026-11-26",
+   "campo": "meta.asOf",
+   "antes": "19-nov-2026",
+   "despues": "26-nov-2026",
+   "porque": "Repaso semanal a fondo con la lista de comprobación completa.",
+   "fuente": {
+    "t": "10-Q 3T26",
+    "u": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000197/mrna-20260930.htm",
+    "d": "6-nov-2026"
+   },
+   "verificacion": "Fecha 26-nov-2026; el 10-Q 3T26 existe (presentado 6-nov-2026, copia en lecturas/MRNA).",
+   "motivo": "Repaso semanal a fondo (consumo y salud)"
+  },
+  {
+   "fecha": "2026-11-26",
+   "campo": "meta.repasoFondo",
+   "antes": "19-nov-2026",
+   "despues": "26-nov-2026",
+   "porque": "Repaso semanal a fondo del 26-nov-2026.",
+   "fuente": {
+    "t": "10-Q 3T26",
+    "u": "https://www.sec.gov/Archives/edgar/data/1682852/000168285226000197/mrna-20260930.htm",
+    "d": "6-nov-2026"
+   },
+   "verificacion": "Fecha 26-nov-2026; el 10-Q 3T26 existe (presentado 6-nov-2026).",
    "motivo": "Repaso semanal a fondo (consumo y salud)"
   }
  ]

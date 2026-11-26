@@ -14,9 +14,9 @@
   "hq": "San Francisco, California",
   "founded": "2005",
   "employees": "2.555 (dic-25)",
-  "asOf": "19-nov-2026",
+  "asOf": "26-nov-2026",
   "fav": false,
-  "repasoFondo": "19-nov-2026"
+  "repasoFondo": "26-nov-2026"
  },
  "overview": {
   "thesis": "Sigue creciendo al 40–50% con márgenes de software, 3.030 M$ de caja y sin deuda, pero el riesgo principal ya se está cumpliendo: Google le envía cada vez menos visitas y sus usuarios diarios pueden caer en el 4T26. Su respuesta es sacar más de quien ya entra: la experiencia con sesión iniciada (más del 80% de los ingresos), los anuncios en su propio buscador y Reddit Reviews.",
@@ -111,7 +111,10 @@
    },
    {
     "n": "Usuarios",
-    "d": "130,3 M diarios; los internacionales crecen un 28%, los de EE. UU. un 6%."
+    "d": "130,3 M diarios (+12%): fuera de EE. UU. crecen un 24% (79,6 M) y en EE. UU. bajan un 2% (50,7 M).",
+    "u": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000114/earningspressreleaseq326.htm",
+    "f": "oct-2026",
+    "fu": "Nota de resultados 3T26 · DAUq"
    }
   ],
   "quality": [
@@ -210,7 +213,10 @@
    {
     "n": "Efecto red",
     "s": 4,
-    "note": "Más usuarios → más conversaciones → más valor para cada comunidad"
+    "note": "Más usuarios → más conversaciones → más valor para cada comunidad",
+    "u": "https://investor.redditinc.com",
+    "f": "nov-2026",
+    "fu": "investor.redditinc.com · Reddit en cifras"
    },
    {
     "n": "Costes de cambio",
@@ -225,7 +231,10 @@
    {
     "n": "Ventaja de costes",
     "s": 4,
-    "note": "Contenido y moderación gratuitos: margen bruto del 91%"
+    "note": "Contenido y moderación gratuitos: margen bruto del 91%",
+    "u": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000114/earningspressreleaseq326.htm",
+    "f": "oct-2026",
+    "fu": "Nota de resultados 3T26 · margen bruto 91,5%"
    },
    {
     "n": "Escala eficiente",
@@ -2007,6 +2016,157 @@
     "d": "30-oct-2026"
    },
    "verificacion": "Fecha del repaso de hoy: 19-nov-2026.",
+   "motivo": "Repaso semanal a fondo (consumo y salud)"
+  },
+  {
+   "fecha": "2026-11-26",
+   "campo": "business.customerTypes",
+   "antes": [
+    {
+     "n": "Grandes anunciantes",
+     "d": "Marcas que buscan audiencias por interés. Reddit Max automatiza segmentación y creatividades."
+    },
+    {
+     "n": "Pymes y rendimiento",
+     "d": "Autoservicio y anuncios de apps; la dirección admite que el alta de pymes en Max aún debe mejorar."
+    },
+    {
+     "n": "Empresas de IA",
+     "d": "Google y OpenAI licencian el contenido desde 2024; ~140 M$ en 2025."
+    },
+    {
+     "n": "Usuarios",
+     "d": "130,3 M diarios; los internacionales crecen un 28%, los de EE. UU. un 6%."
+    }
+   ],
+   "despues": [
+    {
+     "n": "Grandes anunciantes",
+     "d": "Marcas que buscan audiencias por interés. Reddit Max automatiza segmentación y creatividades."
+    },
+    {
+     "n": "Pymes y rendimiento",
+     "d": "Autoservicio y anuncios de apps; la dirección admite que el alta de pymes en Max aún debe mejorar."
+    },
+    {
+     "n": "Empresas de IA",
+     "d": "Google y OpenAI licencian el contenido desde 2024; ~140 M$ en 2025."
+    },
+    {
+     "n": "Usuarios",
+     "d": "130,3 M diarios (+12%): fuera de EE. UU. crecen un 24% (79,6 M) y en EE. UU. bajan un 2% (50,7 M).",
+     "u": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000114/earningspressreleaseq326.htm",
+     "f": "oct-2026",
+     "fu": "Nota de resultados 3T26 · DAUq"
+    }
+   ],
+   "porque": "Corrige «Usuarios» con las cifras diarias oficiales (EE. UU. −2%, fuera +24%) y le añade su enlace oficial; el resto sin cambios.",
+   "fuente": {
+    "t": "Nota de resultados 3T26 (tabla de DAUq)",
+    "u": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000114/earningspressreleaseq326.htm",
+    "d": "29-oct-2026"
+   },
+   "verificacion": "Solo cambia «Usuarios»; la nota de resultados 3T26 (tabla DAUq) da 130,3 M (+12%), EE. UU. 50,7 M (−2%) e internacional 79,6 M (+24%); los otros tres elementos quedan idénticos a analysis/RDDT.json.",
+   "motivo": "Repaso semanal a fondo (consumo y salud)"
+  },
+  {
+   "fecha": "2026-11-26",
+   "campo": "moat.sources",
+   "antes": [
+    {
+     "n": "Efecto red",
+     "s": 4,
+     "note": "Más usuarios → más conversaciones → más valor para cada comunidad"
+    },
+    {
+     "n": "Costes de cambio",
+     "s": 2,
+     "note": "Historial y reputación del usuario; bajo para el lector anónimo"
+    },
+    {
+     "n": "Activos intangibles",
+     "s": 4,
+     "note": "Archivo de conversaciones y marca; licenciado a Google y OpenAI"
+    },
+    {
+     "n": "Ventaja de costes",
+     "s": 4,
+     "note": "Contenido y moderación gratuitos: margen bruto del 91%"
+    },
+    {
+     "n": "Escala eficiente",
+     "s": 2,
+     "note": "Nichos abiertos a otros foros y plataformas"
+    }
+   ],
+   "despues": [
+    {
+     "n": "Efecto red",
+     "s": 4,
+     "note": "Más usuarios → más conversaciones → más valor para cada comunidad",
+     "u": "https://investor.redditinc.com",
+     "f": "nov-2026",
+     "fu": "investor.redditinc.com · Reddit en cifras"
+    },
+    {
+     "n": "Costes de cambio",
+     "s": 2,
+     "note": "Historial y reputación del usuario; bajo para el lector anónimo"
+    },
+    {
+     "n": "Activos intangibles",
+     "s": 4,
+     "note": "Archivo de conversaciones y marca; licenciado a Google y OpenAI"
+    },
+    {
+     "n": "Ventaja de costes",
+     "s": 4,
+     "note": "Contenido y moderación gratuitos: margen bruto del 91%",
+     "u": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000114/earningspressreleaseq326.htm",
+     "f": "oct-2026",
+     "fu": "Nota de resultados 3T26 · margen bruto 91,5%"
+    },
+    {
+     "n": "Escala eficiente",
+     "s": 2,
+     "note": "Nichos abiertos a otros foros y plataformas"
+    }
+   ],
+   "porque": "Mismos textos y puntuaciones; «Efecto red» y «Ventaja de costes» ganan su enlace oficial (100.000+ comunidades y 130 M de usuarios diarios; margen bruto del 91,5% en 3T26).",
+   "fuente": {
+    "t": "Nota de resultados 3T26",
+    "u": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000114/earningspressreleaseq326.htm",
+    "d": "29-oct-2026"
+   },
+   "verificacion": "Textos y puntuaciones intactos; investor.redditinc.com da 130 M DAUq y 100K+ comunidades; la nota 3T26 da margen bruto GAAP 91,5% (moderadores voluntarios constan en el 10-Q).",
+   "motivo": "Repaso semanal a fondo (consumo y salud)"
+  },
+  {
+   "fecha": "2026-11-26",
+   "campo": "meta.asOf",
+   "antes": "19-nov-2026",
+   "despues": "26-nov-2026",
+   "porque": "Repaso semanal a fondo con la lista de comprobación completa.",
+   "fuente": {
+    "t": "10-Q 3T26",
+    "u": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000116/rddt-20260930.htm",
+    "d": "30-oct-2026"
+   },
+   "verificacion": "Fecha 26-nov-2026; el 10-Q 3T26 existe (presentado 30-oct-2026, copia en lecturas/RDDT).",
+   "motivo": "Repaso semanal a fondo (consumo y salud)"
+  },
+  {
+   "fecha": "2026-11-26",
+   "campo": "meta.repasoFondo",
+   "antes": "19-nov-2026",
+   "despues": "26-nov-2026",
+   "porque": "Repaso semanal a fondo del 26-nov-2026.",
+   "fuente": {
+    "t": "10-Q 3T26",
+    "u": "https://www.sec.gov/Archives/edgar/data/1713445/000171344526000116/rddt-20260930.htm",
+    "d": "30-oct-2026"
+   },
+   "verificacion": "Fecha 26-nov-2026; el 10-Q 3T26 existe (presentado 30-oct-2026).",
    "motivo": "Repaso semanal a fondo (consumo y salud)"
   }
  ]
