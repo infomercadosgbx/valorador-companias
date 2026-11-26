@@ -2,6 +2,28 @@
 
 Una entrada por día (la más reciente arriba). La escribe la tarea programada de la mañana con `python scripts/registro_fuentes.py`. Sirve para ver qué aporta cada fuente y decidir qué quitar o añadir.
 
+## 2026-11-26
+
+_Lo útil vino de lo oficial: la nota de prensa de PepsiCo con Hyatt (10 años, más de 700 hoteles), la nota de resultados y el 10-Q de Reddit (corrige los usuarios por región) y el 10-Q de Moderna (reparto 50/50 con Merck); TipRanks dio el consenso de PEP. Gmail solo aportó el resumen semanal de Investing; Finnhub y Seeking Alpha trajeron sobre todo titulares genéricos y la sala de prensa de Moderna llega como PDF sin título. No se pudo buscar en los dominios de Reddit (el proxy rechazó la búsqueda), la ficha de MarketBeat de PEP estaba desfasada (sep-2025) y su alerta de Bernstein no abrió; lecturas/_estado.json sin fallos._
+
+- **Alertas en Gmail** (infomercados.gbx@gmail.com, últimas 24 h): Bloomberg 0, MarketWatch 0, Morningstar 0, CNBC 0, Reuters 0, FT 0, Investing 1, Otros 0.
+- **Titulares nuevos en 24 h (todas las compañías):** Finnhub 77, Google News 16, Seeking Alpha 2, Yahoo Finance 2, Marketaux 4, Medios (prensa, sector y agencias) 4.
+- **Fuentes con fallo** (nº de compañías): Marketaux 1.
+- **Compañías con señal para la revisión de internet:** GOOGL (1 nota(s) de prensa o noticia(s) sectorial(es)); AMZN (2 publicación(es) en la sala de prensa de la compañía); VST (cotización +7.5 % el 2026-11-23, 1 nota(s) de prensa o noticia(s) sectorial(es)); AVGO (1 nota(s) de prensa o noticia(s) sectorial(es)).
+
+| Compañía | Titulares 24 h | Finnhub | Google News | Seeking Alpha | Yahoo Finance | Marketaux | Medios (prensa, sector y agencias) | StockTwits | Reddit 7 d | Alertas Gmail |
+|---|---:|---:|---:|---:|---:|---:|---:|---|---|---:|
+| APP | 4 | 3 | 0 | 0 | 1 | 0 | 0 | 90 % alc. | — | 0 |
+| GOOGL | 24 | 18 | 3 | 1 | 0 | 1 | 1 | 60 % alc. | — | 0 |
+| RDDT | 5 | 5 | 0 | 0 | 0 | 0 | 0 | 80 % alc. | — | 1 |
+| AMZN | 29 | 14 | 12 | 0 | 0 | 1 | 0 | 82 % alc. | — | 0 |
+| VST | 4 | 2 | 0 | 0 | 1 | 1 | 0 | 78 % alc. | — | 0 |
+| AVGO | 13 | 12 | 0 | 0 | 0 | 0 | 1 | 58 % alc. | — | 0 |
+| PEP | 7 | 6 | 0 | 0 | 0 | 0 | 1 | 89 % alc. | — | 1 |
+| PATH | 1 | 1 | 0 | 0 | 0 | 0 | 0 | 100 % alc. | — | 0 |
+| ORCL | 13 | 10 | 0 | 1 | 0 | 1 | 1 | 75 % alc. | — | 0 |
+| MRNA | 13 | 6 | 1 | 0 | 0 | 0 | 0 | 87 % alc. | — | 0 |
+
 ## 2026-11-25
 
 _Lo útil vino de lo oficial: el DEF 14C de AppLovin (voto del pacto, 67,2%), el comunicado de Oracle del 20-nov sobre su financiación y la página oficial de clientes de Oracle (contrato del Departamento de Guerra), y el 10-Q de UiPath; TipRanks y TIKR dieron el consenso. Gmail solo aportó contexto sectorial (venta de tecnológicas, vuelta de Jensen Huang a Nvidia) y la variación semanal de Investing; Finnhub y Seeking Alpha trajeron mucho titular genérico. No se pudieron leer: la lista de notas de prensa de investors.applovin.com e investor.oracle.com (montadas con JavaScript) y dos entradas de blogs.oracle.com (WebFetch sin permiso); lecturas/_estado.json sin fallos._
