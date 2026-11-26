@@ -104,11 +104,28 @@
    },
    {
     "n": "Publishers (MAX)",
-    "d": "Miles de apps integran su SDK para subastar su inventario. Son la fuente de datos del modelo."
+    "d": "Las apps integran MAX para subastar su inventario publicitario. Son la fuente de datos del modelo.",
+    "u": "https://www.applovin.com/en/monetization",
+    "f": "nov-2026",
+    "fu": "applovin.com · Max"
+   },
+   {
+    "n": "Anunciantes que miden con Adjust",
+    "d": "Usan Adjust para medir, atribuir campañas y prevenir el fraude; pagan una suscripción anual.",
+    "u": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000069/app-20260930.htm",
+    "f": "nov-2026",
+    "fu": "10-Q 3T26 · MD&A"
    },
    {
     "n": "Apps no gaming y CTV",
     "d": "Fintech, salud y televisión conectada. Fase inicial."
+   },
+   {
+    "n": "Distribuidores de streaming (Wurl)",
+    "d": "Compañías de contenido y plataformas de streaming que distribuyen y monetizan vídeo en TV conectada con Wurl; cobra por uso o CPM. La compañía dice que es un mercado todavía incipiente.",
+    "u": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000069/app-20260930.htm",
+    "f": "nov-2026",
+    "fu": "10-Q 3T26 · MD&A y Item 1A"
    }
   ],
   "quality": [
@@ -146,7 +163,7 @@
   "phase": 2,
   "phaseNote": "Ha pasado del hipercrecimiento (+70% en 2025) a un crecimiento rentable: +53% en 2T26, y la dirección habla de ~30% anual a largo plazo.",
   "clients": {
-   "nota": "Anunciantes de apps móviles, sobre todo estudios de videojuegos (la mayor parte de los ingresos), y desde 2025 tiendas online que se anuncian en sus juegos. Ingresos muy repartidos: ningún cliente supera el 10%. AppLovin no publica nombres de anunciantes.",
+   "nota": "Anunciantes de apps móviles, sobre todo estudios de videojuegos (la mayor parte de los ingresos), y desde 2025 tiendas online que se anuncian en sus juegos. Ingresos muy repartidos: ningún cliente supera el 10%. No publica cifras por anunciante; su web enseña logos de marcas (Gymshark, Wayfair, HelloFresh…) y casos de dos estudios de juegos (Happybits y FunCraft).",
    "kpis": [
     {
      "k": "Comercios en Axon",
@@ -162,6 +179,24 @@
      "k": "Gasto de anunciantes de consumo",
      "v": "+28%",
      "d": "2T26 frente al 4T25"
+    },
+    {
+     "k": "Gasto anual de anunciantes",
+     "v": "> 11.000 M$",
+     "d": "feb-26, carta del CEO en el blog oficial",
+     "u": "https://applovin.com/en/blog/applovin-business-model"
+    },
+    {
+     "k": "Alcance de AppLovin Ads",
+     "v": "> 1.000 M usuarios diarios",
+     "d": "en más de 10.000 apps (web oficial, nov-26)",
+     "u": "https://www.applovin.com/en/gaming-apps"
+    },
+    {
+     "k": "Presupuesto mínimo",
+     "v": "10 $/día",
+     "d": "marcas de consumo, autoservicio (web oficial, nov-26)",
+     "u": "https://www.applovin.com/en/consumer-brands"
     }
    ],
    "conocidos": [
@@ -189,6 +224,30 @@
      "d": "Primer objetivo del e-commerce: récord de gasto en el 2T26 y autoservicio abierto a todos desde junio de 2026.",
      "u": "https://commonthreadco.com/blogs/coachs-corner/applovin-q2-2026-earnings-ecommerce-advertisers",
      "f": "ago-26"
+    },
+    {
+     "n": "Gymshark, Fashion Nova, Wayfair, HelloFresh, Bombas, Quince, Prose, Ashley",
+     "sector": "Consumo y e-commerce",
+     "cifra": "Solo logos, sin cifras",
+     "d": "Marcas que la web de AppLovin para anunciantes de consumo muestra como clientes.",
+     "u": "https://www.applovin.com/en/consumer-brands",
+     "f": "nov-2026"
+    },
+    {
+     "n": "Happybits",
+     "sector": "Videojuegos",
+     "cifra": "Ingresos +300% (sin periodo ni base)",
+     "d": "Caso publicado en la web: su responsable de marketing atribuye a AppLovin Ads el crecimiento de varios títulos.",
+     "u": "https://www.applovin.com/en/gaming-apps",
+     "f": "nov-2026"
+    },
+    {
+     "n": "FunCraft",
+     "sector": "Videojuegos",
+     "cifra": "De <2 M$ al año a «ocho cifras»",
+     "d": "Caso publicado en la web de MAX: el estudio pasó de 4 personas a facturar más de 10 M$ al año tras usar AppLovin.",
+     "u": "https://www.applovin.com/en/monetization",
+     "f": "nov-2026"
     }
    ]
   }
@@ -201,12 +260,18 @@
    {
     "n": "Efecto red",
     "s": 4,
-    "note": "Más anunciantes y publishers → más datos → mejor modelo → más retorno"
+    "note": "Más anunciantes y publishers → más datos → mejor modelo → más retorno",
+    "u": "https://applovin.com/en/blog/applovin-business-model",
+    "f": "feb-2026",
+    "fu": "applovin.com · Blog del CEO"
    },
    {
     "n": "Costes de cambio",
     "s": 3,
-    "note": "El SDK de MAX está integrado en miles de apps"
+    "note": "MAX está muy extendido entre publishers, pero su web dice que la mayoría lo integra en menos de un día: costes de cambio moderados",
+    "u": "https://www.applovin.com/en/monetization",
+    "f": "nov-2026",
+    "fu": "applovin.com · Max"
    },
    {
     "n": "Activos intangibles",
@@ -217,6 +282,14 @@
     "n": "Ventaja de costes",
     "s": 3,
     "note": "Margen operativo del 77% frente a competidores en pérdidas"
+   },
+   {
+    "n": "Inventario a pantalla completa",
+    "s": 3,
+    "note": "Las impresiones que gana en la subasta de MAX son exclusivas de sus anunciantes; anuncios a pantalla completa con más de 35 s de visionado medio",
+    "u": "https://applovin.com/en/blog/applovin-business-model",
+    "f": "feb-2026",
+    "fu": "applovin.com · Blog del CEO"
    },
    {
     "n": "Escala eficiente",
@@ -2649,6 +2722,299 @@
     "d": "4-nov-2026"
    },
    "verificacion": "Fecha del repaso.",
+   "motivo": "Repaso semanal a fondo (software)"
+  },
+  {
+   "fecha": "2026-11-26",
+   "campo": "business.customerTypes",
+   "antes": [
+    {
+     "n": "Estudios de juegos móviles",
+     "d": "El núcleo. AppLovin capta ~50% del gasto en captación de usuarios del sector (Wells Fargo)."
+    },
+    {
+     "n": "Marcas de e-commerce",
+     "d": "Abierto a todos desde jun-26. Ganó 169 pb de cuota de presupuesto en la encuesta de Jefferies, hasta el 11%."
+    },
+    {
+     "n": "Publishers (MAX)",
+     "d": "Miles de apps integran su SDK para subastar su inventario. Son la fuente de datos del modelo."
+    },
+    {
+     "n": "Apps no gaming y CTV",
+     "d": "Fintech, salud y televisión conectada. Fase inicial."
+    }
+   ],
+   "despues": [
+    {
+     "n": "Estudios de juegos móviles",
+     "d": "El núcleo. AppLovin capta ~50% del gasto en captación de usuarios del sector (Wells Fargo)."
+    },
+    {
+     "n": "Marcas de e-commerce",
+     "d": "Abierto a todos desde jun-26. Ganó 169 pb de cuota de presupuesto en la encuesta de Jefferies, hasta el 11%."
+    },
+    {
+     "n": "Publishers (MAX)",
+     "d": "Las apps integran MAX para subastar su inventario publicitario. Son la fuente de datos del modelo.",
+     "u": "https://www.applovin.com/en/monetization",
+     "f": "nov-2026",
+     "fu": "applovin.com · Max"
+    },
+    {
+     "n": "Anunciantes que miden con Adjust",
+     "d": "Usan Adjust para medir, atribuir campañas y prevenir el fraude; pagan una suscripción anual.",
+     "u": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000069/app-20260930.htm",
+     "f": "nov-2026",
+     "fu": "10-Q 3T26 · MD&A"
+    },
+    {
+     "n": "Apps no gaming y CTV",
+     "d": "Fintech, salud y televisión conectada. Fase inicial."
+    },
+    {
+     "n": "Distribuidores de streaming (Wurl)",
+     "d": "Compañías de contenido y plataformas de streaming que distribuyen y monetizan vídeo en TV conectada con Wurl; cobra por uso o CPM. La compañía dice que es un mercado todavía incipiente.",
+     "u": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000069/app-20260930.htm",
+     "f": "nov-2026",
+     "fu": "10-Q 3T26 · MD&A y Item 1A"
+    }
+   ],
+   "porque": "Añade Adjust y Wurl como tipos de cliente (10-Q) y enlace oficial a Publishers (página de MAX)",
+   "fuente": {
+    "t": "10-Q 3T26",
+    "u": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000069/app-20260930.htm",
+    "d": "4-nov-2026"
+   },
+   "verificacion": "Corregido a mano 26-nov: Adjust y Wurl cuadran con el 10-Q; «Publishers (MAX)» enlaza ya a la página de MAX y no cita la cifra de 10.000 apps, que es de AppLovin Ads.",
+   "motivo": "Repaso semanal a fondo (software)"
+  },
+  {
+   "fecha": "2026-11-26",
+   "campo": "business.clients",
+   "antes": {
+    "nota": "Anunciantes de apps móviles, sobre todo estudios de videojuegos (la mayor parte de los ingresos), y desde 2025 tiendas online que se anuncian en sus juegos. Ingresos muy repartidos: ningún cliente supera el 10%. AppLovin no publica nombres de anunciantes.",
+    "kpis": [
+     {
+      "k": "Comercios en Axon",
+      "v": "~4.000",
+      "d": "dic-25; 450 nuevos en diciembre"
+     },
+     {
+      "k": "Ads Manager",
+      "v": "Abierto a todos",
+      "d": "autoservicio desde junio de 2026"
+     },
+     {
+      "k": "Gasto de anunciantes de consumo",
+      "v": "+28%",
+      "d": "2T26 frente al 4T25"
+     }
+    ],
+    "conocidos": [
+     {
+      "n": "Estudios de videojuegos móviles",
+      "sector": "Videojuegos",
+      "cifra": "La mayor parte de los ingresos",
+      "d": "Su base histórica: compran instalaciones de jugadores con Axon y monetizan sus juegos con la mediación MAX.",
+      "u": "https://www.modernretail.co/marketing/applovin-rebrands-its-ad-platform-as-axon-launches-ads-manager-on-referral-only-basis/",
+      "f": "oct-25"
+     },
+     {
+      "n": "Tiendas de Shopify",
+      "t": "SHOP",
+      "sector": "Comercio electrónico",
+      "cifra": "~4.000 comercios en Axon (dic-25)",
+      "d": "Se anuncian con la app oficial de Axon en Shopify; es la puerta de entrada de las marcas pequeñas y medianas.",
+      "u": "https://apps.shopify.com/axon",
+      "f": "2026"
+     },
+     {
+      "n": "Marcas de consumo de tamaño medio",
+      "sector": "Consumo",
+      "cifra": "E-commerce: 1.000 M$ al año",
+      "d": "Primer objetivo del e-commerce: récord de gasto en el 2T26 y autoservicio abierto a todos desde junio de 2026.",
+      "u": "https://commonthreadco.com/blogs/coachs-corner/applovin-q2-2026-earnings-ecommerce-advertisers",
+      "f": "ago-26"
+     }
+    ]
+   },
+   "despues": {
+    "nota": "Anunciantes de apps móviles, sobre todo estudios de videojuegos (la mayor parte de los ingresos), y desde 2025 tiendas online que se anuncian en sus juegos. Ingresos muy repartidos: ningún cliente supera el 10%. No publica cifras por anunciante; su web enseña logos de marcas (Gymshark, Wayfair, HelloFresh…) y casos de dos estudios de juegos (Happybits y FunCraft).",
+    "kpis": [
+     {
+      "k": "Comercios en Axon",
+      "v": "~4.000",
+      "d": "dic-25; 450 nuevos en diciembre"
+     },
+     {
+      "k": "Ads Manager",
+      "v": "Abierto a todos",
+      "d": "autoservicio desde junio de 2026"
+     },
+     {
+      "k": "Gasto de anunciantes de consumo",
+      "v": "+28%",
+      "d": "2T26 frente al 4T25"
+     },
+     {
+      "k": "Gasto anual de anunciantes",
+      "v": "> 11.000 M$",
+      "d": "feb-26, carta del CEO en el blog oficial",
+      "u": "https://applovin.com/en/blog/applovin-business-model"
+     },
+     {
+      "k": "Alcance de AppLovin Ads",
+      "v": "> 1.000 M usuarios diarios",
+      "d": "en más de 10.000 apps (web oficial, nov-26)",
+      "u": "https://www.applovin.com/en/gaming-apps"
+     },
+     {
+      "k": "Presupuesto mínimo",
+      "v": "10 $/día",
+      "d": "marcas de consumo, autoservicio (web oficial, nov-26)",
+      "u": "https://www.applovin.com/en/consumer-brands"
+     }
+    ],
+    "conocidos": [
+     {
+      "n": "Estudios de videojuegos móviles",
+      "sector": "Videojuegos",
+      "cifra": "La mayor parte de los ingresos",
+      "d": "Su base histórica: compran instalaciones de jugadores con Axon y monetizan sus juegos con la mediación MAX.",
+      "u": "https://www.modernretail.co/marketing/applovin-rebrands-its-ad-platform-as-axon-launches-ads-manager-on-referral-only-basis/",
+      "f": "oct-25"
+     },
+     {
+      "n": "Tiendas de Shopify",
+      "t": "SHOP",
+      "sector": "Comercio electrónico",
+      "cifra": "~4.000 comercios en Axon (dic-25)",
+      "d": "Se anuncian con la app oficial de Axon en Shopify; es la puerta de entrada de las marcas pequeñas y medianas.",
+      "u": "https://apps.shopify.com/axon",
+      "f": "2026"
+     },
+     {
+      "n": "Marcas de consumo de tamaño medio",
+      "sector": "Consumo",
+      "cifra": "E-commerce: 1.000 M$ al año",
+      "d": "Primer objetivo del e-commerce: récord de gasto en el 2T26 y autoservicio abierto a todos desde junio de 2026.",
+      "u": "https://commonthreadco.com/blogs/coachs-corner/applovin-q2-2026-earnings-ecommerce-advertisers",
+      "f": "ago-26"
+     },
+     {
+      "n": "Gymshark, Fashion Nova, Wayfair, HelloFresh, Bombas, Quince, Prose, Ashley",
+      "sector": "Consumo y e-commerce",
+      "cifra": "Solo logos, sin cifras",
+      "d": "Marcas que la web de AppLovin para anunciantes de consumo muestra como clientes.",
+      "u": "https://www.applovin.com/en/consumer-brands",
+      "f": "nov-2026"
+     },
+     {
+      "n": "Happybits",
+      "sector": "Videojuegos",
+      "cifra": "Ingresos +300% (sin periodo ni base)",
+      "d": "Caso publicado en la web: su responsable de marketing atribuye a AppLovin Ads el crecimiento de varios títulos.",
+      "u": "https://www.applovin.com/en/gaming-apps",
+      "f": "nov-2026"
+     },
+     {
+      "n": "FunCraft",
+      "sector": "Videojuegos",
+      "cifra": "De <2 M$ al año a «ocho cifras»",
+      "d": "Caso publicado en la web de MAX: el estudio pasó de 4 personas a facturar más de 10 M$ al año tras usar AppLovin.",
+      "u": "https://www.applovin.com/en/monetization",
+      "f": "nov-2026"
+     }
+    ]
+   },
+   "porque": "La web oficial sí nombra anunciantes (logos) y casos de clientes; añade KPI publicados (gasto >11.000 M$, >1.000 M usuarios diarios en AppLovin Ads, mínimo 10 $/día)",
+   "fuente": {
+    "t": "applovin.com · Consumer brands, Gaming apps y Max",
+    "u": "https://www.applovin.com/en/consumer-brands",
+    "d": "25-nov-2026"
+   },
+   "verificacion": "Corregido a mano 26-nov: el KPI de >1.000 M usuarios diarios en >10.000 apps se atribuye a AppLovin Ads, como en la web; el resto ya cuadraba.",
+   "motivo": "Repaso semanal a fondo (software)"
+  },
+  {
+   "fecha": "2026-11-26",
+   "campo": "moat.sources",
+   "antes": [
+    {
+     "n": "Efecto red",
+     "s": 4,
+     "note": "Más anunciantes y publishers → más datos → mejor modelo → más retorno"
+    },
+    {
+     "n": "Costes de cambio",
+     "s": 3,
+     "note": "El SDK de MAX está integrado en miles de apps"
+    },
+    {
+     "n": "Activos intangibles",
+     "s": 4,
+     "note": "AXON entrenado con miles de millones de subastas"
+    },
+    {
+     "n": "Ventaja de costes",
+     "s": 3,
+     "note": "Margen operativo del 77% frente a competidores en pérdidas"
+    },
+    {
+     "n": "Escala eficiente",
+     "s": 2,
+     "note": "Gaming cerca de su techo de cuota (~50%)"
+    }
+   ],
+   "despues": [
+    {
+     "n": "Efecto red",
+     "s": 4,
+     "note": "Más anunciantes y publishers → más datos → mejor modelo → más retorno",
+     "u": "https://applovin.com/en/blog/applovin-business-model",
+     "f": "feb-2026",
+     "fu": "applovin.com · Blog del CEO"
+    },
+    {
+     "n": "Costes de cambio",
+     "s": 3,
+     "note": "MAX está muy extendido entre publishers, pero su web dice que la mayoría lo integra en menos de un día: costes de cambio moderados",
+     "u": "https://www.applovin.com/en/monetization",
+     "f": "nov-2026",
+     "fu": "applovin.com · Max"
+    },
+    {
+     "n": "Activos intangibles",
+     "s": 4,
+     "note": "AXON entrenado con miles de millones de subastas"
+    },
+    {
+     "n": "Ventaja de costes",
+     "s": 3,
+     "note": "Margen operativo del 77% frente a competidores en pérdidas"
+    },
+    {
+     "n": "Inventario a pantalla completa",
+     "s": 3,
+     "note": "Las impresiones que gana en la subasta de MAX son exclusivas de sus anunciantes; anuncios a pantalla completa con más de 35 s de visionado medio",
+     "u": "https://applovin.com/en/blog/applovin-business-model",
+     "f": "feb-2026",
+     "fu": "applovin.com · Blog del CEO"
+    },
+    {
+     "n": "Escala eficiente",
+     "s": 2,
+     "note": "Gaming cerca de su techo de cuota (~50%)"
+    }
+   ],
+   "porque": "Enlace oficial para efecto red y costes de cambio; nueva fuente con prueba publicada (inventario exclusivo a pantalla completa). Puntuaciones sin cambios",
+   "fuente": {
+    "t": "applovin.com · «The AppLovin business model» (Adam Foroughi)",
+    "u": "https://applovin.com/en/blog/applovin-business-model",
+    "d": "2-feb-2026"
+   },
+   "verificacion": "Corregido a mano 26-nov: «Costes de cambio» enlaza a la página de MAX y recoge que la integración lleva menos de un día; puntuación sin cambios (3).",
    "motivo": "Repaso semanal a fondo (software)"
   }
  ]

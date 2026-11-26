@@ -260,17 +260,26 @@
    {
     "n": "Efecto red",
     "s": 2,
-    "note": "Comunidad de desarrolladores y socios, pero no es un mercado de dos lados"
+    "note": "Comunidad de desarrolladores y socios, pero no es un mercado de dos lados",
+    "u": "https://www.uipath.com/product",
+    "f": "nov-2026",
+    "fu": "uipath.com · Comunidad, Marketplace y red de socios"
    },
    {
     "n": "Costes de cambio",
     "s": 4,
-    "note": "Procesos críticos montados sobre la plataforma: cambiar es caro y arriesgado"
+    "note": "Procesos críticos montados sobre la plataforma: cambiar es caro y arriesgado",
+    "u": "https://www.uipath.com/newsroom/banco-azteca-selects-uipath-maestro",
+    "f": "ago-2026",
+    "fu": "uipath.com · Banco Azteca (8.800 procesos)"
    },
    {
     "n": "Activos intangibles",
     "s": 3,
-    "note": "Marca líder en RPA y en los cuadrantes de Gartner"
+    "note": "Marca líder en RPA y en los cuadrantes de Gartner",
+    "u": "https://www.uipath.com/blog/product-and-updates/gartner-magic-quadrant-agentic-software-quality-assurance-platforms",
+    "f": "oct-2026",
+    "fu": "uipath.com · Gartner MQ (pruebas con agentes)"
    },
    {
     "n": "Ventaja de costes",
@@ -281,6 +290,14 @@
     "n": "Escala eficiente",
     "s": 2,
     "note": "Mercado grande y abierto"
+   },
+   {
+    "n": "Neutralidad e integraciones",
+    "s": 3,
+    "note": "Se conecta a modelos y agentes de terceros: su servidor MCP permite a Gemini for Healthcare de Google Cloud lanzar automatizaciones y pasar trabajo a agentes de UiPath",
+    "u": "https://ir.uipath.com/news/detail/482/uipath-accelerates-enterprise-ai-transformation-with-google-clouds-gemini-for-healthcare",
+    "f": "nov-2026",
+    "fu": "ir.uipath.com · Gemini for Healthcare"
    }
   ],
   "comps": [
@@ -1817,6 +1834,89 @@
     "d": "25-nov-2026"
    },
    "verificacion": "Fecha del repaso.",
+   "motivo": "Repaso semanal a fondo (software)"
+  },
+  {
+   "fecha": "2026-11-26",
+   "campo": "moat.sources",
+   "antes": [
+    {
+     "n": "Efecto red",
+     "s": 2,
+     "note": "Comunidad de desarrolladores y socios, pero no es un mercado de dos lados"
+    },
+    {
+     "n": "Costes de cambio",
+     "s": 4,
+     "note": "Procesos críticos montados sobre la plataforma: cambiar es caro y arriesgado"
+    },
+    {
+     "n": "Activos intangibles",
+     "s": 3,
+     "note": "Marca líder en RPA y en los cuadrantes de Gartner"
+    },
+    {
+     "n": "Ventaja de costes",
+     "s": 2,
+     "note": "La IA abarata a los nuevos competidores"
+    },
+    {
+     "n": "Escala eficiente",
+     "s": 2,
+     "note": "Mercado grande y abierto"
+    }
+   ],
+   "despues": [
+    {
+     "n": "Efecto red",
+     "s": 2,
+     "note": "Comunidad de desarrolladores y socios, pero no es un mercado de dos lados",
+     "u": "https://www.uipath.com/product",
+     "f": "nov-2026",
+     "fu": "uipath.com · Comunidad, Marketplace y red de socios"
+    },
+    {
+     "n": "Costes de cambio",
+     "s": 4,
+     "note": "Procesos críticos montados sobre la plataforma: cambiar es caro y arriesgado",
+     "u": "https://www.uipath.com/newsroom/banco-azteca-selects-uipath-maestro",
+     "f": "ago-2026",
+     "fu": "uipath.com · Banco Azteca (8.800 procesos)"
+    },
+    {
+     "n": "Activos intangibles",
+     "s": 3,
+     "note": "Marca líder en RPA y en los cuadrantes de Gartner",
+     "u": "https://www.uipath.com/blog/product-and-updates/gartner-magic-quadrant-agentic-software-quality-assurance-platforms",
+     "f": "oct-2026",
+     "fu": "uipath.com · Gartner MQ (pruebas con agentes)"
+    },
+    {
+     "n": "Ventaja de costes",
+     "s": 2,
+     "note": "La IA abarata a los nuevos competidores"
+    },
+    {
+     "n": "Escala eficiente",
+     "s": 2,
+     "note": "Mercado grande y abierto"
+    },
+    {
+     "n": "Neutralidad e integraciones",
+     "s": 3,
+     "note": "Se conecta a modelos y agentes de terceros: su servidor MCP permite a Gemini for Healthcare de Google Cloud lanzar automatizaciones y pasar trabajo a agentes de UiPath",
+     "u": "https://ir.uipath.com/news/detail/482/uipath-accelerates-enterprise-ai-transformation-with-google-clouds-gemini-for-healthcare",
+     "f": "nov-2026",
+     "fu": "ir.uipath.com · Gemini for Healthcare"
+    }
+   ],
+   "porque": "Enlace oficial para efecto red, costes de cambio e intangibles (texto y puntuación sin cambios) y nueva fuente: la neutralidad frente a modelos de terceros, con prueba oficial. Ventaja de costes y escala eficiente, sin respaldo oficial.",
+   "fuente": {
+    "t": "UiPath, nota de prensa: Gemini for Healthcare",
+    "u": "https://ir.uipath.com/news/detail/482/uipath-accelerates-enterprise-ai-transformation-with-google-clouds-gemini-for-healthcare",
+    "d": "10-nov-2026"
+   },
+   "verificacion": "Corregido a mano 26-nov: la nota se ciñe a la nota de prensa del 10-nov (servidor MCP con Gemini for Healthcare); se quitan Integration Service y UiPath for Coding Agents, que no menciona.",
    "motivo": "Repaso semanal a fondo (software)"
   }
  ]

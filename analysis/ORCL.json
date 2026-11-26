@@ -52,7 +52,7 @@
    },
    {
     "d": "2T FY27",
-    "t": "Primeras entregas de sistemas NVIDIA Vera a clientes y avance de Abilene (618 MW entregados, 6 de 8 edificios)."
+    "t": "Entrega de bastidores NVIDIA Vera Rubin en sus centros de datos prevista «en las próximas semanas» (comunicado del 20-nov); Abilene casi terminado y Shackelford, su siguiente campus de escala de GW, con todos los permisos."
    },
    {
     "d": "FY27",
@@ -100,12 +100,25 @@
   ],
   "customerTypes": [
    {
-    "n": "Laboratorios de IA",
-    "d": "OpenAI (Stargate, Abilene) y otros: alquilan GPU a varios años. Más del 90% de la cartera de contratos."
+    "n": "OpenAI",
+    "d": "Su mayor cliente de infraestructura de IA. Oracle dice tener ya toda la financiación necesaria para cumplir el contrato y que el campus de Abilene está casi terminado.",
+    "u": "https://www.oracle.com/news/announcement/oracle-statement-2026-11-20/",
+    "f": "nov-2026",
+    "fu": "oracle.com · Comunicado 20-nov"
+   },
+   {
+    "n": "Laboratorios y empresas de IA",
+    "d": "Applied Intuition, Baseten, Helm.ai, Absci o Unconventional AI alquilan capacidad de GPU en OCI para entrenar e inferir modelos.",
+    "u": "https://www.oracle.com/customers/earnings/",
+    "f": "sep-2026",
+    "fu": "oracle.com · Clientes 1T FY27"
    },
    {
     "n": "Grandes empresas",
-    "d": "Base de datos, Fusion ERP y multicloud (Oracle Database dentro de AWS, Azure y Google Cloud, +353%)."
+    "d": "Base de datos (Exadata, Autonomous AI Database), Fusion ERP/HCM y Oracle Database dentro de otras nubes: Kirin, Deloitte y Snowy Hydro (AI Database@AWS), 84.51° (AI Database@Azure), Alaska Airlines y McLane (Fusion), Sainsbury's (OCI).",
+    "u": "https://www.oracle.com/customers/earnings/",
+    "f": "sep-2026",
+    "fu": "oracle.com · Clientes 1T FY27"
    },
    {
     "n": "Pymes",
@@ -113,7 +126,10 @@
    },
    {
     "n": "Sanidad y sector público",
-    "d": "Oracle Health (antigua Cerner) y administraciones."
+    "d": "Oracle Health (antigua Cerner) y administraciones: AtlantiCare y Eastern Health en sanidad; contrato del Departamento de Guerra de EE. UU. (3.310 M$ de base, hasta 6.990 M$ en 10 años) y Fusion HCM para la Oficina de Personal (OPM, ~2 M de empleados).",
+    "u": "https://www.oracle.com/customers/earnings/",
+    "f": "sep-2026",
+    "fu": "oracle.com · Clientes 1T FY27"
    }
   ],
   "quality": [
@@ -243,7 +259,10 @@
    {
     "n": "Costes de cambio",
     "s": 5,
-    "note": "Migrar una base de datos crítica es caro y arriesgado"
+    "note": "Migrar una base de datos crítica es caro y arriesgado",
+    "u": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526389274/orcl-20260831.htm",
+    "f": "sep-2026",
+    "fu": "10-Q 1T FY27 · MD&A (renovación del soporte)"
    },
    {
     "n": "Activos intangibles",
@@ -253,12 +272,18 @@
    {
     "n": "Ventaja de costes",
     "s": 3,
-    "note": "Red y diseño de centros de datos eficientes; entrega rápida"
+    "note": "Red propia (Acceleron) que reduce la dependencia de hardware de red especializado",
+    "u": "https://blogs.oracle.com/cloud-infrastructure/first-principles-networking-for-ai-scale",
+    "f": "oct-2026",
+    "fu": "blogs.oracle.com · Acceleron"
    },
    {
     "n": "Escala eficiente",
     "s": 3,
-    "note": "Pocas compañías pueden financiar y construir GW de capacidad"
+    "note": "Pocas compañías pueden financiar y construir GW de capacidad",
+    "u": "https://www.oracle.com/news/announcement/oracle-statement-2026-11-20/",
+    "f": "nov-2026",
+    "fu": "oracle.com · Comunicado 20-nov"
    },
    {
     "n": "Efecto red",
@@ -307,7 +332,7 @@
     "st": "en marcha",
     "k": "+121% en 1T FY27 · 7.400 M$",
     "peso": "38% de las ventas",
-    "d": "Alquila capacidad de GPU a laboratorios de IA y empresas. En el 1T FY27 entregó 850 MW (más de 300.000 GPU) y firmó más de 30.000 M$ de contratos nuevos. El uso de las GPU es del 97,9% y las que vencen se renuevan con un 20% de prima.",
+    "d": "Alquila capacidad de GPU a laboratorios de IA y empresas. En el 1T FY27 entregó 850 MW (más de 300.000 GPU) y firmó más de 30.000 M$ de contratos nuevos. El uso de las GPU es del 97,9% y las que vencen se renuevan con un 20% de prima. En AI World (27-oct) OCI puso en disponibilidad general Vera Rubin NVL72 y las CPU NVIDIA Vera; el 20-nov Oracle dijo que la entrega de bastidores Vera Rubin en sus centros va según lo previsto para las próximas semanas, que Abilene está casi terminado y que Shackelford, su siguiente campus de escala de GW, ya tiene todos los permisos.",
     "ev": "Ingresos de OCI, MW entregados por trimestre y cartera (RPO).",
     "r": "Retrasos de permisos y energía (Nuevo México, Wisconsin) y concentración en OpenAI.",
     "u": "https://longbridge.com/en/news/298651335"
@@ -319,7 +344,7 @@
     "st": "en marcha",
     "k": "+353% en 1T FY27",
     "peso": "base de datos en la nube +50% previsto",
-    "d": "Oracle Database dentro de AWS, Azure y Google Cloud: lleva su producto estrella a clientes que no quieren salir de su nube. Clientes multicloud +180% y unas 71 regiones.",
+    "d": "Oracle Database dentro de AWS, Azure y Google Cloud: lleva su producto estrella a clientes que no quieren salir de su nube. Clientes multicloud +180% y unas 71 regiones. Clientes con nombre: Kirin, Deloitte y Snowy Hydro (AI Database@AWS) y 84.51° (AI Database@Azure).",
     "ev": "Crecimiento de la base de datos en la nube.",
     "r": "Que los hiperescaladores empujen sus propias bases de datos.",
     "u": "https://longbridge.com/en/news/298651335"
@@ -331,7 +356,7 @@
     "st": "en marcha",
     "k": "Fusion +14% · sectoriales +20%",
     "peso": "4.219 M$ en el trimestre",
-    "d": "Fusion ERP, NetSuite y aplicaciones sectoriales con agentes de IA integrados: 3.500 agentes en producción y casi 500.000 M de tokens consumidos en septiembre.",
+    "d": "Fusion ERP, NetSuite y aplicaciones sectoriales con agentes de IA integrados: 3.500 agentes en producción y casi 500.000 M de tokens consumidos en septiembre. En AI World (27-oct) lanzó con OpenAI Oracle AI Workspace (ChatGPT dentro de Fusion, NetSuite y OCI), App Composer con Codex y un paquete para pymes con ChatGPT Business y NetSuite.",
     "ev": "Crecimiento de aplicaciones en la nube.",
     "r": "NetSuite crece más despacio por ciclos de decisión más largos.",
     "u": "https://stockanalysis.com/stocks/orcl/transcripts/780561-investor-day-2026/"
@@ -2369,6 +2394,333 @@
     "d": "11-sep-2026"
    },
    "verificacion": "Fecha del repaso.",
+   "motivo": "Repaso semanal a fondo (software)"
+  },
+  {
+   "fecha": "2026-11-26",
+   "campo": "overview.catalysts",
+   "antes": [
+    {
+     "d": "14-dic-26 (estimada)",
+     "t": "Resultados del 2T FY27: guía de ingresos +30–34%, nube +65–71% y BPA ajustado 1,85–1,93 $."
+    },
+    {
+     "d": "2T FY27",
+     "t": "Primeras entregas de sistemas NVIDIA Vera a clientes y avance de Abilene (618 MW entregados, 6 de 8 edificios)."
+    },
+    {
+     "d": "FY27",
+     "t": "Capex de 90.000–95.000 M$ (máximo 70.000 M$ netos de prepagos); pico en FY27–FY28."
+    },
+    {
+     "d": "2S FY28",
+     "t": "Objetivo de volver a caja libre positiva; ≥30.000 M$ en FY29."
+    },
+    {
+     "d": "2027",
+     "t": "Conexión eléctrica en Wisconsin (fuera de la guía del FY27)."
+    }
+   ],
+   "despues": [
+    {
+     "d": "14-dic-26 (estimada)",
+     "t": "Resultados del 2T FY27: guía de ingresos +30–34%, nube +65–71% y BPA ajustado 1,85–1,93 $."
+    },
+    {
+     "d": "2T FY27",
+     "t": "Entrega de bastidores NVIDIA Vera Rubin en sus centros de datos prevista «en las próximas semanas» (comunicado del 20-nov); Abilene casi terminado y Shackelford, su siguiente campus de escala de GW, con todos los permisos."
+    },
+    {
+     "d": "FY27",
+     "t": "Capex de 90.000–95.000 M$ (máximo 70.000 M$ netos de prepagos); pico en FY27–FY28."
+    },
+    {
+     "d": "2S FY28",
+     "t": "Objetivo de volver a caja libre positiva; ≥30.000 M$ en FY29."
+    },
+    {
+     "d": "2027",
+     "t": "Conexión eléctrica en Wisconsin (fuera de la guía del FY27)."
+    }
+   ],
+   "porque": "El comunicado del 20-nov concreta el estado de Abilene, Shackelford y la entrega de Vera Rubin; el resto de catalizadores no cambia",
+   "fuente": {
+    "t": "Comunicado de Oracle (sala de prensa)",
+    "u": "https://www.oracle.com/news/announcement/oracle-statement-2026-11-20/",
+    "d": "20-nov-2026"
+   },
+   "verificacion": "Corregido a mano 26-nov: se quitan «primeros» y «para OpenAI», que el comunicado del 20-nov no dice; el resto cuadra.",
+   "motivo": "Repaso semanal a fondo (software)"
+  },
+  {
+   "fecha": "2026-11-26",
+   "campo": "business.customerTypes",
+   "antes": [
+    {
+     "n": "Laboratorios de IA",
+     "d": "OpenAI (Stargate, Abilene) y otros: alquilan GPU a varios años. Más del 90% de la cartera de contratos."
+    },
+    {
+     "n": "Grandes empresas",
+     "d": "Base de datos, Fusion ERP y multicloud (Oracle Database dentro de AWS, Azure y Google Cloud, +353%)."
+    },
+    {
+     "n": "Pymes",
+     "d": "Unas 44.000 compañías usan NetSuite."
+    },
+    {
+     "n": "Sanidad y sector público",
+     "d": "Oracle Health (antigua Cerner) y administraciones."
+    }
+   ],
+   "despues": [
+    {
+     "n": "OpenAI",
+     "d": "Su mayor cliente de infraestructura de IA. Oracle dice tener ya toda la financiación necesaria para cumplir el contrato y que el campus de Abilene está casi terminado.",
+     "u": "https://www.oracle.com/news/announcement/oracle-statement-2026-11-20/",
+     "f": "nov-2026",
+     "fu": "oracle.com · Comunicado 20-nov"
+    },
+    {
+     "n": "Laboratorios y empresas de IA",
+     "d": "Applied Intuition, Baseten, Helm.ai, Absci o Unconventional AI alquilan capacidad de GPU en OCI para entrenar e inferir modelos.",
+     "u": "https://www.oracle.com/customers/earnings/",
+     "f": "sep-2026",
+     "fu": "oracle.com · Clientes 1T FY27"
+    },
+    {
+     "n": "Grandes empresas",
+     "d": "Base de datos (Exadata, Autonomous AI Database), Fusion ERP/HCM y Oracle Database dentro de otras nubes: Kirin, Deloitte y Snowy Hydro (AI Database@AWS), 84.51° (AI Database@Azure), Alaska Airlines y McLane (Fusion), Sainsbury's (OCI).",
+     "u": "https://www.oracle.com/customers/earnings/",
+     "f": "sep-2026",
+     "fu": "oracle.com · Clientes 1T FY27"
+    },
+    {
+     "n": "Pymes",
+     "d": "Unas 44.000 compañías usan NetSuite."
+    },
+    {
+     "n": "Sanidad y sector público",
+     "d": "Oracle Health (antigua Cerner) y administraciones: AtlantiCare y Eastern Health en sanidad; contrato del Departamento de Guerra de EE. UU. (3.310 M$ de base, hasta 6.990 M$ en 10 años) y Fusion HCM para la Oficina de Personal (OPM, ~2 M de empleados).",
+     "u": "https://www.oracle.com/customers/earnings/",
+     "f": "sep-2026",
+     "fu": "oracle.com · Clientes 1T FY27"
+    }
+   ],
+   "porque": "Clientes con nombre y enlace oficial por tipo; se quita «más del 90% de la cartera», que no tiene respaldo oficial y contradice el ~50% de S&P de la propia pestaña",
+   "fuente": {
+    "t": "Oracle · Clientes destacados de los resultados del 1T FY27",
+    "u": "https://www.oracle.com/customers/earnings/",
+    "d": "sep-2026"
+   },
+   "verificacion": "Corregido a mano 26-nov: OpenAI pasa a un elemento propio con el comunicado del 20-nov (que cita el contrato con OpenAI); el resto de clientes cuadra con oracle.com/customers/earnings.",
+   "motivo": "Repaso semanal a fondo (software)"
+  },
+  {
+   "fecha": "2026-11-26",
+   "campo": "moat.sources",
+   "antes": [
+    {
+     "n": "Costes de cambio",
+     "s": 5,
+     "note": "Migrar una base de datos crítica es caro y arriesgado"
+    },
+    {
+     "n": "Activos intangibles",
+     "s": 4,
+     "note": "Base de datos y aplicaciones con décadas de desarrollo"
+    },
+    {
+     "n": "Ventaja de costes",
+     "s": 3,
+     "note": "Red y diseño de centros de datos eficientes; entrega rápida"
+    },
+    {
+     "n": "Escala eficiente",
+     "s": 3,
+     "note": "Pocas compañías pueden financiar y construir GW de capacidad"
+    },
+    {
+     "n": "Efecto red",
+     "s": 1,
+     "note": "Poco relevante"
+    }
+   ],
+   "despues": [
+    {
+     "n": "Costes de cambio",
+     "s": 5,
+     "note": "Migrar una base de datos crítica es caro y arriesgado",
+     "u": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526389274/orcl-20260831.htm",
+     "f": "sep-2026",
+     "fu": "10-Q 1T FY27 · MD&A (renovación del soporte)"
+    },
+    {
+     "n": "Activos intangibles",
+     "s": 4,
+     "note": "Base de datos y aplicaciones con décadas de desarrollo"
+    },
+    {
+     "n": "Ventaja de costes",
+     "s": 3,
+     "note": "Red propia (Acceleron) que reduce la dependencia de hardware de red especializado",
+     "u": "https://blogs.oracle.com/cloud-infrastructure/first-principles-networking-for-ai-scale",
+     "f": "oct-2026",
+     "fu": "blogs.oracle.com · Acceleron"
+    },
+    {
+     "n": "Escala eficiente",
+     "s": 3,
+     "note": "Pocas compañías pueden financiar y construir GW de capacidad",
+     "u": "https://www.oracle.com/news/announcement/oracle-statement-2026-11-20/",
+     "f": "nov-2026",
+     "fu": "oracle.com · Comunicado 20-nov"
+    },
+    {
+     "n": "Efecto red",
+     "s": 1,
+     "note": "Poco relevante"
+    }
+   ],
+   "porque": "Enlace oficial por fuente de ventaja (7.2) sin cambiar texto ni puntuaciones: renovación de casi todo el soporte (10-Q), red Acceleron (blog OCI) y financiación y campus de escala de GW (comunicado del 20-nov)",
+   "fuente": {
+    "t": "10-Q 1T FY27",
+    "u": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526389274/orcl-20260831.htm",
+    "d": "11-sep-2026"
+   },
+   "verificacion": "Corregido a mano 26-nov: blog de Acceleron (27-oct-26) leído; la nota se ciñe a lo que dice (menos dependencia de hardware de red especializado) y la fecha pasa a oct-2026. Puntuaciones sin cambios.",
+   "motivo": "Repaso semanal a fondo (software)"
+  },
+  {
+   "fecha": "2026-11-26",
+   "campo": "growth.drivers",
+   "antes": [
+    {
+     "n": "Infraestructura de IA (OCI)",
+     "impact": 5,
+     "h": "2026–2030",
+     "st": "en marcha",
+     "k": "+121% en 1T FY27 · 7.400 M$",
+     "peso": "38% de las ventas",
+     "d": "Alquila capacidad de GPU a laboratorios de IA y empresas. En el 1T FY27 entregó 850 MW (más de 300.000 GPU) y firmó más de 30.000 M$ de contratos nuevos. El uso de las GPU es del 97,9% y las que vencen se renuevan con un 20% de prima.",
+     "ev": "Ingresos de OCI, MW entregados por trimestre y cartera (RPO).",
+     "r": "Retrasos de permisos y energía (Nuevo México, Wisconsin) y concentración en OpenAI.",
+     "u": "https://longbridge.com/en/news/298651335"
+    },
+    {
+     "n": "Base de datos en otras nubes (multicloud)",
+     "impact": 4,
+     "h": "2026–2028",
+     "st": "en marcha",
+     "k": "+353% en 1T FY27",
+     "peso": "base de datos en la nube +50% previsto",
+     "d": "Oracle Database dentro de AWS, Azure y Google Cloud: lleva su producto estrella a clientes que no quieren salir de su nube. Clientes multicloud +180% y unas 71 regiones.",
+     "ev": "Crecimiento de la base de datos en la nube.",
+     "r": "Que los hiperescaladores empujen sus propias bases de datos.",
+     "u": "https://longbridge.com/en/news/298651335"
+    },
+    {
+     "n": "Aplicaciones con agentes de IA",
+     "impact": 3,
+     "h": "2026–2028",
+     "st": "en marcha",
+     "k": "Fusion +14% · sectoriales +20%",
+     "peso": "4.219 M$ en el trimestre",
+     "d": "Fusion ERP, NetSuite y aplicaciones sectoriales con agentes de IA integrados: 3.500 agentes en producción y casi 500.000 M de tokens consumidos en septiembre.",
+     "ev": "Crecimiento de aplicaciones en la nube.",
+     "r": "NetSuite crece más despacio por ciclos de decisión más largos.",
+     "u": "https://stockanalysis.com/stocks/orcl/transcripts/780561-investor-day-2026/"
+    },
+    {
+     "n": "Financiación con clientes y proveedores",
+     "impact": 3,
+     "h": "2026–2028",
+     "st": "en marcha",
+     "k": "Prepagos y hardware del cliente",
+     "peso": "capex neto ≤70.000 M$ de 90.000–95.000 M$",
+     "d": "Cada vez más contratos se pagan por adelantado o el cliente aporta el hardware; con financiación de proveedores la inversión inicial por GW baja de 37.000 a 18.000 M$, o a 6.000 M$ si el cliente pone el hardware.",
+     "ev": "Capex neto frente a bruto y caja operativa.",
+     "r": "Si se cierran estas vías, tendría que volver a emitir deuda o acciones.",
+     "u": "https://stockanalysis.com/stocks/orcl/transcripts/780561-investor-day-2026/"
+    },
+    {
+     "n": "Oracle Health",
+     "impact": 2,
+     "h": "2027+",
+     "st": "temprano",
+     "k": "«Acelerando» según la dirección",
+     "d": "La antigua Cerner, con historia clínica electrónica y agentes de IA para hospitales.",
+     "ev": "Contratos con sistemas sanitarios.",
+     "r": "Integración lenta y pérdida de clientes frente a Epic."
+    }
+   ],
+   "despues": [
+    {
+     "n": "Infraestructura de IA (OCI)",
+     "impact": 5,
+     "h": "2026–2030",
+     "st": "en marcha",
+     "k": "+121% en 1T FY27 · 7.400 M$",
+     "peso": "38% de las ventas",
+     "d": "Alquila capacidad de GPU a laboratorios de IA y empresas. En el 1T FY27 entregó 850 MW (más de 300.000 GPU) y firmó más de 30.000 M$ de contratos nuevos. El uso de las GPU es del 97,9% y las que vencen se renuevan con un 20% de prima. En AI World (27-oct) OCI puso en disponibilidad general Vera Rubin NVL72 y las CPU NVIDIA Vera; el 20-nov Oracle dijo que la entrega de bastidores Vera Rubin en sus centros va según lo previsto para las próximas semanas, que Abilene está casi terminado y que Shackelford, su siguiente campus de escala de GW, ya tiene todos los permisos.",
+     "ev": "Ingresos de OCI, MW entregados por trimestre y cartera (RPO).",
+     "r": "Retrasos de permisos y energía (Nuevo México, Wisconsin) y concentración en OpenAI.",
+     "u": "https://longbridge.com/en/news/298651335"
+    },
+    {
+     "n": "Base de datos en otras nubes (multicloud)",
+     "impact": 4,
+     "h": "2026–2028",
+     "st": "en marcha",
+     "k": "+353% en 1T FY27",
+     "peso": "base de datos en la nube +50% previsto",
+     "d": "Oracle Database dentro de AWS, Azure y Google Cloud: lleva su producto estrella a clientes que no quieren salir de su nube. Clientes multicloud +180% y unas 71 regiones. Clientes con nombre: Kirin, Deloitte y Snowy Hydro (AI Database@AWS) y 84.51° (AI Database@Azure).",
+     "ev": "Crecimiento de la base de datos en la nube.",
+     "r": "Que los hiperescaladores empujen sus propias bases de datos.",
+     "u": "https://longbridge.com/en/news/298651335"
+    },
+    {
+     "n": "Aplicaciones con agentes de IA",
+     "impact": 3,
+     "h": "2026–2028",
+     "st": "en marcha",
+     "k": "Fusion +14% · sectoriales +20%",
+     "peso": "4.219 M$ en el trimestre",
+     "d": "Fusion ERP, NetSuite y aplicaciones sectoriales con agentes de IA integrados: 3.500 agentes en producción y casi 500.000 M de tokens consumidos en septiembre. En AI World (27-oct) lanzó con OpenAI Oracle AI Workspace (ChatGPT dentro de Fusion, NetSuite y OCI), App Composer con Codex y un paquete para pymes con ChatGPT Business y NetSuite.",
+     "ev": "Crecimiento de aplicaciones en la nube.",
+     "r": "NetSuite crece más despacio por ciclos de decisión más largos.",
+     "u": "https://stockanalysis.com/stocks/orcl/transcripts/780561-investor-day-2026/"
+    },
+    {
+     "n": "Financiación con clientes y proveedores",
+     "impact": 3,
+     "h": "2026–2028",
+     "st": "en marcha",
+     "k": "Prepagos y hardware del cliente",
+     "peso": "capex neto ≤70.000 M$ de 90.000–95.000 M$",
+     "d": "Cada vez más contratos se pagan por adelantado o el cliente aporta el hardware; con financiación de proveedores la inversión inicial por GW baja de 37.000 a 18.000 M$, o a 6.000 M$ si el cliente pone el hardware.",
+     "ev": "Capex neto frente a bruto y caja operativa.",
+     "r": "Si se cierran estas vías, tendría que volver a emitir deuda o acciones.",
+     "u": "https://stockanalysis.com/stocks/orcl/transcripts/780561-investor-day-2026/"
+    },
+    {
+     "n": "Oracle Health",
+     "impact": 2,
+     "h": "2027+",
+     "st": "temprano",
+     "k": "«Acelerando» según la dirección",
+     "d": "La antigua Cerner, con historia clínica electrónica y agentes de IA para hospitales.",
+     "ev": "Contratos con sistemas sanitarios.",
+     "r": "Integración lenta y pérdida de clientes frente a Epic."
+    }
+   ],
+   "porque": "Hitos oficiales de octubre y noviembre en infraestructura (Vera, Abilene, Shackelford), clientes con nombre en multicloud y productos con OpenAI en aplicaciones; estados, indicadores y pesos sin cambios",
+   "fuente": {
+    "t": "Comunicado de Oracle (sala de prensa)",
+    "u": "https://www.oracle.com/news/announcement/oracle-statement-2026-11-20/",
+    "d": "20-nov-2026"
+   },
+   "verificacion": "Corregido a mano 26-nov: la disponibilidad general de Vera Rubin NVL72 y CPU Vera es del 27-oct (nota de prensa de AI World), no de noviembre; se quita «primeros» bastidores. Resto cuadra.",
    "motivo": "Repaso semanal a fondo (software)"
   }
  ]
