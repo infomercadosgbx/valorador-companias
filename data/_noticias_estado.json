@@ -38,7 +38,7 @@
    "url": "https://feed.businesswire.com/rss/home/?rss=G1QFDERJXkJeEFtRWQ==",
    "tipo": "nota_prensa",
    "ok": true,
-   "titulares": 42,
+   "titulares": 24,
    "error": null
   },
   "prnewswire": {
@@ -62,7 +62,7 @@
    "url": "https://www.world-nuclear-news.org/rss",
    "tipo": "sectorial",
    "ok": true,
-   "titulares": 51,
+   "titulares": 50,
    "error": null
   },
   "ciodive": {
@@ -206,7 +206,7 @@
    "url": "https://news.google.com/rss/search?q=site%3Abroadcom.com%2Fcompany%2Fnews+when%3A14d&hl=en-US&gl=US&ceid=US%3Aen",
    "tipo": "nota_prensa",
    "ok": true,
-   "titulares": 8,
+   "titulares": 7,
    "error": null
   },
   "sala:PEP": {
@@ -214,7 +214,7 @@
    "url": "https://news.google.com/rss/search?q=site%3Apepsico.com%2Fnewsroom+when%3A14d&hl=en-US&gl=US&ceid=US%3Aen",
    "tipo": "nota_prensa",
    "ok": true,
-   "titulares": 11,
+   "titulares": 10,
    "error": null
   },
   "sala:PATH": {
@@ -230,7 +230,7 @@
    "url": "https://news.google.com/rss/search?q=site%3Aoracle.com%2Fnews+when%3A14d&hl=en-US&gl=US&ceid=US%3Aen",
    "tipo": "nota_prensa",
    "ok": true,
-   "titulares": 10,
+   "titulares": 9,
    "error": null
   },
   "sala:MRNA": {
@@ -238,7 +238,7 @@
    "url": "https://news.google.com/rss/search?q=site%3Amodernatx.com+when%3A14d&hl=en-US&gl=US&ceid=US%3Aen",
    "tipo": "nota_prensa",
    "ok": true,
-   "titulares": 19,
+   "titulares": 30,
    "error": null
   },
   "cnbc_mercados": {
@@ -309,9 +309,9 @@
    "medio": "MarketWatch",
    "url": "https://feeds.marketwatch.com/marketwatch/bulletins",
    "tipo": "prensa",
-   "ok": true,
-   "titulares": 10,
-   "error": null
+   "ok": false,
+   "titulares": 0,
+   "error": "HTTPError: HTTP Error 400: Bad Request"
   },
   "expansion_mercados": {
    "medio": "Expansión",
@@ -334,7 +334,7 @@
    "url": "https://feeds.elpais.com/mrss-s/pages/ep/site/cincodias.elpais.com/portada",
    "tipo": "prensa",
    "ok": true,
-   "titulares": 88,
+   "titulares": 85,
    "error": null
   }
  },
@@ -345,5 +345,5 @@
   "Marketaux"
  ],
  "puente_google": null,
- "generado": "2026-11-25T00:04:11+00:00"
+ "generado": "2026-11-26T00:04:56+00:00"
 }
