@@ -6,9 +6,9 @@
   "hq": "Irving, Texas",
   "founded": "2016 (raíces en TXU, 1882)",
   "employees": "6.390",
-  "asOf": "20-nov-2026",
+  "asOf": "27-nov-2026",
   "nextEarnings": "Feb-2027 (4T26, fecha por confirmar)",
-  "repasoFondo": "2026-11-20"
+  "repasoFondo": "2026-11-27"
  },
  "overview": {
   "thesis": "Productor eléctrico con ~49.000 MW (6.448 MW nucleares), ~5 millones de clientes minoristas y contratos de 20 años con Amazon y Meta. La guía de 2027 (7.700–8.500 M$ de EBITDA ajustado, generación cubierta al ~98%) y las recompras sostienen su objetivo de ~70% más FCF por acción entre 2027 y 2030; los riesgos principales son los precios de la luz en Texas desde 2028 y la deuda tras Cogentrix.",
@@ -134,11 +134,17 @@
    },
    {
     "n": "Mercados mayoristas",
-    "d": "ERCOT (Texas) y PJM (Este de EE. UU.): energía y capacidad."
+    "d": "ERCOT (Texas) y PJM (Este de EE. UU.): energía y capacidad.",
+    "u": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/vistra-20260930.htm",
+    "f": "nov-2026",
+    "fu": "10-Q 3T26 · Nota 19 (segmentos)"
    },
    {
     "n": "Industria",
-    "d": "Clientes grandes con contratos de suministro."
+    "d": "Clientes grandes con contratos de suministro.",
+    "u": "https://www.vistracorp.com/about/",
+    "f": "nov-2026",
+    "fu": "vistracorp.com · La compañía"
    }
   ],
   "quality": [
@@ -674,6 +680,11 @@
    }
   ],
   "news": [
+   {
+    "t": "Las elecciones de medio mandato aclaran el desarrollo de centros de datos, según el consejero delegado de Vistra",
+    "src": "Utility Dive",
+    "u": "https://www.utilitydive.com/news/vistra-midterms-data-center-ercot-pjm/875626/"
+   },
    {
     "t": "Texas reanuda los permisos medioambientales de centros de datos; ERCOT informará a la PUCT el 10-dic",
     "src": "Texas Tribune",
@@ -2105,6 +2116,175 @@
    },
    "verificacion": "Solo añade u/f/fu a «Escala eficiente»; u = cabecera de about; respalda ~49.000 MW y 2.ª flota nuclear libre; los 6.448 MW y centrales (texto ya existente) no figuran en esa página.",
    "motivo": "Enlaces a las webs oficiales en Negocio y MOAT"
+  },
+  {
+   "fecha": "2026-11-27",
+   "campo": "meta.asOf",
+   "antes": "20-nov-2026",
+   "despues": "27-nov-2026",
+   "porque": "Repaso semanal a fondo con la lista de comprobación completa",
+   "fuente": {
+    "t": "10-Q 3T26",
+    "u": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/vistra-20260930.htm",
+    "d": "9-nov-2026"
+   },
+   "verificacion": "Formato «27-nov-2026» = hoy, igual que el asOf previo (20-nov-2026); fuente 10-Q 3T26 presentado 2026-11-09 según data/VST.json → ultimo_informe.",
+   "motivo": "Repaso semanal a fondo (energía)"
+  },
+  {
+   "fecha": "2026-11-27",
+   "campo": "meta.repasoFondo",
+   "antes": "2026-11-20",
+   "despues": "2026-11-27",
+   "porque": "Fecha del repaso semanal a fondo",
+   "fuente": {
+    "t": "10-Q 3T26",
+    "u": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/vistra-20260930.htm",
+    "d": "9-nov-2026"
+   },
+   "verificacion": "Formato ISO 2026-11-27 = hoy, como el valor previo (2026-11-20); fuente 10-Q presentado 9-nov-2026.",
+   "motivo": "Repaso semanal a fondo (energía)"
+  },
+  {
+   "fecha": "2026-11-27",
+   "campo": "business.customerTypes",
+   "antes": [
+    {
+     "n": "Hogares y pymes",
+     "d": "Casi 5 millones de clientes residenciales, comerciales e industriales de electricidad y gas natural en 16 estados y Washington D.C., con seis marcas: TXU Energy (Texas), Dynegy (Noreste, Atlántico Medio y Medio Oeste), Homefield Energy (Illinois), Energy Harbor, Ambit Energy (venta directa con consultores independientes) y U.S. Gas & Electric. Ofrece más de 50 planes de energía renovable y ahorro.",
+     "u": "https://www.vistracorp.com/retail/",
+     "f": "nov-2026",
+     "fu": "vistracorp.com · Minorista"
+    },
+    {
+     "n": "Hiperescaladores",
+     "d": "Amazon (1.200 MW de Comanche Peak) y Meta (más de 2.600 MW en PJM), 20 años; Microsoft compra la energía de la solar de Pulaski (405 MW)."
+    },
+    {
+     "n": "Mercados mayoristas",
+     "d": "ERCOT (Texas) y PJM (Este de EE. UU.): energía y capacidad."
+    },
+    {
+     "n": "Industria",
+     "d": "Clientes grandes con contratos de suministro."
+    }
+   ],
+   "despues": [
+    {
+     "n": "Hogares y pymes",
+     "d": "Casi 5 millones de clientes residenciales, comerciales e industriales de electricidad y gas natural en 16 estados y Washington D.C., con seis marcas: TXU Energy (Texas), Dynegy (Noreste, Atlántico Medio y Medio Oeste), Homefield Energy (Illinois), Energy Harbor, Ambit Energy (venta directa con consultores independientes) y U.S. Gas & Electric. Ofrece más de 50 planes de energía renovable y ahorro.",
+     "u": "https://www.vistracorp.com/retail/",
+     "f": "nov-2026",
+     "fu": "vistracorp.com · Minorista"
+    },
+    {
+     "n": "Hiperescaladores",
+     "d": "Amazon (1.200 MW de Comanche Peak) y Meta (más de 2.600 MW en PJM), 20 años; Microsoft compra la energía de la solar de Pulaski (405 MW)."
+    },
+    {
+     "n": "Mercados mayoristas",
+     "d": "ERCOT (Texas) y PJM (Este de EE. UU.): energía y capacidad.",
+     "u": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/vistra-20260930.htm",
+     "f": "nov-2026",
+     "fu": "10-Q 3T26 · Nota 19 (segmentos)"
+    },
+    {
+     "n": "Industria",
+     "d": "Clientes grandes con contratos de suministro.",
+     "u": "https://www.vistracorp.com/about/",
+     "f": "nov-2026",
+     "fu": "vistracorp.com · La compañía"
+    }
+   ],
+   "porque": "Enlace oficial para «Mercados mayoristas» (el 10-Q describe el segmento Texas en el mercado ERCOT y los ingresos de capacidad de las nucleares de PJM) y para «Industria» (la web cita ~5 millones de clientes residenciales, comerciales e industriales). Textos sin cambios.",
+   "fuente": {
+    "t": "10-Q 3T26 · Nota 19 y vistracorp.com · La compañía",
+    "u": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/vistra-20260930.htm",
+    "d": "9-nov-2026"
+   },
+   "verificacion": "4 elementos con n y d idénticos a analysis; solo se añaden u/f/fu a «Mercados mayoristas» (Nota 19 del 10-Q: segmento Texas = ERCOT, East incluye PJM, ventas mayoristas de energía; ingresos de capacidad de nucleares PJM y subasta PJM en el mismo 10-Q) e «Industria» (about: ~5 millones de clientes residenciales, comerciales e industriales, sección Commercial & Industrial; «contratos de suministro» no aparece literalmente pero es texto previo sin cambios).",
+   "motivo": "Repaso semanal a fondo (energía)"
+  },
+  {
+   "fecha": "2026-11-27",
+   "campo": "sources.news",
+   "antes": [
+    {
+     "t": "Texas reanuda los permisos medioambientales de centros de datos; ERCOT informará a la PUCT el 10-dic",
+     "src": "Texas Tribune",
+     "u": "https://www.texastribune.org/2026/11/17/tceq-environmental-data-center-permits-resume/"
+    },
+    {
+     "t": "BMO sube su precio objetivo de 188 a 196 $ pese a la caída de la acción",
+     "src": "TIKR",
+     "u": "https://www.tikr.com/blog/vistra-keeps-sliding-why-bmo-sees-51-upside"
+    },
+    {
+     "t": "Comanche Peak, Amazon y la pausa de centros de datos en Texas",
+     "src": "Utility Dive",
+     "u": "https://www.utilitydive.com/news/vistra-texas-data-center-pause-comanche-amazon-earnings/827434/"
+    },
+    {
+     "t": "Por qué ha caído un 28% en un año",
+     "src": "TIKR",
+     "u": "https://www.tikr.com/blog/vistra-stock-is-down-28-over-the-past-year-discount-or-warning-sign"
+    },
+    {
+     "t": "Resultados 2T26 y la apuesta por Helix",
+     "src": "TIKR",
+     "u": "https://www.tikr.com/blog/what-vistras-q2-earnings-reveal-about-its-1-billion-helix-bet"
+    },
+    {
+     "t": "Contratos con Meta, Cogentrix y Lotus",
+     "src": "24/7 Wall St.",
+     "u": "https://247wallst.com/investing/2026/09/10/beyond-meta-and-nuclear-inside-vistras-real-power-play/"
+    }
+   ],
+   "despues": [
+    {
+     "t": "Las elecciones de medio mandato aclaran el desarrollo de centros de datos, según el consejero delegado de Vistra",
+     "src": "Utility Dive",
+     "u": "https://www.utilitydive.com/news/vistra-midterms-data-center-ercot-pjm/875626/"
+    },
+    {
+     "t": "Texas reanuda los permisos medioambientales de centros de datos; ERCOT informará a la PUCT el 10-dic",
+     "src": "Texas Tribune",
+     "u": "https://www.texastribune.org/2026/11/17/tceq-environmental-data-center-permits-resume/"
+    },
+    {
+     "t": "BMO sube su precio objetivo de 188 a 196 $ pese a la caída de la acción",
+     "src": "TIKR",
+     "u": "https://www.tikr.com/blog/vistra-keeps-sliding-why-bmo-sees-51-upside"
+    },
+    {
+     "t": "Comanche Peak, Amazon y la pausa de centros de datos en Texas",
+     "src": "Utility Dive",
+     "u": "https://www.utilitydive.com/news/vistra-texas-data-center-pause-comanche-amazon-earnings/827434/"
+    },
+    {
+     "t": "Por qué ha caído un 28% en un año",
+     "src": "TIKR",
+     "u": "https://www.tikr.com/blog/vistra-stock-is-down-28-over-the-past-year-discount-or-warning-sign"
+    },
+    {
+     "t": "Resultados 2T26 y la apuesta por Helix",
+     "src": "TIKR",
+     "u": "https://www.tikr.com/blog/what-vistras-q2-earnings-reveal-about-its-1-billion-helix-bet"
+    },
+    {
+     "t": "Contratos con Meta, Cogentrix y Lotus",
+     "src": "24/7 Wall St.",
+     "u": "https://247wallst.com/investing/2026/09/10/beyond-meta-and-nuclear-inside-vistras-real-power-play/"
+    }
+   ],
+   "porque": "Noticia sectorial de la semana con declaraciones del consejero delegado sobre centros de datos en ERCOT y PJM",
+   "fuente": {
+    "t": "Utility Dive",
+    "u": "https://www.utilitydive.com/news/vistra-midterms-data-center-ercot-pjm/875626/",
+    "d": "24-nov-2026"
+   },
+   "verificacion": "Los 6 elementos previos se conservan idénticos y en orden; el nuevo cuadra con data/VST.json → noticias (Utility Dive, 2026-11-24, «Midterms provide clarity on data center development: Vistra CEO», misma url); titular traducido fiel.",
+   "motivo": "Repaso semanal a fondo (energía)"
   }
  ]
 }
