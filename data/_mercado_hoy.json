@@ -1,6 +1,6 @@
 {
  "esquema": 2,
- "generado": "2026-11-27T21:59:16+00:00",
+ "generado": "2026-11-27T22:59:57+00:00",
  "grupos": {
   "bolsa": "Bolsa",
   "volatilidad": "Volatilidad y divisas",
@@ -608,17 +608,13 @@
    "unidad": "pts",
    "fuente": "Cboe",
    "corto": "Cboe VIX3M",
-   "valor": 26.29,
-   "anterior": 25.47,
-   "fecha": "2026-11-25",
+   "valor": 23.82,
+   "anterior": 26.29,
+   "fecha": "2026-11-27",
    "url": "https://www.cboe.com/tradable_products/vix/vix_historical_data/",
-   "var": 0.82,
-   "var_pct": 3.22,
+   "var": -2.47,
+   "var_pct": -9.4,
    "serie": [
-    [
-     "2026-08-26",
-     17.99
-    ],
     [
      "2026-08-27",
      17.56
@@ -874,6 +870,10 @@
     [
      "2026-11-25",
      26.29
+    ],
+    [
+     "2026-11-27",
+     23.82
     ]
    ]
   },
@@ -886,17 +886,13 @@
    "unidad": "pts",
    "fuente": "Cboe",
    "corto": "Cboe VXN",
-   "valor": 38.53,
-   "anterior": 36.42,
-   "fecha": "2026-11-25",
+   "valor": 33.34,
+   "anterior": 38.53,
+   "fecha": "2026-11-27",
    "url": "https://www.cboe.com/tradable_products/vix/vix_historical_data/",
-   "var": 2.11,
-   "var_pct": 5.79,
+   "var": -5.19,
+   "var_pct": -13.47,
    "serie": [
-    [
-     "2026-08-26",
-     21.42
-    ],
     [
      "2026-08-27",
      20.24
@@ -1152,6 +1148,10 @@
     [
      "2026-11-25",
      38.53
+    ],
+    [
+     "2026-11-27",
+     33.34
     ]
    ]
   },
@@ -1164,17 +1164,13 @@
    "unidad": "pts",
    "fuente": "Cboe",
    "corto": "Cboe OVX",
-   "valor": 48.04,
-   "anterior": 49.39,
-   "fecha": "2026-11-25",
+   "valor": 45.86,
+   "anterior": 48.04,
+   "fecha": "2026-11-27",
    "url": "https://www.cboe.com/tradable_products/vix/vix_historical_data/",
-   "var": -1.35,
-   "var_pct": -2.73,
+   "var": -2.18,
+   "var_pct": -4.54,
    "serie": [
-    [
-     "2026-08-26",
-     46.83
-    ],
     [
      "2026-08-27",
      46.22
@@ -1430,6 +1426,10 @@
     [
      "2026-11-25",
      48.04
+    ],
+    [
+     "2026-11-27",
+     45.86
     ]
    ]
   },
@@ -1442,17 +1442,13 @@
    "unidad": "pts",
    "fuente": "Cboe",
    "corto": "Cboe GVZ",
-   "valor": 35.84,
-   "anterior": 33.64,
-   "fecha": "2026-11-25",
+   "valor": 31.78,
+   "anterior": 35.84,
+   "fecha": "2026-11-27",
    "url": "https://www.cboe.com/tradable_products/vix/vix_historical_data/",
-   "var": 2.2,
-   "var_pct": 6.54,
+   "var": -4.06,
+   "var_pct": -11.33,
    "serie": [
-    [
-     "2026-08-26",
-     26.96
-    ],
     [
      "2026-08-27",
      26.8
@@ -1708,6 +1704,10 @@
     [
      "2026-11-25",
      35.84
+    ],
+    [
+     "2026-11-27",
+     31.78
     ]
    ]
   },
@@ -2003,12 +2003,12 @@
    "unidad": "",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 1.0935,
+   "valor": 1.095,
    "anterior": 1.0935,
    "fecha": "2026-11-28",
    "url": "https://twelvedata.com/",
-   "var": -0.0001,
-   "var_pct": -0.01
+   "var": 0.0015,
+   "var_pct": 0.14
   },
   {
    "id": "usdjpy",
@@ -2019,12 +2019,12 @@
    "unidad": "",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 159.5759,
+   "valor": 159.5257,
    "anterior": 159.5682,
    "fecha": "2026-11-28",
    "url": "https://twelvedata.com/",
-   "var": 0.0077,
-   "var_pct": 0.0
+   "var": -0.0425,
+   "var_pct": -0.03
   },
   {
    "id": "gbpusd",
@@ -2035,12 +2035,12 @@
    "unidad": "",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 1.3098,
+   "valor": 1.3101,
    "anterior": 1.3097,
    "fecha": "2026-11-28",
    "url": "https://twelvedata.com/",
-   "var": 0.0001,
-   "var_pct": 0.01
+   "var": 0.0004,
+   "var_pct": 0.03
   },
   {
    "id": "usdcny",
@@ -2051,12 +2051,12 @@
    "unidad": "",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 6.6608,
+   "valor": 6.6638,
    "anterior": 6.6575,
    "fecha": "2026-11-28",
    "url": "https://twelvedata.com/",
-   "var": 0.0033,
-   "var_pct": 0.05
+   "var": 0.0063,
+   "var_pct": 0.09
   },
   {
    "id": "us3m",
@@ -4621,11 +4621,11 @@
    "unidad": "$",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 3654.5743,
+   "valor": 3654.4822,
    "anterior": 3654.3981,
    "fecha": "2026-11-28",
    "url": "https://twelvedata.com/",
-   "var": 0.1762,
+   "var": 0.0841,
    "var_pct": 0.0
   },
   {
@@ -5544,12 +5544,12 @@
    "unidad": "$",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 59830.0,
+   "valor": 59815.46,
    "anterior": 60577.18,
    "fecha": "2026-11-27",
    "url": "https://twelvedata.com/",
-   "var": -747.18,
-   "var_pct": -1.23
+   "var": -761.72,
+   "var_pct": -1.26
   },
   {
    "id": "ethereum",
@@ -5560,12 +5560,12 @@
    "unidad": "$",
    "fuente": "Twelve Data",
    "corto": "Twelve Data",
-   "valor": 1664.72,
+   "valor": 1658.24,
    "anterior": 1689.85,
    "fecha": "2026-11-27",
    "url": "https://twelvedata.com/",
-   "var": -25.13,
-   "var_pct": -1.49
+   "var": -31.61,
+   "var_pct": -1.87
   }
  ],
  "sentimiento": {
@@ -5600,9 +5600,9 @@
      "id": "impulso",
      "nombre": "Impulso del mercado",
      "descripcion": "S&P 500 frente a su media de 125 sesiones. Por encima, codicia.",
-     "puntuacion": 9.7,
+     "puntuacion": 9.5,
      "etiqueta": "Miedo extremo",
-     "bruto": -0.0352,
+     "bruto": -0.0358,
      "fuente": "ETF SPY · Twelve Data",
      "url": "https://twelvedata.com/"
     },
@@ -5632,7 +5632,7 @@
      "descripcion": "Rentabilidad a 20 sesiones de la bolsa menos la del bono a 10 años. Si ganan los bonos, miedo.",
      "puntuacion": 6.9,
      "etiqueta": "Miedo extremo",
-     "bruto": -6.0098,
+     "bruto": -6.0695,
      "fuente": "Bolsa y bono a 10 años (Tesoro y FRED)",
      "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve"
     },
@@ -6081,16 +6081,16 @@
     "url": "https://fred.stlouisfed.org/series/PCEPILFE"
    },
    "esperada_10a": {
-    "valor": 2.12,
-    "fecha": "2026-11-25",
-    "hace_1m": 2.34,
+    "valor": 2.15,
+    "fecha": "2026-11-27",
+    "hace_1m": 2.38,
     "nombre": "Inflación esperada a 10 años",
     "url": "https://fred.stlouisfed.org/series/T10YIE"
    },
    "esperada_5a5a": {
-    "valor": 2.11,
-    "fecha": "2026-11-25",
-    "hace_1m": 2.21,
+    "valor": 2.14,
+    "fecha": "2026-11-27",
+    "hace_1m": 2.27,
     "nombre": "Inflación esperada de dentro de 5 a 10 años",
     "url": "https://fred.stlouisfed.org/series/T5YIFR"
    },
