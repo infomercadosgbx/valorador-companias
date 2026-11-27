@@ -2,6 +2,28 @@
 
 Una entrada por día (la más reciente arriba). La escribe la tarea programada de la mañana con `python scripts/registro_fuentes.py`. Sirve para ver qué aporta cada fuente y decidir qué quitar o añadir.
 
+## 2026-11-27
+
+_Aportaron la vía oficial (10-Q 3T26 y web vistracorp.com en lecturas/, sin fallos en lecturas/_estado.json) y Gmail (resumen semanal de Investing con la caída de VST y alertas de Bloomberg que fechan la venta y el rebote tecnológico del 20 y 23-nov). Ruido: la mayoría de titulares de Finnhub y Yahoo Finance de la semana eran genéricos. No se pudieron leer Utility Dive, TIKR (Morgan Stanley) ni Barchart: WebFetch se quedó sin permiso a tiempo en la ejecución desatendida; el consenso de analistas no se actualizó._
+
+- **Alertas en Gmail** (infomercados.gbx@gmail.com, últimas 24 h): Bloomberg 2, MarketWatch 0, Morningstar 0, CNBC 0, Reuters 0, FT 0, Investing 1, Otros 0.
+- **Titulares nuevos en 24 h (todas las compañías):** Finnhub 55, Google News 5, Seeking Alpha 0, Yahoo Finance 0, Marketaux 4, Medios (prensa, sector y agencias) 2.
+- **Fuentes con fallo** (nº de compañías): ninguna.
+- **Compañías con señal para la revisión de internet:** GOOGL (1 nota(s) de prensa o noticia(s) sectorial(es), 1 publicación(es) en la sala de prensa de la compañía); AMZN (2 publicación(es) en la sala de prensa de la compañía); AVGO (1 nota(s) de prensa o noticia(s) sectorial(es)).
+
+| Compañía | Titulares 24 h | Finnhub | Google News | Seeking Alpha | Yahoo Finance | Marketaux | Medios (prensa, sector y agencias) | StockTwits | Reddit 7 d | Alertas Gmail |
+|---|---:|---:|---:|---:|---:|---:|---:|---|---|---:|
+| APP | 3 | 3 | 0 | 0 | 0 | 0 | 0 | 92 % alc. | — | 0 |
+| GOOGL | 16 | 13 | 0 | 0 | 0 | 1 | 1 | 80 % alc. | — | 0 |
+| RDDT | 3 | 3 | 0 | 0 | 0 | 0 | 0 | 82 % alc. | — | 0 |
+| AMZN | 14 | 9 | 4 | 0 | 0 | 0 | 1 | 88 % alc. | — | 0 |
+| VST | 2 | 2 | 0 | 0 | 0 | 0 | 0 | 78 % alc. | — | 1 |
+| AVGO | 10 | 9 | 0 | 0 | 0 | 1 | 0 | 90 % alc. | — | 0 |
+| PEP | 5 | 4 | 1 | 0 | 0 | 0 | 0 | 89 % alc. | — | 0 |
+| PATH | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 100 % alc. | — | 0 |
+| ORCL | 10 | 8 | 0 | 0 | 0 | 2 | 0 | 67 % alc. | — | 0 |
+| MRNA | 5 | 4 | 0 | 0 | 0 | 0 | 0 | 88 % alc. | — | 0 |
+
 ## 2026-11-26
 
 _Lo útil vino de lo oficial: la nota de prensa de PepsiCo con Hyatt (10 años, más de 700 hoteles), la nota de resultados y el 10-Q de Reddit (corrige los usuarios por región) y el 10-Q de Moderna (reparto 50/50 con Merck); TipRanks dio el consenso de PEP. Gmail solo aportó el resumen semanal de Investing; Finnhub y Seeking Alpha trajeron sobre todo titulares genéricos y la sala de prensa de Moderna llega como PDF sin título. No se pudo buscar en los dominios de Reddit (el proxy rechazó la búsqueda), la ficha de MarketBeat de PEP estaba desfasada (sep-2025) y su alerta de Bernstein no abrió; lecturas/_estado.json sin fallos._
