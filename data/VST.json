@@ -11939,9 +11939,25 @@
    "compradores": [
     "BURKE JAMES A"
    ],
-   "desde": "2026-05-28"
+   "desde": "2026-05-29"
   },
   "operaciones": [
+   {
+    "fecha": "2026-11-24",
+    "codigo": "F",
+    "tipo": "Retención fiscal",
+    "acciones": 1060.0,
+    "precio": 130.16,
+    "importe": 137969.6,
+    "sentido": "venta",
+    "tras_operacion": 60630.0,
+    "clase": "Common Stock",
+    "persona": "BURKE JAMES A",
+    "cargo": "Consejero, President and CEO",
+    "plan_10b5_1": false,
+    "fecha_presentacion": "2026-11-27",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000126840626000011/0001268406-26-000011-index.htm"
+   },
    {
     "fecha": "2026-11-23",
     "codigo": "F",
@@ -12248,6 +12264,31 @@
    }
   ],
   "operaciones_por_filing": [
+   {
+    "accn": "0001268406-26-000011",
+    "fecha_presentacion": "2026-11-27",
+    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000126840626000011/0001268406-26-000011-index.htm",
+    "personas": [
+     {
+      "nombre": "BURKE JAMES A",
+      "cargo": "Consejero, President and CEO"
+     }
+    ],
+    "plan_10b5_1": false,
+    "operaciones": [
+     {
+      "fecha": "2026-11-24",
+      "codigo": "F",
+      "tipo": "Retención fiscal",
+      "acciones": 1060.0,
+      "precio": 130.16,
+      "importe": 137969.6,
+      "sentido": "venta",
+      "tras_operacion": 60630.0,
+      "clase": "Common Stock"
+     }
+    ]
+   },
    {
     "accn": "0001940494-26-000010",
     "fecha_presentacion": "2026-11-25",
@@ -12654,7 +12695,7 @@
     ]
    }
   ],
-  "n_formularios": 14
+  "n_formularios": 15
  },
  "riesgos_10k": {
   "version": 4,
@@ -12700,10 +12741,10 @@
   "minimo_52s": 110.89,
   "maximo_52s": 182.56,
   "beta": 1.4084501,
-  "valor": 121.32,
-  "cierre_anterior": 120.72,
+  "valor": 122.65,
+  "cierre_anterior": 121.32,
   "moneda": "USD",
-  "fecha": "2026-11-25",
+  "fecha": "2026-11-27",
   "fuente": "Finnhub (API oficial, plan gratuito)",
   "url": "https://finnhub.io/"
  },
@@ -12811,6 +12852,36 @@
  ],
  "noticias": [
   {
+   "titular": "Has Vistra Changed What You Own?",
+   "medio": "Yahoo Finance",
+   "url": "https://www.trefis.com/stock/vst/articles/629395/has-vistra-changed-what-you-own/2026-11-27",
+   "fecha": "2026-11-27",
+   "resumen": "Today's big story: Anthropic Broke Its $83 IPO Price. What Did Facebook Do Next.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=707895246e6b100fa9f9282c44f826bebac33fa35ee8aefb4d109e944cc49389"
+  },
+  {
+   "titular": "The Nuclear Stock AI Investors Loved Is Down 33% This Year. Is Constellation Energy a Buy Now?",
+   "medio": "Yahoo Finance",
+   "url": "https://247wallst.com/investing/2026/11/27/the-nuclear-stock-ai-investors-loved-is-down-33-this-year-is-constellation-energy-a-buy-now/",
+   "fecha": "2026-11-27",
+   "resumen": "Amazon and Google signed 20-year nuclear deals, earnings beat by a wide margin, and guidance moved higher, yet Constellation's shares keep sinking. One number in its cash flow may explain why Wall Street stopped paying up for the AI power story.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=a20f0686aa2ae7c9328e0a948abc5dce5cd463affd93ef02e7f8b9471a779479"
+  },
+  {
+   "titular": "Which Gives You More Power Demand, Exelon Or Vistra?",
+   "medio": "Yahoo Finance",
+   "url": "https://www.trefis.com/stock/exc/articles/629337/which-gives-you-more-power-demand-exelon-or-vistra/2026-11-27",
+   "fecha": "2026-11-27",
+   "resumen": "Today's big story: Anthropic Broke Its $83 IPO Price. What Did Facebook Do Next.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=d44423c82bd27680614ba3147894676f11627f4bd909f4a520fefd323867a11d"
+  },
+  {
    "titular": "3 AI Infrastructure Stocks That Pay You While You Wait",
    "medio": "Yahoo Finance",
    "url": "https://247wallst.com/investing/2026/11/26/3-ai-infrastructure-stocks-that-pay-you-while-you-wait/",
@@ -12844,34 +12915,23 @@
    }
   },
   {
-   "titular": "What Are Wall Street Analysts' Target Price for Vistra Corp. Stock?",
-   "medio": "Yahoo Finance",
-   "url": "https://www.barchart.com/story/news/9006879/what-are-wall-street-analysts-target-price-for-vistra-corp-stock",
+   "titular": "Vistra Corp. (VST) Stock Price Today - The Wall Street Journal",
+   "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1zTlgyYlBFSHlVdmJqeHhMdnVGbklqNnRjQzFNVVV6TnI1aGtsUkNXU0hOUVJDdUxuSk1HV2FnUDJrb3pub0FRdThXdkhoZl9ZeVR3?oc=5",
    "fecha": "2026-11-25",
-   "resumen": "Are Wall Street analysts bullish about Vistra’s prospects?",
+   "resumen": "",
+   "medio": "WSJ",
    "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=f7f1a1cc0b8220772a28bca86c9862beaabad6698c68ca0a791f5c220dd924ed"
+   "via": "Google News"
   },
   {
-   "titular": "Vistra Has Slumped for a Year: Why Morgan Stanley Still Sees 82% Upside",
+   "titular": "67% Upside for Constellation Energy? Morgan Stanley Thinks So, and Here’s How",
    "medio": "Yahoo Finance",
-   "url": "https://www.tikr.com/blog/vistra-has-slumped-for-a-year-why-morgan-stanley-still-sees-82-upside?ref=yahoofinance&tlnk=yf-261125-x7wjx655&.tsrc=rss",
+   "url": "https://www.tikr.com/blog/61-upside-for-constellation-energy-morgan-stanley-thinks-so-and-heres-how?ref=yahoofinance&tlnk=yf-261127-gg393jw6&.tsrc=rss",
    "fecha": "2026-11-25",
-   "resumen": "Key TakeawaysMorgan Stanley cut its Vistra price target to $211 from $224 and kept its Overweight rating, which still points to 82% upside. Vistra fell on cheaper Texas power and an election that put data center growth in doubt, and Constellation Energy and NRG Energy are down sh",
+   "resumen": "Key TakeawaysMorgan Stanley kept its Overweight rating on Constellation Energy and raised its price target to $393 from $391, 67% above the stock’s price. Constellation is down 38% from its high last December, and Vistra has slid too, even though both raised their 2026 guidance.",
    "tipo": "prensa",
    "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=5f62b5f7f692a5b5fe8ef1644ab71dc22abcc94f68c6d72743d7a716a6265dc3"
-  },
-  {
-   "titular": "Vistra Underperforms Industry in the Past Year: Time to Buy or Wait?",
-   "medio": "Yahoo Finance",
-   "url": "https://finance.yahoo.com/energy/articles/vistra-underperforms-industry-past-time-134200801.html",
-   "fecha": "2026-11-25",
-   "resumen": "VST has plunged 31.2% in a year, but rising electricity demand, strong earnings growth prospects and a discounted valuation may support holding the stock.",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=fe2bb7f2c2b9fda9e30b4a8845b23ce5d1c369e449c773e91fed60be1f611dbb"
+   "url_finnhub": "https://finnhub.io/api/news?id=52fab9def8852354c555e5579d19932b343b7bfbfe9fa74cdbd41ad7f9e119f8"
   },
   {
    "titular": "Midterms provide clarity on data center development: Vistra CEO",
@@ -12900,16 +12960,6 @@
    "medio": "MarketWatch",
    "tipo": "prensa",
    "via": "Google News"
-  },
-  {
-   "titular": "Is Vistra (VST) Still Below Fair Value After Data Center Clarity?",
-   "medio": "Yahoo Finance",
-   "url": "https://finance.yahoo.com/markets/stocks/articles/vistra-vst-still-below-fair-211126773.html",
-   "fecha": "2026-11-24",
-   "resumen": "Vistra has delivered very large gains over the past five years, yet its recent pullback leaves a live question about whether the current share price lines up with the earnings power of the business. With the stock now trading around US$123.87 and sentiment shaped by the power mar",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=3cd90de421a13bb1bfb93b3259c421add47f708653bf45e70b659090ce51a62a"
   },
   {
    "titular": "Whispers From Texas: AI Infrastructure Hits New Stride",
@@ -13043,6 +13093,15 @@
    }
   },
   {
+   "titular": "Vistra: The Market Is Pricing In An AI Bust That May Never Come",
+   "url": "https://seekingalpha.com/article/4966904-vistra-the-market-is-pricing-in-an-ai-bust-that-may-never-come?source=feed_symbol_VST",
+   "fecha": "2026-11-12",
+   "resumen": "",
+   "medio": "Seeking Alpha",
+   "tipo": "prensa",
+   "via": "RSS de Seeking Alpha"
+  },
+  {
    "titular": "NRG Energy: One Step Back For Two Steps Forward",
    "medio": "Seeking Alpha",
    "url": "https://seekingalpha.com/article/4966856-nrg-energy-stock-one-step-back-for-two-steps-forward",
@@ -13051,16 +13110,6 @@
    "tipo": "prensa",
    "via": "Finnhub",
    "url_finnhub": "https://finnhub.io/api/news?id=476069ba4f1eca064abd0f93ee846e6f43639db693c53a0faa4de389bbe1fefc"
-  },
-  {
-   "titular": "Vistra: The Market Is Pricing In An AI Bust That May Never Come",
-   "medio": "Seeking Alpha",
-   "url": "https://seekingalpha.com/article/4966904-vistra-the-market-is-pricing-in-an-ai-bust-that-may-never-come",
-   "fecha": "2026-11-12",
-   "resumen": "Vistra's AI power demand fears are overblown, and low-CapEx growth paths could drive $24 FCF per share by 2030. Read here for more on VST stock.",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=a5cf2cd8885a3408abcbf79f7405d838c213ca2b08b4ee28ffecb86bb0fcf368"
   },
   {
    "titular": "Vistra Corp. (VST) is Attracting Investor Attention: Here is What You Should Know",
@@ -13083,15 +13132,6 @@
    "resumen": "Comunicación oficial de la compañía. Items: 8.01.",
    "oficial": true,
    "tipo": "prensa"
-  },
-  {
-   "titular": "Vistra: Q3 Confirms The Midterm Fear Is The Opportunity",
-   "url": "https://seekingalpha.com/article/4964555-vistra-q3-confirms-the-midterm-fear-is-the-opportunity?source=feed_symbol_VST",
-   "fecha": "2026-11-07",
-   "resumen": "",
-   "medio": "Seeking Alpha",
-   "tipo": "prensa",
-   "via": "RSS de Seeking Alpha"
   },
   {
    "titular": "8-K a la SEC: Resultados",
@@ -13123,13 +13163,13 @@
    "fuente": "StockTwits (API pública)",
    "url": "https://stocktwits.com/symbol/VST",
    "mensajes": 30,
-   "alcistas": 7,
+   "alcistas": 9,
    "bajistas": 2,
-   "pct_alcista": 78,
-   "seguidores": 18825,
-   "desde": "2026-11-20",
-   "hasta": "2026-11-25",
-   "fecha": "2026-11-27"
+   "pct_alcista": 82,
+   "seguidores": 18831,
+   "desde": "2026-11-21",
+   "hasta": "2026-11-27",
+   "fecha": "2026-11-28"
   }
  },
  "noticias_fuentes": {
@@ -13148,7 +13188,7 @@
    },
    "Google News": {
     "ok": true,
-    "titulares": 54
+    "titulares": 53
    },
    "Seeking Alpha": {
     "ok": true,
@@ -13156,7 +13196,7 @@
    },
    "Yahoo Finance": {
     "ok": true,
-    "titulares": 10
+    "titulares": 12
    },
    "Marketaux": {
     "ok": true,
@@ -13178,10 +13218,6 @@
  },
  "historico_precio": {
   "serie": [
-   [
-    "2021-08-25",
-    19.0
-   ],
    [
     "2021-08-26",
     18.49
@@ -18457,18 +18493,22 @@
    [
     "2026-11-25",
     121.32
+   ],
+   [
+    "2026-11-27",
+    122.65
    ]
   ],
   "fuente": "Twelve Data (API oficial, plan gratuito)",
   "url": "https://twelvedata.com/",
-  "fecha": "2026-11-25",
+  "fecha": "2026-11-27",
   "ajuste": "splits"
  },
- "generado": "2026-11-27T00:07:20+00:00",
+ "generado": "2026-11-28T00:04:12+00:00",
  "peers": {
   "fuente_lista": "manual",
   "fuente_cifras": "SEC EDGAR (companyfacts, UDM) · precio Finnhub",
-  "actualizado": "2026-11-27",
+  "actualizado": "2026-11-28",
   "propia": {
    "ingresos": 20588000000,
    "crecimiento": 19.76,
@@ -18486,13 +18526,13 @@
    "informe": "10-Q",
    "informe_fecha": "2026-11-09",
    "url": "https://www.sec.gov/Archives/edgar/data/1692819/000169281926000025/0001692819-26-000025-index.htm",
-   "precio": 121.32,
-   "capitalizacion": 41175362941.56,
-   "ev": 59578362941.56,
-   "per": 15.21,
-   "precio_ventas": 2.0,
-   "ev_ebitda": 9.4,
-   "rentabilidad_fcf": 6.33,
+   "precio": 122.65,
+   "capitalizacion": 41626757869.950005,
+   "ev": 60029757869.950005,
+   "per": 15.38,
+   "precio_ventas": 2.02,
+   "ev_ebitda": 9.48,
+   "rentabilidad_fcf": 6.26,
    "deuda_neta_ebitda": 2.9,
    "ticker": "VST",
    "nombre": "Vistra",
@@ -18526,12 +18566,12 @@
     "informe": "10-Q",
     "informe_fecha": "2026-11-09",
     "url": "https://www.sec.gov/Archives/edgar/data/1868275/000186827526000119/0001868275-26-000119-index.htm",
-    "precio": 235.28,
-    "capitalizacion": 83361440131.12,
-    "ev": 107364440131.12,
-    "per": 24.06,
-    "precio_ventas": 3.36,
-    "ev_ebitda": 12.99,
+    "precio": 238.1,
+    "capitalizacion": 84360586939.9,
+    "ev": 108363586939.9,
+    "per": 24.35,
+    "precio_ventas": 3.4,
+    "ev_ebitda": 13.11,
     "rentabilidad_fcf": 0.37,
     "deuda_neta_ebitda": 2.9
    },
@@ -18562,13 +18602,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-11-09",
     "url": "https://www.sec.gov/Archives/edgar/data/1013871/000101387126000025/0001013871-26-000025-index.htm",
-    "precio": 91.94,
-    "capitalizacion": 19309356483.2,
-    "ev": 42213356483.2,
-    "per": 15.35,
-    "precio_ventas": 0.56,
-    "ev_ebitda": 9.39,
-    "rentabilidad_fcf": 3.57,
+    "precio": 93.83,
+    "capitalizacion": 19706296702.4,
+    "ev": 42610296702.4,
+    "per": 15.66,
+    "precio_ventas": 0.57,
+    "ev_ebitda": 9.48,
+    "rentabilidad_fcf": 3.5,
     "deuda_neta_ebitda": 5.09
    },
    {
@@ -18598,9 +18638,9 @@
     "informe": "10-Q",
     "informe_fecha": "2026-11-03",
     "url": "https://www.sec.gov/Archives/edgar/data/1622536/000162253626000086/0001622536-26-000086-index.htm",
-    "precio": 351.61,
-    "capitalizacion": 15296902752.32,
-    "ev": 24530902752.32,
+    "precio": 359.64,
+    "capitalizacion": 15646250407.68,
+    "ev": 24880250407.68,
     "per": null,
     "precio_ventas": null,
     "ev_ebitda": null,
@@ -18634,12 +18674,12 @@
     "informe": "10-Q",
     "informe_fecha": "2026-11-03",
     "url": "https://www.sec.gov/Archives/edgar/data/874761/000087476126000156/0000874761-26-000156-index.htm",
-    "precio": 15.02,
-    "capitalizacion": 10717741163.16,
-    "ev": 8691741163.16,
+    "precio": 15.03,
+    "capitalizacion": 10724876809.74,
+    "ev": 8698876809.74,
     "per": 6.0,
     "precio_ventas": 0.79,
-    "ev_ebitda": 2.14,
+    "ev_ebitda": 2.15,
     "rentabilidad_fcf": -14.14,
     "deuda_neta_ebitda": -0.5
    },
@@ -18670,12 +18710,12 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-21",
     "url": "https://www.sec.gov/Archives/edgar/data/753308/000075330826000081/0000753308-26-000081-index.htm",
-    "precio": 85.41,
-    "capitalizacion": 178109013756.96,
-    "ev": 279256013756.95996,
-    "per": 21.76,
-    "precio_ventas": 6.88,
-    "ev_ebitda": 18.51,
+    "precio": 84.95,
+    "capitalizacion": 177149756687.2,
+    "ev": 278296756687.2,
+    "per": 21.65,
+    "precio_ventas": 6.84,
+    "ev_ebitda": 18.44,
     "rentabilidad_fcf": null,
     "deuda_neta_ebitda": 6.7
    }
@@ -18714,7 +18754,7 @@
     "0001692819-26-000023",
     "0001692819-26-000025"
    ],
-   "revisado": "2026-11-27"
+   "revisado": "2026-11-28"
   }
  ],
  "perfil": {

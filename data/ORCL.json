@@ -13619,7 +13619,7 @@
    "compradores": [
     "RUSCKOWSKI STEPHEN H"
    ],
-   "desde": "2026-05-28"
+   "desde": "2026-05-29"
   },
   "operaciones": [
    {
@@ -16008,10 +16008,10 @@
   "minimo_52s": 99.34,
   "maximo_52s": 250.25,
   "beta": 1.8711277,
-  "valor": 103.88,
-  "cierre_anterior": 109.5,
+  "valor": 107.13,
+  "cierre_anterior": 103.88,
   "moneda": "USD",
-  "fecha": "2026-11-25",
+  "fecha": "2026-11-27",
   "fuente": "Finnhub (API oficial, plan gratuito)",
   "url": "https://finnhub.io/"
  },
@@ -16155,6 +16155,151 @@
  ],
  "noticias": [
   {
+   "titular": "Bill for Birmingham's Oracle debacle reaches £128M",
+   "url": "https://www.theregister.com/public-sector/2026/11/27/bill-for-birminghams-oracle-debacle-reaches-128m/5312563",
+   "fecha": "2026-11-27",
+   "resumen": "True cost may be much higher for delayed SAP replacement that helped bankrupt the city",
+   "medio": "The Register",
+   "tipo": "sectorial",
+   "via": "RSS del medio"
+  },
+  {
+   "titular": "Oracle Stock $108: Premarket Bounce Off 52-Week Low",
+   "url": "https://financefeeds.com/oracle-orcl-stock-108-black-friday-premarket-bounce-off-52-week-low-bull-114-bear-104/",
+   "fecha": "2026-11-27",
+   "resumen": "Oracle stock is $108 in Friday premarket, up about 4 percent from a $103.88 close after a $99.34 low. Bull $113.68, bear $103.88; debt costs in focus.",
+   "medio": "financefeeds.com",
+   "tipo": "prensa",
+   "via": "Marketaux",
+   "sentimiento": {
+    "puntuacion": 0.016,
+    "etiqueta": "Neutral"
+   }
+  },
+  {
+   "titular": "Oracle Corporation: Assessing The Preferred Which Now Yields Over ~9%",
+   "url": "https://seekingalpha.com/article/4972425-oracle-corporation-assessing-the-preferred-which-now-yields-over-9-percent",
+   "fecha": "2026-11-27",
+   "resumen": "ORCL.PR.D trades near $35, roughly 30% below par, yielding approximately 9.25% until mandatory conversion in January 2029.",
+   "medio": "Seeking Alpha",
+   "tipo": "prensa",
+   "via": "Marketaux",
+   "sentimiento": {
+    "puntuacion": 0.0,
+    "etiqueta": "Neutral"
+   }
+  },
+  {
+   "titular": "Oracle: My Fair Value Just Collapsed",
+   "medio": "Seeking Alpha",
+   "url": "https://seekingalpha.com/article/4972533-oracle-my-fair-value-just-collapsed",
+   "fecha": "2026-11-27",
+   "resumen": "Analyst sees Oracle as a sidelines stock: a $107 fair value offers just 3% upside, while Q2 cash burn could test whether that valuation is optimistic.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=e8d3c59d43eaa094a36d9d92698aeaf3b8f765c45330bd648b54daa2a862c44d"
+  },
+  {
+   "titular": "SpaceX Could Make $50 Billion a Year From AI Data Centers. Nvidia’s Biggest Customers Should Pay Attention",
+   "medio": "Benzinga",
+   "url": "https://www.benzinga.com/trading-ideas/long-ideas/26/11/63669681/spacex-ai-data-centers-revenue",
+   "fecha": "2026-11-27",
+   "resumen": "Ron Baron sees SpaceX generating $50 billion annually from AI data centers, potentially challenging Amazon, Microsoft and Google.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=08e5d5c65b6d1c3f2d256772bc65cb221112043700082d57de290ec3c4d3496c"
+  },
+  {
+   "titular": "The overall AI tech market has gone from a bubble to being modestly overpriced: Charlie Bobrinskoy",
+   "medio": "CNBC",
+   "url": "https://www.cnbc.com/video/2026/11/27/the-overall-ai-tech-market-has-gone-from-a-bubble-to-being-modestly-overpriced-charlie-bobrinskoy.html",
+   "fecha": "2026-11-27",
+   "resumen": "Charlie Bobrinskoy, vice chairman at Ariel Investments, joins 'Squawk on the Street' to discuss markets, company valuations, and more.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=b2582fb36a41161b6b021faefe05431f223abb1f3c4839f0bfec1ab892c0aa95"
+  },
+  {
+   "titular": "Everyone Should Know - Cheap Stocks Are Where Portfolios Die",
+   "medio": "Seeking Alpha",
+   "url": "https://seekingalpha.com/article/4972047-everyone-should-know-cheap-stocks-are-where-portfolios-die",
+   "fecha": "2026-11-27",
+   "resumen": "Favor quality over weakness. Data shows that more than half of 6,500 stocks never recovered prior highs.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=1aaf31c1f88ce9a49e03197f26e6007a7ceee4c098b1a3d686f8d43bb7ac7a78"
+  },
+  {
+   "titular": "The S&P 500's 2025 Thanksgiving Leftovers One Year Later",
+   "medio": "Seeking Alpha",
+   "url": "https://seekingalpha.com/article/4972498-sp-500-2025-thanksgiving-leftovers-one-year-later",
+   "fecha": "2026-11-27",
+   "resumen": "The market cap-weighted version of our Thanksgiving Leftover stock index performed more poorly than the equal-weighted version.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=7581fc9f80237733f03bf24d0d278bd3cc9b750ce58d9a521c23359ec71f61a9"
+  },
+  {
+   "titular": "Billionaire Chase Coleman’s Tiger Global Raised Its Cerebras Stake 48% to $790 Million",
+   "medio": "Yahoo Finance",
+   "url": "https://247wallst.com/investing/2026/11/27/billionaire-chase-colemans-tiger-global-raised-its-cerebras-stake-48-to-790-million/",
+   "fecha": "2026-11-27",
+   "resumen": "A famed hedge fund keeps buying a newly public AI chipmaker even as the stock sinks far below its debut high. Before retirement investors copy the move, one detail about how Tiger sized the bet matters more than the purchase itself.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=157bab7006e16a9eaba041f568718eced7841420efee12833f6fe2254f526c93"
+  },
+  {
+   "titular": "Oracle is Living on a Prayer and It’s Not Even Halfway There",
+   "medio": "Yahoo Finance",
+   "url": "https://app.moby.co/home/news/news-oracle-is-living-on-a-prayer-and-theyre-not-even-halfway-there?utm_source=yahoo_finance&utm_medium=rss&.tsrc=rss",
+   "fecha": "2026-11-27",
+   "resumen": "Oracle’s default insurance blows past 2008 levels.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=a87056164f7827bd4b80de52abc3968777f6dfb755c11454ff542cd875e508f5"
+  },
+  {
+   "titular": "What Does Alphabet (GOOGL) Need To Prove After The Air Force Cloud Breach?",
+   "medio": "Yahoo Finance",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/does-alphabet-googl-prove-air-181025421.html",
+   "fecha": "2026-11-27",
+   "resumen": "Alphabet (NasdaqGS:GOOGL) is a key provider to the US Air Force's Cloud One platform that has been breached by hackers. The cyber intrusion disrupted parts of Cloud One operations and potentially exposed sensitive military and logistics information, according to initial Air Force",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=09420bdb8738b20d8df31ee16ba375a402049e78b854c752e3203a8091b3651f"
+  },
+  {
+   "titular": "Oracle Has Frustrated Me, but Even With Zero AI Revenue the Stock Is Worth $133—So I’m Buying at $104",
+   "medio": "Yahoo Finance",
+   "url": "https://247wallst.com/investing/2026/11/27/oracle-has-frustrated-me-but-even-with-zero-ai-revenue-the-stock-is-worth-133-so-im-buying-at-104/",
+   "fecha": "2026-11-27",
+   "resumen": "Oracle has piled on debt, diluted shareholders, and burned cash, yet one analyst's brutal stress test suggests the old business alone may protect new buyers. What happens when every AI contract is assumed to fail?",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=3f399fcf14a2962c86a6bd2df47d240a7e43b501d9610241b203ea886a39f926"
+  },
+  {
+   "titular": "Sector Update: Tech Stocks Gain Friday Afternoon",
+   "medio": "Yahoo Finance",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/sector-tech-stocks-gain-friday-172702126.html",
+   "fecha": "2026-11-27",
+   "resumen": "Tech stocks were higher Friday afternoon, with the State Street Technology Select Sector SPDR ETF (X",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=91668ffe619d0500787099ad56d6896853e7f837b4348f3792aa60e827382374"
+  },
+  {
+   "titular": "CoreWeave Default Insurance Costs Hit Record 15.34% Amid AI Debt Fears",
+   "medio": "Yahoo Finance",
+   "url": "https://finance.yahoo.com/technology/ai/articles/coreweave-default-insurance-costs-hit-171055522.html",
+   "fecha": "2026-11-27",
+   "resumen": "Credit markets signal growing concerns about debt-funded artificial intelligence infrastructure investments.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=28e9f72bdae1eb674c886585765d8b239c9685f10d391e3edd52de0b5ef1a6f5"
+  },
+  {
    "titular": "Oracle Stock $103.88: ORCL Sets a New 52-Week Low",
    "url": "https://financefeeds.com/oracle-orcl-stock-103-thanksgiving-new-52-week-low-record-debt-insurance-cost-bull-113-bear-99/",
    "fecha": "2026-11-26",
@@ -16181,6 +16326,16 @@
    }
   },
   {
+   "titular": "AI Risk Is 'Moving Somewhere Harder to See': Citigroup, JPMorgan Reportedly Look to Offload AI Debt as Investors Grow Wary of Buildout",
+   "medio": "Benzinga",
+   "url": "https://www.benzinga.com/markets/tech/26/11/63664911/citigroup-jpmorgan-chase-banks-reportedly-shop-ai-loans-synthetic-risk-transfer",
+   "fecha": "2026-11-26",
+   "resumen": "Banks have reportedly put AI-related loans on the market to shed risk or lend more, as investor appetite for the debt buildout is tested.",
+   "tipo": "prensa",
+   "via": "Finnhub",
+   "url_finnhub": "https://finnhub.io/api/news?id=9dc1d3513e75f45b58ec2c9af3abb521a5c9cb2eec6709cca9395b45b78d8eb5"
+  },
+  {
    "titular": "Stock Market Today: Nasdaq (QQQ) Plunges 4.5%, Then Claws Back Most of It as Hot PCE Data Meets an AI Scare",
    "medio": "ChartMill",
    "url": "https://www.chartmill.com/news/DE/Chartmill-59197-stock-market-today-nasdaq-plunge-recovery-hot-pce-ai-scare-2026-11-25",
@@ -16199,66 +16354,6 @@
    "tipo": "prensa",
    "via": "Finnhub",
    "url_finnhub": "https://finnhub.io/api/news?id=b6d929daa486d37ba47ddaf119bbb31d1d0ef0d49e0569b06e9e5f8c9f176013"
-  },
-  {
-   "titular": "Fleeing Stocks at 63, She Parks $700,000 of Her 401(k) in a Corporate Bond Fund for Safety. As Banks Dump Data Center Loans, a 5% Slide in Her “Safe” Fund Would Cost Her $35,000",
-   "medio": "Yahoo Finance",
-   "url": "https://247wallst.com/personal-finance/2026/11/26/fleeing-stocks-at-63-she-parks-700000-of-her-401k-in-a-corporate-bond-fund-for-safety-as-banks-dump-data-center-loans-a-5-slide-in-her-safe-fund-would-cost-her-35000/",
-   "fecha": "2026-11-26",
-   "resumen": "She fled stocks for what looked like the safest corner of her 401(k), but the bonds inside that fund belong to the same companies bankrolling the AI boom. Lenders are already getting nervous, and her Medicare bill could pay the price.",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=8bac9b86f2ff37452e25769b8d20dfc464fbd8b19b010339cdc9609fb07806df"
-  },
-  {
-   "titular": "Alphabet Stocks Slip 2.13% as Credit Swaps Hit Record Amid $9.1 Billion Cash Burn",
-   "medio": "Yahoo Finance",
-   "url": "https://finance.yahoo.com/markets/stocks/articles/alphabet-stocks-slip-2-13-182601811.html",
-   "fecha": "2026-11-26",
-   "resumen": "Five-year default swaps reached a record as third-quarter capex of $51.4 billion pushed free cash flow below zero.",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=ae9e88ef1e837fac6a58973cd527b3b26ddb55424cb9fd5cbcd7dce5990d0ae3"
-  },
-  {
-   "titular": "Oracle Stocks Sink 5.13% to 52-Week Low as Default Swaps Hit Record",
-   "medio": "Yahoo Finance",
-   "url": "https://finance.yahoo.com/markets/stocks/articles/oracle-stocks-sink-5-13-171842760.html",
-   "fecha": "2026-11-26",
-   "resumen": "Five-year protection on Oracle debt reached 360 basis points as investors question how a $664 billion backlog gets funded.",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=1430182fd0fd32f9746041c9953074b27cfcb15368c82ca7104fce88fc82924a"
-  },
-  {
-   "titular": "Oracle Stock Dipped Under $100 as Banks Try to Unload Its Data-Center Loans",
-   "medio": "Yahoo Finance",
-   "url": "https://247wallst.com/investing/2026/11/26/oracle-stock-dipped-under-100-as-banks-try-to-unload-its-data-center-loans/",
-   "fecha": "2026-11-26",
-   "resumen": "Oracle's backlog is huge and the demand is real, yet lenders are quietly accepting steep discounts on the debt behind its data centers. What does the bond market see that the analysts' bullish targets don't?",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=b38f3680b51d6a13bde96978f63cd152239796efeef44f764ac4e5845c0a308c"
-  },
-  {
-   "titular": "Cerebras Expands AI Inference Reach: Can It Challenge NVDA & AMD?",
-   "medio": "Yahoo Finance",
-   "url": "https://finance.yahoo.com/technology/ai/articles/cerebras-expands-ai-inference-reach-161400247.html",
-   "fecha": "2026-11-26",
-   "resumen": "CBRS is ramping up its AI inference capabilities with hyperscaler partnerships, wafer-scale innovations, and expanding capacity to challenge NVIDIA and Advanced Micro Devices.",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=03f38cb1cb453ba672ce13a0e3df51366c1b059d752ca9fabb5702e4d1a10cb8"
-  },
-  {
-   "titular": "Europe Cloud Computing Market Surges to $ 550.42 billion at a CAGR 11.0% by 2030 | Report by MarketsandMarkets™",
-   "medio": "Yahoo Finance",
-   "url": "https://finance.yahoo.com/technology/articles/europe-cloud-computing-market-surges-150000346.html",
-   "fecha": "2026-11-26",
-   "resumen": "Delray Beach, FL, Nov. 26, 2026 (GLOBE NEWSWIRE) -- According to MarketsandMarkets™, the Europe Cloud Computing Market is projected to rise from USD 325.92 billion in 2025 to USD 550.42 billion by 2030, at a CAGR of 11.0%. Growth is driven by the need for scalable and cost-effici",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=d5e07e11acfcdb2c27ac84447b91271f5009e66f8ce6d71de8e56b2a165b1b62"
   },
   {
    "titular": "Oracle Stock $109.50: AI Selloff Undoes a Third of Rebound",
@@ -16314,6 +16409,24 @@
    "url_finnhub": "https://finnhub.io/api/news?id=89f14a82a8df3da9cbab800ed7b35a579d70a7b8a72d8181bf4af56e11fd2495"
   },
   {
+   "titular": "Oracle Bonds Yield a Towering 9% on Debt and Data-Center Concerns. Are They a Buy?",
+   "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxONzk4T3NyQWdORGpJSmNzbkwzZlVCTTEzb2V5VEM1T0VvN0FaaXFxalE5UkdGcFVzTUMzR21kbW1nQTM5SjhzYkNCWEE4UFU3YURTODY2X05fUXpVRzc0NjAta2NZVjZuLWh5aEZBMDdpcEFKdElTQ1hZUFZseTRrTklSRGNTc2Ix?oc=5",
+   "fecha": "2026-11-25",
+   "resumen": "",
+   "medio": "Barron's",
+   "tipo": "prensa",
+   "via": "Google News"
+  },
+  {
+   "titular": "Oracle: Fully Funded, Not Fully De-Risked, But Finally Cheap Enough",
+   "url": "https://seekingalpha.com/article/4971918-oracle-fully-funded-not-fully-de-risked-but-finally-cheap-enough?source=feed_symbol_ORCL",
+   "fecha": "2026-11-25",
+   "resumen": "",
+   "medio": "Seeking Alpha",
+   "tipo": "prensa",
+   "via": "RSS de Seeking Alpha"
+  },
+  {
    "titular": "Stocks sharply lower: The Investment Committee shares its strategy",
    "medio": "CNBC",
    "url": "https://www.cnbc.com/video/2026/11/25/stocks-sharply-lower-the-investment-committee-shares-its-strategy.html",
@@ -16334,103 +16447,6 @@
    "url_finnhub": "https://finnhub.io/api/news?id=e9d5efeef41bb3058fe79cbc5266db9469ca3b5f6afcf5ff4a4a47749470e48c"
   },
   {
-   "titular": "Fed's Preferred Inflation Gauge Hits 3.8% as Expected: Q3 GDP Growth Revised Up to 4.3% (UPDATED)",
-   "medio": "Benzinga",
-   "url": "https://www.benzinga.com/markets/economic-data/26/11/63619838/pce-inflation-october-gdp-second-estimate",
-   "fecha": "2026-11-25",
-   "resumen": "PCE inflation rose 3.8% in October as expected, while core PCE hit 3.3%. Third-quarter GDP was revised up to a 4.3% annualized rate from 3.4% initially.",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=f251e9fb1fa7fd46b5d6b377647f77d6b50a36f4ac2a6e72cc9c768592c26c4c"
-  },
-  {
-   "titular": "Oracle: Fully Funded, Not Fully De-Risked, But Finally Cheap Enough",
-   "medio": "Seeking Alpha",
-   "url": "https://seekingalpha.com/article/4971918-oracle-fully-funded-not-fully-de-risked-but-finally-cheap-enough",
-   "fecha": "2026-11-25",
-   "resumen": "I upgrade Oracle (ORCL) to Buy: capped capital-markets funding and a path to self-funding make balance-sheet risks look more than priced in.",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=1ec24a8b74ac3c18a2f3c69797baec0fe996ce5a6b985068e8c918a6999fb11f"
-  },
-  {
-   "titular": "CoreWeave Stock Slides as AI Debt Fears Return After Huang Comeback, Bond Yield Tops 17%",
-   "medio": "Benzinga",
-   "url": "https://www.benzinga.com/trading-ideas/movers/26/11/63621641/coreweave-stock-slides-as-ai-debt-fears-return-after-huang-comeback-bond-yield-tops-17",
-   "fecha": "2026-11-25",
-   "resumen": "CoreWeave is trading lower Wednesday, extending a selloff after AI-related debt concerns helped drive a 13% drop in the stock a day earlier.",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=daa17e6102433c4d498feee421d169a6504d0e606542046502747ea1770f8a83"
-  },
-  {
-   "titular": "Credit Markets Deteriorating At Concerning Rate",
-   "medio": "Seeking Alpha",
-   "url": "https://seekingalpha.com/article/4971584-credit-markets-deteriorating-at-concerning-rate",
-   "fecha": "2026-11-25",
-   "resumen": "Analyst sees equity risk/reward as neutral at best, holding 35%-40% in cash and Treasuries as CoreWeave CDS implies over 50% five-year default odds.",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=61091224443ccfe4af4ccf7fce04a9a80dbd997bda68ae2c7a0d43a1cc9bec27"
-  },
-  {
-   "titular": "AI debt worries grow as Nvidia rebound masks Big Tech spending squeeze",
-   "medio": "CNBC",
-   "url": "https://www.cnbc.com/2026/11/25/ai-debt-big-tech-spending-nvidia.html",
-   "fecha": "2026-11-25",
-   "resumen": "Big Tech could find it increasingly tough to secure funding from debt markets critical to the AI build-out, as lenders become pickier over corporate bonds.",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=3de6a34528338ca44914e61808faa7d1fa9ee81bb0036a79f29384242cb4f295"
-  },
-  {
-   "titular": "Oracle Bonds Yield a Towering 9% on Debt and Data-Center Concerns. Are They a Buy?",
-   "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxONzk4T3NyQWdORGpJSmNzbkwzZlVCTTEzb2V5VEM1T0VvN0FaaXFxalE5UkdGcFVzTUMzR21kbW1nQTM5SjhzYkNCWEE4UFU3YURTODY2X05fUXpVRzc0NjAta2NZVjZuLWh5aEZBMDdpcEFKdElTQ1hZUFZseTRrTklSRGNTc2Ix?oc=5",
-   "fecha": "2026-11-25",
-   "resumen": "",
-   "medio": "Barron's",
-   "tipo": "prensa",
-   "via": "Google News"
-  },
-  {
-   "titular": "AI credit risk mounts as CDS spreads for Oracle, CoreWeave hit record levels",
-   "url": "https://seekingalpha.com/symbol/ORCL/news?source=feed_symbol_ORCL",
-   "fecha": "2026-11-25",
-   "resumen": "",
-   "medio": "Seeking Alpha",
-   "tipo": "prensa",
-   "via": "RSS de Seeking Alpha"
-  },
-  {
-   "titular": "Oracle, CoreWeave and other tech stocks bounce back after selloff",
-   "url": "https://www.marketwatch.com/story/oracles-stock-sinks-toward-a-3-year-low-as-the-ai-trade-continues-to-unravel-d4698d77?mod=mw_rss_topstories",
-   "fecha": "2026-11-25",
-   "resumen": "Oracle, CoreWeave and other technology stocks bounced back from early losses on Wednesday, after what appeared to be a major selloff eased ahead of the market’s close.",
-   "medio": "MarketWatch",
-   "tipo": "prensa",
-   "via": "RSS del medio"
-  },
-  {
-   "titular": "Don't Be A Hero: The Wrong Way To Buy The Tech Dip",
-   "medio": "Seeking Alpha",
-   "url": "https://seekingalpha.com/article/4971595-dont-be-hero-the-wrong-way-to-buy-tech-dip",
-   "fecha": "2026-11-24",
-   "resumen": "Long-term investors can own the Nasdaq 100 and tech subgroups when fundamentals justify it, while ignoring short-term volatility.",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=241df4d0abcc07478c124c3cf5cb5ce55810e50d75a5d55d588241685d7723ee"
-  },
-  {
-   "titular": "Ainos shares are trading lower. The company announced interim results from its ongoing multi-dose clinical trial evaluating VELDONA for the treatment of Feline Chronic Gingivostomatitis.",
-   "medio": "Benzinga",
-   "url": "https://www.benzinga.com/quote/AIMD",
-   "fecha": "2026-11-24",
-   "resumen": "",
-   "tipo": "prensa",
-   "via": "Finnhub",
-   "url_finnhub": "https://finnhub.io/api/news?id=9223f2cde1bdaf792d10b376971c210695eeead8df0b6cb78b232c9d7fa911d1"
-  },
-  {
    "titular": "8-K a la SEC: Votaciones de la junta",
    "medio": "SEC · 8-K (oficial)",
    "url": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526470351/orcl-20261118.htm",
@@ -16447,21 +16463,12 @@
    "resumen": "Comunicación oficial de la compañía. Items: 8.01.",
    "oficial": true,
    "tipo": "prensa"
-  },
-  {
-   "titular": "8-K a la SEC: Comunicación al mercado (Reg FD)",
-   "medio": "SEC · 8-K (oficial)",
-   "url": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526435853/d75538d8k.htm",
-   "fecha": "2026-10-28",
-   "resumen": "Comunicación oficial de la compañía. Items: 7.01.",
-   "oficial": true,
-   "tipo": "prensa"
   }
  ],
  "noticias_sentimiento": {
-  "puntuacion": -0.089,
+  "puntuacion": -0.05,
   "etiqueta": "Neutral",
-  "noticias": 3,
+  "noticias": 5,
   "fuente": "Alpha Vantage / Marketaux (puntuación media de las noticias del último mes)"
  },
  "redes": {
@@ -16469,13 +16476,13 @@
    "fuente": "StockTwits (API pública)",
    "url": "https://stocktwits.com/symbol/ORCL",
    "mensajes": 30,
-   "alcistas": 6,
-   "bajistas": 3,
-   "pct_alcista": 67,
-   "seguidores": 73465,
-   "desde": "2026-11-26",
-   "hasta": "2026-11-26",
-   "fecha": "2026-11-27"
+   "alcistas": 8,
+   "bajistas": 0,
+   "pct_alcista": 100,
+   "seguidores": 73490,
+   "desde": "2026-11-27",
+   "hasta": "2026-11-27",
+   "fecha": "2026-11-28"
   }
  },
  "noticias_fuentes": {
@@ -16496,15 +16503,15 @@
    },
    "Google News": {
     "ok": true,
-    "titulares": 22
+    "titulares": 30
    },
    "Seeking Alpha": {
     "ok": true,
-    "titulares": 24
+    "titulares": 25
    },
    "Yahoo Finance": {
     "ok": true,
-    "titulares": 10
+    "titulares": 11
    },
    "Marketaux": {
     "ok": true,
@@ -16512,11 +16519,11 @@
    },
    "RSS de medios": {
     "ok": true,
-    "titulares": 4
+    "titulares": 5
    },
    "Sala de prensa": {
     "ok": true,
-    "titulares": 6
+    "titulares": 5
    },
    "StockTwits": {
     "ok": true,
@@ -16526,10 +16533,6 @@
  },
  "historico_precio": {
   "serie": [
-   [
-    "2021-08-25",
-    88.62
-   ],
    [
     "2021-08-26",
     88.72
@@ -21805,18 +21808,22 @@
    [
     "2026-11-25",
     103.88
+   ],
+   [
+    "2026-11-27",
+    107.13
    ]
   ],
   "fuente": "Twelve Data (API oficial, plan gratuito)",
   "url": "https://twelvedata.com/",
-  "fecha": "2026-11-25",
+  "fecha": "2026-11-27",
   "ajuste": "splits"
  },
- "generado": "2026-11-27T00:09:39+00:00",
+ "generado": "2026-11-28T00:06:13+00:00",
  "peers": {
   "fuente_lista": "manual",
   "fuente_cifras": "SEC EDGAR (companyfacts, UDM) · precio Finnhub",
-  "actualizado": "2026-11-27",
+  "actualizado": "2026-11-28",
   "propia": {
    "ingresos": 71776000000,
    "crecimiento": 21.62,
@@ -21834,13 +21841,13 @@
    "informe": "10-Q",
    "informe_fecha": "2026-09-11",
    "url": "https://www.sec.gov/Archives/edgar/data/1341439/000119312526389274/0001193125-26-389274-index.htm",
-   "precio": 103.88,
-   "capitalizacion": 314105695680.0,
-   "ev": 402365695680.0,
-   "per": 16.6,
-   "precio_ventas": 4.38,
-   "ev_ebitda": 11.86,
-   "rentabilidad_fcf": -9.14,
+   "precio": 107.13,
+   "capitalizacion": 323932837680.0,
+   "ev": 412192837680.0,
+   "per": 17.12,
+   "precio_ventas": 4.51,
+   "ev_ebitda": 12.15,
+   "rentabilidad_fcf": -8.87,
    "deuda_neta_ebitda": 2.6,
    "ticker": "ORCL",
    "nombre": "Oracle",
@@ -21874,13 +21881,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-28",
     "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526436133/0001193125-26-436133-index.htm",
-    "precio": 489.93,
-    "capitalizacion": 3638315496861.36,
-    "ev": 3609287496861.36,
-    "per": 25.51,
-    "precio_ventas": 10.5,
-    "ev_ebitda": 17.55,
-    "rentabilidad_fcf": 1.65,
+    "precio": 492.85,
+    "capitalizacion": 3659999984953.2,
+    "ev": 3630971984953.2,
+    "per": 25.66,
+    "precio_ventas": 10.56,
+    "ev_ebitda": 17.65,
+    "rentabilidad_fcf": 1.64,
     "deuda_neta_ebitda": -0.14
    },
    {
@@ -21910,13 +21917,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-30",
     "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000040/0001018724-26-000040-index.htm",
-    "precio": 244.43,
-    "capitalizacion": 2643055396135.58,
-    "ev": 2709161396135.58,
-    "per": 19.61,
-    "precio_ventas": 3.31,
-    "ev_ebitda": 14.75,
-    "rentabilidad_fcf": -1.77,
+    "precio": 254.12,
+    "capitalizacion": 2747834706320.72,
+    "ev": 2813940706320.72,
+    "per": 20.39,
+    "precio_ventas": 3.45,
+    "ev_ebitda": 15.32,
+    "rentabilidad_fcf": -1.71,
     "deuda_neta_ebitda": 0.36
    },
    {
@@ -21946,13 +21953,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-29",
     "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/0001652044-26-000084-index.htm",
-    "precio": 273.1,
-    "capitalizacion": 3357491400000.0005,
-    "ev": 3218511400000.0005,
-    "per": 14.25,
-    "precio_ventas": 7.13,
-    "ev_ebitda": 17.4,
-    "rentabilidad_fcf": 0.59,
+    "precio": 274.96,
+    "capitalizacion": 3380358239999.9995,
+    "ev": 3241378239999.9995,
+    "per": 14.34,
+    "precio_ventas": 7.18,
+    "ev_ebitda": 17.52,
+    "rentabilidad_fcf": 0.58,
     "deuda_neta_ebitda": -0.75
    },
    {
@@ -21995,13 +22002,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-08-27",
     "url": "https://www.sec.gov/Archives/edgar/data/1108524/000110852426000190/0001108524-26-000190-index.htm",
-    "precio": 197.21,
-    "capitalizacion": 162303830000.0,
-    "ev": 190188830000.0,
-    "per": 16.8,
-    "precio_ventas": 3.69,
-    "ev_ebitda": 15.03,
-    "rentabilidad_fcf": 9.34,
+    "precio": 198.21,
+    "capitalizacion": 163126830000.0,
+    "ev": 191011830000.0,
+    "per": 16.88,
+    "precio_ventas": 3.71,
+    "ev_ebitda": 15.09,
+    "rentabilidad_fcf": 9.29,
     "deuda_neta_ebitda": 2.2
    },
    {
@@ -22031,13 +22038,13 @@
     "informe": "10-Q",
     "informe_fecha": "2026-10-22",
     "url": "https://www.sec.gov/Archives/edgar/data/51143/000005114326000095/0000051143-26-000095-index.htm",
-    "precio": 243.47,
-    "capitalizacion": 230108562393.35,
-    "ev": 284692562393.35,
-    "per": 20.6,
-    "precio_ventas": 3.29,
-    "ev_ebitda": 16.06,
-    "rentabilidad_fcf": 6.37,
+    "precio": 248.08,
+    "capitalizacion": 234465569304.40002,
+    "ev": 289049569304.4,
+    "per": 20.99,
+    "precio_ventas": 3.36,
+    "ev_ebitda": 16.3,
+    "rentabilidad_fcf": 6.25,
     "deuda_neta_ebitda": 3.08
    }
   ]
